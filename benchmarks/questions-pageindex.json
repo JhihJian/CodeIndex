@@ -1,0 +1,8 @@
+[
+  {"query":"local document store implementation", "expectedPaths":["pageindex/local_store.py"], "expectedSymbols":["DocStore"]},
+  {"query":"how does tree optimization calculate search cost", "expectedPaths":["pageindex/tree_optimize.py"], "expectedSymbols":["tree_cost", "optimize"]},
+  {"query":"document structure retrieval tools", "expectedPaths":["pageindex/agent_tools.py"], "expectedSymbols":["get_document_structure"]},
+  {"query":"build a tree from markdown nodes", "expectedPaths":["pageindex/page_index_md.py"], "expectedSymbols":["build_tree_from_nodes"]},
+  {"query":"main PageIndex client API", "expectedPaths":["pageindex/client.py"], "expectedSymbols":["PageIndexClient"]},
+  {"query":"extract table of contents from PDF", "expectedPaths":["pageindex/flash/main.py"], "expectedSymbols":["extract_toc"]}
+]

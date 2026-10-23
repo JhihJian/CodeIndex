@@ -1,0 +1,207 @@
+{
+  "query": "这个函数如何构建文档树",
+  "snapshotId": "snapshot:repo-fbac6b82328c3f11df8d:7936ec5ba9686b1d245df6fe",
+  "repositoryId": "repo-fbac6b82328c3f11df8d",
+  "status": "partial",
+  "answer": "Selected 6 source evidence item(s) from 12 ranked candidates.",
+  "mode": null,
+  "target": {
+    "symbolId": "symbol:bc1c964c7bff402c3cbc267d",
+    "name": "pageindex.flash.api.page_index_flash",
+    "path": "pageindex/flash/api.py",
+    "line": 188
+  },
+  "candidates": [
+    {
+      "type": "file",
+      "score": 12,
+      "path": "pageindex/page_index_md.py",
+      "title": "page_index_md.py"
+    },
+    {
+      "type": "symbol",
+      "score": 10,
+      "symbolId": "symbol:bc1c964c7bff402c3cbc267d",
+      "name": "pageindex.flash.api.page_index_flash",
+      "path": "pageindex/flash/api.py",
+      "startLine": 188
+    },
+    {
+      "type": "symbol",
+      "score": 10,
+      "symbolId": "symbol:66fbc859ad2cc669f47e338a",
+      "name": "pageindex.flash.outline.tree.build_tree",
+      "path": "pageindex/flash/outline/tree.py",
+      "startLine": 54
+    },
+    {
+      "type": "symbol",
+      "score": 10,
+      "symbolId": "symbol:fe3480ec2dbf4a9a8bf8aed9",
+      "name": "pageindex.flash.outline.tree.build_tree._walk_nodes",
+      "path": "pageindex/flash/outline/tree.py",
+      "startLine": 83
+    },
+    {
+      "type": "symbol",
+      "score": 10,
+      "symbolId": "symbol:1515bb2c10d25afee5951d04",
+      "name": "pageindex.flash.outline.tree.build_tree._promote",
+      "path": "pageindex/flash/outline/tree.py",
+      "startLine": 98
+    },
+    {
+      "type": "symbol",
+      "score": 10,
+      "symbolId": "symbol:1e576441f18e92cc6bc86af8",
+      "name": "pageindex.flash.outline.tree.build_tree._drop_empty_children",
+      "path": "pageindex/flash/outline/tree.py",
+      "startLine": 109
+    },
+    {
+      "type": "symbol",
+      "score": 10,
+      "symbolId": "symbol:28ec268429c02942ef1f9f0e",
+      "name": "pageindex.page_index_md.build_tree_from_nodes",
+      "path": "pageindex/page_index_md.py",
+      "startLine": 192
+    },
+    {
+      "type": "file",
+      "score": 9,
+      "path": "pageindex/flash/outline/tree.py",
+      "title": "tree.py"
+    },
+    {
+      "type": "symbol",
+      "score": 7,
+      "symbolId": "symbol:fca12ed1bebd8cdda749eb0c",
+      "name": "pageindex.client.PageIndexClient.get_document_structure",
+      "path": "pageindex/client.py",
+      "startLine": 1004
+    },
+    {
+      "type": "symbol",
+      "score": 7,
+      "symbolId": "symbol:608e44d1a98ebfe953ab5aa3",
+      "name": "pageindex.flash.blocks.build._set_add",
+      "path": "pageindex/flash/blocks/build.py",
+      "startLine": 87
+    },
+    {
+      "type": "symbol",
+      "score": 7,
+      "symbolId": "symbol:96ea5db1a1a952c36285bc05",
+      "name": "pageindex.flash.clustering.build._set_add",
+      "path": "pageindex/flash/clustering/build.py",
+      "startLine": 118
+    },
+    {
+      "type": "symbol",
+      "score": 7,
+      "symbolId": "symbol:f96d8a54171a936adf424548",
+      "name": "pageindex.flash.embedded_toc.bookmarks_to_structure",
+      "path": "pageindex/flash/embedded_toc.py",
+      "startLine": 258
+    }
+  ],
+  "relations": [],
+  "evidence": [
+    {
+      "snapshotId": "snapshot:repo-fbac6b82328c3f11df8d:7936ec5ba9686b1d245df6fe",
+      "path": "pageindex/flash/api.py",
+      "symbolId": "symbol:bc1c964c7bff402c3cbc267d",
+      "symbol": "pageindex.flash.api.page_index_flash",
+      "startLine": 188,
+      "endLine": 247,
+      "startByte": 8208,
+      "endByte": 17122,
+      "blobDigest": "05e7f3ae017bb3511152f132e7c083fe1e0dcac163d13012b0d6bf20511d8bc7",
+      "source": "def page_index_flash(pdf, summary=True, summary_model=None,\n                     optimize: str | bool | None = None, optimize_expand=None,\n                     optimize_model=None, summary_concurrency=None,\n                     use_embedded_toc=True, summary_max_words=None,\n                     summary_reasoning_effort=None) -> dict:\n    \"\"\"Build a PageIndex tree structure from a PDF using layout statistics. The tree extraction itself uses no LLM; by default an LLM writes node summaries and expands the tree (``summary=False, optimize=False`` runs fully LLM-free). Args: pdf: path to a PDF file (``str`` or ``pathlib.Path``) or an in-memory binary stream (``io.BytesIO``). summary: if True, generate LLM summaries for each node (requires ``summary_model``). summary_model: the LLM model identifier to use for summary generation. optimize: ``\"full\"`` for merge + LLM expand (a model unreachable after the retry ladder — a missing credential included — fails the run loudly from expand itself; a per-prompt rejection leaves just that node collapsed), ``\"merge\"`` for deterministic merge only, ``False`` to disable. ``True`` is accepted as ``\"full\"`` for backward compatibility; defaults to ``\"full\"``. Expand needs readable page text, so a bookmark-only or scanned PDF runs the merge half only (``expands`` reports 0). optimize_expand: deprecated — use ``optimize``. Honored only when ``optimize`` is not passed (or is the legacy ``True``): ``False`` maps to ``\"merge\"``, ``True`` to ``\"full\"``. optimize_model: the LLM model for expand (defaults to the summary model). summary_concurrency: cap on simultaneous indexing model calls per lane: the summaries, and expand up to its own ceiling of 32 (the lanes overlap, so up to cap + min(32, cap) calls run at once); None uses the library defaults (64 and 32). use_embedded_toc: if True, consume the PDF's embedded bookmarks when trustworthy: deep bookmarks become the frame and the detected sections they lack are grafted back in after noise filtering, coarse ones become the chapter frame with detected nodes re-hung under them (deeper sparse entries are filled in when the page text confirms them, and garbled extracted titles are repaired from the bookmark strings), garbage ones are ignored. On by default; pass False for the pure detected structure. summary_max_words: word cap each model-written node summary is asked to stay within (a leaf shorter than that keeps its raw text); None uses the library default (150). summary_reasoning_effort: the reasoning effort sent with each summary call (``\"none\"``, ``\"low\"``, ``\"high\"``, ...; a model without the setting drops it); None sends the library default (``\"none\"``) unless LiteLLM lists the model as refusing it, and stops sending it once a prompt the server refused with it (HTTP 400) goes through without it. Expand keeps the model's own default. Returns: dict with keys ``doc_name``, ``doc_title``, ``structure`` (a list of ``{\"title\", \"node_id\", \"start_index\", \"end_index\"}`` dicts; ``\"nodes\"`` holds the children where there are any and ``\"summary\"`` appears when summaries ran; page indexes are 1-based; a hierarchy that starts after page 1 is preceded by a ``Preface`` node covering the pages before it, as in standard mode, and the first section's page too unless that heading opens it; a parent whose first child starts on a later page opens with a child titled ``\"<parent title> (intro)\"`` holding the pages before it; a parent's range and summary cover its whole subtree) and ``has_abstract_or_references_section`` (True when a top-level entry is an abstract or references heading). ``toc_source`` says where the structure came from: ``\"detected\"`` (layout), ``\"bookmarks\"`` (the embedded outline), ``\"hybrid\"`` (bookmarks framing the detected sections), ``\"pages\"`` (no hierarchy found, so one node per page titled ``Page N``; left unsummarized and unoptimized when there are more than ``FLAT_TREE_MAX_NODES`` pages, a size the local client and CLI refuse) or ``\"unreadable\"`` (no page carries text; ``structure`` is empty). With ``optimize`` an ``optimize`` key reports merge/expand counts and before/after search-cost metrics; a refused flat tree carries neither it nor node summaries. \"\"\"\n    for name, value in ((\"summary_concurrency\", summary_concurrency),\n                        (\"summary_max_words\", summary_max_words)):\n        if value is not None and not (isinstance(value, numbers.Integral) and int(value) >= 1):\n            raise ValueError(f\"{name} must be a positive int, got {value!r}\")\n    if summary_reasoning_effort is not None and not (\n            isinstance(summary_reasoning_effort, str) and summary_reasoning_effort.strip()):\n        raise ValueError(f\"summary_reasoning_effort must be a non-empty str, \"\n                         f\"got {summary_reasoning_effort!r}\")\n    if optimize_expand is not None:\n        import warnings\n        warnings.warn(\n            \"optimize_expand is deprecated: pass optimize='full', 'merge', \"\n            \"or False. When optimize is not passed it maps onto it (False \"\n            \"-> 'merge', True -> 'full'), so the optimize pass now runs \"\n            \"where the old optimize=False default ran nothing.\",\n            DeprecationWarning, stacklevel=2)\n    if optimize is None or optimize is True:\n        # legacy spellings only — an explicit 'full'/'merge' wins\n        optimize = \"merge\" if optimize_expand is False else \"full\"\n    if not optimize:\n        optimize = False\n    elif optimize not in (\"full\", \"merge\"):\n        raise ValueError(\n            f\"optimize must be 'full', 'merge', or False, got {optimize!r}\")\n    result = extract_toc(_validate_pdf(pdf), use_embedded_toc=use_embedded_toc)\n    structure = result.get(\"structure\", [])\n    if not structure:\n        # the layout yields no hierarchy; the pages themselves are the tree\n        structure = _page_nodes(result.get(\"page_texts\") or [])\n        result[\"structure\"] = structure\n        result[\"toc_source\"] = \"pages\" if structure else \"unreadable\"\n    elif structure[0][\"start_index\"] > 1:\n        _add_preface(structure, _page_lines(result.get(\"page_texts\") or []))\n    if structure:\n        _add_intros(structure, _page_lines(result.get(\"page_texts\") or []))\n    if result.get(\"toc_source\") == \"pages\" and len(structure) > FLAT_TREE_MAX_NODES:\n        # the managed pipelines refuse a flat tree this size; skip the model passes\n        result.pop(\"page_texts\", None)\n        return result\n    if summary and structure and summary_model is None:\n        from ..utils import ConfigLoader\n        cfg = ConfigLoader().load()\n        summary_model = getattr(cfg, 'summary_model', None) or cfg.model\n    from ..utils import SUMMARY_MAX_WORDS, default_summary_reasoning_effort\n    effort = summary_reasoning_effort and summary_reasoning_effort.strip()\n    defaulted = not effort\n    if summary and structure and defaulted:\n        effort = default_summary_reasoning_effort(summary_model)\n    from ..integrations.claude_agent_sdk import claude_code_check, is_claude_code\n    if summary and structure and not defaulted and effort != \"none\" \\\n            and is_claude_code(summary_model):\n        # a summary call would first check the effort after expand has\n        # billed its prompts\n        import asyncio",
+      "kind": "source"
+    },
+    {
+      "snapshotId": "snapshot:repo-fbac6b82328c3f11df8d:7936ec5ba9686b1d245df6fe",
+      "path": "pageindex/flash/outline/tree.py",
+      "symbolId": "symbol:66fbc859ad2cc669f47e338a",
+      "symbol": "pageindex.flash.outline.tree.build_tree",
+      "startLine": 54,
+      "endLine": 113,
+      "startByte": 2276,
+      "endByte": 4690,
+      "blobDigest": "68dbadd320ae4882f9dd63944778fc3834720691377f8a86f9ebeb69c4b5b959",
+      "source": "def build_tree(headings: list[Block], levels: dict[int, int], page_lookup, total_pages: int) -> list[dict]:\n    \"\"\"Assemble nested ``{title, start_index, end_index, nodes}`` tree.\"\"\"\n    if not headings:\n        return []\n\n    root: list[dict] = []\n    stack: list[tuple[int, dict]] = []\n    for state_item in headings:\n        title = _heading_title(state_item)\n        if not title:\n            continue\n        node = {\n            \"title\": title,\n            \"start_index\": _heading_page_num(state_item, page_lookup),\n            \"end_index\": _heading_page_num(state_item, page_lookup),\n            \"nodes\": [],\n        }\n        lvl = levels.get(id(state_item), 6)\n        while stack and stack[-1][0] >= lvl:\n            stack.pop()\n        if not stack:\n            root.append(node)\n        else:\n            stack[-1][1][\"nodes\"].append(node)\n        stack.append((lvl, node))\n\n    # Fill end_index in DFS order.\n    flat: list[dict] = []\n\n    def _walk_nodes(nodes: list[dict]) -> None:\n        for count_item in nodes:\n            flat.append(count_item)\n            _walk_nodes(count_item[\"nodes\"])\n\n    _walk_nodes(root)\n    for index_value, count_item in enumerate(flat):\n        next_start = flat[index_value + 1][\"start_index\"] if index_value + 1 < len(flat) else total_pages\n        count_item[\"end_index\"] = max(count_item[\"start_index\"], next_start - 1 if next_start > count_item[\"start_index\"] else count_item[\"start_index\"])\n    if flat:\n        flat[-1][\"end_index\"] = max(flat[-1][\"start_index\"], total_pages)\n\n    # Promote parent end_index to the subtree maximum: end_index covers the\n    # whole section, children included.  The leading segment stays derivable\n    # from the first child's start_index.\n    def _promote(nodes: list[dict]) -> int:\n        end = 0\n        for child in nodes:\n            if child[\"nodes\"]:\n                child[\"end_index\"] = max(child[\"end_index\"], _promote(child[\"nodes\"]))\n            end = max(end, child[\"end_index\"])\n        return end\n\n    _promote(root)\n\n    # Drop empty children so the JSON matches the shape the rest of PageIndex emits.\n    def _drop_empty_children(nodes: list[dict]) -> list[dict]:\n        for count_item in nodes:\n            if count_item[\"nodes\"]:\n                _drop_empty_children(count_item[\"nodes\"])\n            else:",
+      "kind": "source"
+    },
+    {
+      "snapshotId": "snapshot:repo-fbac6b82328c3f11df8d:7936ec5ba9686b1d245df6fe",
+      "path": "pageindex/flash/outline/tree.py",
+      "symbolId": "symbol:fe3480ec2dbf4a9a8bf8aed9",
+      "symbol": "pageindex.flash.outline.tree.build_tree._walk_nodes",
+      "startLine": 83,
+      "endLine": 86,
+      "startByte": 3229,
+      "endByte": 3386,
+      "blobDigest": "68dbadd320ae4882f9dd63944778fc3834720691377f8a86f9ebeb69c4b5b959",
+      "source": "    def _walk_nodes(nodes: list[dict]) -> None:\n        for count_item in nodes:\n            flat.append(count_item)\n            _walk_nodes(count_item[\"nodes\"])",
+      "kind": "source"
+    },
+    {
+      "snapshotId": "snapshot:repo-fbac6b82328c3f11df8d:7936ec5ba9686b1d245df6fe",
+      "path": "pageindex/flash/outline/tree.py",
+      "symbolId": "symbol:1515bb2c10d25afee5951d04",
+      "symbol": "pageindex.flash.outline.tree.build_tree._promote",
+      "startLine": 98,
+      "endLine": 104,
+      "startByte": 4009,
+      "endByte": 4276,
+      "blobDigest": "68dbadd320ae4882f9dd63944778fc3834720691377f8a86f9ebeb69c4b5b959",
+      "source": "    def _promote(nodes: list[dict]) -> int:\n        end = 0\n        for child in nodes:\n            if child[\"nodes\"]:\n                child[\"end_index\"] = max(child[\"end_index\"], _promote(child[\"nodes\"]))\n            end = max(end, child[\"end_index\"])\n        return end",
+      "kind": "source"
+    },
+    {
+      "snapshotId": "snapshot:repo-fbac6b82328c3f11df8d:7936ec5ba9686b1d245df6fe",
+      "path": "pageindex/flash/outline/tree.py",
+      "symbolId": "symbol:1e576441f18e92cc6bc86af8",
+      "symbol": "pageindex.flash.outline.tree.build_tree._drop_empty_children",
+      "startLine": 109,
+      "endLine": 115,
+      "startByte": 4387,
+      "endByte": 4651,
+      "blobDigest": "68dbadd320ae4882f9dd63944778fc3834720691377f8a86f9ebeb69c4b5b959",
+      "source": "    def _drop_empty_children(nodes: list[dict]) -> list[dict]:\n        for count_item in nodes:\n            if count_item[\"nodes\"]:\n                _drop_empty_children(count_item[\"nodes\"])\n            else:\n                del count_item[\"nodes\"]\n        return nodes",
+      "kind": "source"
+    },
+    {
+      "snapshotId": "snapshot:repo-fbac6b82328c3f11df8d:7936ec5ba9686b1d245df6fe",
+      "path": "pageindex/page_index_md.py",
+      "symbolId": "symbol:28ec268429c02942ef1f9f0e",
+      "symbol": "pageindex.page_index_md.build_tree_from_nodes",
+      "startLine": 192,
+      "endLine": 223,
+      "startByte": 6546,
+      "endByte": 7368,
+      "blobDigest": "62c8d3acfb51476e7dc1226f4346fec201a31cb64c47fe922593c06b4dc30b27",
+      "source": "def build_tree_from_nodes(node_list):\n    if not node_list:\n        return []\n    \n    stack = []\n    root_nodes = []\n    node_counter = 1\n    \n    for node in node_list:\n        current_level = node['level']\n        \n        tree_node = {\n            'title': node['title'],\n            'node_id': str(node_counter).zfill(4),\n            'text': node['text'],\n            'line_num': node['line_num'],\n            'nodes': []\n        }\n        node_counter += 1\n        \n        while stack and stack[-1][1] >= current_level:\n            stack.pop()\n        \n        if not stack:\n            root_nodes.append(tree_node)\n        else:\n            parent_node, parent_level = stack[-1]\n            parent_node['nodes'].append(tree_node)\n        \n        stack.append((tree_node, current_level))\n    \n    return root_nodes",
+      "kind": "source"
+    }
+  ],
+  "coverage": {
+    "sourceFiles": 155,
+    "parsedFiles": 112,
+    "unsupportedFiles": 43,
+    "partialFiles": 43,
+    "skippedFiles": 27
+  },
+  "uncertainties": [
+    "索引存在未解析或不支持的文件，空结果不能证明代码中不存在目标。"
+  ],
+  "metrics": {
+    "candidateCount": 12,
+    "evidenceCount": 6,
+    "contextBytes": 11099,
+    "indexedSourceBytes": 5267254,
+    "contextReduction": 474.57014145418503
+  },
+  "llmAnswer": "结果中有两个“构建文档树”的实现，核心逻辑分别如下。\n\n如果指的是 `pageindex.flash.outline.tree.build_tree`：\n\n1. 遍历检测到的标题，创建节点，记录 `title`、起止页码和空的 `nodes` 列表；节点层级从 `levels` 获取，缺省为 6。`[tree.py:54]`\n2. 使用栈维护当前父节点：\n   - 当前标题层级小于或等于栈顶层级时，弹出栈顶；\n   - 栈为空则作为根节点；\n   - 否则挂到栈顶节点的 `nodes` 下；\n   - 最后把当前节点压入栈。`[tree.py:68]`\n3. 通过 DFS 把树展平成标题顺序列表。`[tree.py:83]`\n4. 根据下一个标题的起始页计算当前节点的 `end_index`；最后一个节点延伸到文档总页数。`[tree.py:87]`\n5. 对父节点执行 `_promote`，确保父节点的结束页覆盖整个子树，而不仅是下一个兄弟标题之前的范围。`[tree.py:98]`\n6. 删除叶节点的空 `nodes` 字段，使输出 JSON 更简洁。`[tree.py:109]`\n\n整体上，它是“按标题层级用栈建树，再按文档顺序补全页码范围”。\n\n如果指的是 `pageindex.page_index_md.build_tree_from_nodes`，逻辑类似：遍历带有 `level` 的节点，用栈寻找父级；同级或更高层级时弹栈，栈为空则放入根节点，否则挂到当前父节点下，同时生成递增的 `node_id`。`[page_index_md.py:192]` ` [page_index_md.py:207]`\n\n在更高层的 `page_index_flash` 中，树首先由 `extract_toc` 生成；如果没有检测到层次结构，则退化为“每页一个节点”，之后还可能补充 `Preface` 和父节点的 intro 节点。`[api.py:188]`"
+}

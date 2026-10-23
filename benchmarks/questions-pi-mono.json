@@ -1,0 +1,6 @@
+[
+  {"query":"model provider registry", "expectedPaths":["packages"], "expectedSymbols":["Provider"]},
+  {"query":"extension loading and discovery", "expectedPaths":["packages"], "expectedSymbols":["Extension"]},
+  {"query":"terminal session management", "expectedPaths":["packages"], "expectedSymbols":["Session"]},
+  {"query":"agent tool execution", "expectedPaths":["packages"], "expectedSymbols":["Tool"]}
+]

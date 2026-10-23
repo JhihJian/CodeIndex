@@ -1,0 +1,131 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import { hashBytes, hashText, shortHash } from './hash.js';
+
+export const PARSER_VERSION = 'codeindex-parser-0.1.0';
+export const DEFAULT_IGNORES = new Set([
+  '.git', '.hg', '.svn', 'node_modules', '.venv', 'venv', '__pycache__',
+  'dist', 'build', 'coverage', '.next', '.turbo', '.cache', 'target',
+  'vendor', 'third_party', '.idea', '.vscode', '.data', '.codeindex'
+]);
+
+const EXTENSIONS = new Map([
+  ['.py', 'python'], ['.pyi', 'python'],
+  ['.js', 'javascript'], ['.jsx', 'javascript'], ['.mjs', 'javascript'], ['.cjs', 'javascript'],
+  ['.ts', 'typescript'], ['.tsx', 'typescript'], ['.mts', 'typescript'], ['.cts', 'typescript'],
+  ['.java', 'java'], ['.go', 'go'], ['.rs', 'rust'], ['.rb', 'ruby'],
+  ['.md', 'markdown'], ['.json', 'json'], ['.yaml', 'yaml'], ['.yml', 'yaml'],
+  ['.toml', 'toml'], ['.sh', 'shell'], ['.css', 'css'], ['.scss', 'scss'],
+]);
+
+export function detectLanguage(filePath) {
+  const ext = path.extname(filePath).toLowerCase();
+  return EXTENSIONS.get(ext) || 'unknown';
+}
+
+function isBinary(buffer) {
+  const sample = buffer.subarray(0, Math.min(buffer.length, 8192));
+  return sample.includes(0);
+}
+
+export function lineOffsets(source) {
+  const offsets = [0];
+  for (let index = 0; index < source.length; index += 1) {
+    if (source.charCodeAt(index) === 10) offsets.push(index + 1);
+  }
+  return offsets;
+}
+
+export function spanFrom(source, startLine, endLine, startColumn = 0, endColumn = 0) {
+  const offsets = lineOffsets(source);
+  const clampLine = (line) => Math.max(1, Math.min(Number(line) || 1, offsets.length));
+  const first = clampLine(startLine);
+  const last = clampLine(endLine || startLine);
+  const startChar = offsets[first - 1] + Math.max(0, Number(startColumn) || 0);
+  const endLineStart = offsets[last - 1];
+  const endChar = endColumn ? endLineStart + endColumn : (last < offsets.length ? offsets[last] : source.length);
+  const beforeStart = Buffer.byteLength(source.slice(0, startChar), 'utf8');
+  const beforeEnd = Buffer.byteLength(source.slice(0, endChar), 'utf8');
+  return { startLine: first, endLine: last, startColumn: Number(startColumn) || 0, endColumn: Number(endColumn) || 0, startByte: beforeStart, endByte: beforeEnd };
+}
+
+export function readJson(filePath, fallback = null) {
+  try { return JSON.parse(fs.readFileSync(filePath, 'utf8')); } catch { return fallback; }
+}
+
+export function writeJsonAtomic(filePath, value) {
+  fs.mkdirSync(path.dirname(filePath), { recursive: true });
+  const temp = `${filePath}.${process.pid}.${Date.now()}.tmp`;
+  fs.writeFileSync(temp, JSON.stringify(value, null, 2));
+  fs.renameSync(temp, filePath);
+}
+
+export function writeJsonl(filePath, rows) {
+  fs.mkdirSync(path.dirname(filePath), { recursive: true });
+  fs.writeFileSync(filePath, rows.map((row) => JSON.stringify(row)).join('\n') + (rows.length ? '\n' : ''));
+}
+
+export function readJsonl(filePath) {
+  if (!fs.existsSync(filePath)) return [];
+  return fs.readFileSync(filePath, 'utf8').split('\n').filter(Boolean).map((line) => JSON.parse(line));
+}
+
+export function repositoryId(repoRoot) {
+  return `repo-${shortHash(fs.realpathSync(repoRoot), 20)}`;
+}
+
+export function scanRepository(repoRoot, { maxFileBytes = 5 * 1024 * 1024, ignores = DEFAULT_IGNORES } = {}) {
+  const root = fs.realpathSync(repoRoot);
+  const files = [];
+  const skipped = [];
+  function walk(directory) {
+    let entries;
+    try { entries = fs.readdirSync(directory, { withFileTypes: true }); } catch (error) {
+      skipped.push({ path: path.relative(root, directory) || '.', reason: `read-error:${error.code || error.message}` });
+      return;
+    }
+    entries.sort((a, b) => a.name.localeCompare(b.name));
+    for (const entry of entries) {
+      const absolute = path.join(directory, entry.name);
+      const relative = path.relative(root, absolute).split(path.sep).join('/');
+      if (ignores.has(entry.name) || entry.name.startsWith('.codeindex-')) {
+        skipped.push({ path: relative, reason: 'ignored' });
+        continue;
+      }
+      if (entry.isSymbolicLink()) {
+        skipped.push({ path: relative, reason: 'symlink' });
+        continue;
+      }
+      if (entry.isDirectory()) { walk(absolute); continue; }
+      if (!entry.isFile()) { skipped.push({ path: relative, reason: 'non-file' }); continue; }
+      let stat;
+      try { stat = fs.statSync(absolute); } catch (error) {
+        skipped.push({ path: relative, reason: `stat-error:${error.code || error.message}` });
+        continue;
+      }
+      if (stat.size > maxFileBytes) {
+        skipped.push({ path: relative, bytes: stat.size, reason: 'too-large' });
+        continue;
+      }
+      let content;
+      try { content = fs.readFileSync(absolute); } catch (error) {
+        skipped.push({ path: relative, reason: `read-error:${error.code || error.message}` });
+        continue;
+      }
+      if (isBinary(content)) { skipped.push({ path: relative, bytes: content.length, reason: 'binary' }); continue; }
+      const source = content.toString('utf8');
+      files.push({ path: relative, absolute, language: detectLanguage(relative), bytes: content.length, digest: hashBytes(content), lineCount: source ? source.split('\n').length : 0, source });
+    }
+  }
+  walk(root);
+  return { root, files, skipped };
+}
+
+export function routeTerms(text) {
+  return [...new Set(String(text || '').toLowerCase().split(/[^\p{L}\p{N}_$]+/u).filter(Boolean).flatMap((token) => {
+    const camel = token.replace(/([a-z0-9])([A-Z])/g, '$1 $2').split(/\s+/);
+    return [token, ...camel];
+  }))];
+}
+
+export function sourceDigest(source) { return hashText(source); }

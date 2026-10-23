@@ -1,0 +1,261 @@
+{
+  "schema": "codeindex-benchmark-0.1.0",
+  "generatedAt": "2026-10-23T16:49:31.446Z",
+  "repository": "/data/github/pi-mono",
+  "snapshotId": "snapshot:repo-763ecb1c823f7dc5f910:6e792c8adc88938636e4ae59",
+  "index": {
+    "files": 667,
+    "changedFiles": 667,
+    "reusedFiles": 0,
+    "symbols": 2709,
+    "relations": 19289,
+    "partialFiles": 165,
+    "skipped": 8,
+    "buildMs": 3806,
+    "totalSourceBytes": 9284185,
+    "indexLoadOrBuildMs": 194.267523
+  },
+  "questions": {
+    "file": "/data/dev/CodeIndex/benchmarks/questions-pi-mono.json",
+    "total": 4,
+    "hits": 4,
+    "recallAtEvidence": 1
+  },
+  "aggregate": {
+    "codeIndexMedianMs": 11.259658000000002,
+    "baselineMedianMs": 19.511901000000023,
+    "codeIndexContextBytes": 17043,
+    "baselineMatchedBytes": 31347091,
+    "fullRepositoryBytes": 37136740,
+    "contextReductionVsFullRepository": 2179.002523029983,
+    "contextReductionVsMatchedFiles": 1839.2941970310392,
+    "queryWorkReductionVsFullRepository": 2179.002523029983,
+    "queryLatencySpeedupVsRg": 1.7329035215812079
+  },
+  "gate": {
+    "recallAtEvidence": true,
+    "contextReductionVsFullRepository": true,
+    "queryLatencyWithinBaseline": true,
+    "significantAdvantage": true
+  },
+  "rows": [
+    {
+      "query": "model provider registry",
+      "hit": true,
+      "codeIndexMs": 13.584553,
+      "baselineMs": 19.511901000000023,
+      "candidateCount": 12,
+      "evidenceCount": 6,
+      "contextBytes": 1561,
+      "baselineMatchedBytes": 7640408,
+      "baselineOutputBytes": 3903593,
+      "matches": 11004,
+      "topCandidates": [
+        {
+          "type": "symbol",
+          "score": 10,
+          "symbolId": "symbol:ba284f8f4689fef9e21d21d4",
+          "name": "packages.coding-agent.test.model-registry.test.providerConfig",
+          "path": "packages/coding-agent/test/model-registry.test.ts",
+          "startLine": 30
+        },
+        {
+          "type": "symbol",
+          "score": 10,
+          "symbolId": "symbol:63eeecc8d94e0bb23229e25e",
+          "name": "packages.coding-agent.test.model-registry.test.getModelsForProvider",
+          "path": "packages/coding-agent/test/model-registry.test.ts",
+          "startLine": 55
+        },
+        {
+          "type": "symbol",
+          "score": 10,
+          "symbolId": "symbol:5d2583382ab796ac87cadf3a",
+          "name": "packages.coding-agent.test.model-registry.test.writeRawModelsJson",
+          "path": "packages/coding-agent/test/model-registry.test.ts",
+          "startLine": 65
+        },
+        {
+          "type": "symbol",
+          "score": 10,
+          "symbolId": "symbol:0e813d6e121e367ac325b00f",
+          "name": "packages.coding-agent.test.model-registry.test.providerWithApiKey",
+          "path": "packages/coding-agent/test/model-registry.test.ts",
+          "startLine": 642
+        },
+        {
+          "type": "directory",
+          "score": 9,
+          "path": "packages/ai/src",
+          "title": "src"
+        }
+      ],
+      "snapshotId": "snapshot:repo-763ecb1c823f7dc5f910:6e792c8adc88938636e4ae59"
+    },
+    {
+      "query": "extension loading and discovery",
+      "hit": true,
+      "codeIndexMs": 8.83002700000003,
+      "baselineMs": 24.84348,
+      "candidateCount": 12,
+      "evidenceCount": 6,
+      "contextBytes": 3583,
+      "baselineMatchedBytes": 9073952,
+      "baselineOutputBytes": 4444750,
+      "matches": 11705,
+      "topCandidates": [
+        {
+          "type": "symbol",
+          "score": 10,
+          "symbolId": "symbol:2e4ce79e96c7bdb58f645f6a",
+          "name": "packages.coding-agent.examples.extensions.sandbox.index.loadConfig",
+          "path": "packages/coding-agent/examples/extensions/sandbox/index.ts",
+          "startLine": 76
+        },
+        {
+          "type": "symbol",
+          "score": 10,
+          "symbolId": "symbol:757bffa06ea44945e4e29879",
+          "name": "packages.coding-agent.examples.rpc-extension-ui.LoadingIndicator",
+          "path": "packages/coding-agent/examples/rpc-extension-ui.ts",
+          "startLine": 100
+        },
+        {
+          "type": "symbol",
+          "score": 10,
+          "symbolId": "symbol:0b9d05765cf43a246ebeac09",
+          "name": "packages.coding-agent.examples.rpc-extension-ui.showLoading",
+          "path": "packages/coding-agent/examples/rpc-extension-ui.ts",
+          "startLine": 324
+        },
+        {
+          "type": "symbol",
+          "score": 10,
+          "symbolId": "symbol:0520aa09d21bfbd11344367d",
+          "name": "packages.coding-agent.examples.rpc-extension-ui.hideLoading",
+          "path": "packages/coding-agent/examples/rpc-extension-ui.ts",
+          "startLine": 338
+        },
+        {
+          "type": "symbol",
+          "score": 10,
+          "symbolId": "symbol:bd3a9121f8e68554f7028ad9",
+          "name": "packages.coding-agent.src.core.extensions.loader.expandPath",
+          "path": "packages/coding-agent/src/core/extensions/loader.ts",
+          "startLine": 82
+        }
+      ],
+      "snapshotId": "snapshot:repo-763ecb1c823f7dc5f910:6e792c8adc88938636e4ae59"
+    },
+    {
+      "query": "terminal session management",
+      "hit": true,
+      "codeIndexMs": 11.259658000000002,
+      "baselineMs": 17.19295699999998,
+      "candidateCount": 12,
+      "evidenceCount": 6,
+      "contextBytes": 6750,
+      "baselineMatchedBytes": 6595785,
+      "baselineOutputBytes": 2776004,
+      "matches": 5227,
+      "topCandidates": [
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:4ec20ebd9a8f8a3393b0f7ac",
+          "name": "packages.ai.src.providers.openai-codex-responses.scheduleSessionWebSocketExpiry",
+          "path": "packages/ai/src/providers/openai-codex-responses.ts",
+          "startLine": 486
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:f31b88fa7f30e57be562ceff",
+          "name": "packages.coding-agent.examples.extensions.doom-overlay.doom-keys.mapKeyToDoom",
+          "path": "packages/coding-agent/examples/extensions/doom-overlay/doom-keys.ts",
+          "startLine": 43
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:4a6d408a36a21694036e40f7",
+          "name": "packages.coding-agent.src.cli.session-picker.selectSession",
+          "path": "packages/coding-agent/src/cli/session-picker.ts",
+          "startLine": 13
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:8cc703a25d90db413ce146f7",
+          "name": "packages.coding-agent.src.config.getSessionsDir",
+          "path": "packages/coding-agent/src/config.ts",
+          "startLine": 234
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:bf69166197ed7c63aeac8a8c",
+          "name": "packages.coding-agent.src.core.agent-session.parseSkillBlock",
+          "path": "packages/coding-agent/src/core/agent-session.ts",
+          "startLine": 100
+        }
+      ],
+      "snapshotId": "snapshot:repo-763ecb1c823f7dc5f910:6e792c8adc88938636e4ae59"
+    },
+    {
+      "query": "agent tool execution",
+      "hit": true,
+      "codeIndexMs": 12.09448100000003,
+      "baselineMs": 20.392448,
+      "candidateCount": 12,
+      "evidenceCount": 6,
+      "contextBytes": 5149,
+      "baselineMatchedBytes": 8036946,
+      "baselineOutputBytes": 4507404,
+      "matches": 10163,
+      "topCandidates": [
+        {
+          "type": "symbol",
+          "score": 10,
+          "symbolId": "symbol:fe0282137604a4670df3684f",
+          "name": "packages.agent.test.e2e.test.toolExecution",
+          "path": "packages/agent/test/e2e.test.ts",
+          "startLine": 35
+        },
+        {
+          "type": "symbol",
+          "score": 10,
+          "symbolId": "symbol:6b68ebad9c75a9208e68b327",
+          "name": "packages.coding-agent.src.core.compaction.compaction.findValidCutPoints",
+          "path": "packages/coding-agent/src/core/compaction/compaction.ts",
+          "startLine": 292
+        },
+        {
+          "type": "symbol",
+          "score": 10,
+          "symbolId": "symbol:62308453d255adc9d37a4ace",
+          "name": "packages.coding-agent.src.modes.interactive.components.tool-execution.shortenPath",
+          "path": "packages/coding-agent/src/modes/interactive/components/tool-execution.ts",
+          "startLine": 35
+        },
+        {
+          "type": "symbol",
+          "score": 10,
+          "symbolId": "symbol:ed2fb2cb35d0a05a91a466e8",
+          "name": "packages.coding-agent.src.modes.interactive.components.tool-execution.replaceTabs",
+          "path": "packages/coding-agent/src/modes/interactive/components/tool-execution.ts",
+          "startLine": 47
+        },
+        {
+          "type": "symbol",
+          "score": 10,
+          "symbolId": "symbol:06f834487a62ecb6e0c7360f",
+          "name": "packages.coding-agent.src.modes.interactive.components.tool-execution.str",
+          "path": "packages/coding-agent/src/modes/interactive/components/tool-execution.ts",
+          "startLine": 52
+        }
+      ],
+      "snapshotId": "snapshot:repo-763ecb1c823f7dc5f910:6e792c8adc88938636e4ae59"
+    }
+  ]
+}

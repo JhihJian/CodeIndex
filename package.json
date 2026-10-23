@@ -1,0 +1,14 @@
+{
+  "name": "codeindex",
+  "version": "0.1.0",
+  "description": "Snapshot-aware, structure-first code repository indexing and reasoning for large repositories.",
+  "type": "module",
+  "bin": {"codeindex": "./bin/codeindex.js"},
+  "scripts": {
+    "test": "node --test",
+    "check": "find src bin -name '*.js' -print0 | xargs -0 -n1 node --check && python3 -m py_compile src/parsers/python_ast.py",
+    "benchmark": "node bin/codeindex.js benchmark --repo /data/github/PageIndex --store .data/pageindex --questions benchmarks/questions-pageindex.json --output benchmarks/results/pageindex.json"
+  },
+  "engines": {"node": ">=20"},
+  "license": "MIT"
+}
