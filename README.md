@@ -62,6 +62,7 @@ CodeIndex 通过 `pi --print --no-tools` 调用 provider，仓库内容只作为
 
 详细设计见 [`docs/codeindex-architecture.md`](docs/codeindex-architecture.md)。索引数据使用 JSONL 和内容 blob 保存，发布快照同时生成只读 SQLite 查询数据库。SQLite 中的 FTS5 表负责候选检索，`relations(source_id, type)` 和 `relations(target_id, type)` 索引负责关系查询。查询先执行元数据搜索，再对少量候选按需读取源码，因此不会为了一个查询扫描全库源码。发布指针通过原子替换更新。摘要是导航派生数据，源码范围和关系边才是事实证据。
 
+性能差距调研和下一轮优化方案见 [`benchmarks/codeindex-performance-gap-analysis.md`](benchmarks/codeindex-performance-gap-analysis.md)。
 
 ## 验证
 
