@@ -1,8 +1,9 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { StringDecoder } from 'node:string_decoder';
 import { hashBytes, hashText, shortHash } from './hash.js';
 
-export const PARSER_VERSION = 'codeindex-parser-0.2.0';
+export const PARSER_VERSION = 'codeindex-parser-0.2.1';
 export const DEFAULT_IGNORES = new Set([
   '.git', '.hg', '.svn', 'node_modules', '.venv', 'venv', '__pycache__',
   'dist', 'build', 'coverage', '.next', '.turbo', '.cache', 'target',
@@ -86,6 +87,32 @@ export function writeJsonl(filePath, rows, { chunkBytes = 1024 * 1024 } = {}) {
       buffer += line;
     }
     if (buffer) fs.writeSync(fd, buffer, undefined, 'utf8');
+  } finally {
+    fs.closeSync(fd);
+  }
+}
+
+// Incremental reuse reads one record at a time, including UTF-8 split across chunks.
+export function* iterateJsonl(filePath) {
+  const fd = fs.openSync(filePath, 'r');
+  const decoder = new StringDecoder('utf8');
+  const buffer = Buffer.alloc(64 * 1024);
+  let pending = '';
+  try {
+    let bytes;
+    while ((bytes = fs.readSync(fd, buffer, 0, buffer.length, null)) > 0) {
+      pending += decoder.write(buffer.subarray(0, bytes));
+      let start = 0;
+      let end;
+      while ((end = pending.indexOf('\n', start)) !== -1) {
+        const line = pending.slice(start, end);
+        if (line.trim()) yield JSON.parse(line);
+        start = end + 1;
+      }
+      pending = pending.slice(start);
+    }
+    pending += decoder.end();
+    if (pending.trim()) yield JSON.parse(pending);
   } finally {
     fs.closeSync(fd);
   }

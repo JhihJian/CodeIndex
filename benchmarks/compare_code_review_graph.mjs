@@ -51,7 +51,7 @@ for (const question of questions) {
 }
 const report = {
   tool: 'CodeIndex', repository: index.manifest.repositoryPath, snapshotId: index.manifest.snapshotId,
-  stats: { files: index.files.length, parsedFiles: index.manifest.coverage.parsedFiles, symbols: index.symbols.length, relations: index.relations.length, sourceBytes: index.files.reduce((sum, file) => sum + file.bytes, 0), storeBytes: 0 },
+  stats: { ...index.stats(), parsedFiles: index.manifest.coverage.parsedFiles, sourceBytes: index.manifest.stats.sourceBytes, storeBytes: 0 },
   questions: { total: rows.length, hits: rows.filter((row) => row.hit).length, recall: rows.filter((row) => row.hit).length / rows.length },
   aggregate: { medianMs: median(rows.map((row) => row.medianMs)), metadataMedianMs: median(rows.map((row) => row.metadataMedianMs)), resultBytes: rows.reduce((sum, row) => sum + row.resultBytes, 0), medianResultBytes: median(rows.map((row) => row.resultBytes)), contextBytes: rows.reduce((sum, row) => sum + row.contextBytes, 0) }, rows,
 };
@@ -68,3 +68,4 @@ report.stats.storeBytes = directoryBytes(path.resolve(options.store));
 fs.mkdirSync(path.dirname(path.resolve(options.output)), { recursive: true });
 fs.writeFileSync(path.resolve(options.output), JSON.stringify(report, null, 2) + '\n');
 console.log(JSON.stringify({ stats: report.stats, questions: report.questions, aggregate: report.aggregate }, null, 2));
+index.close();

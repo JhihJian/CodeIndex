@@ -1,0 +1,46 @@
+{
+  "before": {
+    "snapshotId": "snapshot:repo-67168d4b0edd4e638610:55e19f13edd2a6fa865f50fa",
+    "coverage": {
+      "sourceFiles": 86363,
+      "parsedFiles": 30075,
+      "unsupportedFiles": 26357,
+      "partialFiles": 56288,
+      "skippedFiles": 102
+    },
+    "rows": [
+      {
+        "query": "do_execveat_common",
+        "path": "fs/exec.c",
+        "evidenceCount": 1,
+        "calls": 19,
+        "resolvedCalls": 11,
+        "relationMedianMs": 0.030814999999996928
+      },
+      {
+        "query": "tcp_v4_syn_recv_sock",
+        "path": "net/ipv4/tcp_ipv4.c",
+        "evidenceCount": 3,
+        "calls": 49,
+        "resolvedCalls": 26,
+        "relationMedianMs": 0.06337500000000773
+      },
+      {
+        "query": "vfs_open",
+        "path": "fs/open.c",
+        "evidenceCount": 3,
+        "calls": 2,
+        "resolvedCalls": 2,
+        "relationMedianMs": 0.014126000000004524
+      },
+      {
+        "query": "pick_next_task_fair",
+        "path": "kernel/sched/fair.c",
+        "evidenceCount": 4,
+        "calls": 15,
+        "resolvedCalls": 8,
+        "relationMedianMs": 0.025176000000001864
+      }
+    ]
+  }
+}

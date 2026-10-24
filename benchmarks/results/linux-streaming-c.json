@@ -1,0 +1,167 @@
+{
+  "tool": "CodeIndex",
+  "repository": "/data/dev/bench-repos/linux-benchmark",
+  "snapshotId": "snapshot:repo-67168d4b0edd4e638610:55e19f13edd2a6fa865f50fa",
+  "stats": {
+    "files": 86363,
+    "symbols": 4616281,
+    "relations": 4520076,
+    "parsedFiles": 30075,
+    "sourceBytes": 1212793499,
+    "storeBytes": 28459013923
+  },
+  "questions": {
+    "total": 4,
+    "hits": 4,
+    "recall": 1
+  },
+  "aggregate": {
+    "medianMs": 5.4951110000000085,
+    "metadataMedianMs": 4.984542000000005,
+    "resultBytes": 17358,
+    "medianResultBytes": 5411,
+    "contextBytes": 7756
+  },
+  "rows": [
+    {
+      "query": "do_execveat_common",
+      "hit": true,
+      "medianMs": 4.360497000000009,
+      "metadataMedianMs": 4.347023000000007,
+      "minMs": 4.1297210000000035,
+      "evidenceCount": 1,
+      "metadataCandidateCount": 1,
+      "resultBytes": 2991,
+      "contextBytes": 1577,
+      "topCandidates": [
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:2645725b97e4d78eb8a78c7c",
+          "name": "fs.exec.do_execveat_common",
+          "path": "fs/exec.c",
+          "startLine": 1876
+        }
+      ]
+    },
+    {
+      "query": "tcp_v4_syn_recv_sock",
+      "hit": true,
+      "medianMs": 5.711421000000001,
+      "metadataMedianMs": 4.984542000000005,
+      "minMs": 5.605059000000011,
+      "evidenceCount": 3,
+      "metadataCandidateCount": 3,
+      "resultBytes": 6202,
+      "contextBytes": 3507,
+      "topCandidates": [
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:4f153c006b4507ee3e684566",
+          "name": "include.net.tcp.tcp_v4_syn_recv_sock",
+          "path": "include/net/tcp.h",
+          "startLine": 461
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:946e96a9bff12665ea165768",
+          "name": "net.dccp.ipv4.dccp_v4_request_recv_sock",
+          "path": "net/dccp/ipv4.c",
+          "startLine": 408
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:7989a758e9a84a25de89c36a",
+          "name": "net.ipv4.tcp_ipv4.tcp_v4_syn_recv_sock",
+          "path": "net/ipv4/tcp_ipv4.c",
+          "startLine": 1739
+        }
+      ]
+    },
+    {
+      "query": "vfs_open",
+      "hit": true,
+      "medianMs": 5.4951110000000085,
+      "metadataMedianMs": 5.2226909999999975,
+      "minMs": 5.261870999999985,
+      "evidenceCount": 3,
+      "metadataCandidateCount": 3,
+      "resultBytes": 2754,
+      "contextBytes": 439,
+      "topCandidates": [
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:6656f4fca08f62d1848db2d7",
+          "name": "fs.internal.vfs_open",
+          "path": "fs/internal.h",
+          "startLine": 196
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:747713008627928d3373fbf3",
+          "name": "fs.open.vfs_open",
+          "path": "fs/open.c",
+          "startLine": 1083
+        },
+        {
+          "type": "symbol",
+          "score": 1,
+          "symbolId": "symbol:fee5ec1c5a73d6e1d565b2ce",
+          "name": "include.uapi.linux.coda.C_O_READ",
+          "path": "include/uapi/linux/coda.h",
+          "startLine": 130
+        }
+      ]
+    },
+    {
+      "query": "pick_next_task_fair",
+      "hit": true,
+      "medianMs": 2.3622369999999933,
+      "metadataMedianMs": 0.823443999999995,
+      "minMs": 2.065721999999994,
+      "evidenceCount": 4,
+      "metadataCandidateCount": 4,
+      "resultBytes": 5411,
+      "contextBytes": 2233,
+      "topCandidates": [
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:a16412125ca4f6a94a43ea7a",
+          "name": "kernel.sched.fair.pick_next_task_fair",
+          "path": "kernel/sched/fair.c",
+          "startLine": 8878
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:703f0eeaaf8adbccef8123ac",
+          "name": "kernel.sched.fair.__pick_next_task_fair",
+          "path": "kernel/sched/fair.c",
+          "startLine": 8965
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:839e399f798ae9e211aa5e45",
+          "name": "kernel.sched.fair.sched_fair_update_stop_tick",
+          "path": "kernel/sched/fair.c",
+          "startLine": 6731
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:05e14f9e05ad079658997fea",
+          "name": "kernel.sched.sched.pick_next_task_fair",
+          "path": "kernel/sched/sched.h",
+          "startLine": 2577
+        }
+      ]
+    }
+  ]
+}

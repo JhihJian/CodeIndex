@@ -1,0 +1,199 @@
+{
+  "tool": "CodeIndex",
+  "repository": "/data/dev/bench-repos/linux-benchmark",
+  "snapshotId": "snapshot:repo-67168d4b0edd4e638610:55e19f13edd2a6fa865f50fa",
+  "stats": {
+    "files": 86363,
+    "symbols": 4616281,
+    "relations": 4520076,
+    "parsedFiles": 30075,
+    "sourceBytes": 1212793499,
+    "storeBytes": 28459013923
+  },
+  "questions": {
+    "total": 4,
+    "hits": 4,
+    "recall": 1
+  },
+  "aggregate": {
+    "medianMs": 3.3885900000000007,
+    "metadataMedianMs": 3.1340999999999894,
+    "resultBytes": 33263,
+    "medianResultBytes": 9667,
+    "contextBytes": 18651
+  },
+  "rows": [
+    {
+      "query": "have_command",
+      "hit": true,
+      "medianMs": 3.3885900000000007,
+      "metadataMedianMs": 2.9233289999999954,
+      "minMs": 3.0550870000000003,
+      "evidenceCount": 3,
+      "metadataCandidateCount": 3,
+      "resultBytes": 5441,
+      "contextBytes": 2854,
+      "topCandidates": [
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:8e8dbc775403a963635738b7",
+          "name": "Documentation.conf.have_command",
+          "path": "Documentation/conf.py",
+          "startLine": 23
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:56598d7e9c3365de72735a10",
+          "name": "Documentation.conf",
+          "path": "Documentation/conf.py",
+          "startLine": 1
+        },
+        {
+          "type": "symbol",
+          "score": 1,
+          "symbolId": "symbol:4e68f06126b770434c7cf5ef",
+          "name": "drivers.infiniband.ulp.isert.ib_isert.isert_put_unsol_pending_cmds",
+          "path": "drivers/infiniband/ulp/isert/ib_isert.c",
+          "startLine": 2530
+        }
+      ]
+    },
+    {
+      "query": "markup_refs",
+      "hit": true,
+      "medianMs": 2.6344680000000125,
+      "metadataMedianMs": 3.1340999999999894,
+      "minMs": 2.5067880000000002,
+      "evidenceCount": 2,
+      "metadataCandidateCount": 2,
+      "resultBytes": 5383,
+      "contextBytes": 3304,
+      "topCandidates": [
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:cc3651c604042fe80e8c81c4",
+          "name": "Documentation.sphinx.automarkup.markup_refs",
+          "path": "Documentation/sphinx/automarkup.py",
+          "startLine": 79
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:394593f2e6be43691dc98203",
+          "name": "Documentation.sphinx.automarkup",
+          "path": "Documentation/sphinx/automarkup.py",
+          "startLine": 1
+        }
+      ]
+    },
+    {
+      "query": "KernelCmd",
+      "hit": true,
+      "medianMs": 0.23187899999999217,
+      "metadataMedianMs": 0.15949800000001346,
+      "minMs": 0.21469700000000103,
+      "evidenceCount": 5,
+      "metadataCandidateCount": 5,
+      "resultBytes": 9667,
+      "contextBytes": 5706,
+      "topCandidates": [
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:9e75ab55d760ff93de3f2b3b",
+          "name": "Documentation.sphinx.kernel_abi.KernelCmd",
+          "path": "Documentation/sphinx/kernel_abi.py",
+          "startLine": 59
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:57ae982caa6c69f19c6ca322",
+          "name": "Documentation.sphinx.kernel_abi.KernelCmd.run",
+          "path": "Documentation/sphinx/kernel_abi.py",
+          "startLine": 73
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:d1bc88daef3361d9bf2b1600",
+          "name": "Documentation.sphinx.kernel_abi.KernelCmd.nestedParse",
+          "path": "Documentation/sphinx/kernel_abi.py",
+          "startLine": 94
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:db86444b7fe51533d3a67ce3",
+          "name": "Documentation.sphinx.kernel_abi.KernelCmd.do_parse",
+          "path": "Documentation/sphinx/kernel_abi.py",
+          "startLine": 139
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:09e863c217b8a989a1b1e223",
+          "name": "Documentation.sphinx.kernel_abi",
+          "path": "Documentation/sphinx/kernel_abi.py",
+          "startLine": 1
+        }
+      ]
+    },
+    {
+      "query": "do_parse",
+      "hit": true,
+      "medianMs": 5.736760000000004,
+      "metadataMedianMs": 4.947491000000014,
+      "minMs": 5.064148999999986,
+      "evidenceCount": 6,
+      "metadataCandidateCount": 12,
+      "resultBytes": 12772,
+      "contextBytes": 6787,
+      "topCandidates": [
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:db86444b7fe51533d3a67ce3",
+          "name": "Documentation.sphinx.kernel_abi.KernelCmd.do_parse",
+          "path": "Documentation/sphinx/kernel_abi.py",
+          "startLine": 139
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:9e75ab55d760ff93de3f2b3b",
+          "name": "Documentation.sphinx.kernel_abi.KernelCmd",
+          "path": "Documentation/sphinx/kernel_abi.py",
+          "startLine": 59
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:b4f54adf53a987073d75415d",
+          "name": "Documentation.sphinx.kerneldoc.KernelDocDirective.do_parse",
+          "path": "Documentation/sphinx/kerneldoc.py",
+          "startLine": 155
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:17099d7904e8265330570031",
+          "name": "Documentation.sphinx.kerneldoc.KernelDocDirective",
+          "path": "Documentation/sphinx/kerneldoc.py",
+          "startLine": 46
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:5553b2dddcbe6002837f664c",
+          "name": "drivers.gpu.drm.msm.registers.gen_header.Parser.do_parse",
+          "path": "drivers/gpu/drm/msm/registers/gen_header.py",
+          "startLine": 579
+        }
+      ]
+    }
+  ]
+}

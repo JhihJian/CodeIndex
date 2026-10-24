@@ -160,6 +160,8 @@ export function parseC(entry) {
     }
     if (TYPE_TYPES.has(node.type)) {
       const name = typeName(node);
+      const hasDefinitionBody = Boolean(node.childForFieldName?.('body'));
+      if (!hasDefinitionBody) return;
       const kind = node.type === 'class_specifier' ? 'class' : node.type.replace('_specifier', '');
       addSymbol(node, kind, name);
       const baseClause = node.childForFieldName?.('base_clause') || node.namedChildren?.find((child) => child.type === 'base_class_clause');

@@ -52,6 +52,8 @@ function relationTypes(mode) {
 }
 
 function relationFromRow(row, snapshotId) {
+  const startLine = row.start_line ?? row.line ?? 0;
+  const endLine = row.end_line ?? startLine;
   return {
     relationId: row.relation_id,
     type: row.type,
@@ -60,7 +62,7 @@ function relationFromRow(row, snapshotId) {
     targetName: row.target_name,
     status: row.status,
     confidence: row.confidence,
-    sourceSpan: { path: row.path, startLine: row.line, endLine: row.line, startColumn: 0, endColumn: 0, startByte: 0, endByte: 0, blobDigest: row.blob_digest, snapshotId },
+    sourceSpan: { path: row.path, startLine, endLine, startColumn: row.start_column ?? 0, endColumn: row.end_column ?? 0, startByte: row.start_byte ?? 0, endByte: row.end_byte ?? 0, blobDigest: row.blob_digest, snapshotId },
   };
 }
 

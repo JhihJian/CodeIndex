@@ -30,7 +30,13 @@ Bun 的完整对比结果见 [`bun-code-review-graph-comparison.md`](bun-code-re
 
 ## Linux v6.12
 
-历史基线数据集包含 86,362 个 CodeIndex 文件、1.21 GB 可读源码、5,175 个符号和 24,284 条关系。当时 CodeIndex 还没有 C/C++ 结构化解析，只解析了 259 个 Python 文件。当前版本新增 Tree-sitter C/C++ 适配器，并已在 Linux 四个目标文件上识别 `do_execveat_common`、`tcp_v4_syn_recv_sock`、`vfs_open` 和 `pick_next_task_fair`，同时提取函数、类型、包含、宏和直接调用关系。完整 Linux 重建需要继续优化超大型 C 仓库的符号聚合内存，因此历史对照数字仍按旧版本基线解读。当前四文件验证覆盖 565,768 字节源码，适配器解析耗时 613.35 ms，完整小快照构建耗时 747 ms，峰值 RSS 约 146 MiB；四个精确查询带证据中位数为 0.156 至 1.299 ms。验证明细保存在 [`benchmarks/results/linux-codeindex-c-adapter.json`](results/linux-codeindex-c-adapter.json)，历史构建对比见 [`linux-code-review-graph-comparison.md`](linux-code-review-graph-comparison.md)。
+流式版本已完成全量构建：86,363 个文件、4,616,281 个符号、4,520,076 条关系，用时 1,930.66 秒，最大 RSS 约 650 MiB。C 和 Python 两组问题均为 4/4 命中，C 查询中位数为 metadata-only 4.98 ms、带源码证据 5.50 ms。完整快照约 26.50 GiB，包括 SQLite、源码、解析缓存和 JSONL 导出。
+
+完整测量与复现命令见 [`linux-streaming.md`](linux-streaming.md)。旧版未支持 C 时的基线和四文件适配器测试保留在 [`历史报告`](linux-code-review-graph-comparison.md)，四文件原始记录为 [`linux-codeindex-c-adapter.json`](results/linux-codeindex-c-adapter.json)。
+
+## 流式资源回归
+
+500 个 Python 文件包含 100,000 个函数和 99,500 条调用关系，在 `--max-old-space-size=128` 下完成全量构建和单文件增量，复用 499 个文件。V8 总堆上限为 320 MiB，主进程最大 RSS 为 402.3 MiB。资源记录见 [`streaming-memory.json`](results/streaming-memory.json)。PageIndex 六个问题保持 6/6 命中，符号和关系数量保持一致，记录见 [`streaming-pageindex.json`](results/streaming-pageindex.json)。
 
 ## Pi provider 推理验证
 

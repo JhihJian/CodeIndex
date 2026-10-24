@@ -13,11 +13,13 @@ CodeIndex 是一个面向大型代码仓库的 Node.js 结构化索引和推理�
 - 使用 SQLite FTS5 检索候选节点，使用关系 B-tree 索引访问邻接边。
 - 元数据候选和源码证据分阶段读取，支持 `--metadata-only` 低延迟查询。
 - 支持增量解析、无变化快路径、源码 blob 复用和可选 Pi provider 推理。
+- 流式构建：解析结果按批次写入 SQLite，关系通过数据库索引汇总，JSONL 按行导出。增量更新逐行复用解析缓存。
 
+构建方式、内存口径和验证命令见 [`docs/streaming-index.md`](docs/streaming-index.md)。
 
 ## 环境要求
 
-- Node.js `>=22.5`，用于使用内置 `node:sqlite`、SQLite FTS5 和 Tree-sitter 运行时。
+- Node.js 22.16+（22.x）或 24+。这些官方发行版提供内置 `node:sqlite` 的逐行迭代接口与 FTS5。
 - Python 3，用于 Python AST 解析器。
 - `npm install` 会安装 Tree-sitter C/C++ grammar 的原生模块。
 
@@ -54,8 +56,8 @@ CodeIndex 通过 `pi --print --no-tools` 调用 provider，仓库内容只作为
 
 ## 命令
 
-- `index`：构建新的不可变快照并原子发布。
-- `update`：读取已发布快照，复用内容未变化文件的解析结果，重新计算关系和导航数据。
+- `index`：流式构建新的不可变快照并原子发布，`--progress` 输出各阶段进度。
+- `update`：逐行复用内容未变化文件的解析结果，重新计算关系和导航数据。
 - `inspect`：查看已发布快照和覆盖状态。
 - `query`：在固定快照内通过 SQLite FTS5 检索符号和导航节点，通过关系 B-tree 索引查询邻接边，并按需返回源码证据。使用 `--metadata-only` 只获取候选元数据，不读取源码。
 - `benchmark`：在真实仓库上对比 CodeIndex 与全仓库扫描的候选召回、查询上下文和耗时。
@@ -132,4 +134,6 @@ CodeIndex 在该仓库上全量构建约快 18%，但峰值内存约为对照项
 
 ## 超大型开源仓库基准（Linux v6.12）
 
-Linux v6.12 的历史基线是在 C/C++ 适配器接入前完成的：当时 CodeIndex 只结构化解析 Python，C 函数问题集为 0/4。当前适配器已经覆盖 Linux 使用的 `.c` 和 `.h` 文件类型，并通过独立 C/C++ fixture 验证函数、类型、包含、宏和调用关系。完整 Linux 重建需要进一步处理超大型 C 仓库的符号聚合内存，当前历史基线数字仅用于旧版本资源和覆盖范围的对照。详细历史数据、问题集和原始结果见 [`benchmarks/linux-code-review-graph-comparison.md`](benchmarks/linux-code-review-graph-comparison.md)。
+Linux v6.12 完整流式构建已完成：86,363 个文件、4,616,281 个符号、4,520,076 条关系，墙钟时间 1,930.66 秒，最大 RSS 约 650 MiB。C 和 Python 两组精确问题均为 4/4 命中，C 查询中位数为 metadata-only 4.98 ms、带源码证据 5.50 ms，无变化更新约 0.30 秒。
+
+与同一固定源码上的 `code-review-graph` 历史完整构建相比，CodeIndex 最大 RSS 约为其 1/15，构建耗时约为其 1.66 倍。包含 SQLite、源码、解析缓存和 JSONL 导出的完整快照约 26.50 GiB。完整数据、阶段耗时和复现方式见 [`流式构建验证`](benchmarks/linux-streaming.md)。C/C++ 适配器接入前的旧基线与四文件测试保留在 [`历史对比报告`](benchmarks/linux-code-review-graph-comparison.md)。

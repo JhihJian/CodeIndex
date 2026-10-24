@@ -1,0 +1,88 @@
+TAP version 13
+# (node:747924) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: parses C/C++ functions, types, includes, macros and calls
+ok 1 - parses C/C++ functions, types, includes, macros and calls
+  ---
+  duration_ms: 6.249274
+  type: 'test'
+  ...
+# Subtest: publishes C/C++ symbols and resolves local calls and includes
+ok 2 - publishes C/C++ symbols and resolves local calls and includes
+  ---
+  duration_ms: 127.775915
+  type: 'test'
+  ...
+# (node:747925) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: indexes symbols, containment and resolved call relations with immutable evidence
+ok 3 - indexes symbols, containment and resolved call relations with immutable evidence
+  ---
+  duration_ms: 147.49297
+  type: 'test'
+  ...
+# Subtest: update reuses unchanged parse results and publishes a new snapshot
+ok 4 - update reuses unchanged parse results and publishes a new snapshot
+  ---
+  duration_ms: 228.628302
+  type: 'test'
+  ...
+# (node:747926) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: streamed updates reuse records without whole JSONL reads and match full rebuild identity
+ok 5 - streamed updates reuse records without whole JSONL reads and match full rebuild identity
+  ---
+  duration_ms: 191.295109
+  type: 'test'
+  ...
+# Subtest: parser consumers propagate storage failure exactly once
+ok 6 - parser consumers propagate storage failure exactly once
+  ---
+  duration_ms: 72.848005
+  type: 'test'
+  ...
+# Subtest: failed build preserves published snapshot and removes temporary files
+ok 7 - failed build preserves published snapshot and removes temporary files
+  ---
+  duration_ms: 84.849748
+  type: 'test'
+  ...
+# Subtest: build configuration changes snapshot identity and invalidates no-op
+ok 8 - build configuration changes snapshot identity and invalidates no-op
+  ---
+  duration_ms: 83.756018
+  type: 'test'
+  ...
+# Subtest: JSONL streaming preserves UTF-8 crossing chunk boundary and final record
+ok 9 - JSONL streaming preserves UTF-8 crossing chunk boundary and final record
+  ---
+  duration_ms: 1.961378
+  type: 'test'
+  ...
+# Subtest: navigation and imports are independent of incremental insertion order
+ok 10 - navigation and imports are independent of incremental insertion order
+  ---
+  duration_ms: 144.929896
+  type: 'test'
+  ...
+# Subtest: rebuilding restores a missing database under the same snapshot identity
+ok 11 - rebuilding restores a missing database under the same snapshot identity
+  ---
+  duration_ms: 126.571351
+  type: 'test'
+  ...
+# Subtest: C type usages do not create definition symbols
+ok 12 - C type usages do not create definition symbols
+  ---
+  duration_ms: 5.123031
+  type: 'test'
+  ...
+1..12
+# tests 12
+# suites 0
+# pass 12
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 788.429316

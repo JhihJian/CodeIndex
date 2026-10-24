@@ -1,0 +1,52 @@
+{
+  "output": "/tmp/codeindex-stream-pageindex.json",
+  "repository": "/data/github/PageIndex",
+  "snapshotId": "snapshot:repo-fbac6b82328c3f11df8d:c2c40b70009a824adf2ab6e7",
+  "index": {
+    "files": 155,
+    "sourceBytes": 5268104,
+    "changedFiles": 155,
+    "reusedFiles": 0,
+    "symbols": 2625,
+    "relations": 17651,
+    "partialFiles": 43,
+    "skipped": 27,
+    "buildMs": 2299,
+    "stages": {
+      "scan": 139,
+      "parse-and-store": 1792,
+      "parents": 5,
+      "containment": 3,
+      "relations": 47,
+      "navigation": 111,
+      "indexes": 15,
+      "validation": 33,
+      "exports": 152
+    },
+    "totalSourceBytes": 5268104,
+    "indexLoadOrBuildMs": 2300.886824
+  },
+  "questions": {
+    "file": "/data/dev/CodeIndex/benchmarks/questions-pageindex.json",
+    "total": 6,
+    "hits": 6,
+    "recallAtEvidence": 1
+  },
+  "aggregate": {
+    "codeIndexMedianMs": 3.5557129999997414,
+    "baselineMedianMs": 15.439261999999871,
+    "codeIndexContextBytes": 63905,
+    "baselineMatchedBytes": 29357348,
+    "fullRepositoryBytes": 31608624,
+    "contextReductionVsFullRepository": 494.61895000391206,
+    "contextReductionVsMatchedFiles": 459.39047022924655,
+    "queryWorkReductionVsFullRepository": 494.61895000391206,
+    "queryLatencySpeedupVsRg": 4.342100163877398
+  },
+  "gate": {
+    "recallAtEvidence": true,
+    "contextReductionVsFullRepository": true,
+    "queryLatencyWithinBaseline": true,
+    "significantAdvantage": true
+  }
+}

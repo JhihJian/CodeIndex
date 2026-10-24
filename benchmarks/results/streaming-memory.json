@@ -1,0 +1,50 @@
+{
+  "files": 500,
+  "functionsPerFile": 200,
+  "heapLimitMiB": 320,
+  "full": {
+    "files": 500,
+    "sourceBytes": 5337110,
+    "changedFiles": 500,
+    "reusedFiles": 0,
+    "symbols": 100500,
+    "relations": 99500,
+    "partialFiles": 0,
+    "skipped": 0,
+    "buildMs": 13704,
+    "stages": {
+      "scan": 54,
+      "parse-and-store": 7424,
+      "parents": 149,
+      "containment": 130,
+      "relations": 518,
+      "navigation": 2508,
+      "indexes": 232,
+      "validation": 219,
+      "exports": 2455
+    }
+  },
+  "update": {
+    "files": 500,
+    "sourceBytes": 5337138,
+    "changedFiles": 1,
+    "reusedFiles": 499,
+    "symbols": 100501,
+    "relations": 99500,
+    "partialFiles": 0,
+    "skipped": 0,
+    "buildMs": 8072,
+    "stages": {
+      "scan": 52,
+      "parse-and-store": 1789,
+      "parents": 151,
+      "containment": 133,
+      "relations": 545,
+      "navigation": 2472,
+      "indexes": 253,
+      "validation": 233,
+      "exports": 2428
+    }
+  },
+  "maxRssKiB": 411944
+}

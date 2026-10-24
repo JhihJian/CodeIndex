@@ -1,0 +1,29 @@
+{
+  "repositoryId": "repo-67168d4b0edd4e638610",
+  "snapshotId": "snapshot:repo-67168d4b0edd4e638610:55e19f13edd2a6fa865f50fa",
+  "status": "partial",
+  "stats": {
+    "files": 86363,
+    "sourceBytes": 1212793499,
+    "changedFiles": 0,
+    "reusedFiles": 86363,
+    "symbols": 4616281,
+    "relations": 4520076,
+    "partialFiles": 56288,
+    "skipped": 102,
+    "buildMs": 268,
+    "stages": {
+      "scan": 7078,
+      "parse-and-store": 1424381,
+      "parents": 13985,
+      "containment": 21098,
+      "relations": 64376,
+      "navigation": 182545,
+      "indexes": 27561,
+      "validation": 25482,
+      "exports": 163930
+    },
+    "noOp": true
+  },
+  "store": "/data/dev/CodeIndex/.data/linux-stream-v5"
+}

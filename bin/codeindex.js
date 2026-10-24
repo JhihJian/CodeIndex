@@ -21,8 +21,8 @@ function parseArgs(argv) {
 
 function usage() {
   console.log(`CodeIndex commands:
-  index     --repo PATH --store PATH [--force]
-  update    --repo PATH --store PATH
+  index     --repo PATH --store PATH [--force] [--progress]
+  update    --repo PATH --store PATH [--progress]
   inspect   --store PATH [--repo-id ID]
   query     --store PATH --query TEXT [--metadata-only] [--llm --provider NAME --model NAME]
   benchmark --repo PATH --store PATH --questions FILE [--output FILE] [--force]
@@ -40,11 +40,11 @@ try {
   const store = path.resolve(options.store || '.codeindex');
   if (options.command === 'index' || options.command === 'update') {
     if (!options.repo) throw new Error('index/update 需要 --repo');
-    const result = indexRepository(path.resolve(options.repo), store, { incremental: options.command === 'update' && !options.force });
+    const result = indexRepository(path.resolve(options.repo), store, { incremental: options.command === 'update' && !options.force, onProgress: options.progress ? (event) => console.error(JSON.stringify(event)) : undefined });
     jsonOrPrint({ repositoryId: result.manifest.repositoryId, snapshotId: result.manifest.snapshotId, status: result.manifest.status, stats: result.stats, store }, options.json);
   } else if (options.command === 'inspect') {
     const index = loadIndex(store, options.repoid || null);
-    jsonOrPrint({ manifest: index.manifest, counts: { files: index.files.length, symbols: index.symbols.length, relations: index.relations.length, nodes: index.containment.length } }, true);
+    jsonOrPrint({ manifest: index.manifest, counts: { ...index.stats(), nodes: index.db.prepare('SELECT count(*) AS count FROM containment').get().count } }, true);
   } else if (options.command === 'query') {
     if (!options.query) throw new Error('query 需要 --query');
     const index = loadIndex(store, options.repoid || null);

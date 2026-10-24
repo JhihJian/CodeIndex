@@ -12,7 +12,7 @@
     "benchmark": "node bin/codeindex.js benchmark --repo /data/github/PageIndex --store .data/pageindex --questions benchmarks/questions-pageindex.json --output benchmarks/results/pageindex.json"
   },
   "engines": {
-    "node": ">=22.5"
+    "node": "^22.16.0 || >=24.0.0"
   },
   "license": "MIT",
   "dependencies": {

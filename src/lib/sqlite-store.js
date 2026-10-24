@@ -1,9 +1,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { DatabaseSync } from 'node:sqlite';
-import { readJsonl } from './fs.js';
 
-const SCHEMA_VERSION = 'codeindex-sqlite-0.1.0';
+const SCHEMA_VERSION = 'codeindex-sqlite-0.2.0';
 
 function sqlQuote(value) {
   return String(value ?? '').replaceAll('"', '""');
@@ -28,6 +27,7 @@ function createSchema(db) {
     CREATE TABLE IF NOT EXISTS symbols (
       symbol_id TEXT PRIMARY KEY,
       symbol_key TEXT NOT NULL,
+      parent_key TEXT,
       path TEXT NOT NULL,
       file_id TEXT NOT NULL,
       parent_id TEXT,
@@ -45,6 +45,7 @@ function createSchema(db) {
       end_byte INTEGER NOT NULL,
       blob_digest TEXT NOT NULL
     );
+    CREATE INDEX IF NOT EXISTS symbols_by_key ON symbols(symbol_key);
     CREATE INDEX IF NOT EXISTS symbols_by_name ON symbols(name);
     CREATE INDEX IF NOT EXISTS symbols_by_qualified_name ON symbols(qualified_name);
     CREATE INDEX IF NOT EXISTS symbols_by_file ON symbols(file_id);
@@ -62,7 +63,8 @@ function createSchema(db) {
       start_line INTEGER,
       end_line INTEGER,
       start_byte INTEGER,
-      end_byte INTEGER
+      end_byte INTEGER,
+      blob_digest TEXT
     );
     CREATE INDEX IF NOT EXISTS containment_by_parent ON containment(parent_id);
     CREATE TABLE IF NOT EXISTS relations (
@@ -74,7 +76,12 @@ function createSchema(db) {
       status TEXT NOT NULL,
       confidence REAL NOT NULL,
       path TEXT NOT NULL,
-      line INTEGER NOT NULL,
+      start_line INTEGER NOT NULL,
+      end_line INTEGER NOT NULL,
+      start_column INTEGER NOT NULL,
+      end_column INTEGER NOT NULL,
+      start_byte INTEGER NOT NULL,
+      end_byte INTEGER NOT NULL,
       blob_digest TEXT NOT NULL
     );
     CREATE INDEX IF NOT EXISTS relations_by_source ON relations(source_id, type);
@@ -103,50 +110,160 @@ function createSchema(db) {
   `);
 }
 
-function insertRows(db, { files, symbols, containment, relations, navigation }) {
+export function createIndexBuildSession(snapshotDir) {
+  const databasePath = path.join(snapshotDir, 'index.db');
+  const db = new DatabaseSync(databasePath);
+  createSchema(db);
+  db.exec(`
+    PRAGMA journal_mode = DELETE;
+    PRAGMA synchronous = OFF;
+    PRAGMA cache_size = -65536;
+    PRAGMA temp_store = FILE;
+    DROP INDEX IF EXISTS symbols_by_name;
+    DROP INDEX IF EXISTS symbols_by_qualified_name;
+    DROP INDEX IF EXISTS symbols_by_file;
+    DROP INDEX IF EXISTS symbols_by_parent;
+    DROP INDEX IF EXISTS containment_by_parent;
+    DROP INDEX IF EXISTS relations_by_source;
+    DROP INDEX IF EXISTS relations_by_target;
+  `);
+  db.exec(`
+    CREATE TEMP TABLE relation_staging (
+      relation_id TEXT PRIMARY KEY,
+      source_key TEXT NOT NULL,
+      type TEXT NOT NULL,
+      target_name TEXT,
+      target_normalized TEXT,
+      target_leaf TEXT,
+      target_module_path TEXT,
+      path TEXT NOT NULL,
+      file_id TEXT NOT NULL,
+      start_line INTEGER NOT NULL,
+      end_line INTEGER NOT NULL,
+      start_column INTEGER NOT NULL,
+      end_column INTEGER NOT NULL,
+      start_byte INTEGER NOT NULL,
+      end_byte INTEGER NOT NULL,
+      blob_digest TEXT NOT NULL
+    );
+    CREATE INDEX relation_staging_source ON relation_staging(source_key);
+    CREATE TEMP TABLE module_lookup (
+      module_path TEXT,
+      qualified_name TEXT NOT NULL,
+      symbol_id TEXT NOT NULL
+    );
+    CREATE INDEX module_lookup_path ON module_lookup(module_path);
+    CREATE INDEX module_lookup_qualified ON module_lookup(qualified_name);
+  `);
   const insertFile = db.prepare('INSERT INTO files VALUES (?, ?, ?, ?, ?, ?, ?, ?)');
-  const insertSymbol = db.prepare('INSERT INTO symbols VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
-  const insertNode = db.prepare('INSERT INTO containment VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
-  const insertRelation = db.prepare('INSERT INTO relations VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
+  const insertSymbol = db.prepare('INSERT INTO symbols VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
+  const insertModule = db.prepare('INSERT INTO module_lookup VALUES (?, ?, ?)');
+  const insertNode = db.prepare('INSERT INTO containment VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
+  const insertRelation = db.prepare('INSERT INTO relation_staging VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
   const insertNavigation = db.prepare('INSERT INTO navigation VALUES (?, ?, ?, ?, ?, ?, ?)');
   const insertSearch = db.prepare('INSERT INTO search_fts(node_id, node_type, name, qualified_name, signature, doc, summary, path) VALUES (?, ?, ?, ?, ?, ?, ?, ?)');
-  for (const file of files) insertFile.run(file.fileId, file.path, file.language, file.bytes, file.digest, file.lineCount, file.parseStatus, file.parseError);
-  for (const symbol of symbols) {
-    const span = symbol.sourceSpan;
-    insertSymbol.run(symbol.symbolId, symbol.key, symbol.path, symbol.fileId, symbol.parentId || null, symbol.kind, symbol.name, symbol.qualifiedName, symbol.signature || '', symbol.doc || '', symbol.language, span.startLine, span.endLine, span.startColumn, span.endColumn, span.startByte, span.endByte, span.blobDigest);
-  }
-  for (const node of containment) insertNode.run(node.nodeId, node.parentId || null, node.nodeType, node.kind || '', node.title, node.path || '', node.language || '', node.qualifiedName || '', node.signature || '', node.sourceSpan?.startLine || null, node.sourceSpan?.endLine || null, node.sourceSpan?.startByte || null, node.sourceSpan?.endByte || null);
-  for (const relation of relations) insertRelation.run(relation.relationId, relation.type, relation.sourceId, relation.targetId || null, relation.targetName || '', relation.status, relation.confidence, relation.sourceSpan.path, relation.sourceSpan.startLine, relation.sourceSpan.blobDigest);
-  for (const item of navigation) insertNavigation.run(item.nodeId, item.title, item.path || '', item.nodeType, item.summary, JSON.stringify(item.routeTerms || []), item.inputDigest);
-  const nodeById = new Map(navigation.map((item) => [item.nodeId, item]));
-  for (const symbol of symbols) {
-    const item = nodeById.get(symbol.symbolId);
-    insertSearch.run(symbol.symbolId, 'symbol', symbol.name, symbol.qualifiedName, symbol.signature || '', symbol.doc || '', item?.summary || '', symbol.path);
-  }
-  for (const item of navigation.filter((entry) => entry.nodeType === 'file' || entry.nodeType === 'directory' || entry.nodeType === 'repository')) {
-    insertSearch.run(item.nodeId, item.nodeType, item.title, '', '', '', item.summary, item.path || '');
-  }
-}
-
-export function buildIndexDatabase(snapshotDir, data) {
-  const databasePath = path.join(snapshotDir, 'index.db');
-  const tempPath = `${databasePath}.${process.pid}.${Date.now()}.tmp`;
-  const db = new DatabaseSync(tempPath);
-  try {
-    createSchema(db);
-    db.exec('BEGIN');
-    insertRows(db, data);
-    db.exec('COMMIT');
-    db.exec('PRAGMA wal_checkpoint(TRUNCATE)');
-  } catch (error) {
-    try { db.exec('ROLLBACK'); } catch {}
-    db.close();
-    fs.rmSync(tempPath, { force: true });
-    throw error;
-  }
-  db.close();
-  fs.renameSync(tempPath, databasePath);
-  return databasePath;
+  return {
+    db,
+    begin() { db.exec('BEGIN'); },
+    commit() { db.exec('COMMIT'); },
+    insertFile(file) { insertFile.run(file.fileId, file.path, file.language, file.bytes, file.digest, file.lineCount, file.parseStatus, file.parseError); },
+    insertSymbol(symbol) {
+      const span = symbol.sourceSpan;
+      insertSymbol.run(symbol.symbolId, symbol.key, symbol.parentKey || null, symbol.path, symbol.fileId, null, symbol.kind, symbol.name, symbol.qualifiedName, symbol.signature || '', symbol.doc || '', symbol.language, span.startLine, span.endLine, span.startColumn, span.endColumn, span.startByte, span.endByte, span.blobDigest);
+      if (symbol.kind === 'module') {
+        const modulePath = symbol.path.replace(/^\.\//, '');
+        const moduleWithoutExtension = modulePath.replace(/\.(js|jsx|mjs|cjs|ts|tsx|py|c|h|cc|cpp|cxx|hh|hpp|hxx)$/, '');
+        insertModule.run(modulePath, symbol.qualifiedName, symbol.symbolId);
+        if (moduleWithoutExtension !== modulePath) insertModule.run(moduleWithoutExtension, symbol.qualifiedName, symbol.symbolId);
+      }
+    },
+    insertNode(node) {
+      insertNode.run(node.nodeId, node.parentId || null, node.nodeType, node.kind || '', node.title, node.path || '', node.language || '', node.qualifiedName || '', node.signature || '', node.sourceSpan?.startLine || null, node.sourceSpan?.endLine || null, node.sourceSpan?.startByte || null, node.sourceSpan?.endByte || null, node.sourceSpan?.blobDigest || null);
+    },
+    insertRelation(relation) {
+      const span = relation.sourceSpan;
+      insertRelation.run(relation.relationId, relation.sourceKey, relation.type, relation.targetName || '', relation.targetNormalized || '', relation.targetLeaf || '', relation.targetModulePath || '', relation.path, relation.fileId, span.startLine, span.endLine, span.startColumn, span.endColumn, span.startByte, span.endByte, span.blobDigest);
+    },
+    insertNavigation(item) { insertNavigation.run(item.nodeId, item.title, item.path || '', item.nodeType, item.summary, JSON.stringify(item.routeTerms || []), item.inputDigest); },
+    insertSearch(item) { insertSearch.run(item.nodeId, item.nodeType, item.name || item.title || '', item.qualifiedName || '', item.signature || '', item.doc || '', item.summary || '', item.path || ''); },
+    finalizeParents() {
+      db.exec(`BEGIN;
+        UPDATE symbols SET parent_id = COALESCE(
+          (SELECT parent.symbol_id FROM symbols parent WHERE parent.symbol_key = symbols.parent_key LIMIT 1),
+          symbols.file_id
+        ) WHERE parent_id IS NULL;
+      COMMIT`);
+    },
+    finalizeContainment() {
+      db.exec(`BEGIN;
+        INSERT INTO containment(node_id, parent_id, node_type, kind, title, path, language, qualified_name, signature, start_line, end_line, start_byte, end_byte, blob_digest)
+          SELECT symbol_id, parent_id, 'symbol', kind, name, path, language, qualified_name, signature, start_line, end_line, start_byte, end_byte, blob_digest FROM symbols;
+      COMMIT`);
+    },
+    finalizeRelations() {
+      db.exec(`BEGIN;
+        CREATE TEMP TABLE symbol_file_name_unique AS
+          SELECT path, name, CASE WHEN count(*) = 1 THEN min(symbol_id) END AS symbol_id
+          FROM symbols GROUP BY path, name;
+        CREATE TEMP TABLE symbol_qualified_unique AS
+          SELECT qualified_name, CASE WHEN count(*) = 1 THEN min(symbol_id) END AS symbol_id
+          FROM symbols GROUP BY qualified_name;
+        CREATE TEMP TABLE symbol_name_unique AS
+          SELECT name, CASE WHEN count(*) = 1 THEN min(symbol_id) END AS symbol_id
+          FROM symbols GROUP BY name;
+        CREATE TEMP TABLE module_path_unique AS
+          SELECT module_path, CASE WHEN count(*) = 1 THEN min(symbol_id) END AS symbol_id
+          FROM module_lookup GROUP BY module_path;
+        CREATE TEMP TABLE module_qualified_unique AS
+          SELECT qualified_name, CASE WHEN count(DISTINCT symbol_id) = 1 THEN min(symbol_id) END AS symbol_id
+          FROM module_lookup GROUP BY qualified_name;
+        CREATE UNIQUE INDEX temp.file_name_lookup ON symbol_file_name_unique(path, name);
+        CREATE UNIQUE INDEX temp.qualified_lookup ON symbol_qualified_unique(qualified_name);
+        CREATE UNIQUE INDEX temp.name_lookup ON symbol_name_unique(name);
+        CREATE UNIQUE INDEX temp.module_path_lookup ON module_path_unique(module_path);
+        CREATE UNIQUE INDEX temp.module_qualified_lookup ON module_qualified_unique(qualified_name);
+        WITH resolved AS (
+          SELECT r.*, source.symbol_id AS source_id,
+            CASE WHEN r.type IN ('imports', 'includes')
+              THEN COALESCE(module_path.symbol_id, module_qualified.symbol_id)
+              ELSE COALESCE(file_name.symbol_id, qualified.symbol_id, name.symbol_id)
+            END AS target_id
+          FROM relation_staging r
+          JOIN symbols source ON source.symbol_key = r.source_key
+          LEFT JOIN module_path_unique module_path ON module_path.module_path = r.target_module_path
+          LEFT JOIN module_qualified_unique module_qualified ON module_qualified.qualified_name = r.target_normalized
+          LEFT JOIN symbol_file_name_unique file_name ON file_name.path = r.path AND file_name.name = r.target_leaf
+          LEFT JOIN symbol_qualified_unique qualified ON qualified.qualified_name = r.target_normalized
+          LEFT JOIN symbol_name_unique name ON name.name = r.target_leaf
+        )
+        INSERT INTO relations(relation_id, type, source_id, target_id, target_name, status, confidence, path, start_line, end_line, start_column, end_column, start_byte, end_byte, blob_digest)
+          SELECT relation_id, type, source_id, target_id, target_name,
+            CASE WHEN target_id IS NULL THEN 'unresolved' ELSE 'resolved' END,
+            CASE WHEN target_id IS NULL THEN 0 ELSE 1 END,
+            path, start_line, end_line, start_column, end_column, start_byte, end_byte, blob_digest
+          FROM resolved;
+      COMMIT`);
+    },
+    rebuildIndexes() {
+      db.exec(`
+        CREATE INDEX IF NOT EXISTS symbols_by_name ON symbols(name);
+        CREATE INDEX IF NOT EXISTS symbols_by_qualified_name ON symbols(qualified_name);
+        CREATE INDEX IF NOT EXISTS symbols_by_file ON symbols(file_id);
+        CREATE INDEX IF NOT EXISTS symbols_by_parent ON symbols(parent_id);
+        CREATE INDEX IF NOT EXISTS containment_by_parent ON containment(parent_id);
+        CREATE INDEX IF NOT EXISTS relations_by_source ON relations(source_id, type);
+        CREATE INDEX IF NOT EXISTS relations_by_target ON relations(target_id, type);
+      `);
+    },
+    counts() {
+      return {
+        files: Number(db.prepare('SELECT count(*) AS count FROM files').get().count),
+        symbols: Number(db.prepare('SELECT count(*) AS count FROM symbols').get().count),
+        relations: Number(db.prepare('SELECT count(*) AS count FROM relations').get().count),
+      };
+    },
+    close() { db.close(); },
+  };
 }
 
 function rowToFile(row) {
@@ -203,13 +320,5 @@ export function openIndexDatabase(snapshotDir, manifest) {
 export function ensureIndexDatabase(snapshotDir, manifest) {
   const existing = openIndexDatabase(snapshotDir, manifest);
   if (existing) return existing;
-  const data = {
-    files: readJsonl(path.join(snapshotDir, 'files.jsonl')),
-    symbols: readJsonl(path.join(snapshotDir, 'symbols.jsonl')),
-    containment: readJsonl(path.join(snapshotDir, 'containment.jsonl')),
-    relations: readJsonl(path.join(snapshotDir, 'relations.jsonl')),
-    navigation: readJsonl(path.join(snapshotDir, 'navigation.jsonl')),
-  };
-  buildIndexDatabase(snapshotDir, data);
-  return openIndexDatabase(snapshotDir, manifest);
+  throw new Error(`索引数据库缺失：${path.join(snapshotDir, 'index.db')}，请重新执行 index 命令生成索引。`);
 }

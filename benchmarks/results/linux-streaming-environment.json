@@ -1,0 +1,39 @@
+{
+  "node": "v24.13.1",
+  "platform": "linux",
+  "arch": "x64",
+  "kernel": "7.0.0-38-generic",
+  "cpu": "AMD Ryzen 7 255 w/ Radeon 780M Graphics",
+  "logicalCpus": 16,
+  "totalMemoryBytes": 20742094848,
+  "snapshotId": "snapshot:repo-67168d4b0edd4e638610:55e19f13edd2a6fa865f50fa",
+  "filesByLanguageAndStatus": {
+    "unknown:unsupported": 20113,
+    "toml:unsupported": 1,
+    "c:partial": 29927,
+    "c:complete": 29815,
+    "shell:unsupported": 908,
+    "python:complete": 259,
+    "yaml:unsupported": 4388,
+    "css:unsupported": 3,
+    "python:partial": 1,
+    "rust:unsupported": 76,
+    "cpp:partial": 3,
+    "ruby:unsupported": 1,
+    "json:unsupported": 866,
+    "markdown:unsupported": 1,
+    "cpp:complete": 1
+  },
+  "artifacts": {
+    "containment.jsonl": 3248059261,
+    "files.jsonl": 26942931,
+    "index.db": 12535934976,
+    "manifest.json": 13126,
+    "navigation.jsonl": 1773512489,
+    "parsed.jsonl": 2833614537,
+    "relations.jsonl": 2623009274,
+    "symbols.jsonl": 4208851391
+  },
+  "extraWorkspaceFile": ".code-review-graph/.gitignore",
+  "maxOldSpaceSizeMiB": 2048
+}

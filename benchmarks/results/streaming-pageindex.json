@@ -1,0 +1,385 @@
+{
+  "schema": "codeindex-benchmark-0.1.0",
+  "generatedAt": "2026-10-24T16:11:23.577Z",
+  "repository": "/data/github/PageIndex",
+  "snapshotId": "snapshot:repo-fbac6b82328c3f11df8d:c2c40b70009a824adf2ab6e7",
+  "index": {
+    "files": 155,
+    "sourceBytes": 5268104,
+    "changedFiles": 155,
+    "reusedFiles": 0,
+    "symbols": 2625,
+    "relations": 17651,
+    "partialFiles": 43,
+    "skipped": 27,
+    "buildMs": 2299,
+    "stages": {
+      "scan": 139,
+      "parse-and-store": 1792,
+      "parents": 5,
+      "containment": 3,
+      "relations": 47,
+      "navigation": 111,
+      "indexes": 15,
+      "validation": 33,
+      "exports": 152
+    },
+    "totalSourceBytes": 5268104,
+    "indexLoadOrBuildMs": 2300.886824
+  },
+  "questions": {
+    "file": "/data/dev/CodeIndex/benchmarks/questions-pageindex.json",
+    "total": 6,
+    "hits": 6,
+    "recallAtEvidence": 1
+  },
+  "aggregate": {
+    "codeIndexMedianMs": 3.5557129999997414,
+    "baselineMedianMs": 15.439261999999871,
+    "codeIndexContextBytes": 63905,
+    "baselineMatchedBytes": 29357348,
+    "fullRepositoryBytes": 31608624,
+    "contextReductionVsFullRepository": 494.61895000391206,
+    "contextReductionVsMatchedFiles": 459.39047022924655,
+    "queryWorkReductionVsFullRepository": 494.61895000391206,
+    "queryLatencySpeedupVsRg": 4.342100163877398
+  },
+  "gate": {
+    "recallAtEvidence": true,
+    "contextReductionVsFullRepository": true,
+    "queryLatencyWithinBaseline": true,
+    "significantAdvantage": true
+  },
+  "rows": [
+    {
+      "query": "local document store implementation",
+      "hit": true,
+      "codeIndexMs": 3.5557129999997414,
+      "baselineMs": 13.029997000000094,
+      "candidateCount": 12,
+      "evidenceCount": 6,
+      "contextBytes": 5598,
+      "baselineMatchedBytes": 4784155,
+      "baselineOutputBytes": 1088198,
+      "matches": 2814,
+      "topCandidates": [
+        {
+          "type": "symbol",
+          "score": 13,
+          "symbolId": "symbol:effbef3449187c97b90210d8",
+          "name": "pageindex.local_store.DocStore",
+          "path": "pageindex/local_store.py",
+          "startLine": 73
+        },
+        {
+          "type": "symbol",
+          "score": 13,
+          "symbolId": "symbol:12ac845d0deed4afb2f01734",
+          "name": "pageindex.local_store.DocStore.delete_document",
+          "path": "pageindex/local_store.py",
+          "startLine": 168
+        },
+        {
+          "type": "symbol",
+          "score": 13,
+          "symbolId": "symbol:c32da9a1c0f3e67625b34478",
+          "name": "pageindex.local_store",
+          "path": "pageindex/local_store.py",
+          "startLine": 1
+        },
+        {
+          "type": "symbol",
+          "score": 13,
+          "symbolId": "symbol:6e364fbe0f18123e76b01919",
+          "name": "pageindex.local_store.DocStore.save_document",
+          "path": "pageindex/local_store.py",
+          "startLine": 115
+        },
+        {
+          "type": "symbol",
+          "score": 10,
+          "symbolId": "symbol:6a48483923a3d624ca12d417",
+          "name": "pageindex.local_store.DocStore.__init__",
+          "path": "pageindex/local_store.py",
+          "startLine": 74
+        }
+      ],
+      "snapshotId": "snapshot:repo-fbac6b82328c3f11df8d:c2c40b70009a824adf2ab6e7"
+    },
+    {
+      "query": "how does tree optimization calculate search cost",
+      "hit": true,
+      "codeIndexMs": 3.3013670000000275,
+      "baselineMs": 17.155999000000065,
+      "candidateCount": 12,
+      "evidenceCount": 6,
+      "contextBytes": 5420,
+      "baselineMatchedBytes": 4772603,
+      "baselineOutputBytes": 2638659,
+      "matches": 1461,
+      "topCandidates": [
+        {
+          "type": "symbol",
+          "score": 16,
+          "symbolId": "symbol:19cdaf4c230d6cacb2c50176",
+          "name": "pageindex.tree_optimize.tree_cost",
+          "path": "pageindex/tree_optimize.py",
+          "startLine": 292
+        },
+        {
+          "type": "symbol",
+          "score": 16,
+          "symbolId": "symbol:efad62e98a48ea446534b3b8",
+          "name": "pageindex.tree_optimize",
+          "path": "pageindex/tree_optimize.py",
+          "startLine": 1
+        },
+        {
+          "type": "symbol",
+          "score": 13,
+          "symbolId": "symbol:dc5fd85e8f5ceee303c8ca19",
+          "name": "pageindex.tree_optimize.tree_cost_via_frontier",
+          "path": "pageindex/tree_optimize.py",
+          "startLine": 319
+        },
+        {
+          "type": "symbol",
+          "score": 13,
+          "symbolId": "symbol:5996150fd6134a820409d403",
+          "name": "pageindex.tree_optimize.worst_case_search_complexity",
+          "path": "pageindex/tree_optimize.py",
+          "startLine": 382
+        },
+        {
+          "type": "symbol",
+          "score": 13,
+          "symbolId": "symbol:eacdc1c2edf072da250c207f",
+          "name": "pageindex.tree_optimize.complexity",
+          "path": "pageindex/tree_optimize.py",
+          "startLine": 430
+        }
+      ],
+      "snapshotId": "snapshot:repo-fbac6b82328c3f11df8d:c2c40b70009a824adf2ab6e7"
+    },
+    {
+      "query": "document structure retrieval tools",
+      "hit": true,
+      "codeIndexMs": 4.352847000000111,
+      "baselineMs": 11.255663000000368,
+      "candidateCount": 12,
+      "evidenceCount": 6,
+      "contextBytes": 7592,
+      "baselineMatchedBytes": 4762532,
+      "baselineOutputBytes": 1073436,
+      "matches": 2652,
+      "topCandidates": [
+        {
+          "type": "symbol",
+          "score": 13,
+          "symbolId": "symbol:ef67db452426f4d301600559",
+          "name": "pageindex.agent_tools._get_document_structure",
+          "path": "pageindex/agent_tools.py",
+          "startLine": 910
+        },
+        {
+          "type": "symbol",
+          "score": 10,
+          "symbolId": "symbol:fca12ed1bebd8cdda749eb0c",
+          "name": "pageindex.client.PageIndexClient.get_document_structure",
+          "path": "pageindex/client.py",
+          "startLine": 1004
+        },
+        {
+          "type": "symbol",
+          "score": 10,
+          "symbolId": "symbol:2a82309d69ab91119c04dcf2",
+          "name": "tests.test_agent_tools.test_local_schema_structure_matches_contract",
+          "path": "tests/test_agent_tools.py",
+          "startLine": 107
+        },
+        {
+          "type": "symbol",
+          "score": 10,
+          "symbolId": "symbol:6de813d1449bb4de0dce987b",
+          "name": "tests.test_agent_tools",
+          "path": "tests/test_agent_tools.py",
+          "startLine": 1
+        },
+        {
+          "type": "symbol",
+          "score": 10,
+          "symbolId": "symbol:268548a4a1a93c707be0cad5",
+          "name": "tests.test_client.test_get_document_structure",
+          "path": "tests/test_client.py",
+          "startLine": 575
+        }
+      ],
+      "snapshotId": "snapshot:repo-fbac6b82328c3f11df8d:c2c40b70009a824adf2ab6e7"
+    },
+    {
+      "query": "build a tree from markdown nodes",
+      "hit": true,
+      "codeIndexMs": 5.108752999999979,
+      "baselineMs": 16.138522000000194,
+      "candidateCount": 12,
+      "evidenceCount": 6,
+      "contextBytes": 17143,
+      "baselineMatchedBytes": 5121010,
+      "baselineOutputBytes": 2063365,
+      "matches": 3379,
+      "topCandidates": [
+        {
+          "type": "symbol",
+          "score": 19,
+          "symbolId": "symbol:8cb9a25dc2967feeb0e9dc40",
+          "name": "pageindex.page_index_md",
+          "path": "pageindex/page_index_md.py",
+          "startLine": 1
+        },
+        {
+          "type": "symbol",
+          "score": 16,
+          "symbolId": "symbol:bc1c964c7bff402c3cbc267d",
+          "name": "pageindex.flash.api.page_index_flash",
+          "path": "pageindex/flash/api.py",
+          "startLine": 188
+        },
+        {
+          "type": "symbol",
+          "score": 16,
+          "symbolId": "symbol:49fbc4d443f061ea5c7cbfc8",
+          "name": "pageindex.flash.outline_assembly.assembly",
+          "path": "pageindex/flash/outline_assembly/assembly.py",
+          "startLine": 1
+        },
+        {
+          "type": "symbol",
+          "score": 16,
+          "symbolId": "symbol:28ec268429c02942ef1f9f0e",
+          "name": "pageindex.page_index_md.build_tree_from_nodes",
+          "path": "pageindex/page_index_md.py",
+          "startLine": 192
+        },
+        {
+          "type": "symbol",
+          "score": 13,
+          "symbolId": "symbol:533ed63fcc43948b36cfb279",
+          "name": "pageindex.flash.api",
+          "path": "pageindex/flash/api.py",
+          "startLine": 1
+        }
+      ],
+      "snapshotId": "snapshot:repo-fbac6b82328c3f11df8d:c2c40b70009a824adf2ab6e7"
+    },
+    {
+      "query": "main PageIndex client API",
+      "hit": true,
+      "codeIndexMs": 4.580011999999897,
+      "baselineMs": 15.439261999999871,
+      "candidateCount": 12,
+      "evidenceCount": 6,
+      "contextBytes": 10711,
+      "baselineMatchedBytes": 4720741,
+      "baselineOutputBytes": 3091247,
+      "matches": 4255,
+      "topCandidates": [
+        {
+          "type": "symbol",
+          "score": 13,
+          "symbolId": "symbol:0b6787c625f26fedc11ef856",
+          "name": "pageindex.client.PageIndexClient.is_retrieval_ready",
+          "path": "pageindex/client.py",
+          "startLine": 1013
+        },
+        {
+          "type": "symbol",
+          "score": 13,
+          "symbolId": "symbol:98674fed832f701bec083da2",
+          "name": "pageindex.client.PageIndexClient.list_folders",
+          "path": "pageindex/client.py",
+          "startLine": 2718
+        },
+        {
+          "type": "symbol",
+          "score": 13,
+          "symbolId": "symbol:96384e6ee6480f9488314a60",
+          "name": "pageindex.client.PageIndexClient.__init__",
+          "path": "pageindex/client.py",
+          "startLine": 485
+        },
+        {
+          "type": "symbol",
+          "score": 13,
+          "symbolId": "symbol:56123e668ad2448d200d511e",
+          "name": "pageindex.local_api.LocalAPI",
+          "path": "pageindex/local_api.py",
+          "startLine": 37
+        },
+        {
+          "type": "symbol",
+          "score": 13,
+          "symbolId": "symbol:3b44b02ff20311818d0769c2",
+          "name": "tests.test_client",
+          "path": "tests/test_client.py",
+          "startLine": 1
+        }
+      ],
+      "snapshotId": "snapshot:repo-fbac6b82328c3f11df8d:c2c40b70009a824adf2ab6e7"
+    },
+    {
+      "query": "extract table of contents from PDF",
+      "hit": true,
+      "codeIndexMs": 3.4067839999997886,
+      "baselineMs": 17.21106200000031,
+      "candidateCount": 12,
+      "evidenceCount": 6,
+      "contextBytes": 17441,
+      "baselineMatchedBytes": 5196307,
+      "baselineOutputBytes": 3069980,
+      "matches": 3626,
+      "topCandidates": [
+        {
+          "type": "symbol",
+          "score": 16,
+          "symbolId": "symbol:bc1c964c7bff402c3cbc267d",
+          "name": "pageindex.flash.api.page_index_flash",
+          "path": "pageindex/flash/api.py",
+          "startLine": 188
+        },
+        {
+          "type": "symbol",
+          "score": 13,
+          "symbolId": "symbol:8d81543514686c5a3cabfbcb",
+          "name": "pageindex.flash.main.extract_toc",
+          "path": "pageindex/flash/main.py",
+          "startLine": 124
+        },
+        {
+          "type": "symbol",
+          "score": 13,
+          "symbolId": "symbol:a0d09cb527202125c7663d64",
+          "name": "pageindex.flash.parser_pdfium_charlevel.char_extract._accumulate_type3_extents",
+          "path": "pageindex/flash/parser_pdfium_charlevel/char_extract.py",
+          "startLine": 211
+        },
+        {
+          "type": "symbol",
+          "score": 13,
+          "symbolId": "symbol:055f4da12113044838fe3d62",
+          "name": "tests.test_flash_extraction.test_running_contents_link_does_not_hide_headings",
+          "path": "tests/test_flash_extraction.py",
+          "startLine": 726
+        },
+        {
+          "type": "symbol",
+          "score": 13,
+          "symbolId": "symbol:b7149482ff48ac6032cca4be",
+          "name": "tests.test_flash_extraction.test_company_name_under_the_contents_link_is_a_running_header",
+          "path": "tests/test_flash_extraction.py",
+          "startLine": 847
+        }
+      ],
+      "snapshotId": "snapshot:repo-fbac6b82328c3f11df8d:c2c40b70009a824adf2ab6e7"
+    }
+  ]
+}

@@ -1,12 +1,12 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { parseEntries } from '../parsers/index.js';
+import { parseEntriesBatched } from '../parsers/index.js';
 import { gitContext } from './git.js';
 import { hashText, shortHash, stableJson } from './hash.js';
-import { PARSER_VERSION, readJson, readJsonl, repositoryId, routeTerms, scanRepository, sourceLayout, spanFrom, writeJsonAtomic, writeJsonl } from './fs.js';
-import { buildIndexDatabase, ensureIndexDatabase } from './sqlite-store.js';
+import { PARSER_VERSION, iterateJsonl, readJson, readJsonl, repositoryId, routeTerms, scanRepository, sourceLayout, spanFrom, writeJsonAtomic, writeJsonl } from './fs.js';
+import { createIndexBuildSession, ensureIndexDatabase } from './sqlite-store.js';
 
-const INDEX_SCHEMA = 'codeindex-index-0.1.0';
+const INDEX_SCHEMA = 'codeindex-index-0.2.0';
 
 function nodeId(kind, value) { return `${kind}:${shortHash(value, 24)}`; }
 
@@ -19,37 +19,32 @@ function loadPublishedManifest(storeRoot, repoId) {
   return { published, snapshotDir, manifest };
 }
 
-function loadPublishedData(publishedIndex) {
-  if (!publishedIndex) return null;
-  const { snapshotDir } = publishedIndex;
-  return {
-    ...publishedIndex,
-    files: readJsonl(path.join(snapshotDir, 'files.jsonl')),
-    parsed: readJsonl(path.join(snapshotDir, 'parsed.jsonl')),
-  };
-}
-
 function normalizeTarget(targetName) {
   return String(targetName || '').replace(/^\.+/, '').replace(/^['"]|['"]$/g, '').replace(/\.(js|jsx|mjs|cjs|ts|tsx|py)$/, '').replaceAll('/', '.').replace(/^\.+/, '');
 }
 
-function resolveRelationTarget(relation, indexes, filePath) {
-  const raw = normalizeTarget(relation.targetName);
-  if (!raw) return null;
-  if (relation.type === 'imports' || relation.type === 'includes') {
-    const exactModule = indexes.moduleByQualified.get(raw) || [...indexes.moduleByQualified.values()].find((item) => item.qualifiedName.endsWith(`.${raw}`));
-    if (exactModule) return exactModule;
-    const relative = raw.startsWith('.') ? path.posix.normalize(path.posix.join(path.posix.dirname(filePath), raw)) : raw;
-    const modulePath = relative.replace(/^\.\//, '').replace(/\.(js|jsx|mjs|cjs|ts|tsx|py|c|h|cc|cpp|cxx|hh|hpp|hxx)$/, '');
-    return indexes.moduleByPath.get(modulePath) || indexes.moduleByQualified.get(modulePath.replaceAll('/', '.')) || null;
+function relationTargetFields(relation, entry, entries) {
+  const clean = String(relation.targetName || '').trim().replace(/^<|>$/g, '').replace(/^['"]|['"]$/g, '');
+  const normalized = normalizeTarget(clean);
+  let modulePath = clean;
+  if (relation.type === 'includes') {
+    const relative = path.posix.normalize(path.posix.join(path.posix.dirname(entry.path), clean));
+    modulePath = entries.has(relative) ? relative : clean;
+  } else if (relation.type === 'imports' && entry.language === 'python') {
+    if (relation.importLevel > 0) {
+      let base = path.posix.dirname(entry.path);
+      for (let level = 1; level < relation.importLevel; level++) base = path.posix.dirname(base);
+      modulePath = path.posix.join(base, (relation.importModule || relation.importName || '').replaceAll('.', '/'));
+    } else modulePath = (relation.importModule || clean).replaceAll('.', '/');
+  } else if (relation.type === 'imports' && clean.startsWith('.')) {
+    modulePath = path.posix.normalize(path.posix.join(path.posix.dirname(entry.path), clean));
   }
-  const leaf = raw.split('.').pop();
-  const sameFile = indexes.symbolsByFileName.get(`${filePath}\0${leaf}`) || [];
-  if (sameFile.length === 1) return sameFile[0];
-  const exact = indexes.symbolsByQualified.get(raw);
-  if (exact) return exact;
-  const named = indexes.symbolsByName.get(leaf) || [];
-  return named.length === 1 ? named[0] : null;
+  modulePath = modulePath.replace(/^\.\//, '');
+  return {
+    targetNormalized: ['imports', 'includes'].includes(relation.type) ? modulePath.replaceAll('/', '.') : normalized,
+    targetLeaf: normalized.split('.').pop() || normalized,
+    targetModulePath: modulePath,
+  };
 }
 
 function makeSummary(node, children, file) {
@@ -84,192 +79,322 @@ function buildDirectories(files, repoId) {
   return nodes;
 }
 
-function previousFileMap(previous) {
-  return new Map((previous?.files || []).map((file) => [file.path, file]));
+function createJsonlWriter(filePath) {
+  fs.mkdirSync(path.dirname(filePath), { recursive: true });
+  const fd = fs.openSync(filePath, 'w');
+  let buffer = '';
+  let closed = false;
+  return {
+    write(value) {
+      buffer += `${JSON.stringify(value)}\n`;
+      if (Buffer.byteLength(buffer, 'utf8') >= 1024 * 1024) {
+        fs.writeSync(fd, buffer);
+        buffer = '';
+      }
+    },
+    close() {
+      if (closed) return;
+      closed = true;
+      try { if (buffer) fs.writeSync(fd, buffer); }
+      finally { fs.closeSync(fd); }
+    },
+  };
 }
 
-export function validateIndexData({ tempDir, manifest, files, symbols, containment, relations }) {
+function sourceSpanFromRow(row, snapshotId) {
+  return {
+    path: row.path,
+    startLine: row.start_line,
+    endLine: row.end_line,
+    startColumn: row.start_column,
+    endColumn: row.end_column,
+    startByte: row.start_byte,
+    endByte: row.end_byte,
+    blobDigest: row.blob_digest,
+    snapshotId,
+  };
+}
+
+function* symbolRows(db, snapshotId) {
+  for (const row of db.prepare('SELECT * FROM symbols ORDER BY rowid').iterate()) {
+    yield {
+      symbolId: row.symbol_id,
+      key: row.symbol_key,
+      parentKey: row.parent_key,
+      path: row.path,
+      fileId: row.file_id,
+      parentId: row.parent_id,
+      kind: row.kind,
+      name: row.name,
+      qualifiedName: row.qualified_name,
+      signature: row.signature,
+      sourceSpan: sourceSpanFromRow(row, snapshotId),
+      doc: row.doc || null,
+      language: row.language,
+    };
+  }
+}
+
+function* containmentRows(db, snapshotId) {
+  for (const row of db.prepare(`SELECT c.*, s.start_column, s.end_column FROM containment c
+    LEFT JOIN symbols s ON s.symbol_id = c.node_id ORDER BY c.rowid`).iterate()) {
+    const item = { nodeId: row.node_id, parentId: row.parent_id, nodeType: row.node_type, kind: row.kind, title: row.title, path: row.path, language: row.language, qualifiedName: row.qualified_name, signature: row.signature };
+    if (row.start_line !== null) item.sourceSpan = sourceSpanFromRow(row, snapshotId);
+    yield item;
+  }
+}
+
+function* relationRows(db, snapshotId) {
+  for (const row of db.prepare('SELECT relations.*, symbols.language FROM relations JOIN symbols ON symbols.symbol_id = relations.source_id ORDER BY relations.rowid').iterate()) {
+    yield {
+      relationId: row.relation_id,
+      type: row.type,
+      sourceId: row.source_id,
+      targetId: row.target_id,
+      targetName: row.target_name,
+      status: row.status,
+      confidence: row.confidence,
+      sourceSpan: sourceSpanFromRow(row, snapshotId),
+      context: { language: row.language, parserVersion: PARSER_VERSION },
+    };
+  }
+}
+
+function* navigationRows(db) {
+  for (const row of db.prepare('SELECT * FROM navigation ORDER BY rowid').iterate()) {
+    yield { nodeId: row.node_id, title: row.title, path: row.path, nodeType: row.node_type, summary: row.summary, routeTerms: JSON.parse(row.route_terms || '[]'), inputDigest: row.input_digest };
+  }
+}
+
+function buildNavigation(session) {
+  const { db } = session;
+  db.exec(`
+    CREATE TEMP TABLE containment_child_summary AS
+      SELECT parent_id,
+        json_group_array(title) AS child_titles,
+        json_group_array(node_id) AS child_ids
+      FROM (
+        SELECT parent_id, node_id, title,
+          row_number() OVER (PARTITION BY parent_id ORDER BY path, start_line, node_type, title, node_id) AS child_number
+        FROM containment
+        WHERE parent_id IS NOT NULL
+      )
+      WHERE child_number <= 12
+      GROUP BY parent_id;
+    CREATE UNIQUE INDEX temp.child_summary_parent ON containment_child_summary(parent_id);
+  `);
+  const rows = db.prepare(`
+    SELECT containment.*, symbols.doc AS symbol_doc, files.language AS file_language,
+      containment_child_summary.child_titles, containment_child_summary.child_ids
+    FROM containment
+    LEFT JOIN symbols ON symbols.symbol_id = containment.node_id
+    LEFT JOIN files ON files.path = containment.path
+    LEFT JOIN containment_child_summary ON containment_child_summary.parent_id = containment.node_id
+    ORDER BY containment.rowid
+  `);
+  session.begin();
+  try {
+    for (const row of rows.iterate()) {
+      const childTitles = row.child_titles ? JSON.parse(row.child_titles).map((title) => ({ title })) : [];
+      const childIds = row.child_ids ? JSON.parse(row.child_ids) : [];
+      const node = {
+        nodeId: row.node_id,
+        parentId: row.parent_id,
+        nodeType: row.node_type,
+        kind: row.kind,
+        title: row.title,
+        path: row.path,
+        language: row.language,
+        qualifiedName: row.qualified_name,
+        signature: row.signature,
+        doc: row.symbol_doc || null,
+        children: [],
+      };
+      if (row.start_line !== null) node.sourceSpan = sourceSpanFromRow(row, null);
+      const summary = makeSummary(node, childTitles, row.file_language ? { language: row.file_language } : null);
+      const item = { nodeId: row.node_id, title: row.title, path: row.path, nodeType: row.node_type, summary: summary.summary, routeTerms: summary.routeTerms, inputDigest: hashText(stableJson({ node, children: childIds })) };
+      session.insertNavigation(item);
+      session.insertSearch({ ...item, name: row.title, qualifiedName: row.qualified_name || '', signature: row.signature || '', doc: row.symbol_doc || '' });
+    }
+    session.commit();
+  } catch (error) {
+    try { db.exec('ROLLBACK'); } catch {}
+    throw error;
+  }
+}
+
+function validateIndexDatabase({ session, tempDir, manifest, files }) {
   const errors = [];
-  const fileById = new Map(files.map((file) => [file.fileId, file]));
-  const nodeIds = new Set(containment.map((node) => node.nodeId));
   for (const file of files) {
     const sourcePath = path.join(tempDir, 'source', file.digest);
     if (!fs.existsSync(sourcePath)) errors.push(`missing-source:${file.path}`);
     else if (hashText(fs.readFileSync(sourcePath, 'utf8')) !== file.digest) errors.push(`source-digest:${file.path}`);
   }
-  for (const symbol of symbols) {
-    const file = fileById.get(symbol.fileId);
-    if (!file) errors.push(`symbol-file:${symbol.symbolId}`);
-    if (!nodeIds.has(symbol.symbolId)) errors.push(`symbol-node:${symbol.symbolId}`);
-    if (!nodeIds.has(symbol.parentId)) errors.push(`symbol-parent:${symbol.symbolId}`);
-    if (file && (symbol.sourceSpan.startLine < 1 || symbol.sourceSpan.endLine < symbol.sourceSpan.startLine || symbol.sourceSpan.endLine > file.lineCount + 1)) errors.push(`symbol-span:${symbol.symbolId}`);
-  }
-  for (const node of containment) {
-    if (node.parentId && !nodeIds.has(node.parentId)) errors.push(`node-parent:${node.nodeId}`);
-  }
-  const symbolIds = new Set(symbols.map((symbol) => symbol.symbolId));
-  for (const relation of relations) {
-    if (!symbolIds.has(relation.sourceId)) errors.push(`relation-source:${relation.relationId}`);
-    if (relation.status === 'resolved' && !symbolIds.has(relation.targetId)) errors.push(`relation-target:${relation.relationId}`);
-    if (!relation.sourceSpan?.path || !fileById.has(files.find((file) => file.path === relation.sourceSpan.path)?.fileId)) errors.push(`relation-span:${relation.relationId}`);
+  const { db } = session;
+  const checks = [
+    ['symbol-file', 'SELECT count(*) AS count FROM symbols s LEFT JOIN files f ON f.file_id = s.file_id WHERE f.file_id IS NULL'],
+    ['symbol-node', 'SELECT count(*) AS count FROM symbols s LEFT JOIN containment c ON c.node_id = s.symbol_id WHERE c.node_id IS NULL'],
+    ['symbol-parent', 'SELECT count(*) AS count FROM symbols s LEFT JOIN containment c ON c.node_id = s.parent_id WHERE c.node_id IS NULL'],
+    ['node-parent', 'SELECT count(*) AS count FROM containment c LEFT JOIN containment p ON p.node_id = c.parent_id WHERE c.parent_id IS NOT NULL AND p.node_id IS NULL'],
+    ['symbol-span', 'SELECT count(*) AS count FROM symbols s JOIN files f ON f.file_id = s.file_id WHERE s.start_line < 1 OR s.end_line < s.start_line OR s.end_line > f.line_count + 1 OR s.start_byte < 0 OR s.end_byte < s.start_byte OR s.end_byte > f.bytes OR s.blob_digest != f.digest'],
+    ['relation-source', 'SELECT count(*) AS count FROM relations r LEFT JOIN symbols s ON s.symbol_id = r.source_id WHERE s.symbol_id IS NULL'],
+    ['relation-target', "SELECT count(*) AS count FROM relations r LEFT JOIN symbols s ON s.symbol_id = r.target_id WHERE r.status = 'resolved' AND s.symbol_id IS NULL"],
+    ['relation-span', 'SELECT count(*) AS count FROM relations r LEFT JOIN files f ON f.path = r.path WHERE f.file_id IS NULL'],
+  ];
+  for (const [name, query] of checks) {
+    const count = Number(db.prepare(query).get().count);
+    if (count) errors.push(`${name}:${count}`);
   }
   if (errors.length) throw new Error(`index validation failed (${errors.length}): ${errors.slice(0, 8).join(', ')}`);
-  return { valid: true, checked: { files: files.length, symbols: symbols.length, nodes: containment.length, relations: relations.length }, snapshotId: manifest.snapshotId };
+  return { valid: true, checked: { files: files.length, symbols: manifest.stats.symbols, nodes: manifest.stats.symbols + files.length, relations: manifest.stats.relations }, snapshotId: manifest.snapshotId };
 }
 
-export function indexRepository(repoRoot, storeRoot, { incremental = true, maxFileBytes } = {}) {
+function processEntry({ entry, parsed, session, tempDir, fileRecords, parsedWriter, entries }) {
+  const source = fs.readFileSync(entry.absolute, 'utf8');
+  const sourceBuffer = Buffer.from(source, 'utf8');
+  if (hashText(source) !== entry.digest) throw new Error(`source-changed:${entry.path}`);
+  const layout = sourceLayout(source, sourceBuffer);
+  const fileId = nodeId('file', entry.path);
+  const fileNode = { nodeId: fileId, parentId: entry.parentNodeId, nodeType: 'file', kind: 'file', title: entry.path.split('/').pop(), path: entry.path, language: entry.language, children: [] };
+  const fileRecord = { path: entry.path, fileId, language: entry.language, bytes: entry.bytes, digest: entry.digest, lineCount: entry.lineCount, parserVersion: PARSER_VERSION, parseStatus: parsed.status, parseError: parsed.error || null };
+  fs.writeFileSync(path.join(tempDir, 'source', entry.digest), source);
+  session.insertFile(fileRecord);
+  session.insertNode(fileNode);
+  fileRecords.push(fileRecord);
+  const keyAliases = new Map((parsed.symbols || []).map((symbol) => [`symbol-key:${entry.path}:${symbol.name}:${symbol.span.startLine}`, symbol.key]));
+  for (const symbol of parsed.symbols || []) {
+    const symbolId = nodeId('symbol', symbol.key);
+    const sourceSpan = { ...spanFrom(source, symbol.span.startLine, symbol.span.endLine, symbol.span.startColumn, symbol.span.endColumn, layout), path: entry.path, blobDigest: entry.digest, snapshotId: null };
+    session.insertSymbol({ symbolId, key: symbol.key, parentKey: keyAliases.get(symbol.parentKey) || symbol.parentKey, path: entry.path, fileId, kind: symbol.kind, name: symbol.name, qualifiedName: symbol.qualifiedName, signature: symbol.signature, sourceSpan, doc: symbol.doc || null, language: entry.language });
+  }
+  let relationIndex = 0;
+  for (const relation of parsed.relations || []) {
+    const fields = relationTargetFields(relation, entry, entries);
+    const line = Math.max(1, relation.line || 1);
+    const lineIndex = line - 1;
+    const startByte = layout.byteOffsets[lineIndex] || 0;
+    const endByte = layout.byteOffsets[lineIndex + 1] || layout.byteLength;
+    const relationId = nodeId('relation', `${entry.path}:${relation.type}:${line}:${relation.column || 0}:${relation.targetName}:${relation.sourceKey}:${relationIndex}`);
+    session.insertRelation({ relationId, sourceKey: keyAliases.get(relation.sourceKey) || relation.sourceKey, type: relation.type, targetName: relation.targetName, ...fields, path: entry.path, fileId, sourceSpan: { path: entry.path, startLine: line, endLine: line, startColumn: relation.column || 0, endColumn: 0, startByte, endByte, blobDigest: entry.digest } });
+    relationIndex += 1;
+  }
+  parsedWriter.write(parsed);
+  return relationIndex;
+}
+
+export function indexRepository(repoRoot, storeRoot, { incremental = true, maxFileBytes = 5 * 1024 * 1024, onProgress = () => {} } = {}) {
   const startedAt = Date.now();
+  const stages = {};
+  let stageStarted = startedAt;
+  function progress(stage) {
+    stages[stage] = Date.now() - stageStarted;
+    stageStarted = Date.now();
+    onProgress({ stage, elapsedMs: Date.now() - startedAt, durationMs: stages[stage], rssMiB: Math.round(process.memoryUsage().rss / 1024 / 1024) });
+  }
   const repo = fs.realpathSync(repoRoot);
   fs.mkdirSync(storeRoot, { recursive: true });
   const repoId = repositoryId(repo);
-  const previousManifest = incremental ? loadPublishedManifest(storeRoot, repoId) : null;
+  const previous = incremental ? loadPublishedManifest(storeRoot, repoId) : null;
   const currentGit = gitContext(repo);
-  const previousCompatible = previousManifest?.manifest?.schema === INDEX_SCHEMA && previousManifest.manifest.parserVersion === PARSER_VERSION;
-  if (previousManifest && previousCompatible && currentGit.revision && currentGit.revision === previousManifest.manifest.git?.revision && !currentGit.dirty && !previousManifest.manifest.git?.dirty) {
-    return { manifest: previousManifest.manifest, snapshotDir: previousManifest.snapshotDir, stats: { ...previousManifest.manifest.stats, changedFiles: 0, reusedFiles: previousManifest.manifest.stats.files, buildMs: Date.now() - startedAt, noOp: true } };
+  const buildConfig = { schema: INDEX_SCHEMA, parserVersion: PARSER_VERSION, maxFileBytes };
+  const previousCompatible = previous && stableJson(previous.manifest.buildConfig) === stableJson(buildConfig) && fs.existsSync(path.join(previous.snapshotDir, 'index.db'));
+  function noOp() {
+    return { manifest: previous.manifest, snapshotDir: previous.snapshotDir, stats: { ...previous.manifest.stats, changedFiles: 0, reusedFiles: previous.manifest.stats.files, buildMs: Date.now() - startedAt, noOp: true } };
   }
-  const previous = loadPublishedData(previousManifest);
+  if (previousCompatible && currentGit.revision && currentGit.revision === previous.manifest.git?.revision && !currentGit.dirty && !previous.manifest.git?.dirty) return noOp();
   const scan = scanRepository(repo, { maxFileBytes, retainSource: false });
-  const priorFiles = previousFileMap(previous);
-  let parsedPrevious = new Map((previous?.parsed || []).map((record) => [record.path, record]));
   const entries = scan.files;
-  const scannedContentDigest = hashText(stableJson(entries.map((entry) => ({ path: entry.path, digest: entry.digest, language: entry.language }))));
-  if (previous && previousCompatible && previous.manifest.contentDigest === scannedContentDigest) {
-    return { manifest: previous.manifest, snapshotDir: previous.snapshotDir, stats: { ...previous.manifest.stats, changedFiles: 0, reusedFiles: entries.length, buildMs: Date.now() - startedAt, noOp: true } };
-  }
+  const contentDigest = hashText(stableJson(entries.map(({ path, digest, language }) => ({ path, digest, language }))));
+  if (previousCompatible && previous.manifest.contentDigest === contentDigest) return noOp();
+  const priorFiles = new Map();
+  if (previousCompatible) for (const file of iterateJsonl(path.join(previous.snapshotDir, 'files.jsonl'))) priorFiles.set(file.path, file);
   const changedEntries = entries.filter((entry) => {
     const old = priorFiles.get(entry.path);
-    return !old || old.digest !== entry.digest || old.language !== entry.language || old.parserVersion !== PARSER_VERSION;
+    return !old || old.digest !== entry.digest || old.language !== entry.language;
   });
-  let parsedChanged = parseEntries(changedEntries);
-  const parsedByFile = new Map();
-  for (const entry of entries) parsedByFile.set(entry.path, parsedChanged.get(entry.path) || parsedPrevious.get(entry.path) || { path: entry.path, status: 'partial', error: 'missing-parser-result', symbols: [], relations: [] });
-  parsedPrevious = null;
-  parsedChanged = null;
-
-  const fileNodes = [];
+  const snapshotId = `snapshot:${repoId}:${hashText(stableJson({ contentDigest, buildConfig })).slice(0, 24)}`;
+  progress('scan');
+  const tempDir = path.join(storeRoot, repoId, 'snapshots', `.build-${process.pid}-${Date.now()}`);
+  fs.mkdirSync(path.join(tempDir, 'source'), { recursive: true });
+  let session;
+  let parsedWriter;
   const fileRecords = [];
-  const allSymbols = [];
-  const rawRelations = [];
-  const lineBytesByPath = new Map();
-  const tempId = `${process.pid}-${Date.now()}`;
-  const tempDir = path.join(storeRoot, repoId, 'snapshots', `.build-${tempId}`);
-  const sourceDir = path.join(tempDir, 'source');
-  fs.mkdirSync(sourceDir, { recursive: true });
+  const processed = new Set();
+  const entryByPath = new Map(entries.map((entry) => [entry.path, entry]));
+  const changedPaths = new Set(changedEntries.map((entry) => entry.path));
   const treeNodes = buildDirectories(entries, repoId);
-  const directoryById = new Map(treeNodes.map((node) => [node.nodeId, node]));
-
-  for (const entry of entries) {
-    const source = fs.readFileSync(entry.absolute, 'utf8');
-    const sourceBuffer = Buffer.from(source, 'utf8');
-    const layout = sourceLayout(source, sourceBuffer);
-    const fileId = nodeId('file', entry.path);
-    const parsed = parsedByFile.get(entry.path);
-    if ((parsed.relations || []).length) lineBytesByPath.set(entry.path, { lineOffsets: layout.byteOffsets, byteLength: layout.byteLength });
-    const fileNode = { nodeId: fileId, parentId: entry.parentNodeId, nodeType: 'file', kind: 'file', title: entry.path.split('/').pop(), path: entry.path, language: entry.language, children: [] };
-    fileNodes.push(fileNode);
-    directoryById.get(entry.parentNodeId)?.children.push(fileId);
-    fs.writeFileSync(path.join(sourceDir, entry.digest), source);
-    const fileRecord = { path: entry.path, fileId, language: entry.language, bytes: entry.bytes, digest: entry.digest, lineCount: entry.lineCount, parserVersion: PARSER_VERSION, parseStatus: parsed.status, parseError: parsed.error || null };
-    fileRecords.push(fileRecord);
-    for (const symbol of parsed.symbols || []) {
-      const symbolId = nodeId('symbol', symbol.key);
-      const sourceSpan = { ...spanFrom(source, symbol.span.startLine, symbol.span.endLine, symbol.span.startColumn, symbol.span.endColumn, layout), path: entry.path, blobDigest: entry.digest, snapshotId: null };
-      const symbolRecord = { symbolId, key: symbol.key, path: entry.path, fileId, parentKey: symbol.parentKey, kind: symbol.kind, name: symbol.name, qualifiedName: symbol.qualifiedName, signature: symbol.signature, sourceSpan, doc: symbol.doc || null, language: entry.language };
-      allSymbols.push(symbolRecord);
+  try {
+    session = createIndexBuildSession(tempDir);
+    parsedWriter = createJsonlWriter(path.join(tempDir, 'parsed.jsonl'));
+    session.begin();
+    for (const node of treeNodes) session.insertNode(node);
+    function consume(parsed) {
+      const entry = entryByPath.get(parsed.path);
+      if (!entry || processed.has(entry.path)) throw new Error(`unexpected-parser-result:${parsed.path}`);
+      processEntry({ entry, parsed, session, tempDir, fileRecords, parsedWriter, entries: entryByPath });
+      processed.add(entry.path);
+      if (processed.size % 256 === 0) { session.commit(); session.begin(); }
+      if (processed.size % 2000 === 0) onProgress({ stage: 'parse-progress', files: processed.size, elapsedMs: Date.now() - startedAt, rssMiB: Math.round(process.memoryUsage().rss / 1024 / 1024) });
     }
-    for (const relation of parsed.relations || []) rawRelations.push({ ...relation, path: entry.path, fileId, digest: entry.digest, language: entry.language });
+    parseEntriesBatched(changedEntries, consume);
+    if (previousCompatible && changedEntries.length < entries.length) {
+      for (const parsed of iterateJsonl(path.join(previous.snapshotDir, 'parsed.jsonl'))) {
+        if (entryByPath.has(parsed.path) && !changedPaths.has(parsed.path)) consume(parsed);
+      }
+    }
+    if (processed.size !== entries.length) throw new Error('missing-parser-results');
+    session.commit();
+    parsedWriter.close();
+    progress('parse-and-store');
+    session.finalizeParents();
+    progress('parents');
+    session.finalizeContainment();
+    progress('containment');
+    session.finalizeRelations();
+    progress('relations');
+    buildNavigation(session);
+    progress('navigation');
+    session.rebuildIndexes();
+    progress('indexes');
+    const counts = session.counts();
+    const partialFiles = fileRecords.filter((file) => file.parseStatus !== 'complete').length;
+    const manifest = {
+      schema: INDEX_SCHEMA, parserVersion: PARSER_VERSION, buildConfig, repositoryId: repoId, repositoryPath: repo,
+      snapshotId, createdAt: new Date().toISOString(), git: currentGit, contentDigest, fileCount: fileRecords.length,
+      status: partialFiles ? 'partial' : 'published', skipped: scan.skipped,
+      stats: { files: counts.files, sourceBytes: fileRecords.reduce((sum, file) => sum + file.bytes, 0), changedFiles: changedEntries.length, reusedFiles: entries.length - changedEntries.length, symbols: counts.symbols, relations: counts.relations, partialFiles, skipped: scan.skipped.length },
+      coverage: { sourceFiles: fileRecords.length, parsedFiles: fileRecords.filter((file) => file.parseStatus === 'complete').length, unsupportedFiles: fileRecords.filter((file) => file.parseStatus === 'unsupported').length, partialFiles, skippedFiles: scan.skipped.length },
+      publishing: { state: 'validated', permissionView: 'public' },
+    };
+    validateIndexDatabase({ session, tempDir, manifest, files: fileRecords });
+    progress('validation');
+    writeJsonl(path.join(tempDir, 'files.jsonl'), fileRecords);
+    writeJsonl(path.join(tempDir, 'symbols.jsonl'), symbolRows(session.db, snapshotId));
+    writeJsonl(path.join(tempDir, 'containment.jsonl'), containmentRows(session.db, snapshotId));
+    writeJsonl(path.join(tempDir, 'relations.jsonl'), relationRows(session.db, snapshotId));
+    writeJsonl(path.join(tempDir, 'navigation.jsonl'), navigationRows(session.db));
+    progress('exports');
+    session.close();
+    session = null;
+    manifest.stats.buildMs = Date.now() - startedAt;
+    manifest.stats.stages = stages;
+    writeJsonAtomic(path.join(tempDir, 'manifest.json'), manifest);
+    const snapshotDir = path.join(storeRoot, repoId, 'snapshots', snapshotId);
+    if (fs.existsSync(snapshotDir)) {
+      const existing = readJson(path.join(snapshotDir, 'manifest.json'));
+      if (existing?.contentDigest !== contentDigest || stableJson(existing?.buildConfig) !== stableJson(buildConfig)) throw new Error('snapshot-identity-conflict');
+      if (!fs.existsSync(path.join(snapshotDir, 'index.db'))) fs.renameSync(path.join(tempDir, 'index.db'), path.join(snapshotDir, 'index.db'));
+      fs.rmSync(tempDir, { recursive: true, force: true });
+    } else fs.renameSync(tempDir, snapshotDir);
+    writeJsonAtomic(path.join(storeRoot, repoId, 'published.json'), { repositoryId: repoId, snapshotId, publishedAt: new Date().toISOString() });
+    return { manifest, snapshotDir, stats: manifest.stats };
+  } catch (error) {
+    try { session?.db.exec('ROLLBACK'); } catch {}
+    try { parsedWriter?.close(); } catch {}
+    try { session?.close(); } catch {}
+    fs.rmSync(tempDir, { recursive: true, force: true });
+    throw error;
   }
-
-  const symbolByKey = new Map(allSymbols.map((symbol) => [symbol.key, symbol]));
-  const moduleRecords = allSymbols.filter((symbol) => symbol.kind === 'module');
-  const indexes = {
-    moduleByQualified: new Map(moduleRecords.map((symbol) => [symbol.qualifiedName, symbol])),
-    moduleByPath: new Map(moduleRecords.map((symbol) => [symbol.path.replace(/\.(js|jsx|mjs|cjs|ts|tsx|py|c|h|cc|cpp|cxx|hh|hpp|hxx)$/, ''), symbol])),
-    symbolsByQualified: new Map(allSymbols.map((symbol) => [symbol.qualifiedName, symbol])),
-    symbolsByName: new Map(),
-    symbolsByFileName: new Map(),
-  };
-  for (const symbol of allSymbols) {
-    const byName = indexes.symbolsByName.get(symbol.name) || [];
-    byName.push(symbol); indexes.symbolsByName.set(symbol.name, byName);
-    const byFileNameKey = `${symbol.path}\0${symbol.name}`;
-    const byFileName = indexes.symbolsByFileName.get(byFileNameKey) || [];
-    byFileName.push(symbol); indexes.symbolsByFileName.set(byFileNameKey, byFileName);
-  }
-  const symbolBySpecialKey = new Map();
-  for (const symbol of allSymbols) {
-    symbolBySpecialKey.set(`symbol-key:${symbol.path}:${symbol.name}:${symbol.sourceSpan.startLine}`, symbol);
-  }
-  const containmentNodes = [...treeNodes, ...fileNodes];
-  const containmentById = new Map(containmentNodes.map((node) => [node.nodeId, node]));
-  const fileNodeByPath = new Map(fileNodes.map((file) => [file.path, file]));
-  for (const symbol of allSymbols) {
-    const parent = symbolByKey.get(symbol.parentKey) || symbolBySpecialKey.get(symbol.parentKey) || (symbol.parentKey?.startsWith('file:') ? fileNodeByPath.get(symbol.path) : null);
-    symbol.parentId = parent?.nodeId || nodeId('file', symbol.path);
-    const node = { nodeId: symbol.symbolId, parentId: symbol.parentId, nodeType: 'symbol', kind: symbol.kind, title: symbol.name, path: symbol.path, language: symbol.language, qualifiedName: symbol.qualifiedName, signature: symbol.signature, sourceSpan: symbol.sourceSpan, children: [] };
-    containmentNodes.push(node);
-    containmentById.set(node.nodeId, node);
-    const parentNode = containmentById.get(symbol.parentId);
-    if (parentNode && !parentNode.children.includes(node.nodeId)) parentNode.children.push(node.nodeId);
-  }
-  for (const symbol of allSymbols) symbol.sourceSpan.snapshotId = null;
-  const relationRecords = [];
-  for (const raw of rawRelations) {
-    const source = symbolByKey.get(raw.sourceKey) || symbolBySpecialKey.get(raw.sourceKey);
-    if (!source) continue;
-    const target = resolveRelationTarget(raw, indexes, raw.path);
-    const lineInfo = lineBytesByPath.get(raw.path) || { lineOffsets: [0], byteLength: 0 };
-    const lineIndex = Math.max(0, (raw.line || 1) - 1);
-    const sourceStartByte = lineInfo.lineOffsets[lineIndex] || 0;
-    const sourceEndByte = lineInfo.lineOffsets[lineIndex + 1] || lineInfo.byteLength;
-    const sourceSpan = { path: raw.path, startLine: raw.line || 1, endLine: raw.line || 1, startColumn: raw.column || 0, endColumn: 0, startByte: sourceStartByte, endByte: sourceEndByte, blobDigest: raw.digest, snapshotId: null };
-    relationRecords.push({ relationId: nodeId('relation', `${raw.path}:${raw.type}:${raw.line}:${raw.column || 0}:${raw.targetName}:${source.symbolId}:${relationRecords.length}`), type: raw.type, sourceId: source.symbolId, targetId: target?.symbolId || null, targetName: raw.targetName, status: target ? 'resolved' : 'unresolved', confidence: target ? 1 : 0, sourceSpan, context: { language: raw.language, parserVersion: PARSER_VERSION } });
-  }
-
-  const byParent = new Map();
-  for (const node of containmentNodes) {
-    const children = byParent.get(node.parentId) || [];
-    children.push(node);
-    byParent.set(node.parentId, children);
-  }
-  const fileByPath = new Map(fileRecords.map((file) => [file.path, file]));
-  const navigation = containmentNodes.map((node) => {
-    const children = byParent.get(node.nodeId) || [];
-    const file = fileByPath.get(node.path);
-    const summary = makeSummary(node, children, file);
-    return { nodeId: node.nodeId, title: node.title, path: node.path, nodeType: node.nodeType, summary: summary.summary, routeTerms: summary.routeTerms, inputDigest: hashText(stableJson({ node, children: children.map((child) => child.nodeId) })) };
-  });
-
-  const git = currentGit;
-  const contentDigest = hashText(stableJson(fileRecords.map(({ path: filePath, digest, language }) => ({ path: filePath, digest, language }))));
-  const snapshotId = `snapshot:${repoId}:${contentDigest.slice(0, 24)}`;
-  const partialFiles = fileRecords.filter((file) => file.parseStatus !== 'complete').length;
-  const manifest = {
-    schema: INDEX_SCHEMA, parserVersion: PARSER_VERSION, repositoryId: repoId, repositoryPath: repo,
-    snapshotId, createdAt: new Date().toISOString(), git, contentDigest, fileCount: fileRecords.length,
-    status: partialFiles ? 'partial' : 'published',
-    skipped: scan.skipped,
-    stats: { files: fileRecords.length, sourceBytes: fileRecords.reduce((sum, file) => sum + file.bytes, 0), changedFiles: changedEntries.length, reusedFiles: entries.length - changedEntries.length, symbols: allSymbols.length, relations: relationRecords.length, partialFiles, skipped: scan.skipped.length, buildMs: Date.now() - startedAt },
-    coverage: { sourceFiles: fileRecords.length, parsedFiles: fileRecords.filter((file) => file.parseStatus === 'complete').length, unsupportedFiles: fileRecords.filter((file) => file.parseStatus === 'unsupported').length, partialFiles, skippedFiles: scan.skipped.length },
-    publishing: { state: 'validated', permissionView: 'public' },
-  };
-  for (const symbol of allSymbols) symbol.sourceSpan.snapshotId = snapshotId;
-  for (const relation of relationRecords) relation.sourceSpan.snapshotId = snapshotId;
-  validateIndexData({ tempDir, manifest, files: fileRecords, symbols: allSymbols, containment: containmentNodes, relations: relationRecords });
-  writeJsonAtomic(path.join(tempDir, 'manifest.json'), manifest);
-  writeJsonl(path.join(tempDir, 'files.jsonl'), fileRecords);
-  writeJsonl(path.join(tempDir, 'symbols.jsonl'), allSymbols);
-  writeJsonl(path.join(tempDir, 'containment.jsonl'), containmentNodes);
-  writeJsonl(path.join(tempDir, 'relations.jsonl'), relationRecords);
-  writeJsonl(path.join(tempDir, 'navigation.jsonl'), navigation);
-  writeJsonl(path.join(tempDir, 'parsed.jsonl'), [...parsedByFile.values()]);
-  buildIndexDatabase(tempDir, { files: fileRecords, symbols: allSymbols, containment: containmentNodes, relations: relationRecords, navigation });
-  const snapshotDir = path.join(storeRoot, repoId, 'snapshots', snapshotId);
-  fs.mkdirSync(path.dirname(snapshotDir), { recursive: true });
-  if (!fs.existsSync(snapshotDir)) fs.renameSync(tempDir, snapshotDir); else fs.rmSync(tempDir, { recursive: true, force: true });
-  writeJsonAtomic(path.join(storeRoot, repoId, 'published.json'), { repositoryId: repoId, snapshotId, publishedAt: new Date().toISOString() });
-  return { manifest, snapshotDir, stats: manifest.stats };
 }
 
 export function loadIndex(storeRoot, repoId = null) {

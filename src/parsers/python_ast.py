@@ -145,7 +145,7 @@ def parse_file(item):
             module = ('.' * node.level) + (node.module or '')
             for alias in node.names:
                 target = f"{module}.{alias.name}" if module else alias.name
-                relations.append({'sourceKey': module_key, 'type': 'imports', 'targetName': target, 'line': node.lineno, 'column': node.col_offset})
+                relations.append({'sourceKey': module_key, 'type': 'imports', 'targetName': target, 'importModule': node.module or '', 'importLevel': node.level, 'importName': alias.name, 'line': node.lineno, 'column': node.col_offset})
     return {'path': path, 'status': 'complete', 'error': None, 'symbols': symbols, 'relations': relations}
 
 
