@@ -1,0 +1,390 @@
+{
+  "schema": "codeindex-benchmark-0.1.0",
+  "generatedAt": "2026-10-24T18:48:11.221Z",
+  "repository": "/data/github/PageIndex",
+  "snapshotId": "snapshot:repo-fbac6b82328c3f11df8d:462beda886ce8d2443893f26",
+  "index": {
+    "files": 155,
+    "symbols": 2668,
+    "relations": 17651,
+    "sourceBytes": 5268104,
+    "changedFiles": 155,
+    "removedFiles": 0,
+    "reusedFiles": 0,
+    "parsedFiles": 112,
+    "partialFiles": 43,
+    "skipped": 27,
+    "nodes": 2854,
+    "nativeFiles": 0,
+    "nativeIndexedFiles": 0,
+    "relationsScope": "stored-sql-relations; native calls and references queried from cscope",
+    "stages": {
+      "scan": 122,
+      "source-and-files": 27,
+      "native-symbols": 0,
+      "parser-symbols": 1414,
+      "relations": 0,
+      "indexes": 18,
+      "native-cross-references": 1,
+      "validation": 2
+    },
+    "buildMs": 1585,
+    "totalSourceBytes": 5268104,
+    "indexLoadOrBuildMs": 1587.436258
+  },
+  "questions": {
+    "file": "/data/dev/CodeIndex/benchmarks/questions-pageindex.json",
+    "total": 6,
+    "hits": 6,
+    "recallAtEvidence": 1
+  },
+  "aggregate": {
+    "codeIndexMedianMs": 5.227749999999787,
+    "baselineMedianMs": 13.149809000000005,
+    "codeIndexContextBytes": 38885,
+    "baselineMatchedBytes": 29357348,
+    "fullRepositoryBytes": 31608624,
+    "contextReductionVsFullRepository": 812.8744760190305,
+    "contextReductionVsMatchedFiles": 754.9787321589301,
+    "queryWorkReductionVsFullRepository": 812.8744760190305,
+    "queryLatencySpeedupVsRg": 2.515385969107272
+  },
+  "gate": {
+    "recallAtEvidence": true,
+    "contextReductionVsFullRepository": true,
+    "queryLatencyWithinBaseline": true,
+    "significantAdvantage": true
+  },
+  "rows": [
+    {
+      "query": "local document store implementation",
+      "hit": true,
+      "codeIndexMs": 5.636009999999942,
+      "baselineMs": 10.073466999999937,
+      "candidateCount": 12,
+      "evidenceCount": 6,
+      "contextBytes": 4545,
+      "baselineMatchedBytes": 4784155,
+      "baselineOutputBytes": 1088198,
+      "matches": 2814,
+      "topCandidates": [
+        {
+          "type": "symbol",
+          "score": 13.5,
+          "symbolId": "symbol:WyJmaWxlOjVlMDZjNmMxYzRiMjEwNDQyYTE2ZjU2YyIsImRlbGV0ZV9kb2N1bWVudCIsImZ1bmN0aW9uIiwicGFnZWluZGV4LmxvY2FsX3N0b3JlLkRvY1N0b3JlIiwxNjgsNF0",
+          "name": "pageindex.local_store.DocStore.delete_document",
+          "path": "pageindex/local_store.py",
+          "startLine": 168
+        },
+        {
+          "type": "symbol",
+          "score": 13.5,
+          "symbolId": "symbol:WyJmaWxlOjVlMDZjNmMxYzRiMjEwNDQyYTE2ZjU2YyIsInNhdmVfZG9jdW1lbnQiLCJmdW5jdGlvbiIsInBhZ2VpbmRleC5sb2NhbF9zdG9yZS5Eb2NTdG9yZSIsMTE1LDRd",
+          "name": "pageindex.local_store.DocStore.save_document",
+          "path": "pageindex/local_store.py",
+          "startLine": 115
+        },
+        {
+          "type": "symbol",
+          "score": 10.5,
+          "symbolId": "symbol:WyJmaWxlOjVlMDZjNmMxYzRiMjEwNDQyYTE2ZjU2YyIsIkRvY1N0b3JlIiwiY2xhc3MiLCJwYWdlaW5kZXgubG9jYWxfc3RvcmUiLDczLDBd",
+          "name": "pageindex.local_store.DocStore",
+          "path": "pageindex/local_store.py",
+          "startLine": 73
+        },
+        {
+          "type": "symbol",
+          "score": 10.5,
+          "symbolId": "symbol:WyJmaWxlOjVlMDZjNmMxYzRiMjEwNDQyYTE2ZjU2YyIsIl9faW5pdF9fIiwiZnVuY3Rpb24iLCJwYWdlaW5kZXgubG9jYWxfc3RvcmUuRG9jU3RvcmUiLDc0LDRd",
+          "name": "pageindex.local_store.DocStore.__init__",
+          "path": "pageindex/local_store.py",
+          "startLine": 74
+        },
+        {
+          "type": "symbol",
+          "score": 10.5,
+          "symbolId": "symbol:WyJmaWxlOjVlMDZjNmMxYzRiMjEwNDQyYTE2ZjU2YyIsIl9yZWFkX21hbmlmZXN0IiwiZnVuY3Rpb24iLCJwYWdlaW5kZXgubG9jYWxfc3RvcmUuRG9jU3RvcmUiLDg1LDRd",
+          "name": "pageindex.local_store.DocStore._read_manifest",
+          "path": "pageindex/local_store.py",
+          "startLine": 85
+        }
+      ],
+      "snapshotId": "snapshot:repo-fbac6b82328c3f11df8d:462beda886ce8d2443893f26"
+    },
+    {
+      "query": "how does tree optimization calculate search cost",
+      "hit": true,
+      "codeIndexMs": 4.740440999999919,
+      "baselineMs": 17.23345600000016,
+      "candidateCount": 12,
+      "evidenceCount": 6,
+      "contextBytes": 5420,
+      "baselineMatchedBytes": 4772603,
+      "baselineOutputBytes": 2638659,
+      "matches": 1461,
+      "topCandidates": [
+        {
+          "type": "symbol",
+          "score": 16.5,
+          "symbolId": "symbol:WyJmaWxlOmYzNjkwY2RlOWRjOTdhNjE5OTliMDY3OCIsInRyZWVfY29zdCIsImZ1bmN0aW9uIiwicGFnZWluZGV4LnRyZWVfb3B0aW1pemUiLDI5MiwwXQ",
+          "name": "pageindex.tree_optimize.tree_cost",
+          "path": "pageindex/tree_optimize.py",
+          "startLine": 292
+        },
+        {
+          "type": "symbol",
+          "score": 16,
+          "symbolId": "symbol:WyJmaWxlOmYzNjkwY2RlOWRjOTdhNjE5OTliMDY3OCIsInRyZWVfb3B0aW1pemUiLCJtb2R1bGUiLCIiLDEsMF0",
+          "name": "pageindex.tree_optimize",
+          "path": "pageindex/tree_optimize.py",
+          "startLine": 1
+        },
+        {
+          "type": "symbol",
+          "score": 13.5,
+          "symbolId": "symbol:WyJmaWxlOmYzNjkwY2RlOWRjOTdhNjE5OTliMDY3OCIsInRyZWVfY29zdF92aWFfZnJvbnRpZXIiLCJmdW5jdGlvbiIsInBhZ2VpbmRleC50cmVlX29wdGltaXplIiwzMTksMF0",
+          "name": "pageindex.tree_optimize.tree_cost_via_frontier",
+          "path": "pageindex/tree_optimize.py",
+          "startLine": 319
+        },
+        {
+          "type": "symbol",
+          "score": 13.5,
+          "symbolId": "symbol:WyJmaWxlOmYzNjkwY2RlOWRjOTdhNjE5OTliMDY3OCIsIndvcnN0X2Nhc2Vfc2VhcmNoX2NvbXBsZXhpdHkiLCJmdW5jdGlvbiIsInBhZ2VpbmRleC50cmVlX29wdGltaXplIiwzODIsMF0",
+          "name": "pageindex.tree_optimize.worst_case_search_complexity",
+          "path": "pageindex/tree_optimize.py",
+          "startLine": 382
+        },
+        {
+          "type": "symbol",
+          "score": 13.5,
+          "symbolId": "symbol:WyJmaWxlOmYzNjkwY2RlOWRjOTdhNjE5OTliMDY3OCIsImNvbXBsZXhpdHkiLCJmdW5jdGlvbiIsInBhZ2VpbmRleC50cmVlX29wdGltaXplIiw0MzAsMF0",
+          "name": "pageindex.tree_optimize.complexity",
+          "path": "pageindex/tree_optimize.py",
+          "startLine": 430
+        }
+      ],
+      "snapshotId": "snapshot:repo-fbac6b82328c3f11df8d:462beda886ce8d2443893f26"
+    },
+    {
+      "query": "document structure retrieval tools",
+      "hit": true,
+      "codeIndexMs": 5.227749999999787,
+      "baselineMs": 12.229934999999841,
+      "candidateCount": 12,
+      "evidenceCount": 6,
+      "contextBytes": 6219,
+      "baselineMatchedBytes": 4762532,
+      "baselineOutputBytes": 1073436,
+      "matches": 2652,
+      "topCandidates": [
+        {
+          "type": "symbol",
+          "score": 13.5,
+          "symbolId": "symbol:WyJmaWxlOmQ0Y2MxODYzZmZhMjNkM2EzNjI5Njc1YyIsIl9nZXRfZG9jdW1lbnRfc3RydWN0dXJlIiwiZnVuY3Rpb24iLCJwYWdlaW5kZXguYWdlbnRfdG9vbHMiLDkxMCwwXQ",
+          "name": "pageindex.agent_tools._get_document_structure",
+          "path": "pageindex/agent_tools.py",
+          "startLine": 910
+        },
+        {
+          "type": "symbol",
+          "score": 10.5,
+          "symbolId": "symbol:WyJmaWxlOjc4Zjg5NzFlMDgxYWVmYWQ5NWM1ZGJlZiIsImdldF9kb2N1bWVudF9zdHJ1Y3R1cmUiLCJmdW5jdGlvbiIsInBhZ2VpbmRleC5jbGllbnQuUGFnZUluZGV4Q2xpZW50IiwxMDA0LDRd",
+          "name": "pageindex.client.PageIndexClient.get_document_structure",
+          "path": "pageindex/client.py",
+          "startLine": 1004
+        },
+        {
+          "type": "symbol",
+          "score": 10.5,
+          "symbolId": "symbol:WyJmaWxlOjkxY2ZlMzMwNWNlYThjOTY3ODg4Mzk2NiIsInRlc3RfbG9jYWxfc2NoZW1hX3N0cnVjdHVyZV9tYXRjaGVzX2NvbnRyYWN0IiwiZnVuY3Rpb24iLCJ0ZXN0cy50ZXN0X2FnZW50X3Rvb2xzIiwxMDcsMF0",
+          "name": "tests.test_agent_tools.test_local_schema_structure_matches_contract",
+          "path": "tests/test_agent_tools.py",
+          "startLine": 107
+        },
+        {
+          "type": "symbol",
+          "score": 10.5,
+          "symbolId": "symbol:WyJmaWxlOjBkOTIwNjNlODg0MzBhMDJkZjYxNjE2YyIsInRlc3RfZ2V0X2RvY3VtZW50X3N0cnVjdHVyZSIsImZ1bmN0aW9uIiwidGVzdHMudGVzdF9jbGllbnQiLDU3NSwwXQ",
+          "name": "tests.test_client.test_get_document_structure",
+          "path": "tests/test_client.py",
+          "startLine": 575
+        },
+        {
+          "type": "symbol",
+          "score": 7.5,
+          "symbolId": "symbol:WyJmaWxlOmQ0Y2MxODYzZmZhMjNkM2EzNjI5Njc1YyIsIl9zcGxpdF9zdHJ1Y3R1cmUiLCJmdW5jdGlvbiIsInBhZ2VpbmRleC5hZ2VudF90b29scyIsNjc4LDBd",
+          "name": "pageindex.agent_tools._split_structure",
+          "path": "pageindex/agent_tools.py",
+          "startLine": 678
+        }
+      ],
+      "snapshotId": "snapshot:repo-fbac6b82328c3f11df8d:462beda886ce8d2443893f26"
+    },
+    {
+      "query": "build a tree from markdown nodes",
+      "hit": true,
+      "codeIndexMs": 5.603148999999803,
+      "baselineMs": 13.149809000000005,
+      "candidateCount": 12,
+      "evidenceCount": 6,
+      "contextBytes": 5014,
+      "baselineMatchedBytes": 5121010,
+      "baselineOutputBytes": 2063365,
+      "matches": 3379,
+      "topCandidates": [
+        {
+          "type": "symbol",
+          "score": 16.5,
+          "symbolId": "symbol:WyJmaWxlOjE1YTg0ZDQwZGFiODYzYzU4NDA0NzJmNCIsImJ1aWxkX3RyZWVfZnJvbV9ub2RlcyIsImZ1bmN0aW9uIiwicGFnZWluZGV4LnBhZ2VfaW5kZXhfbWQiLDE5MiwwXQ",
+          "name": "pageindex.page_index_md.build_tree_from_nodes",
+          "path": "pageindex/page_index_md.py",
+          "startLine": 192
+        },
+        {
+          "type": "symbol",
+          "score": 13.5,
+          "symbolId": "symbol:WyJmaWxlOjJjMzRmZjdkMzg3MGU1YzhlMzRlYzhlZCIsIkNsaXF1ZVRyZWVCdWlsZGVyIiwiY2xhc3MiLCJwYWdlaW5kZXguZmxhc2gub3V0bGluZV9hc3NlbWJseS5jbGlxdWVzIiwxMjcsMF0",
+          "name": "pageindex.flash.outline_assembly.cliques.CliqueTreeBuilder",
+          "path": "pageindex/flash/outline_assembly/cliques.py",
+          "startLine": 127
+        },
+        {
+          "type": "symbol",
+          "score": 13.5,
+          "symbolId": "symbol:WyJmaWxlOjcwMWNiNmJlNjFlNzc2ZDY2ODNkODg2ZSIsIl93YWxrX25vZGVzIiwiZnVuY3Rpb24iLCJwYWdlaW5kZXguZmxhc2gub3V0bGluZS50cmVlLmJ1aWxkX3RyZWUiLDgzLDRd",
+          "name": "pageindex.flash.outline.tree.build_tree._walk_nodes",
+          "path": "pageindex/flash/outline/tree.py",
+          "startLine": 83
+        },
+        {
+          "type": "symbol",
+          "score": 13.5,
+          "symbolId": "symbol:WyJmaWxlOjcwMWNiNmJlNjFlNzc2ZDY2ODNkODg2ZSIsIl9wcm9tb3RlIiwiZnVuY3Rpb24iLCJwYWdlaW5kZXguZmxhc2gub3V0bGluZS50cmVlLmJ1aWxkX3RyZWUiLDk4LDRd",
+          "name": "pageindex.flash.outline.tree.build_tree._promote",
+          "path": "pageindex/flash/outline/tree.py",
+          "startLine": 98
+        },
+        {
+          "type": "symbol",
+          "score": 13.5,
+          "symbolId": "symbol:WyJmaWxlOjcwMWNiNmJlNjFlNzc2ZDY2ODNkODg2ZSIsIl9kcm9wX2VtcHR5X2NoaWxkcmVuIiwiZnVuY3Rpb24iLCJwYWdlaW5kZXguZmxhc2gub3V0bGluZS50cmVlLmJ1aWxkX3RyZWUiLDEwOSw0XQ",
+          "name": "pageindex.flash.outline.tree.build_tree._drop_empty_children",
+          "path": "pageindex/flash/outline/tree.py",
+          "startLine": 109
+        }
+      ],
+      "snapshotId": "snapshot:repo-fbac6b82328c3f11df8d:462beda886ce8d2443893f26"
+    },
+    {
+      "query": "main PageIndex client API",
+      "hit": true,
+      "codeIndexMs": 5.118396000000075,
+      "baselineMs": 14.870805000000018,
+      "candidateCount": 12,
+      "evidenceCount": 6,
+      "contextBytes": 7369,
+      "baselineMatchedBytes": 4720741,
+      "baselineOutputBytes": 3091247,
+      "matches": 4255,
+      "topCandidates": [
+        {
+          "type": "symbol",
+          "score": 13.5,
+          "symbolId": "symbol:WyJmaWxlOjc4Zjg5NzFlMDgxYWVmYWQ5NWM1ZGJlZiIsImlzX3JldHJpZXZhbF9yZWFkeSIsImZ1bmN0aW9uIiwicGFnZWluZGV4LmNsaWVudC5QYWdlSW5kZXhDbGllbnQiLDEwMTMsNF0",
+          "name": "pageindex.client.PageIndexClient.is_retrieval_ready",
+          "path": "pageindex/client.py",
+          "startLine": 1013
+        },
+        {
+          "type": "symbol",
+          "score": 13.5,
+          "symbolId": "symbol:WyJmaWxlOjc4Zjg5NzFlMDgxYWVmYWQ5NWM1ZGJlZiIsImxpc3RfZm9sZGVycyIsImZ1bmN0aW9uIiwicGFnZWluZGV4LmNsaWVudC5QYWdlSW5kZXhDbGllbnQiLDI3MTgsNF0",
+          "name": "pageindex.client.PageIndexClient.list_folders",
+          "path": "pageindex/client.py",
+          "startLine": 2718
+        },
+        {
+          "type": "symbol",
+          "score": 13.5,
+          "symbolId": "symbol:WyJmaWxlOmU3NjJkMWUzN2QwZWE3OTQwNDFkY2U3NCIsIkxvY2FsQVBJIiwiY2xhc3MiLCJwYWdlaW5kZXgubG9jYWxfYXBpIiwzNywwXQ",
+          "name": "pageindex.local_api.LocalAPI",
+          "path": "pageindex/local_api.py",
+          "startLine": 37
+        },
+        {
+          "type": "symbol",
+          "score": 10.5,
+          "symbolId": "symbol:WyJmaWxlOjc4Zjg5NzFlMDgxYWVmYWQ5NWM1ZGJlZiIsIlBhZ2VJbmRleENsaWVudCIsImNsYXNzIiwicGFnZWluZGV4LmNsaWVudCIsMzE2LDBd",
+          "name": "pageindex.client.PageIndexClient",
+          "path": "pageindex/client.py",
+          "startLine": 316
+        },
+        {
+          "type": "symbol",
+          "score": 10.5,
+          "symbolId": "symbol:WyJmaWxlOjc4Zjg5NzFlMDgxYWVmYWQ5NWM1ZGJlZiIsIl9sb2NhbF9jaGF0IiwiZnVuY3Rpb24iLCJwYWdlaW5kZXguY2xpZW50LlBhZ2VJbmRleENsaWVudCIsNzAxLDRd",
+          "name": "pageindex.client.PageIndexClient._local_chat",
+          "path": "pageindex/client.py",
+          "startLine": 701
+        }
+      ],
+      "snapshotId": "snapshot:repo-fbac6b82328c3f11df8d:462beda886ce8d2443893f26"
+    },
+    {
+      "query": "extract table of contents from PDF",
+      "hit": true,
+      "codeIndexMs": 8.457595999999967,
+      "baselineMs": 15.446216999999933,
+      "candidateCount": 12,
+      "evidenceCount": 6,
+      "contextBytes": 10318,
+      "baselineMatchedBytes": 5196307,
+      "baselineOutputBytes": 3069980,
+      "matches": 3626,
+      "topCandidates": [
+        {
+          "type": "symbol",
+          "score": 13.5,
+          "symbolId": "symbol:WyJmaWxlOjFmMTFjYjEwMTVkNDhjYzYyNzJlYzgyOCIsImV4dHJhY3RfdG9jIiwiZnVuY3Rpb24iLCJwYWdlaW5kZXguZmxhc2gubWFpbiIsMTI0LDBd",
+          "name": "pageindex.flash.main.extract_toc",
+          "path": "pageindex/flash/main.py",
+          "startLine": 124
+        },
+        {
+          "type": "symbol",
+          "score": 13.5,
+          "symbolId": "symbol:WyJmaWxlOjFhNTMxOTlkNDU0MWMwZjE3MmQzMDMzNCIsInRlc3RfcnVubmluZ19jb250ZW50c19saW5rX2RvZXNfbm90X2hpZGVfaGVhZGluZ3MiLCJmdW5jdGlvbiIsInRlc3RzLnRlc3RfZmxhc2hfZXh0cmFjdGlvbiIsNzI2LDBd",
+          "name": "tests.test_flash_extraction.test_running_contents_link_does_not_hide_headings",
+          "path": "tests/test_flash_extraction.py",
+          "startLine": 726
+        },
+        {
+          "type": "symbol",
+          "score": 13.5,
+          "symbolId": "symbol:WyJmaWxlOjFhNTMxOTlkNDU0MWMwZjE3MmQzMDMzNCIsInRlc3RfY29tcGFueV9uYW1lX3VuZGVyX3RoZV9jb250ZW50c19saW5rX2lzX2FfcnVubmluZ19oZWFkZXIiLCJmdW5jdGlvbiIsInRlc3RzLnRlc3RfZmxhc2hfZXh0cmFjdGlvbiIsODQ3LDBd",
+          "name": "tests.test_flash_extraction.test_company_name_under_the_contents_link_is_a_running_header",
+          "path": "tests/test_flash_extraction.py",
+          "startLine": 847
+        },
+        {
+          "type": "symbol",
+          "score": 13.5,
+          "symbolId": "symbol:WyJmaWxlOjFhNTMxOTlkNDU0MWMwZjE3MmQzMDMzNCIsInRlc3Rfc2VjdGlvbl90aXRsZV91bmRlcl90aGVfY29udGVudHNfbGlua19zdGlsbF9vcGVuc19pdHNfc2VjdGlvbiIsImZ1bmN0aW9uIiwidGVzdHMudGVzdF9mbGFzaF9leHRyYWN0aW9uIiw4NjYsMF0",
+          "name": "tests.test_flash_extraction.test_section_title_under_the_contents_link_still_opens_its_section",
+          "path": "tests/test_flash_extraction.py",
+          "startLine": 866
+        },
+        {
+          "type": "symbol",
+          "score": 13.5,
+          "symbolId": "symbol:WyJmaWxlOjlhNDUyMzBjZWY1ZTY1MTY0NjM3YWI5YSIsInRlc3RfaGFuZGxlc19taXNzaW5nX3RhYmxlX29mX2NvbnRlbnRzX2tleSIsImZ1bmN0aW9uIiwidGVzdHMudGVzdF9pc3N1ZV8xNjMuVGVzdFRvY1RyYW5zZm9ybWVyUmV0cnlMb29wIiwxMjksNF0",
+          "name": "tests.test_issue_163.TestTocTransformerRetryLoop.test_handles_missing_table_of_contents_key",
+          "path": "tests/test_issue_163.py",
+          "startLine": 129
+        }
+      ],
+      "snapshotId": "snapshot:repo-fbac6b82328c3f11df8d:462beda886ce8d2443893f26"
+    }
+  ]
+}

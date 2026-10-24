@@ -1,5 +1,7 @@
 # 基准结果
 
+当前正式后端的 Linux 全量、增量、查询与资源验证见 [linux-native.md](linux-native.md)，PageIndex 回归见 [pageindex-native.json](results/pageindex-native.json)。下文保留早期版本的测量数据，各结果按对应后端与产物范围解释。
+
 基准使用 CodeIndex 的确定性查询与 `rg` 全仓库扫描对比。`CodeIndex` 的查询时间不含首次加载或索引构建，源码上下文统计包含返回给后续模型的证据片段。完整 JSON 报告保存在当前目录。
 
 ## PageIndex
@@ -44,7 +46,7 @@ Bun 的完整对比结果见 [`bun-code-review-graph-comparison.md`](bun-code-re
 
 Ctags + 紧凑 SQLite + Cscope 原型在相同 Linux 工作区上完成符号索引、源码保存、C/C++ 交叉引用、查询核验和发布，用时 **116.84 秒**。四个函数定位和八组调用查询均通过。GNU time 报告最大 RSS 约 2.42 GiB，完整原型快照约 3.83 GiB。
 
-该结果属于不同存储与查询模型的原型，正式 CodeIndex 的完整关系类型和导航行为仍需逐项回归。环境为预热文件缓存、全新输出目录、无解析缓存复用。完整范围与原始数据见 [`linux-fast-alternatives.md`](linux-fast-alternatives.md)。
+该原型的正式接入与回归结果已记录于 [linux-native.md](linux-native.md)。原型测量环境为预热文件缓存、全新输出目录、无解析缓存复用。完整范围与原始数据见 [`linux-fast-alternatives.md`](linux-fast-alternatives.md)。
 
 ## Pi provider 推理验证
 

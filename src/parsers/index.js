@@ -22,8 +22,7 @@ function parseBatch(entries, language, onResult) {
     }
   }
   if (!valid.length) return;
-  const python = language === 'python';
-  const result = spawnSync(python ? 'python3' : process.execPath, [path.join(HERE, python ? 'python_ast.py' : 'c-worker.js')], {
+  const result = spawnSync('python3', [path.join(HERE, 'python_ast.py')], {
     input: JSON.stringify(valid), encoding: 'utf8', maxBuffer: 512 * 1024 * 1024,
   });
   let parsed;
@@ -58,7 +57,7 @@ export function parseEntriesBatched(entries, onResult) {
     bytes = 0;
   }
   for (const entry of entries) {
-    const language = entry.language === 'python' ? 'python' : ['c', 'cpp'].includes(entry.language) ? 'c' : null;
+    const language = entry.language === 'python' ? 'python' : null;
     if (!language) { flush(); onResult(parseOne(entry)); continue; }
     const size = entry.bytes ?? Buffer.byteLength(entry.source || '');
     if (batch.length && (language !== batchLanguage || batch.length >= MAX_BATCH_FILES || bytes + size > MAX_BATCH_BYTES)) flush();

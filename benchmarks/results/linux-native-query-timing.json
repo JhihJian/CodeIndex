@@ -1,0 +1,49 @@
+{
+  "snapshotId": "snapshot:repo-67168d4b0edd4e638610:a8b6aab760ad45a485996561",
+  "repetitions": 20,
+  "warmup": 1,
+  "c": [
+    {
+      "query": "do_execveat_common",
+      "metadataMedianMs": 1.7243129999999383,
+      "evidenceMedianMs": 1.983786999999893
+    },
+    {
+      "query": "tcp_v4_syn_recv_sock",
+      "metadataMedianMs": 3.1665499999999156,
+      "evidenceMedianMs": 3.408251000000064
+    },
+    {
+      "query": "vfs_open",
+      "metadataMedianMs": 1.4541999999999007,
+      "evidenceMedianMs": 1.626009999999951
+    },
+    {
+      "query": "pick_next_task_fair",
+      "metadataMedianMs": 1.08510299999989,
+      "evidenceMedianMs": 1.9137859999998454
+    }
+  ],
+  "python": [
+    {
+      "query": "have_command",
+      "metadataMedianMs": 1.9787470000001122,
+      "evidenceMedianMs": 2.16986299999985
+    },
+    {
+      "query": "markup_refs",
+      "metadataMedianMs": 0.3210679999999684,
+      "evidenceMedianMs": 0.38201100000014776
+    },
+    {
+      "query": "KernelCmd",
+      "metadataMedianMs": 0.40137800000002244,
+      "evidenceMedianMs": 0.45449699999994664
+    },
+    {
+      "query": "do_parse",
+      "metadataMedianMs": 2.326364999999896,
+      "evidenceMedianMs": 2.6521119999999883
+    }
+  ]
+}

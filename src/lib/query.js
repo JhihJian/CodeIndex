@@ -1,9 +1,10 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
+import { hashBytes } from './hash.js';
 import { routeTerms } from './fs.js';
 
-const RELATION_WORDS = new Set(['who', 'calls', 'caller', 'callers', 'callee', 'callees', 'references', 'reference', 'implements', 'implemented', 'inherits', 'inheritance', '调用', '调用者', '调用了', '引用', '实现', '继承', '谁', '哪些']);
+const RELATION_WORDS = new Set(['what', 'does', 'call', 'includes', 'included', 'by', 'who', 'calls', 'caller', 'callers', 'callee', 'callees', 'references', 'reference', 'implements', 'implemented', 'inherits', 'inheritance', '调用', '调用者', '调用了', '引用', '实现', '继承', '谁', '哪些']);
 
 function cleanQuery(query) {
   const raw = String(query).toLowerCase();
@@ -41,12 +42,15 @@ function relationMode(query) {
   if (/who\s+calls|callers|caller|调用者|谁调用|被谁调用/.test(value)) return 'callers';
   if (/what\s+does.*call|callees|callee|调用哪些|调用了什么/.test(value)) return 'callees';
   if (/\bimplements\b|\binherits\b|\binheritance\b|实现|继承/.test(value)) return 'implements';
+  if (/who\s+includes|included\s+by|被哪些文件包含/.test(value)) return 'included-by';
+  if (/\bincludes\b|包含哪些|导入哪些/.test(value)) return 'includes';
   if (/\breferences?\b|引用/.test(value)) return 'references';
   return null;
 }
 
 function relationTypes(mode) {
   if (mode === 'implements') return ['inherits', 'implements'];
+  if (mode === 'includes' || mode === 'included-by') return ['imports', 'includes'];
   if (mode === 'references') return ['references'];
   return ['calls'];
 }
@@ -68,16 +72,27 @@ function relationFromRow(row, snapshotId) {
 
 function evidence(index, symbol, file, sourceCache, maxLines = 60) {
   if (!file) return null;
-  let source = sourceCache.get(file.digest);
-  if (source === undefined) {
-    const sourcePath = path.join(index.snapshotDir, 'source', file.digest);
-    try { source = fs.readFileSync(sourcePath, 'utf8'); } catch { source = ''; }
-    sourceCache.set(file.digest, source);
+  let cached = sourceCache.get(file.digest);
+  if (!cached) {
+    const buffer = fs.readFileSync(path.join(index.snapshotDir, 'source', file.digest));
+    if (hashBytes(buffer) !== file.digest) throw new Error(`source-digest:${file.path}`);
+    const offsets = [0];
+    let at = -1;
+    while ((at = buffer.indexOf(10, at + 1)) !== -1) offsets.push(at + 1);
+    cached = { buffer, offsets };
+    sourceCache.set(file.digest, cached);
   }
-  const lines = source.split('\n');
-  const start = Math.max(1, symbol.sourceSpan.startLine);
-  const end = Math.min(lines.length, Math.max(start, Math.min(symbol.sourceSpan.endLine, start + maxLines - 1)));
-  return { snapshotId: index.manifest.snapshotId, path: symbol.path, symbolId: symbol.symbolId, symbol: symbol.qualifiedName, startLine: start, endLine: end, startByte: symbol.sourceSpan.startByte, endByte: symbol.sourceSpan.endByte, blobDigest: file.digest, source: lines.slice(start - 1, end).join('\n'), kind: 'source' };
+  const { buffer, offsets } = cached;
+  const span = symbol.sourceSpan;
+  const first = Math.max(1, span.startLine);
+  const last = Math.min(span.endLine, first + maxLines - 1, offsets.length);
+  const startByte = span.startByte;
+  const lineEnd = last < offsets.length ? Math.max(startByte, offsets[last] - 1) : buffer.length;
+  const endByte = Math.max(startByte, Math.min(span.endByte, lineEnd));
+  const source = buffer.subarray(startByte, endByte).toString('utf8');
+  return { snapshotId: index.manifest.snapshotId, path: symbol.path, symbolId: symbol.symbolId,
+    symbol: symbol.qualifiedName, startLine: first, endLine: first + source.split('\n').length - 1,
+    startByte, endByte, blobDigest: file.digest, source, kind: 'source' };
 }
 
 function candidateNodes(index, query) {
@@ -85,7 +100,11 @@ function candidateNodes(index, query) {
   const rows = index.searchNodes(terms.join(' '), 128);
   const rankedRows = rows.map((row) => ({
     row,
-    score: scoreText(`${row.name} ${row.qualified_name} ${row.signature} ${row.doc} ${row.summary} ${row.path}`, terms) + (row.node_type === 'symbol' ? 1 : 0),
+    score: scoreText(`${row.name} ${row.qualified_name} ${row.signature} ${row.doc} ${row.summary} ${row.path}`, terms)
+      + (row.node_type === 'symbol' ? 1 : 0)
+      + (terms.length === 1 && terms.includes(String(row.name).toLowerCase()) ? 15 : 0)
+      + (String(row.name).includes('.') && String(query).toLowerCase().split(/\s+/).includes(String(row.name).toLowerCase()) ? 15 : 0)
+      + (['function', 'async_function', 'method', 'class'].includes(row.symbol_kind) ? 0.5 : 0),
   })).sort((a, b) => b.score - a.score || String(a.row.path || '').localeCompare(String(b.row.path || ''))).slice(0, 12);
   const symbolsById = new Map(index.getSymbols(rankedRows.filter(({ row }) => row.node_type === 'symbol').map(({ row }) => row.node_id)).map((symbol) => [symbol.symbolId, symbol]));
   return rankedRows.flatMap(({ row, score }) => {
@@ -101,12 +120,13 @@ function candidateNodes(index, query) {
 function relationResults(index, mode, targetSymbol) {
   if (!targetSymbol) return [];
   const types = relationTypes(mode);
-  const rows = mode === 'callers'
+  const incoming = mode === 'callers' || mode === 'included-by' || (mode === 'references' && !['function', 'async_function', 'method'].includes(targetSymbol.kind));
+  const rows = incoming
     ? index.getRelationsForTarget(targetSymbol.symbolId, types)
     : index.getRelationsForSource(targetSymbol.symbolId, types);
-  const peerIds = rows.map((row) => mode === 'callers' ? row.source_id : row.target_id).filter(Boolean);
+  const peerIds = rows.map((row) => incoming ? row.source_id : row.target_id).filter(Boolean);
   const peers = new Map(index.getSymbols(peerIds).map((symbol) => [symbol.symbolId, symbol]));
-  return rows.map((row) => ({ relation: relationFromRow(row, index.manifest.snapshotId), peer: peers.get(mode === 'callers' ? row.source_id : row.target_id) || null }));
+  return rows.map((row) => ({ relation: relationFromRow(row, index.manifest.snapshotId), peer: peers.get(incoming ? row.source_id : row.target_id) || null }));
 }
 
 export function getEvidence(index, symbols, { maxLines = 60 } = {}) {
@@ -118,6 +138,7 @@ export function getEvidence(index, symbols, { maxLines = 60 } = {}) {
 }
 
 export function queryIndex(index, query, { maxEvidence = 6, maxLines = 60, includeSource = true } = {}) {
+  index.beginQuery?.();
   const mode = relationMode(query);
   const ranked = candidateNodes(index, query);
   const target = ranked.find((candidate) => candidate.kind === 'symbol')?.item || null;
@@ -126,7 +147,7 @@ export function queryIndex(index, query, { maxEvidence = 6, maxLines = 60, inclu
   const unique = [...new Map(symbols.map((symbol) => [symbol.symbolId, symbol])).values()];
   const evidenceItems = includeSource ? getEvidence(index, unique.slice(0, maxEvidence), { maxLines }) : [];
   const candidateRows = ranked.map((candidate) => candidate.kind === 'symbol' ? ({ type: 'symbol', score: candidate.score, symbolId: candidate.item.symbolId, name: candidate.item.qualifiedName, path: candidate.item.path, startLine: candidate.item.sourceSpan.startLine }) : ({ type: candidate.kind, score: candidate.score, path: candidate.item.path, title: candidate.item.title }));
-  const relationRows = related.map(({ relation, peer }) => ({ relationId: relation.relationId, type: relation.type, status: relation.status, targetName: relation.targetName, peer: peer ? { symbolId: peer.symbolId, name: peer.qualifiedName, path: peer.path, line: peer.sourceSpan.startLine } : null }));
+  const relationRows = related.map(({ relation, peer }) => ({ relationId: relation.relationId, type: relation.type, status: relation.status, confidence: relation.confidence, sourceSpan: relation.sourceSpan, targetName: relation.targetName, peer: peer ? { symbolId: peer.symbolId, name: peer.qualifiedName, path: peer.path, line: peer.sourceSpan.startLine } : null }));
   const contextBytes = evidenceItems.reduce((sum, item) => sum + Buffer.byteLength(item.source, 'utf8'), 0);
   const indexedSourceBytes = index.manifest.stats?.sourceBytes || index.manifest.totalSourceBytes || 0;
   const answer = mode && target ? `${mode} query selected ${target.qualifiedName} and found ${relationRows.length} ${mode} relation(s).` : `Selected ${evidenceItems.length} source evidence item(s) from ${ranked.length} ranked candidates.`;
@@ -134,7 +155,7 @@ export function queryIndex(index, query, { maxEvidence = 6, maxLines = 60, inclu
     query, snapshotId: index.manifest.snapshotId, repositoryId: index.manifest.repositoryId, status: index.manifest.status,
     answer, mode, target: target ? { symbolId: target.symbolId, name: target.qualifiedName, path: target.path, line: target.sourceSpan.startLine } : null,
     candidates: candidateRows, relations: relationRows, evidence: evidenceItems,
-    coverage: index.manifest.coverage, uncertainties: index.manifest.status === 'partial' ? ['索引存在未解析或不支持的文件，空结果不能证明代码中不存在目标。'] : [],
+    coverage: index.manifest.coverage, uncertainties: [...(index.manifest.status === 'partial' ? ['索引存在未解析或不支持的文件，空结果不能证明代码中不存在目标。'] : []), ...(index.queryNotices?.() || []), ...(mode && index.manifest.native?.files ? ['C/C++ 关系是语法交叉引用，未进行编译配置、重载及函数指针消歧。'] : [])],
     metrics: { candidateCount: ranked.length, evidenceCount: evidenceItems.length, contextBytes, indexedSourceBytes, contextReduction: contextBytes ? indexedSourceBytes / contextBytes : null },
   };
 }

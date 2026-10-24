@@ -1,0 +1,33 @@
+{
+  "repositoryId": "repo-67168d4b0edd4e638610",
+  "snapshotId": "snapshot:repo-67168d4b0edd4e638610:44f5374db1c16c516d1bab1f",
+  "status": "partial",
+  "stats": {
+    "files": 86363,
+    "symbols": 6190587,
+    "relations": 403116,
+    "sourceBytes": 1212793499,
+    "changedFiles": 86363,
+    "removedFiles": 0,
+    "reusedFiles": 0,
+    "parsedFiles": 60006,
+    "partialFiles": 26358,
+    "skipped": 102,
+    "nodes": 6282688,
+    "nativeFiles": 59746,
+    "nativeIndexedFiles": 59746,
+    "relationsScope": "stored-sql-relations; native calls and references queried from cscope",
+    "stages": {
+      "scan": 6873,
+      "source-and-files": 10592,
+      "native-symbols": 42274,
+      "parser-symbols": 1583,
+      "relations": 0,
+      "indexes": 14249,
+      "native-cross-references": 56173,
+      "validation": 1654
+    },
+    "buildMs": 133399
+  },
+  "store": "/data/dev/CodeIndex/.data/linux-native-v2"
+}

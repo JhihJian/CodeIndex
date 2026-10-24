@@ -3,45 +3,35 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import test from 'node:test';
-import { parseC } from '../src/parsers/c.js';
 import { indexRepository, loadIndex } from '../src/lib/indexer.js';
 import { queryIndex } from '../src/lib/query.js';
 
-function cFixture() {
-  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'codeindex-c-repo-'));
-  fs.writeFileSync(path.join(root, 'demo.h'), `typedef struct Item {\n  int value;\n} Item;\nint helper(int value);\n`);
-  fs.writeFileSync(path.join(root, 'demo.c'), `#include "demo.h"\n#define TWICE(x) ((x) + (x))\n\nstatic int helper(int value) { return value; }\nint run(int value) { return helper(TWICE(value)); }\n`);
-  fs.writeFileSync(path.join(root, 'demo.cpp'), `class Base {};\nclass Child : public Base {\npublic:\n  int run(int value) { return value; }\n};\n`);
-  return root;
-}
-
-test('parses C/C++ functions, types, includes, macros and calls', () => {
-  const result = parseC({
-    path: 'demo.c',
-    language: 'c',
-    source: fs.readFileSync(path.join(cFixture(), 'demo.c'), 'utf8'),
-  });
-  assert.equal(result.status, 'complete');
-  assert.ok(result.symbols.some((symbol) => symbol.kind === 'function' && symbol.name === 'run'));
-  assert.ok(result.symbols.some((symbol) => symbol.kind === 'macro' && symbol.name === 'TWICE'));
-  assert.ok(result.relations.some((relation) => relation.type === 'includes' && relation.targetName === 'demo.h'));
-  assert.ok(result.relations.some((relation) => relation.type === 'calls' && relation.targetName === 'helper'));
-  assert.ok(result.relations.some((relation) => relation.type === 'references' && relation.targetName === 'TWICE'));
-});
-
-test('publishes C/C++ symbols and resolves local calls and includes', () => {
-  const repo = cFixture();
-  const store = fs.mkdtempSync(path.join(os.tmpdir(), 'codeindex-c-store-'));
+test('native C/C++ symbols, calls, macros, includes and inheritance survive source removal', (t) => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'codeindex-c-'));
+  t.after(() => fs.rmSync(root, { recursive: true, force: true }));
+  const repo = path.join(root, 'repo'), store = path.join(root, 'store');
+  fs.mkdirSync(repo);
+  fs.writeFileSync(path.join(repo, 'demo.h'), 'typedef struct Item {\n int value;\n} Item;\nint helper(int value);\n');
+  fs.writeFileSync(path.join(repo, 'demo.c'), '#include "demo.h"\n#define TWICE(x) ((x)+(x))\nstatic int helper(int value) { return value; }\nint run(int value) { return helper(TWICE(value)); }\n');
+  fs.writeFileSync(path.join(repo, 'demo.cpp'), 'class Base {};\nclass Child : public Base {\npublic:\n int run(int value) { return value; }\n};\n');
   const built = indexRepository(repo, store);
+  fs.rmSync(repo, { recursive: true });
   const index = loadIndex(store);
+  t.after(() => index.close());
   assert.equal(built.manifest.status, 'published');
-  assert.ok(index.symbols.some((symbol) => symbol.kind === 'function' && symbol.name === 'run' && symbol.path === 'demo.c'));
-  assert.ok(index.symbols.some((symbol) => symbol.kind === 'class' && symbol.name === 'Child' && symbol.path === 'demo.cpp'));
-  assert.ok(index.symbols.some((symbol) => symbol.kind === 'macro' && symbol.name === 'TWICE'));
-  assert.ok(index.relations.some((relation) => relation.type === 'calls' && relation.status === 'resolved' && relation.targetName === 'helper'));
-  assert.ok(index.relations.some((relation) => relation.type === 'includes' && relation.status === 'resolved' && relation.targetName === 'demo.h'));
-  assert.ok(index.relations.some((relation) => relation.type === 'inherits' && relation.status === 'resolved' && relation.targetName === 'Base'));
-  const result = queryIndex(index, 'run');
-  assert.ok(result.evidence.length > 0);
-  assert.ok(result.evidence.some((item) => item.path === 'demo.c'));
+  const symbols = [...index.iterSymbols()];
+  const run = symbols.find((s) => s.kind === 'function' && s.name === 'run' && s.path === 'demo.c');
+  assert.ok(run);
+  assert.ok(symbols.some((s) => s.kind === 'class' && s.name === 'Child'));
+  const macro = symbols.find((s) => s.kind === 'macro' && s.name === 'TWICE');
+  assert.ok(macro);
+  const outgoing = index.getRelationsForSource(run.symbolId, ['calls', 'references']);
+  assert.ok(outgoing.some((r) => r.type === 'calls' && r.status === 'resolved' && r.target_name === 'helper'));
+  assert.ok(outgoing.some((r) => r.type === 'references' && r.target_id === macro.symbolId));
+  const stored = [...index.iterStoredRelations()];
+  assert.ok(stored.some((r) => r.type === 'includes' && r.status === 'resolved' && r.targetName === 'demo.h'));
+  assert.ok(stored.some((r) => r.type === 'inherits' && r.status === 'resolved' && r.targetName === 'Base'));
+  assert.ok(queryIndex(index, 'run').evidence.some((e) => e.path === 'demo.c'));
+  assert.ok(queryIndex(index, 'who calls helper').relations.some((r) => r.peer?.name === 'run'));
+  assert.ok(!fs.existsSync(path.join(built.snapshotDir, 'symbols.jsonl')));
 });

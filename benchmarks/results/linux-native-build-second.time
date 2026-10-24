@@ -1,0 +1,33 @@
+(node:928926) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+{"stage":"scan","durationMs":6873,"elapsedMs":6873,"rssMiB":349,"files":86363,"changedFiles":86363}
+{"stage":"source-and-files","durationMs":10592,"elapsedMs":17465,"rssMiB":425}
+{"stage":"native-symbols","durationMs":42274,"elapsedMs":59739,"rssMiB":428}
+{"stage":"parser-symbols","durationMs":1583,"elapsedMs":61322,"rssMiB":439}
+{"stage":"relations","durationMs":0,"elapsedMs":61322,"rssMiB":439}
+{"stage":"indexes","durationMs":14249,"elapsedMs":75571,"rssMiB":455}
+{"stage":"native-cross-references","durationMs":56173,"elapsedMs":131744,"rssMiB":439}
+{"stage":"validation","durationMs":1654,"elapsedMs":133398,"rssMiB":440}
+	Command being timed: "node bin/codeindex.js index --repo /data/dev/bench-repos/linux-benchmark --store .data/linux-native-v2 --progress --json"
+	User time (seconds): 130.12
+	System time (seconds): 18.38
+	Percent of CPU this job got: 111%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 2:13.48
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 2534436
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 3
+	Minor (reclaiming a frame) page faults: 1302322
+	Voluntary context switches: 183207
+	Involuntary context switches: 2850
+	Swaps: 0
+	File system inputs: 157576
+	File system outputs: 16697608
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

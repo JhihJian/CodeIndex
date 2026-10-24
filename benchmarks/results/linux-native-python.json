@@ -1,0 +1,216 @@
+{
+  "schema": "codeindex-benchmark-0.1.0",
+  "generatedAt": "2026-10-24T18:50:07.646Z",
+  "repository": "/data/dev/bench-repos/linux-benchmark",
+  "snapshotId": "snapshot:repo-67168d4b0edd4e638610:a8b6aab760ad45a485996561",
+  "index": {
+    "files": 86363,
+    "symbols": 6190587,
+    "relations": 403090,
+    "sourceBytes": 1212793499,
+    "changedFiles": 86363,
+    "removedFiles": 0,
+    "reusedFiles": 0,
+    "parsedFiles": 60006,
+    "partialFiles": 26358,
+    "skipped": 102,
+    "nodes": 6282688,
+    "nativeFiles": 59746,
+    "nativeIndexedFiles": 59746,
+    "relationsScope": "stored-sql-relations; native calls and references queried from cscope",
+    "stages": {
+      "scan": 6853,
+      "source-and-files": 11766,
+      "native-symbols": 42880,
+      "parser-symbols": 1547,
+      "relations": 0,
+      "indexes": 14050,
+      "native-cross-references": 55600,
+      "validation": 2248
+    },
+    "buildMs": 134945,
+    "totalSourceBytes": 1212793499,
+    "indexLoadOrBuildMs": 374.488237
+  },
+  "questions": {
+    "file": "/data/dev/CodeIndex/benchmarks/questions-linux-python.json",
+    "total": 4,
+    "hits": 4,
+    "recallAtEvidence": 1
+  },
+  "aggregate": {
+    "codeIndexMedianMs": 11.165545000000009,
+    "baselineMedianMs": 138.77241000000004,
+    "codeIndexContextBytes": 8599,
+    "baselineMatchedBytes": 698235,
+    "fullRepositoryBytes": 4851173996,
+    "contextReductionVsFullRepository": 564155.5990231422,
+    "contextReductionVsMatchedFiles": 81.19955808814979,
+    "queryWorkReductionVsFullRepository": 564155.5990231422,
+    "queryLatencySpeedupVsRg": 12.42862842790029
+  },
+  "gate": {
+    "recallAtEvidence": true,
+    "contextReductionVsFullRepository": true,
+    "queryLatencyWithinBaseline": true,
+    "significantAdvantage": true
+  },
+  "rows": [
+    {
+      "query": "have_command",
+      "hit": true,
+      "codeIndexMs": 11.165545000000009,
+      "baselineMs": 139.64823100000007,
+      "candidateCount": 2,
+      "evidenceCount": 2,
+      "contextBytes": 201,
+      "baselineMatchedBytes": 61341,
+      "baselineOutputBytes": 726,
+      "matches": 7,
+      "topCandidates": [
+        {
+          "type": "symbol",
+          "score": 19.5,
+          "symbolId": "symbol:WyJmaWxlOjUxNWQ0MGQ2OWUzY2RjM2VhN2E5NGMwOCIsImhhdmVfY29tbWFuZCIsImZ1bmN0aW9uIiwiRG9jdW1lbnRhdGlvbi5jb25mIiwyMywwXQ",
+          "name": "Documentation.conf.have_command",
+          "path": "Documentation/conf.py",
+          "startLine": 23
+        },
+        {
+          "type": "symbol",
+          "score": 19,
+          "symbolId": "symbol:WyJmaWxlOjFjMDgxYWExNGU5M2RkMmZjZGU2NjBiYiIsImhhdmVfY29tbWFuZCIsImZpZWxkIiwiYnVkZ2V0X2NpX2lyIiw5MCwwXQ",
+          "name": "budget_ci_ir::have_command",
+          "path": "drivers/media/pci/ttpci/budget-ci.c",
+          "startLine": 90
+        }
+      ],
+      "snapshotId": "snapshot:repo-67168d4b0edd4e638610:a8b6aab760ad45a485996561"
+    },
+    {
+      "query": "markup_refs",
+      "hit": true,
+      "codeIndexMs": 6.45655099999999,
+      "baselineMs": 136.851089,
+      "candidateCount": 1,
+      "evidenceCount": 1,
+      "contextBytes": 1553,
+      "baselineMatchedBytes": 11320,
+      "baselineOutputBytes": 258,
+      "matches": 2,
+      "topCandidates": [
+        {
+          "type": "symbol",
+          "score": 19.5,
+          "symbolId": "symbol:WyJmaWxlOmQ3YTM4YmJjZDI3MWExNDhmYTAxNmYwNyIsIm1hcmt1cF9yZWZzIiwiZnVuY3Rpb24iLCJEb2N1bWVudGF0aW9uLnNwaGlueC5hdXRvbWFya3VwIiw3OSwwXQ",
+          "name": "Documentation.sphinx.automarkup.markup_refs",
+          "path": "Documentation/sphinx/automarkup.py",
+          "startLine": 79
+        }
+      ],
+      "snapshotId": "snapshot:repo-67168d4b0edd4e638610:a8b6aab760ad45a485996561"
+    },
+    {
+      "query": "KernelCmd",
+      "hit": true,
+      "codeIndexMs": 11.300877000000014,
+      "baselineMs": 138.77241000000004,
+      "candidateCount": 4,
+      "evidenceCount": 4,
+      "contextBytes": 4157,
+      "baselineMatchedBytes": 4123,
+      "baselineOutputBytes": 370,
+      "matches": 3,
+      "topCandidates": [
+        {
+          "type": "symbol",
+          "score": 19.5,
+          "symbolId": "symbol:WyJmaWxlOjM0ZWNiNmY1M2U0Y2FhYTE3M2E0ODE5YSIsIktlcm5lbENtZCIsImNsYXNzIiwiRG9jdW1lbnRhdGlvbi5zcGhpbngua2VybmVsX2FiaSIsNTksMF0",
+          "name": "Documentation.sphinx.kernel_abi.KernelCmd",
+          "path": "Documentation/sphinx/kernel_abi.py",
+          "startLine": 59
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjM0ZWNiNmY1M2U0Y2FhYTE3M2E0ODE5YSIsInJ1biIsImZ1bmN0aW9uIiwiRG9jdW1lbnRhdGlvbi5zcGhpbngua2VybmVsX2FiaS5LZXJuZWxDbWQiLDczLDRd",
+          "name": "Documentation.sphinx.kernel_abi.KernelCmd.run",
+          "path": "Documentation/sphinx/kernel_abi.py",
+          "startLine": 73
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjM0ZWNiNmY1M2U0Y2FhYTE3M2E0ODE5YSIsIm5lc3RlZFBhcnNlIiwiZnVuY3Rpb24iLCJEb2N1bWVudGF0aW9uLnNwaGlueC5rZXJuZWxfYWJpLktlcm5lbENtZCIsOTQsNF0",
+          "name": "Documentation.sphinx.kernel_abi.KernelCmd.nestedParse",
+          "path": "Documentation/sphinx/kernel_abi.py",
+          "startLine": 94
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjM0ZWNiNmY1M2U0Y2FhYTE3M2E0ODE5YSIsImRvX3BhcnNlIiwiZnVuY3Rpb24iLCJEb2N1bWVudGF0aW9uLnNwaGlueC5rZXJuZWxfYWJpLktlcm5lbENtZCIsMTM5LDRd",
+          "name": "Documentation.sphinx.kernel_abi.KernelCmd.do_parse",
+          "path": "Documentation/sphinx/kernel_abi.py",
+          "startLine": 139
+        }
+      ],
+      "snapshotId": "snapshot:repo-67168d4b0edd4e638610:a8b6aab760ad45a485996561"
+    },
+    {
+      "query": "do_parse",
+      "hit": true,
+      "codeIndexMs": 12.832370999999966,
+      "baselineMs": 145.24098300000014,
+      "candidateCount": 12,
+      "evidenceCount": 6,
+      "contextBytes": 2688,
+      "baselineMatchedBytes": 621451,
+      "baselineOutputBytes": 3695,
+      "matches": 28,
+      "topCandidates": [
+        {
+          "type": "symbol",
+          "score": 19.5,
+          "symbolId": "symbol:WyJmaWxlOjM0ZWNiNmY1M2U0Y2FhYTE3M2E0ODE5YSIsImRvX3BhcnNlIiwiZnVuY3Rpb24iLCJEb2N1bWVudGF0aW9uLnNwaGlueC5rZXJuZWxfYWJpLktlcm5lbENtZCIsMTM5LDRd",
+          "name": "Documentation.sphinx.kernel_abi.KernelCmd.do_parse",
+          "path": "Documentation/sphinx/kernel_abi.py",
+          "startLine": 139
+        },
+        {
+          "type": "symbol",
+          "score": 19.5,
+          "symbolId": "symbol:WyJmaWxlOjEyYTM1NTIzN2Y2YTFhYTNkMmJkY2UxMyIsImRvX3BhcnNlIiwiZnVuY3Rpb24iLCJEb2N1bWVudGF0aW9uLnNwaGlueC5rZXJuZWxkb2MuS2VybmVsRG9jRGlyZWN0aXZlIiwxNTUsNF0",
+          "name": "Documentation.sphinx.kerneldoc.KernelDocDirective.do_parse",
+          "path": "Documentation/sphinx/kerneldoc.py",
+          "startLine": 155
+        },
+        {
+          "type": "symbol",
+          "score": 19.5,
+          "symbolId": "symbol:WyJmaWxlOjRkNjY2MWE4NjRkNzlhMTg0NzQ4NWNiNCIsImRvX3BhcnNlIiwiZnVuY3Rpb24iLCJkcml2ZXJzLmdwdS5kcm0ubXNtLnJlZ2lzdGVycy5nZW5faGVhZGVyLlBhcnNlciIsNTc5LDFd",
+          "name": "drivers.gpu.drm.msm.registers.gen_header.Parser.do_parse",
+          "path": "drivers/gpu/drm/msm/registers/gen_header.py",
+          "startLine": 579
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOmQxZmMxMTk1YWVhMzMwYmM4OTY3YTg5MyIsIm10a19qcGVnX2RvX3BhcnNlIiwiZnVuY3Rpb24iLCIiLDUyLDBd",
+          "name": "mtk_jpeg_do_parse",
+          "path": "drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_parse.c",
+          "startLine": 52
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjc2YWVjZjM4N2MwNDliNTE4NWQyYWJkMSIsIm10ZF9wYXJ0X2RvX3BhcnNlIiwiZnVuY3Rpb24iLCIiLDUyMCwwXQ",
+          "name": "mtd_part_do_parse",
+          "path": "drivers/mtd/mtdpart.c",
+          "startLine": 520
+        }
+      ],
+      "snapshotId": "snapshot:repo-67168d4b0edd4e638610:a8b6aab760ad45a485996561"
+    }
+  ]
+}

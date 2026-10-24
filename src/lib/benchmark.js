@@ -36,41 +36,47 @@ export function runBenchmark({ repoRoot, storeRoot, questionFile, outputFile, fo
   const startedIndex = performance.now();
   try { index = forceIndex ? null : loadIndex(storeRoot); } catch { index = null; }
   let indexResult = null;
-  if (!index || index.manifest.repositoryPath !== fs.realpathSync(repoRoot)) indexResult = indexRepository(repoRoot, storeRoot, { incremental: !forceIndex });
-  index = loadIndex(storeRoot);
-  const indexMs = performance.now() - startedIndex;
-  const totalSourceBytes = index.files.reduce((sum, file) => sum + file.bytes, 0);
-  const rows = [];
-  for (const question of questions) {
-    const started = performance.now();
-    const result = queryIndex(index, question.query);
-    const codeIndexMs = performance.now() - started;
-    const base = baseline(repoRoot, question.query, index.files);
-    rows.push({ query: question.query, hit: expectedHit(result, question), codeIndexMs, baselineMs: base.elapsedMs, candidateCount: result.candidates.length, evidenceCount: result.evidence.length, contextBytes: result.metrics.contextBytes, baselineMatchedBytes: base.matchedBytes, baselineOutputBytes: base.outputBytes, matches: base.matchCount, topCandidates: result.candidates.slice(0, 5), snapshotId: result.snapshotId });
+  if (!index || index.manifest.repositoryPath !== fs.realpathSync(repoRoot)) {
+    index?.close();
+    indexResult = indexRepository(repoRoot, storeRoot, { incremental: !forceIndex });
+    index = loadIndex(storeRoot);
   }
-  const hits = rows.filter((row) => row.hit).length;
-  const codeBytes = rows.reduce((sum, row) => sum + row.contextBytes, 0);
-  const baselineBytes = rows.reduce((sum, row) => sum + row.baselineMatchedBytes, 0);
-  const report = {
-    schema: 'codeindex-benchmark-0.1.0', generatedAt: new Date().toISOString(), repository: fs.realpathSync(repoRoot), snapshotId: index.manifest.snapshotId,
-    index: { ...(indexResult?.stats || index.manifest.stats), totalSourceBytes, indexLoadOrBuildMs: indexMs },
-    questions: { file: questionFile, total: rows.length, hits, recallAtEvidence: hits / rows.length },
-    aggregate: {
-      codeIndexMedianMs: percentile(rows.map((row) => row.codeIndexMs), 0.5), baselineMedianMs: percentile(rows.map((row) => row.baselineMs), 0.5),
-      codeIndexContextBytes: codeBytes, baselineMatchedBytes: baselineBytes, fullRepositoryBytes: totalSourceBytes * rows.length,
-      contextReductionVsFullRepository: codeBytes ? (totalSourceBytes * rows.length) / codeBytes : null,
-      contextReductionVsMatchedFiles: codeBytes ? baselineBytes / codeBytes : null,
-      queryWorkReductionVsFullRepository: totalSourceBytes ? (totalSourceBytes * rows.length) / codeBytes : null,
-      queryLatencySpeedupVsRg: percentile(rows.map((row) => row.baselineMs), 0.5) / Math.max(0.001, percentile(rows.map((row) => row.codeIndexMs), 0.5)),
-    },
-    gate: {
-      recallAtEvidence: hits / rows.length >= 0.75,
-      contextReductionVsFullRepository: codeBytes > 0 && (totalSourceBytes * rows.length) / codeBytes >= 3,
-      queryLatencyWithinBaseline: percentile(rows.map((row) => row.codeIndexMs), 0.5) <= percentile(rows.map((row) => row.baselineMs), 0.5) * 1.5,
-      significantAdvantage: codeBytes > 0 && (totalSourceBytes * rows.length) / codeBytes >= 3 && percentile(rows.map((row) => row.codeIndexMs), 0.5) <= percentile(rows.map((row) => row.baselineMs), 0.5) * 1.5
-    },
-    rows,
-  };
-  if (outputFile) writeJsonAtomic(outputFile, report);
-  return report;
+  try {
+    const files = [...index.iterFiles()];
+    const indexMs = performance.now() - startedIndex;
+    const totalSourceBytes = files.reduce((sum, file) => sum + file.bytes, 0);
+    const rows = [];
+    for (const question of questions) {
+      const started = performance.now();
+      const result = queryIndex(index, question.query);
+      const codeIndexMs = performance.now() - started;
+      const base = baseline(repoRoot, question.query, files);
+      rows.push({ query: question.query, hit: expectedHit(result, question), codeIndexMs, baselineMs: base.elapsedMs, candidateCount: result.candidates.length, evidenceCount: result.evidence.length, contextBytes: result.metrics.contextBytes, baselineMatchedBytes: base.matchedBytes, baselineOutputBytes: base.outputBytes, matches: base.matchCount, topCandidates: result.candidates.slice(0, 5), snapshotId: result.snapshotId });
+    }
+    const hits = rows.filter((row) => row.hit).length;
+    const codeBytes = rows.reduce((sum, row) => sum + row.contextBytes, 0);
+    const baselineBytes = rows.reduce((sum, row) => sum + row.baselineMatchedBytes, 0);
+    const report = {
+      schema: 'codeindex-benchmark-0.1.0', generatedAt: new Date().toISOString(), repository: fs.realpathSync(repoRoot), snapshotId: index.manifest.snapshotId,
+      index: { ...(indexResult?.stats || index.manifest.stats), totalSourceBytes, indexLoadOrBuildMs: indexMs },
+      questions: { file: questionFile, total: rows.length, hits, recallAtEvidence: hits / rows.length },
+      aggregate: {
+        codeIndexMedianMs: percentile(rows.map((row) => row.codeIndexMs), 0.5), baselineMedianMs: percentile(rows.map((row) => row.baselineMs), 0.5),
+        codeIndexContextBytes: codeBytes, baselineMatchedBytes: baselineBytes, fullRepositoryBytes: totalSourceBytes * rows.length,
+        contextReductionVsFullRepository: codeBytes ? (totalSourceBytes * rows.length) / codeBytes : null,
+        contextReductionVsMatchedFiles: codeBytes ? baselineBytes / codeBytes : null,
+        queryWorkReductionVsFullRepository: totalSourceBytes ? (totalSourceBytes * rows.length) / codeBytes : null,
+        queryLatencySpeedupVsRg: percentile(rows.map((row) => row.baselineMs), 0.5) / Math.max(0.001, percentile(rows.map((row) => row.codeIndexMs), 0.5)),
+      },
+      gate: {
+        recallAtEvidence: hits / rows.length >= 0.75,
+        contextReductionVsFullRepository: codeBytes > 0 && (totalSourceBytes * rows.length) / codeBytes >= 3,
+        queryLatencyWithinBaseline: percentile(rows.map((row) => row.codeIndexMs), 0.5) <= percentile(rows.map((row) => row.baselineMs), 0.5) * 1.5,
+        significantAdvantage: codeBytes > 0 && (totalSourceBytes * rows.length) / codeBytes >= 3 && percentile(rows.map((row) => row.codeIndexMs), 0.5) <= percentile(rows.map((row) => row.baselineMs), 0.5) * 1.5
+      },
+      rows,
+    };
+    if (outputFile) writeJsonAtomic(outputFile, report);
+    return report;
+  } finally { index.close(); }
 }

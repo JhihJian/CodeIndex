@@ -1,6 +1,6 @@
 {
   "name": "codeindex",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Snapshot-aware, structure-first code repository indexing and reasoning for large repositories.",
   "type": "module",
   "bin": {
@@ -14,10 +14,5 @@
   "engines": {
     "node": "^22.16.0 || >=24.0.0"
   },
-  "license": "MIT",
-  "dependencies": {
-    "tree-sitter": "^0.21.1",
-    "tree-sitter-c": "^0.23.0",
-    "tree-sitter-cpp": "^0.23.0"
-  }
+  "license": "MIT"
 }

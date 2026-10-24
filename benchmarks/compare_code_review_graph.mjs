@@ -51,19 +51,26 @@ for (const question of questions) {
 }
 const report = {
   tool: 'CodeIndex', repository: index.manifest.repositoryPath, snapshotId: index.manifest.snapshotId,
-  stats: { ...index.stats(), parsedFiles: index.manifest.coverage.parsedFiles, sourceBytes: index.manifest.stats.sourceBytes, storeBytes: 0 },
+  stats: { ...index.stats(), relationsScope: index.manifest.stats.relationsScope, native: index.manifest.native, parsedFiles: index.manifest.coverage.parsedFiles, sourceBytes: index.manifest.stats.sourceBytes, storeBytes: 0 },
   questions: { total: rows.length, hits: rows.filter((row) => row.hit).length, recall: rows.filter((row) => row.hit).length / rows.length },
   aggregate: { medianMs: median(rows.map((row) => row.medianMs)), metadataMedianMs: median(rows.map((row) => row.metadataMedianMs)), resultBytes: rows.reduce((sum, row) => sum + row.resultBytes, 0), medianResultBytes: median(rows.map((row) => row.resultBytes)), contextBytes: rows.reduce((sum, row) => sum + row.contextBytes, 0) }, rows,
 };
-function directoryBytes(directory) {
+function directoryBytes(directory, seen = new Set()) {
   if (!fs.existsSync(directory)) return 0;
   let total = 0;
   for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
     const full = path.join(directory, entry.name);
-    total += entry.isDirectory() ? directoryBytes(full) : fs.statSync(full).size;
+    if (entry.isDirectory()) total += directoryBytes(full, seen);
+    else {
+      const stat = fs.statSync(full);
+      const key = `${stat.dev}:${stat.ino}`;
+      if (!seen.has(key)) { total += stat.size; seen.add(key); }
+    }
   }
   return total;
 }
+report.stats.snapshotBytes = directoryBytes(index.snapshotDir);
+report.stats.storageScope = 'logical file bytes deduplicated by inode; store includes all retained snapshots';
 report.stats.storeBytes = directoryBytes(path.resolve(options.store));
 fs.mkdirSync(path.dirname(path.resolve(options.output)), { recursive: true });
 fs.writeFileSync(path.resolve(options.output), JSON.stringify(report, null, 2) + '\n');

@@ -6,7 +6,6 @@ import test from 'node:test';
 import { indexRepository, loadIndex } from '../src/lib/indexer.js';
 import { iterateJsonl } from '../src/lib/fs.js';
 import { parseEntriesBatched } from '../src/parsers/index.js';
-import { parseC } from '../src/parsers/c.js';
 
 function workspace(t) {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'codeindex-stream-test-'));
@@ -35,14 +34,18 @@ test('streamed updates reuse records without whole JSONL reads and match full re
   const full = indexRepository(repo, path.join(root, 'full'), { incremental: false });
   assert.equal(updated.manifest.snapshotId, full.manifest.snapshotId);
   assert.notEqual(first.manifest.snapshotId, full.manifest.snapshotId);
-  const relationIds = (dir) => [...iterateJsonl(path.join(dir, 'relations.jsonl'))].map((x) => x.relationId).sort();
-  assert.deepEqual(relationIds(updated.snapshotDir), relationIds(full.snapshotDir));
+  const relationIds = (targetStore) => {
+    const db = loadIndex(targetStore);
+    try { return [...db.iterStoredRelations()].map((x) => x.relationId).sort(); }
+    finally { db.close(); }
+  };
+  assert.deepEqual(relationIds(store), relationIds(path.join(root, 'full')));
   assert.equal(indexRepository(repo, store).stats.noOp, true);
   const index = loadIndex(store);
   t.after(() => index.close());
-  assert.ok(index.relations.some((r) => r.type === 'imports' && r.targetId));
-  for (const symbol of index.symbols) assert.ok(symbol.sourceSpan.endByte >= symbol.sourceSpan.startByte);
-  const node = index.containment.find((n) => n.kind === 'function');
+  assert.ok([...index.iterStoredRelations()].some((r) => r.type === 'imports' && r.targetId));
+  for (const symbol of index.iterSymbols()) assert.ok(symbol.sourceSpan.endByte >= symbol.sourceSpan.startByte);
+  const node = [...index.iterContainment()].find((n) => n.kind === 'function');
   assert.equal(typeof node.sourceSpan.startColumn, 'number');
   assert.equal(typeof node.sourceSpan.endColumn, 'number');
   assert.ok(!index.db.prepare("SELECT name FROM sqlite_master WHERE name = 'relation_staging'").get());
@@ -71,7 +74,7 @@ test('failed build preserves published snapshot and removes temporary files', (t
   const index = loadIndex(store);
   t.after(() => index.close());
   assert.equal(index.manifest.snapshotId, first.manifest.snapshotId);
-  assert.ok(index.symbols.some((s) => s.name === 'old'));
+  assert.ok([...index.iterSymbols()].some((s) => s.name === 'old'));
   assert.ok(!fs.readdirSync(path.dirname(first.snapshotDir)).some((name) => name.startsWith('.build-')));
 });
 
@@ -101,9 +104,16 @@ test('navigation and imports are independent of incremental insertion order', (t
   fs.appendFileSync(path.join(repo, 'pkg', 'f13.py'), 'def extra(): pass\n');
   const incremental = indexRepository(repo, store);
   const full = indexRepository(repo, path.join(root, 'full'), { incremental: false });
-  const nav = (dir) => [...iterateJsonl(path.join(dir, 'navigation.jsonl'))].sort((a, b) => a.nodeId.localeCompare(b.nodeId));
-  assert.deepEqual(nav(incremental.snapshotDir), nav(full.snapshotDir));
-  const relations = [...iterateJsonl(path.join(full.snapshotDir, 'relations.jsonl'))];
+  const nav = (targetStore) => {
+    const index = loadIndex(targetStore);
+    try { return [...index.iterContainment()].map((node) => index.getNavigation(node.nodeId)).sort((a, b) => a.nodeId.localeCompare(b.nodeId)); }
+    finally { index.close(); }
+  };
+  assert.deepEqual(nav(store), nav(path.join(root, 'full')));
+  assert.equal(incremental.manifest.snapshotId, full.manifest.snapshotId);
+  const index = loadIndex(store);
+  const relations = [...index.iterStoredRelations()];
+  index.close();
   assert.ok(relations.some((r) => r.type === 'imports' && r.targetId));
 });
 
@@ -111,10 +121,12 @@ test('rebuilding restores a missing database under the same snapshot identity', 
   const { repo, store } = workspace(t);
   fs.writeFileSync(path.join(repo, 'a.py'), 'def retained(): pass\n');
   const first = indexRepository(repo, store);
+  let current = first;
   for (const incremental of [false, true]) {
-    fs.unlinkSync(path.join(first.snapshotDir, 'index.db'));
+    fs.unlinkSync(path.join(current.snapshotDir, 'index.db'));
     assert.throws(() => loadIndex(store), /重新执行 index/);
     const rebuilt = indexRepository(repo, store, { incremental });
+    current = rebuilt;
     assert.equal(rebuilt.manifest.snapshotId, first.manifest.snapshotId);
     assert.notEqual(rebuilt.stats.noOp, true);
     const index = loadIndex(store);
@@ -123,8 +135,13 @@ test('rebuilding restores a missing database under the same snapshot identity', 
   }
 });
 
-test('C type usages do not create definition symbols', () => {
-  const parsed = parseC({ path: 'x.c', language: 'c', source: 'struct S { int n; }; struct S *a; struct S *b; int f(struct S *s) { return s->n; }' });
-  assert.equal(parsed.symbols.filter((s) => s.kind === 'struct' && s.name === 'S').length, 1);
-  assert.ok(parsed.symbols.some((s) => s.name === 'f'));
+test('C type usages do not create definition symbols', (t) => {
+  const { repo, store } = workspace(t);
+  fs.writeFileSync(path.join(repo, 'x.c'), 'struct S { int n; }; struct S *a; struct S *b; int f(struct S *s) { return s->n; }');
+  indexRepository(repo, store);
+  const index = loadIndex(store);
+  t.after(() => index.close());
+  const symbols = [...index.iterSymbols()];
+  assert.equal(symbols.filter((s) => s.kind === 'struct' && s.name === 'S').length, 1);
+  assert.ok(symbols.some((s) => s.name === 'f'));
 });

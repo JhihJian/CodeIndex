@@ -1,141 +1,99 @@
 # CodeIndex
 
-CodeIndex 是一个面向大型代码仓库的 Node.js 结构化索引和推理工具。它采用固定仓库快照、确定性符号解析、包含树、关系图和可复核源码证据，借鉴 PageIndex 的结构优先导航方式。
+CodeIndex 为代码仓库建立不可变的结构索引，回答“代码在哪里”“谁调用这个函数”“它调用了什么”等问题。查询先检索元数据，再读取少量源码证据，每条证据绑定快照、路径、行号、字节范围和内容摘要。
 
-它适合需要回答“某个功能在哪里实现”“谁调用了这个符号”“改动会影响哪些代码”这类问题的场景。CodeIndex 先用索引缩小候选范围，再读取少量源码证据，避免为了单个查询扫描整个仓库。
-
-## 特性
-
-- 固定快照和原子发布，查询结果绑定 snapshot、路径、行号、字节范围和 blob digest。
-- 支持 Python AST、JavaScript/TypeScript 和 Tree-sitter C/C++ 结构化解析，对其他文本文件保留文件级索引。
-- C/C++ 解析覆盖函数定义和声明、结构体、联合体、枚举、typedef、C++ 类和命名空间、`#include`、宏定义、直接函数调用和继承关系。
-- 建立仓库、目录、文件和符号包含树，以及 imports、calls、inherits、implements 等关系。
-- 使用 SQLite FTS5 检索候选节点，使用关系 B-tree 索引访问邻接边。
-- 元数据候选和源码证据分阶段读取，支持 `--metadata-only` 低延迟查询。
-- 支持增量解析、无变化快路径、源码 blob 复用和可选 Pi provider 推理。
-- 流式构建：解析结果按批次写入 SQLite，关系通过数据库索引汇总，JSONL 按行导出。增量更新逐行复用解析缓存。
-
-构建方式、内存口径和验证命令见 [`docs/streaming-index.md`](docs/streaming-index.md)。
-
-## 环境要求
-
-- Node.js 22.16+（22.x）或 24+。这些官方发行版提供内置 `node:sqlite` 的逐行迭代接口与 FTS5。
-- Python 3，用于 Python AST 解析器。
-- `npm install` 会安装 Tree-sitter C/C++ grammar 的原生模块。
+正式后端采用 **Universal Ctags + Cscope + 紧凑 SQLite**。在 Linux v6.12 的 86,363 个文件上，全量命令从启动到校验、发布用时 **135.03 秒**。测量条件和能力范围见 [Linux 正式验证](benchmarks/linux-native.md)。
 
 ## 安装
+
+环境要求：
+
+- Node.js 22.16+（22.x）或 24+，需要内置 SQLite 的 FTS5 和逐行迭代接口。
+- Python 3，用于 Python AST。
+- C/C++ 仓库需要支持 JSON 的 Universal Ctags，以及带倒排索引的 Cscope。本次验证版本为 Universal Ctags 5.9、Cscope 15.9。
+- 可选 `rg` 用于 benchmark 对照，可选 Pi CLI 用于模型归纳。
 
 ```bash
 git clone https://github.com/JhihJian/CodeIndex.git
 cd CodeIndex
+# Debian / Ubuntu 的 C/C++ 依赖
+sudo apt-get install universal-ctags cscope
 npm install
 npm test
 ```
 
+可通过 `CODEINDEX_CTAGS`、`CODEINDEX_CSCOPE` 指定可执行文件。`index/update` 也支持 `--ctags PATH --cscope PATH`，`query` 支持 `--cscope PATH`。纯 Python/JS/TS 仓库无需这两个原生工具。
+
 ## 快速开始
 
 ```bash
-npm test
-node bin/codeindex.js index --repo /data/github/PageIndex --store .data/pageindex
-node bin/codeindex.js inspect --store .data/pageindex
-node bin/codeindex.js query --store .data/pageindex --query "local document store implementation"
+node bin/codeindex.js index --repo /path/to/repository --store /path/to/index --progress
+node bin/codeindex.js inspect --store /path/to/index
+node bin/codeindex.js query --store /path/to/index --query "vfs_open"
+node bin/codeindex.js query --store /path/to/index --query "who calls vfs_open"
+node bin/codeindex.js query --store /path/to/index --query "what does vfs_open call"
+node bin/codeindex.js update --repo /path/to/repository --store /path/to/index --progress
 ```
 
-索引不要求 LLM。确定性查询会返回候选符号、源码范围、快照和关系证据。需要自然语言归纳时，可使用本机 Pi provider：
+`--json` 输出结构化结果，`--metadata-only` 返回候选和关系元数据，跳过源码内容读取。多个仓库共用 store 时，查询和导出使用 `--repo-id ID` 选择仓库。
+
+## 能力与数据
+
+- **C/C++**：Ctags 提取函数、声明、类型、宏、字段和作用域。Cscope 提供调用者、被调用者和引用查询，include 与继承事实保存在 SQLite。
+- **Python**：保留 AST 解析、类与函数结构、导入、调用和继承事实。
+- **JavaScript/TypeScript**：保留轻量语法提取，支持已有声明、导入和调用行为。语法覆盖范围小于完整编译器。
+- **导航与搜索**：SQLite FTS5 检索名称、作用域、签名、文档和路径；目录、文件和符号导航按需读取。
+- **证据**：原生工具读取快照文件，查询读取同一快照的源码 blob。工作区修改或删除后，已发布快照仍可查询。Ctags 范围以行为粒度，返回片段的字节范围与实际内容一致。
+- **增量**：克隆旧数据库，只删除和重建变化文件的 SQL 事实，未变化文件复用源码。Cscope 交叉引用在每次实际更新时整体重建。
+
+关系属于语法交叉引用。同名目标只有在当前解析规则下唯一时才标记 `resolved`，其余保留 `unresolved`。宏展开、条件编译求值、函数指针和完整 C++ 重载消歧需要编译上下文。覆盖状态和查询截断会随结果返回。
+
+`stats.relations` 统计 SQLite 中保存的关系；Cscope 中按需访问的调用和引用单独由 `native` 元数据说明，二者口径不同。
+
+## 命令与快照
+
+| 命令 | 行为 |
+| --- | --- |
+| `index` | 完整构建、校验并原子发布新快照 |
+| `update` | 复用未变化事实；满足无变化条件时直接返回已发布快照 |
+| `inspect` | 查看清单、覆盖和存储计数 |
+| `query` | 查询符号、关系和固定版本的源码证据 |
+| `export --output PATH` | 显式导出 JSONL 事实及 Cscope 文件，供审计使用 |
+| `benchmark` | 用问题集对比 CodeIndex 与 `rg` 的证据召回、上下文和耗时 |
+
+默认快照包含 `manifest.json`、`index.db`、`source/`、`tree/` 和 `native/`。JSONL 由 `export` 显式生成，导出目录必须为空，其中的清单记录原快照位置。源码 blob 和查询数据库继续由原快照保存，审计导出需要与原快照一同留存。Cscope 原生边保持原生格式，SQL 关系 JSONL 覆盖已存储的 SQL 事实。
+
+旧版索引需要重新执行 `index`。新快照使用 `codeindex-index-0.3.0`，发布目录与内容身份分离，重建和增量均保留旧读者使用的目录。使用方法、文件边界及更新成本见 [原生索引运行说明](docs/native-index.md)。原始候选架构保留在 [架构设计](docs/codeindex-architecture.md)。
+
+## 可选模型归纳
 
 ```bash
-node bin/codeindex.js query \
-  --store .data/pageindex \
+node bin/codeindex.js query --store /path/to/index \
   --query "这个函数如何构建文档树" \
-  --llm \
-  --provider sub2api-qc101-gpt \
-  --model gpt-6-luna
+  --llm --provider YOUR_PROVIDER --model YOUR_MODEL
 ```
 
-CodeIndex 通过 `pi --print --no-tools` 调用 provider，仓库内容只作为不可信上下文传入模型。
+确定性索引与查询独立运行。归纳阶段通过 `pi --print --no-tools` 调用已配置的 provider，仓库内容作为不可信上下文传入。
 
-## 命令
-
-- `index`：流式构建新的不可变快照并原子发布，`--progress` 输出各阶段进度。
-- `update`：逐行复用内容未变化文件的解析结果，重新计算关系和导航数据。
-- `inspect`：查看已发布快照和覆盖状态。
-- `query`：在固定快照内通过 SQLite FTS5 检索符号和导航节点，通过关系 B-tree 索引查询邻接边，并按需返回源码证据。使用 `--metadata-only` 只获取候选元数据，不读取源码。
-- `benchmark`：在真实仓库上对比 CodeIndex 与全仓库扫描的候选召回、查询上下文和耗时。
-
-## 设计
-
-详细设计见 [`docs/codeindex-architecture.md`](docs/codeindex-architecture.md)。索引数据使用 JSONL 和内容 blob 保存，发布快照同时生成只读 SQLite 查询数据库。SQLite 中的 FTS5 表负责候选检索，`relations(source_id, type)` 和 `relations(target_id, type)` 索引负责关系查询。查询先执行元数据搜索，再对少量候选按需读取源码，因此不会为了一个查询扫描全库源码。发布指针通过原子替换更新。摘要是导航派生数据，源码范围和关系边才是事实证据。
-
-性能差距调研和下一轮优化方案见 [`benchmarks/codeindex-performance-gap-analysis.md`](benchmarks/codeindex-performance-gap-analysis.md)。
-
-## 验证
-
-PageIndex 基准：
+## 验证与历史结果
 
 ```bash
+npm run check
+npm test
 node bin/codeindex.js benchmark \
-  --repo /data/github/PageIndex \
-  --store .data/pageindex \
+  --repo /data/github/PageIndex --store .data/pageindex-native \
   --questions benchmarks/questions-pageindex.json \
-  --output benchmarks/results/pageindex.json
+  --output benchmarks/results/pageindex-native.json
 ```
 
-大型开源仓库基准（Bun）：
+当前正式版本验证包括 Linux C/Python 各 4 个问题、8 组 C 调用查询，以及 PageIndex 6 个自然语言问题。原始结果保存在 [benchmarks/results](benchmarks/results)。
 
-```bash
-node bin/codeindex.js benchmark \
-  --repo /data/dev/bench-repos/bun-tracked \
-  --store .data/bun \
-  --questions benchmarks/questions-bun.json \
-  --output benchmarks/results/bun-codeindex.json
-```
+以下报告保留各自版本和测量口径：
 
-Bun 是 oven-sh/bun 的固定提交 `02f9249e434ed4ad6b26512a62d08caee2afb70e`，跟踪源码约 181.5 MiB，共 14,650 个 Git 文件。对比使用相同的 Bun 固定副本和 `code-review-graph` 默认完整构建流程：
+- [Linux 正式原生后端](benchmarks/linux-native.md)
+- [三分钟方案原型，116.84 秒](benchmarks/linux-fast-alternatives.md)
+- [Linux Tree-sitter 流式版本，1,930.66 秒](benchmarks/linux-streaming.md)
+- [Linux 早期基线与 C 适配器](benchmarks/linux-code-review-graph-comparison.md)
+- [Bun 对比](benchmarks/bun-code-review-graph-comparison.md)、[TypeScript 对比](benchmarks/typescript-code-review-graph-comparison.md)、[pi-mono 对比](benchmarks/code-review-graph-comparison.md)
 
-| 指标 | CodeIndex | code-review-graph |
-| --- | ---: | ---: |
-| 全量构建墙钟时间 | 40.00 s | 83.31 s |
-| 最大 RSS | 971 MiB | 1,150 MiB |
-| 实际索引文件数 | 13,548 | 11,291 |
-| 解析符号 / 图节点 | 23,086 | 102,675 |
-| 关系边 | 152,962 | 930,237 |
-| 索引体积 | 421 MiB | 999 MiB |
-| 精确符号查询中位数 | 0.44 ms | 0.68 ms |
-| 精确查询召回 | 4/4 | 4/4 |
-| 自然语言查询中位数 | 9.47 ms | 42.19 ms |
-| 自然语言查询召回 | 4/4 | 1/4 |
-| 无变化更新 | 0.47 s | 0.16 s |
-
-CodeIndex 的自然语言问题集覆盖 Bun 的构建脚本、WebSocket 客户端封装、HTTP 类型定义和 Lambda 构建层。精确查询与自然语言查询都返回源码证据；`code-review-graph` 的默认搜索结果主要是节点元数据。关系边直接查询中，CodeIndex 对 `src/node-fallbacks/path.js::relative` 的目标边查询为 0.19 ms，返回 131 条边；`code-review-graph` 对应目标查询为 0.009 ms，返回 2 条边，差异来自两边解析器对调用目标的解析范围不同。
-
-这次 Bun 测评还暴露了大型混合仓库的资源边界：CodeIndex 构建峰值约 971 MiB，且 6,671 个文件处于部分解析状态；`code-review-graph` 的完整后处理在社区检测阶段出现 SQLite 变量数量警告，但构建命令仍成功完成。原始构建日志、查询 JSON 和更新时间结果保存在 [`benchmarks/results`](benchmarks/results)，详细对比见 [`benchmarks/bun-code-review-graph-comparison.md`](benchmarks/bun-code-review-graph-comparison.md)，此前 pi-mono 的历史对比仍保留在 [`benchmarks/code-review-graph-comparison.md`](benchmarks/code-review-graph-comparison.md)。
-
-## 超大型开源仓库基准（Microsoft TypeScript）
-
-Microsoft TypeScript 固定提交为 `8d9b6da99ea7d4a8e7d906dd2532456dfe14e24f`，包含 67,951 个 Git 文件，跟踪源码约 207.1 MiB。使用同一份浅克隆工作区和 `code-review-graph` 默认完整构建流程：
-
-| 指标 | CodeIndex | code-review-graph |
-| --- | ---: | ---: |
-| 全量构建墙钟时间 | 246.32 s | 301.43 s |
-| 最大 RSS | 2,462 MiB | 780 MiB |
-| 实际索引文件数 | 67,862 | 31,942 |
-| 解析符号 / 图节点 | 149,696 | 128,903 |
-| 关系边 | 223,319 | 512,089 |
-| 索引体积 | 1,352 MiB | 841 MiB |
-| 精确符号查询中位数 | 2.41 ms | 0.78 ms |
-| 精确查询召回 | 4/4 | 4/4 |
-| 自然语言查询中位数 | 82.52 ms | 89.29 ms |
-| 自然语言查询召回 | 4/4 | 0/4 |
-| 无变化更新 | 1.18 s | 0.16 s |
-
-CodeIndex 在该仓库上全量构建约快 18%，但峰值内存约为对照项目的 3.2 倍。精确查询的元数据阶段中位数为 0.72 ms；默认完整查询包含源码证据。CodeIndex 的自然语言问题集覆盖 LanguageService、BuildOrchestrator、API Client 和 Snapshot，四个问题全部命中；对照项目的默认 FTS 查询没有命中这四个自然语言问题。详细数据和复现命令见 [`benchmarks/typescript-code-review-graph-comparison.md`](benchmarks/typescript-code-review-graph-comparison.md)。
-
-前三项优化在同一固定工作区上的独立复测结果为：全量构建 152.66 s，最大 RSS 约 1,371 MiB，metadata-only 精确查询中位数 0.51 ms，带源码证据的问题集查询中位数 51.27 ms，召回率保持 4/4。无变化更新约 0.57 s，RSS 约 52 MiB，并且不再打开 `files.jsonl` 和 `parsed.jsonl`。
-
-## 超大型开源仓库基准（Linux v6.12）
-
-Linux v6.12 完整流式构建已完成：86,363 个文件、4,616,281 个符号、4,520,076 条关系，墙钟时间 1,930.66 秒，最大 RSS 约 650 MiB。C 和 Python 两组精确问题均为 4/4 命中，C 查询中位数为 metadata-only 4.98 ms、带源码证据 5.50 ms，无变化更新约 0.30 秒。单文件增量复用 86,362 个文件的解析结果，用时 807.36 秒，最大 RSS 约 1.23 GiB，新快照的证据与关系核验通过。
-
-与同一固定源码上的 `code-review-graph` 历史完整构建相比，CodeIndex 最大 RSS 约为其 1/15，构建耗时约为其 1.66 倍。包含 SQLite、源码、解析缓存和 JSONL 导出的完整快照约 26.50 GiB。完整数据、阶段耗时和复现方式见 [`流式构建验证`](benchmarks/linux-streaming.md)。C/C++ 适配器接入前的旧基线与四文件测试保留在 [`历史对比报告`](benchmarks/linux-code-review-graph-comparison.md)。
-
-以 180 秒为目标的替代方案实验中，Ctags + SQLite + Cscope 原型在同一工作区用时 **116.84 秒**，覆盖符号检索、源码快照及 C/C++ 调用查询。该原型采用独立存储结构，正式命令尚未切换，现有完整关系模型和导航行为仍需回归。测量口径、能力差异和复现命令见 [`三分钟方案实验`](benchmarks/linux-fast-alternatives.md)。
+各版本的符号、边与导出范围存在差异，历史计数和耗时按对应报告解释。

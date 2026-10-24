@@ -1,0 +1,147 @@
+{
+  "before": {
+    "snapshotId": "snapshot:repo-67168d4b0edd4e638610:a8b6aab760ad45a485996561",
+    "coverage": {
+      "sourceFiles": 86363,
+      "parsedFiles": 60005,
+      "unsupportedFiles": 26357,
+      "partialFiles": 26358,
+      "skippedFiles": 102,
+      "nativeCalls": true,
+      "semantics": "syntax-level symbols and cross-references; no compiler-level overload or pointer resolution"
+    },
+    "rows": [
+      {
+        "query": "do_execveat_common",
+        "path": "fs/exec.c",
+        "evidenceCount": 1,
+        "calls": 19,
+        "resolvedCalls": 12,
+        "callers": 4,
+        "callerMs": 32.849575000000016,
+        "coldRelationMs": 47.331253,
+        "cachedRelationMedianMs": 6.065579999999983
+      },
+      {
+        "query": "tcp_v4_syn_recv_sock",
+        "path": "net/ipv4/tcp_ipv4.c",
+        "evidenceCount": 3,
+        "calls": 49,
+        "resolvedCalls": 39,
+        "callers": 1,
+        "callerMs": 53.01767599999994,
+        "coldRelationMs": 50.86007699999999,
+        "cachedRelationMedianMs": 14.666512000000012
+      },
+      {
+        "query": "vfs_open",
+        "path": "fs/open.c",
+        "evidenceCount": 2,
+        "calls": 2,
+        "resolvedCalls": 2,
+        "callers": 5,
+        "callerMs": 40.51957399999992,
+        "coldRelationMs": 47.11361699999998,
+        "cachedRelationMedianMs": 0.7423320000000331
+      },
+      {
+        "query": "pick_next_task_fair",
+        "path": "kernel/sched/fair.c",
+        "evidenceCount": 3,
+        "calls": 15,
+        "resolvedCalls": 9,
+        "callers": 2,
+        "callerMs": 38.12715700000001,
+        "coldRelationMs": 41.64169400000003,
+        "cachedRelationMedianMs": 6.310024999999996
+      }
+    ]
+  },
+  "update": {
+    "files": 86363,
+    "symbols": 6190587,
+    "relations": 403090,
+    "sourceBytes": 1212793546,
+    "changedFiles": 1,
+    "removedFiles": 0,
+    "reusedFiles": 86362,
+    "parsedFiles": 1,
+    "partialFiles": 26358,
+    "skipped": 102,
+    "nodes": 6282688,
+    "nativeFiles": 59746,
+    "nativeIndexedFiles": 59746,
+    "relationsScope": "stored-sql-relations; native calls and references queried from cscope",
+    "stages": {
+      "scan": 7311,
+      "source-and-files": 3180,
+      "native-symbols": 34,
+      "parser-symbols": 0,
+      "relations": 0,
+      "indexes": 0,
+      "native-cross-references": 59754,
+      "validation": 1601
+    },
+    "buildMs": 71881,
+    "commandWallMs": 71957.155551
+  },
+  "after": {
+    "snapshotId": "snapshot:repo-67168d4b0edd4e638610:91f6f3e23c5f7d652d35d228",
+    "coverage": {
+      "sourceFiles": 86363,
+      "parsedFiles": 60005,
+      "unsupportedFiles": 26357,
+      "partialFiles": 26358,
+      "skippedFiles": 102,
+      "nativeCalls": true,
+      "semantics": "syntax-level symbols and cross-references; no compiler-level overload or pointer resolution"
+    },
+    "rows": [
+      {
+        "query": "do_execveat_common",
+        "path": "fs/exec.c",
+        "evidenceCount": 1,
+        "calls": 19,
+        "resolvedCalls": 12,
+        "callers": 4,
+        "callerMs": 36.99537699999928,
+        "coldRelationMs": 54.080426999993506,
+        "cachedRelationMedianMs": 6.286342000006698
+      },
+      {
+        "query": "tcp_v4_syn_recv_sock",
+        "path": "net/ipv4/tcp_ipv4.c",
+        "evidenceCount": 3,
+        "calls": 49,
+        "resolvedCalls": 39,
+        "callers": 1,
+        "callerMs": 41.86559100000886,
+        "coldRelationMs": 57.05395800000406,
+        "cachedRelationMedianMs": 17.04349299999012
+      },
+      {
+        "query": "vfs_open",
+        "path": "fs/open.c",
+        "evidenceCount": 2,
+        "calls": 2,
+        "resolvedCalls": 2,
+        "callers": 5,
+        "callerMs": 39.728579000002355,
+        "coldRelationMs": 48.70138600000064,
+        "cachedRelationMedianMs": 0.8096990000049118
+      },
+      {
+        "query": "pick_next_task_fair",
+        "path": "kernel/sched/fair.c",
+        "evidenceCount": 3,
+        "calls": 15,
+        "resolvedCalls": 9,
+        "callers": 2,
+        "callerMs": 36.19158799998695,
+        "coldRelationMs": 47.27832500000659,
+        "cachedRelationMedianMs": 5.949515000000247
+      }
+    ]
+  },
+  "restoredSnapshotId": "snapshot:repo-67168d4b0edd4e638610:a8b6aab760ad45a485996561"
+}

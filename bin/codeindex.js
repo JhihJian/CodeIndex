@@ -1,10 +1,9 @@
 #!/usr/bin/env node
 import path from 'node:path';
 import process from 'node:process';
-import { indexRepository, loadIndex } from '../src/lib/indexer.js';
+import { indexRepository, loadIndex, exportIndex } from '../src/lib/indexer.js';
 import { askPi, formatQuery, queryIndex } from '../src/lib/query.js';
 import { runBenchmark } from '../src/lib/benchmark.js';
-import { repositoryId, readJson } from '../src/lib/fs.js';
 
 function parseArgs(argv) {
   const [command = 'help', ...rest] = argv;
@@ -25,6 +24,7 @@ function usage() {
   update    --repo PATH --store PATH [--progress]
   inspect   --store PATH [--repo-id ID]
   query     --store PATH --query TEXT [--metadata-only] [--llm --provider NAME --model NAME]
+  export    --store PATH --output PATH [--repo-id ID]
   benchmark --repo PATH --store PATH --questions FILE [--output FILE] [--force]
 `);
 }
@@ -40,20 +40,26 @@ try {
   const store = path.resolve(options.store || '.codeindex');
   if (options.command === 'index' || options.command === 'update') {
     if (!options.repo) throw new Error('index/update 需要 --repo');
-    const result = indexRepository(path.resolve(options.repo), store, { incremental: options.command === 'update' && !options.force, onProgress: options.progress ? (event) => console.error(JSON.stringify(event)) : undefined });
+    const result = indexRepository(path.resolve(options.repo), store, { ctags: options.ctags, cscope: options.cscope, incremental: options.command === 'update' && !options.force, onProgress: options.progress ? (event) => console.error(JSON.stringify(event)) : undefined });
     jsonOrPrint({ repositoryId: result.manifest.repositoryId, snapshotId: result.manifest.snapshotId, status: result.manifest.status, stats: result.stats, store }, options.json);
   } else if (options.command === 'inspect') {
-    const index = loadIndex(store, options.repoid || null);
-    jsonOrPrint({ manifest: index.manifest, counts: { ...index.stats(), nodes: index.db.prepare('SELECT count(*) AS count FROM containment').get().count } }, true);
+    const index = loadIndex(store, options.repoid || null, { cscope: options.cscope });
+    try { jsonOrPrint({ manifest: index.manifest, counts: { ...index.stats(), nodes: index.manifest.stats.nodes } }, true); }
+    finally { index.close(); }
   } else if (options.command === 'query') {
     if (!options.query) throw new Error('query 需要 --query');
-    const index = loadIndex(store, options.repoid || null);
-    const result = queryIndex(index, options.query, { includeSource: !options.metadataonly });
+    const index = loadIndex(store, options.repoid || null, { cscope: options.cscope });
+    let result;
+    try { result = queryIndex(index, options.query, { includeSource: !options.metadataonly }); }
+    finally { index.close(); }
     if (options.llm) {
       try { result.llmAnswer = askPi(result, { provider: options.provider, model: options.model }); }
       catch (error) { result.llmError = error.message; }
     }
     jsonOrPrint(options.json ? result : (result.llmAnswer || formatQuery(result)), options.json);
+  } else if (options.command === 'export') {
+    if (!options.output) throw new Error('export 需要 --output');
+    jsonOrPrint(exportIndex(store, options.output, { repoId: options.repoid || null }), true);
   } else if (options.command === 'benchmark') {
     if (!options.repo || !options.questions) throw new Error('benchmark 需要 --repo 和 --questions');
     const output = options.output ? path.resolve(options.output) : null;

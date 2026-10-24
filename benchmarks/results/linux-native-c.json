@@ -1,0 +1,192 @@
+{
+  "schema": "codeindex-benchmark-0.1.0",
+  "generatedAt": "2026-10-24T18:50:06.581Z",
+  "repository": "/data/dev/bench-repos/linux-benchmark",
+  "snapshotId": "snapshot:repo-67168d4b0edd4e638610:a8b6aab760ad45a485996561",
+  "index": {
+    "files": 86363,
+    "symbols": 6190587,
+    "relations": 403090,
+    "sourceBytes": 1212793499,
+    "changedFiles": 86363,
+    "removedFiles": 0,
+    "reusedFiles": 0,
+    "parsedFiles": 60006,
+    "partialFiles": 26358,
+    "skipped": 102,
+    "nodes": 6282688,
+    "nativeFiles": 59746,
+    "nativeIndexedFiles": 59746,
+    "relationsScope": "stored-sql-relations; native calls and references queried from cscope",
+    "stages": {
+      "scan": 6853,
+      "source-and-files": 11766,
+      "native-symbols": 42880,
+      "parser-symbols": 1547,
+      "relations": 0,
+      "indexes": 14050,
+      "native-cross-references": 55600,
+      "validation": 2248
+    },
+    "buildMs": 134945,
+    "totalSourceBytes": 1212793499,
+    "indexLoadOrBuildMs": 650.225505
+  },
+  "questions": {
+    "file": "/data/dev/CodeIndex/benchmarks/questions-linux-c.json",
+    "total": 4,
+    "hits": 4,
+    "recallAtEvidence": 1
+  },
+  "aggregate": {
+    "codeIndexMedianMs": 4.36860999999999,
+    "baselineMedianMs": 128.81723,
+    "codeIndexContextBytes": 5625,
+    "baselineMatchedBytes": 1692268,
+    "fullRepositoryBytes": 4851173996,
+    "contextReductionVsFullRepository": 862430.9326222222,
+    "contextReductionVsMatchedFiles": 300.8476444444444,
+    "queryWorkReductionVsFullRepository": 862430.9326222222,
+    "queryLatencySpeedupVsRg": 29.487006164432234
+  },
+  "gate": {
+    "recallAtEvidence": true,
+    "contextReductionVsFullRepository": true,
+    "queryLatencyWithinBaseline": true,
+    "significantAdvantage": true
+  },
+  "rows": [
+    {
+      "query": "do_execveat_common",
+      "hit": true,
+      "codeIndexMs": 4.751574000000005,
+      "baselineMs": 132.457672,
+      "candidateCount": 1,
+      "evidenceCount": 1,
+      "contextBytes": 1577,
+      "baselineMatchedBytes": 216199,
+      "baselineOutputBytes": 784,
+      "matches": 7,
+      "topCandidates": [
+        {
+          "type": "symbol",
+          "score": 19.5,
+          "symbolId": "symbol:WyJmaWxlOmZmNjA2MGRhMjgxYmQ5ZWYzZjI0ZTE3YiIsImRvX2V4ZWN2ZWF0X2NvbW1vbiIsImZ1bmN0aW9uIiwiIiwxODc2LDBd",
+          "name": "do_execveat_common",
+          "path": "fs/exec.c",
+          "startLine": 1876
+        }
+      ],
+      "snapshotId": "snapshot:repo-67168d4b0edd4e638610:a8b6aab760ad45a485996561"
+    },
+    {
+      "query": "tcp_v4_syn_recv_sock",
+      "hit": true,
+      "codeIndexMs": 6.122487999999976,
+      "baselineMs": 128.81723,
+      "candidateCount": 3,
+      "evidenceCount": 3,
+      "contextBytes": 2011,
+      "baselineMatchedBytes": 279784,
+      "baselineOutputBytes": 712,
+      "matches": 6,
+      "topCandidates": [
+        {
+          "type": "symbol",
+          "score": 19.5,
+          "symbolId": "symbol:WyJmaWxlOmYxYTQxZGRhNjFhMzg3ZjU1Mjc3ZGYwNCIsInRjcF92NF9zeW5fcmVjdl9zb2NrIiwiZnVuY3Rpb24iLCIiLDE3MzksMF0",
+          "name": "tcp_v4_syn_recv_sock",
+          "path": "net/ipv4/tcp_ipv4.c",
+          "startLine": 1739
+        },
+        {
+          "type": "symbol",
+          "score": 19,
+          "symbolId": "symbol:WyJmaWxlOmZmNTc3MTZiMThlYWY2MjVlZDE0MmM5YyIsInRjcF92NF9zeW5fcmVjdl9zb2NrIiwiZnVuY3Rpb25fZGVjbGFyYXRpb24iLCIiLDQ2MSwwXQ",
+          "name": "tcp_v4_syn_recv_sock",
+          "path": "include/net/tcp.h",
+          "startLine": 461
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:WyJmaWxlOmYxYTQxZGRhNjFhMzg3ZjU1Mjc3ZGYwNCIsIkVYUE9SVF9TWU1CT0wiLCJmdW5jdGlvbl9kZWNsYXJhdGlvbiIsIiIsMTg1NiwwXQ",
+          "name": "EXPORT_SYMBOL",
+          "path": "net/ipv4/tcp_ipv4.c",
+          "startLine": 1856
+        }
+      ],
+      "snapshotId": "snapshot:repo-67168d4b0edd4e638610:a8b6aab760ad45a485996561"
+    },
+    {
+      "query": "vfs_open",
+      "hit": true,
+      "codeIndexMs": 2.757577999999967,
+      "baselineMs": 130.1821520000001,
+      "candidateCount": 2,
+      "evidenceCount": 2,
+      "contextBytes": 387,
+      "baselineMatchedBytes": 297887,
+      "baselineOutputBytes": 4590,
+      "matches": 30,
+      "topCandidates": [
+        {
+          "type": "symbol",
+          "score": 19.5,
+          "symbolId": "symbol:WyJmaWxlOjk0NDVkYTNkMTJlYzFjM2Y1OTgzN2I3MyIsInZmc19vcGVuIiwiZnVuY3Rpb24iLCIiLDEwODMsMF0",
+          "name": "vfs_open",
+          "path": "fs/open.c",
+          "startLine": 1083
+        },
+        {
+          "type": "symbol",
+          "score": 19,
+          "symbolId": "symbol:WyJmaWxlOmQzM2ViM2M2NGJkY2ViN2NjMDc2MzhkOCIsInZmc19vcGVuIiwiZnVuY3Rpb25fZGVjbGFyYXRpb24iLCIiLDE5NiwwXQ",
+          "name": "vfs_open",
+          "path": "fs/internal.h",
+          "startLine": 196
+        }
+      ],
+      "snapshotId": "snapshot:repo-67168d4b0edd4e638610:a8b6aab760ad45a485996561"
+    },
+    {
+      "query": "pick_next_task_fair",
+      "hit": true,
+      "codeIndexMs": 4.36860999999999,
+      "baselineMs": 128.56068199999982,
+      "candidateCount": 3,
+      "evidenceCount": 3,
+      "contextBytes": 1650,
+      "baselineMatchedBytes": 898398,
+      "baselineOutputBytes": 1519,
+      "matches": 12,
+      "topCandidates": [
+        {
+          "type": "symbol",
+          "score": 19.5,
+          "symbolId": "symbol:WyJmaWxlOjc1YTQxN2QwZTZlYmIyNzE3NWE0OGM2OCIsInBpY2tfbmV4dF90YXNrX2ZhaXIiLCJmdW5jdGlvbiIsIiIsODg3OSwwXQ",
+          "name": "pick_next_task_fair",
+          "path": "kernel/sched/fair.c",
+          "startLine": 8879
+        },
+        {
+          "type": "symbol",
+          "score": 19,
+          "symbolId": "symbol:WyJmaWxlOjFiNDllZmIxYTcwOTI2NGY0NmY0YWM1MSIsInBpY2tfbmV4dF90YXNrX2ZhaXIiLCJmdW5jdGlvbl9kZWNsYXJhdGlvbiIsIiIsMjU3NywwXQ",
+          "name": "pick_next_task_fair",
+          "path": "kernel/sched/sched.h",
+          "startLine": 2577
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjc1YTQxN2QwZTZlYmIyNzE3NWE0OGM2OCIsIl9fcGlja19uZXh0X3Rhc2tfZmFpciIsImZ1bmN0aW9uIiwiIiw4OTY1LDBd",
+          "name": "__pick_next_task_fair",
+          "path": "kernel/sched/fair.c",
+          "startLine": 8965
+        }
+      ],
+      "snapshotId": "snapshot:repo-67168d4b0edd4e638610:a8b6aab760ad45a485996561"
+    }
+  ]
+}

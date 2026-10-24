@@ -3,7 +3,7 @@ import path from 'node:path';
 import { StringDecoder } from 'node:string_decoder';
 import { hashBytes, hashText, shortHash } from './hash.js';
 
-export const PARSER_VERSION = 'codeindex-parser-0.2.1';
+export const PARSER_VERSION = 'codeindex-parser-0.3.1';
 export const DEFAULT_IGNORES = new Set([
   '.git', '.hg', '.svn', 'node_modules', '.venv', 'venv', '__pycache__',
   'dist', 'build', 'coverage', '.next', '.turbo', '.cache', 'target',
@@ -127,7 +127,7 @@ export function repositoryId(repoRoot) {
   return `repo-${shortHash(fs.realpathSync(repoRoot), 20)}`;
 }
 
-export function scanRepository(repoRoot, { maxFileBytes = 5 * 1024 * 1024, ignores = DEFAULT_IGNORES, retainSource = true } = {}) {
+export function scanRepository(repoRoot, { maxFileBytes = 5 * 1024 * 1024, ignores = DEFAULT_IGNORES, retainSource = true, excludedRoots = [] } = {}) {
   const root = fs.realpathSync(repoRoot);
   const files = [];
   const skipped = [];
@@ -141,7 +141,7 @@ export function scanRepository(repoRoot, { maxFileBytes = 5 * 1024 * 1024, ignor
     for (const entry of entries) {
       const absolute = path.join(directory, entry.name);
       const relative = path.relative(root, absolute).split(path.sep).join('/');
-      if (ignores.has(entry.name) || entry.name.startsWith('.codeindex-')) {
+      if (excludedRoots.some((excluded) => absolute === path.resolve(excluded)) || ignores.has(entry.name) || entry.name.startsWith('.codeindex-')) {
         skipped.push({ path: relative, reason: 'ignored' });
         continue;
       }

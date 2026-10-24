@@ -1,0 +1,36 @@
+{
+  "node": "v24.13.1",
+  "host": "jhihjian-MACO",
+  "cpu": "AMD Ryzen 7 255 w/ Radeon 780M Graphics",
+  "logicalCpus": 16,
+  "totalMemoryBytes": 20742094848,
+  "repository": "/data/dev/bench-repos/linux-benchmark",
+  "revision": "e81dbc9fe6c78c547c2ce7a3354b52479b26edd9",
+  "gitStatus": "",
+  "snapshotId": "snapshot:repo-67168d4b0edd4e638610:a8b6aab760ad45a485996561",
+  "snapshotDir": "/data/dev/CodeIndex/.data/linux-native-v3/repo-67168d4b0edd4e638610/snapshots/snapshot:repo-67168d4b0edd4e638610:a8b6aab760ad45a485996561-c6bed063",
+  "tools": {
+    "ctags": "Universal Ctags 5.9.0, Copyright (C) 2015 Universal Ctags Team",
+    "cscope": "cscope: version 15.9"
+  },
+  "databaseBytes": 1433788416,
+  "snapshotBytesDeduplicatedHardlinks": 4713864322,
+  "coverage": {
+    "sourceFiles": 86363,
+    "parsedFiles": 60005,
+    "unsupportedFiles": 26357,
+    "partialFiles": 26358,
+    "skippedFiles": 102,
+    "nativeCalls": true,
+    "semantics": "syntax-level symbols and cross-references; no compiler-level overload or pointer resolution"
+  },
+  "partial": [
+    {
+      "path": "Documentation/trace/postprocess/decode_msr.py",
+      "parse_error": "SyntaxError:Missing parentheses in call to 'print'. Did you mean print(...)?:35"
+    }
+  ],
+  "cache": "warm filesystem cache; fresh output directory; no parser cache reused",
+  "wallTimeScope": "CLI launch through validation and atomic publication",
+  "memoryScope": "GNU time maximum RSS for command and children, not simultaneous process-tree sum"
+}

@@ -1,0 +1,254 @@
+TAP version 13
+# (node:952696) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: native C/C++ symbols, calls, macros, includes and inheritance survive source removal
+ok 1 - native C/C++ symbols, calls, macros, includes and inheritance survive source removal
+  ---
+  duration_ms: 65.266964
+  type: 'test'
+  ...
+# (node:952697) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: UTF-8 行偏移提供 metadata evidence，精确 parser span 可覆盖默认值
+ok 2 - UTF-8 行偏移提供 metadata evidence，精确 parser span 可覆盖默认值
+  ---
+  duration_ms: 7.760809
+  type: 'test'
+  ...
+# Subtest: 增量 clone 不污染旧 DB，删除维护 FTS，完整与增量构建 ID 一致
+ok 3 - 增量 clone 不污染旧 DB，删除维护 FTS，完整与增量构建 ID 一致
+  ---
+  duration_ms: 13.175736
+  type: 'test'
+  ...
+# Subtest: FTS update triggers 更新名称、scope、signature、doc 和文件路径
+ok 4 - FTS update triggers 更新名称、scope、signature、doc 和文件路径
+  ---
+  duration_ms: 5.800266
+  type: 'test'
+  ...
+# Subtest: 同文件 scope 和 enclosing range 找 parent，不把同名歧义声明为唯一
+ok 5 - 同文件 scope 和 enclosing range 找 parent，不把同名歧义声明为唯一
+  ---
+  duration_ms: 5.176735
+  type: 'test'
+  ...
+# Subtest: 拒绝未 finalize 的快照及错误行偏移
+ok 6 - 拒绝未 finalize 的快照及错误行偏移
+  ---
+  duration_ms: 2.372881
+  type: 'test'
+  ...
+# (node:952702) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: indexes symbols, containment and resolved call relations with immutable evidence
+ok 7 - indexes symbols, containment and resolved call relations with immutable evidence
+  ---
+  duration_ms: 104.308549
+  type: 'test'
+  ...
+# Subtest: update reuses unchanged parse results and publishes a new snapshot
+ok 8 - update reuses unchanged parse results and publishes a new snapshot
+  ---
+  duration_ms: 190.080404
+  type: 'test'
+  ...
+# Subtest: only resolves requested tools and gives explicit missing dependency errors
+ok 9 - only resolves requested tools and gives explicit missing dependency errors
+  ---
+  duration_ms: 2.379593
+  type: 'test'
+  ...
+# Subtest: prefers Universal Ctags, validates JSON, and respects explicit and environment options
+ok 10 - prefers Universal Ctags, validates JSON, and respects explicit and environment options
+  ---
+  duration_ms: 296.724714
+  type: 'test'
+  ...
+# Subtest: Cscope version identity does not contain its installation path
+ok 11 - Cscope version identity does not contain its installation path
+  ---
+  duration_ms: 101.670244
+  type: 'test'
+  ...
+# Subtest: native command timeout and captured-output limits are enforced
+ok 12 - native command timeout and captured-output limits are enforced
+  ---
+  duration_ms: 121.650868
+  type: 'test'
+  ...
+# Subtest: Ctags emits C/C++ ranges, scopes, signatures and inheritance without source patterns
+ok 13 - Ctags emits C/C++ ranges, scopes, signatures and inheritance without source patterns
+  ---
+  duration_ms: 22.17892
+  type: 'test'
+  ...
+# Subtest: real Cscope survives snapshot move and live repository deletion
+ok 14 - real Cscope survives snapshot move and live repository deletion
+  ---
+  duration_ms: 40.365723
+  type: 'test'
+  ...
+# Subtest: real Cscope survives snapshot move and live repository deletion, including spaced paths
+ok 15 - real Cscope survives snapshot move and live repository deletion, including spaced paths
+  ---
+  duration_ms: 38.446236
+  type: 'test'
+  ...
+# Subtest: Cscope uses system PATH for internal env and sort, ignoring include environment
+ok 16 - Cscope uses system PATH for internal env and sort, ignoring include environment
+  ---
+  duration_ms: 22.661358
+  type: 'test'
+  ...
+# Subtest: rejects unsupported filenames and snapshot escapes before spawning tools
+ok 17 - rejects unsupported filenames and snapshot escapes before spawning tools
+  ---
+  duration_ms: 1.560197
+  type: 'test'
+  ...
+# Subtest: rejects external, symlinked and unlisted includes before native execution
+ok 18 - rejects external, symlinked and unlisted includes before native execution
+  ---
+  duration_ms: 2.566691
+  type: 'test'
+  ...
+# Subtest: Cscope accepts missing parent/generated includes and resolves quoted includes from cwd
+ok 19 - Cscope accepts missing parent/generated includes and resolves quoted includes from cwd
+  ---
+  duration_ms: 23.332439
+  type: 'test'
+  ...
+# Subtest: Cscope follows allowed saved non-C includes transitively and reports actual indexed files
+ok 20 - Cscope follows allowed saved non-C includes transitively and reports actual indexed files
+  ---
+  duration_ms: 24.220514
+  type: 'test'
+  ...
+# Subtest: Cscope -k has no angle-include search directories
+ok 21 - Cscope -k has no angle-include search directories
+  ---
+  duration_ms: 22.318651
+  type: 'test'
+  ...
+# Subtest: Cscope refuses filename aliases when extra include closure files would be lost
+ok 22 - Cscope refuses filename aliases when extra include closure files would be lost
+  ---
+  duration_ms: 1.814991
+  type: 'test'
+  ...
+# Subtest: fails on zero-exit Cscope inverted-index diagnostics and cleans artifacts
+ok 23 - fails on zero-exit Cscope inverted-index diagnostics and cleans artifacts
+  ---
+  duration_ms: 24.24583
+  type: 'test'
+  ...
+# Subtest: fails on missing inverted files even when Cscope exits successfully
+ok 24 - fails on missing inverted files even when Cscope exits successfully
+  ---
+  duration_ms: 27.764566
+  type: 'test'
+  ...
+# Subtest: rejects corrupt inverted indexes and zero-exit query errors
+ok 25 - rejects corrupt inverted indexes and zero-exit query errors
+  ---
+  duration_ms: 40.275284
+  type: 'test'
+  ...
+# Subtest: checks the actual native database file list before accepting artifacts
+ok 26 - checks the actual native database file list before accepting artifacts
+  ---
+  duration_ms: 39.551054
+  type: 'test'
+  ...
+# Subtest: empty inputs require no native dependencies and invalid query modes are rejected
+ok 27 - empty inputs require no native dependencies and invalid query modes are rejected
+  ---
+  duration_ms: 1.447236
+  type: 'test'
+  ...
+# (node:952710) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: native updates delete stale facts, preserve readers and match a full rebuild
+ok 28 - native updates delete stale facts, preserve readers and match a full rebuild
+  ---
+  duration_ms: 175.298444
+  type: 'test'
+  ...
+# Subtest: JS/TS imports ignore comments and strings and resolve incoming module references
+ok 29 - JS/TS imports ignore comments and strings and resolve incoming module references
+  ---
+  duration_ms: 11.812948
+  type: 'test'
+  ...
+# Subtest: UTF-8 clipped evidence matches byte ranges and metadata queries do not read blobs
+ok 30 - UTF-8 clipped evidence matches byte ranges and metadata queries do not read blobs
+  ---
+  duration_ms: 35.353714
+  type: 'test'
+  ...
+# Subtest: missing native artifact rebuilds a generation and export states its audit scope
+ok 31 - missing native artifact rebuilds a generation and export states its audit scope
+  ---
+  duration_ms: 81.070085
+  type: 'test'
+  ...
+# (node:952716) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: streamed updates reuse records without whole JSONL reads and match full rebuild identity
+ok 32 - streamed updates reuse records without whole JSONL reads and match full rebuild identity
+  ---
+  duration_ms: 122.577875
+  type: 'test'
+  ...
+# Subtest: parser consumers propagate storage failure exactly once
+ok 33 - parser consumers propagate storage failure exactly once
+  ---
+  duration_ms: 23.733977
+  type: 'test'
+  ...
+# Subtest: failed build preserves published snapshot and removes temporary files
+ok 34 - failed build preserves published snapshot and removes temporary files
+  ---
+  duration_ms: 64.07884
+  type: 'test'
+  ...
+# Subtest: build configuration changes snapshot identity and invalidates no-op
+ok 35 - build configuration changes snapshot identity and invalidates no-op
+  ---
+  duration_ms: 60.543103
+  type: 'test'
+  ...
+# Subtest: JSONL streaming preserves UTF-8 crossing chunk boundary and final record
+ok 36 - JSONL streaming preserves UTF-8 crossing chunk boundary and final record
+  ---
+  duration_ms: 2.274818
+  type: 'test'
+  ...
+# Subtest: navigation and imports are independent of incremental insertion order
+ok 37 - navigation and imports are independent of incremental insertion order
+  ---
+  duration_ms: 112.540696
+  type: 'test'
+  ...
+# Subtest: rebuilding restores a missing database under the same snapshot identity
+ok 38 - rebuilding restores a missing database under the same snapshot identity
+  ---
+  duration_ms: 96.673725
+  type: 'test'
+  ...
+# Subtest: C type usages do not create definition symbols
+ok 39 - C type usages do not create definition symbols
+  ---
+  duration_ms: 33.61172
+  type: 'test'
+  ...
+1..39
+# tests 39
+# suites 0
+# pass 39
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 918.678531

@@ -1,0 +1,60 @@
+{
+  "files": 500,
+  "functionsPerFile": 200,
+  "heapLimitMiB": 320,
+  "full": {
+    "files": 500,
+    "symbols": 100500,
+    "relations": 99500,
+    "sourceBytes": 5337110,
+    "changedFiles": 500,
+    "removedFiles": 0,
+    "reusedFiles": 0,
+    "parsedFiles": 500,
+    "partialFiles": 0,
+    "skipped": 0,
+    "nodes": 101001,
+    "nativeFiles": 0,
+    "nativeIndexedFiles": 0,
+    "relationsScope": "stored-sql-relations; native calls and references queried from cscope",
+    "stages": {
+      "scan": 49,
+      "source-and-files": 58,
+      "native-symbols": 0,
+      "parser-symbols": 5768,
+      "relations": 0,
+      "indexes": 176,
+      "native-cross-references": 0,
+      "validation": 31
+    },
+    "buildMs": 6083
+  },
+  "update": {
+    "files": 500,
+    "symbols": 100501,
+    "relations": 99500,
+    "sourceBytes": 5337138,
+    "changedFiles": 1,
+    "removedFiles": 0,
+    "reusedFiles": 499,
+    "parsedFiles": 1,
+    "partialFiles": 0,
+    "skipped": 0,
+    "nodes": 101002,
+    "nativeFiles": 0,
+    "nativeIndexedFiles": 0,
+    "relationsScope": "stored-sql-relations; native calls and references queried from cscope",
+    "stages": {
+      "scan": 53,
+      "source-and-files": 33,
+      "native-symbols": 0,
+      "parser-symbols": 56,
+      "relations": 0,
+      "indexes": 0,
+      "native-cross-references": 1,
+      "validation": 43
+    },
+    "buildMs": 187
+  },
+  "maxRssKiB": 275120
+}

@@ -1,418 +1,323 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { randomUUID } from 'node:crypto';
+import { cIncludes } from '../parsers/c-includes.js';
 import { parseEntriesBatched } from '../parsers/index.js';
 import { gitContext } from './git.js';
-import { hashText, shortHash, stableJson } from './hash.js';
-import { PARSER_VERSION, iterateJsonl, readJson, readJsonl, repositoryId, routeTerms, scanRepository, sourceLayout, spanFrom, writeJsonAtomic, writeJsonl } from './fs.js';
-import { createIndexBuildSession, ensureIndexDatabase } from './sqlite-store.js';
+import { hashBytes, hashText, stableJson } from './hash.js';
+import { PARSER_VERSION, scanRepository, sourceLayout, spanFrom, iterateJsonl, readJson, repositoryId, writeJsonAtomic, writeJsonl } from './fs.js';
+import { COMPACT_SCHEMA_VERSION, createCompactStore, openCompactStore } from './compact-store.js';
+import { resolveNativeTools, extractCTags, buildCscope } from './native-tools.js';
+import { attachRelations } from './relations.js';
 
-const INDEX_SCHEMA = 'codeindex-index-0.2.0';
+const INDEX_SCHEMA = 'codeindex-index-0.3.0';
+const SUPPORTED = new Set(['c', 'cpp', 'python', 'javascript', 'typescript']);
+const nativeLanguage = (language) => language === 'c' || language === 'cpp';
+const moduleName = (file) => file.replace(/\.[^.]+$/, '').replaceAll('/', '.').replace(/\.__init__$/, '');
 
-function nodeId(kind, value) { return `${kind}:${shortHash(value, 24)}`; }
-
-function loadPublishedManifest(storeRoot, repoId) {
-  const published = readJson(path.join(storeRoot, repoId, 'published.json'));
-  if (!published?.snapshotId) return null;
-  const snapshotDir = path.join(storeRoot, repoId, 'snapshots', published.snapshotId);
+function publishedSnapshot(store, repoId) {
+  const pointer = readJson(path.join(store, repoId, 'published.json'));
+  if (!pointer?.directory || path.basename(pointer.directory) !== pointer.directory) return null;
+  const snapshotDir = path.join(store, repoId, 'snapshots', pointer.directory);
   const manifest = readJson(path.join(snapshotDir, 'manifest.json'));
-  if (!manifest) return null;
-  return { published, snapshotDir, manifest };
+  return manifest?.schema === INDEX_SCHEMA ? { snapshotDir, manifest } : null;
 }
 
-function normalizeTarget(targetName) {
-  return String(targetName || '').replace(/^\.+/, '').replace(/^['"]|['"]$/g, '').replace(/\.(js|jsx|mjs|cjs|ts|tsx|py)$/, '').replaceAll('/', '.').replace(/^\.+/, '');
+function artifactsPresent(previous) {
+  return previous && ['index.db', 'source', 'tree', ...(previous.manifest.native?.artifacts || [])]
+    .every((file) => fs.existsSync(path.join(previous.snapshotDir, file)));
 }
 
-function relationTargetFields(relation, entry, entries) {
-  const clean = String(relation.targetName || '').trim().replace(/^<|>$/g, '').replace(/^['"]|['"]$/g, '');
-  const normalized = normalizeTarget(clean);
-  let modulePath = clean;
+function toolVersions(tools) {
+  return Object.fromEntries(Object.entries(tools).filter(([, tool]) => tool).map(([name, tool]) => [name, tool.version]));
+}
+
+function offsetsFor(buffer) {
+  const values = [0];
+  let position = -1;
+  while ((position = buffer.indexOf(10, position + 1)) !== -1) values.push(position + 1);
+  values.push(buffer.length);
+  const offsets = Buffer.allocUnsafe(values.length * 4);
+  for (let index = 0; index < values.length; index++) offsets.writeUInt32LE(values[index], index * 4);
+  return { offsets, lineCount: values.length - 1 };
+}
+
+function targetFields(relation, entry, paths) {
+  const target = String(relation.targetName || '').trim().replace(/^[<"']|[>"']$/g, '');
+  let modulePath = '';
   if (relation.type === 'includes') {
-    const relative = path.posix.normalize(path.posix.join(path.posix.dirname(entry.path), clean));
-    modulePath = entries.has(relative) ? relative : clean;
-  } else if (relation.type === 'imports' && entry.language === 'python') {
-    if (relation.importLevel > 0) {
-      let base = path.posix.dirname(entry.path);
-      for (let level = 1; level < relation.importLevel; level++) base = path.posix.dirname(base);
-      modulePath = path.posix.join(base, (relation.importModule || relation.importName || '').replaceAll('.', '/'));
-    } else modulePath = (relation.importModule || clean).replaceAll('.', '/');
-  } else if (relation.type === 'imports' && clean.startsWith('.')) {
-    modulePath = path.posix.normalize(path.posix.join(path.posix.dirname(entry.path), clean));
+    const relative = path.posix.normalize(path.posix.join(path.posix.dirname(entry.path), target));
+    modulePath = paths.has(relative) ? relative : target;
+  } else if (relation.type === 'imports') {
+    if (entry.language === 'python') {
+      if (relation.importLevel > 0) {
+        let base = path.posix.dirname(entry.path);
+        for (let level = 1; level < relation.importLevel; level++) base = path.posix.dirname(base);
+        modulePath = path.posix.join(base, (relation.importModule || relation.importName || '').replaceAll('.', '/'));
+      } else modulePath = (relation.importModule || target).replaceAll('.', '/');
+    } else modulePath = target.startsWith('.') ? path.posix.normalize(path.posix.join(path.posix.dirname(entry.path), target)) : target;
   }
-  modulePath = modulePath.replace(/^\.\//, '');
-  return {
-    targetNormalized: ['imports', 'includes'].includes(relation.type) ? modulePath.replaceAll('/', '.') : normalized,
-    targetLeaf: normalized.split('.').pop() || normalized,
-    targetModulePath: modulePath,
-  };
+  return { targetName: target, targetNormalized: target.replace(/^\.+/, '').replaceAll('::', '.'),
+    targetLeaf: target.split(/::|\.|->/).at(-1), targetModulePath: modulePath.replace(/^\.\//, '') };
 }
 
-function makeSummary(node, children, file) {
-  const childNames = children.slice(0, 12).map((child) => child.title).filter(Boolean);
-  const pieces = [];
-  if (node.kind) pieces.push(`${node.kind} ${node.title}`);
-  if (node.signature && node.signature !== node.title) pieces.push(node.signature);
-  if (node.doc) pieces.push(node.doc);
-  if (childNames.length) pieces.push(`contains: ${childNames.join(', ')}`);
-  if (file?.language) pieces.push(`language: ${file.language}`);
-  const summary = pieces.join('. ').slice(0, 900);
-  return { summary: summary || node.title, routeTerms: routeTerms(`${node.title} ${node.signature || ''} ${node.doc || ''} ${childNames.join(' ')}`) };
-}
-
-function buildDirectories(files, repoId) {
-  const nodes = [{ nodeId: nodeId('root', repoId), parentId: null, nodeType: 'repository', kind: 'repository', title: repoId, path: '', children: [] }];
-  const byPath = new Map([['', nodes[0]]]);
-  for (const file of files) {
-    const parts = file.path.split('/');
-    let current = '';
-    let parent = nodes[0];
-    for (let i = 0; i < parts.length - 1; i += 1) {
-      current = current ? `${current}/${parts[i]}` : parts[i];
-      if (!byPath.has(current)) {
-        const node = { nodeId: nodeId('dir', current), parentId: parent.nodeId, nodeType: 'directory', kind: 'directory', title: parts[i], path: current, children: [] };
-        nodes.push(node); byPath.set(current, node); parent.children.push(node.nodeId);
-      }
-      parent = byPath.get(current);
-    }
-    file.parentNodeId = parent.nodeId;
-  }
-  return nodes;
-}
-
-function createJsonlWriter(filePath) {
-  fs.mkdirSync(path.dirname(filePath), { recursive: true });
-  const fd = fs.openSync(filePath, 'w');
-  let buffer = '';
-  let closed = false;
-  return {
-    write(value) {
-      buffer += `${JSON.stringify(value)}\n`;
-      if (Buffer.byteLength(buffer, 'utf8') >= 1024 * 1024) {
-        fs.writeSync(fd, buffer);
-        buffer = '';
-      }
-    },
-    close() {
-      if (closed) return;
-      closed = true;
-      try { if (buffer) fs.writeSync(fd, buffer); }
-      finally { fs.closeSync(fd); }
-    },
-  };
-}
-
-function sourceSpanFromRow(row, snapshotId) {
-  return {
-    path: row.path,
-    startLine: row.start_line,
-    endLine: row.end_line,
-    startColumn: row.start_column,
-    endColumn: row.end_column,
-    startByte: row.start_byte,
-    endByte: row.end_byte,
-    blobDigest: row.blob_digest,
-    snapshotId,
-  };
-}
-
-function* symbolRows(db, snapshotId) {
-  for (const row of db.prepare('SELECT * FROM symbols ORDER BY rowid').iterate()) {
-    yield {
-      symbolId: row.symbol_id,
-      key: row.symbol_key,
-      parentKey: row.parent_key,
-      path: row.path,
-      fileId: row.file_id,
-      parentId: row.parent_id,
-      kind: row.kind,
-      name: row.name,
-      qualifiedName: row.qualified_name,
-      signature: row.signature,
-      sourceSpan: sourceSpanFromRow(row, snapshotId),
-      doc: row.doc || null,
-      language: row.language,
-    };
+function copyBlob(source, destination) {
+  if (fs.existsSync(destination)) return;
+  try { fs.linkSync(source, destination); }
+  catch (error) {
+    if (error.code !== 'EXDEV') throw error;
+    fs.copyFileSync(source, destination, fs.constants.COPYFILE_FICLONE);
   }
 }
 
-function* containmentRows(db, snapshotId) {
-  for (const row of db.prepare(`SELECT c.*, s.start_column, s.end_column FROM containment c
-    LEFT JOIN symbols s ON s.symbol_id = c.node_id ORDER BY c.rowid`).iterate()) {
-    const item = { nodeId: row.node_id, parentId: row.parent_id, nodeType: row.node_type, kind: row.kind, title: row.title, path: row.path, language: row.language, qualifiedName: row.qualified_name, signature: row.signature };
-    if (row.start_line !== null) item.sourceSpan = sourceSpanFromRow(row, snapshotId);
-    yield item;
-  }
-}
-
-function* relationRows(db, snapshotId) {
-  for (const row of db.prepare('SELECT relations.*, symbols.language FROM relations JOIN symbols ON symbols.symbol_id = relations.source_id ORDER BY relations.rowid').iterate()) {
-    yield {
-      relationId: row.relation_id,
-      type: row.type,
-      sourceId: row.source_id,
-      targetId: row.target_id,
-      targetName: row.target_name,
-      status: row.status,
-      confidence: row.confidence,
-      sourceSpan: sourceSpanFromRow(row, snapshotId),
-      context: { language: row.language, parserVersion: PARSER_VERSION },
-    };
-  }
-}
-
-function* navigationRows(db) {
-  for (const row of db.prepare('SELECT * FROM navigation ORDER BY rowid').iterate()) {
-    yield { nodeId: row.node_id, title: row.title, path: row.path, nodeType: row.node_type, summary: row.summary, routeTerms: JSON.parse(row.route_terms || '[]'), inputDigest: row.input_digest };
-  }
-}
-
-function buildNavigation(session) {
-  const { db } = session;
-  db.exec(`
-    CREATE TEMP TABLE containment_child_summary AS
-      SELECT parent_id,
-        json_group_array(title) AS child_titles,
-        json_group_array(node_id) AS child_ids
-      FROM (
-        SELECT parent_id, node_id, title,
-          row_number() OVER (PARTITION BY parent_id ORDER BY path, start_line, node_type, title, node_id) AS child_number
-        FROM containment
-        WHERE parent_id IS NOT NULL
-      )
-      WHERE child_number <= 12
-      GROUP BY parent_id;
-    CREATE UNIQUE INDEX temp.child_summary_parent ON containment_child_summary(parent_id);
-  `);
-  const rows = db.prepare(`
-    SELECT containment.*, symbols.doc AS symbol_doc, files.language AS file_language,
-      containment_child_summary.child_titles, containment_child_summary.child_ids
-    FROM containment
-    LEFT JOIN symbols ON symbols.symbol_id = containment.node_id
-    LEFT JOIN files ON files.path = containment.path
-    LEFT JOIN containment_child_summary ON containment_child_summary.parent_id = containment.node_id
-    ORDER BY containment.rowid
-  `);
-  session.begin();
-  try {
-    for (const row of rows.iterate()) {
-      const childTitles = row.child_titles ? JSON.parse(row.child_titles).map((title) => ({ title })) : [];
-      const childIds = row.child_ids ? JSON.parse(row.child_ids) : [];
-      const node = {
-        nodeId: row.node_id,
-        parentId: row.parent_id,
-        nodeType: row.node_type,
-        kind: row.kind,
-        title: row.title,
-        path: row.path,
-        language: row.language,
-        qualifiedName: row.qualified_name,
-        signature: row.signature,
-        doc: row.symbol_doc || null,
-        children: [],
-      };
-      if (row.start_line !== null) node.sourceSpan = sourceSpanFromRow(row, null);
-      const summary = makeSummary(node, childTitles, row.file_language ? { language: row.file_language } : null);
-      const item = { nodeId: row.node_id, title: row.title, path: row.path, nodeType: row.node_type, summary: summary.summary, routeTerms: summary.routeTerms, inputDigest: hashText(stableJson({ node, children: childIds })) };
-      session.insertNavigation(item);
-      session.insertSearch({ ...item, name: row.title, qualifiedName: row.qualified_name || '', signature: row.signature || '', doc: row.symbol_doc || '' });
-    }
-    session.commit();
-  } catch (error) {
-    try { db.exec('ROLLBACK'); } catch {}
-    throw error;
-  }
-}
-
-function validateIndexDatabase({ session, tempDir, manifest, files }) {
-  const errors = [];
-  for (const file of files) {
-    const sourcePath = path.join(tempDir, 'source', file.digest);
-    if (!fs.existsSync(sourcePath)) errors.push(`missing-source:${file.path}`);
-    else if (hashText(fs.readFileSync(sourcePath, 'utf8')) !== file.digest) errors.push(`source-digest:${file.path}`);
-  }
-  const { db } = session;
-  const checks = [
-    ['symbol-file', 'SELECT count(*) AS count FROM symbols s LEFT JOIN files f ON f.file_id = s.file_id WHERE f.file_id IS NULL'],
-    ['symbol-node', 'SELECT count(*) AS count FROM symbols s LEFT JOIN containment c ON c.node_id = s.symbol_id WHERE c.node_id IS NULL'],
-    ['symbol-parent', 'SELECT count(*) AS count FROM symbols s LEFT JOIN containment c ON c.node_id = s.parent_id WHERE c.node_id IS NULL'],
-    ['node-parent', 'SELECT count(*) AS count FROM containment c LEFT JOIN containment p ON p.node_id = c.parent_id WHERE c.parent_id IS NOT NULL AND p.node_id IS NULL'],
-    ['symbol-span', 'SELECT count(*) AS count FROM symbols s JOIN files f ON f.file_id = s.file_id WHERE s.start_line < 1 OR s.end_line < s.start_line OR s.end_line > f.line_count + 1 OR s.start_byte < 0 OR s.end_byte < s.start_byte OR s.end_byte > f.bytes OR s.blob_digest != f.digest'],
-    ['relation-source', 'SELECT count(*) AS count FROM relations r LEFT JOIN symbols s ON s.symbol_id = r.source_id WHERE s.symbol_id IS NULL'],
-    ['relation-target', "SELECT count(*) AS count FROM relations r LEFT JOIN symbols s ON s.symbol_id = r.target_id WHERE r.status = 'resolved' AND s.symbol_id IS NULL"],
-    ['relation-span', 'SELECT count(*) AS count FROM relations r LEFT JOIN files f ON f.path = r.path WHERE f.file_id IS NULL'],
-  ];
-  for (const [name, query] of checks) {
-    const count = Number(db.prepare(query).get().count);
-    if (count) errors.push(`${name}:${count}`);
-  }
-  if (errors.length) throw new Error(`index validation failed (${errors.length}): ${errors.slice(0, 8).join(', ')}`);
-  return { valid: true, checked: { files: files.length, symbols: manifest.stats.symbols, nodes: manifest.stats.symbols + files.length, relations: manifest.stats.relations }, snapshotId: manifest.snapshotId };
-}
-
-function processEntry({ entry, parsed, session, tempDir, fileRecords, parsedWriter, entries }) {
-  const source = fs.readFileSync(entry.absolute, 'utf8');
-  const sourceBuffer = Buffer.from(source, 'utf8');
-  if (hashText(source) !== entry.digest) throw new Error(`source-changed:${entry.path}`);
-  const layout = sourceLayout(source, sourceBuffer);
-  const fileId = nodeId('file', entry.path);
-  const fileNode = { nodeId: fileId, parentId: entry.parentNodeId, nodeType: 'file', kind: 'file', title: entry.path.split('/').pop(), path: entry.path, language: entry.language, children: [] };
-  const fileRecord = { path: entry.path, fileId, language: entry.language, bytes: entry.bytes, digest: entry.digest, lineCount: entry.lineCount, parserVersion: PARSER_VERSION, parseStatus: parsed.status, parseError: parsed.error || null };
-  fs.writeFileSync(path.join(tempDir, 'source', entry.digest), source);
-  session.insertFile(fileRecord);
-  session.insertNode(fileNode);
-  fileRecords.push(fileRecord);
-  const keyAliases = new Map((parsed.symbols || []).map((symbol) => [`symbol-key:${entry.path}:${symbol.name}:${symbol.span.startLine}`, symbol.key]));
-  for (const symbol of parsed.symbols || []) {
-    const symbolId = nodeId('symbol', symbol.key);
-    const sourceSpan = { ...spanFrom(source, symbol.span.startLine, symbol.span.endLine, symbol.span.startColumn, symbol.span.endColumn, layout), path: entry.path, blobDigest: entry.digest, snapshotId: null };
-    session.insertSymbol({ symbolId, key: symbol.key, parentKey: keyAliases.get(symbol.parentKey) || symbol.parentKey, path: entry.path, fileId, kind: symbol.kind, name: symbol.name, qualifiedName: symbol.qualifiedName, signature: symbol.signature, sourceSpan, doc: symbol.doc || null, language: entry.language });
-  }
-  let relationIndex = 0;
-  for (const relation of parsed.relations || []) {
-    const fields = relationTargetFields(relation, entry, entries);
-    const line = Math.max(1, relation.line || 1);
-    const lineIndex = line - 1;
-    const startByte = layout.byteOffsets[lineIndex] || 0;
-    const endByte = layout.byteOffsets[lineIndex + 1] || layout.byteLength;
-    const relationId = nodeId('relation', `${entry.path}:${relation.type}:${line}:${relation.column || 0}:${relation.targetName}:${relation.sourceKey}:${relationIndex}`);
-    session.insertRelation({ relationId, sourceKey: keyAliases.get(relation.sourceKey) || relation.sourceKey, type: relation.type, targetName: relation.targetName, ...fields, path: entry.path, fileId, sourceSpan: { path: entry.path, startLine: line, endLine: line, startColumn: relation.column || 0, endColumn: 0, startByte, endByte, blobDigest: entry.digest } });
-    relationIndex += 1;
-  }
-  parsedWriter.write(parsed);
-  return relationIndex;
-}
-
-export function indexRepository(repoRoot, storeRoot, { incremental = true, maxFileBytes = 5 * 1024 * 1024, onProgress = () => {} } = {}) {
-  const startedAt = Date.now();
+export function indexRepository(repoRoot, storeRoot, {
+  incremental = true, maxFileBytes = 5 * 1024 * 1024, onProgress = () => {}, ctags, cscope,
+} = {}) {
+  const started = Date.now();
+  let stageStarted = started;
   const stages = {};
-  let stageStarted = startedAt;
-  function progress(stage) {
-    stages[stage] = Date.now() - stageStarted;
-    stageStarted = Date.now();
-    onProgress({ stage, elapsedMs: Date.now() - startedAt, durationMs: stages[stage], rssMiB: Math.round(process.memoryUsage().rss / 1024 / 1024) });
+  function progress(stage, extra = {}) {
+    const now = Date.now();
+    stages[stage] = now - stageStarted;
+    stageStarted = now;
+    onProgress({ stage, durationMs: stages[stage], elapsedMs: now - started, rssMiB: Math.round(process.memoryUsage().rss / 1024 ** 2), ...extra });
   }
   const repo = fs.realpathSync(repoRoot);
-  fs.mkdirSync(storeRoot, { recursive: true });
+  const store = path.resolve(storeRoot);
+  fs.mkdirSync(store, { recursive: true });
   const repoId = repositoryId(repo);
-  const previous = incremental ? loadPublishedManifest(storeRoot, repoId) : null;
-  const currentGit = gitContext(repo);
-  const buildConfig = { schema: INDEX_SCHEMA, parserVersion: PARSER_VERSION, maxFileBytes };
-  const previousCompatible = previous && stableJson(previous.manifest.buildConfig) === stableJson(buildConfig) && fs.existsSync(path.join(previous.snapshotDir, 'index.db'));
-  function noOp() {
-    return { manifest: previous.manifest, snapshotDir: previous.snapshotDir, stats: { ...previous.manifest.stats, changedFiles: 0, reusedFiles: previous.manifest.stats.files, buildMs: Date.now() - startedAt, noOp: true } };
-  }
-  if (previousCompatible && currentGit.revision && currentGit.revision === previous.manifest.git?.revision && !currentGit.dirty && !previous.manifest.git?.dirty) return noOp();
-  const scan = scanRepository(repo, { maxFileBytes, retainSource: false });
+  const previous = incremental ? publishedSnapshot(store, repoId) : null;
+  const git = gitContext(repo);
+  const baseConfig = { schema: INDEX_SCHEMA, sqliteSchema: COMPACT_SCHEMA_VERSION, parserVersion: PARSER_VERSION, maxFileBytes };
+  let tools = resolveNativeTools({ ctags, cscope, needsCtags: Boolean(previous?.manifest.native?.files), needsCscope: Boolean(previous?.manifest.native?.files) });
+  let config = { ...baseConfig, tools: toolVersions(tools) };
+  let compatible = artifactsPresent(previous) && stableJson(previous.manifest.buildConfig) === stableJson(config);
+  const noOp = () => ({ manifest: previous.manifest, snapshotDir: previous.snapshotDir,
+    stats: { ...previous.manifest.stats, changedFiles: 0, removedFiles: 0, reusedFiles: previous.manifest.stats.files,
+      buildMs: Date.now() - started, noOp: true, stages: {} } });
+  if (compatible && git.revision && git.revision === previous.manifest.git?.revision && !git.dirty && !previous.manifest.git?.dirty) return noOp();
+  const scan = scanRepository(repo, { maxFileBytes, retainSource: false, excludedRoots: [store] });
   const entries = scan.files;
+  const cFiles = entries.filter((entry) => nativeLanguage(entry.language));
+  tools = resolveNativeTools({ ctags, cscope, needsCtags: cFiles.length > 0, needsCscope: cFiles.length > 0 });
+  config = { ...baseConfig, tools: toolVersions(tools) };
+  compatible = artifactsPresent(previous) && stableJson(previous.manifest.buildConfig) === stableJson(config);
   const contentDigest = hashText(stableJson(entries.map(({ path, digest, language }) => ({ path, digest, language }))));
-  if (previousCompatible && previous.manifest.contentDigest === contentDigest) return noOp();
-  const priorFiles = new Map();
-  if (previousCompatible) for (const file of iterateJsonl(path.join(previous.snapshotDir, 'files.jsonl'))) priorFiles.set(file.path, file);
-  const changedEntries = entries.filter((entry) => {
-    const old = priorFiles.get(entry.path);
-    return !old || old.digest !== entry.digest || old.language !== entry.language;
-  });
-  const snapshotId = `snapshot:${repoId}:${hashText(stableJson({ contentDigest, buildConfig })).slice(0, 24)}`;
-  progress('scan');
-  const tempDir = path.join(storeRoot, repoId, 'snapshots', `.build-${process.pid}-${Date.now()}`);
-  fs.mkdirSync(path.join(tempDir, 'source'), { recursive: true });
+  if (compatible && contentDigest === previous.manifest.contentDigest) return noOp();
+  const oldFiles = new Map();
+  if (compatible) {
+    const old = openCompactStore(previous.snapshotDir, previous.manifest);
+    try { for (const file of old.iterFiles()) oldFiles.set(file.path, file); }
+    finally { old.close(); }
+  }
+  const changed = entries.filter((entry) => oldFiles.get(entry.path)?.digest !== entry.digest || oldFiles.get(entry.path)?.language !== entry.language);
+  const paths = new Set(entries.map((entry) => entry.path));
+  const removed = [...oldFiles.keys()].filter((file) => !paths.has(file));
+  const snapshotId = `snapshot:${repoId}:${hashText(stableJson({ contentDigest, config })).slice(0, 24)}`;
+  progress('scan', { files: entries.length, changedFiles: changed.length });
+  const snapshotRoot = path.join(store, repoId, 'snapshots');
+  fs.mkdirSync(snapshotRoot, { recursive: true });
+  const temporary = fs.mkdtempSync(path.join(snapshotRoot, '.build-'));
+  const tree = path.join(temporary, 'tree');
+  fs.mkdirSync(tree);
+  fs.mkdirSync(path.join(temporary, 'source'));
   let session;
-  let parsedWriter;
-  const fileRecords = [];
-  const processed = new Set();
-  const entryByPath = new Map(entries.map((entry) => [entry.path, entry]));
-  const changedPaths = new Set(changedEntries.map((entry) => entry.path));
-  const treeNodes = buildDirectories(entries, repoId);
+  let published = false;
+  let destination = temporary;
   try {
-    session = createIndexBuildSession(tempDir);
-    parsedWriter = createJsonlWriter(path.join(tempDir, 'parsed.jsonl'));
+    session = createCompactStore(temporary, { previousDatabase: compatible ? path.join(previous.snapshotDir, 'index.db') : null });
+    const changedPaths = new Set(changed.map((entry) => entry.path));
+    const fileInfo = new Map();
     session.begin();
-    for (const node of treeNodes) session.insertNode(node);
-    function consume(parsed) {
-      const entry = entryByPath.get(parsed.path);
-      if (!entry || processed.has(entry.path)) throw new Error(`unexpected-parser-result:${parsed.path}`);
-      processEntry({ entry, parsed, session, tempDir, fileRecords, parsedWriter, entries: entryByPath });
-      processed.add(entry.path);
-      if (processed.size % 256 === 0) { session.commit(); session.begin(); }
-      if (processed.size % 2000 === 0) onProgress({ stage: 'parse-progress', files: processed.size, elapsedMs: Date.now() - startedAt, rssMiB: Math.round(process.memoryUsage().rss / 1024 / 1024) });
-    }
-    parseEntriesBatched(changedEntries, consume);
-    if (previousCompatible && changedEntries.length < entries.length) {
-      for (const parsed of iterateJsonl(path.join(previous.snapshotDir, 'parsed.jsonl'))) {
-        if (entryByPath.has(parsed.path) && !changedPaths.has(parsed.path)) consume(parsed);
+    for (const file of [...changedPaths, ...removed]) session.deleteFile(file);
+    for (const entry of entries) {
+      const blob = path.join(temporary, 'source', entry.digest);
+      const priorBlob = compatible && path.join(previous.snapshotDir, 'source', entry.digest);
+      const altered = changedPaths.has(entry.path);
+      let content;
+      if (priorBlob && fs.existsSync(priorBlob)) copyBlob(priorBlob, blob);
+      else {
+        content = fs.readFileSync(entry.absolute);
+        if (hashBytes(content) !== entry.digest) throw new Error(`source-changed:${entry.path}`);
+        if (!fs.existsSync(blob)) fs.writeFileSync(blob, content, { mode: 0o444 });
+      }
+      const frozen = path.join(tree, entry.path);
+      fs.mkdirSync(path.dirname(frozen), { recursive: true });
+      fs.linkSync(blob, frozen);
+      if (!altered) continue;
+      content ||= fs.readFileSync(blob);
+      const { offsets, lineCount } = offsetsFor(content);
+      const fileId = session.insertFile({ ...entry, lineCount, lineOffsets: offsets,
+        parseStatus: SUPPORTED.has(entry.language) ? 'complete' : 'unsupported',
+        parseError: SUPPORTED.has(entry.language) ? null : `unsupported-language:${entry.language}` });
+      const moduleId = session.insertSymbol({ fileId, kind: 'module', name: path.posix.basename(entry.path),
+        qualifiedName: moduleName(entry.path), startLine: 1, endLine: lineCount, startByte: 0, endByte: entry.bytes });
+      fileInfo.set(entry.path, { fileId, moduleId, lineCount, entry });
+      if (nativeLanguage(entry.language)) {
+        const source = content.toString('utf8');
+        let line = 1;
+        let cursor = 0;
+        for (const match of cIncludes(source)) {
+          let newline;
+          while ((newline = source.indexOf('\n', cursor)) !== -1 && newline < match.index) { line++; cursor = newline + 1; }
+          session.insertRelation({ fileId, sourceId: moduleId, type: 'includes',
+            ...targetFields({ type: 'includes', targetName: match.path }, entry, paths), startLine: line, endLine: line });
+        }
       }
     }
-    if (processed.size !== entries.length) throw new Error('missing-parser-results');
     session.commit();
-    parsedWriter.close();
-    progress('parse-and-store');
-    session.finalizeParents();
-    progress('parents');
-    session.finalizeContainment();
-    progress('containment');
-    session.finalizeRelations();
+    progress('source-and-files');
+    const changedNative = changed.filter((entry) => nativeLanguage(entry.language));
+    const diagnostics = [];
+    if (changedNative.length) {
+      const tagsFile = path.join(temporary, 'tags.jsonl');
+      const extracted = extractCTags({ treeRoot: tree, paths: changedNative.map((entry) => entry.path), outputPath: tagsFile, tools });
+      diagnostics.push(...extracted.warnings);
+      session.begin();
+      let currentPath;
+      let seen = new Set();
+      for (const tag of iterateJsonl(tagsFile)) {
+        if (tag._type !== 'tag') continue;
+        const filePath = path.posix.normalize(tag.path);
+        const info = fileInfo.get(filePath);
+        if (!info || !Number.isInteger(tag.line) || tag.line < 1 || tag.line > info.lineCount) throw new Error(`invalid-native-symbol:${filePath}:${tag.line}`);
+        if (currentPath !== filePath) { currentPath = filePath; seen = new Set(); }
+        const kind = tag.kind === 'prototype' ? 'function_declaration' : tag.kind === 'member' ? 'field' : tag.kind;
+        const scope = tag.scope || '';
+        const identity = JSON.stringify([tag.name, kind, scope, tag.line]);
+        if (seen.has(identity)) continue;
+        seen.add(identity);
+        const id = session.insertSymbol({ fileId: info.fileId, kind, name: tag.name, scope,
+          signature: tag.signature || null, startLine: tag.line, endLine: Math.max(tag.line, Math.min(tag.end || tag.line, info.lineCount)) });
+        if (tag.inherits) {
+          for (const base of String(tag.inherits).split(',')) {
+            const name = base.trim().replace(/^(?:(?:public|protected|private|virtual)\s+)+/, '');
+            session.insertRelation({ fileId: info.fileId, sourceId: id, type: 'inherits',
+              ...targetFields({ type: 'inherits', targetName: name }, info.entry, paths), startLine: tag.line });
+          }
+        }
+      }
+      session.commit();
+      fs.unlinkSync(tagsFile);
+    }
+    progress('native-symbols');
+    const updateModule = session.db.prepare('UPDATE symbols SET name=?,qualified_name=?,signature=?,doc=?,symbol_key=? WHERE id=?');
+    const updateStatus = session.db.prepare('UPDATE files SET parse_status=?,parse_error=? WHERE id=?');
+    const scripted = changed.filter((entry) => ['python', 'javascript', 'typescript'].includes(entry.language))
+      .map((entry) => ({ ...entry, absolute: path.join(tree, entry.path) }));
+    session.begin();
+    parseEntriesBatched(scripted, (parsed) => {
+      const info = fileInfo.get(parsed.path);
+      if (!info) throw new Error(`unexpected-parser-result:${parsed.path}`);
+      updateStatus.run(parsed.status, parsed.error || null, info.fileId);
+      const source = fs.readFileSync(path.join(tree, parsed.path), 'utf8');
+      const layout = sourceLayout(source);
+      const keys = new Map([[`module:${parsed.path}`, info.moduleId]]);
+      const aliases = new Map((parsed.symbols || []).map((symbol) => [`symbol-key:${parsed.path}:${symbol.name}:${symbol.span.startLine}`, symbol.key]));
+      for (const symbol of parsed.symbols || []) {
+        if (symbol.kind === 'module') {
+          updateModule.run(symbol.name, symbol.qualifiedName, symbol.signature || null, symbol.doc || null, symbol.key, info.moduleId);
+          keys.set(symbol.key, info.moduleId);
+          continue;
+        }
+        const scope = symbol.qualifiedName?.slice(0, -(symbol.name.length + 1)) || '';
+        const span = spanFrom(source, symbol.span.startLine, symbol.span.endLine, symbol.span.startColumn, symbol.span.endColumn, layout);
+        const id = session.insertSymbol({ fileId: info.fileId, kind: symbol.kind, name: symbol.name,
+          scope, key: symbol.key, qualifiedName: symbol.qualifiedName, signature: symbol.signature, doc: symbol.doc,
+          parentId: keys.get(aliases.get(symbol.parentKey) || symbol.parentKey) || info.moduleId, sourceSpan: span });
+        keys.set(symbol.key, id);
+      }
+      for (const relation of parsed.relations || []) {
+        const sourceId = keys.get(aliases.get(relation.sourceKey) || relation.sourceKey);
+        if (!sourceId) throw new Error(`missing-relation-source:${parsed.path}:${relation.sourceKey}`);
+        session.insertRelation({ fileId: info.fileId, sourceId, type: relation.type,
+          ...targetFields(relation, info.entry, paths), startLine: Math.max(1, relation.line || 1), endColumn: null });
+      }
+    });
+    session.commit();
+    progress('parser-symbols');
     progress('relations');
-    buildNavigation(session);
-    progress('navigation');
-    session.rebuildIndexes();
+    session.finalize();
     progress('indexes');
+    const native = buildCscope({ treeRoot: tree, paths: cFiles.map((entry) => entry.path), allowedFiles: entries.map((entry) => entry.path), snapshotDir: temporary, tools });
+    diagnostics.push(...native.warnings);
+    progress('native-cross-references');
+    const invalid = session.db.prepare(`SELECT count(*) AS n FROM symbols s JOIN files f ON f.id=s.file_id
+      WHERE s.start_line<1 OR s.end_line<s.start_line OR s.end_line>f.line_count
+        OR (s.start_byte IS NOT NULL AND (s.start_byte<0 OR s.end_byte<s.start_byte OR s.end_byte>f.bytes))`).get().n;
+    if (invalid || session.db.prepare('PRAGMA foreign_key_check').get()) throw new Error(`index validation failed: invalid spans=${invalid}`);
     const counts = session.counts();
-    const partialFiles = fileRecords.filter((file) => file.parseStatus !== 'complete').length;
-    const manifest = {
-      schema: INDEX_SCHEMA, parserVersion: PARSER_VERSION, buildConfig, repositoryId: repoId, repositoryPath: repo,
-      snapshotId, createdAt: new Date().toISOString(), git: currentGit, contentDigest, fileCount: fileRecords.length,
-      status: partialFiles ? 'partial' : 'published', skipped: scan.skipped,
-      stats: { files: counts.files, sourceBytes: fileRecords.reduce((sum, file) => sum + file.bytes, 0), changedFiles: changedEntries.length, reusedFiles: entries.length - changedEntries.length, symbols: counts.symbols, relations: counts.relations, partialFiles, skipped: scan.skipped.length },
-      coverage: { sourceFiles: fileRecords.length, parsedFiles: fileRecords.filter((file) => file.parseStatus === 'complete').length, unsupportedFiles: fileRecords.filter((file) => file.parseStatus === 'unsupported').length, partialFiles, skippedFiles: scan.skipped.length },
-      publishing: { state: 'validated', permissionView: 'public' },
-    };
-    validateIndexDatabase({ session, tempDir, manifest, files: fileRecords });
+    const statusCounts = Object.fromEntries(session.db.prepare('SELECT parse_status,count(*) AS n FROM files GROUP BY parse_status').all().map((row) => [row.parse_status, row.n]));
+    const directoryPaths = new Set(['']);
+    for (const entry of entries) {
+      let directory = path.posix.dirname(entry.path);
+      while (directory !== '.' && directory !== '') { directoryPaths.add(directory); directory = path.posix.dirname(directory); }
+    }
+    const partialFiles = entries.length - (statusCounts.complete || 0);
+    const stats = { ...counts, sourceBytes: entries.reduce((sum, entry) => sum + entry.bytes, 0),
+      changedFiles: changed.length, removedFiles: removed.length, reusedFiles: entries.length - changed.length,
+      parsedFiles: changed.filter((entry) => SUPPORTED.has(entry.language)).length,
+      partialFiles, skipped: scan.skipped.length, nodes: counts.files + counts.symbols + directoryPaths.size,
+      nativeFiles: native.files.length, nativeIndexedFiles: native.indexedFiles.length,
+      relationsScope: 'stored-sql-relations; native calls and references queried from cscope', stages };
+    session.close(); session = null;
     progress('validation');
-    writeJsonl(path.join(tempDir, 'files.jsonl'), fileRecords);
-    writeJsonl(path.join(tempDir, 'symbols.jsonl'), symbolRows(session.db, snapshotId));
-    writeJsonl(path.join(tempDir, 'containment.jsonl'), containmentRows(session.db, snapshotId));
-    writeJsonl(path.join(tempDir, 'relations.jsonl'), relationRows(session.db, snapshotId));
-    writeJsonl(path.join(tempDir, 'navigation.jsonl'), navigationRows(session.db));
-    progress('exports');
-    session.close();
-    session = null;
-    manifest.stats.buildMs = Date.now() - startedAt;
-    manifest.stats.stages = stages;
-    writeJsonAtomic(path.join(tempDir, 'manifest.json'), manifest);
-    const snapshotDir = path.join(storeRoot, repoId, 'snapshots', snapshotId);
-    if (fs.existsSync(snapshotDir)) {
-      const existing = readJson(path.join(snapshotDir, 'manifest.json'));
-      if (existing?.contentDigest !== contentDigest || stableJson(existing?.buildConfig) !== stableJson(buildConfig)) throw new Error('snapshot-identity-conflict');
-      if (!fs.existsSync(path.join(snapshotDir, 'index.db'))) fs.renameSync(path.join(tempDir, 'index.db'), path.join(snapshotDir, 'index.db'));
-      fs.rmSync(tempDir, { recursive: true, force: true });
-    } else fs.renameSync(tempDir, snapshotDir);
-    writeJsonAtomic(path.join(storeRoot, repoId, 'published.json'), { repositoryId: repoId, snapshotId, publishedAt: new Date().toISOString() });
-    return { manifest, snapshotDir, stats: manifest.stats };
+    const manifest = { schema: INDEX_SCHEMA, parserVersion: PARSER_VERSION, buildConfig: config,
+      repositoryId: repoId, repositoryPath: repo, snapshotId, contentDigest, createdAt: new Date().toISOString(), git,
+      status: partialFiles || diagnostics.length ? 'partial' : 'published', skipped: scan.skipped, diagnostics,
+      native: { backend: native.files.length ? 'cscope' : null, files: native.files.length, indexedFiles: native.indexedFiles.length,
+        artifacts: native.artifacts, version: tools.cscope?.version || null },
+      coverage: { sourceFiles: counts.files, parsedFiles: statusCounts.complete || 0, unsupportedFiles: statusCounts.unsupported || 0,
+        partialFiles, skippedFiles: scan.skipped.length, nativeCalls: native.files.length > 0,
+        semantics: 'syntax-level symbols and cross-references; no compiler-level overload or pointer resolution' },
+      publishing: { state: 'validated', permissionView: 'public' }, stats: { ...stats, buildMs: Date.now() - started } };
+    writeJsonAtomic(path.join(temporary, 'manifest.json'), manifest);
+    const directory = `${snapshotId}-${randomUUID().slice(0, 8)}`;
+    const destinationPath = path.join(snapshotRoot, directory);
+    fs.renameSync(temporary, destinationPath);
+    destination = destinationPath;
+    writeJsonAtomic(path.join(store, repoId, 'published.json'), { repositoryId: repoId, snapshotId, directory, publishedAt: new Date().toISOString() });
+    published = true;
+    return { manifest, snapshotDir: destination, stats: { ...manifest.stats, buildMs: Date.now() - started } };
   } catch (error) {
-    try { session?.db.exec('ROLLBACK'); } catch {}
-    try { parsedWriter?.close(); } catch {}
     try { session?.close(); } catch {}
-    fs.rmSync(tempDir, { recursive: true, force: true });
+    if (!published) fs.rmSync(destination, { recursive: true, force: true });
     throw error;
   }
 }
 
-export function loadIndex(storeRoot, repoId = null) {
-  const rootEntries = fs.existsSync(storeRoot) ? fs.readdirSync(storeRoot, { withFileTypes: true }).filter((entry) => entry.isDirectory() && entry.name.startsWith('repo-')) : [];
-  const selected = repoId || (rootEntries.length === 1 ? rootEntries[0].name : null);
-  if (!selected) throw new Error('无法确定仓库索引，请指定 --repo-id 或只保留一个仓库索引');
-  const published = readJson(path.join(storeRoot, selected, 'published.json'));
-  if (!published?.snapshotId) throw new Error(`没有已发布索引: ${selected}`);
-  const snapshotDir = path.join(storeRoot, selected, 'snapshots', published.snapshotId);
-  const manifest = readJson(path.join(snapshotDir, 'manifest.json'));
-  if (!manifest) throw new Error(`索引 manifest 不存在: ${snapshotDir}`);
-  const runtime = ensureIndexDatabase(snapshotDir, manifest);
-  return {
-    storeRoot, repoId: selected, snapshotDir, manifest, ...runtime,
-    get files() { return readJsonl(path.join(snapshotDir, 'files.jsonl')); },
-    get symbols() { return readJsonl(path.join(snapshotDir, 'symbols.jsonl')); },
-    get containment() { return readJsonl(path.join(snapshotDir, 'containment.jsonl')); },
-    get relations() { return readJsonl(path.join(snapshotDir, 'relations.jsonl')); },
-    get navigation() { return readJsonl(path.join(snapshotDir, 'navigation.jsonl')); },
-  };
+export function loadIndex(storeRoot, repoId = null, options = {}) {
+  const store = path.resolve(storeRoot);
+  const repositories = fs.existsSync(store) ? fs.readdirSync(store, { withFileTypes: true }).filter((entry) => entry.isDirectory() && entry.name.startsWith('repo-')) : [];
+  const selected = repoId || (repositories.length === 1 ? repositories[0].name : null);
+  if (!selected) throw new Error('无法确定仓库索引，请指定 --repo-id');
+  const published = publishedSnapshot(store, selected);
+  if (!published) throw new Error(`没有当前格式的已发布索引，请重新执行 index：${selected}`);
+  if (!artifactsPresent(published)) throw new Error('索引产物缺失，请重新执行 index');
+  const index = openCompactStore(published.snapshotDir, published.manifest);
+  index.repoId = selected;
+  index.storeRoot = store;
+  attachRelations(index, options);
+  return index;
+}
+
+export function exportIndex(storeRoot, outputDir, { repoId = null } = {}) {
+  const index = loadIndex(storeRoot, repoId);
+  const output = path.resolve(outputDir);
+  try {
+    if (output === index.snapshotDir || output.startsWith(`${index.snapshotDir}${path.sep}`)) throw new Error('导出目录必须位于不可变快照之外');
+    if (fs.existsSync(output) && fs.readdirSync(output).length) throw new Error('导出目录必须为空');
+    fs.mkdirSync(output, { recursive: true });
+    writeJsonl(path.join(output, 'files.jsonl'), index.iterFiles());
+    writeJsonl(path.join(output, 'symbols.jsonl'), index.iterSymbols());
+    writeJsonl(path.join(output, 'containment.jsonl'), index.iterContainment());
+    writeJsonl(path.join(output, 'relations.jsonl'), index.iterStoredRelations());
+    for (const artifact of index.manifest.native.artifacts) {
+      fs.mkdirSync(path.dirname(path.join(output, artifact)), { recursive: true });
+      fs.copyFileSync(path.join(index.snapshotDir, artifact), path.join(output, artifact), fs.constants.COPYFILE_FICLONE);
+    }
+    writeJsonAtomic(path.join(output, 'manifest.json'), { ...index.manifest,
+      export: { sourceSnapshot: index.snapshotDir, relations: 'SQL facts plus native Cscope artifacts; native edges are not expanded as JSONL' } });
+    return { output, snapshotId: index.manifest.snapshotId };
+  } finally { index.close(); }
 }

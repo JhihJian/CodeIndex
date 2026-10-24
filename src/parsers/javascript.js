@@ -112,13 +112,16 @@ function parseJavaScript(entry) {
       relations.push({ sourceKey: key, type: 'calls', targetName, line: lineAt(source, declaration.start + (call.index ?? 0)), column: 0 });
     }
   }
-  for (const match of masked.matchAll(/\bimport\s+(?:[^;\n]*?\s+from\s+)?['"]([^'"]+)['"]/g)) {
+  for (const match of source.matchAll(/\bimport\s+(?:[^;\n]*?\s+from\s+)?['"]([^'"]+)['"]/g)) {
+    if (!masked.slice(match.index, match.index + 6).trim()) continue;
     relations.push({ sourceKey: moduleKey, type: 'imports', targetName: match[1], line: lineAt(source, match.index ?? 0), column: 0 });
   }
-  for (const match of masked.matchAll(/\b(?:require|import)\s*\(\s*['"]([^'"]+)['"]\s*\)/g)) {
+  for (const match of source.matchAll(/\b(?:require|import)\s*\(\s*['"]([^'"]+)['"]\s*\)/g)) {
+    if (!masked.slice(match.index, match.index + 6).trim()) continue;
     relations.push({ sourceKey: moduleKey, type: 'imports', targetName: match[1], line: lineAt(source, match.index ?? 0), column: 0 });
   }
-  for (const match of masked.matchAll(/\bexport\s+[^;\n]*?\s+from\s+['"]([^'"]+)['"]/g)) {
+  for (const match of source.matchAll(/\bexport\s+[^;\n]*?\s+from\s+['"]([^'"]+)['"]/g)) {
+    if (!masked.slice(match.index, match.index + 6).trim()) continue;
     relations.push({ sourceKey: moduleKey, type: 'imports', targetName: match[1], line: lineAt(source, match.index ?? 0), column: 0 });
   }
   return { path, status: 'complete', error: null, symbols, relations };

@@ -1,0 +1,325 @@
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import { spawnSync } from 'node:child_process';
+
+const SYSTEM_PATH = '/usr/bin:/bin';
+const ARTIFACTS = ['native/cscope.out', 'native/cscope.out.in', 'native/cscope.out.po', 'native/cscope.paths.json'];
+const MODES = { references: 0, callees: 2, callers: 3, includes: 8 };
+const C_EXTENSIONS = /\.(?:c|h|cc|hh|cpp|hpp|cxx|hxx|c\+\+|h\+\+|inl|ipp|tcc)$/i;
+
+function positiveSetting(name, fallback) {
+  const value = process.env[name] === undefined ? fallback : Number(process.env[name]);
+  if (!Number.isSafeInteger(value) || value <= 0) throw new Error(`${name} must be a positive integer`);
+  return value;
+}
+
+function nativeEnv() {
+  const env = { ...process.env, PATH: SYSTEM_PATH, LC_ALL: 'C' };
+  for (const key of ['VPATH', 'SOURCEDIRS', 'INCLUDEDIRS', 'INCDIR', 'CSCOPEOPTIONS', 'CSCOPE_DB']) delete env[key];
+  return env;
+}
+
+function run(tool, args, { cwd, query = false } = {}) {
+  if (!tool?.path) throw new Error('Native tool is not resolved');
+  const result = spawnSync(tool.path, args, {
+    cwd, env: nativeEnv(), encoding: 'utf8',
+    timeout: positiveSetting('CODEINDEX_NATIVE_TIMEOUT_MS', query ? 10000 : 180000),
+    maxBuffer: positiveSetting('CODEINDEX_NATIVE_MAX_OUTPUT_BYTES', 32 * 1024 * 1024),
+    killSignal: 'SIGKILL',
+  });
+  if (result.error || result.status !== 0) {
+    throw new Error(`${path.basename(tool.path)} failed: ${result.error?.message || `exit ${result.status}, signal ${result.signal}`}\n${result.stderr || ''}`);
+  }
+  return result;
+}
+
+function executable(candidate) {
+  const candidates = candidate.includes('/') ? [path.resolve(candidate)]
+    : (process.env.PATH || SYSTEM_PATH).split(path.delimiter).filter(Boolean).map((dir) => path.resolve(dir, candidate));
+  return candidates.find((file) => {
+    try { fs.accessSync(file, fs.constants.X_OK); return fs.statSync(file).isFile(); } catch { return false; }
+  });
+}
+
+/** Resolve only needed tools. Explicit options override CODEINDEX_CTAGS / CODEINDEX_CSCOPE. */
+export function resolveNativeTools({ ctags, cscope, needsCtags = true, needsCscope = true } = {}) {
+  const result = { ctags: null, cscope: null };
+  for (const [key, needed, configured, defaults] of [
+    ['ctags', needsCtags, ctags ?? process.env.CODEINDEX_CTAGS, ['ctags-universal', 'ctags']],
+    ['cscope', needsCscope, cscope ?? process.env.CODEINDEX_CSCOPE, ['cscope']],
+  ]) {
+    if (!needed) continue;
+    const candidates = configured ? [configured] : defaults;
+    const failures = [];
+    for (const candidate of candidates) {
+      try {
+        const toolPath = executable(candidate);
+        if (!toolPath) throw new Error(`executable not found: ${candidate}`);
+        const tool = { path: toolPath };
+        const response = run(tool, [key === 'ctags' ? '--version' : '-V']);
+        let version = `${response.stdout}\n${response.stderr}`.trim().split('\n')[0];
+        if (key === 'ctags') {
+          if (!version.includes('Universal Ctags')) throw new Error('Universal Ctags is required');
+          const features = run(tool, ['--options=NONE', '--list-features']).stdout;
+          if (!/^json\s/m.test(features)) throw new Error('Universal Ctags JSON support is required');
+        } else {
+          // Cscope prefixes -V with argv[0], which can be an installation-specific absolute path.
+          const match = /^.+: (version \d[^\r\n]*)$/i.exec(version);
+          if (!match) throw new Error('Unrecognized Cscope version');
+          version = `cscope: ${match[1]}`;
+        }
+        result[key] = { path: toolPath, version };
+        break;
+      } catch (error) { failures.push(error.message); }
+    }
+    if (!result[key]) throw new Error(`Cannot resolve ${key}: ${failures.join('; ')}`);
+  }
+  return result;
+}
+
+function inside(root, target) {
+  const relative = path.relative(root, target);
+  return relative !== '..' && !relative.startsWith(`..${path.sep}`) && !path.isAbsolute(relative);
+}
+
+function validateRelative(file) {
+  if (typeof file !== 'string' || !file || /[\x00-\x1f\x7f"\\]/.test(file)) {
+    throw new Error(`Unsupported native filename (control characters, quotes and backslashes are forbidden): ${JSON.stringify(file)}`);
+  }
+  if (path.isAbsolute(file) || file.split('/').includes('..') || path.posix.normalize(file) !== file || file === '.') {
+    throw new Error(`Native filename must be a normalized repository-relative path: ${file}`);
+  }
+  return file;
+}
+
+function snapshotFiles(treeRoot, paths) {
+  const root = fs.realpathSync(treeRoot);
+  const files = [...new Set(paths)].map(validateRelative).filter((file) => C_EXTENSIONS.test(file));
+  for (const file of files) {
+    const absolute = path.join(root, file);
+    if (!inside(root, fs.realpathSync(absolute)) || !fs.statSync(absolute).isFile()) {
+      throw new Error(`Native input escapes snapshot tree or is not a file: ${file}`);
+    }
+  }
+  return { root, files };
+}
+
+function warnings(stderr) {
+  return stderr.split('\n').filter((line) => line.trim() && !line.includes('Notice: No options will be read'));
+}
+
+/** paths is an iterable of normalized repository-relative strings. Output is streamed by Ctags to disk. */
+export function extractCTags({ treeRoot, paths, outputPath, tools }) {
+  const { root, files } = snapshotFiles(treeRoot, paths);
+  outputPath = path.resolve(outputPath);
+  if (inside(root, outputPath)) throw new Error('Ctags output must be outside the read-only snapshot tree');
+  fs.mkdirSync(path.dirname(outputPath), { recursive: true });
+  if (!files.length) {
+    fs.writeFileSync(outputPath, '', 'utf8');
+    return { outputPath, warnings: [] };
+  }
+  const scratch = fs.mkdtempSync(path.join(path.dirname(outputPath), '.ctags-'));
+  try {
+    const list = path.join(scratch, 'files');
+    // Ctags -L consumes whole lines, not Cscope's shell-style quoted names.
+    fs.writeFileSync(list, files.map((file) => file.startsWith('-') ? `./${file}` : file).join('\n') + '\n', 'utf8');
+    const response = run(tools?.ctags, [
+      '--options=NONE', '--output-format=json', '--languages=C,C++', '--sort=no',
+      '--fields=+neKStiaZ', '--fields=-P', '--extras=-p', '--kinds-C=+p', '--kinds-C++=+p',
+      '-L', list, '-f', path.join(scratch, 'tags.jsonl'),
+    ], { cwd: root });
+    fs.renameSync(path.join(scratch, 'tags.jsonl'), outputPath);
+    return { outputPath, warnings: warnings(response.stderr) };
+  } finally { fs.rmSync(scratch, { recursive: true, force: true }); }
+}
+
+// With -k, no -I and a sanitized environment, Cscope 15 resolves quoted includes
+// from cwd, not the including file's directory. Angle includes have no search dirs.
+// Check the transitive closure before spawning, including non-C/C++ snapshot text.
+function validateIncludes(root, files, allowedFiles = files) {
+  const allowed = new Set(allowedFiles);
+  const closure = new Set(files);
+  for (const file of closure) {
+    const source = fs.readFileSync(path.join(root, file), 'utf8').replace(/\\\r?\n/g, '');
+    // Match Cscope's lexer, which also accepts an unterminated include token.
+    for (const match of source.matchAll(/#[ \t\r\v\f]*include[ \t\r\v\f]*"([^>" \t\n]+)/g)) {
+      const include = match[1];
+      if (include.includes('\0')) throw new Error(`Unsafe include outside snapshot in ${file}: ${include}`);
+      const target = path.resolve(root, include);
+      // Missing generated headers and missing ../ cwd candidates are not read.
+      if (!fs.existsSync(target) || !fs.statSync(target).isFile()) continue;
+      if (!inside(root, target)) throw new Error(`Unsafe include outside snapshot in ${file}: ${include}`);
+      const relative = path.relative(root, target);
+      if (!inside(root, fs.realpathSync(target)) || !allowed.has(relative) || !fs.statSync(target).isFile()) {
+        throw new Error(`Include is not an indexed snapshot file in ${file}: ${include}`);
+      }
+      validateRelative(relative);
+      closure.add(relative);
+    }
+  }
+  return [...closure];
+}
+
+function checkCscopeResponse(response) {
+  // Cscope 15.9 can return zero after failing to create/open its inverted index.
+  const diagnostic = `${response.stderr}\n${response.stdout}`;
+  if (/(?:cannot|can't|could not|unable|failed|failure|fatal|error|empty inverted|inverted file is locked|press.*RETURN|does not have expected format|ignoring.*(?:index|option))/i.test(response.stderr)
+      || /File does not have expected format|cscope:.*(?:cannot|error|failed)/i.test(response.stdout)) {
+    throw new Error(`Cscope failed: ${diagnostic.trim()}`);
+  }
+}
+
+function verifyArtifacts(snapshotDir) {
+  for (const artifact of ARTIFACTS.slice(0, 3)) {
+    const absolute = path.join(snapshotDir, artifact);
+    if (!fs.existsSync(absolute) || !fs.statSync(absolute).isFile() || fs.statSync(absolute).size === 0) {
+      throw new Error(`Missing or empty Cscope inverted-index artifact: ${artifact}`);
+    }
+  }
+}
+
+// The v15 trailer is uncompressed and enumerates the files actually indexed.
+// Read only the header and trailer, never the potentially multi-GB symbol database.
+function databaseFiles(database, { normalizeHeader = false } = {}) {
+  const fd = fs.openSync(database, normalizeHeader ? 'r+' : 'r');
+  try {
+    const head = Buffer.alloc(65536);
+    const size = fs.readSync(fd, head, 0, head.length, 0);
+    const newline = head.subarray(0, size).indexOf(10);
+    const header = head.subarray(0, newline).toString('utf8');
+    const match = /^cscope 15 (.+) -q \d+ (\d+)$/.exec(header);
+    if (!match) throw new Error('Invalid Cscope v15 database or missing inverted index header');
+    if (normalizeHeader && /[ \t\r\v\f]/.test(match[1])) {
+      // The legacy header parser uses %s for cwd. It is informational for -d queries;
+      // -P always supplies the current snapshot tree. Keep byte offsets unchanged.
+      const corrected = header.replace(match[1], match[1].replace(/[ \t\r\v\f]/g, '_'));
+      fs.writeSync(fd, Buffer.from(corrected), 0, Buffer.byteLength(corrected), 0);
+    }
+    const offset = Number(match[2]);
+    const length = fs.fstatSync(fd).size - offset;
+    if (!Number.isSafeInteger(offset) || offset <= newline || length <= 0 || length > 128 * 1024 * 1024) {
+      throw new Error('Invalid or oversized Cscope filename trailer');
+    }
+    const trailer = Buffer.alloc(length);
+    if (fs.readSync(fd, trailer, 0, length, offset) !== length) throw new Error('Truncated Cscope filename trailer');
+    const lines = trailer.toString('utf8').split('\n');
+    let cursor = 0;
+    const count = () => {
+      const value = lines[cursor++];
+      if (!/^\d+$/.test(value)) throw new Error('Invalid Cscope filename trailer count');
+      return Number(value);
+    };
+    for (let i = 0; i < 2; i++) { const n = count(); cursor += n; }
+    const total = count();
+    const bytes = count();
+    const files = lines.slice(cursor, cursor + total);
+    if (files.length !== total || Buffer.byteLength(files.join('\n') + (total ? '\n' : '')) !== bytes) {
+      throw new Error('Invalid Cscope filename trailer length');
+    }
+    return files;
+  } finally { fs.closeSync(fd); }
+}
+
+/**
+ * paths supplies primary C/C++ inputs. allowedFiles optionally lists all saved snapshot text.
+ * files reports primary inputs, indexedFiles reports the actual native database file list.
+ * Empty C/C++ inputs yield no artifacts. Snapshot contents must remain immutable during build.
+ */
+export function buildCscope({ treeRoot, paths, allowedFiles, snapshotDir, tools }) {
+  const { root, files } = snapshotFiles(treeRoot, paths);
+  snapshotDir = path.resolve(snapshotDir);
+  const nativeDir = path.join(snapshotDir, 'native');
+  if (inside(root, nativeDir)) throw new Error('Cscope output must be outside the read-only snapshot tree');
+  fs.mkdirSync(nativeDir, { recursive: true });
+  for (const artifact of ARTIFACTS) fs.rmSync(path.join(snapshotDir, artifact), { force: true });
+  if (!files.length) return { files: [], indexedFiles: [], artifacts: [], warnings: [] };
+  const allowed = new Set(allowedFiles === undefined ? files : [...allowedFiles].map(validateRelative));
+  if (files.some((file) => !allowed.has(file))) throw new Error('Primary Cscope inputs must be in allowedFiles');
+  const closure = validateIncludes(root, files, allowed);
+  const aliases = files.some((file) => /\s/.test(file));
+  if (aliases && closure.length !== files.length) {
+    throw new Error('Cscope filename aliases cannot preserve additional include files in the snapshot closure');
+  }
+  const scratch = fs.mkdtempSync(path.join(nativeDir, '.cscope-'));
+  try {
+    const mapping = Object.create(null);
+    const buildRoot = aliases ? path.join(scratch, 'tree') : root;
+    if (aliases) fs.mkdirSync(buildRoot);
+    for (const [index, file] of files.entries()) {
+      // Cscope's result parser cannot read whitespace in paths. A temporary view
+      // contains only links to validated immutable snapshot files, never live files.
+      const nativePath = aliases ? `${index}${path.extname(file)}` : file;
+      mapping[nativePath] = file;
+      if (aliases) {
+        const target = path.join(buildRoot, nativePath);
+        try { fs.linkSync(path.join(root, file), target); }
+        catch (error) {
+          if (error.code !== 'EXDEV') throw error;
+          fs.copyFileSync(path.join(root, file), target, fs.constants.COPYFILE_FICLONE);
+        }
+      }
+    }
+    if (aliases) {
+      // Includes resolve from Cscope's cwd. The temporary view may have a different
+      // depth, so validate its resolution too before allowing Cscope to open it.
+      validateIncludes(buildRoot, Object.keys(mapping));
+    }
+    const list = path.join(scratch, 'files');
+    fs.writeFileSync(list, Object.keys(mapping).map((file) => `"./${file}"`).join('\n') + '\n', 'utf8');
+    const database = path.join(snapshotDir, ARTIFACTS[0]);
+    const response = run(tools?.cscope, ['-b', '-q', '-k', '-u', '-i', list, '-f', database], { cwd: buildRoot });
+    checkCscopeResponse(response);
+    verifyArtifacts(snapshotDir);
+    const indexed = databaseFiles(database, { normalizeHeader: true });
+    const permitted = new Set(aliases ? Object.keys(mapping) : closure);
+    const actual = new Set(indexed);
+    if (actual.size !== indexed.length || Object.keys(mapping).some((file) => !actual.has(file))
+        || indexed.some((file) => !permitted.has(file))) {
+      throw new Error('Cscope indexed unexpected files outside the explicit snapshot file list');
+    }
+    for (const file of indexed) if (!aliases) mapping[file] = file;
+    fs.writeFileSync(path.join(snapshotDir, ARTIFACTS[3]), JSON.stringify(mapping), 'utf8');
+    // Opening with -q verifies the inverted indexes, including zero-exit diagnostics.
+    const probe = run(tools?.cscope, ['-d', '-L', '-q', '-k', '-P', root, '-f', database, '-0', '__codeindex_index_probe__'], { cwd: scratch, query: true });
+    checkCscopeResponse(probe);
+    return { files, indexedFiles: indexed.map((file) => mapping[file]), artifacts: [...ARTIFACTS], warnings: [...warnings(response.stderr), ...warnings(probe.stderr)] };
+  } catch (error) {
+    for (const artifact of ARTIFACTS) fs.rmSync(path.join(snapshotDir, artifact), { force: true });
+    throw error;
+  } finally { fs.rmSync(scratch, { recursive: true, force: true }); }
+}
+
+/** Queries only the native database. treeRoot is the final snapshot tree, never the live repository. */
+export function queryCscope({ snapshotDir, treeRoot, name, mode, tools, limit = 256 }) {
+  if (!Object.hasOwn(MODES, mode)) throw new Error(`Unsupported Cscope mode: ${mode}`);
+  if (typeof name !== 'string' || !name || /[\x00-\x1f\x7f]/.test(name)) throw new Error('Invalid Cscope query name');
+  if (!Number.isSafeInteger(limit) || limit < 0) throw new Error('Cscope limit must be a nonnegative integer');
+  snapshotDir = path.resolve(snapshotDir);
+  const root = fs.realpathSync(treeRoot);
+  verifyArtifacts(snapshotDir);
+  const mapping = JSON.parse(fs.readFileSync(path.join(snapshotDir, ARTIFACTS[3]), 'utf8'));
+  const database = path.join(snapshotDir, ARTIFACTS[0]);
+  const scratch = fs.mkdtempSync(path.join(os.tmpdir(), 'codeindex-cscope-query-'));
+  try {
+    const response = run(tools?.cscope, ['-d', '-L', '-q', '-k', '-P', root, '-f', database, `-${MODES[mode]}`, name], { cwd: scratch, query: true });
+    checkCscopeResponse(response);
+    const rows = [];
+    let total = 0;
+    for (const line of response.stdout.split('\n')) {
+      if (!line.trim()) continue;
+      const match = /^(\S+)\s+(\S+)\s+(\d+)\s+(.*)$/.exec(line);
+      if (!match) throw new Error(`Malformed Cscope result: ${line}`);
+      const nativePath = path.isAbsolute(match[1]) ? path.relative(root, match[1]) : match[1];
+      if (!Object.hasOwn(mapping, nativePath)) throw new Error(`Cscope result is outside snapshot file list: ${match[1]}`);
+      const file = validateRelative(mapping[nativePath]);
+      const absolute = path.join(root, file);
+      if (!inside(root, fs.realpathSync(absolute))) throw new Error(`Cscope result escapes snapshot tree: ${file}`);
+      const number = Number(match[3]);
+      if (!Number.isSafeInteger(number) || number < 1) throw new Error(`Invalid Cscope result line: ${line}`);
+      total++;
+      if (rows.length < limit) rows.push({ path: file, peer: match[2], line: number, text: match[4] });
+    }
+    return { rows, truncated: total > limit };
+  } finally { fs.rmSync(scratch, { recursive: true, force: true }); }
+}

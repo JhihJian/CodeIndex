@@ -1,0 +1,35 @@
+(node:951212) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:951230) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+{"stage":"scan","durationMs":7311,"elapsedMs":7311,"rssMiB":330,"files":86363,"changedFiles":1}
+{"stage":"source-and-files","durationMs":3180,"elapsedMs":10491,"rssMiB":340}
+{"stage":"native-symbols","durationMs":34,"elapsedMs":10525,"rssMiB":340}
+{"stage":"parser-symbols","durationMs":0,"elapsedMs":10525,"rssMiB":340}
+{"stage":"relations","durationMs":0,"elapsedMs":10525,"rssMiB":340}
+{"stage":"indexes","durationMs":0,"elapsedMs":10525,"rssMiB":340}
+{"stage":"native-cross-references","durationMs":59754,"elapsedMs":70279,"rssMiB":396}
+{"stage":"validation","durationMs":1601,"elapsedMs":71880,"rssMiB":365}
+	Command being timed: "node benchmarks/verify-linux-native.mjs .data/linux-native-v3 --update"
+	User time (seconds): 73.43
+	System time (seconds): 13.01
+	Percent of CPU this job got: 116%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 1:14.11
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 2534404
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 1264176
+	Voluntary context switches: 263820
+	Involuntary context switches: 1848
+	Swaps: 0
+	File system inputs: 5548264
+	File system outputs: 10716088
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

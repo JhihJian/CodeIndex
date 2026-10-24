@@ -27,10 +27,10 @@ test('indexes symbols, containment and resolved call relations with immutable ev
   const built = indexRepository(repo, store);
   const index = loadIndex(store);
   assert.equal(built.manifest.status, 'published');
-  assert.ok(index.symbols.some((symbol) => symbol.name === 'Service'));
-  assert.ok(index.symbols.some((symbol) => symbol.name === 'run'));
-  assert.ok(index.containment.some((node) => node.nodeType === 'directory'));
-  assert.ok(index.relations.some((relation) => relation.type === 'calls' && relation.status === 'resolved'));
+  assert.ok([...index.iterSymbols()].some((symbol) => symbol.name === 'Service'));
+  assert.ok([...index.iterSymbols()].some((symbol) => symbol.name === 'run'));
+  assert.ok([...index.iterContainment()].some((node) => node.nodeType === 'directory'));
+  assert.ok([...index.iterStoredRelations()].some((relation) => relation.type === 'calls' && relation.status === 'resolved'));
   const result = queryIndex(index, 'who calls helper');
   assert.equal(result.snapshotId, index.manifest.snapshotId);
   assert.ok(result.evidence.length > 0);
@@ -66,7 +66,7 @@ test('update reuses unchanged parse results and publishes a new snapshot', () =>
   assert.equal(second.stats.changedFiles, 1);
   assert.ok(second.stats.reusedFiles >= 2);
   const index = loadIndex(store);
-  assert.ok(index.symbols.some((symbol) => symbol.name === 'extra'));
+  assert.ok([...index.iterSymbols()].some((symbol) => symbol.name === 'extra'));
   const originalReadFileSync = fs.readFileSync;
   const jsonlReads = [];
   fs.readFileSync = (...args) => {
