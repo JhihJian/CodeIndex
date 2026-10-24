@@ -57,6 +57,21 @@
     "calls": 3704,
     "references": 49
   },
+  "performance": {
+    "sourceBytes": 565768,
+    "adapterParseMs": 613.35,
+    "adapterProcessElapsedMs": 680,
+    "adapterPeakRssMiB": 136.96,
+    "indexBuildMs": 747,
+    "indexProcessElapsedMs": 870,
+    "indexPeakRssMiB": 146.4,
+    "queryMedianMs": {
+      "do_execveat_common": 0.19,
+      "tcp_v4_syn_recv_sock": 0.224,
+      "vfs_open": 0.156,
+      "pick_next_task_fair": 1.299
+    }
+  },
   "notes": [
     "partial 表示源码包含条件编译或 Tree-sitter 错误节点，已识别的符号和关系仍保留。",
     "宏调用以 references 关系记录，这是四个真实 Linux C 文件的适配器验证，不是全仓库构建性能结果。"

@@ -30,7 +30,7 @@ Bun 的完整对比结果见 [`bun-code-review-graph-comparison.md`](bun-code-re
 
 ## Linux v6.12
 
-历史基线数据集包含 86,362 个 CodeIndex 文件、1.21 GB 可读源码、5,175 个符号和 24,284 条关系。当时 CodeIndex 还没有 C/C++ 结构化解析，只解析了 259 个 Python 文件。当前版本新增 Tree-sitter C/C++ 适配器，并已在 Linux 四个目标文件上识别 `do_execveat_common`、`tcp_v4_syn_recv_sock`、`vfs_open` 和 `pick_next_task_fair`，同时提取函数、类型、包含、宏和直接调用关系。完整 Linux 重建需要继续优化超大型 C 仓库的符号聚合内存，因此历史对照数字仍应按旧版本基线解读。验证明细保存在 [`benchmarks/results/linux-codeindex-c-adapter.json`](results/linux-codeindex-c-adapter.json)，历史构建对比见 [`linux-code-review-graph-comparison.md`](linux-code-review-graph-comparison.md)。
+历史基线数据集包含 86,362 个 CodeIndex 文件、1.21 GB 可读源码、5,175 个符号和 24,284 条关系。当时 CodeIndex 还没有 C/C++ 结构化解析，只解析了 259 个 Python 文件。当前版本新增 Tree-sitter C/C++ 适配器，并已在 Linux 四个目标文件上识别 `do_execveat_common`、`tcp_v4_syn_recv_sock`、`vfs_open` 和 `pick_next_task_fair`，同时提取函数、类型、包含、宏和直接调用关系。完整 Linux 重建需要继续优化超大型 C 仓库的符号聚合内存，因此历史对照数字仍按旧版本基线解读。当前四文件验证覆盖 565,768 字节源码，适配器解析耗时 613.35 ms，完整小快照构建耗时 747 ms，峰值 RSS 约 146 MiB；四个精确查询带证据中位数为 0.156 至 1.299 ms。验证明细保存在 [`benchmarks/results/linux-codeindex-c-adapter.json`](results/linux-codeindex-c-adapter.json)，历史构建对比见 [`linux-code-review-graph-comparison.md`](linux-code-review-graph-comparison.md)。
 
 ## Pi provider 推理验证
 

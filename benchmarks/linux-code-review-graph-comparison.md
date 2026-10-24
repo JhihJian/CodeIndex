@@ -25,6 +25,8 @@ CodeIndex 和 `code-review-graph` 都使用同一个工作区。`code-review-gra
 
 四个目标函数的召回为 4/4，共提取 2,342 个符号、147 条包含关系、3,704 条直接调用关系和 49 条宏引用关系。`partial` 表示 Linux 源码包含依赖编译上下文的条件分支或 Tree-sitter 错误节点，解析器保留已识别的确定性范围并将无法确认的关系留在未解析状态。
 
+四个文件合计 565,768 字节。适配器直接解析耗时 613.35 ms，进程墙钟时间 680 ms，峰值 RSS 约 137 MiB。复制这四个文件构建并发布完整 CodeIndex 快照耗时 747 ms，进程墙钟时间 870 ms，峰值 RSS 约 146 MiB。四个精确查询的带证据中位数分别为 `do_execveat_common` 0.190 ms、`tcp_v4_syn_recv_sock` 0.224 ms、`vfs_open` 0.156 ms 和 `pick_next_task_fair` 1.299 ms。
+
 完整 Linux 重建仍受主进程符号聚合内存约束：原生 Tree-sitter 解析已通过子进程批处理控制单批 native 内存，主进程在默认约 4 GiB V8 堆上聚合全仓库结果时耗尽堆空间。当前适配器的功能验证使用上述真实文件和独立 fixture，完整 Linux 性能表待流式符号写入完成后更新。
 
 ## 全量构建
