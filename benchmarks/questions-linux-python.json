@@ -1,0 +1,6 @@
+[
+  {"query":"have_command", "expectedPaths":["Documentation/conf.py"], "expectedSymbols":["have_command"]},
+  {"query":"markup_refs", "expectedPaths":["Documentation/sphinx/automarkup.py"], "expectedSymbols":["markup_refs"]},
+  {"query":"KernelCmd", "expectedPaths":["Documentation/sphinx/kernel_abi.py"], "expectedSymbols":["KernelCmd"]},
+  {"query":"do_parse", "expectedPaths":["Documentation/sphinx/kernel_abi.py"], "expectedSymbols":["do_parse"]}
+]

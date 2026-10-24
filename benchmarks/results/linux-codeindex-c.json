@@ -1,0 +1,75 @@
+{
+  "tool": "CodeIndex",
+  "repository": "/data/dev/bench-repos/linux-benchmark",
+  "snapshotId": "snapshot:repo-67168d4b0edd4e638610:3312b32f6a4a5d3cfcb46d3a",
+  "stats": {
+    "files": 86362,
+    "parsedFiles": 259,
+    "symbols": 5175,
+    "relations": 24284,
+    "sourceBytes": 1212793357,
+    "storeBytes": 1445952914
+  },
+  "questions": {
+    "total": 4,
+    "hits": 0,
+    "recall": 0
+  },
+  "aggregate": {
+    "medianMs": 0.11484199999999589,
+    "metadataMedianMs": 0.09827199999999436,
+    "resultBytes": 2641,
+    "medianResultBytes": 663,
+    "contextBytes": 0
+  },
+  "rows": [
+    {
+      "query": "do_execveat_common",
+      "hit": false,
+      "medianMs": 0.2282419999999945,
+      "metadataMedianMs": 0.1953010000000006,
+      "minMs": 0.21008799999999894,
+      "evidenceCount": 0,
+      "metadataCandidateCount": 0,
+      "resultBytes": 662,
+      "contextBytes": 0,
+      "topCandidates": []
+    },
+    {
+      "query": "tcp_v4_syn_recv_sock",
+      "hit": false,
+      "medianMs": 0.11484199999999589,
+      "metadataMedianMs": 0.09827199999999436,
+      "minMs": 0.09639799999999354,
+      "evidenceCount": 0,
+      "metadataCandidateCount": 0,
+      "resultBytes": 664,
+      "contextBytes": 0,
+      "topCandidates": []
+    },
+    {
+      "query": "vfs_open",
+      "hit": false,
+      "medianMs": 0.0839950000000016,
+      "metadataMedianMs": 0.09765099999999904,
+      "minMs": 0.07211299999998744,
+      "evidenceCount": 0,
+      "metadataCandidateCount": 0,
+      "resultBytes": 652,
+      "contextBytes": 0,
+      "topCandidates": []
+    },
+    {
+      "query": "pick_next_task_fair",
+      "hit": false,
+      "medianMs": 0.0630960000000016,
+      "metadataMedianMs": 0.053249000000008095,
+      "minMs": 0.0551320000000004,
+      "evidenceCount": 0,
+      "metadataCandidateCount": 0,
+      "resultBytes": 663,
+      "contextBytes": 0,
+      "topCandidates": []
+    }
+  ]
+}

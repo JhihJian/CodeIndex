@@ -1,0 +1,206 @@
+{
+  "tool": "code-review-graph",
+  "repo": "/data/dev/bench-repos/linux-benchmark",
+  "stats": {
+    "dbBytes": 9247576064,
+    "nodes": 1396157,
+    "edges": 7622562,
+    "files": 61078,
+    "fts": 1396157
+  },
+  "questions": {
+    "total": 4,
+    "hits": 4,
+    "recall": 1.0
+  },
+  "aggregate": {
+    "medianMs": 0.4780140006914735,
+    "resultBytes": 6170,
+    "medianResultBytes": 1627
+  },
+  "rows": [
+    {
+      "query": "have_command",
+      "hit": true,
+      "medianMs": 0.4780140006914735,
+      "minMs": 0.4552908940240741,
+      "resultCount": 1,
+      "resultBytes": 371,
+      "topResults": [
+        {
+          "name": "have_command",
+          "qualified_name": "/data/dev/bench-repos/linux-benchmark/Documentation/conf.py::have_command",
+          "kind": "Function",
+          "file_path": "/data/dev/bench-repos/linux-benchmark/Documentation/conf.py",
+          "line_start": 23,
+          "line_end": 29,
+          "language": "python",
+          "params": "(cmd)",
+          "return_type": null,
+          "signature": "def have_command((cmd))",
+          "score": 0.02459
+        }
+      ]
+    },
+    {
+      "query": "markup_refs",
+      "hit": true,
+      "medianMs": 0.3823669394478202,
+      "minMs": 0.3504779888316989,
+      "resultCount": 1,
+      "resultBytes": 425,
+      "topResults": [
+        {
+          "name": "markup_refs",
+          "qualified_name": "/data/dev/bench-repos/linux-benchmark/Documentation/sphinx/automarkup.py::markup_refs",
+          "kind": "Function",
+          "file_path": "/data/dev/bench-repos/linux-benchmark/Documentation/sphinx/automarkup.py",
+          "line_start": 79,
+          "line_end": 124,
+          "language": "python",
+          "params": "(docname, app, node)",
+          "return_type": null,
+          "signature": "def markup_refs((docname, app, node))",
+          "score": 0.02459
+        }
+      ]
+    },
+    {
+      "query": "KernelCmd",
+      "hit": true,
+      "medianMs": 0.3004949539899826,
+      "minMs": 0.28103007934987545,
+      "resultCount": 4,
+      "resultBytes": 1627,
+      "topResults": [
+        {
+          "name": "KernelCmd",
+          "qualified_name": "/data/dev/bench-repos/linux-benchmark/Documentation/sphinx/kernel_abi.py::KernelCmd",
+          "kind": "Class",
+          "file_path": "/data/dev/bench-repos/linux-benchmark/Documentation/sphinx/kernel_abi.py",
+          "line_start": 59,
+          "line_end": 141,
+          "language": "python",
+          "params": null,
+          "return_type": null,
+          "signature": "class KernelCmd",
+          "score": 0.02459
+        },
+        {
+          "name": "run",
+          "qualified_name": "/data/dev/bench-repos/linux-benchmark/Documentation/sphinx/kernel_abi.py::KernelCmd.run",
+          "kind": "Function",
+          "file_path": "/data/dev/bench-repos/linux-benchmark/Documentation/sphinx/kernel_abi.py",
+          "line_start": 73,
+          "line_end": 92,
+          "language": "python",
+          "params": "(self)",
+          "return_type": null,
+          "signature": "def run((self))",
+          "score": 0.016129
+        },
+        {
+          "name": "nestedParse",
+          "qualified_name": "/data/dev/bench-repos/linux-benchmark/Documentation/sphinx/kernel_abi.py::KernelCmd.nestedParse",
+          "kind": "Function",
+          "file_path": "/data/dev/bench-repos/linux-benchmark/Documentation/sphinx/kernel_abi.py",
+          "line_start": 94,
+          "line_end": 137,
+          "language": "python",
+          "params": "(self, lines, fname)",
+          "return_type": null,
+          "signature": "def nestedParse((self, lines, fname))",
+          "score": 0.015873
+        },
+        {
+          "name": "do_parse",
+          "qualified_name": "/data/dev/bench-repos/linux-benchmark/Documentation/sphinx/kernel_abi.py::KernelCmd.do_parse",
+          "kind": "Function",
+          "file_path": "/data/dev/bench-repos/linux-benchmark/Documentation/sphinx/kernel_abi.py",
+          "line_start": 139,
+          "line_end": 141,
+          "language": "python",
+          "params": "(self, content, node)",
+          "return_type": null,
+          "signature": "def do_parse((self, content, node))",
+          "score": 0.015625
+        }
+      ]
+    },
+    {
+      "query": "do_parse",
+      "hit": true,
+      "medianMs": 1.0407540248706937,
+      "minMs": 1.0044269729405642,
+      "resultCount": 9,
+      "resultBytes": 3747,
+      "topResults": [
+        {
+          "name": "do_parse",
+          "qualified_name": "/data/dev/bench-repos/linux-benchmark/Documentation/sphinx/kerneldoc.py::KernelDocDirective.do_parse",
+          "kind": "Function",
+          "file_path": "/data/dev/bench-repos/linux-benchmark/Documentation/sphinx/kerneldoc.py",
+          "line_start": 155,
+          "line_end": 157,
+          "language": "python",
+          "params": "(self, result, node)",
+          "return_type": null,
+          "signature": "def do_parse((self, result, node))",
+          "score": 0.02459
+        },
+        {
+          "name": "do_parse",
+          "qualified_name": "/data/dev/bench-repos/linux-benchmark/Documentation/sphinx/kernel_abi.py::KernelCmd.do_parse",
+          "kind": "Function",
+          "file_path": "/data/dev/bench-repos/linux-benchmark/Documentation/sphinx/kernel_abi.py",
+          "line_start": 139,
+          "line_end": 141,
+          "language": "python",
+          "params": "(self, content, node)",
+          "return_type": null,
+          "signature": "def do_parse((self, content, node))",
+          "score": 0.024194
+        },
+        {
+          "name": "mtd_part_do_parse",
+          "qualified_name": "/data/dev/bench-repos/linux-benchmark/drivers/mtd/mtdpart.c::mtd_part_do_parse",
+          "kind": "Function",
+          "file_path": "/data/dev/bench-repos/linux-benchmark/drivers/mtd/mtdpart.c",
+          "line_start": 520,
+          "line_end": 539,
+          "language": "c",
+          "params": null,
+          "return_type": null,
+          "signature": "def mtd_part_do_parse()",
+          "score": 0.02381
+        },
+        {
+          "name": "do_parse",
+          "qualified_name": "/data/dev/bench-repos/linux-benchmark/drivers/gpu/drm/msm/registers/gen_header.py::Parser.do_parse",
+          "kind": "Function",
+          "file_path": "/data/dev/bench-repos/linux-benchmark/drivers/gpu/drm/msm/registers/gen_header.py",
+          "line_start": 579,
+          "line_end": 593,
+          "language": "python",
+          "params": "(self, filename)",
+          "return_type": null,
+          "signature": "def do_parse((self, filename))",
+          "score": 0.023438
+        },
+        {
+          "name": "tcp_do_parse_auth_options",
+          "qualified_name": "/data/dev/bench-repos/linux-benchmark/include/net/tcp_ao.h::tcp_do_parse_auth_options",
+          "kind": "Function",
+          "file_path": "/data/dev/bench-repos/linux-benchmark/include/net/tcp_ao.h",
+          "line_start": 347,
+          "line_end": 353,
+          "language": "c",
+          "params": null,
+          "return_type": null,
+          "signature": "def tcp_do_parse_auth_options()",
+          "score": 0.023077
+        }
+      ]
+    }
+  ]
+}

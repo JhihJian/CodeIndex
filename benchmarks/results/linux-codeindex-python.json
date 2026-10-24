@@ -1,0 +1,181 @@
+{
+  "tool": "CodeIndex",
+  "repository": "/data/dev/bench-repos/linux-benchmark",
+  "snapshotId": "snapshot:repo-67168d4b0edd4e638610:3312b32f6a4a5d3cfcb46d3a",
+  "stats": {
+    "files": 86362,
+    "parsedFiles": 259,
+    "symbols": 5175,
+    "relations": 24284,
+    "sourceBytes": 1212793357,
+    "storeBytes": 1445952914
+  },
+  "questions": {
+    "total": 4,
+    "hits": 4,
+    "recall": 1
+  },
+  "aggregate": {
+    "medianMs": 0.3232270000000028,
+    "metadataMedianMs": 0.1564689999999942,
+    "resultBytes": 16999,
+    "medianResultBytes": 4721,
+    "contextBytes": 7175
+  },
+  "rows": [
+    {
+      "query": "have_command",
+      "hit": true,
+      "medianMs": 0.3232270000000028,
+      "metadataMedianMs": 0.1449879999999979,
+      "minMs": 0.2711410000000001,
+      "evidenceCount": 1,
+      "metadataCandidateCount": 2,
+      "resultBytes": 1584,
+      "contextBytes": 182,
+      "topCandidates": [
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:8e8dbc775403a963635738b7",
+          "name": "Documentation.conf.have_command",
+          "path": "Documentation/conf.py",
+          "startLine": 23
+        },
+        {
+          "type": "file",
+          "score": 3,
+          "path": "Documentation/conf.py",
+          "title": "conf.py"
+        }
+      ]
+    },
+    {
+      "query": "markup_refs",
+      "hit": true,
+      "medianMs": 0.2579369999999983,
+      "metadataMedianMs": 0.1564689999999942,
+      "minMs": 0.2144659999999945,
+      "evidenceCount": 1,
+      "metadataCandidateCount": 2,
+      "resultBytes": 3085,
+      "contextBytes": 1553,
+      "topCandidates": [
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:cc3651c604042fe80e8c81c4",
+          "name": "Documentation.sphinx.automarkup.markup_refs",
+          "path": "Documentation/sphinx/automarkup.py",
+          "startLine": 79
+        },
+        {
+          "type": "file",
+          "score": 3,
+          "path": "Documentation/sphinx/automarkup.py",
+          "title": "automarkup.py"
+        }
+      ]
+    },
+    {
+      "query": "KernelCmd",
+      "hit": true,
+      "medianMs": 0.24920099999999934,
+      "metadataMedianMs": 0.11792800000000625,
+      "minMs": 0.18618399999999724,
+      "evidenceCount": 4,
+      "metadataCandidateCount": 5,
+      "resultBytes": 7609,
+      "contextBytes": 4169,
+      "topCandidates": [
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:9e75ab55d760ff93de3f2b3b",
+          "name": "Documentation.sphinx.kernel_abi.KernelCmd",
+          "path": "Documentation/sphinx/kernel_abi.py",
+          "startLine": 59
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:57ae982caa6c69f19c6ca322",
+          "name": "Documentation.sphinx.kernel_abi.KernelCmd.run",
+          "path": "Documentation/sphinx/kernel_abi.py",
+          "startLine": 73
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:d1bc88daef3361d9bf2b1600",
+          "name": "Documentation.sphinx.kernel_abi.KernelCmd.nestedParse",
+          "path": "Documentation/sphinx/kernel_abi.py",
+          "startLine": 94
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:db86444b7fe51533d3a67ce3",
+          "name": "Documentation.sphinx.kernel_abi.KernelCmd.do_parse",
+          "path": "Documentation/sphinx/kernel_abi.py",
+          "startLine": 139
+        },
+        {
+          "type": "file",
+          "score": 3,
+          "path": "Documentation/sphinx/kernel_abi.py",
+          "title": "kernel_abi.py"
+        }
+      ]
+    },
+    {
+      "query": "do_parse",
+      "hit": true,
+      "medianMs": 0.683644000000001,
+      "metadataMedianMs": 0.24109599999999887,
+      "minMs": 0.44871999999999446,
+      "evidenceCount": 4,
+      "metadataCandidateCount": 6,
+      "resultBytes": 4721,
+      "contextBytes": 1271,
+      "topCandidates": [
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:db86444b7fe51533d3a67ce3",
+          "name": "Documentation.sphinx.kernel_abi.KernelCmd.do_parse",
+          "path": "Documentation/sphinx/kernel_abi.py",
+          "startLine": 139
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:b4f54adf53a987073d75415d",
+          "name": "Documentation.sphinx.kerneldoc.KernelDocDirective.do_parse",
+          "path": "Documentation/sphinx/kerneldoc.py",
+          "startLine": 155
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:5553b2dddcbe6002837f664c",
+          "name": "drivers.gpu.drm.msm.registers.gen_header.Parser.do_parse",
+          "path": "drivers/gpu/drm/msm/registers/gen_header.py",
+          "startLine": 579
+        },
+        {
+          "type": "file",
+          "score": 3,
+          "path": "Documentation/sphinx/kernel_abi.py",
+          "title": "kernel_abi.py"
+        },
+        {
+          "type": "file",
+          "score": 3,
+          "path": "Documentation/sphinx/kerneldoc.py",
+          "title": "kerneldoc.py"
+        }
+      ]
+    }
+  ]
+}

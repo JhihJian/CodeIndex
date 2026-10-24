@@ -28,6 +28,10 @@ Bun 的完整对比结果见 [`bun-code-review-graph-comparison.md`](bun-code-re
 
 数据集：67,862 个 CodeIndex 文件，149,696 个符号，223,319 条关系，源代码 205.7 MiB。CodeIndex 全量构建耗时 246.32 秒，峰值 RSS 2,462 MiB；自然语言问题集 4/4 命中，证据上下文 24.4 KB。与 `code-review-graph` 的完整对比见 [`typescript-code-review-graph-comparison.md`](typescript-code-review-graph-comparison.md)。
 
+## Linux v6.12
+
+数据集：86,362 个 CodeIndex 文件，1.21 GB 可读源码，5,175 个符号，24,284 条关系。Linux v6.12 主要由 C 和头文件组成，CodeIndex 当前只结构化解析 259 个 Python 文件；`code-review-graph` 解析 61,078 个文件并生成 3,020,668 个节点、7,654,413 条关系。完整构建对比见 [`linux-code-review-graph-comparison.md`](linux-code-review-graph-comparison.md)。
+
 ## Pi provider 推理验证
 
 `benchmarks/results/pageindex-llm-final.json` 使用本机 Pi provider `sub2api-qc101-gpt/gpt-6-luna` 对中文问题“这个函数如何构建文档树”进行了一次真实推理。模型基于 CodeIndex 返回的源码范围解释了栈式建树、页范围补全和父节点范围扩展，并引用了：

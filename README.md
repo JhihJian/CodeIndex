@@ -127,3 +127,9 @@ Microsoft TypeScript 固定提交为 `8d9b6da99ea7d4a8e7d906dd2532456dfe14e24f`�
 CodeIndex 在该仓库上全量构建约快 18%，但峰值内存约为对照项目的 3.2 倍。精确查询的元数据阶段中位数为 0.72 ms；默认完整查询包含源码证据。CodeIndex 的自然语言问题集覆盖 LanguageService、BuildOrchestrator、API Client 和 Snapshot，四个问题全部命中；对照项目的默认 FTS 查询没有命中这四个自然语言问题。详细数据和复现命令见 [`benchmarks/typescript-code-review-graph-comparison.md`](benchmarks/typescript-code-review-graph-comparison.md)。
 
 前三项优化在同一固定工作区上的独立复测结果为：全量构建 152.66 s，最大 RSS 约 1,371 MiB，metadata-only 精确查询中位数 0.51 ms，带源码证据的问题集查询中位数 51.27 ms，召回率保持 4/4。无变化更新约 0.57 s，RSS 约 52 MiB，并且不再打开 `files.jsonl` 和 `parsed.jsonl`。
+
+## 超大型开源仓库基准（Linux v6.12）
+
+Linux v6.12 使用 kernel.org 官方源码包，SHA256 为 `b1a2562be56e42afb3f8489d4c2a7ac472ac23098f1ef1c1e40da601f54625eb`。源码快照包含 86,677 个 Git 文件，跟踪源码约 1.38 GiB，主要由 C 文件和头文件组成。CodeIndex 当前对 Linux 只结构化解析 259 个 Python 文件，C 文件保留文件级索引；`code-review-graph` 解析 61,078 个文件并生成 3,020,668 个节点。
+
+CodeIndex 全量构建耗时 66.66 秒，最大 RSS 约 1,677 MiB；`code-review-graph` 使用默认完整后处理，耗时 1,160.20 秒，最大 RSS 约 9,778 MiB。两边在 Python 问题集上均为 4/4 命中；在 4 个 C 函数问题上，CodeIndex 为 0/4，`code-review-graph` 为 4/4。详细数据、问题集和原始结果见 [`benchmarks/linux-code-review-graph-comparison.md`](benchmarks/linux-code-review-graph-comparison.md)。

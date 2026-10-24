@@ -1,0 +1,17 @@
+{
+  "repositoryId": "repo-67168d4b0edd4e638610",
+  "snapshotId": "snapshot:repo-67168d4b0edd4e638610:3312b32f6a4a5d3cfcb46d3a",
+  "status": "partial",
+  "stats": {
+    "files": 86362,
+    "sourceBytes": 1212793357,
+    "changedFiles": 86362,
+    "reusedFiles": 0,
+    "symbols": 5175,
+    "relations": 24284,
+    "partialFiles": 86103,
+    "skipped": 101,
+    "buildMs": 23333
+  },
+  "store": "/data/dev/CodeIndex/.data/linux-6.12"
+}

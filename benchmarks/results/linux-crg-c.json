@@ -1,0 +1,154 @@
+{
+  "tool": "code-review-graph",
+  "repo": "/data/dev/bench-repos/linux-benchmark",
+  "stats": {
+    "dbBytes": 9247584256,
+    "nodes": 1396157,
+    "edges": 7622562,
+    "files": 61078,
+    "fts": 1396157
+  },
+  "questions": {
+    "total": 4,
+    "hits": 4,
+    "recall": 1.0
+  },
+  "aggregate": {
+    "medianMs": 1.158993924036622,
+    "resultBytes": 2677,
+    "medianResultBytes": 765
+  },
+  "rows": [
+    {
+      "query": "do_execveat_common",
+      "hit": true,
+      "medianMs": 1.158993924036622,
+      "minMs": 0.9757460793480277,
+      "resultCount": 1,
+      "resultBytes": 356,
+      "topResults": [
+        {
+          "name": "do_execveat_common",
+          "qualified_name": "/data/dev/bench-repos/linux-benchmark/fs/exec.c::do_execveat_common",
+          "kind": "Function",
+          "file_path": "/data/dev/bench-repos/linux-benchmark/fs/exec.c",
+          "line_start": 1876,
+          "line_end": 1959,
+          "language": "c",
+          "params": null,
+          "return_type": null,
+          "signature": "def do_execveat_common()",
+          "score": 0.02459
+        }
+      ]
+    },
+    {
+      "query": "tcp_v4_syn_recv_sock",
+      "hit": true,
+      "medianMs": 1.1618100106716156,
+      "minMs": 1.1262830812484026,
+      "resultCount": 1,
+      "resultBytes": 382,
+      "topResults": [
+        {
+          "name": "tcp_v4_syn_recv_sock",
+          "qualified_name": "/data/dev/bench-repos/linux-benchmark/net/ipv4/tcp_ipv4.c::tcp_v4_syn_recv_sock",
+          "kind": "Function",
+          "file_path": "/data/dev/bench-repos/linux-benchmark/net/ipv4/tcp_ipv4.c",
+          "line_start": 1739,
+          "line_end": 1855,
+          "language": "c",
+          "params": null,
+          "return_type": null,
+          "signature": "def tcp_v4_syn_recv_sock()",
+          "score": 0.02459
+        }
+      ]
+    },
+    {
+      "query": "vfs_open",
+      "hit": true,
+      "medianMs": 0.9269450092688203,
+      "minMs": 0.828091986477375,
+      "resultCount": 3,
+      "resultBytes": 1174,
+      "topResults": [
+        {
+          "name": "vfs_open",
+          "qualified_name": "/data/dev/bench-repos/linux-benchmark/fs/open.c::vfs_open",
+          "kind": "Function",
+          "file_path": "/data/dev/bench-repos/linux-benchmark/fs/open.c",
+          "line_start": 1083,
+          "line_end": 1098,
+          "language": "c",
+          "params": null,
+          "return_type": null,
+          "signature": "def vfs_open()",
+          "score": 0.02459
+        },
+        {
+          "name": "ice_repr_vf_open",
+          "qualified_name": "/data/dev/bench-repos/linux-benchmark/drivers/net/ethernet/intel/ice/ice_repr.c::ice_repr_vf_open",
+          "kind": "Function",
+          "file_path": "/data/dev/bench-repos/linux-benchmark/drivers/net/ethernet/intel/ice/ice_repr.c",
+          "line_start": 106,
+          "line_end": 120,
+          "language": "c",
+          "params": null,
+          "return_type": null,
+          "signature": "def ice_repr_vf_open()",
+          "score": 0.024194
+        },
+        {
+          "name": "octep_vf_open",
+          "qualified_name": "/data/dev/bench-repos/linux-benchmark/drivers/net/ethernet/marvell/octeon_ep_vf/octep_vf_main.c::octep_vf_open",
+          "kind": "Function",
+          "file_path": "/data/dev/bench-repos/linux-benchmark/drivers/net/ethernet/marvell/octeon_ep_vf/octep_vf_main.c",
+          "line_start": 454,
+          "line_end": 512,
+          "language": "c",
+          "params": null,
+          "return_type": null,
+          "signature": "def octep_vf_open()",
+          "score": 0.02381
+        }
+      ]
+    },
+    {
+      "query": "pick_next_task_fair",
+      "hit": true,
+      "medianMs": 0.8183439495041966,
+      "minMs": 0.7929380517452955,
+      "resultCount": 2,
+      "resultBytes": 765,
+      "topResults": [
+        {
+          "name": "pick_next_task_fair",
+          "qualified_name": "/data/dev/bench-repos/linux-benchmark/kernel/sched/fair.c::pick_next_task_fair",
+          "kind": "Function",
+          "file_path": "/data/dev/bench-repos/linux-benchmark/kernel/sched/fair.c",
+          "line_start": 8878,
+          "line_end": 8963,
+          "language": "c",
+          "params": null,
+          "return_type": null,
+          "signature": "def pick_next_task_fair()",
+          "score": 0.02459
+        },
+        {
+          "name": "__pick_next_task_fair",
+          "qualified_name": "/data/dev/bench-repos/linux-benchmark/kernel/sched/fair.c::__pick_next_task_fair",
+          "kind": "Function",
+          "file_path": "/data/dev/bench-repos/linux-benchmark/kernel/sched/fair.c",
+          "line_start": 8965,
+          "line_end": 8968,
+          "language": "c",
+          "params": null,
+          "return_type": null,
+          "signature": "def __pick_next_task_fair()",
+          "score": 0.024194
+        }
+      ]
+    }
+  ]
+}
