@@ -45,69 +45,92 @@ function relationMode(query) {
   return null;
 }
 
-function sourceFor(index, file) {
-  const sourcePath = path.join(index.snapshotDir, 'source', file.digest);
-  try { return fs.readFileSync(sourcePath, 'utf8'); } catch { return ''; }
+function relationTypes(mode) {
+  if (mode === 'implements') return ['inherits', 'implements'];
+  if (mode === 'references') return ['references'];
+  return ['calls'];
 }
 
-function evidence(index, symbol, maxLines = 60) {
-  const file = index.files.find((item) => item.fileId === symbol.fileId);
+function relationFromRow(row, snapshotId) {
+  return {
+    relationId: row.relation_id,
+    type: row.type,
+    sourceId: row.source_id,
+    targetId: row.target_id,
+    targetName: row.target_name,
+    status: row.status,
+    confidence: row.confidence,
+    sourceSpan: { path: row.path, startLine: row.line, endLine: row.line, startColumn: 0, endColumn: 0, startByte: 0, endByte: 0, blobDigest: row.blob_digest, snapshotId },
+  };
+}
+
+function evidence(index, symbol, sourceCache, maxLines = 60) {
+  const file = index.getFile(symbol.fileId);
   if (!file) return null;
-  const source = sourceFor(index, file);
+  let source = sourceCache.get(file.digest);
+  if (source === undefined) {
+    const sourcePath = path.join(index.snapshotDir, 'source', file.digest);
+    try { source = fs.readFileSync(sourcePath, 'utf8'); } catch { source = ''; }
+    sourceCache.set(file.digest, source);
+  }
+  const lines = source.split('\n');
   const start = Math.max(1, symbol.sourceSpan.startLine);
-  const end = Math.min(source.split('\n').length, Math.max(start, Math.min(symbol.sourceSpan.endLine, start + maxLines - 1)));
-  const lines = source.split('\n').slice(start - 1, end);
-  return { snapshotId: index.manifest.snapshotId, path: symbol.path, symbolId: symbol.symbolId, symbol: symbol.qualifiedName, startLine: start, endLine: end, startByte: symbol.sourceSpan.startByte, endByte: symbol.sourceSpan.endByte, blobDigest: file.digest, source: lines.join('\n'), kind: 'source' };
+  const end = Math.min(lines.length, Math.max(start, Math.min(symbol.sourceSpan.endLine, start + maxLines - 1)));
+  return { snapshotId: index.manifest.snapshotId, path: symbol.path, symbolId: symbol.symbolId, symbol: symbol.qualifiedName, startLine: start, endLine: end, startByte: symbol.sourceSpan.startByte, endByte: symbol.sourceSpan.endByte, blobDigest: file.digest, source: lines.slice(start - 1, end).join('\n'), kind: 'source' };
 }
 
 function candidateNodes(index, query) {
   const terms = cleanQuery(query);
-  const navById = new Map(index.navigation.map((item) => [item.nodeId, item]));
+  const rows = index.searchNodes(terms.join(' '), 128);
   const candidates = [];
-  for (const symbol of index.symbols) {
-    const nav = navById.get(symbol.symbolId);
-    const score = scoreText(`${symbol.name} ${symbol.qualifiedName} ${symbol.signature} ${symbol.doc || ''} ${nav?.summary || ''} ${symbol.path}`, terms);
-    if (score > 0) candidates.push({ kind: 'symbol', score: score + (symbol.kind === 'function' || symbol.kind === 'class' ? 1 : 0), item: symbol });
-  }
-  for (const nav of index.navigation.filter((item) => item.nodeType === 'file' || item.nodeType === 'directory')) {
-    const score = scoreText(`${nav.title} ${nav.path} ${nav.summary}`, terms);
-    if (score > 0) candidates.push({ kind: nav.nodeType, score, item: nav });
+  for (const row of rows) {
+    const score = scoreText(`${row.name} ${row.qualified_name} ${row.signature} ${row.doc} ${row.summary} ${row.path}`, terms) + (row.node_type === 'symbol' ? 1 : 0);
+    if (row.node_type === 'symbol') {
+      const item = index.getSymbol(row.node_id);
+      if (item) candidates.push({ kind: 'symbol', score, item });
+    } else {
+      const item = index.getNavigation(row.node_id) || { nodeId: row.node_id, title: row.name, path: row.path, nodeType: row.node_type, summary: row.summary };
+      candidates.push({ kind: row.node_type, score, item });
+    }
   }
   return candidates.sort((a, b) => b.score - a.score || String(a.item.path || '').localeCompare(String(b.item.path || ''))).slice(0, 12);
 }
 
 function relationResults(index, mode, targetSymbol) {
   if (!targetSymbol) return [];
-  const relationTypes = mode === 'implements' ? new Set(['inherits', 'implements']) : mode === 'references' ? new Set(['references']) : new Set(['calls']);
-  const symbolsById = new Map(index.symbols.map((symbol) => [symbol.symbolId, symbol]));
-  const results = [];
-  for (const relation of index.relations) {
-    const matches = mode === 'callers' ? relation.targetId === targetSymbol.symbolId : relation.sourceId === targetSymbol.symbolId;
-    if (!matches || !relationTypes.has(relation.type)) continue;
-    const peer = symbolsById.get(mode === 'callers' ? relation.sourceId : relation.targetId);
-    results.push({ relation, peer });
-  }
-  return results;
+  const types = relationTypes(mode);
+  const rows = mode === 'callers'
+    ? index.getRelationsForTarget(targetSymbol.symbolId, types)
+    : index.getRelationsForSource(targetSymbol.symbolId, types);
+  const peerIds = rows.map((row) => mode === 'callers' ? row.source_id : row.target_id).filter(Boolean);
+  const peers = new Map(index.getSymbols(peerIds).map((symbol) => [symbol.symbolId, symbol]));
+  return rows.map((row) => ({ relation: relationFromRow(row, index.manifest.snapshotId), peer: peers.get(mode === 'callers' ? row.source_id : row.target_id) || null }));
 }
 
-export function queryIndex(index, query, { maxEvidence = 6, maxLines = 60 } = {}) {
+export function getEvidence(index, symbols, { maxLines = 60 } = {}) {
+  const sourceCache = new Map();
+  return symbols.map((symbol) => evidence(index, symbol, sourceCache, maxLines)).filter(Boolean);
+}
+
+export function queryIndex(index, query, { maxEvidence = 6, maxLines = 60, includeSource = true } = {}) {
   const mode = relationMode(query);
   const ranked = candidateNodes(index, query);
   const target = ranked.find((candidate) => candidate.kind === 'symbol')?.item || null;
   const related = mode ? relationResults(index, mode, target) : [];
   const symbols = [target, ...related.map((item) => item.peer), ...ranked.filter((item) => item.kind === 'symbol').map((item) => item.item)].filter(Boolean);
   const unique = [...new Map(symbols.map((symbol) => [symbol.symbolId, symbol])).values()];
-  const evidenceItems = unique.slice(0, maxEvidence).map((symbol) => evidence(index, symbol, maxLines)).filter(Boolean);
+  const evidenceItems = includeSource ? getEvidence(index, unique.slice(0, maxEvidence), { maxLines }) : [];
   const candidateRows = ranked.map((candidate) => candidate.kind === 'symbol' ? ({ type: 'symbol', score: candidate.score, symbolId: candidate.item.symbolId, name: candidate.item.qualifiedName, path: candidate.item.path, startLine: candidate.item.sourceSpan.startLine }) : ({ type: candidate.kind, score: candidate.score, path: candidate.item.path, title: candidate.item.title }));
   const relationRows = related.map(({ relation, peer }) => ({ relationId: relation.relationId, type: relation.type, status: relation.status, targetName: relation.targetName, peer: peer ? { symbolId: peer.symbolId, name: peer.qualifiedName, path: peer.path, line: peer.sourceSpan.startLine } : null }));
   const contextBytes = evidenceItems.reduce((sum, item) => sum + Buffer.byteLength(item.source, 'utf8'), 0);
+  const indexedSourceBytes = index.manifest.stats?.sourceBytes || index.manifest.totalSourceBytes || 0;
   const answer = mode && target ? `${mode} query selected ${target.qualifiedName} and found ${relationRows.length} ${mode} relation(s).` : `Selected ${evidenceItems.length} source evidence item(s) from ${ranked.length} ranked candidates.`;
   return {
     query, snapshotId: index.manifest.snapshotId, repositoryId: index.manifest.repositoryId, status: index.manifest.status,
     answer, mode, target: target ? { symbolId: target.symbolId, name: target.qualifiedName, path: target.path, line: target.sourceSpan.startLine } : null,
     candidates: candidateRows, relations: relationRows, evidence: evidenceItems,
     coverage: index.manifest.coverage, uncertainties: index.manifest.status === 'partial' ? ['索引存在未解析或不支持的文件，空结果不能证明代码中不存在目标。'] : [],
-    metrics: { candidateCount: ranked.length, evidenceCount: evidenceItems.length, contextBytes, indexedSourceBytes: index.files.reduce((sum, file) => sum + file.bytes, 0), contextReduction: contextBytes ? index.files.reduce((sum, file) => sum + file.bytes, 0) / contextBytes : null },
+    metrics: { candidateCount: ranked.length, evidenceCount: evidenceItems.length, contextBytes, indexedSourceBytes, contextReduction: contextBytes ? indexedSourceBytes / contextBytes : null },
   };
 }
 

@@ -29,12 +29,13 @@ CodeIndex 通过 `pi --print --no-tools` 调用 provider，仓库内容只作为
 - `index`：构建新的不可变快照并原子发布。
 - `update`：读取已发布快照，复用内容未变化文件的解析结果，重新计算关系和导航数据。
 - `inspect`：查看已发布快照和覆盖状态。
-- `query`：在固定快照内检索符号、树节点和关系，并返回源码证据。
+- `query`：在固定快照内通过 SQLite FTS5 检索符号和导航节点，通过关系 B-tree 索引查询邻接边，并按需返回源码证据。使用 `--metadata-only` 只获取候选元数据，不读取源码。
 - `benchmark`：在真实仓库上对比 CodeIndex 与全仓库扫描的候选召回、查询上下文和耗时。
 
 ## 设计
 
-详细设计见 [`docs/codeindex-architecture.md`](docs/codeindex-architecture.md)。索引数据使用分片 JSONL 和内容 blob 保存，发布指针通过原子替换更新。摘要是导航派生数据，源码范围和关系边才是事实证据。
+详细设计见 [`docs/codeindex-architecture.md`](docs/codeindex-architecture.md)。索引数据使用 JSONL 和内容 blob 保存，发布快照同时生成只读 SQLite 查询数据库。SQLite 中的 FTS5 表负责候选检索，`relations(source_id, type)` 和 `relations(target_id, type)` 索引负责关系查询。查询先执行元数据搜索，再对少量候选按需读取源码，因此不会为了一个查询扫描全库源码。发布指针通过原子替换更新。摘要是导航派生数据，源码范围和关系边才是事实证据。
+
 
 ## 验证
 

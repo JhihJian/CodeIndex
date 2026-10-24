@@ -74,7 +74,7 @@ export function repositoryId(repoRoot) {
   return `repo-${shortHash(fs.realpathSync(repoRoot), 20)}`;
 }
 
-export function scanRepository(repoRoot, { maxFileBytes = 5 * 1024 * 1024, ignores = DEFAULT_IGNORES } = {}) {
+export function scanRepository(repoRoot, { maxFileBytes = 5 * 1024 * 1024, ignores = DEFAULT_IGNORES, retainSource = true } = {}) {
   const root = fs.realpathSync(repoRoot);
   const files = [];
   const skipped = [];
@@ -114,7 +114,9 @@ export function scanRepository(repoRoot, { maxFileBytes = 5 * 1024 * 1024, ignor
       }
       if (isBinary(content)) { skipped.push({ path: relative, bytes: content.length, reason: 'binary' }); continue; }
       const source = content.toString('utf8');
-      files.push({ path: relative, absolute, language: detectLanguage(relative), bytes: content.length, digest: hashBytes(content), lineCount: source ? source.split('\n').length : 0, source });
+      let lineCount = content.length ? 1 : 0;
+      for (const byte of content) if (byte === 10) lineCount += 1;
+      files.push({ path: relative, absolute, language: detectLanguage(relative), bytes: content.length, digest: hashBytes(content), lineCount, ...(retainSource ? { source } : {}) });
     }
   }
   walk(root);

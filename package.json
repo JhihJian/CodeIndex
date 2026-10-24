@@ -9,6 +9,6 @@
     "check": "find src bin -name '*.js' -print0 | xargs -0 -n1 node --check && python3 -m py_compile src/parsers/python_ast.py",
     "benchmark": "node bin/codeindex.js benchmark --repo /data/github/PageIndex --store .data/pageindex --questions benchmarks/questions-pageindex.json --output benchmarks/results/pageindex.json"
   },
-  "engines": {"node": ">=20"},
+  "engines": {"node": ">=22.5"},
   "license": "MIT"
 }

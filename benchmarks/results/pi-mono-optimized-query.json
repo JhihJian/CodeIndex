@@ -1,0 +1,189 @@
+{
+  "tool": "CodeIndex",
+  "repository": "/data/dev/bench-repos/pi-mono-tracked",
+  "snapshotId": "snapshot:repo-1e718dba99ac68d13fc5:6e792c8adc88938636e4ae59",
+  "stats": {
+    "files": 667,
+    "parsedFiles": 502,
+    "symbols": 2709,
+    "relations": 19289,
+    "sourceBytes": 9284185,
+    "storeBytes": 45216791
+  },
+  "questions": {
+    "total": 4,
+    "hits": 4,
+    "recall": 1
+  },
+  "aggregate": {
+    "medianMs": 0.43845699999999965,
+    "metadataMedianMs": 0.15198700000000542,
+    "resultBytes": 29822,
+    "medianResultBytes": 9726,
+    "contextBytes": 14757
+  },
+  "rows": [
+    {
+      "query": "ModelRegistry",
+      "hit": true,
+      "medianMs": 0.18434799999999996,
+      "metadataMedianMs": 0.0802410000000009,
+      "minMs": 0.16604300000000194,
+      "evidenceCount": 1,
+      "metadataCandidateCount": 2,
+      "resultBytes": 3422,
+      "contextBytes": 1678,
+      "topCandidates": [
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:3ac4ac1b9e832e483489633f",
+          "name": "packages.coding-agent.src.core.model-registry.ModelRegistry",
+          "path": "packages/coding-agent/src/core/model-registry.ts",
+          "startLine": 223
+        },
+        {
+          "type": "file",
+          "score": 3,
+          "path": "packages/coding-agent/src/core/model-registry.ts",
+          "title": "model-registry.ts"
+        }
+      ]
+    },
+    {
+      "query": "loadExtensions",
+      "hit": true,
+      "medianMs": 0.2793370000000053,
+      "metadataMedianMs": 0.0715849999999989,
+      "minMs": 0.2012900000000002,
+      "evidenceCount": 2,
+      "metadataCandidateCount": 2,
+      "resultBytes": 3080,
+      "contextBytes": 849,
+      "topCandidates": [
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:0ee0ba0915a545410dc83105",
+          "name": "packages.coding-agent.src.core.extensions.loader.loadExtensions",
+          "path": "packages/coding-agent/src/core/extensions/loader.ts",
+          "startLine": 349
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:c126f331b70d7df8f282bb5e",
+          "name": "packages.coding-agent.src.core.extensions.types.LoadExtensionsResult",
+          "path": "packages/coding-agent/src/core/extensions/types.ts",
+          "startLine": 1364
+        }
+      ]
+    },
+    {
+      "query": "Agent",
+      "hit": true,
+      "medianMs": 1.8230700000000013,
+      "metadataMedianMs": 1.4869160000000008,
+      "minMs": 1.6662239999999997,
+      "evidenceCount": 6,
+      "metadataCandidateCount": 12,
+      "resultBytes": 13594,
+      "contextBytes": 7910,
+      "topCandidates": [
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:b5de8da745df3972d84065b4",
+          "name": "packages.agent.src.agent-loop",
+          "path": "packages/agent/src/agent-loop.ts",
+          "startLine": 1
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:089df350d0ee796013e29ed0",
+          "name": "packages.agent.src.agent-loop.agentLoop",
+          "path": "packages/agent/src/agent-loop.ts",
+          "startLine": 28
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:c28cb84e9fcafa2eda257f6f",
+          "name": "packages.agent.src.agent.AgentOptions",
+          "path": "packages/agent/src/agent.ts",
+          "startLine": 35
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:dd19b3992fd8b18b8369ebe5",
+          "name": "packages.agent.src.agent.Agent",
+          "path": "packages/agent/src/agent.ts",
+          "startLine": 96
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:92b8c17c5d8e10596755dac9",
+          "name": "packages.agent.src.agent",
+          "path": "packages/agent/src/agent.ts",
+          "startLine": 1
+        }
+      ]
+    },
+    {
+      "query": "toolExecution",
+      "hit": true,
+      "medianMs": 0.43845699999999965,
+      "metadataMedianMs": 0.15198700000000542,
+      "minMs": 0.3713209999999947,
+      "evidenceCount": 6,
+      "metadataCandidateCount": 8,
+      "resultBytes": 9726,
+      "contextBytes": 4320,
+      "topCandidates": [
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:fe0282137604a4670df3684f",
+          "name": "packages.agent.test.e2e.test.toolExecution",
+          "path": "packages/agent/test/e2e.test.ts",
+          "startLine": 35
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:87ea0e2d924b742611f2b122",
+          "name": "packages.coding-agent.src.core.extensions.types.ToolExecutionStartEvent",
+          "path": "packages/coding-agent/src/core/extensions/types.ts",
+          "startLine": 550
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:fe79eea07560a9c3356776be",
+          "name": "packages.coding-agent.src.core.extensions.types.ToolExecutionEndEvent",
+          "path": "packages/coding-agent/src/core/extensions/types.ts",
+          "startLine": 567
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:1b87ec3ce8dc13be7d09dcaf",
+          "name": "packages.coding-agent.src.core.extensions.types.ToolExecutionUpdateEvent",
+          "path": "packages/coding-agent/src/core/extensions/types.ts",
+          "startLine": 558
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:bc73ba04655f9f9362c08985",
+          "name": "packages.coding-agent.src.modes.interactive.components.tool-execution.ToolExecutionOptions",
+          "path": "packages/coding-agent/src/modes/interactive/components/tool-execution.ts",
+          "startLine": 58
+        }
+      ]
+    }
+  ]
+}

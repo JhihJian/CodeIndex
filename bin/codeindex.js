@@ -24,7 +24,7 @@ function usage() {
   index     --repo PATH --store PATH [--force]
   update    --repo PATH --store PATH
   inspect   --store PATH [--repo-id ID]
-  query     --store PATH --query TEXT [--llm --provider NAME --model NAME]
+  query     --store PATH --query TEXT [--metadata-only] [--llm --provider NAME --model NAME]
   benchmark --repo PATH --store PATH --questions FILE [--output FILE] [--force]
 `);
 }
@@ -48,7 +48,7 @@ try {
   } else if (options.command === 'query') {
     if (!options.query) throw new Error('query 需要 --query');
     const index = loadIndex(store, options.repoid || null);
-    const result = queryIndex(index, options.query);
+    const result = queryIndex(index, options.query, { includeSource: !options.metadataonly });
     if (options.llm) {
       try { result.llmAnswer = askPi(result, { provider: options.provider, model: options.model }); }
       catch (error) { result.llmError = error.message; }

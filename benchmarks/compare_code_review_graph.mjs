@@ -38,14 +38,22 @@ for (const question of questions) {
     result = queryIndex(index, question.query);
     timings.push(performance.now() - start);
   }
+  queryIndex(index, question.query, { includeSource: false });
+  const metadataTimings = [];
+  for (let i = 0; i < 7; i += 1) {
+    const start = performance.now();
+    queryIndex(index, question.query, { includeSource: false });
+    metadataTimings.push(performance.now() - start);
+  }
+  const metadataResult = queryIndex(index, question.query, { includeSource: false });
   const payload = Buffer.byteLength(JSON.stringify(result), 'utf8');
-  rows.push({ query: question.query, hit: hit(result, question), medianMs: median(timings), minMs: Math.min(...timings), evidenceCount: result.evidence.length, resultBytes: payload, contextBytes: result.metrics.contextBytes, topCandidates: result.candidates.slice(0, 5) });
+  rows.push({ query: question.query, hit: hit(result, question), medianMs: median(timings), metadataMedianMs: median(metadataTimings), minMs: Math.min(...timings), evidenceCount: result.evidence.length, metadataCandidateCount: metadataResult.candidates.length, resultBytes: payload, contextBytes: result.metrics.contextBytes, topCandidates: result.candidates.slice(0, 5) });
 }
 const report = {
   tool: 'CodeIndex', repository: index.manifest.repositoryPath, snapshotId: index.manifest.snapshotId,
   stats: { files: index.files.length, parsedFiles: index.manifest.coverage.parsedFiles, symbols: index.symbols.length, relations: index.relations.length, sourceBytes: index.files.reduce((sum, file) => sum + file.bytes, 0), storeBytes: 0 },
   questions: { total: rows.length, hits: rows.filter((row) => row.hit).length, recall: rows.filter((row) => row.hit).length / rows.length },
-  aggregate: { medianMs: median(rows.map((row) => row.medianMs)), resultBytes: rows.reduce((sum, row) => sum + row.resultBytes, 0), medianResultBytes: median(rows.map((row) => row.resultBytes)), contextBytes: rows.reduce((sum, row) => sum + row.contextBytes, 0) }, rows,
+  aggregate: { medianMs: median(rows.map((row) => row.medianMs)), metadataMedianMs: median(rows.map((row) => row.metadataMedianMs)), resultBytes: rows.reduce((sum, row) => sum + row.resultBytes, 0), medianResultBytes: median(rows.map((row) => row.resultBytes)), contextBytes: rows.reduce((sum, row) => sum + row.contextBytes, 0) }, rows,
 };
 function directoryBytes(directory) {
   if (!fs.existsSync(directory)) return 0;

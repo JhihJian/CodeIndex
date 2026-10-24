@@ -30,6 +30,10 @@ test('indexes symbols, containment and resolved call relations with immutable ev
   assert.ok(result.evidence.length > 0);
   assert.ok(result.evidence.every((item) => item.source.includes('helper')));
   assert.ok(result.evidence.every((item) => item.blobDigest));
+  const metadataOnly = queryIndex(index, 'who calls helper', { includeSource: false });
+  assert.ok(metadataOnly.candidates.length > 0);
+  assert.equal(metadataOnly.evidence.length, 0);
+  assert.ok(metadataOnly.metrics.contextBytes === 0);
 });
 
 test('update reuses unchanged parse results and publishes a new snapshot', () => {
@@ -43,5 +47,8 @@ test('update reuses unchanged parse results and publishes a new snapshot', () =>
   assert.ok(second.stats.reusedFiles >= 2);
   const index = loadIndex(store);
   assert.ok(index.symbols.some((symbol) => symbol.name === 'extra'));
-  assert.ok(fs.existsSync(path.join(store, index.repoId, 'snapshots', first.manifest.snapshotId, 'manifest.json')));
+  const unchanged = indexRepository(repo, store, { incremental: true });
+  assert.equal(unchanged.stats.noOp, true);
+  assert.equal(unchanged.stats.changedFiles, 0);
+  assert.equal(unchanged.manifest.snapshotId, second.manifest.snapshotId);
 });
