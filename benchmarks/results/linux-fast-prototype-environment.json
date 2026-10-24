@@ -1,0 +1,23 @@
+{
+  "experimental": true,
+  "repositoryCommit": "e81dbc9fe6c78c547c2ce7a3354b52479b26edd9",
+  "node": "24.13.1",
+  "ctags": "Universal Ctags 5.9.0 (Ubuntu package 5.9.20210829.0-1)",
+  "cscope": "15.9 (Ubuntu package 15.9-2)",
+  "inputFiles": 86363,
+  "inputBytes": 1212793499,
+  "cAndCppInputFiles": 59746,
+  "freshOutputDirectory": true,
+  "reusedParserCache": false,
+  "filesystemCache": "warm; not flushed",
+  "combinedSnapshotBytes": 4117027275,
+  "postPublicationCallerQuery": {
+    "symbol": "vfs_open",
+    "verified": true,
+    "expectedPath": "fs/namei.c"
+  },
+  "cscopeEnvironment": {
+    "PATH": "/usr/bin:/bin"
+  },
+  "rssInterpretation": "GNU time maximum process RSS, including child usage; not simultaneous process-tree RSS"
+}

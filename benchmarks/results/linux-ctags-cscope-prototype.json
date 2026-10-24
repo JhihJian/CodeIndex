@@ -1,0 +1,716 @@
+{
+  "experimental": true,
+  "scope": "symbols-source-and-native-c-cross-references",
+  "snapshotId": "4e22e657fece275af7f0b125",
+  "repository": "/data/dev/bench-repos/linux-benchmark",
+  "files": 86363,
+  "sourceBytes": 1212793499,
+  "symbols": 6106709,
+  "kinds": {
+    "prototype": 265985,
+    "variable": 242613,
+    "function": 710461,
+    "macro": 3543383,
+    "typedef": 21661,
+    "struct": 111433,
+    "member": 786261,
+    "union": 8801,
+    "enum": 40046,
+    "enumerator": 375225,
+    "unknown": 4,
+    "class": 822,
+    "namespace": 14
+  },
+  "parserOutputBytes": 1455069993,
+  "stages": {
+    "scan": 6654.970246,
+    "ctags": 29554.693034000004,
+    "source-and-files": 4592.108829999997,
+    "symbol-ingestion": 11278.834127000002,
+    "indexes-and-fts": 10342.979021,
+    "cscope-cross-references": 54160.220502000004,
+    "verification": 143.83970299999055
+  },
+  "evidence": [
+    {
+      "name": "do_execveat_common",
+      "path": "fs/exec.c",
+      "startLine": 1876,
+      "endLine": 1959,
+      "digest": "98f1bd0885d273637457bd6709d393b8deefd2b009ac273f9fc3d26d8509ccb5"
+    },
+    {
+      "name": "tcp_v4_syn_recv_sock",
+      "path": "net/ipv4/tcp_ipv4.c",
+      "startLine": 1739,
+      "endLine": 1855,
+      "digest": "116196ff5c093ed5c239fae1e5ca314b65fc8d3e3073f12f0706822725b52b27"
+    },
+    {
+      "name": "vfs_open",
+      "path": "fs/open.c",
+      "startLine": 1083,
+      "endLine": 1098,
+      "digest": "587769343f2fc32552fb8593138c72f47110de8b7933f921a0bf9b627282b59a"
+    },
+    {
+      "name": "pick_next_task_fair",
+      "path": "kernel/sched/fair.c",
+      "startLine": 8879,
+      "endLine": 8963,
+      "digest": "48c485811e4d20cca0204ea75a24da71777e42a66b6ce158f8ece09132635d7d"
+    }
+  ],
+  "queries": [
+    {
+      "query": "do_execveat_common",
+      "mode": "callees",
+      "elapsedMs": 12.946961000008741,
+      "count": 19,
+      "rows": [
+        {
+          "path": "fs/exec.c",
+          "peer": "IS_ERR",
+          "line": 1884,
+          "text": "if (IS_ERR(filename))"
+        },
+        {
+          "path": "fs/exec.c",
+          "peer": "PTR_ERR",
+          "line": 1885,
+          "text": "return PTR_ERR(filename);"
+        },
+        {
+          "path": "fs/exec.c",
+          "peer": "is_rlimit_overlimit",
+          "line": 1894,
+          "text": "is_rlimit_overlimit(current_ucounts(), UCOUNT_RLIMIT_NPROC, rlimit(RLIMIT_NPROC))) {"
+        },
+        {
+          "path": "fs/exec.c",
+          "peer": "current_ucounts",
+          "line": 1894,
+          "text": "is_rlimit_overlimit(current_ucounts(), UCOUNT_RLIMIT_NPROC, rlimit(RLIMIT_NPROC))) {"
+        },
+        {
+          "path": "fs/exec.c",
+          "peer": "rlimit",
+          "line": 1894,
+          "text": "is_rlimit_overlimit(current_ucounts(), UCOUNT_RLIMIT_NPROC, rlimit(RLIMIT_NPROC))) {"
+        },
+        {
+          "path": "fs/exec.c",
+          "peer": "alloc_bprm",
+          "line": 1903,
+          "text": "bprm = alloc_bprm(fd, filename, flags);"
+        },
+        {
+          "path": "fs/exec.c",
+          "peer": "IS_ERR",
+          "line": 1904,
+          "text": "if (IS_ERR(bprm)) {"
+        },
+        {
+          "path": "fs/exec.c",
+          "peer": "PTR_ERR",
+          "line": 1905,
+          "text": "retval = PTR_ERR(bprm);"
+        },
+        {
+          "path": "fs/exec.c",
+          "peer": "count",
+          "line": 1909,
+          "text": "retval = count(argv, MAX_ARG_STRINGS);"
+        },
+        {
+          "path": "fs/exec.c",
+          "peer": "pr_warn_once",
+          "line": 1911,
+          "text": "pr_warn_once(\"process '%s' launched '%s' with NULL argv: empty string added\\n\","
+        },
+        {
+          "path": "fs/exec.c",
+          "peer": "count",
+          "line": 1917,
+          "text": "retval = count(envp, MAX_ARG_STRINGS);"
+        },
+        {
+          "path": "fs/exec.c",
+          "peer": "bprm_stack_limits",
+          "line": 1922,
+          "text": "retval = bprm_stack_limits(bprm);"
+        },
+        {
+          "path": "fs/exec.c",
+          "peer": "copy_string_kernel",
+          "line": 1926,
+          "text": "retval = copy_string_kernel(bprm->filename, bprm);"
+        },
+        {
+          "path": "fs/exec.c",
+          "peer": "copy_strings",
+          "line": 1931,
+          "text": "retval = copy_strings(bprm->envc, envp, bprm);"
+        },
+        {
+          "path": "fs/exec.c",
+          "peer": "copy_strings",
+          "line": 1935,
+          "text": "retval = copy_strings(bprm->argc, argv, bprm);"
+        },
+        {
+          "path": "fs/exec.c",
+          "peer": "copy_string_kernel",
+          "line": 1946,
+          "text": "retval = copy_string_kernel(\"\", bprm);"
+        },
+        {
+          "path": "fs/exec.c",
+          "peer": "bprm_execve",
+          "line": 1952,
+          "text": "retval = bprm_execve(bprm);"
+        },
+        {
+          "path": "fs/exec.c",
+          "peer": "free_bprm",
+          "line": 1954,
+          "text": "free_bprm(bprm);"
+        },
+        {
+          "path": "fs/exec.c",
+          "peer": "putname",
+          "line": 1957,
+          "text": "putname(filename);"
+        }
+      ]
+    },
+    {
+      "query": "do_execveat_common",
+      "mode": "callers",
+      "elapsedMs": 11.247103000001516,
+      "count": 4,
+      "rows": [
+        {
+          "path": "fs/exec.c",
+          "peer": "do_execve",
+          "line": 2026,
+          "text": "return do_execveat_common(AT_FDCWD, filename, argv, envp, 0);"
+        },
+        {
+          "path": "fs/exec.c",
+          "peer": "do_execveat",
+          "line": 2037,
+          "text": "return do_execveat_common(fd, filename, argv, envp, flags);"
+        },
+        {
+          "path": "fs/exec.c",
+          "peer": "compat_do_execve",
+          "line": 2053,
+          "text": "return do_execveat_common(AT_FDCWD, filename, argv, envp, 0);"
+        },
+        {
+          "path": "fs/exec.c",
+          "peer": "compat_do_execveat",
+          "line": 2069,
+          "text": "return do_execveat_common(fd, filename, argv, envp, flags);"
+        }
+      ]
+    },
+    {
+      "query": "tcp_v4_syn_recv_sock",
+      "mode": "callees",
+      "elapsedMs": 11.426328000001376,
+      "count": 49,
+      "rows": [
+        {
+          "path": "net/ipv4/tcp_ipv4.c",
+          "peer": "sk_acceptq_is_full",
+          "line": 1757,
+          "text": "if (sk_acceptq_is_full(sk))"
+        },
+        {
+          "path": "net/ipv4/tcp_ipv4.c",
+          "peer": "tcp_create_openreq_child",
+          "line": 1760,
+          "text": "newsk = tcp_create_openreq_child(sk, req, skb);"
+        },
+        {
+          "path": "net/ipv4/tcp_ipv4.c",
+          "peer": "inet_sk_rx_dst_set",
+          "line": 1765,
+          "text": "inet_sk_rx_dst_set(newsk, skb);"
+        },
+        {
+          "path": "net/ipv4/tcp_ipv4.c",
+          "peer": "tcp_sk",
+          "line": 1767,
+          "text": "newtp = tcp_sk(newsk);"
+        },
+        {
+          "path": "net/ipv4/tcp_ipv4.c",
+          "peer": "inet_sk",
+          "line": 1768,
+          "text": "newinet = inet_sk(newsk);"
+        },
+        {
+          "path": "net/ipv4/tcp_ipv4.c",
+          "peer": "inet_rsk",
+          "line": 1769,
+          "text": "ireq = inet_rsk(req);"
+        },
+        {
+          "path": "net/ipv4/tcp_ipv4.c",
+          "peer": "sk_daddr_set",
+          "line": 1770,
+          "text": "sk_daddr_set(newsk, ireq->ir_rmt_addr);"
+        },
+        {
+          "path": "net/ipv4/tcp_ipv4.c",
+          "peer": "sk_rcv_saddr_set",
+          "line": 1771,
+          "text": "sk_rcv_saddr_set(newsk, ireq->ir_loc_addr);"
+        },
+        {
+          "path": "net/ipv4/tcp_ipv4.c",
+          "peer": "rcu_dereference",
+          "line": 1774,
+          "text": "inet_opt = rcu_dereference(ireq->ireq_opt);"
+        },
+        {
+          "path": "net/ipv4/tcp_ipv4.c",
+          "peer": "RCU_INIT_POINTER",
+          "line": 1775,
+          "text": "RCU_INIT_POINTER(newinet->inet_opt, inet_opt);"
+        },
+        {
+          "path": "net/ipv4/tcp_ipv4.c",
+          "peer": "inet_iif",
+          "line": 1776,
+          "text": "newinet->mc_index = inet_iif(skb);"
+        },
+        {
+          "path": "net/ipv4/tcp_ipv4.c",
+          "peer": "ip_hdr",
+          "line": 1777,
+          "text": "newinet->mc_ttl = ip_hdr(skb)->ttl;"
+        },
+        {
+          "path": "net/ipv4/tcp_ipv4.c",
+          "peer": "ip_hdr",
+          "line": 1778,
+          "text": "newinet->rcv_tos = ip_hdr(skb)->tos;"
+        },
+        {
+          "path": "net/ipv4/tcp_ipv4.c",
+          "peer": "inet_csk",
+          "line": 1779,
+          "text": "inet_csk(newsk)->icsk_ext_hdr_len = 0;"
+        },
+        {
+          "path": "net/ipv4/tcp_ipv4.c",
+          "peer": "inet_csk",
+          "line": 1781,
+          "text": "inet_csk(newsk)->icsk_ext_hdr_len = inet_opt->opt.optlen;"
+        },
+        {
+          "path": "net/ipv4/tcp_ipv4.c",
+          "peer": "atomic_set",
+          "line": 1782,
+          "text": "atomic_set(&newinet->inet_id, get_random_u16());"
+        },
+        {
+          "path": "net/ipv4/tcp_ipv4.c",
+          "peer": "get_random_u16",
+          "line": 1782,
+          "text": "atomic_set(&newinet->inet_id, get_random_u16());"
+        },
+        {
+          "path": "net/ipv4/tcp_ipv4.c",
+          "peer": "READ_ONCE",
+          "line": 1787,
+          "text": "if (READ_ONCE(sock_net(sk)->ipv4.sysctl_tcp_reflect_tos))"
+        },
+        {
+          "path": "net/ipv4/tcp_ipv4.c",
+          "peer": "sock_net",
+          "line": 1787,
+          "text": "if (READ_ONCE(sock_net(sk)->ipv4.sysctl_tcp_reflect_tos))"
+        },
+        {
+          "path": "net/ipv4/tcp_ipv4.c",
+          "peer": "tcp_rsk",
+          "line": 1788,
+          "text": "newinet->tos = tcp_rsk(req)->syn_tos & ~INET_ECN_MASK;"
+        },
+        {
+          "path": "net/ipv4/tcp_ipv4.c",
+          "peer": "inet_csk_route_child_sock",
+          "line": 1791,
+          "text": "dst = inet_csk_route_child_sock(sk, newsk, req);"
+        },
+        {
+          "path": "net/ipv4/tcp_ipv4.c",
+          "peer": "sk_setup_caps",
+          "line": 1797,
+          "text": "sk_setup_caps(newsk, dst);"
+        },
+        {
+          "path": "net/ipv4/tcp_ipv4.c",
+          "peer": "tcp_ca_openreq_child",
+          "line": 1799,
+          "text": "tcp_ca_openreq_child(newsk, dst);"
+        },
+        {
+          "path": "net/ipv4/tcp_ipv4.c",
+          "peer": "tcp_sync_mss",
+          "line": 1801,
+          "text": "tcp_sync_mss(newsk, dst_mtu(dst));"
+        },
+        {
+          "path": "net/ipv4/tcp_ipv4.c",
+          "peer": "dst_mtu",
+          "line": 1801,
+          "text": "tcp_sync_mss(newsk, dst_mtu(dst));"
+        },
+        {
+          "path": "net/ipv4/tcp_ipv4.c",
+          "peer": "tcp_mss_clamp",
+          "line": 1802,
+          "text": "newtp->advmss = tcp_mss_clamp(tcp_sk(sk), dst_metric_advmss(dst));"
+        },
+        {
+          "path": "net/ipv4/tcp_ipv4.c",
+          "peer": "tcp_sk",
+          "line": 1802,
+          "text": "newtp->advmss = tcp_mss_clamp(tcp_sk(sk), dst_metric_advmss(dst));"
+        },
+        {
+          "path": "net/ipv4/tcp_ipv4.c",
+          "peer": "dst_metric_advmss",
+          "line": 1802,
+          "text": "newtp->advmss = tcp_mss_clamp(tcp_sk(sk), dst_metric_advmss(dst));"
+        },
+        {
+          "path": "net/ipv4/tcp_ipv4.c",
+          "peer": "tcp_initialize_rcv_mss",
+          "line": 1804,
+          "text": "tcp_initialize_rcv_mss(newsk);"
+        },
+        {
+          "path": "net/ipv4/tcp_ipv4.c",
+          "peer": "l3mdev_master_ifindex_by_index",
+          "line": 1807,
+          "text": "l3index = l3mdev_master_ifindex_by_index(sock_net(sk), ireq->ir_iif);"
+        },
+        {
+          "path": "net/ipv4/tcp_ipv4.c",
+          "peer": "sock_net",
+          "line": 1807,
+          "text": "l3index = l3mdev_master_ifindex_by_index(sock_net(sk), ireq->ir_iif);"
+        },
+        {
+          "path": "net/ipv4/tcp_ipv4.c",
+          "peer": "tcp_md5_do_lookup",
+          "line": 1810,
+          "text": "key = tcp_md5_do_lookup(sk, l3index, addr, AF_INET);"
+        },
+        {
+          "path": "net/ipv4/tcp_ipv4.c",
+          "peer": "tcp_rsk_used_ao",
+          "line": 1811,
+          "text": "if (key && !tcp_rsk_used_ao(req)) {"
+        },
+        {
+          "path": "net/ipv4/tcp_ipv4.c",
+          "peer": "tcp_md5_key_copy",
+          "line": 1812,
+          "text": "if (tcp_md5_key_copy(newsk, addr, AF_INET, 32, l3index, key))"
+        },
+        {
+          "path": "net/ipv4/tcp_ipv4.c",
+          "peer": "sk_gso_disable",
+          "line": 1814,
+          "text": "sk_gso_disable(newsk);"
+        },
+        {
+          "path": "net/ipv4/tcp_ipv4.c",
+          "peer": "tcp_ao_copy_all_matching",
+          "line": 1818,
+          "text": "if (tcp_ao_copy_all_matching(sk, newsk, req, skb, AF_INET))"
+        },
+        {
+          "path": "net/ipv4/tcp_ipv4.c",
+          "peer": "__inet_inherit_port",
+          "line": 1822,
+          "text": "if (__inet_inherit_port(sk, newsk) < 0)"
+        },
+        {
+          "path": "net/ipv4/tcp_ipv4.c",
+          "peer": "inet_ehash_nolisten",
+          "line": 1824,
+          "text": "*own_req = inet_ehash_nolisten(newsk, req_to_sk(req_unhash),"
+        },
+        {
+          "path": "net/ipv4/tcp_ipv4.c",
+          "peer": "req_to_sk",
+          "line": 1824,
+          "text": "*own_req = inet_ehash_nolisten(newsk, req_to_sk(req_unhash),"
+        },
+        {
+          "path": "net/ipv4/tcp_ipv4.c",
+          "peer": "likely",
+          "line": 1826,
+          "text": "if (likely(*own_req)) {"
+        },
+        {
+          "path": "net/ipv4/tcp_ipv4.c",
+          "peer": "tcp_move_syn",
+          "line": 1827,
+          "text": "tcp_move_syn(newtp, req);"
+        },
+        {
+          "path": "net/ipv4/tcp_ipv4.c",
+          "peer": "bh_unlock_sock",
+          "line": 1836,
+          "text": "bh_unlock_sock(newsk);"
+        },
+        {
+          "path": "net/ipv4/tcp_ipv4.c",
+          "peer": "sock_put",
+          "line": 1837,
+          "text": "sock_put(newsk);"
+        },
+        {
+          "path": "net/ipv4/tcp_ipv4.c",
+          "peer": "NET_INC_STATS",
+          "line": 1844,
+          "text": "NET_INC_STATS(sock_net(sk), LINUX_MIB_LISTENOVERFLOWS);"
+        },
+        {
+          "path": "net/ipv4/tcp_ipv4.c",
+          "peer": "sock_net",
+          "line": 1844,
+          "text": "NET_INC_STATS(sock_net(sk), LINUX_MIB_LISTENOVERFLOWS);"
+        },
+        {
+          "path": "net/ipv4/tcp_ipv4.c",
+          "peer": "dst_release",
+          "line": 1846,
+          "text": "dst_release(dst);"
+        },
+        {
+          "path": "net/ipv4/tcp_ipv4.c",
+          "peer": "tcp_listendrop",
+          "line": 1848,
+          "text": "tcp_listendrop(sk);"
+        },
+        {
+          "path": "net/ipv4/tcp_ipv4.c",
+          "peer": "inet_csk_prepare_forced_close",
+          "line": 1852,
+          "text": "inet_csk_prepare_forced_close(newsk);"
+        },
+        {
+          "path": "net/ipv4/tcp_ipv4.c",
+          "peer": "tcp_done",
+          "line": 1853,
+          "text": "tcp_done(newsk);"
+        }
+      ]
+    },
+    {
+      "query": "tcp_v4_syn_recv_sock",
+      "mode": "callers",
+      "elapsedMs": 11.666956999994,
+      "count": 1,
+      "rows": [
+        {
+          "path": "net/ipv6/tcp_ipv6.c",
+          "peer": "tcp_v6_syn_recv_sock",
+          "line": 1368,
+          "text": "newsk = tcp_v4_syn_recv_sock(sk, skb, req, dst,"
+        }
+      ]
+    },
+    {
+      "query": "vfs_open",
+      "mode": "callees",
+      "elapsedMs": 12.095848999990267,
+      "count": 2,
+      "rows": [
+        {
+          "path": "fs/open.c",
+          "peer": "do_dentry_open",
+          "line": 1088,
+          "text": "ret = do_dentry_open(file, NULL);"
+        },
+        {
+          "path": "fs/open.c",
+          "peer": "fsnotify_open",
+          "line": 1095,
+          "text": "fsnotify_open(file);"
+        }
+      ]
+    },
+    {
+      "query": "vfs_open",
+      "mode": "callers",
+      "elapsedMs": 11.219370999999228,
+      "count": 5,
+      "rows": [
+        {
+          "path": "fs/backing-file.c",
+          "peer": "backing_file_open",
+          "line": 45,
+          "text": "error = vfs_open(real_path, f);"
+        },
+        {
+          "path": "fs/namei.c",
+          "peer": "do_open",
+          "line": 3774,
+          "text": "error = vfs_open(&nd->path, file);"
+        },
+        {
+          "path": "fs/namei.c",
+          "peer": "do_o_path",
+          "line": 3907,
+          "text": "error = vfs_open(&path, file);"
+        },
+        {
+          "path": "fs/open.c",
+          "peer": "dentry_open",
+          "line": 1111,
+          "text": "error = vfs_open(path, f);"
+        },
+        {
+          "path": "fs/open.c",
+          "peer": "dentry_create",
+          "line": 1152,
+          "text": "error = vfs_open(path, f);"
+        }
+      ]
+    },
+    {
+      "query": "pick_next_task_fair",
+      "mode": "callees",
+      "elapsedMs": 13.0073640000046,
+      "count": 15,
+      "rows": [
+        {
+          "path": "kernel/sched/fair.c",
+          "peer": "pick_task_fair",
+          "line": 8886,
+          "text": "p = pick_task_fair(rq);"
+        },
+        {
+          "path": "kernel/sched/fair.c",
+          "peer": "__put_prev_set_next_dl_server",
+          "line": 8895,
+          "text": "__put_prev_set_next_dl_server(rq, prev, p);"
+        },
+        {
+          "path": "kernel/sched/fair.c",
+          "peer": "is_same_group",
+          "line": 8912,
+          "text": "while (!(cfs_rq = is_same_group(se, pse))) {"
+        },
+        {
+          "path": "kernel/sched/fair.c",
+          "peer": "put_prev_entity",
+          "line": 8917,
+          "text": "put_prev_entity(cfs_rq_of(pse), pse);"
+        },
+        {
+          "path": "kernel/sched/fair.c",
+          "peer": "cfs_rq_of",
+          "line": 8917,
+          "text": "put_prev_entity(cfs_rq_of(pse), pse);"
+        },
+        {
+          "path": "kernel/sched/fair.c",
+          "peer": "parent_entity",
+          "line": 8918,
+          "text": "pse = parent_entity(pse);"
+        },
+        {
+          "path": "kernel/sched/fair.c",
+          "peer": "set_next_entity",
+          "line": 8921,
+          "text": "set_next_entity(cfs_rq_of(se), se);"
+        },
+        {
+          "path": "kernel/sched/fair.c",
+          "peer": "cfs_rq_of",
+          "line": 8921,
+          "text": "set_next_entity(cfs_rq_of(se), se);"
+        },
+        {
+          "path": "kernel/sched/fair.c",
+          "peer": "parent_entity",
+          "line": 8922,
+          "text": "se = parent_entity(se);"
+        },
+        {
+          "path": "kernel/sched/fair.c",
+          "peer": "put_prev_entity",
+          "line": 8926,
+          "text": "put_prev_entity(cfs_rq, pse);"
+        },
+        {
+          "path": "kernel/sched/fair.c",
+          "peer": "set_next_entity",
+          "line": 8927,
+          "text": "set_next_entity(cfs_rq, se);"
+        },
+        {
+          "path": "kernel/sched/fair.c",
+          "peer": "__set_next_task_fair",
+          "line": 8929,
+          "text": "__set_next_task_fair(rq, p, true);"
+        },
+        {
+          "path": "kernel/sched/fair.c",
+          "peer": "put_prev_set_next_task",
+          "line": 8936,
+          "text": "put_prev_set_next_task(rq, prev, p);"
+        },
+        {
+          "path": "kernel/sched/fair.c",
+          "peer": "sched_balance_newidle",
+          "line": 8943,
+          "text": "new_tasks = sched_balance_newidle(rq, rf);"
+        },
+        {
+          "path": "kernel/sched/fair.c",
+          "peer": "update_idle_rq_clock_pelt",
+          "line": 8960,
+          "text": "update_idle_rq_clock_pelt(rq);"
+        }
+      ]
+    },
+    {
+      "query": "pick_next_task_fair",
+      "mode": "callers",
+      "elapsedMs": 11.073959999994258,
+      "count": 2,
+      "rows": [
+        {
+          "path": "kernel/sched/core.c",
+          "peer": "__pick_next_task",
+          "line": 5971,
+          "text": "p = pick_next_task_fair(rq, prev, rf);"
+        },
+        {
+          "path": "kernel/sched/fair.c",
+          "peer": "__pick_next_task_fair",
+          "line": 8967,
+          "text": "return pick_next_task_fair(rq, prev, NULL);"
+        }
+      ]
+    }
+  ],
+  "elapsedMs": 116777.812775,
+  "within180Seconds": true,
+  "maxMainRssKiB": 412436,
+  "databaseBytes": 836956160
+}

@@ -40,6 +40,12 @@ Bun 的完整对比结果见 [`bun-code-review-graph-comparison.md`](bun-code-re
 
 500 个 Python 文件包含 100,000 个函数和 99,500 条调用关系，在 `--max-old-space-size=128` 下完成全量构建和单文件增量，复用 499 个文件。V8 总堆上限为 320 MiB，主进程最大 RSS 为 402.3 MiB。资源记录见 [`streaming-memory.json`](results/streaming-memory.json)。PageIndex 六个问题保持 6/6 命中，符号和关系数量保持一致，记录见 [`streaming-pageindex.json`](results/streaming-pageindex.json)。
 
+## 三分钟替代方案实验
+
+Ctags + 紧凑 SQLite + Cscope 原型在相同 Linux 工作区上完成符号索引、源码保存、C/C++ 交叉引用、查询核验和发布，用时 **116.84 秒**。四个函数定位和八组调用查询均通过。GNU time 报告最大 RSS 约 2.42 GiB，完整原型快照约 3.83 GiB。
+
+该结果属于不同存储与查询模型的原型，正式 CodeIndex 的完整关系类型和导航行为仍需逐项回归。环境为预热文件缓存、全新输出目录、无解析缓存复用。完整范围与原始数据见 [`linux-fast-alternatives.md`](linux-fast-alternatives.md)。
+
 ## Pi provider 推理验证
 
 `benchmarks/results/pageindex-llm-final.json` 使用本机 Pi provider `sub2api-qc101-gpt/gpt-6-luna` 对中文问题“这个函数如何构建文档树”进行了一次真实推理。模型基于 CodeIndex 返回的源码范围解释了栈式建树、页范围补全和父节点范围扩展，并引用了：

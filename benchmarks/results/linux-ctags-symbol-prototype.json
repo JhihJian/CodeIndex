@@ -1,0 +1,66 @@
+{
+  "experimental": true,
+  "scope": "symbols-and-source-evidence-without-relations",
+  "snapshotId": "4e22e657fece275af7f0b125",
+  "repository": "/data/dev/bench-repos/linux-benchmark",
+  "files": 86363,
+  "sourceBytes": 1212793499,
+  "symbols": 6106709,
+  "kinds": {
+    "prototype": 265985,
+    "variable": 242613,
+    "function": 710461,
+    "macro": 3543383,
+    "typedef": 21661,
+    "struct": 111433,
+    "member": 786261,
+    "union": 8801,
+    "enum": 40046,
+    "enumerator": 375225,
+    "unknown": 4,
+    "class": 822,
+    "namespace": 14
+  },
+  "parserOutputBytes": 1455069993,
+  "stages": {
+    "scan": 7671.948861,
+    "ctags": 28846.342039000003,
+    "source-and-files": 4741.527559000002,
+    "symbol-ingestion": 10770.635160999998,
+    "indexes-and-fts": 10146.584690999996,
+    "verification": 5.418368999999075
+  },
+  "evidence": [
+    {
+      "name": "do_execveat_common",
+      "path": "fs/exec.c",
+      "startLine": 1876,
+      "endLine": 1959,
+      "digest": "98f1bd0885d273637457bd6709d393b8deefd2b009ac273f9fc3d26d8509ccb5"
+    },
+    {
+      "name": "tcp_v4_syn_recv_sock",
+      "path": "net/ipv4/tcp_ipv4.c",
+      "startLine": 1739,
+      "endLine": 1855,
+      "digest": "116196ff5c093ed5c239fae1e5ca314b65fc8d3e3073f12f0706822725b52b27"
+    },
+    {
+      "name": "vfs_open",
+      "path": "fs/open.c",
+      "startLine": 1083,
+      "endLine": 1098,
+      "digest": "587769343f2fc32552fb8593138c72f47110de8b7933f921a0bf9b627282b59a"
+    },
+    {
+      "name": "pick_next_task_fair",
+      "path": "kernel/sched/fair.c",
+      "startLine": 8879,
+      "endLine": 8963,
+      "digest": "48c485811e4d20cca0204ea75a24da71777e42a66b6ce158f8ece09132635d7d"
+    }
+  ],
+  "elapsedMs": 62378.919927999996,
+  "maxMainRssKiB": 419084,
+  "databaseBytes": 836956160
+}

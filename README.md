@@ -137,3 +137,5 @@ CodeIndex 在该仓库上全量构建约快 18%，但峰值内存约为对照项
 Linux v6.12 完整流式构建已完成：86,363 个文件、4,616,281 个符号、4,520,076 条关系，墙钟时间 1,930.66 秒，最大 RSS 约 650 MiB。C 和 Python 两组精确问题均为 4/4 命中，C 查询中位数为 metadata-only 4.98 ms、带源码证据 5.50 ms，无变化更新约 0.30 秒。单文件增量复用 86,362 个文件的解析结果，用时 807.36 秒，最大 RSS 约 1.23 GiB，新快照的证据与关系核验通过。
 
 与同一固定源码上的 `code-review-graph` 历史完整构建相比，CodeIndex 最大 RSS 约为其 1/15，构建耗时约为其 1.66 倍。包含 SQLite、源码、解析缓存和 JSONL 导出的完整快照约 26.50 GiB。完整数据、阶段耗时和复现方式见 [`流式构建验证`](benchmarks/linux-streaming.md)。C/C++ 适配器接入前的旧基线与四文件测试保留在 [`历史对比报告`](benchmarks/linux-code-review-graph-comparison.md)。
+
+以 180 秒为目标的替代方案实验中，Ctags + SQLite + Cscope 原型在同一工作区用时 **116.84 秒**，覆盖符号检索、源码快照及 C/C++ 调用查询。该原型采用独立存储结构，正式命令尚未切换，现有完整关系模型和导航行为仍需回归。测量口径、能力差异和复现命令见 [`三分钟方案实验`](benchmarks/linux-fast-alternatives.md)。
