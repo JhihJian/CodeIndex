@@ -1,0 +1,12 @@
+{
+  "command": "strace -f -e trace=openat node bin/codeindex.js update --repo /data/dev/bench-repos/linux-benchmark --store .data/linux-stream-v5 --json",
+  "snapshotId": "snapshot:repo-67168d4b0edd4e638610:55e19f13edd2a6fa865f50fa",
+  "noOp": true,
+  "jsonlOpenCount": 0,
+  "sourceBlobOpenCount": 0,
+  "openedIndexArtifacts": [
+    "/data/dev/CodeIndex/.data/linux-stream-v5/repo-67168d4b0edd4e638610/published.json",
+    "/data/dev/CodeIndex/.data/linux-stream-v5/repo-67168d4b0edd4e638610/snapshots/snapshot:repo-67168d4b0edd4e638610:55e19f13edd2a6fa865f50fa/manifest.json"
+  ],
+  "traceSha256": "647c57869d2858886535ae22afde906758194bfb6d14610c7bd92ad36314260e"
+}

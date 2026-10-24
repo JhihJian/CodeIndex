@@ -32,6 +32,8 @@ Bun 的完整对比结果见 [`bun-code-review-graph-comparison.md`](bun-code-re
 
 流式版本已完成全量构建：86,363 个文件、4,616,281 个符号、4,520,076 条关系，用时 1,930.66 秒，最大 RSS 约 650 MiB。C 和 Python 两组问题均为 4/4 命中，C 查询中位数为 metadata-only 4.98 ms、带源码证据 5.50 ms。完整快照约 26.50 GiB，包括 SQLite、源码、解析缓存和 JSONL 导出。
 
+单文件增量复用 86,362 个文件的解析结果，用时 807.36 秒，最大 RSS 约 1.23 GiB；新快照的四个 C 问题和源码关系证据均通过核验。测试已恢复原源码与发布指针，原始记录见 [`linux-streaming-incremental.json`](results/linux-streaming-incremental.json)。
+
 完整测量与复现命令见 [`linux-streaming.md`](linux-streaming.md)。旧版未支持 C 时的基线和四文件适配器测试保留在 [`历史报告`](linux-code-review-graph-comparison.md)，四文件原始记录为 [`linux-codeindex-c-adapter.json`](results/linux-codeindex-c-adapter.json)。
 
 ## 流式资源回归
