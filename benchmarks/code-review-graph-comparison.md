@@ -27,12 +27,12 @@ CodeIndex 更适合从自然语言问题直接定位源码并把证据交给后�
 
 | 仓库 | 工具 | 墙钟时间 | 最大 RSS | 索引体积 | 状态 |
 | --- | --- | ---: | ---: | ---: | --- |
-| PageIndex | CodeIndex | 6.45 s | 211 MiB | 24.3 MiB | partial，112 个文件完成语言解析 |
-| PageIndex | code-review-graph | 2.23 s | 75 MiB | 20.7 MiB | 完成，121 个代码文件 |
-| pi-mono | CodeIndex | 4.24 s | 238 MiB | 30.9 MiB | partial，502 个文件完成语言解析 |
-| pi-mono | code-review-graph | 5.39 s | 109 MiB | 62.4 MiB | 完成，512 个代码文件 |
+| PageIndex | CodeIndex | 2.31 s | 228 MiB | 35.9 MiB | partial，112 个文件完成语言解析 |
+| PageIndex | code-review-graph | 2.46 s | 72 MiB | 25.8 MiB | 完成，121 个代码文件 |
+| pi-mono | CodeIndex | 1.30 s | 238 MiB | 43.1 MiB | partial，502 个文件完成语言解析 |
+| pi-mono | code-review-graph | 4.83 s | 113 MiB | 75.9 MiB | 完成，512 个代码文件 |
 
-以上表格保留优化前的同口径基线。优化后的构建和查询结果见“优化后复测”一节。
+本轮 CodeIndex 全量构建在两个仓库都快于对照项目，但最大 RSS 约为对方的 3.2 倍。CodeIndex 保留了所有文本文件的文件级索引，并生成源码 blob、JSONL 事实导出和 SQLite 查询库，因此索引体积介于两种项目策略之间。
 
 CodeIndex 当前 Python 解析通过 Node.js 调用 Python 标准库 AST，进程间传输文件源码会带来明显内存峰值。JavaScript/TypeScript 使用 Node.js 内置启发式解析器。`code-review-graph` 使用 Tree-sitter，并在单个 SQLite 数据库中写入节点、边和 FTS5 索引。
 
@@ -53,9 +53,9 @@ CodeIndex 当前 Python 解析通过 Node.js 调用 Python 标准库 AST，进�
 | 仓库 | 工具 | 命中 | 证据召回率 | 查询中位耗时 | 返回源码证据 |
 | --- | --- | ---: | ---: | ---: | --- |
 | PageIndex | CodeIndex | 6/6 | 100% | 4.27 ms | 是，累计 53.2 KB |
-| PageIndex | code-review-graph | 0/6 | 0% | 0.83 ms | 否，默认 FTS5 无结果 |
+| PageIndex | code-review-graph | 0/6 | 0% | 0.98 ms | 否，默认 FTS5 无结果 |
 | pi-mono | CodeIndex | 4/4 | 100% | 3.43 ms | 是，累计 14.0 KB |
-| pi-mono | code-review-graph | 2/4 | 50% | 3.0 ms | 否，返回节点元数据 |
+| pi-mono | code-review-graph | 2/4 | 50% | 3.68 ms | 否，返回节点元数据 |
 
 `code-review-graph` 的默认 FTS5 查询把整句自然语言作为搜索条件，并且默认不安装向量模型。它对精确符号查询表现良好，但不能把“构建文档树”稳定映射到 `build_tree_from_nodes` 这类代码符号。启用它的可选 embedding 依赖后，召回结果可能变化，本次没有把额外模型下载和推理成本混入默认对比。
 
@@ -66,11 +66,11 @@ CodeIndex 当前 Python 解析通过 Node.js 调用 Python 标准库 AST，进�
 | 仓库 | 工具 | 命中 | 查询中位耗时 | 单次典型返回 |
 | --- | --- | ---: | ---: | --- |
 | PageIndex | CodeIndex | 6/6 | 0.49 ms | 约 7.9 KB，包含源码证据 |
-| PageIndex | code-review-graph | 6/6 | 0.26 ms | 约 1.8 KB，主要是节点元数据 |
+| PageIndex | code-review-graph | 6/6 | 0.29 ms | 约 1.8 KB，主要是节点元数据 |
 | pi-mono | CodeIndex | 4/4 | 0.44 ms | 约 9.7 KB，包含源码证据 |
-| pi-mono | code-review-graph | 4/4 | 0.51 ms | 约 7.6 KB，主要是节点元数据 |
+| pi-mono | code-review-graph | 4/4 | 0.55 ms | 约 8.4 KB，主要是节点元数据 |
 
-在纯搜索延迟上，`code-review-graph` 约快 10 到 24 倍。这个差距主要来自 FTS5 的数据库索引和 CodeIndex 查询阶段读取源码证据的额外工作。
+在带源码证据的完整查询中，两者耗时接近。CodeIndex 的结果包含源码范围和 digest，code-review-graph 的结果主要是节点元数据，后续读取源码的成本没有计入对照项目查询时间。
 
 ## 关系查询
 
@@ -78,8 +78,8 @@ CodeIndex 当前 Python 解析通过 Node.js 调用 Python 标准库 AST，进�
 
 | 查询 | CodeIndex | code-review-graph |
 | --- | ---: | ---: |
-| `build_tree_from_nodes` 的调用者 | 0.28 ms，1 条关系，带源码证据 | 0.01 ms，1 条关系 |
-| `loadExtensions` 的调用者 | 0.35 ms，2 条关系，带源码证据 | 0.01 ms，1 条关系 |
+| `build_tree_from_nodes` 的调用者 | 0.28 ms，1 条关系，带源码证据 | 0.009 ms，2 条关系 |
+| `loadExtensions` 的调用者 | 0.35 ms，2 条关系，带源码证据 | 0.011 ms，3 条关系 |
 
 `code-review-graph` 的 SQLite 复合索引和直接边查询适合高频调用链、继承链和影响范围计算。优化后的 CodeIndex 已使用同类邻接索引，关系边访问达到亚毫秒级；默认带证据查询仍包含少量源码读取，因此应分别看纯关系访问和带证据查询。
 
@@ -89,10 +89,12 @@ CodeIndex 当前 Python 解析通过 Node.js 调用 Python 标准库 AST，进�
 
 | 仓库 | 工具 | 墙钟时间 | 结果 |
 | --- | --- | ---: | --- |
-| PageIndex | CodeIndex | 4.84 s | 154 个文件复用解析结果，重新校验并发布快照 |
-| PageIndex | code-review-graph | 0.45 s | 1 个文件更新，FTS 和派生数据刷新 |
+| PageIndex | CodeIndex | 170 ms | 无变化，直接复用已发布快照 |
+| PageIndex | code-review-graph | 150 ms | 0 个文件更新 |
+| pi-mono | CodeIndex | 180 ms | 无变化，直接复用已发布快照 |
+| pi-mono | code-review-graph | 160 ms | 0 个文件更新 |
 
-以下表格保留优化前的增量基线。优化后的无变化更新会在 digest 比较后直接复用已发布快照，实测结果见“优化后复测”一节。
+本轮测试中两者的无变化更新都没有重建全量图。CodeIndex 先扫描并比较文件 digest，再直接复用发布快照；code-review-graph 直接返回 0 个变化文件。两者都处于百毫秒级。
 
 ## 能力边界
 

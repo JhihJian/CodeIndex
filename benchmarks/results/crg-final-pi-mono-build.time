@@ -1,0 +1,51 @@
+INFO: Schema version 1 -> 9: running migrations
+INFO: Running migration v2
+INFO: Migration v2: added 'signature' column to nodes
+INFO: Running migration v3
+INFO: Migration v3: created flows and flow_memberships tables
+INFO: Running migration v4
+INFO: Migration v4: added 'community_id' column to nodes
+INFO: Migration v4: created communities table
+INFO: Running migration v5
+INFO: Migration v5: created nodes_fts FTS5 virtual table
+INFO: Running migration v6
+INFO: Migration v6: created summary tables (community_summaries, flow_snapshots, risk_index)
+INFO: Running migration v7
+INFO: Migration v7: added compound edge indexes
+INFO: Running migration v8
+INFO: Migration v8: created composite edge index
+INFO: Running migration v9
+INFO: Migration v9: added edge confidence columns
+INFO: Migrations complete, now at schema version 9
+INFO: Progress: 200/512 files parsed
+INFO: Progress: 400/512 files parsed
+INFO: Progress: 512/512 files parsed
+INFO: FTS index rebuilt: 6144 rows indexed
+INFO: Loaded 5632 unique nodes, 55733 edges
+INFO: igraph not available, using file-based community detection
+INFO: FTS index rebuilt: 6144 rows indexed
+INFO: Loaded 5632 unique nodes, 55733 edges
+INFO: igraph not available, using file-based community detection
+	Command being timed: "uv run code-review-graph build --repo /data/dev/bench-repos/pi-mono-tracked"
+	User time (seconds): 9.29
+	System time (seconds): 1.03
+	Percent of CPU this job got: 213%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:04.83
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 115864
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 5
+	Minor (reclaiming a frame) page faults: 94894
+	Voluntary context switches: 17402
+	Involuntary context switches: 231
+	Swaps: 0
+	File system inputs: 1256
+	File system outputs: 1059080
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

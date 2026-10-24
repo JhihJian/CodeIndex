@@ -1,0 +1,191 @@
+{
+  "tool": "code-review-graph",
+  "repo": "/data/dev/bench-repos/pi-mono-tracked",
+  "stats": {
+    "dbBytes": 79618048,
+    "nodes": 6144,
+    "edges": 55733,
+    "files": 512,
+    "fts": 6144
+  },
+  "questions": {
+    "total": 4,
+    "hits": 2,
+    "recall": 0.5
+  },
+  "aggregate": {
+    "medianMs": 3.6758659407496452,
+    "resultBytes": 21850,
+    "medianResultBytes": 10538
+  },
+  "rows": [
+    {
+      "query": "model provider registry",
+      "hit": true,
+      "medianMs": 3.445059061050415,
+      "minMs": 3.2648149644955993,
+      "resultCount": 18,
+      "resultBytes": 10538,
+      "topResults": [
+        {
+          "name": "providerConfig",
+          "qualified_name": "/data/dev/bench-repos/pi-mono-tracked/packages/coding-agent/test/model-registry.test.ts::providerConfig",
+          "kind": "Function",
+          "file_path": "/data/dev/bench-repos/pi-mono-tracked/packages/coding-agent/test/model-registry.test.ts",
+          "line_start": 30,
+          "line_end": 49,
+          "language": "typescript",
+          "params": "(\n\t\tbaseUrl: string,\n\t\tmodels: Array<{ id: string; name?: string }>,\n\t\tapi: string = \"anthropic-messages\",\n\t)",
+          "return_type": null,
+          "signature": "def providerConfig((\n\t\tbaseUrl: string,\n\t\tmodels: Array<{ id: string; name?: string }>,\n\t\tapi: string = \"anthropic-messages\",\n\t))",
+          "score": 1.0
+        },
+        {
+          "name": "getModelsForProvider",
+          "qualified_name": "/data/dev/bench-repos/pi-mono-tracked/packages/coding-agent/test/model-registry.test.ts::getModelsForProvider",
+          "kind": "Function",
+          "file_path": "/data/dev/bench-repos/pi-mono-tracked/packages/coding-agent/test/model-registry.test.ts",
+          "line_start": 55,
+          "line_end": 57,
+          "language": "typescript",
+          "params": "(registry: ModelRegistry, provider: string)",
+          "return_type": null,
+          "signature": "def getModelsForProvider((registry: ModelRegistry, provider: string))",
+          "score": 1.0
+        },
+        {
+          "name": "test:baseUrl-only override does not affect other providers@L129",
+          "qualified_name": "/data/dev/bench-repos/pi-mono-tracked/packages/coding-agent/test/model-registry.test.ts::test:baseUrl-only override does not affect other providers@L129",
+          "kind": "Test",
+          "file_path": "/data/dev/bench-repos/pi-mono-tracked/packages/coding-agent/test/model-registry.test.ts",
+          "line_start": 129,
+          "line_end": 140,
+          "language": "typescript",
+          "params": null,
+          "return_type": null,
+          "signature": "def test:baseUrl-only override does not affect other providers@L129()",
+          "score": 1.0
+        },
+        {
+          "name": "test:custom provider with same name as built-in merges with built-in models@L186",
+          "qualified_name": "/data/dev/bench-repos/pi-mono-tracked/packages/coding-agent/test/model-registry.test.ts::test:custom provider with same name as built-in merges with built-in models@L186",
+          "kind": "Test",
+          "file_path": "/data/dev/bench-repos/pi-mono-tracked/packages/coding-agent/test/model-registry.test.ts",
+          "line_start": 186,
+          "line_end": 197,
+          "language": "typescript",
+          "params": null,
+          "return_type": null,
+          "signature": "def test:custom provider with same name as built-in merges with built-in models@L186()",
+          "score": 1.0
+        },
+        {
+          "name": "test:custom provider with same name as built-in does not affect other built-in providers@L216",
+          "qualified_name": "/data/dev/bench-repos/pi-mono-tracked/packages/coding-agent/test/model-registry.test.ts::test:custom provider with same name as built-in does not affect other built-in providers@L216",
+          "kind": "Test",
+          "file_path": "/data/dev/bench-repos/pi-mono-tracked/packages/coding-agent/test/model-registry.test.ts",
+          "line_start": 216,
+          "line_end": 225,
+          "language": "typescript",
+          "params": null,
+          "return_type": null,
+          "signature": "def test:custom provider with same name as built-in does not affect other built-in providers@L216()",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "query": "extension loading and discovery",
+      "hit": false,
+      "medianMs": 3.6758659407496452,
+      "minMs": 3.601107047870755,
+      "resultCount": 0,
+      "resultBytes": 2,
+      "topResults": []
+    },
+    {
+      "query": "terminal session management",
+      "hit": false,
+      "medianMs": 3.4882789477705956,
+      "minMs": 3.3521769801154733,
+      "resultCount": 0,
+      "resultBytes": 2,
+      "topResults": []
+    },
+    {
+      "query": "agent tool execution",
+      "hit": true,
+      "medianMs": 4.8479760298505425,
+      "minMs": 4.5574980322271585,
+      "resultCount": 20,
+      "resultBytes": 11308,
+      "topResults": [
+        {
+          "name": "/data/dev/bench-repos/pi-mono-tracked/packages/coding-agent/test/tool-execution-component.test.ts",
+          "qualified_name": "/data/dev/bench-repos/pi-mono-tracked/packages/coding-agent/test/tool-execution-component.test.ts",
+          "kind": "File",
+          "file_path": "/data/dev/bench-repos/pi-mono-tracked/packages/coding-agent/test/tool-execution-component.test.ts",
+          "line_start": 1,
+          "line_end": 73,
+          "language": "typescript",
+          "params": null,
+          "return_type": null,
+          "signature": "/data/dev/bench-repos/pi-mono-tracked/packages/coding-agent/test/tool-execution-component.test.ts",
+          "score": 1.0
+        },
+        {
+          "name": "createBaseToolDefinition",
+          "qualified_name": "/data/dev/bench-repos/pi-mono-tracked/packages/coding-agent/test/tool-execution-component.test.ts::createBaseToolDefinition",
+          "kind": "Function",
+          "file_path": "/data/dev/bench-repos/pi-mono-tracked/packages/coding-agent/test/tool-execution-component.test.ts",
+          "line_start": 9,
+          "line_end": 20,
+          "language": "typescript",
+          "params": "()",
+          "return_type": ": ToolDefinition",
+          "signature": "def createBaseToolDefinition(()) -> : ToolDefinition",
+          "score": 1.0
+        },
+        {
+          "name": "createFakeTui",
+          "qualified_name": "/data/dev/bench-repos/pi-mono-tracked/packages/coding-agent/test/tool-execution-component.test.ts::createFakeTui",
+          "kind": "Function",
+          "file_path": "/data/dev/bench-repos/pi-mono-tracked/packages/coding-agent/test/tool-execution-component.test.ts",
+          "line_start": 22,
+          "line_end": 26,
+          "language": "typescript",
+          "params": "()",
+          "return_type": ": TUI",
+          "signature": "def createFakeTui(()) -> : TUI",
+          "score": 1.0
+        },
+        {
+          "name": "describe:ToolExecutionComponent custom renderer suppression@L28",
+          "qualified_name": "/data/dev/bench-repos/pi-mono-tracked/packages/coding-agent/test/tool-execution-component.test.ts::describe:ToolExecutionComponent custom renderer suppression@L28",
+          "kind": "Test",
+          "file_path": "/data/dev/bench-repos/pi-mono-tracked/packages/coding-agent/test/tool-execution-component.test.ts",
+          "line_start": 28,
+          "line_end": 72,
+          "language": "typescript",
+          "params": null,
+          "return_type": null,
+          "signature": "def describe:ToolExecutionComponent custom renderer suppression@L28()",
+          "score": 1.0
+        },
+        {
+          "name": "beforeAll@L29",
+          "qualified_name": "/data/dev/bench-repos/pi-mono-tracked/packages/coding-agent/test/tool-execution-component.test.ts::beforeAll@L29",
+          "kind": "Test",
+          "file_path": "/data/dev/bench-repos/pi-mono-tracked/packages/coding-agent/test/tool-execution-component.test.ts",
+          "line_start": 29,
+          "line_end": 31,
+          "language": "typescript",
+          "params": null,
+          "return_type": null,
+          "signature": "def beforeAll@L29()",
+          "score": 1.0
+        }
+      ]
+    }
+  ]
+}
