@@ -1,0 +1,107 @@
+INFO: Schema version 1 -> 9: running migrations
+INFO: Running migration v2
+INFO: Migration v2: added 'signature' column to nodes
+INFO: Running migration v3
+INFO: Migration v3: created flows and flow_memberships tables
+INFO: Running migration v4
+INFO: Migration v4: added 'community_id' column to nodes
+INFO: Migration v4: created communities table
+INFO: Running migration v5
+INFO: Migration v5: created nodes_fts FTS5 virtual table
+INFO: Running migration v6
+INFO: Migration v6: created summary tables (community_summaries, flow_snapshots, risk_index)
+INFO: Running migration v7
+INFO: Migration v7: added compound edge indexes
+INFO: Running migration v8
+INFO: Migration v8: created composite edge index
+INFO: Running migration v9
+INFO: Migration v9: added edge confidence columns
+INFO: Migrations complete, now at schema version 9
+INFO: Progress: 200/11291 files parsed
+INFO: Progress: 400/11291 files parsed
+INFO: Progress: 600/11291 files parsed
+INFO: Progress: 800/11291 files parsed
+INFO: Progress: 1000/11291 files parsed
+INFO: Progress: 1200/11291 files parsed
+INFO: Progress: 1400/11291 files parsed
+INFO: Progress: 1600/11291 files parsed
+INFO: Progress: 1800/11291 files parsed
+INFO: Progress: 2000/11291 files parsed
+INFO: Progress: 2200/11291 files parsed
+INFO: Progress: 2400/11291 files parsed
+INFO: Progress: 2600/11291 files parsed
+INFO: Progress: 2800/11291 files parsed
+INFO: Progress: 3000/11291 files parsed
+INFO: Progress: 3200/11291 files parsed
+INFO: Progress: 3400/11291 files parsed
+INFO: Progress: 3600/11291 files parsed
+INFO: Progress: 3800/11291 files parsed
+INFO: Progress: 4000/11291 files parsed
+INFO: Progress: 4200/11291 files parsed
+INFO: Progress: 4400/11291 files parsed
+INFO: Progress: 4600/11291 files parsed
+INFO: Progress: 4800/11291 files parsed
+INFO: Progress: 5000/11291 files parsed
+INFO: Progress: 5200/11291 files parsed
+INFO: Progress: 5400/11291 files parsed
+INFO: Progress: 5600/11291 files parsed
+INFO: Progress: 5800/11291 files parsed
+INFO: Progress: 6000/11291 files parsed
+INFO: Progress: 6200/11291 files parsed
+INFO: Progress: 6400/11291 files parsed
+INFO: Progress: 6600/11291 files parsed
+INFO: Progress: 6800/11291 files parsed
+INFO: Progress: 7000/11291 files parsed
+INFO: Progress: 7200/11291 files parsed
+INFO: Progress: 7400/11291 files parsed
+INFO: Progress: 7600/11291 files parsed
+INFO: Progress: 7800/11291 files parsed
+INFO: Progress: 8000/11291 files parsed
+INFO: Progress: 8200/11291 files parsed
+INFO: Progress: 8400/11291 files parsed
+INFO: Progress: 8600/11291 files parsed
+INFO: Progress: 8800/11291 files parsed
+INFO: Progress: 9000/11291 files parsed
+INFO: Progress: 9200/11291 files parsed
+INFO: Progress: 9400/11291 files parsed
+INFO: Progress: 9600/11291 files parsed
+INFO: Progress: 9800/11291 files parsed
+INFO: Progress: 10000/11291 files parsed
+INFO: Progress: 10200/11291 files parsed
+INFO: Progress: 10400/11291 files parsed
+INFO: Progress: 10600/11291 files parsed
+INFO: Progress: 10800/11291 files parsed
+INFO: Progress: 11000/11291 files parsed
+INFO: Progress: 11200/11291 files parsed
+INFO: Progress: 11291/11291 files parsed
+INFO: FTS index rebuilt: 102675 rows indexed
+INFO: Loaded 91384 unique nodes, 930237 edges
+INFO: igraph not available, using file-based community detection
+WARNING: Community detection failed: too many SQL variables
+INFO: FTS index rebuilt: 102675 rows indexed
+INFO: Loaded 91384 unique nodes, 930237 edges
+INFO: igraph not available, using file-based community detection
+WARNING: Community detection failed: too many SQL variables
+	Command being timed: "uv run code-review-graph build --repo /data/dev/bench-repos/bun-tracked"
+	User time (seconds): 130.76
+	System time (seconds): 16.24
+	Percent of CPU this job got: 176%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 1:23.31
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 1178148
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 135
+	Minor (reclaiming a frame) page faults: 1216009
+	Voluntary context switches: 332430
+	Involuntary context switches: 2967
+	Swaps: 0
+	File system inputs: 975128
+	File system outputs: 16948608
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

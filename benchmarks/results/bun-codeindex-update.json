@@ -1,0 +1,18 @@
+{
+  "repositoryId": "repo-4d18fb4322a9b1a993e3",
+  "snapshotId": "snapshot:repo-4d18fb4322a9b1a993e3:8a6531898b4003a5f943f461",
+  "status": "partial",
+  "stats": {
+    "files": 13548,
+    "sourceBytes": 141745538,
+    "changedFiles": 0,
+    "reusedFiles": 13548,
+    "symbols": 23086,
+    "relations": 152962,
+    "partialFiles": 6671,
+    "skipped": 530,
+    "buildMs": 409,
+    "noOp": true
+  },
+  "store": "/data/dev/CodeIndex/.data/bun"
+}

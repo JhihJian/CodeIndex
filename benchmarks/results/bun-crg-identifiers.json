@@ -1,0 +1,284 @@
+{
+  "tool": "code-review-graph",
+  "repo": "/data/dev/bench-repos/bun-tracked",
+  "stats": {
+    "dbBytes": 1047240704,
+    "nodes": 102675,
+    "edges": 930237,
+    "files": 11291,
+    "fts": 102675
+  },
+  "questions": {
+    "total": 4,
+    "hits": 4,
+    "recall": 1.0
+  },
+  "aggregate": {
+    "medianMs": 0.6838609697297215,
+    "resultBytes": 21305,
+    "medianResultBytes": 8774
+  },
+  "rows": [
+    {
+      "query": "Build",
+      "hit": true,
+      "medianMs": 1.673516002483666,
+      "minMs": 1.644772943109274,
+      "resultCount": 20,
+      "resultBytes": 9139,
+      "topResults": [
+        {
+          "name": "/data/dev/bench-repos/bun-tracked/packages/bun-build-mdx-rs/build.rs",
+          "qualified_name": "/data/dev/bench-repos/bun-tracked/packages/bun-build-mdx-rs/build.rs",
+          "kind": "File",
+          "file_path": "/data/dev/bench-repos/bun-tracked/packages/bun-build-mdx-rs/build.rs",
+          "line_start": 1,
+          "line_end": 6,
+          "language": "rust",
+          "params": null,
+          "return_type": null,
+          "signature": "/data/dev/bench-repos/bun-tracked/packages/bun-build-mdx-rs/build.rs",
+          "score": 0.016393
+        },
+        {
+          "name": "test:vite build works@L8",
+          "qualified_name": "/data/dev/bench-repos/bun-tracked/test/integration/vite-build/vite-build.test.ts::test:vite build works@L8",
+          "kind": "Test",
+          "file_path": "/data/dev/bench-repos/bun-tracked/test/integration/vite-build/vite-build.test.ts",
+          "line_start": 8,
+          "line_end": 37,
+          "language": "typescript",
+          "params": null,
+          "return_type": null,
+          "signature": "def test:vite build works@L8()",
+          "score": 0.016129
+        },
+        {
+          "name": "/data/dev/bench-repos/bun-tracked/test/integration/vite-build/vite-build.test.ts",
+          "qualified_name": "/data/dev/bench-repos/bun-tracked/test/integration/vite-build/vite-build.test.ts",
+          "kind": "File",
+          "file_path": "/data/dev/bench-repos/bun-tracked/test/integration/vite-build/vite-build.test.ts",
+          "line_start": 1,
+          "line_end": 38,
+          "language": "typescript",
+          "params": null,
+          "return_type": null,
+          "signature": "/data/dev/bench-repos/bun-tracked/test/integration/vite-build/vite-build.test.ts",
+          "score": 0.015873
+        },
+        {
+          "name": "test:Bun.build NumberRenamer does not leak intermediate NumberScope.name_counts across builds@L1271",
+          "qualified_name": "/data/dev/bench-repos/bun-tracked/test/bundler/bun-build-api.test.ts::test:Bun.build NumberRenamer does not leak intermediate NumberScope.name_counts across builds@L1271",
+          "kind": "Test",
+          "file_path": "/data/dev/bench-repos/bun-tracked/test/bundler/bun-build-api.test.ts",
+          "line_start": 1271,
+          "line_end": 1331,
+          "language": "typescript",
+          "params": null,
+          "return_type": null,
+          "signature": "def test:Bun.build NumberRenamer does not leak intermediate NumberScope.name_counts across builds@L1271()",
+          "score": 0.015625
+        },
+        {
+          "name": "describe:Bun.build@L8",
+          "qualified_name": "/data/dev/bench-repos/bun-tracked/test/bundler/bun-build-api.test.ts::describe:Bun.build@L8",
+          "kind": "Test",
+          "file_path": "/data/dev/bench-repos/bun-tracked/test/bundler/bun-build-api.test.ts",
+          "line_start": 8,
+          "line_end": 687,
+          "language": "typescript",
+          "params": null,
+          "return_type": null,
+          "signature": "def describe:Bun.build@L8()",
+          "score": 0.015385
+        }
+      ]
+    },
+    {
+      "query": "WebSocketWrapper",
+      "hit": true,
+      "medianMs": 0.4172490444034338,
+      "minMs": 0.28675899375230074,
+      "resultCount": 2,
+      "resultBytes": 1284,
+      "topResults": [
+        {
+          "name": "getMainWebSocket",
+          "qualified_name": "/data/dev/bench-repos/bun-tracked/src/runtime/bake/client/websocket.ts::getMainWebSocket",
+          "kind": "Function",
+          "file_path": "/data/dev/bench-repos/bun-tracked/src/runtime/bake/client/websocket.ts",
+          "line_start": 56,
+          "line_end": 58,
+          "language": "typescript",
+          "params": "()",
+          "return_type": ": WebSocketWrapper | null",
+          "signature": "def getMainWebSocket(()) -> : WebSocketWrapper | null",
+          "score": 0.016393
+        },
+        {
+          "name": "initWebSocket",
+          "qualified_name": "/data/dev/bench-repos/bun-tracked/src/runtime/bake/client/websocket.ts::initWebSocket",
+          "kind": "Function",
+          "file_path": "/data/dev/bench-repos/bun-tracked/src/runtime/bake/client/websocket.ts",
+          "line_start": 74,
+          "line_end": 198,
+          "language": "typescript",
+          "params": "(\n  handlers: Record<number, (dv: DataView<ArrayBuffer>, ws: WebSocket) => void>,\n  { url = \"/_bun/hmr\", onStatusChange }: { url?: string; onStatusChange?: (connected: boolean) => void } = {},\n)",
+          "return_type": ": WebSocketWrapper",
+          "signature": "def initWebSocket((\n  handlers: Record<number, (dv: DataView<ArrayBuffer>, ws: WebSocket) => void>,\n  { url = \"/_bun/hmr\", onStatusChange }: { url?: string; onStatusChange?: (connected: boolean) => void } = {},\n)) -> : WebSocketWrapper",
+          "score": 0.016129
+        }
+      ]
+    },
+    {
+      "query": "ServerWebSocket",
+      "hit": true,
+      "medianMs": 0.6838609697297215,
+      "minMs": 0.6425050087273121,
+      "resultCount": 20,
+      "resultBytes": 8774,
+      "topResults": [
+        {
+          "name": "ServerWebSocket",
+          "qualified_name": "/data/dev/bench-repos/bun-tracked/src/runtime/server/ServerWebSocket.rs::ServerWebSocket",
+          "kind": "Class",
+          "file_path": "/data/dev/bench-repos/bun-tracked/src/runtime/server/ServerWebSocket.rs",
+          "line_start": 202,
+          "line_end": 1525,
+          "language": "rust",
+          "params": null,
+          "return_type": null,
+          "signature": "class ServerWebSocket",
+          "score": 0.02459
+        },
+        {
+          "name": "websocket",
+          "qualified_name": "/data/dev/bench-repos/bun-tracked/src/runtime/server/ServerWebSocket.rs::ServerWebSocket.websocket",
+          "kind": "Function",
+          "file_path": "/data/dev/bench-repos/bun-tracked/src/runtime/server/ServerWebSocket.rs",
+          "line_start": 204,
+          "line_end": 206,
+          "language": "rust",
+          "params": "(&self)",
+          "return_type": null,
+          "signature": "def websocket((&self))",
+          "score": 0.016129
+        },
+        {
+          "name": "handler",
+          "qualified_name": "/data/dev/bench-repos/bun-tracked/src/runtime/server/ServerWebSocket.rs::ServerWebSocket.handler",
+          "kind": "Function",
+          "file_path": "/data/dev/bench-repos/bun-tracked/src/runtime/server/ServerWebSocket.rs",
+          "line_start": 223,
+          "line_end": 225,
+          "language": "rust",
+          "params": "(&self)",
+          "return_type": null,
+          "signature": "def handler((&self))",
+          "score": 0.015873
+        },
+        {
+          "name": "behavior",
+          "qualified_name": "/data/dev/bench-repos/bun-tracked/src/runtime/server/ServerWebSocket.rs::ServerWebSocket.behavior",
+          "kind": "Function",
+          "file_path": "/data/dev/bench-repos/bun-tracked/src/runtime/server/ServerWebSocket.rs",
+          "line_start": 739,
+          "line_end": 744,
+          "language": "rust",
+          "params": "(opts: WebSocketBehavior)",
+          "return_type": null,
+          "signature": "def behavior((opts: WebSocketBehavior))",
+          "score": 0.015625
+        },
+        {
+          "name": "/data/dev/bench-repos/bun-tracked/src/runtime/server/ServerWebSocket.rs",
+          "qualified_name": "/data/dev/bench-repos/bun-tracked/src/runtime/server/ServerWebSocket.rs",
+          "kind": "File",
+          "file_path": "/data/dev/bench-repos/bun-tracked/src/runtime/server/ServerWebSocket.rs",
+          "line_start": 1,
+          "line_end": 1594,
+          "language": "rust",
+          "params": null,
+          "return_type": null,
+          "signature": "/data/dev/bench-repos/bun-tracked/src/runtime/server/ServerWebSocket.rs",
+          "score": 0.015385
+        }
+      ]
+    },
+    {
+      "query": "BuildCommand",
+      "hit": true,
+      "medianMs": 0.3135979641228914,
+      "minMs": 0.3002940211445093,
+      "resultCount": 5,
+      "resultBytes": 2108,
+      "topResults": [
+        {
+          "name": "BuildCommand",
+          "qualified_name": "/data/dev/bench-repos/bun-tracked/src/runtime/cli/build_command.rs::BuildCommand",
+          "kind": "Class",
+          "file_path": "/data/dev/bench-repos/bun-tracked/src/runtime/cli/build_command.rs",
+          "line_start": 48,
+          "line_end": 1099,
+          "language": "rust",
+          "params": null,
+          "return_type": null,
+          "signature": "class BuildCommand",
+          "score": 0.02459
+        },
+        {
+          "name": "BuildCommand",
+          "qualified_name": "/data/dev/bench-repos/bun-tracked/packages/bun-lambda/scripts/build-layer.ts::BuildCommand",
+          "kind": "Class",
+          "file_path": "/data/dev/bench-repos/bun-tracked/packages/bun-lambda/scripts/build-layer.ts",
+          "line_start": 10,
+          "line_end": 100,
+          "language": "typescript",
+          "params": null,
+          "return_type": null,
+          "signature": "class BuildCommand",
+          "score": 0.024194
+        },
+        {
+          "name": "run",
+          "qualified_name": "/data/dev/bench-repos/bun-tracked/packages/bun-lambda/scripts/build-layer.ts::BuildCommand.run",
+          "kind": "Function",
+          "file_path": "/data/dev/bench-repos/bun-tracked/packages/bun-lambda/scripts/build-layer.ts",
+          "line_start": 47,
+          "line_end": 99,
+          "language": "typescript",
+          "params": "()",
+          "return_type": null,
+          "signature": "def run(())",
+          "score": 0.015873
+        },
+        {
+          "name": "blob",
+          "qualified_name": "/data/dev/bench-repos/bun-tracked/packages/bun-lambda/scripts/build-layer.ts::BuildCommand.blob",
+          "kind": "Function",
+          "file_path": "/data/dev/bench-repos/bun-tracked/packages/bun-lambda/scripts/build-layer.ts",
+          "line_start": 96,
+          "line_end": 96,
+          "language": "typescript",
+          "params": null,
+          "return_type": null,
+          "signature": "def blob()",
+          "score": 0.015625
+        },
+        {
+          "name": "exec",
+          "qualified_name": "/data/dev/bench-repos/bun-tracked/src/runtime/cli/build_command.rs::BuildCommand.exec",
+          "kind": "Function",
+          "file_path": "/data/dev/bench-repos/bun-tracked/src/runtime/cli/build_command.rs",
+          "line_start": 59,
+          "line_end": 1098,
+          "language": "rust",
+          "params": "(\n        ctx: Context,\n        fetcher: Option<&mut bundle_v2::DependenciesScanner>,\n    )",
+          "return_type": null,
+          "signature": "def exec((\n        ctx: Context,\n        fetcher: Option<&mut bundle_v2::DependenciesScanner>,\n    ))",
+          "score": 0.015385
+        }
+      ]
+    }
+  ]
+}

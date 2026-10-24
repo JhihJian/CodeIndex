@@ -1,0 +1,6 @@
+[
+  {"query":"Bun build command implementation", "expectedPaths":["scripts/build.ts"], "expectedSymbols":["Build"]},
+  {"query":"browser websocket client wrapper", "expectedPaths":["src/runtime/bake/client/websocket.ts"], "expectedSymbols":["WebSocketWrapper"]},
+  {"query":"HTTP server WebSocket type definition", "expectedPaths":["packages/bun-types/serve.d.ts"], "expectedSymbols":["ServerWebSocket"]},
+  {"query":"lambda package build layer", "expectedPaths":["packages/bun-lambda/scripts/build-layer.ts"], "expectedSymbols":["BuildCommand"]}
+]

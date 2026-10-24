@@ -1,0 +1,112 @@
+{
+  "tool": "code-review-graph",
+  "repo": "/data/dev/bench-repos/bun-tracked",
+  "stats": {
+    "dbBytes": 1047240704,
+    "nodes": 102675,
+    "edges": 930237,
+    "files": 11291,
+    "fts": 102675
+  },
+  "questions": {
+    "total": 4,
+    "hits": 1,
+    "recall": 0.25
+  },
+  "aggregate": {
+    "medianMs": 42.19483700580895,
+    "resultBytes": 1673,
+    "medianResultBytes": 2
+  },
+  "rows": [
+    {
+      "query": "Bun build command implementation",
+      "hit": false,
+      "medianMs": 58.62690496724099,
+      "minMs": 57.290308992378414,
+      "resultCount": 0,
+      "resultBytes": 2,
+      "topResults": []
+    },
+    {
+      "query": "browser websocket client wrapper",
+      "hit": false,
+      "medianMs": 42.19483700580895,
+      "minMs": 40.99918098654598,
+      "resultCount": 0,
+      "resultBytes": 2,
+      "topResults": []
+    },
+    {
+      "query": "HTTP server WebSocket type definition",
+      "hit": false,
+      "medianMs": 41.510764975100756,
+      "minMs": 38.59383496455848,
+      "resultCount": 0,
+      "resultBytes": 2,
+      "topResults": []
+    },
+    {
+      "query": "lambda package build layer",
+      "hit": true,
+      "medianMs": 39.09839503467083,
+      "minMs": 37.864038022235036,
+      "resultCount": 4,
+      "resultBytes": 1667,
+      "topResults": [
+        {
+          "name": "/data/dev/bench-repos/bun-tracked/packages/bun-lambda/scripts/build-layer.ts",
+          "qualified_name": "/data/dev/bench-repos/bun-tracked/packages/bun-lambda/scripts/build-layer.ts",
+          "kind": "File",
+          "file_path": "/data/dev/bench-repos/bun-tracked/packages/bun-lambda/scripts/build-layer.ts",
+          "line_start": 1,
+          "line_end": 103,
+          "language": "typescript",
+          "params": null,
+          "return_type": null,
+          "signature": "/data/dev/bench-repos/bun-tracked/packages/bun-lambda/scripts/build-layer.ts",
+          "score": 1.0
+        },
+        {
+          "name": "BuildCommand",
+          "qualified_name": "/data/dev/bench-repos/bun-tracked/packages/bun-lambda/scripts/build-layer.ts::BuildCommand",
+          "kind": "Class",
+          "file_path": "/data/dev/bench-repos/bun-tracked/packages/bun-lambda/scripts/build-layer.ts",
+          "line_start": 10,
+          "line_end": 100,
+          "language": "typescript",
+          "params": null,
+          "return_type": null,
+          "signature": "class BuildCommand",
+          "score": 1.0
+        },
+        {
+          "name": "run",
+          "qualified_name": "/data/dev/bench-repos/bun-tracked/packages/bun-lambda/scripts/build-layer.ts::BuildCommand.run",
+          "kind": "Function",
+          "file_path": "/data/dev/bench-repos/bun-tracked/packages/bun-lambda/scripts/build-layer.ts",
+          "line_start": 47,
+          "line_end": 99,
+          "language": "typescript",
+          "params": "()",
+          "return_type": null,
+          "signature": "def run(())",
+          "score": 1.0
+        },
+        {
+          "name": "blob",
+          "qualified_name": "/data/dev/bench-repos/bun-tracked/packages/bun-lambda/scripts/build-layer.ts::BuildCommand.blob",
+          "kind": "Function",
+          "file_path": "/data/dev/bench-repos/bun-tracked/packages/bun-lambda/scripts/build-layer.ts",
+          "line_start": 96,
+          "line_end": 96,
+          "language": "typescript",
+          "params": null,
+          "return_type": null,
+          "signature": "def blob()",
+          "score": 1.0
+        }
+      ]
+    }
+  ]
+}

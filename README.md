@@ -49,14 +49,32 @@ node bin/codeindex.js benchmark \
   --output benchmarks/results/pageindex.json
 ```
 
-Node/TypeScript 大型仓库基准：
+大型开源仓库基准（Bun）：
 
 ```bash
 node bin/codeindex.js benchmark \
-  --repo /data/github/pi-mono \
-  --store .data/pi-mono \
-  --questions benchmarks/questions-pi-mono.json \
-  --output benchmarks/results/pi-mono.json
+  --repo /data/dev/bench-repos/bun-tracked \
+  --store .data/bun \
+  --questions benchmarks/questions-bun.json \
+  --output benchmarks/results/bun-codeindex.json
 ```
 
-与 `code-review-graph` 的实际性能对比见 [`benchmarks/code-review-graph-comparison.md`](benchmarks/code-review-graph-comparison.md)。
+Bun 是 oven-sh/bun 的固定提交 `02f9249e434ed4ad6b26512a62d08caee2afb70e`，跟踪源码约 181.5 MiB，共 14,650 个 Git 文件。对比使用相同的 Bun 固定副本和 `code-review-graph` 默认完整构建流程：
+
+| 指标 | CodeIndex | code-review-graph |
+| --- | ---: | ---: |
+| 全量构建墙钟时间 | 40.00 s | 83.31 s |
+| 最大 RSS | 971 MiB | 1,150 MiB |
+| 实际索引文件数 | 13,548 | 11,291 |
+| 解析符号 / 图节点 | 23,086 | 102,675 |
+| 关系边 | 152,962 | 930,237 |
+| 索引体积 | 421 MiB | 999 MiB |
+| 精确符号查询中位数 | 0.44 ms | 0.68 ms |
+| 精确查询召回 | 4/4 | 4/4 |
+| 自然语言查询中位数 | 9.47 ms | 42.19 ms |
+| 自然语言查询召回 | 4/4 | 1/4 |
+| 无变化更新 | 0.47 s | 0.16 s |
+
+CodeIndex 的自然语言问题集覆盖 Bun 的构建脚本、WebSocket 客户端封装、HTTP 类型定义和 Lambda 构建层。精确查询与自然语言查询都返回源码证据；`code-review-graph` 的默认搜索结果主要是节点元数据。关系边直接查询中，CodeIndex 对 `src/node-fallbacks/path.js::relative` 的目标边查询为 0.19 ms，返回 131 条边；`code-review-graph` 对应目标查询为 0.009 ms，返回 2 条边，差异来自两边解析器对调用目标的解析范围不同。
+
+这次 Bun 测评还暴露了大型混合仓库的资源边界：CodeIndex 构建峰值约 971 MiB，且 6,671 个文件处于部分解析状态；`code-review-graph` 的完整后处理在社区检测阶段出现 SQLite 变量数量警告，但构建命令仍成功完成。原始构建日志、查询 JSON 和更新时间结果保存在 [`benchmarks/results`](benchmarks/results)，详细对比见 [`benchmarks/bun-code-review-graph-comparison.md`](benchmarks/bun-code-review-graph-comparison.md)，此前 pi-mono 的历史对比仍保留在 [`benchmarks/code-review-graph-comparison.md`](benchmarks/code-review-graph-comparison.md)。

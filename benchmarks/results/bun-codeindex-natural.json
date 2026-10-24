@@ -1,0 +1,231 @@
+{
+  "tool": "CodeIndex",
+  "repository": "/data/dev/bench-repos/bun-tracked",
+  "snapshotId": "snapshot:repo-4d18fb4322a9b1a993e3:8a6531898b4003a5f943f461",
+  "stats": {
+    "files": 13548,
+    "parsedFiles": 6877,
+    "symbols": 23086,
+    "relations": 152962,
+    "sourceBytes": 141745538,
+    "storeBytes": 441933648
+  },
+  "questions": {
+    "total": 4,
+    "hits": 4,
+    "recall": 1
+  },
+  "aggregate": {
+    "medianMs": 9.474786000000009,
+    "metadataMedianMs": 8.337047000000013,
+    "resultBytes": 46393,
+    "medianResultBytes": 12554,
+    "contextBytes": 23807
+  },
+  "rows": [
+    {
+      "query": "Bun build command implementation",
+      "hit": true,
+      "medianMs": 9.474786000000009,
+      "metadataMedianMs": 8.337047000000013,
+      "minMs": 8.508233000000004,
+      "evidenceCount": 6,
+      "metadataCandidateCount": 12,
+      "resultBytes": 12333,
+      "contextBytes": 6532,
+      "topCandidates": [
+        {
+          "type": "symbol",
+          "score": 10,
+          "symbolId": "symbol:f2f946a988073d66c9e6e0a3",
+          "name": "packages.bun-lambda.scripts.build-layer.BuildCommand",
+          "path": "packages/bun-lambda/scripts/build-layer.ts",
+          "startLine": 10
+        },
+        {
+          "type": "symbol",
+          "score": 7,
+          "symbolId": "symbol:9d523449e4760324fd2fe973",
+          "name": ".buildkite.ci.getRetry",
+          "path": ".buildkite/ci.mjs",
+          "startLine": 261
+        },
+        {
+          "type": "symbol",
+          "score": 7,
+          "symbolId": "symbol:4f92fe674c5019c25484feb4",
+          "name": "packages.bun-error.index.FancyTypeError.BuildError",
+          "path": "packages/bun-error/index.tsx",
+          "startLine": 875
+        },
+        {
+          "type": "symbol",
+          "score": 7,
+          "symbolId": "symbol:394061da89dd7a6734b4368b",
+          "name": "packages.bun-inspector-frontend.scripts.build",
+          "path": "packages/bun-inspector-frontend/scripts/build.ts",
+          "startLine": 1
+        },
+        {
+          "type": "symbol",
+          "score": 7,
+          "symbolId": "symbol:bea64d3ec4244b0afa876f3d",
+          "name": "packages.bun-inspector-protocol.src.protocol.schema.d.Command",
+          "path": "packages/bun-inspector-protocol/src/protocol/schema.d.ts",
+          "startLine": 20
+        }
+      ]
+    },
+    {
+      "query": "browser websocket client wrapper",
+      "hit": true,
+      "medianMs": 5.959021000000007,
+      "metadataMedianMs": 4.037337000000036,
+      "minMs": 5.105756999999983,
+      "evidenceCount": 6,
+      "metadataCandidateCount": 12,
+      "resultBytes": 7861,
+      "contextBytes": 2315,
+      "topCandidates": [
+        {
+          "type": "symbol",
+          "score": 10,
+          "symbolId": "symbol:722595b2eedbef7e149886c0",
+          "name": "src.runtime.bake.client.websocket.normalizeWebSocketURL",
+          "path": "src/runtime/bake/client/websocket.ts",
+          "startLine": 62
+        },
+        {
+          "type": "symbol",
+          "score": 10,
+          "symbolId": "symbol:0ced32f44afec86cefab6d30",
+          "name": "src.runtime.bake.client.websocket.WebSocketWrapper",
+          "path": "src/runtime/bake/client/websocket.ts",
+          "startLine": 41
+        },
+        {
+          "type": "file",
+          "score": 9,
+          "path": "src/runtime/bake/client/websocket.ts",
+          "title": "websocket.ts"
+        },
+        {
+          "type": "symbol",
+          "score": 7,
+          "symbolId": "symbol:facc86d27eb7cdb6f194356b",
+          "name": "bench.websocket-server.chat-client",
+          "path": "bench/websocket-server/chat-client.mjs",
+          "startLine": 1
+        },
+        {
+          "type": "symbol",
+          "score": 7,
+          "symbolId": "symbol:663bc1de46a40a9ca5fadd34",
+          "name": "bench.websocket-server.chat-client.restart",
+          "path": "bench/websocket-server/chat-client.mjs",
+          "startLine": 143
+        }
+      ]
+    },
+    {
+      "query": "HTTP server WebSocket type definition",
+      "hit": true,
+      "medianMs": 15.435901000000001,
+      "metadataMedianMs": 13.520989000000043,
+      "minMs": 15.075615999999968,
+      "evidenceCount": 6,
+      "metadataCandidateCount": 12,
+      "resultBytes": 12554,
+      "contextBytes": 6954,
+      "topCandidates": [
+        {
+          "type": "symbol",
+          "score": 13,
+          "symbolId": "symbol:8eb0822b050bca87504564ce",
+          "name": "test.js.web.websocket.proxy-test-utils.createConnectProxy",
+          "path": "test/js/web/websocket/proxy-test-utils.ts",
+          "startLine": 18
+        },
+        {
+          "type": "symbol",
+          "score": 13,
+          "symbolId": "symbol:e6df6dbfe250aa2ff38827e8",
+          "name": "test.js.web.websocket.proxy-test-utils.createTLSConnectProxy",
+          "path": "test/js/web/websocket/proxy-test-utils.ts",
+          "startLine": 119
+        },
+        {
+          "type": "file",
+          "score": 12,
+          "path": "packages/bun-types/serve.d.ts",
+          "title": "serve.d.ts"
+        },
+        {
+          "type": "symbol",
+          "score": 10,
+          "symbolId": "symbol:da9950c23bd6bc26f78d8b87",
+          "name": "packages.bun-types.bun.d.WebSocket",
+          "path": "packages/bun-types/bun.d.ts",
+          "startLine": 4319
+        },
+        {
+          "type": "symbol",
+          "score": 10,
+          "symbolId": "symbol:379fc9fd138db5b771c088f3",
+          "name": "packages.bun-types.serve.d.WebSocketReadyState",
+          "path": "packages/bun-types/serve.d.ts",
+          "startLine": 33
+        }
+      ]
+    },
+    {
+      "query": "lambda package build layer",
+      "hit": true,
+      "medianMs": 5.6645679999999174,
+      "metadataMedianMs": 5.321515999999974,
+      "minMs": 5.359395000000063,
+      "evidenceCount": 6,
+      "metadataCandidateCount": 12,
+      "resultBytes": 13645,
+      "contextBytes": 8006,
+      "topCandidates": [
+        {
+          "type": "symbol",
+          "score": 13,
+          "symbolId": "symbol:7af0b5890c0fbfb6b61275ad",
+          "name": "packages.bun-lambda.scripts.build-layer",
+          "path": "packages/bun-lambda/scripts/build-layer.ts",
+          "startLine": 1
+        },
+        {
+          "type": "symbol",
+          "score": 13,
+          "symbolId": "symbol:f2f946a988073d66c9e6e0a3",
+          "name": "packages.bun-lambda.scripts.build-layer.BuildCommand",
+          "path": "packages/bun-lambda/scripts/build-layer.ts",
+          "startLine": 10
+        },
+        {
+          "type": "directory",
+          "score": 12,
+          "path": "packages/bun-lambda/scripts",
+          "title": "scripts"
+        },
+        {
+          "type": "file",
+          "score": 12,
+          "path": "packages/bun-lambda/scripts/build-layer.ts",
+          "title": "build-layer.ts"
+        },
+        {
+          "type": "symbol",
+          "score": 10,
+          "symbolId": "symbol:76e85a2af6e55b3e449e0d77",
+          "name": "packages.bun-lambda.scripts.publish-layer",
+          "path": "packages/bun-lambda/scripts/publish-layer.ts",
+          "startLine": 1
+        }
+      ]
+    }
+  ]
+}

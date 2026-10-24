@@ -23,9 +23,9 @@ export function detectLanguage(filePath) {
   return EXTENSIONS.get(ext) || 'unknown';
 }
 
-function isBinary(buffer) {
-  const sample = buffer.subarray(0, Math.min(buffer.length, 8192));
-  return sample.includes(0);
+function decodeText(buffer) {
+  if (buffer.includes(0)) return null;
+  try { return new TextDecoder('utf-8', { fatal: true }).decode(buffer); } catch { return null; }
 }
 
 export function lineOffsets(source) {
@@ -112,8 +112,8 @@ export function scanRepository(repoRoot, { maxFileBytes = 5 * 1024 * 1024, ignor
         skipped.push({ path: relative, reason: `read-error:${error.code || error.message}` });
         continue;
       }
-      if (isBinary(content)) { skipped.push({ path: relative, bytes: content.length, reason: 'binary' }); continue; }
-      const source = content.toString('utf8');
+      const source = decodeText(content);
+      if (source === null) { skipped.push({ path: relative, bytes: content.length, reason: 'binary' }); continue; }
       let lineCount = content.length ? 1 : 0;
       for (const byte of content) if (byte === 10) lineCount += 1;
       files.push({ path: relative, absolute, language: detectLanguage(relative), bytes: content.length, digest: hashBytes(content), lineCount, ...(retainSource ? { source } : {}) });

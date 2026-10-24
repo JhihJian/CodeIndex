@@ -1,0 +1,6 @@
+[
+  {"query":"Build", "expectedPaths":["scripts/find-build.ts"], "expectedSymbols":["Build"]},
+  {"query":"WebSocketWrapper", "expectedPaths":["src/runtime/bake/client/websocket.ts"], "expectedSymbols":["WebSocketWrapper"]},
+  {"query":"ServerWebSocket", "expectedPaths":["packages/bun-types/serve.d.ts"], "expectedSymbols":["ServerWebSocket"]},
+  {"query":"BuildCommand", "expectedPaths":["packages/bun-lambda/scripts/build-layer.ts"], "expectedSymbols":["BuildCommand"]}
+]
