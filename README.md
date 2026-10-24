@@ -2,6 +2,32 @@
 
 CodeIndex 是一个面向大型代码仓库的 Node.js 结构化索引和推理工具。它采用固定仓库快照、确定性符号解析、包含树、关系图和可复核源码证据，借鉴 PageIndex 的结构优先导航方式。
 
+它适合需要回答“某个功能在哪里实现”“谁调用了这个符号”“改动会影响哪些代码”这类问题的场景。CodeIndex 先用索引缩小候选范围，再读取少量源码证据，避免为了单个查询扫描整个仓库。
+
+## 特性
+
+- 固定快照和原子发布，查询结果绑定 snapshot、路径、行号、字节范围和 blob digest。
+- 支持 Python AST、JavaScript 和 TypeScript 符号解析，对其他文本文件保留文件级索引。
+- 建立仓库、目录、文件和符号包含树，以及 imports、calls、inherits、implements 等关系。
+- 使用 SQLite FTS5 检索候选节点，使用关系 B-tree 索引访问邻接边。
+- 元数据候选和源码证据分阶段读取，支持 `--metadata-only` 低延迟查询。
+- 支持增量解析、无变化快路径、源码 blob 复用和可选 Pi provider 推理。
+
+
+## 环境要求
+
+- Node.js `>=22.5`，用于使用内置 `node:sqlite` 和 SQLite FTS5。
+- Python 3，用于 Python AST 解析器。
+
+## 安装
+
+```bash
+git clone https://github.com/heyjude0919/CodeIndex.git
+cd CodeIndex
+npm install
+npm test
+```
+
 ## 快速开始
 
 ```bash
