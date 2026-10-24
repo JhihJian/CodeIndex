@@ -1,0 +1,17 @@
+{
+  "repositoryId": "repo-2347f11190b638180f9a",
+  "snapshotId": "snapshot:repo-2347f11190b638180f9a:f5955f72a0ec11e84faeec73",
+  "status": "partial",
+  "stats": {
+    "files": 67862,
+    "sourceBytes": 215644476,
+    "changedFiles": 67862,
+    "reusedFiles": 0,
+    "symbols": 149696,
+    "relations": 223319,
+    "partialFiles": 41096,
+    "skipped": 38,
+    "buildMs": 186793
+  },
+  "store": "/data/dev/CodeIndex/.data/typescript"
+}

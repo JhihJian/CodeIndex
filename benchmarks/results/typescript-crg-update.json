@@ -1,0 +1,15 @@
+{
+  "command": [
+    "uv",
+    "run",
+    "code-review-graph",
+    "update",
+    "--repo",
+    "/data/dev/bench-repos/typescript-benchmark"
+  ],
+  "cwd": "/data/dev/code-review-graph",
+  "timeoutSeconds": 1200,
+  "exitCode": 0,
+  "wallSeconds": 0.16192221641540527,
+  "startedAtUnix": 1792827668.1335042
+}

@@ -1,0 +1,187 @@
+INFO: Schema version 1 -> 9: running migrations
+INFO: Running migration v2
+INFO: Migration v2: added 'signature' column to nodes
+INFO: Running migration v3
+INFO: Migration v3: created flows and flow_memberships tables
+INFO: Running migration v4
+INFO: Migration v4: added 'community_id' column to nodes
+INFO: Migration v4: created communities table
+INFO: Running migration v5
+INFO: Migration v5: created nodes_fts FTS5 virtual table
+INFO: Running migration v6
+INFO: Migration v6: created summary tables (community_summaries, flow_snapshots, risk_index)
+INFO: Running migration v7
+INFO: Migration v7: added compound edge indexes
+INFO: Running migration v8
+INFO: Migration v8: created composite edge index
+INFO: Running migration v9
+INFO: Migration v9: added edge confidence columns
+INFO: Migrations complete, now at schema version 9
+INFO: Progress: 200/31942 files parsed
+INFO: Progress: 400/31942 files parsed
+INFO: Progress: 600/31942 files parsed
+INFO: Progress: 800/31942 files parsed
+INFO: Progress: 1000/31942 files parsed
+INFO: Progress: 1200/31942 files parsed
+INFO: Progress: 1400/31942 files parsed
+INFO: Progress: 1600/31942 files parsed
+INFO: Progress: 1800/31942 files parsed
+INFO: Progress: 2000/31942 files parsed
+INFO: Progress: 2200/31942 files parsed
+INFO: Progress: 2400/31942 files parsed
+INFO: Progress: 2600/31942 files parsed
+INFO: Progress: 2800/31942 files parsed
+INFO: Progress: 3000/31942 files parsed
+INFO: Progress: 3200/31942 files parsed
+INFO: Progress: 3400/31942 files parsed
+INFO: Progress: 3600/31942 files parsed
+INFO: Progress: 3800/31942 files parsed
+INFO: Progress: 4000/31942 files parsed
+INFO: Progress: 4200/31942 files parsed
+INFO: Progress: 4400/31942 files parsed
+INFO: Progress: 4600/31942 files parsed
+INFO: Progress: 4800/31942 files parsed
+INFO: Progress: 5000/31942 files parsed
+INFO: Progress: 5200/31942 files parsed
+INFO: Progress: 5400/31942 files parsed
+INFO: Progress: 5600/31942 files parsed
+INFO: Progress: 5800/31942 files parsed
+INFO: Progress: 6000/31942 files parsed
+INFO: Progress: 6200/31942 files parsed
+INFO: Progress: 6400/31942 files parsed
+INFO: Progress: 6600/31942 files parsed
+INFO: Progress: 6800/31942 files parsed
+INFO: Progress: 7000/31942 files parsed
+INFO: Progress: 7200/31942 files parsed
+INFO: Progress: 7400/31942 files parsed
+INFO: Progress: 7600/31942 files parsed
+INFO: Progress: 7800/31942 files parsed
+INFO: Progress: 8000/31942 files parsed
+INFO: Progress: 8200/31942 files parsed
+INFO: Progress: 8400/31942 files parsed
+INFO: Progress: 8600/31942 files parsed
+INFO: Progress: 8800/31942 files parsed
+INFO: Progress: 9000/31942 files parsed
+INFO: Progress: 9200/31942 files parsed
+INFO: Progress: 9400/31942 files parsed
+INFO: Progress: 9600/31942 files parsed
+INFO: Progress: 9800/31942 files parsed
+INFO: Progress: 10000/31942 files parsed
+INFO: Progress: 10200/31942 files parsed
+INFO: Progress: 10400/31942 files parsed
+INFO: Progress: 10600/31942 files parsed
+INFO: Progress: 10800/31942 files parsed
+INFO: Progress: 11000/31942 files parsed
+INFO: Progress: 11200/31942 files parsed
+INFO: Progress: 11400/31942 files parsed
+INFO: Progress: 11600/31942 files parsed
+INFO: Progress: 11800/31942 files parsed
+INFO: Progress: 12000/31942 files parsed
+INFO: Progress: 12200/31942 files parsed
+INFO: Progress: 12400/31942 files parsed
+INFO: Progress: 12600/31942 files parsed
+INFO: Progress: 12800/31942 files parsed
+INFO: Progress: 13000/31942 files parsed
+INFO: Progress: 13200/31942 files parsed
+INFO: Progress: 13400/31942 files parsed
+INFO: Progress: 13600/31942 files parsed
+INFO: Progress: 13800/31942 files parsed
+INFO: Progress: 14000/31942 files parsed
+INFO: Progress: 14200/31942 files parsed
+INFO: Progress: 14400/31942 files parsed
+INFO: Progress: 14600/31942 files parsed
+INFO: Progress: 14800/31942 files parsed
+INFO: Progress: 15000/31942 files parsed
+INFO: Progress: 15200/31942 files parsed
+INFO: Progress: 15400/31942 files parsed
+INFO: Progress: 15600/31942 files parsed
+INFO: Progress: 15800/31942 files parsed
+INFO: Progress: 16000/31942 files parsed
+INFO: Progress: 16200/31942 files parsed
+INFO: Progress: 16400/31942 files parsed
+INFO: Progress: 16600/31942 files parsed
+INFO: Progress: 16800/31942 files parsed
+INFO: Progress: 17000/31942 files parsed
+INFO: Progress: 17200/31942 files parsed
+INFO: Progress: 17400/31942 files parsed
+INFO: Progress: 17600/31942 files parsed
+INFO: Progress: 17800/31942 files parsed
+INFO: Progress: 18000/31942 files parsed
+INFO: Progress: 18200/31942 files parsed
+INFO: Progress: 18400/31942 files parsed
+INFO: Progress: 18600/31942 files parsed
+INFO: Progress: 18800/31942 files parsed
+INFO: Progress: 19000/31942 files parsed
+INFO: Progress: 19200/31942 files parsed
+INFO: Progress: 19400/31942 files parsed
+INFO: Progress: 19600/31942 files parsed
+INFO: Progress: 19800/31942 files parsed
+INFO: Progress: 20000/31942 files parsed
+INFO: Progress: 20200/31942 files parsed
+INFO: Progress: 20400/31942 files parsed
+INFO: Progress: 20600/31942 files parsed
+INFO: Progress: 20800/31942 files parsed
+INFO: Progress: 21000/31942 files parsed
+INFO: Progress: 21200/31942 files parsed
+INFO: Progress: 21400/31942 files parsed
+INFO: Progress: 21600/31942 files parsed
+INFO: Progress: 21800/31942 files parsed
+INFO: Progress: 22000/31942 files parsed
+INFO: Progress: 22200/31942 files parsed
+INFO: Progress: 22400/31942 files parsed
+INFO: Progress: 22600/31942 files parsed
+INFO: Progress: 22800/31942 files parsed
+INFO: Progress: 23000/31942 files parsed
+INFO: Progress: 23200/31942 files parsed
+INFO: Progress: 23400/31942 files parsed
+INFO: Progress: 23600/31942 files parsed
+INFO: Progress: 23800/31942 files parsed
+INFO: Progress: 24000/31942 files parsed
+INFO: Progress: 24200/31942 files parsed
+INFO: Progress: 24400/31942 files parsed
+INFO: Progress: 24600/31942 files parsed
+INFO: Progress: 24800/31942 files parsed
+INFO: Progress: 25000/31942 files parsed
+INFO: Progress: 25200/31942 files parsed
+INFO: Progress: 25400/31942 files parsed
+INFO: Progress: 25600/31942 files parsed
+INFO: Progress: 25800/31942 files parsed
+INFO: Progress: 26000/31942 files parsed
+INFO: Progress: 26200/31942 files parsed
+INFO: Progress: 26400/31942 files parsed
+INFO: Progress: 26600/31942 files parsed
+INFO: Progress: 26800/31942 files parsed
+INFO: Progress: 27000/31942 files parsed
+INFO: Progress: 27200/31942 files parsed
+INFO: Progress: 27400/31942 files parsed
+INFO: Progress: 27600/31942 files parsed
+INFO: Progress: 27800/31942 files parsed
+INFO: Progress: 28000/31942 files parsed
+INFO: Progress: 28200/31942 files parsed
+INFO: Progress: 28400/31942 files parsed
+INFO: Progress: 28600/31942 files parsed
+INFO: Progress: 28800/31942 files parsed
+INFO: Progress: 29000/31942 files parsed
+INFO: Progress: 29200/31942 files parsed
+INFO: Progress: 29400/31942 files parsed
+INFO: Progress: 29600/31942 files parsed
+INFO: Progress: 29800/31942 files parsed
+INFO: Progress: 30000/31942 files parsed
+INFO: Progress: 30200/31942 files parsed
+INFO: Progress: 30400/31942 files parsed
+INFO: Progress: 30600/31942 files parsed
+INFO: Progress: 30800/31942 files parsed
+INFO: Progress: 31000/31942 files parsed
+INFO: Progress: 31200/31942 files parsed
+INFO: Progress: 31400/31942 files parsed
+INFO: Progress: 31600/31942 files parsed
+INFO: Progress: 31800/31942 files parsed
+INFO: Progress: 31942/31942 files parsed
+INFO: FTS index rebuilt: 128903 rows indexed
+INFO: Loaded 96961 unique nodes, 512089 edges
+INFO: igraph not available, using file-based community detection
+WARNING: Community detection failed: too many SQL variables
+INFO: FTS index rebuilt: 128903 rows indexed
+INFO: Loaded 96961 unique nodes, 512089 edges
+INFO: igraph not available, using file-based community detection
+WARNING: Community detection failed: too many SQL variables

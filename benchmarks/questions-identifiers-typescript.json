@@ -1,0 +1,6 @@
+[
+  {"query":"LanguageService", "expectedPaths":["packages/typescript/src/api/async/api.ts"], "expectedSymbols":["LanguageService"]},
+  {"query":"BuildOrchestrator", "expectedPaths":["packages/typescript/src/api/async/api.ts"], "expectedSymbols":["BuildOrchestrator"]},
+  {"query":"Client", "expectedPaths":["packages/typescript/src/api/async/client.ts"], "expectedSymbols":["Client"]},
+  {"query":"Snapshot", "expectedPaths":["packages/typescript/src/api/async/api.ts"], "expectedSymbols":["Snapshot"]}
+]

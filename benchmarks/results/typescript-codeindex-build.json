@@ -1,0 +1,17 @@
+{
+  "command": [
+    "node",
+    "bin/codeindex.js",
+    "index",
+    "--repo",
+    "/data/dev/bench-repos/typescript-benchmark",
+    "--store",
+    "/data/dev/CodeIndex/.data/typescript",
+    "--json"
+  ],
+  "cwd": "/data/dev/CodeIndex",
+  "timeoutSeconds": 1800,
+  "exitCode": 0,
+  "wallSeconds": 246.32694602012634,
+  "startedAtUnix": 1792826785.191735
+}

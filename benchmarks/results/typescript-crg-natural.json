@@ -1,0 +1,59 @@
+{
+  "tool": "code-review-graph",
+  "repo": "/data/dev/bench-repos/typescript-benchmark",
+  "stats": {
+    "dbBytes": 881471488,
+    "nodes": 128903,
+    "edges": 512089,
+    "files": 31942,
+    "fts": 128903
+  },
+  "questions": {
+    "total": 4,
+    "hits": 0,
+    "recall": 0.0
+  },
+  "aggregate": {
+    "medianMs": 89.28784099407494,
+    "resultBytes": 8,
+    "medianResultBytes": 2
+  },
+  "rows": [
+    {
+      "query": "TypeScript language service project API",
+      "hit": false,
+      "medianMs": 84.88061092793941,
+      "minMs": 83.32232502289116,
+      "resultCount": 0,
+      "resultBytes": 2,
+      "topResults": []
+    },
+    {
+      "query": "TypeScript compiler build orchestrator",
+      "hit": false,
+      "medianMs": 98.89732394367456,
+      "minMs": 90.2803239878267,
+      "resultCount": 0,
+      "resultBytes": 2,
+      "topResults": []
+    },
+    {
+      "query": "TypeScript asynchronous API client",
+      "hit": false,
+      "medianMs": 86.37793397065252,
+      "minMs": 85.83767001982778,
+      "resultCount": 0,
+      "resultBytes": 2,
+      "topResults": []
+    },
+    {
+      "query": "TypeScript source snapshot registry",
+      "hit": false,
+      "medianMs": 89.28784099407494,
+      "minMs": 86.77861792966723,
+      "resultCount": 0,
+      "resultBytes": 2,
+      "topResults": []
+    }
+  ]
+}

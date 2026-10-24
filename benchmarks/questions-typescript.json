@@ -1,0 +1,6 @@
+[
+  {"query":"TypeScript language service project API", "expectedPaths":["packages/typescript/src/api/async/api.ts"], "expectedSymbols":["LanguageService","Project"]},
+  {"query":"TypeScript compiler build orchestrator", "expectedPaths":["packages/typescript/src/api/async/api.ts"], "expectedSymbols":["BuildOrchestrator"]},
+  {"query":"TypeScript asynchronous API client", "expectedPaths":["packages/typescript/src/api/async/client.ts"], "expectedSymbols":["Client"]},
+  {"query":"TypeScript source snapshot registry", "expectedPaths":["packages/typescript/src/api/async/api.ts"], "expectedSymbols":["Snapshot","SnapshotObjectRegistry"]}
+]

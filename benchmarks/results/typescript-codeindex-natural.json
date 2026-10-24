@@ -1,0 +1,239 @@
+{
+  "tool": "CodeIndex",
+  "repository": "/data/dev/bench-repos/typescript-benchmark",
+  "snapshotId": "snapshot:repo-2347f11190b638180f9a:f5955f72a0ec11e84faeec73",
+  "stats": {
+    "files": 67862,
+    "parsedFiles": 26766,
+    "symbols": 149696,
+    "relations": 223319,
+    "sourceBytes": 215644476,
+    "storeBytes": 1418130988
+  },
+  "questions": {
+    "total": 4,
+    "hits": 4,
+    "recall": 1
+  },
+  "aggregate": {
+    "medianMs": 82.52217900000005,
+    "metadataMedianMs": 79.22741799999994,
+    "resultBytes": 49004,
+    "medianResultBytes": 12385,
+    "contextBytes": 24397
+  },
+  "rows": [
+    {
+      "query": "TypeScript language service project API",
+      "hit": true,
+      "medianMs": 137.208277,
+      "metadataMedianMs": 127.87165099999993,
+      "minMs": 133.563576,
+      "evidenceCount": 6,
+      "metadataCandidateCount": 12,
+      "resultBytes": 11204,
+      "contextBytes": 5014,
+      "topCandidates": [
+        {
+          "type": "symbol",
+          "score": 13,
+          "symbolId": "symbol:dc64e9dc32c759625d2168b7",
+          "name": "packages.typescript.src.api.async.api.ProjectObjectRegistry",
+          "path": "packages/typescript/src/api/async/api.ts",
+          "startLine": 1280
+        },
+        {
+          "type": "symbol",
+          "score": 13,
+          "symbolId": "symbol:7a9f0ccdfe7e8f70f0bf1ab6",
+          "name": "packages.typescript.src.api.async.api.Project",
+          "path": "packages/typescript/src/api/async/api.ts",
+          "startLine": 1548
+        },
+        {
+          "type": "symbol",
+          "score": 13,
+          "symbolId": "symbol:e165a85043912002dadea0cd",
+          "name": "packages.typescript.src.api.proto.generated.ProjectId",
+          "path": "packages/typescript/src/api/proto.generated.ts",
+          "startLine": 229
+        },
+        {
+          "type": "symbol",
+          "score": 13,
+          "symbolId": "symbol:45f76a4174a6853cf6fb2acb",
+          "name": "packages.typescript.src.api.proto.generated.ProjectResponse",
+          "path": "packages/typescript/src/api/proto.generated.ts",
+          "startLine": 468
+        },
+        {
+          "type": "symbol",
+          "score": 13,
+          "symbolId": "symbol:afebeb0b6f109071e574449a",
+          "name": "packages.typescript.src.api.proto.generated.ProjectReference",
+          "path": "packages/typescript/src/api/proto.generated.ts",
+          "startLine": 1640
+        }
+      ]
+    },
+    {
+      "query": "TypeScript compiler build orchestrator",
+      "hit": true,
+      "medianMs": 82.52217900000005,
+      "metadataMedianMs": 79.22741799999994,
+      "minMs": 81.28130400000009,
+      "evidenceCount": 6,
+      "metadataCandidateCount": 12,
+      "resultBytes": 12106,
+      "contextBytes": 5832,
+      "topCandidates": [
+        {
+          "type": "symbol",
+          "score": 10,
+          "symbolId": "symbol:b63a23a2525087f23982c12d",
+          "name": "packages.typescript.src.api.async.api.BuildOrchestratorOptions",
+          "path": "packages/typescript/src/api/async/api.ts",
+          "startLine": 2163
+        },
+        {
+          "type": "symbol",
+          "score": 10,
+          "symbolId": "symbol:e23d2068fb0513f2ceb5466a",
+          "name": "packages.typescript.src.api.async.api.BuildOrchestrator",
+          "path": "packages/typescript/src/api/async/api.ts",
+          "startLine": 2183
+        },
+        {
+          "type": "symbol",
+          "score": 10,
+          "symbolId": "symbol:ca4e2ae60ad4846890e295ca",
+          "name": "packages.typescript.src.api.sync.api.BuildOrchestratorOptions",
+          "path": "packages/typescript/src/api/sync/api.ts",
+          "startLine": 3918
+        },
+        {
+          "type": "symbol",
+          "score": 10,
+          "symbolId": "symbol:cf173b85e4eafeb64a5967ff",
+          "name": "packages.typescript.src.api.sync.api.BuildOrchestrator",
+          "path": "packages/typescript/src/api/sync/api.ts",
+          "startLine": 3938
+        },
+        {
+          "type": "symbol",
+          "score": 10,
+          "symbolId": "symbol:33fbe55b1497c22416f396e6",
+          "name": "tsc.testdata.fixtures.compiler.builder.BuilderFileEmit",
+          "path": "tsc/testdata/fixtures/compiler/builder.ts",
+          "startLine": 187
+        }
+      ]
+    },
+    {
+      "query": "TypeScript asynchronous API client",
+      "hit": true,
+      "medianMs": 41.68437199999971,
+      "metadataMedianMs": 41.78621099999964,
+      "minMs": 41.27521100000013,
+      "evidenceCount": 6,
+      "metadataCandidateCount": 12,
+      "resultBytes": 12385,
+      "contextBytes": 6246,
+      "topCandidates": [
+        {
+          "type": "symbol",
+          "score": 10,
+          "symbolId": "symbol:dc434186e20190761ec06ba3",
+          "name": "packages.typescript.src.api.async.client",
+          "path": "packages/typescript/src/api/async/client.ts",
+          "startLine": 1
+        },
+        {
+          "type": "symbol",
+          "score": 10,
+          "symbolId": "symbol:b95888126468ab4f36887b38",
+          "name": "packages.typescript.src.api.async.client.Client",
+          "path": "packages/typescript/src/api/async/client.ts",
+          "startLine": 54
+        },
+        {
+          "type": "symbol",
+          "score": 10,
+          "symbolId": "symbol:1012703d8db9aa353255d51d",
+          "name": "packages.typescript.src.api.node.node.infrastructure.readParseOptionsKey",
+          "path": "packages/typescript/src/api/node/node.infrastructure.ts",
+          "startLine": 92
+        },
+        {
+          "type": "symbol",
+          "score": 10,
+          "symbolId": "symbol:b96fae931792c8ba68e0edba",
+          "name": "packages.typescript.src.api.options.ClientSocketOptions",
+          "path": "packages/typescript/src/api/options.ts",
+          "startLine": 10
+        },
+        {
+          "type": "symbol",
+          "score": 10,
+          "symbolId": "symbol:d398c763c7099814d0a9ad86",
+          "name": "packages.typescript.src.api.options.ClientSpawnOptions",
+          "path": "packages/typescript/src/api/options.ts",
+          "startLine": 17
+        }
+      ]
+    },
+    {
+      "query": "TypeScript source snapshot registry",
+      "hit": true,
+      "medianMs": 43.542474000000766,
+      "metadataMedianMs": 43.13698100000056,
+      "minMs": 42.99087899999995,
+      "evidenceCount": 6,
+      "metadataCandidateCount": 12,
+      "resultBytes": 13309,
+      "contextBytes": 7305,
+      "topCandidates": [
+        {
+          "type": "symbol",
+          "score": 10,
+          "symbolId": "symbol:2183a59fee6330c2592df2e0",
+          "name": "packages.typescript.src.api.async.api.SnapshotObjectRegistry",
+          "path": "packages/typescript/src/api/async/api.ts",
+          "startLine": 1229
+        },
+        {
+          "type": "symbol",
+          "score": 10,
+          "symbolId": "symbol:8e796f92af4c217c832273b1",
+          "name": "packages.typescript.src.api.proto.generated.GetCachedSourceFileParams",
+          "path": "packages/typescript/src/api/proto.generated.ts",
+          "startLine": 252
+        },
+        {
+          "type": "symbol",
+          "score": 10,
+          "symbolId": "symbol:c48096336acacbc69bb8fb4b",
+          "name": "packages.typescript.src.api.sourceFileCache.snapshotRefKey",
+          "path": "packages/typescript/src/api/sourceFileCache.ts",
+          "startLine": 12
+        },
+        {
+          "type": "symbol",
+          "score": 10,
+          "symbolId": "symbol:2d3b3d24a6560db07f5f910f",
+          "name": "packages.typescript.src.api.sourceFileCache.SourceFileCache",
+          "path": "packages/typescript/src/api/sourceFileCache.ts",
+          "startLine": 72
+        },
+        {
+          "type": "symbol",
+          "score": 10,
+          "symbolId": "symbol:761ac9d9bce9927be8aefe90",
+          "name": "packages.typescript.src.api.sync.api.SnapshotObjectRegistry",
+          "path": "packages/typescript/src/api/sync/api.ts",
+          "startLine": 1961
+        }
+      ]
+    }
+  ]
+}

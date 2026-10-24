@@ -1,0 +1,231 @@
+{
+  "tool": "CodeIndex",
+  "repository": "/data/dev/bench-repos/typescript-benchmark",
+  "snapshotId": "snapshot:repo-2347f11190b638180f9a:f5955f72a0ec11e84faeec73",
+  "stats": {
+    "files": 67862,
+    "parsedFiles": 26766,
+    "symbols": 149696,
+    "relations": 223319,
+    "sourceBytes": 215644476,
+    "storeBytes": 1418130988
+  },
+  "questions": {
+    "total": 4,
+    "hits": 4,
+    "recall": 1
+  },
+  "aggregate": {
+    "medianMs": 2.4077240000000018,
+    "metadataMedianMs": 0.7233240000000194,
+    "resultBytes": 43927,
+    "medianResultBytes": 11868,
+    "contextBytes": 22677
+  },
+  "rows": [
+    {
+      "query": "LanguageService",
+      "hit": true,
+      "medianMs": 2.820070000000001,
+      "metadataMedianMs": 0.24068799999999158,
+      "minMs": 2.0856160000000017,
+      "evidenceCount": 6,
+      "metadataCandidateCount": 9,
+      "resultBytes": 11868,
+      "contextBytes": 6507,
+      "topCandidates": [
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:50845a60e45683ad795edd0b",
+          "name": "packages.typescript.src.api.async.api.LanguageService",
+          "path": "packages/typescript/src/api/async/api.ts",
+          "startLine": 1588
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:e58d97f76890484f0964e405",
+          "name": "packages.typescript.src.api.async.types.CompletionOptions",
+          "path": "packages/typescript/src/api/async/types.ts",
+          "startLine": 388
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:c8d5fb2628e4a7c37949f764",
+          "name": "packages.typescript.src.api.async.types.CompletionInfo",
+          "path": "packages/typescript/src/api/async/types.ts",
+          "startLine": 408
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:df23e01759a12ea6fcf55795",
+          "name": "packages.typescript.src.api.async.types.CompletionEntry",
+          "path": "packages/typescript/src/api/async/types.ts",
+          "startLine": 395
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:2f63cde93886d06cd068a503",
+          "name": "packages.typescript.src.api.sync.api.LanguageService",
+          "path": "packages/typescript/src/api/sync/api.ts",
+          "startLine": 2619
+        }
+      ]
+    },
+    {
+      "query": "BuildOrchestrator",
+      "hit": true,
+      "medianMs": 2.4077240000000018,
+      "metadataMedianMs": 0.13700500000000204,
+      "minMs": 2.2191040000000015,
+      "evidenceCount": 4,
+      "metadataCandidateCount": 4,
+      "resultBytes": 8130,
+      "contextBytes": 4493,
+      "topCandidates": [
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:b63a23a2525087f23982c12d",
+          "name": "packages.typescript.src.api.async.api.BuildOrchestratorOptions",
+          "path": "packages/typescript/src/api/async/api.ts",
+          "startLine": 2163
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:e23d2068fb0513f2ceb5466a",
+          "name": "packages.typescript.src.api.async.api.BuildOrchestrator",
+          "path": "packages/typescript/src/api/async/api.ts",
+          "startLine": 2183
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:ca4e2ae60ad4846890e295ca",
+          "name": "packages.typescript.src.api.sync.api.BuildOrchestratorOptions",
+          "path": "packages/typescript/src/api/sync/api.ts",
+          "startLine": 3918
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:cf173b85e4eafeb64a5967ff",
+          "name": "packages.typescript.src.api.sync.api.BuildOrchestrator",
+          "path": "packages/typescript/src/api/sync/api.ts",
+          "startLine": 3938
+        }
+      ]
+    },
+    {
+      "query": "Client",
+      "hit": true,
+      "medianMs": 1.890492000000009,
+      "metadataMedianMs": 1.3681919999999934,
+      "minMs": 1.710047000000003,
+      "evidenceCount": 6,
+      "metadataCandidateCount": 12,
+      "resultBytes": 12353,
+      "contextBytes": 6246,
+      "topCandidates": [
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:b95888126468ab4f36887b38",
+          "name": "packages.typescript.src.api.async.client.Client",
+          "path": "packages/typescript/src/api/async/client.ts",
+          "startLine": 54
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:dc434186e20190761ec06ba3",
+          "name": "packages.typescript.src.api.async.client",
+          "path": "packages/typescript/src/api/async/client.ts",
+          "startLine": 1
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:1012703d8db9aa353255d51d",
+          "name": "packages.typescript.src.api.node.node.infrastructure.readParseOptionsKey",
+          "path": "packages/typescript/src/api/node/node.infrastructure.ts",
+          "startLine": 92
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:b96fae931792c8ba68e0edba",
+          "name": "packages.typescript.src.api.options.ClientSocketOptions",
+          "path": "packages/typescript/src/api/options.ts",
+          "startLine": 10
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:d398c763c7099814d0a9ad86",
+          "name": "packages.typescript.src.api.options.ClientSpawnOptions",
+          "path": "packages/typescript/src/api/options.ts",
+          "startLine": 17
+        }
+      ]
+    },
+    {
+      "query": "Snapshot",
+      "hit": true,
+      "medianMs": 1.997942000000009,
+      "metadataMedianMs": 0.7233240000000194,
+      "minMs": 1.8589740000000035,
+      "evidenceCount": 6,
+      "metadataCandidateCount": 12,
+      "resultBytes": 11576,
+      "contextBytes": 5431,
+      "topCandidates": [
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:03356c77fd738bd3cf9a091e",
+          "name": "packages.typescript.src.api.async.api.SnapshotUpdater",
+          "path": "packages/typescript/src/api/async/api.ts",
+          "startLine": 987
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:e265d6cb47cc776203e6d807",
+          "name": "packages.typescript.src.api.async.api.SnapshotOperation",
+          "path": "packages/typescript/src/api/async/api.ts",
+          "startLine": 989
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:a5764e5793b39686e9232f39",
+          "name": "packages.typescript.src.api.async.api.SnapshotOpenedFileOperation",
+          "path": "packages/typescript/src/api/async/api.ts",
+          "startLine": 994
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:206c1e0a2902d27cd991a7c1",
+          "name": "packages.typescript.src.api.async.api.Snapshot",
+          "path": "packages/typescript/src/api/async/api.ts",
+          "startLine": 1047
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:2183a59fee6330c2592df2e0",
+          "name": "packages.typescript.src.api.async.api.SnapshotObjectRegistry",
+          "path": "packages/typescript/src/api/async/api.ts",
+          "startLine": 1229
+        }
+      ]
+    }
+  ]
+}
