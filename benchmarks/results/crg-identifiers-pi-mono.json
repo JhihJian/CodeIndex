@@ -1,0 +1,258 @@
+{
+  "tool": "code-review-graph",
+  "repo": "/data/github/pi-mono",
+  "stats": {
+    "dbBytes": 65421312,
+    "nodes": 6144,
+    "edges": 55733,
+    "files": 512,
+    "fts": 6144
+  },
+  "questions": {
+    "total": 4,
+    "hits": 4,
+    "recall": 1.0
+  },
+  "aggregate": {
+    "medianMs": 0.509322970174253,
+    "resultBytes": 21843,
+    "medianResultBytes": 7572
+  },
+  "rows": [
+    {
+      "query": "ModelRegistry",
+      "hit": true,
+      "medianMs": 0.509322970174253,
+      "minMs": 0.5007879808545113,
+      "resultCount": 20,
+      "resultBytes": 11511,
+      "topResults": [
+        {
+          "name": "ModelRegistry",
+          "qualified_name": "/data/github/pi-mono/packages/coding-agent/src/core/model-registry.ts::ModelRegistry",
+          "kind": "Class",
+          "file_path": "/data/github/pi-mono/packages/coding-agent/src/core/model-registry.ts",
+          "line_start": 223,
+          "line_end": 668,
+          "language": "typescript",
+          "params": null,
+          "return_type": null,
+          "signature": "class ModelRegistry",
+          "score": 0.024194
+        },
+        {
+          "name": "modelRegistry",
+          "qualified_name": "/data/github/pi-mono/packages/coding-agent/src/core/agent-session.ts::AgentSession.modelRegistry",
+          "kind": "Function",
+          "file_path": "/data/github/pi-mono/packages/coding-agent/src/core/agent-session.ts",
+          "line_start": 302,
+          "line_end": 304,
+          "language": "typescript",
+          "params": "()",
+          "return_type": ": ModelRegistry",
+          "signature": "def modelRegistry(()) -> : ModelRegistry",
+          "score": 0.016393
+        },
+        {
+          "name": "describe:ModelRegistry@L10",
+          "qualified_name": "/data/github/pi-mono/packages/coding-agent/test/model-registry.test.ts::describe:ModelRegistry@L10",
+          "kind": "Test",
+          "file_path": "/data/github/pi-mono/packages/coding-agent/test/model-registry.test.ts",
+          "line_start": 10,
+          "line_end": 908,
+          "language": "typescript",
+          "params": null,
+          "return_type": null,
+          "signature": "def describe:ModelRegistry@L10()",
+          "score": 0.015873
+        },
+        {
+          "name": "listModels",
+          "qualified_name": "/data/github/pi-mono/packages/coding-agent/src/cli/list-models.ts::listModels",
+          "kind": "Function",
+          "file_path": "/data/github/pi-mono/packages/coding-agent/src/cli/list-models.ts",
+          "line_start": 27,
+          "line_end": 104,
+          "language": "typescript",
+          "params": "(modelRegistry: ModelRegistry, searchPattern?: string)",
+          "return_type": ": Promise<void>",
+          "signature": "def listModels((modelRegistry: ModelRegistry, searchPattern?: string)) -> : Promise<void>",
+          "score": 0.015625
+        },
+        {
+          "name": "resolveModelScope",
+          "qualified_name": "/data/github/pi-mono/packages/coding-agent/src/core/model-resolver.ts::resolveModelScope",
+          "kind": "Function",
+          "file_path": "/data/github/pi-mono/packages/coding-agent/src/core/model-resolver.ts",
+          "line_start": 212,
+          "line_end": 270,
+          "language": "typescript",
+          "params": "(patterns: string[], modelRegistry: ModelRegistry)",
+          "return_type": ": Promise<ScopedModel[]>",
+          "signature": "def resolveModelScope((patterns: string[], modelRegistry: ModelRegistry)) -> : Promise<ScopedModel[]>",
+          "score": 0.015385
+        }
+      ]
+    },
+    {
+      "query": "loadExtensions",
+      "hit": true,
+      "medianMs": 0.2808190183714032,
+      "minMs": 0.26875699404627085,
+      "resultCount": 4,
+      "resultBytes": 2367,
+      "topResults": [
+        {
+          "name": "loadExtensions",
+          "qualified_name": "/data/github/pi-mono/packages/coding-agent/src/core/extensions/loader.ts::loadExtensions",
+          "kind": "Function",
+          "file_path": "/data/github/pi-mono/packages/coding-agent/src/core/extensions/loader.ts",
+          "line_start": 349,
+          "line_end": 373,
+          "language": "typescript",
+          "params": "(paths: string[], cwd: string, eventBus?: EventBus)",
+          "return_type": ": Promise<LoadExtensionsResult>",
+          "signature": "def loadExtensions((paths: string[], cwd: string, eventBus?: EventBus)) -> : Promise<LoadExtensionsResult>",
+          "score": 0.016393
+        },
+        {
+          "name": "loadExtension",
+          "qualified_name": "/data/github/pi-mono/packages/coding-agent/src/core/extensions/loader.ts::loadExtension",
+          "kind": "Function",
+          "file_path": "/data/github/pi-mono/packages/coding-agent/src/core/extensions/loader.ts",
+          "line_start": 305,
+          "line_end": 328,
+          "language": "typescript",
+          "params": "(\n\textensionPath: string,\n\tcwd: string,\n\teventBus: EventBus,\n\truntime: ExtensionRuntime,\n)",
+          "return_type": ": Promise<{ extension: Extension | null; error: string | null }>",
+          "signature": "def loadExtension((\n\textensionPath: string,\n\tcwd: string,\n\teventBus: EventBus,\n\truntime: ExtensionRuntime,\n)) -> : Promise<{ extension: Extension | null; error: string | null }>",
+          "score": 0.016129
+        },
+        {
+          "name": "it:loadExtensions with no paths loads nothing@L452",
+          "qualified_name": "/data/github/pi-mono/packages/coding-agent/test/extensions-discovery.test.ts::it:loadExtensions with no paths loads nothing@L452",
+          "kind": "Test",
+          "file_path": "/data/github/pi-mono/packages/coding-agent/test/extensions-discovery.test.ts",
+          "line_start": 452,
+          "line_end": 462,
+          "language": "typescript",
+          "params": null,
+          "return_type": null,
+          "signature": "def it:loadExtensions with no paths loads nothing@L452()",
+          "score": 0.015873
+        },
+        {
+          "name": "it:loadExtensions only loads explicit paths without discovery@L434",
+          "qualified_name": "/data/github/pi-mono/packages/coding-agent/test/extensions-discovery.test.ts::it:loadExtensions only loads explicit paths without discovery@L434",
+          "kind": "Test",
+          "file_path": "/data/github/pi-mono/packages/coding-agent/test/extensions-discovery.test.ts",
+          "line_start": 434,
+          "line_end": 450,
+          "language": "typescript",
+          "params": null,
+          "return_type": null,
+          "signature": "def it:loadExtensions only loads explicit paths without discovery@L434()",
+          "score": 0.015625
+        }
+      ]
+    },
+    {
+      "query": "Agent",
+      "hit": true,
+      "medianMs": 2.692312002182007,
+      "minMs": 2.5553329614922404,
+      "resultCount": 20,
+      "resultBytes": 7572,
+      "topResults": [
+        {
+          "name": "Agent",
+          "qualified_name": "/data/github/pi-mono/packages/agent/src/agent.ts::Agent",
+          "kind": "Class",
+          "file_path": "/data/github/pi-mono/packages/agent/src/agent.ts",
+          "line_start": 96,
+          "line_end": 559,
+          "language": "typescript",
+          "params": null,
+          "return_type": null,
+          "signature": "class Agent",
+          "score": 0.02459
+        },
+        {
+          "name": "/data/github/pi-mono/packages/agent/src/agent.ts",
+          "qualified_name": "/data/github/pi-mono/packages/agent/src/agent.ts",
+          "kind": "File",
+          "file_path": "/data/github/pi-mono/packages/agent/src/agent.ts",
+          "line_start": 1,
+          "line_end": 560,
+          "language": "typescript",
+          "params": null,
+          "return_type": null,
+          "signature": "/data/github/pi-mono/packages/agent/src/agent.ts",
+          "score": 0.016129
+        },
+        {
+          "name": "describe:Agent@L39",
+          "qualified_name": "/data/github/pi-mono/packages/agent/test/agent.test.ts::describe:Agent@L39",
+          "kind": "Test",
+          "file_path": "/data/github/pi-mono/packages/agent/test/agent.test.ts",
+          "line_start": 39,
+          "line_end": 340,
+          "language": "typescript",
+          "params": null,
+          "return_type": null,
+          "signature": "def describe:Agent@L39()",
+          "score": 0.015873
+        },
+        {
+          "name": "/data/github/pi-mono/packages/agent/src/agent-loop.ts",
+          "qualified_name": "/data/github/pi-mono/packages/agent/src/agent-loop.ts",
+          "kind": "File",
+          "file_path": "/data/github/pi-mono/packages/agent/src/agent-loop.ts",
+          "line_start": 1,
+          "line_end": 418,
+          "language": "typescript",
+          "params": null,
+          "return_type": null,
+          "signature": "/data/github/pi-mono/packages/agent/src/agent-loop.ts",
+          "score": 0.015625
+        },
+        {
+          "name": "/data/github/pi-mono/packages/agent/test/agent.test.ts",
+          "qualified_name": "/data/github/pi-mono/packages/agent/test/agent.test.ts",
+          "kind": "File",
+          "file_path": "/data/github/pi-mono/packages/agent/test/agent.test.ts",
+          "line_start": 1,
+          "line_end": 341,
+          "language": "typescript",
+          "params": null,
+          "return_type": null,
+          "signature": "/data/github/pi-mono/packages/agent/test/agent.test.ts",
+          "score": 0.015385
+        }
+      ]
+    },
+    {
+      "query": "toolExecution",
+      "hit": true,
+      "medianMs": 0.21610199473798275,
+      "minMs": 0.20767701789736748,
+      "resultCount": 1,
+      "resultBytes": 393,
+      "topResults": [
+        {
+          "name": "toolExecution",
+          "qualified_name": "/data/github/pi-mono/packages/agent/test/e2e.test.ts::toolExecution",
+          "kind": "Function",
+          "file_path": "/data/github/pi-mono/packages/agent/test/e2e.test.ts",
+          "line_start": 35,
+          "line_end": 74,
+          "language": "typescript",
+          "params": "(model: Model<any>)",
+          "return_type": null,
+          "signature": "def toolExecution((model: Model<any>))",
+          "score": 0.016393
+        }
+      ]
+    }
+  ]
+}

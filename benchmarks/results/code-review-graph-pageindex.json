@@ -1,0 +1,77 @@
+{
+  "tool": "code-review-graph",
+  "repo": "/data/github/PageIndex",
+  "stats": {
+    "dbBytes": 21667840,
+    "nodes": 2499,
+    "edges": 23120,
+    "files": 121,
+    "fts": 2499
+  },
+  "questions": {
+    "total": 6,
+    "hits": 0,
+    "recall": 0.0
+  },
+  "aggregate": {
+    "medianMs": 0.8331149583682418,
+    "resultBytes": 12,
+    "medianResultBytes": 2
+  },
+  "rows": [
+    {
+      "query": "local document store implementation",
+      "hit": false,
+      "medianMs": 0.930141075514257,
+      "minMs": 0.9152949787676334,
+      "resultCount": 0,
+      "resultBytes": 2,
+      "topResults": []
+    },
+    {
+      "query": "how does tree optimization calculate search cost",
+      "hit": false,
+      "medianMs": 0.802460010163486,
+      "minMs": 0.7895659655332565,
+      "resultCount": 0,
+      "resultBytes": 2,
+      "topResults": []
+    },
+    {
+      "query": "document structure retrieval tools",
+      "hit": false,
+      "medianMs": 0.8331149583682418,
+      "minMs": 0.8127379696816206,
+      "resultCount": 0,
+      "resultBytes": 2,
+      "topResults": []
+    },
+    {
+      "query": "build a tree from markdown nodes",
+      "hit": false,
+      "medianMs": 0.7833349518477917,
+      "minMs": 0.7667540339753032,
+      "resultCount": 0,
+      "resultBytes": 2,
+      "topResults": []
+    },
+    {
+      "query": "main PageIndex client API",
+      "hit": false,
+      "medianMs": 0.8068879833444953,
+      "minMs": 0.7778640137985349,
+      "resultCount": 0,
+      "resultBytes": 2,
+      "topResults": []
+    },
+    {
+      "query": "extract table of contents from PDF",
+      "hit": false,
+      "medianMs": 0.9801830165088177,
+      "minMs": 0.9529030648991466,
+      "resultCount": 0,
+      "resultBytes": 2,
+      "topResults": []
+    }
+  ]
+}

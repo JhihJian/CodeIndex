@@ -1,0 +1,228 @@
+{
+  "tool": "CodeIndex",
+  "repository": "/data/dev/bench-repos/pi-mono-tracked",
+  "snapshotId": "snapshot:repo-1e718dba99ac68d13fc5:6e792c8adc88938636e4ae59",
+  "stats": {
+    "files": 667,
+    "parsedFiles": 502,
+    "symbols": 2709,
+    "relations": 19289,
+    "sourceBytes": 9284185,
+    "storeBytes": 32451643
+  },
+  "questions": {
+    "total": 4,
+    "hits": 4,
+    "recall": 1
+  },
+  "aggregate": {
+    "medianMs": 5.185966000000008,
+    "resultBytes": 42466,
+    "medianResultBytes": 11824,
+    "contextBytes": 17043
+  },
+  "rows": [
+    {
+      "query": "model provider registry",
+      "hit": true,
+      "medianMs": 5.185966000000008,
+      "minMs": 4.523421000000013,
+      "evidenceCount": 6,
+      "resultBytes": 7358,
+      "contextBytes": 1561,
+      "topCandidates": [
+        {
+          "type": "symbol",
+          "score": 10,
+          "symbolId": "symbol:ba284f8f4689fef9e21d21d4",
+          "name": "packages.coding-agent.test.model-registry.test.providerConfig",
+          "path": "packages/coding-agent/test/model-registry.test.ts",
+          "startLine": 30
+        },
+        {
+          "type": "symbol",
+          "score": 10,
+          "symbolId": "symbol:63eeecc8d94e0bb23229e25e",
+          "name": "packages.coding-agent.test.model-registry.test.getModelsForProvider",
+          "path": "packages/coding-agent/test/model-registry.test.ts",
+          "startLine": 55
+        },
+        {
+          "type": "symbol",
+          "score": 10,
+          "symbolId": "symbol:5d2583382ab796ac87cadf3a",
+          "name": "packages.coding-agent.test.model-registry.test.writeRawModelsJson",
+          "path": "packages/coding-agent/test/model-registry.test.ts",
+          "startLine": 65
+        },
+        {
+          "type": "symbol",
+          "score": 10,
+          "symbolId": "symbol:0e813d6e121e367ac325b00f",
+          "name": "packages.coding-agent.test.model-registry.test.providerWithApiKey",
+          "path": "packages/coding-agent/test/model-registry.test.ts",
+          "startLine": 642
+        },
+        {
+          "type": "directory",
+          "score": 9,
+          "path": "packages/ai/src",
+          "title": "src"
+        }
+      ]
+    },
+    {
+      "query": "extension loading and discovery",
+      "hit": true,
+      "medianMs": 5.695012999999989,
+      "minMs": 5.436261999999999,
+      "evidenceCount": 6,
+      "resultBytes": 9832,
+      "contextBytes": 3583,
+      "topCandidates": [
+        {
+          "type": "symbol",
+          "score": 10,
+          "symbolId": "symbol:2e4ce79e96c7bdb58f645f6a",
+          "name": "packages.coding-agent.examples.extensions.sandbox.index.loadConfig",
+          "path": "packages/coding-agent/examples/extensions/sandbox/index.ts",
+          "startLine": 76
+        },
+        {
+          "type": "symbol",
+          "score": 10,
+          "symbolId": "symbol:757bffa06ea44945e4e29879",
+          "name": "packages.coding-agent.examples.rpc-extension-ui.LoadingIndicator",
+          "path": "packages/coding-agent/examples/rpc-extension-ui.ts",
+          "startLine": 100
+        },
+        {
+          "type": "symbol",
+          "score": 10,
+          "symbolId": "symbol:0b9d05765cf43a246ebeac09",
+          "name": "packages.coding-agent.examples.rpc-extension-ui.showLoading",
+          "path": "packages/coding-agent/examples/rpc-extension-ui.ts",
+          "startLine": 324
+        },
+        {
+          "type": "symbol",
+          "score": 10,
+          "symbolId": "symbol:0520aa09d21bfbd11344367d",
+          "name": "packages.coding-agent.examples.rpc-extension-ui.hideLoading",
+          "path": "packages/coding-agent/examples/rpc-extension-ui.ts",
+          "startLine": 338
+        },
+        {
+          "type": "symbol",
+          "score": 10,
+          "symbolId": "symbol:bd3a9121f8e68554f7028ad9",
+          "name": "packages.coding-agent.src.core.extensions.loader.expandPath",
+          "path": "packages/coding-agent/src/core/extensions/loader.ts",
+          "startLine": 82
+        }
+      ]
+    },
+    {
+      "query": "terminal session management",
+      "hit": true,
+      "medianMs": 5.0296919999999545,
+      "minMs": 4.924531000000002,
+      "evidenceCount": 6,
+      "resultBytes": 13452,
+      "contextBytes": 6750,
+      "topCandidates": [
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:4ec20ebd9a8f8a3393b0f7ac",
+          "name": "packages.ai.src.providers.openai-codex-responses.scheduleSessionWebSocketExpiry",
+          "path": "packages/ai/src/providers/openai-codex-responses.ts",
+          "startLine": 486
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:f31b88fa7f30e57be562ceff",
+          "name": "packages.coding-agent.examples.extensions.doom-overlay.doom-keys.mapKeyToDoom",
+          "path": "packages/coding-agent/examples/extensions/doom-overlay/doom-keys.ts",
+          "startLine": 43
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:4a6d408a36a21694036e40f7",
+          "name": "packages.coding-agent.src.cli.session-picker.selectSession",
+          "path": "packages/coding-agent/src/cli/session-picker.ts",
+          "startLine": 13
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:8cc703a25d90db413ce146f7",
+          "name": "packages.coding-agent.src.config.getSessionsDir",
+          "path": "packages/coding-agent/src/config.ts",
+          "startLine": 234
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:bf69166197ed7c63aeac8a8c",
+          "name": "packages.coding-agent.src.core.agent-session.parseSkillBlock",
+          "path": "packages/coding-agent/src/core/agent-session.ts",
+          "startLine": 100
+        }
+      ]
+    },
+    {
+      "query": "agent tool execution",
+      "hit": true,
+      "medianMs": 5.139201000000014,
+      "minMs": 4.9361920000000055,
+      "evidenceCount": 6,
+      "resultBytes": 11824,
+      "contextBytes": 5149,
+      "topCandidates": [
+        {
+          "type": "symbol",
+          "score": 10,
+          "symbolId": "symbol:fe0282137604a4670df3684f",
+          "name": "packages.agent.test.e2e.test.toolExecution",
+          "path": "packages/agent/test/e2e.test.ts",
+          "startLine": 35
+        },
+        {
+          "type": "symbol",
+          "score": 10,
+          "symbolId": "symbol:6b68ebad9c75a9208e68b327",
+          "name": "packages.coding-agent.src.core.compaction.compaction.findValidCutPoints",
+          "path": "packages/coding-agent/src/core/compaction/compaction.ts",
+          "startLine": 292
+        },
+        {
+          "type": "symbol",
+          "score": 10,
+          "symbolId": "symbol:62308453d255adc9d37a4ace",
+          "name": "packages.coding-agent.src.modes.interactive.components.tool-execution.shortenPath",
+          "path": "packages/coding-agent/src/modes/interactive/components/tool-execution.ts",
+          "startLine": 35
+        },
+        {
+          "type": "symbol",
+          "score": 10,
+          "symbolId": "symbol:ed2fb2cb35d0a05a91a466e8",
+          "name": "packages.coding-agent.src.modes.interactive.components.tool-execution.replaceTabs",
+          "path": "packages/coding-agent/src/modes/interactive/components/tool-execution.ts",
+          "startLine": 47
+        },
+        {
+          "type": "symbol",
+          "score": 10,
+          "symbolId": "symbol:06f834487a62ecb6e0c7360f",
+          "name": "packages.coding-agent.src.modes.interactive.components.tool-execution.str",
+          "path": "packages/coding-agent/src/modes/interactive/components/tool-execution.ts",
+          "startLine": 52
+        }
+      ]
+    }
+  ]
+}

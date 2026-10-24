@@ -33,3 +33,5 @@ PageIndex 的单次查询墙钟时间与 `rg` 接近，主要优势体现在后�
 - `pageindex/page_index_md.py:192-223`
 
 索引中未支持或解析失败的文件会进入 `partial` 覆盖状态，查询结果会携带不确定性说明，空结果不会被解释为代码中不存在目标。
+
+索引与推理基准之外，与 `code-review-graph` 的独立性能对比见 [`code-review-graph-comparison.md`](code-review-graph-comparison.md)。该报告把纯元数据查询、带源码证据的查询、关系查询和增量更新分开统计。

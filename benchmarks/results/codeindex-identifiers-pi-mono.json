@@ -1,0 +1,186 @@
+{
+  "tool": "CodeIndex",
+  "repository": "/data/dev/bench-repos/pi-mono-tracked",
+  "snapshotId": "snapshot:repo-1e718dba99ac68d13fc5:6e792c8adc88938636e4ae59",
+  "stats": {
+    "files": 667,
+    "parsedFiles": 502,
+    "symbols": 2709,
+    "relations": 19289,
+    "sourceBytes": 9284185,
+    "storeBytes": 32451643
+  },
+  "questions": {
+    "total": 4,
+    "hits": 4,
+    "recall": 1
+  },
+  "aggregate": {
+    "medianMs": 4.5191269999999975,
+    "resultBytes": 30156,
+    "medianResultBytes": 9726,
+    "contextBytes": 14063
+  },
+  "rows": [
+    {
+      "query": "ModelRegistry",
+      "hit": true,
+      "medianMs": 5.652391999999992,
+      "minMs": 3.854331000000002,
+      "evidenceCount": 1,
+      "resultBytes": 3422,
+      "contextBytes": 1678,
+      "topCandidates": [
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:3ac4ac1b9e832e483489633f",
+          "name": "packages.coding-agent.src.core.model-registry.ModelRegistry",
+          "path": "packages/coding-agent/src/core/model-registry.ts",
+          "startLine": 223
+        },
+        {
+          "type": "file",
+          "score": 3,
+          "path": "packages/coding-agent/src/core/model-registry.ts",
+          "title": "model-registry.ts"
+        }
+      ]
+    },
+    {
+      "query": "loadExtensions",
+      "hit": true,
+      "medianMs": 3.8955550000000017,
+      "minMs": 3.76351600000001,
+      "evidenceCount": 3,
+      "resultBytes": 5209,
+      "contextBytes": 2175,
+      "topCandidates": [
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:0ee0ba0915a545410dc83105",
+          "name": "packages.coding-agent.src.core.extensions.loader.loadExtensions",
+          "path": "packages/coding-agent/src/core/extensions/loader.ts",
+          "startLine": 349
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:accbceebfd5da03dce92f68f",
+          "name": "packages.coding-agent.src.core.extensions.loader.discoverAndLoadExtensions",
+          "path": "packages/coding-agent/src/core/extensions/loader.ts",
+          "startLine": 487
+        },
+        {
+          "type": "symbol",
+          "score": 3,
+          "symbolId": "symbol:c126f331b70d7df8f282bb5e",
+          "name": "packages.coding-agent.src.core.extensions.types.LoadExtensionsResult",
+          "path": "packages/coding-agent/src/core/extensions/types.ts",
+          "startLine": 1364
+        }
+      ]
+    },
+    {
+      "query": "Agent",
+      "hit": true,
+      "medianMs": 4.5191269999999975,
+      "minMs": 4.456392000000022,
+      "evidenceCount": 6,
+      "resultBytes": 11799,
+      "contextBytes": 5890,
+      "topCandidates": [
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:089df350d0ee796013e29ed0",
+          "name": "packages.agent.src.agent-loop.agentLoop",
+          "path": "packages/agent/src/agent-loop.ts",
+          "startLine": 28
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:43225fafce8d211b866da3e7",
+          "name": "packages.agent.src.agent-loop.agentLoopContinue",
+          "path": "packages/agent/src/agent-loop.ts",
+          "startLine": 65
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:96cac415e1a021a3027e9829",
+          "name": "packages.agent.src.agent-loop.createAgentStream",
+          "path": "packages/agent/src/agent-loop.ts",
+          "startLine": 94
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:d316b3ce37c064cf0ff7ab27",
+          "name": "packages.agent.src.agent-loop.runLoop",
+          "path": "packages/agent/src/agent-loop.ts",
+          "startLine": 104
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:a6987a1f11b06b2c1ec946d3",
+          "name": "packages.agent.src.agent-loop.streamAssistantResponse",
+          "path": "packages/agent/src/agent-loop.ts",
+          "startLine": 204
+        }
+      ]
+    },
+    {
+      "query": "toolExecution",
+      "hit": true,
+      "medianMs": 4.225073000000009,
+      "minMs": 3.997000000000014,
+      "evidenceCount": 6,
+      "resultBytes": 9726,
+      "contextBytes": 4320,
+      "topCandidates": [
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:fe0282137604a4670df3684f",
+          "name": "packages.agent.test.e2e.test.toolExecution",
+          "path": "packages/agent/test/e2e.test.ts",
+          "startLine": 35
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:6f6b62bbf4cf336675f3e940",
+          "name": "packages.coding-agent.src.modes.interactive.components.tool-execution.ToolExecutionComponent",
+          "path": "packages/coding-agent/src/modes/interactive/components/tool-execution.ts",
+          "startLine": 73
+        },
+        {
+          "type": "file",
+          "score": 3,
+          "path": "packages/agent/test/e2e.test.ts",
+          "title": "e2e.test.ts"
+        },
+        {
+          "type": "symbol",
+          "score": 3,
+          "symbolId": "symbol:87ea0e2d924b742611f2b122",
+          "name": "packages.coding-agent.src.core.extensions.types.ToolExecutionStartEvent",
+          "path": "packages/coding-agent/src/core/extensions/types.ts",
+          "startLine": 550
+        },
+        {
+          "type": "symbol",
+          "score": 3,
+          "symbolId": "symbol:1b87ec3ce8dc13be7d09dcaf",
+          "name": "packages.coding-agent.src.core.extensions.types.ToolExecutionUpdateEvent",
+          "path": "packages/coding-agent/src/core/extensions/types.ts",
+          "startLine": 558
+        }
+      ]
+    }
+  ]
+}

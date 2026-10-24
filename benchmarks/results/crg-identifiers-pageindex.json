@@ -1,0 +1,317 @@
+{
+  "tool": "code-review-graph",
+  "repo": "/data/github/PageIndex",
+  "stats": {
+    "dbBytes": 21667840,
+    "nodes": 2499,
+    "edges": 23120,
+    "files": 121,
+    "fts": 2499
+  },
+  "questions": {
+    "total": 6,
+    "hits": 6,
+    "recall": 1.0
+  },
+  "aggregate": {
+    "medianMs": 0.261403969489038,
+    "resultBytes": 17094,
+    "medianResultBytes": 1763
+  },
+  "rows": [
+    {
+      "query": "DocStore",
+      "hit": true,
+      "medianMs": 0.35049603320658207,
+      "minMs": 0.3292970359325409,
+      "resultCount": 13,
+      "resultBytes": 5090,
+      "topResults": [
+        {
+          "name": "DocStore",
+          "qualified_name": "/data/github/PageIndex/pageindex/local_store.py::DocStore",
+          "kind": "Class",
+          "file_path": "/data/github/PageIndex/pageindex/local_store.py",
+          "line_start": 73,
+          "line_end": 186,
+          "language": "python",
+          "params": null,
+          "return_type": null,
+          "signature": "class DocStore",
+          "score": 0.02459
+        },
+        {
+          "name": "lock",
+          "qualified_name": "/data/github/PageIndex/pageindex/local_store.py::DocStore.lock",
+          "kind": "Function",
+          "file_path": "/data/github/PageIndex/pageindex/local_store.py",
+          "line_start": 97,
+          "line_end": 112,
+          "language": "python",
+          "params": "(self)",
+          "return_type": null,
+          "signature": "def lock((self))",
+          "score": 0.016129
+        },
+        {
+          "name": "__init__",
+          "qualified_name": "/data/github/PageIndex/pageindex/local_store.py::DocStore.__init__",
+          "kind": "Function",
+          "file_path": "/data/github/PageIndex/pageindex/local_store.py",
+          "line_start": 74,
+          "line_end": 77,
+          "language": "python",
+          "params": "(self, storage_dir: str)",
+          "return_type": null,
+          "signature": "def __init__((self, storage_dir: str))",
+          "score": 0.015873
+        },
+        {
+          "name": "_read_manifest",
+          "qualified_name": "/data/github/PageIndex/pageindex/local_store.py::DocStore._read_manifest",
+          "kind": "Function",
+          "file_path": "/data/github/PageIndex/pageindex/local_store.py",
+          "line_start": 85,
+          "line_end": 88,
+          "language": "python",
+          "params": "(self)",
+          "return_type": "dict",
+          "signature": "def _read_manifest((self)) -> dict",
+          "score": 0.015625
+        },
+        {
+          "name": "list_metas",
+          "qualified_name": "/data/github/PageIndex/pageindex/local_store.py::DocStore.list_metas",
+          "kind": "Function",
+          "file_path": "/data/github/PageIndex/pageindex/local_store.py",
+          "line_start": 148,
+          "line_end": 166,
+          "language": "python",
+          "params": "(self)",
+          "return_type": "list[dict]",
+          "signature": "def list_metas((self)) -> list[dict]",
+          "score": 0.015385
+        }
+      ]
+    },
+    {
+      "query": "tree_cost",
+      "hit": true,
+      "medianMs": 0.24287996347993612,
+      "minMs": 0.22998708300292492,
+      "resultCount": 2,
+      "resultBytes": 820,
+      "topResults": [
+        {
+          "name": "tree_cost",
+          "qualified_name": "/data/github/PageIndex/pageindex/tree_optimize.py::tree_cost",
+          "kind": "Function",
+          "file_path": "/data/github/PageIndex/pageindex/tree_optimize.py",
+          "line_start": 292,
+          "line_end": 300,
+          "language": "python",
+          "params": "(node, routing=ROUTING_COST)",
+          "return_type": null,
+          "signature": "def tree_cost((node, routing=ROUTING_COST))",
+          "score": 0.02459
+        },
+        {
+          "name": "tree_cost_via_frontier",
+          "qualified_name": "/data/github/PageIndex/pageindex/tree_optimize.py::tree_cost_via_frontier",
+          "kind": "Function",
+          "file_path": "/data/github/PageIndex/pageindex/tree_optimize.py",
+          "line_start": 319,
+          "line_end": 321,
+          "language": "python",
+          "params": "(node, routing=ROUTING_COST)",
+          "return_type": null,
+          "signature": "def tree_cost_via_frontier((node, routing=ROUTING_COST))",
+          "score": 0.024194
+        }
+      ]
+    },
+    {
+      "query": "get_document_structure",
+      "hit": true,
+      "medianMs": 0.2588790375739336,
+      "minMs": 0.2529689809307456,
+      "resultCount": 3,
+      "resultBytes": 1763,
+      "topResults": [
+        {
+          "name": "get_document_structure",
+          "qualified_name": "/data/github/PageIndex/pageindex/client.py::PageIndexClient.get_document_structure",
+          "kind": "Function",
+          "file_path": "/data/github/PageIndex/pageindex/client.py",
+          "line_start": 1004,
+          "line_end": 1011,
+          "language": "python",
+          "params": "(self, doc_id: str)",
+          "return_type": "list[dict[str, Any]]",
+          "signature": "def get_document_structure((self, doc_id: str)) -> list[dict[str, Any]]",
+          "score": 0.02459
+        },
+        {
+          "name": "_get_document_structure",
+          "qualified_name": "/data/github/PageIndex/pageindex/agent_tools.py::_get_document_structure",
+          "kind": "Function",
+          "file_path": "/data/github/PageIndex/pageindex/agent_tools.py",
+          "line_start": 910,
+          "line_end": 1008,
+          "language": "python",
+          "params": "(client, doc_name: str,\n                            folder_id: Optional[str] = None, part: int = 1,\n                            wait_for_completion: bool = False,\n                            _allowed_ids: Optional[frozenset] = None)",
+          "return_type": "tuple[dict, bool]",
+          "signature": "def _get_document_structure((client, doc_name: str,\n                            folder_id: Optional[str] = None, part: int = 1,\n                            wait_for_completion: bool = False,\n                            _allowed_ids: Optional[frozenset] = None)) -> tuple[dict, bool]",
+          "score": 0.02381
+        },
+        {
+          "name": "test_get_document_structure",
+          "qualified_name": "/data/github/PageIndex/tests/test_client.py::test_get_document_structure",
+          "kind": "Test",
+          "file_path": "/data/github/PageIndex/tests/test_client.py",
+          "line_start": 575,
+          "line_end": 582,
+          "language": "python",
+          "params": "(local_client, indexed_doc)",
+          "return_type": null,
+          "signature": "def test_get_document_structure((local_client, indexed_doc))",
+          "score": 0.016129
+        }
+      ]
+    },
+    {
+      "query": "build_tree_from_nodes",
+      "hit": true,
+      "medianMs": 0.22968603298068047,
+      "minMs": 0.22156210616230965,
+      "resultCount": 1,
+      "resultBytes": 392,
+      "topResults": [
+        {
+          "name": "build_tree_from_nodes",
+          "qualified_name": "/data/github/PageIndex/pageindex/page_index_md.py::build_tree_from_nodes",
+          "kind": "Function",
+          "file_path": "/data/github/PageIndex/pageindex/page_index_md.py",
+          "line_start": 192,
+          "line_end": 223,
+          "language": "python",
+          "params": "(node_list)",
+          "return_type": null,
+          "signature": "def build_tree_from_nodes((node_list))",
+          "score": 0.02459
+        }
+      ]
+    },
+    {
+      "query": "PageIndexClient",
+      "hit": true,
+      "medianMs": 0.5172580713406205,
+      "minMs": 0.5100449780002236,
+      "resultCount": 20,
+      "resultBytes": 8028,
+      "topResults": [
+        {
+          "name": "PageIndexClient",
+          "qualified_name": "/data/github/PageIndex/pageindex/client.py::PageIndexClient",
+          "kind": "Class",
+          "file_path": "/data/github/PageIndex/pageindex/client.py",
+          "line_start": 316,
+          "line_end": 2820,
+          "language": "python",
+          "params": null,
+          "return_type": null,
+          "signature": "class PageIndexClient",
+          "score": 0.02459
+        },
+        {
+          "name": "__getattr__",
+          "qualified_name": "/data/github/PageIndex/pageindex/client.py::PageIndexClient.__getattr__",
+          "kind": "Function",
+          "file_path": "/data/github/PageIndex/pageindex/client.py",
+          "line_start": 733,
+          "line_end": 741,
+          "language": "python",
+          "params": "(self, name)",
+          "return_type": null,
+          "signature": "def __getattr__((self, name))",
+          "score": 0.016129
+        },
+        {
+          "name": "link",
+          "qualified_name": "/data/github/PageIndex/pageindex/client.py::PageIndexClient.link",
+          "kind": "Function",
+          "file_path": "/data/github/PageIndex/pageindex/client.py",
+          "line_start": 2669,
+          "line_end": 2674,
+          "language": "python",
+          "params": "(m: re.Match)",
+          "return_type": "str",
+          "signature": "def link((m: re.Match)) -> str",
+          "score": 0.015873
+        },
+        {
+          "name": "_local_chat",
+          "qualified_name": "/data/github/PageIndex/pageindex/client.py::PageIndexClient._local_chat",
+          "kind": "Function",
+          "file_path": "/data/github/PageIndex/pageindex/client.py",
+          "line_start": 702,
+          "line_end": 709,
+          "language": "python",
+          "params": "(self)",
+          "return_type": "bool",
+          "signature": "def _local_chat((self)) -> bool",
+          "score": 0.015625
+        },
+        {
+          "name": "chat_model",
+          "qualified_name": "/data/github/PageIndex/pageindex/client.py::PageIndexClient.chat_model",
+          "kind": "Function",
+          "file_path": "/data/github/PageIndex/pageindex/client.py",
+          "line_start": 749,
+          "line_end": 753,
+          "language": "python",
+          "params": "(self, value)",
+          "return_type": null,
+          "signature": "def chat_model((self, value))",
+          "score": 0.015385
+        }
+      ]
+    },
+    {
+      "query": "extract_toc",
+      "hit": true,
+      "medianMs": 0.261403969489038,
+      "minMs": 0.24405296426266432,
+      "resultCount": 2,
+      "resultBytes": 1001,
+      "topResults": [
+        {
+          "name": "extract_toc_content",
+          "qualified_name": "/data/github/PageIndex/pageindex/page_index_classic.py::extract_toc_content",
+          "kind": "Function",
+          "file_path": "/data/github/PageIndex/pageindex/page_index_classic.py",
+          "line_start": 238,
+          "line_end": 270,
+          "language": "python",
+          "params": "(content, model=None)",
+          "return_type": null,
+          "signature": "def extract_toc_content((content, model=None))",
+          "score": 0.02459
+        },
+        {
+          "name": "extract_toc",
+          "qualified_name": "/data/github/PageIndex/pageindex/flash/main.py::extract_toc",
+          "kind": "Function",
+          "file_path": "/data/github/PageIndex/pageindex/flash/main.py",
+          "line_start": 124,
+          "line_end": 305,
+          "language": "python",
+          "params": "(\n    doc_handle: Union[str, Path, BytesIO],\n    workers: Optional[int] = None,\n    use_embedded_toc: bool = True,\n)",
+          "return_type": "dict",
+          "signature": "def extract_toc((\n    doc_handle: Union[str, Path, BytesIO],\n    workers: Optional[int] = None,\n    use_embedded_toc: bool = True,\n)) -> dict",
+          "score": 0.024194
+        }
+      ]
+    }
+  ]
+}

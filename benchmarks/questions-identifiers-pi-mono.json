@@ -1,0 +1,6 @@
+[
+  {"query":"ModelRegistry", "expectedPaths":["packages/coding-agent/src/core/model-registry.ts"], "expectedSymbols":["ModelRegistry"]},
+  {"query":"loadExtensions", "expectedPaths":["packages/coding-agent/src/core/extensions/loader.ts"], "expectedSymbols":["loadExtensions"]},
+  {"query":"Agent", "expectedPaths":["packages/agent/src/agent.ts"], "expectedSymbols":["Agent"]},
+  {"query":"toolExecution", "expectedPaths":["packages/agent/test/e2e.test.ts"], "expectedSymbols":["toolExecution"]}
+]

@@ -1,0 +1,248 @@
+{
+  "tool": "CodeIndex",
+  "repository": "/data/dev/bench-repos/pageindex-tracked",
+  "snapshotId": "snapshot:repo-bc0b76152b65188594f6:e5f61eff8298f590cd3fc3c9",
+  "stats": {
+    "files": 154,
+    "parsedFiles": 112,
+    "symbols": 2625,
+    "relations": 17651,
+    "sourceBytes": 5245648,
+    "storeBytes": 25505926
+  },
+  "questions": {
+    "total": 6,
+    "hits": 6,
+    "recall": 1
+  },
+  "aggregate": {
+    "medianMs": 6.251438999999976,
+    "resultBytes": 40669,
+    "medianResultBytes": 7914,
+    "contextBytes": 21790
+  },
+  "rows": [
+    {
+      "query": "DocStore",
+      "hit": true,
+      "medianMs": 6.96822899999998,
+      "minMs": 4.481369000000001,
+      "evidenceCount": 6,
+      "resultBytes": 8710,
+      "contextBytes": 3469,
+      "topCandidates": [
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:effbef3449187c97b90210d8",
+          "name": "pageindex.local_store.DocStore",
+          "path": "pageindex/local_store.py",
+          "startLine": 73
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:6a48483923a3d624ca12d417",
+          "name": "pageindex.local_store.DocStore.__init__",
+          "path": "pageindex/local_store.py",
+          "startLine": 74
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:d0b736ba578107252501b49c",
+          "name": "pageindex.local_store.DocStore._doc_dir",
+          "path": "pageindex/local_store.py",
+          "startLine": 79
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:e4fd5bc0a6d06bbffa5dcd26",
+          "name": "pageindex.local_store.DocStore._read_manifest",
+          "path": "pageindex/local_store.py",
+          "startLine": 85
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:5c255505701e94096794d487",
+          "name": "pageindex.local_store.DocStore._write_manifest",
+          "path": "pageindex/local_store.py",
+          "startLine": 90
+        }
+      ]
+    },
+    {
+      "query": "tree_cost",
+      "hit": true,
+      "medianMs": 4.9624100000000055,
+      "minMs": 4.721695000000011,
+      "evidenceCount": 2,
+      "resultBytes": 2423,
+      "contextBytes": 506,
+      "topCandidates": [
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:19cdaf4c230d6cacb2c50176",
+          "name": "pageindex.tree_optimize.tree_cost",
+          "path": "pageindex/tree_optimize.py",
+          "startLine": 292
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:dc5fd85e8f5ceee303c8ca19",
+          "name": "pageindex.tree_optimize.tree_cost_via_frontier",
+          "path": "pageindex/tree_optimize.py",
+          "startLine": 319
+        }
+      ]
+    },
+    {
+      "query": "get_document_structure",
+      "hit": true,
+      "medianMs": 6.251438999999976,
+      "minMs": 6.010071000000039,
+      "evidenceCount": 3,
+      "resultBytes": 5961,
+      "contextBytes": 3300,
+      "topCandidates": [
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:ef67db452426f4d301600559",
+          "name": "pageindex.agent_tools._get_document_structure",
+          "path": "pageindex/agent_tools.py",
+          "startLine": 910
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:fca12ed1bebd8cdda749eb0c",
+          "name": "pageindex.client.PageIndexClient.get_document_structure",
+          "path": "pageindex/client.py",
+          "startLine": 1004
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:268548a4a1a93c707be0cad5",
+          "name": "tests.test_client.test_get_document_structure",
+          "path": "tests/test_client.py",
+          "startLine": 575
+        }
+      ]
+    },
+    {
+      "query": "build_tree_from_nodes",
+      "hit": true,
+      "medianMs": 4.31838300000004,
+      "minMs": 4.248766999999987,
+      "evidenceCount": 1,
+      "resultBytes": 2317,
+      "contextBytes": 822,
+      "topCandidates": [
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:28ec268429c02942ef1f9f0e",
+          "name": "pageindex.page_index_md.build_tree_from_nodes",
+          "path": "pageindex/page_index_md.py",
+          "startLine": 192
+        },
+        {
+          "type": "file",
+          "score": 3,
+          "path": "pageindex/page_index_md.py",
+          "title": "page_index_md.py"
+        }
+      ]
+    },
+    {
+      "query": "PageIndexClient",
+      "hit": true,
+      "medianMs": 7.775832999999977,
+      "minMs": 7.220846999999992,
+      "evidenceCount": 6,
+      "resultBytes": 13344,
+      "contextBytes": 7922,
+      "topCandidates": [
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:76ecfa86fad0fe176d7bc5c0",
+          "name": "pageindex.client.PageIndexClient",
+          "path": "pageindex/client.py",
+          "startLine": 316
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:96384e6ee6480f9488314a60",
+          "name": "pageindex.client.PageIndexClient.__init__",
+          "path": "pageindex/client.py",
+          "startLine": 485
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:bfe562de243b5303d8b4f24c",
+          "name": "pageindex.client.PageIndexClient._local_chat",
+          "path": "pageindex/client.py",
+          "startLine": 701
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:9d921f43fdf628083174782d",
+          "name": "pageindex.client.PageIndexClient._require_own_chat",
+          "path": "pageindex/client.py",
+          "startLine": 711
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:fb738fb007c0f349cb32b8d1",
+          "name": "pageindex.client.PageIndexClient.chat_model",
+          "path": "pageindex/client.py",
+          "startLine": 743
+        }
+      ]
+    },
+    {
+      "query": "extract_toc",
+      "hit": true,
+      "medianMs": 4.519017000000019,
+      "minMs": 4.31311199999999,
+      "evidenceCount": 2,
+      "resultBytes": 7914,
+      "contextBytes": 5771,
+      "topCandidates": [
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:8d81543514686c5a3cabfbcb",
+          "name": "pageindex.flash.main.extract_toc",
+          "path": "pageindex/flash/main.py",
+          "startLine": 124
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:068fe68eef1f720506dda8b3",
+          "name": "pageindex.page_index_classic.extract_toc_content",
+          "path": "pageindex/page_index_classic.py",
+          "startLine": 238
+        },
+        {
+          "type": "file",
+          "score": 3,
+          "path": "pageindex/flash/main.py",
+          "title": "main.py"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,191 @@
+{
+  "tool": "code-review-graph",
+  "repo": "/data/github/pi-mono",
+  "stats": {
+    "dbBytes": 65421312,
+    "nodes": 6144,
+    "edges": 55733,
+    "files": 512,
+    "fts": 6144
+  },
+  "questions": {
+    "total": 4,
+    "hits": 2,
+    "recall": 0.5
+  },
+  "aggregate": {
+    "medianMs": 3.044696059077978,
+    "resultBytes": 20656,
+    "medianResultBytes": 9926
+  },
+  "rows": [
+    {
+      "query": "model provider registry",
+      "hit": true,
+      "medianMs": 2.8411459643393755,
+      "minMs": 2.7698070043697953,
+      "resultCount": 18,
+      "resultBytes": 9926,
+      "topResults": [
+        {
+          "name": "getApiKeyForProvider",
+          "qualified_name": "/data/github/pi-mono/packages/coding-agent/src/core/model-registry.ts::ModelRegistry.getApiKeyForProvider",
+          "kind": "Function",
+          "file_path": "/data/github/pi-mono/packages/coding-agent/src/core/model-registry.ts",
+          "line_start": 529,
+          "line_end": 531,
+          "language": "typescript",
+          "params": "(provider: string)",
+          "return_type": ": Promise<string | undefined>",
+          "signature": "def getApiKeyForProvider((provider: string)) -> : Promise<string | undefined>",
+          "score": 1.0
+        },
+        {
+          "name": "registerProvider",
+          "qualified_name": "/data/github/pi-mono/packages/coding-agent/src/core/model-registry.ts::ModelRegistry.registerProvider",
+          "kind": "Function",
+          "file_path": "/data/github/pi-mono/packages/coding-agent/src/core/model-registry.ts",
+          "line_start": 548,
+          "line_end": 551,
+          "language": "typescript",
+          "params": "(providerName: string, config: ProviderConfigInput)",
+          "return_type": ": void",
+          "signature": "def registerProvider((providerName: string, config: ProviderConfigInput)) -> : void",
+          "score": 1.0
+        },
+        {
+          "name": "unregisterProvider",
+          "qualified_name": "/data/github/pi-mono/packages/coding-agent/src/core/model-registry.ts::ModelRegistry.unregisterProvider",
+          "kind": "Function",
+          "file_path": "/data/github/pi-mono/packages/coding-agent/src/core/model-registry.ts",
+          "line_start": 562,
+          "line_end": 567,
+          "language": "typescript",
+          "params": "(providerName: string)",
+          "return_type": ": void",
+          "signature": "def unregisterProvider((providerName: string)) -> : void",
+          "score": 1.0
+        },
+        {
+          "name": "applyProviderConfig",
+          "qualified_name": "/data/github/pi-mono/packages/coding-agent/src/core/model-registry.ts::ModelRegistry.applyProviderConfig",
+          "kind": "Function",
+          "file_path": "/data/github/pi-mono/packages/coding-agent/src/core/model-registry.ts",
+          "line_start": 569,
+          "line_end": 667,
+          "language": "typescript",
+          "params": "(providerName: string, config: ProviderConfigInput)",
+          "return_type": ": void",
+          "signature": "def applyProviderConfig((providerName: string, config: ProviderConfigInput)) -> : void",
+          "score": 1.0
+        },
+        {
+          "name": "providerConfig",
+          "qualified_name": "/data/github/pi-mono/packages/coding-agent/test/model-registry.test.ts::providerConfig",
+          "kind": "Function",
+          "file_path": "/data/github/pi-mono/packages/coding-agent/test/model-registry.test.ts",
+          "line_start": 30,
+          "line_end": 49,
+          "language": "typescript",
+          "params": "(\n\t\tbaseUrl: string,\n\t\tmodels: Array<{ id: string; name?: string }>,\n\t\tapi: string = \"anthropic-messages\",\n\t)",
+          "return_type": null,
+          "signature": "def providerConfig((\n\t\tbaseUrl: string,\n\t\tmodels: Array<{ id: string; name?: string }>,\n\t\tapi: string = \"anthropic-messages\",\n\t))",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "query": "extension loading and discovery",
+      "hit": false,
+      "medianMs": 3.044696059077978,
+      "minMs": 2.895335084758699,
+      "resultCount": 0,
+      "resultBytes": 2,
+      "topResults": []
+    },
+    {
+      "query": "terminal session management",
+      "hit": false,
+      "medianMs": 3.025350975804031,
+      "minMs": 2.9525390127673745,
+      "resultCount": 0,
+      "resultBytes": 2,
+      "topResults": []
+    },
+    {
+      "query": "agent tool execution",
+      "hit": true,
+      "medianMs": 3.929266007617116,
+      "minMs": 3.6873359931632876,
+      "resultCount": 20,
+      "resultBytes": 10726,
+      "topResults": [
+        {
+          "name": "toolExecution",
+          "qualified_name": "/data/github/pi-mono/packages/agent/test/e2e.test.ts::toolExecution",
+          "kind": "Function",
+          "file_path": "/data/github/pi-mono/packages/agent/test/e2e.test.ts",
+          "line_start": 35,
+          "line_end": 74,
+          "language": "typescript",
+          "params": "(model: Model<any>)",
+          "return_type": null,
+          "signature": "def toolExecution((model: Model<any>))",
+          "score": 1.0
+        },
+        {
+          "name": "/data/github/pi-mono/packages/coding-agent/src/modes/interactive/components/tool-execution.ts",
+          "qualified_name": "/data/github/pi-mono/packages/coding-agent/src/modes/interactive/components/tool-execution.ts",
+          "kind": "File",
+          "file_path": "/data/github/pi-mono/packages/coding-agent/src/modes/interactive/components/tool-execution.ts",
+          "line_start": 1,
+          "line_end": 906,
+          "language": "typescript",
+          "params": null,
+          "return_type": null,
+          "signature": "/data/github/pi-mono/packages/coding-agent/src/modes/interactive/components/tool-execution.ts",
+          "score": 1.0
+        },
+        {
+          "name": "shortenPath",
+          "qualified_name": "/data/github/pi-mono/packages/coding-agent/src/modes/interactive/components/tool-execution.ts::shortenPath",
+          "kind": "Function",
+          "file_path": "/data/github/pi-mono/packages/coding-agent/src/modes/interactive/components/tool-execution.ts",
+          "line_start": 35,
+          "line_end": 42,
+          "language": "typescript",
+          "params": "(path: unknown)",
+          "return_type": ": string",
+          "signature": "def shortenPath((path: unknown)) -> : string",
+          "score": 1.0
+        },
+        {
+          "name": "replaceTabs",
+          "qualified_name": "/data/github/pi-mono/packages/coding-agent/src/modes/interactive/components/tool-execution.ts::replaceTabs",
+          "kind": "Function",
+          "file_path": "/data/github/pi-mono/packages/coding-agent/src/modes/interactive/components/tool-execution.ts",
+          "line_start": 47,
+          "line_end": 49,
+          "language": "typescript",
+          "params": "(text: string)",
+          "return_type": ": string",
+          "signature": "def replaceTabs((text: string)) -> : string",
+          "score": 1.0
+        },
+        {
+          "name": "str",
+          "qualified_name": "/data/github/pi-mono/packages/coding-agent/src/modes/interactive/components/tool-execution.ts::str",
+          "kind": "Function",
+          "file_path": "/data/github/pi-mono/packages/coding-agent/src/modes/interactive/components/tool-execution.ts",
+          "line_start": 52,
+          "line_end": 56,
+          "language": "typescript",
+          "params": "(value: unknown)",
+          "return_type": ": string | null",
+          "signature": "def str((value: unknown)) -> : string | null",
+          "score": 1.0
+        }
+      ]
+    }
+  ]
+}

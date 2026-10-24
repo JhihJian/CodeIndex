@@ -57,3 +57,5 @@ node bin/codeindex.js benchmark \
   --questions benchmarks/questions-pi-mono.json \
   --output benchmarks/results/pi-mono.json
 ```
+
+与 `code-review-graph` 的实际性能对比见 [`benchmarks/code-review-graph-comparison.md`](benchmarks/code-review-graph-comparison.md)。
