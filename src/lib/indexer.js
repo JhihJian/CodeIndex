@@ -3,20 +3,30 @@ import path from 'node:path';
 import { parseEntries } from '../parsers/index.js';
 import { gitContext } from './git.js';
 import { hashText, shortHash, stableJson } from './hash.js';
-import { PARSER_VERSION, readJson, readJsonl, repositoryId, routeTerms, scanRepository, spanFrom, writeJsonAtomic, writeJsonl } from './fs.js';
+import { PARSER_VERSION, readJson, readJsonl, repositoryId, routeTerms, scanRepository, sourceLayout, spanFrom, writeJsonAtomic, writeJsonl } from './fs.js';
 import { buildIndexDatabase, ensureIndexDatabase } from './sqlite-store.js';
 
 const INDEX_SCHEMA = 'codeindex-index-0.1.0';
 
 function nodeId(kind, value) { return `${kind}:${shortHash(value, 24)}`; }
 
-function loadPublished(storeRoot, repoId) {
+function loadPublishedManifest(storeRoot, repoId) {
   const published = readJson(path.join(storeRoot, repoId, 'published.json'));
   if (!published?.snapshotId) return null;
   const snapshotDir = path.join(storeRoot, repoId, 'snapshots', published.snapshotId);
   const manifest = readJson(path.join(snapshotDir, 'manifest.json'));
   if (!manifest) return null;
-  return { published, snapshotDir, manifest, files: readJsonl(path.join(snapshotDir, 'files.jsonl')), parsed: readJsonl(path.join(snapshotDir, 'parsed.jsonl')) };
+  return { published, snapshotDir, manifest };
+}
+
+function loadPublishedData(publishedIndex) {
+  if (!publishedIndex) return null;
+  const { snapshotDir } = publishedIndex;
+  return {
+    ...publishedIndex,
+    files: readJsonl(path.join(snapshotDir, 'files.jsonl')),
+    parsed: readJsonl(path.join(snapshotDir, 'parsed.jsonl')),
+  };
 }
 
 function normalizeTarget(targetName) {
@@ -112,14 +122,15 @@ export function indexRepository(repoRoot, storeRoot, { incremental = true, maxFi
   const repo = fs.realpathSync(repoRoot);
   fs.mkdirSync(storeRoot, { recursive: true });
   const repoId = repositoryId(repo);
-  const previous = incremental ? loadPublished(storeRoot, repoId) : null;
+  const previousManifest = incremental ? loadPublishedManifest(storeRoot, repoId) : null;
   const currentGit = gitContext(repo);
-  if (previous && currentGit.revision && currentGit.revision === previous.manifest.git?.revision && !currentGit.dirty && !previous.manifest.git?.dirty) {
-    return { manifest: previous.manifest, snapshotDir: previous.snapshotDir, stats: { ...previous.manifest.stats, changedFiles: 0, reusedFiles: previous.manifest.stats.files, buildMs: Date.now() - startedAt, noOp: true } };
+  if (previousManifest && currentGit.revision && currentGit.revision === previousManifest.manifest.git?.revision && !currentGit.dirty && !previousManifest.manifest.git?.dirty) {
+    return { manifest: previousManifest.manifest, snapshotDir: previousManifest.snapshotDir, stats: { ...previousManifest.manifest.stats, changedFiles: 0, reusedFiles: previousManifest.manifest.stats.files, buildMs: Date.now() - startedAt, noOp: true } };
   }
+  const previous = loadPublishedData(previousManifest);
   const scan = scanRepository(repo, { maxFileBytes, retainSource: false });
   const priorFiles = previousFileMap(previous);
-  const parsedPrevious = new Map((previous?.parsed || []).map((record) => [record.path, record]));
+  let parsedPrevious = new Map((previous?.parsed || []).map((record) => [record.path, record]));
   const entries = scan.files;
   const scannedContentDigest = hashText(stableJson(entries.map((entry) => ({ path: entry.path, digest: entry.digest, language: entry.language }))));
   if (previous && previous.manifest.contentDigest === scannedContentDigest) {
@@ -130,10 +141,12 @@ export function indexRepository(repoRoot, storeRoot, { incremental = true, maxFi
     return !old || old.digest !== entry.digest || old.language !== entry.language || old.parserVersion !== PARSER_VERSION;
   });
   for (const entry of changedEntries) entry.source = fs.readFileSync(entry.absolute, 'utf8');
-  const parsedChanged = parseEntries(changedEntries);
+  let parsedChanged = parseEntries(changedEntries);
   for (const entry of changedEntries) delete entry.source;
   const parsedByFile = new Map();
   for (const entry of entries) parsedByFile.set(entry.path, parsedChanged.get(entry.path) || parsedPrevious.get(entry.path) || { path: entry.path, status: 'partial', error: 'missing-parser-result', symbols: [], relations: [] });
+  parsedPrevious = null;
+  parsedChanged = null;
 
   const fileNodes = [];
   const fileRecords = [];
@@ -150,11 +163,10 @@ export function indexRepository(repoRoot, storeRoot, { incremental = true, maxFi
   for (const entry of entries) {
     const source = fs.readFileSync(entry.absolute, 'utf8');
     const sourceBuffer = Buffer.from(source, 'utf8');
-    const lineOffsets = [0];
-    for (let byteIndex = 0; byteIndex < sourceBuffer.length; byteIndex += 1) if (sourceBuffer[byteIndex] === 10) lineOffsets.push(byteIndex + 1);
-    lineBytesByPath.set(entry.path, { lineOffsets, byteLength: sourceBuffer.length });
+    const layout = sourceLayout(source, sourceBuffer);
     const fileId = nodeId('file', entry.path);
     const parsed = parsedByFile.get(entry.path);
+    if ((parsed.relations || []).length) lineBytesByPath.set(entry.path, { lineOffsets: layout.byteOffsets, byteLength: layout.byteLength });
     const fileNode = { nodeId: fileId, parentId: entry.parentNodeId, nodeType: 'file', kind: 'file', title: entry.path.split('/').pop(), path: entry.path, language: entry.language, children: [] };
     fileNodes.push(fileNode);
     directoryById.get(entry.parentNodeId)?.children.push(fileId);
@@ -163,7 +175,7 @@ export function indexRepository(repoRoot, storeRoot, { incremental = true, maxFi
     fileRecords.push(fileRecord);
     for (const symbol of parsed.symbols || []) {
       const symbolId = nodeId('symbol', symbol.key);
-      const sourceSpan = { ...spanFrom(source, symbol.span.startLine, symbol.span.endLine, symbol.span.startColumn, symbol.span.endColumn), path: entry.path, blobDigest: entry.digest, snapshotId: null };
+      const sourceSpan = { ...spanFrom(source, symbol.span.startLine, symbol.span.endLine, symbol.span.startColumn, symbol.span.endColumn, layout), path: entry.path, blobDigest: entry.digest, snapshotId: null };
       const symbolRecord = { symbolId, key: symbol.key, path: entry.path, fileId, parentKey: symbol.parentKey, kind: symbol.kind, name: symbol.name, qualifiedName: symbol.qualifiedName, signature: symbol.signature, sourceSpan, doc: symbol.doc || null, language: entry.language };
       allSymbols.push(symbolRecord);
     }

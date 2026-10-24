@@ -125,3 +125,5 @@ Microsoft TypeScript 固定提交为 `8d9b6da99ea7d4a8e7d906dd2532456dfe14e24f`�
 | 无变化更新 | 1.18 s | 0.16 s |
 
 CodeIndex 在该仓库上全量构建约快 18%，但峰值内存约为对照项目的 3.2 倍。精确查询的元数据阶段中位数为 0.72 ms；默认完整查询包含源码证据。CodeIndex 的自然语言问题集覆盖 LanguageService、BuildOrchestrator、API Client 和 Snapshot，四个问题全部命中；对照项目的默认 FTS 查询没有命中这四个自然语言问题。详细数据和复现命令见 [`benchmarks/typescript-code-review-graph-comparison.md`](benchmarks/typescript-code-review-graph-comparison.md)。
+
+前三项优化在同一固定工作区上的独立复测结果为：全量构建 152.66 s，最大 RSS 约 1,371 MiB，metadata-only 精确查询中位数 0.51 ms，带源码证据的问题集查询中位数 51.27 ms，召回率保持 4/4。无变化更新约 0.57 s，RSS 约 52 MiB，并且不再打开 `files.jsonl` 和 `parsed.jsonl`。

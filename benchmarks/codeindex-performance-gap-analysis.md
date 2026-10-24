@@ -18,16 +18,30 @@ TypeScript 固定提交 `8d9b6da99ea7d4a8e7d906dd2532456dfe14e24f` 的实测数�
 | 精确查询，纯元数据阶段 | 0.72 ms | 0.78 ms |
 | 无变化更新 | 1.18 s | 0.16 s |
 
+### 三项优化后的复测
+
+在同一份 TypeScript 工作区上使用当前实现重新构建 CodeIndex，固定提交和问题集保持不变。由于复测期间工作区扫描结果包含 67,863 个实际索引文件，不能把每个绝对值视为逐字节相同的历史重跑，但结果足以验证优化方向：
+
+| 指标 | 优化前 CodeIndex | 优化后 CodeIndex |
+| --- | ---: | ---: |
+| 全量构建 | 246.32 s | 152.66 s |
+| 最大 RSS | 2,462 MiB | 约 1,371 MiB |
+| metadata-only 精确查询中位数 | 0.72 ms | 0.51 ms |
+| 带源码证据问题集查询中位数 | 82.52 ms | 51.27 ms |
+| 证据召回 | 4/4 | 4/4 |
+| 无变化更新 | 1.18 s | 约 0.57 s |
+| 无变化更新 RSS | 约 661 MiB | 约 52 MiB |
+
+无变化更新通过系统调用检查确认不再打开 `files.jsonl` 和 `parsed.jsonl`。构建 RSS 的下降来自 JSONL 分块写入、复用单文件 source layout，以及只为包含关系的文件保留字节行偏移；查询耗时的下降来自候选排序后批量读取 symbol 和文件元数据。
 ## 证据对照
 
-CodeIndex 的 `indexRepository()` 在获取 `currentGit` 之前调用 `loadPublished()`。当前 `loadPublished()` 同时解析 `files.jsonl` 和 `parsed.jsonl`：
+在优化前，CodeIndex 的 `indexRepository()` 在获取 `currentGit` 之前调用 `loadPublished()`。旧版 `loadPublished()` 同时解析 `files.jsonl` 和 `parsed.jsonl`，因此无变化更新也会先物化完整索引数据。当前实现改为先读取 manifest 和 Git 状态，只有不能命中快路径时才调用 `loadPublishedData()`。
 
-- [src/lib/indexer.js](../src/lib/indexer.js) 中的 `loadPublished()`。
-- [src/lib/indexer.js](../src/lib/indexer.js) 中的 Git revision 快路径。
-- TypeScript 无变化更新的 RSS 为 676,972 KiB。
-- `strace` 已确认无变化更新仍打开了 `files.jsonl` 和 `parsed.jsonl`。
+- TypeScript 优化前无变化更新的 RSS 为 676,972 KiB。
+- 优化后的系统调用检查没有发现无变化更新打开 `files.jsonl` 或 `parsed.jsonl`。
+- [src/lib/indexer.js](../src/lib/indexer.js) 现在把发布元数据加载和增量构建数据加载分开。
 
-CodeIndex 的构建循环还会同时积累以下数据：
+优化前 CodeIndex 的构建循环会同时积累以下数据：
 
 - `parsedPrevious`、`parsedChanged`、`parsedByFile`。
 - `allSymbols` 和 `containmentNodes`。
@@ -35,13 +49,17 @@ CodeIndex 的构建循环还会同时积累以下数据：
 - `navigation`、`lineBytesByPath`、`fileRecords`。
 - JSONL 写入前的完整对象数组。
 
-此外，[src/lib/fs.js](../src/lib/fs.js) 的 `writeJsonl()` 使用 `rows.map(JSON.stringify).join('\n')`，写入大型 `symbols.jsonl`、`containment.jsonl` 和 `parsed.jsonl` 时会创建完整的中间字符串。
+当前实现会在建立 `parsedByFile` 后释放两个临时 parser Map，并且只为包含关系的文件保留字节行偏移。
+
+此外，优化前 [src/lib/fs.js](../src/lib/fs.js) 的 `writeJsonl()` 使用 `rows.map(JSON.stringify).join('\n')`，写入大型 `symbols.jsonl`、`containment.jsonl` 和 `parsed.jsonl` 时会创建完整的中间字符串。当前实现按约 1 MiB 分块写入。
 
 `code-review-graph` 的 [incremental.py](../../code-review-graph/code_review_graph/incremental.py) 先通过 `get_changed_files()` 判断变化文件，空结果立即返回。发生变化后才读取文件、计算 hash、查找依赖并解析。全量构建使用 `ProcessPoolExecutor`，解析结果逐项进入 SQLite，主进程没有等价的全仓库语义对象图。
 
-精确查询方面，CodeIndex 的 [query.js](../src/lib/query.js) 会对 FTS 命中的候选逐个调用 `getSymbol()`，之后再读取关系和源码证据；[sqlite-store.js](../src/lib/sqlite-store.js) 的批量 `getSymbols()` 已存在但没有用于候选阶段。`code-review-graph` 的 [search.py](../../code-review-graph/code_review_graph/search.py) 会合并 FTS 结果，再一次批量读取节点。
+精确查询方面，优化前 CodeIndex 的 [query.js](../src/lib/query.js) 会对 FTS 命中的候选逐个调用 `getSymbol()`；[sqlite-store.js](../src/lib/sqlite-store.js) 的批量 `getSymbols()` 已存在但没有用于候选阶段。当前实现先完成评分和排序，再批量读取最终候选 symbol，同时批量读取证据所需的文件元数据。`code-review-graph` 的 [search.py](../../code-review-graph/code_review_graph/search.py) 也会合并 FTS 结果，再一次批量读取节点。
 
-## 推荐实施顺序
+## 实施顺序与状态
+
+本轮已完成 P0、候选批量读取和低风险 RSS 优化。以下顺序保留为实现记录和后续扩展边界。
 
 ### P0：修复无变化更新的加载顺序
 

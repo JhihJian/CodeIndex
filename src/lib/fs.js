@@ -36,17 +36,27 @@ export function lineOffsets(source) {
   return offsets;
 }
 
-export function spanFrom(source, startLine, endLine, startColumn = 0, endColumn = 0) {
-  const offsets = lineOffsets(source);
+export function sourceLayout(source, sourceBuffer = null) {
+  const buffer = sourceBuffer || Buffer.from(source, 'utf8');
+  const byteOffsets = [0];
+  for (let index = 0; index < buffer.length; index += 1) {
+    if (buffer[index] === 10) byteOffsets.push(index + 1);
+  }
+  return { charOffsets: lineOffsets(source), byteOffsets, byteLength: buffer.length };
+}
+
+export function spanFrom(source, startLine, endLine, startColumn = 0, endColumn = 0, layout = null) {
+  const offsets = layout?.charOffsets || lineOffsets(source);
   const clampLine = (line) => Math.max(1, Math.min(Number(line) || 1, offsets.length));
   const first = clampLine(startLine);
   const last = clampLine(endLine || startLine);
-  const startChar = offsets[first - 1] + Math.max(0, Number(startColumn) || 0);
+  const startLineChar = offsets[first - 1];
+  const startChar = startLineChar + Math.max(0, Number(startColumn) || 0);
   const endLineStart = offsets[last - 1];
   const endChar = endColumn ? endLineStart + endColumn : (last < offsets.length ? offsets[last] : source.length);
-  const beforeStart = Buffer.byteLength(source.slice(0, startChar), 'utf8');
-  const beforeEnd = Buffer.byteLength(source.slice(0, endChar), 'utf8');
-  return { startLine: first, endLine: last, startColumn: Number(startColumn) || 0, endColumn: Number(endColumn) || 0, startByte: beforeStart, endByte: beforeEnd };
+  const startByte = layout ? layout.byteOffsets[first - 1] + Buffer.byteLength(source.slice(startLineChar, startChar), 'utf8') : Buffer.byteLength(source.slice(0, startChar), 'utf8');
+  const endByte = layout ? layout.byteOffsets[last - 1] + Buffer.byteLength(source.slice(endLineStart, endChar), 'utf8') : Buffer.byteLength(source.slice(0, endChar), 'utf8');
+  return { startLine: first, endLine: last, startColumn: Number(startColumn) || 0, endColumn: Number(endColumn) || 0, startByte, endByte };
 }
 
 export function readJson(filePath, fallback = null) {
@@ -60,9 +70,23 @@ export function writeJsonAtomic(filePath, value) {
   fs.renameSync(temp, filePath);
 }
 
-export function writeJsonl(filePath, rows) {
+export function writeJsonl(filePath, rows, { chunkBytes = 1024 * 1024 } = {}) {
   fs.mkdirSync(path.dirname(filePath), { recursive: true });
-  fs.writeFileSync(filePath, rows.map((row) => JSON.stringify(row)).join('\n') + (rows.length ? '\n' : ''));
+  const fd = fs.openSync(filePath, 'w');
+  let buffer = '';
+  try {
+    for (const row of rows) {
+      const line = `${JSON.stringify(row)}\n`;
+      if (buffer && buffer.length + line.length > chunkBytes) {
+        fs.writeSync(fd, buffer, undefined, 'utf8');
+        buffer = '';
+      }
+      buffer += line;
+    }
+    if (buffer) fs.writeSync(fd, buffer, undefined, 'utf8');
+  } finally {
+    fs.closeSync(fd);
+  }
 }
 
 export function readJsonl(filePath) {

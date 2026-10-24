@@ -64,8 +64,7 @@ function relationFromRow(row, snapshotId) {
   };
 }
 
-function evidence(index, symbol, sourceCache, maxLines = 60) {
-  const file = index.getFile(symbol.fileId);
+function evidence(index, symbol, file, sourceCache, maxLines = 60) {
   if (!file) return null;
   let source = sourceCache.get(file.digest);
   if (source === undefined) {
@@ -82,18 +81,19 @@ function evidence(index, symbol, sourceCache, maxLines = 60) {
 function candidateNodes(index, query) {
   const terms = cleanQuery(query);
   const rows = index.searchNodes(terms.join(' '), 128);
-  const candidates = [];
-  for (const row of rows) {
-    const score = scoreText(`${row.name} ${row.qualified_name} ${row.signature} ${row.doc} ${row.summary} ${row.path}`, terms) + (row.node_type === 'symbol' ? 1 : 0);
+  const rankedRows = rows.map((row) => ({
+    row,
+    score: scoreText(`${row.name} ${row.qualified_name} ${row.signature} ${row.doc} ${row.summary} ${row.path}`, terms) + (row.node_type === 'symbol' ? 1 : 0),
+  })).sort((a, b) => b.score - a.score || String(a.row.path || '').localeCompare(String(b.row.path || ''))).slice(0, 12);
+  const symbolsById = new Map(index.getSymbols(rankedRows.filter(({ row }) => row.node_type === 'symbol').map(({ row }) => row.node_id)).map((symbol) => [symbol.symbolId, symbol]));
+  return rankedRows.flatMap(({ row, score }) => {
     if (row.node_type === 'symbol') {
-      const item = index.getSymbol(row.node_id);
-      if (item) candidates.push({ kind: 'symbol', score, item });
-    } else {
-      const item = index.getNavigation(row.node_id) || { nodeId: row.node_id, title: row.name, path: row.path, nodeType: row.node_type, summary: row.summary };
-      candidates.push({ kind: row.node_type, score, item });
+      const item = symbolsById.get(row.node_id);
+      return item ? [{ kind: 'symbol', score, item }] : [];
     }
-  }
-  return candidates.sort((a, b) => b.score - a.score || String(a.item.path || '').localeCompare(String(b.item.path || ''))).slice(0, 12);
+    const item = index.getNavigation(row.node_id) || { nodeId: row.node_id, title: row.name, path: row.path, nodeType: row.node_type, summary: row.summary };
+    return [{ kind: row.node_type, score, item }];
+  });
 }
 
 function relationResults(index, mode, targetSymbol) {
@@ -109,7 +109,10 @@ function relationResults(index, mode, targetSymbol) {
 
 export function getEvidence(index, symbols, { maxLines = 60 } = {}) {
   const sourceCache = new Map();
-  return symbols.map((symbol) => evidence(index, symbol, sourceCache, maxLines)).filter(Boolean);
+  const fileIds = [...new Set(symbols.map((symbol) => symbol.fileId))];
+  const files = typeof index.getFiles === 'function' ? index.getFiles(fileIds) : fileIds.map((fileId) => index.getFile(fileId)).filter(Boolean);
+  const filesById = new Map(files.map((file) => [file.fileId, file]));
+  return symbols.map((symbol) => evidence(index, symbol, filesById.get(symbol.fileId), sourceCache, maxLines)).filter(Boolean);
 }
 
 export function queryIndex(index, query, { maxEvidence = 6, maxLines = 60, includeSource = true } = {}) {
