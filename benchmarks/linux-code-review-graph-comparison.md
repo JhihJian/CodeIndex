@@ -12,6 +12,21 @@ b1a2562be56e42afb3f8489d4c2a7ac472ac23098f1ef1c1e40da601f54625eb
 
 CodeIndex 和 `code-review-graph` 都使用同一个工作区。`code-review-graph` 使用默认完整构建流程，包含解析、FTS、flow 和 community 后处理。
 
+## Tree-sitter C/C++ 适配器验证
+
+当前版本在同一份 Linux v6.12 工作区上直接解析四个 C 源文件，目标函数均被识别：
+
+| 文件 | 目标函数 | 函数符号 | 总符号 | includes | calls | references | 状态 |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | --- |
+| `fs/exec.c` | `do_execveat_common` | 65 | 201 | 52 | 405 | 4 | partial |
+| `net/ipv4/tcp_ipv4.c` | `tcp_v4_syn_recv_sock` | 88 | 528 | 34 | 887 | 0 | partial |
+| `fs/open.c` | `vfs_open` | 40 | 140 | 29 | 235 | 2 | partial |
+| `kernel/sched/fair.c` | `pick_next_task_fair` | 457 | 1,473 | 32 | 2,177 | 43 | partial |
+
+四个目标函数的召回为 4/4，共提取 2,342 个符号、147 条包含关系、3,704 条直接调用关系和 49 条宏引用关系。`partial` 表示 Linux 源码包含依赖编译上下文的条件分支或 Tree-sitter 错误节点，解析器保留已识别的确定性范围并将无法确认的关系留在未解析状态。
+
+完整 Linux 重建仍受主进程符号聚合内存约束：原生 Tree-sitter 解析已通过子进程批处理控制单批 native 内存，主进程在默认约 4 GiB V8 堆上聚合全仓库结果时耗尽堆空间。当前适配器的功能验证使用上述真实文件和独立 fixture，完整 Linux 性能表待流式符号写入完成后更新。
+
 ## 全量构建
 
 | 指标 | CodeIndex | code-review-graph |
@@ -28,7 +43,7 @@ CodeIndex 和 `code-review-graph` 都使用同一个工作区。`code-review-gra
 
 CodeIndex 当前只对 Python、JavaScript 和 TypeScript 生成结构化符号。Linux 的 C、头文件、汇编和大量脚本因此主要保留文件级索引，结构化解析文件只有 259 个。`code-review-graph` 能够解析 C/C++，所以在这个项目上生成了数量显著更多的函数、类型和关系节点。
 
-CodeIndex 的全量构建时间明显更短，主要原因是它跳过了 Linux C 语义解析以及对照工具的完整图后处理。这个结果用于观察资源边界，不能单独解释为两套工具的同等解析能力比较。
+CodeIndex 的全量构建时间明显更短，主要原因是它跳过了 Linux C 语义解析以及对照工具的完整图后处理。该结果用于观察资源边界，两套工具的解析能力和后处理范围需要分别解读。
 
 ## 查询
 
@@ -44,7 +59,7 @@ CodeIndex 的全量构建时间明显更短，主要原因是它跳过了 Linux 
 | 查询中位数 | 0.11 ms | 1.16 ms |
 | CodeIndex metadata-only 中位数 | 0.10 ms | 未单独测量 |
 
-CodeIndex 的 0/4 是当前 C 解析覆盖边界的直接结果，空结果不能证明 C 源码中不存在目标。对照项目可以通过 C Tree-sitter 解析返回函数节点。
+CodeIndex 的 0/4 反映了当时的 C 解析覆盖范围；空结果表示该版本没有相应的结构化符号事实。对照项目可以通过 C Tree-sitter 解析返回函数节点。
 
 ### Python 函数和类
 
@@ -78,6 +93,6 @@ Linux v6.12 暴露了 CodeIndex 当前的语言覆盖边界，同时验证了最
 - CodeIndex 的 JSONL 分块写入、源码布局复用和临时对象释放在 1.38 GiB 源码输入上仍能把峰值 RSS 控制在约 1.67 GiB。
 - `code-review-graph` 的 C/C++ 结构化解析带来了更高的符号和关系覆盖，但完整构建及后处理的峰值 RSS 约 9.78 GiB，数据库约 8.61 GiB。
 - 在两边都支持的 Python 子集上，CodeIndex 的 metadata-only 查询中位数约 0.16 ms，带源码证据查询中位数约 0.32 ms。
-- 下一步如果要提升 Linux 这类项目的实际价值，应优先增加 C/C++ 解析适配器或 Tree-sitter 适配，而不是继续优化已经很快的空结果查询。
+- 提升 Linux 这类项目的实际价值，应优先增加 C/C++ 解析适配器或 Tree-sitter 适配，再继续优化空结果查询。
 
 原始构建、更新和查询结果保存在 [`benchmarks/results`](results)；问题集保存在 [`questions-linux-c.json`](questions-linux-c.json) 和 [`questions-linux-python.json`](questions-linux-python.json)。

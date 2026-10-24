@@ -36,11 +36,11 @@ function normalizeTarget(targetName) {
 function resolveRelationTarget(relation, indexes, filePath) {
   const raw = normalizeTarget(relation.targetName);
   if (!raw) return null;
-  if (relation.type === 'imports') {
+  if (relation.type === 'imports' || relation.type === 'includes') {
     const exactModule = indexes.moduleByQualified.get(raw) || [...indexes.moduleByQualified.values()].find((item) => item.qualifiedName.endsWith(`.${raw}`));
     if (exactModule) return exactModule;
     const relative = raw.startsWith('.') ? path.posix.normalize(path.posix.join(path.posix.dirname(filePath), raw)) : raw;
-    const modulePath = relative.replace(/^\.\//, '').replace(/\.(js|jsx|mjs|cjs|ts|tsx|py)$/, '');
+    const modulePath = relative.replace(/^\.\//, '').replace(/\.(js|jsx|mjs|cjs|ts|tsx|py|c|h|cc|cpp|cxx|hh|hpp|hxx)$/, '');
     return indexes.moduleByPath.get(modulePath) || indexes.moduleByQualified.get(modulePath.replaceAll('/', '.')) || null;
   }
   const leaf = raw.split('.').pop();
@@ -124,7 +124,8 @@ export function indexRepository(repoRoot, storeRoot, { incremental = true, maxFi
   const repoId = repositoryId(repo);
   const previousManifest = incremental ? loadPublishedManifest(storeRoot, repoId) : null;
   const currentGit = gitContext(repo);
-  if (previousManifest && currentGit.revision && currentGit.revision === previousManifest.manifest.git?.revision && !currentGit.dirty && !previousManifest.manifest.git?.dirty) {
+  const previousCompatible = previousManifest?.manifest?.schema === INDEX_SCHEMA && previousManifest.manifest.parserVersion === PARSER_VERSION;
+  if (previousManifest && previousCompatible && currentGit.revision && currentGit.revision === previousManifest.manifest.git?.revision && !currentGit.dirty && !previousManifest.manifest.git?.dirty) {
     return { manifest: previousManifest.manifest, snapshotDir: previousManifest.snapshotDir, stats: { ...previousManifest.manifest.stats, changedFiles: 0, reusedFiles: previousManifest.manifest.stats.files, buildMs: Date.now() - startedAt, noOp: true } };
   }
   const previous = loadPublishedData(previousManifest);
@@ -133,16 +134,14 @@ export function indexRepository(repoRoot, storeRoot, { incremental = true, maxFi
   let parsedPrevious = new Map((previous?.parsed || []).map((record) => [record.path, record]));
   const entries = scan.files;
   const scannedContentDigest = hashText(stableJson(entries.map((entry) => ({ path: entry.path, digest: entry.digest, language: entry.language }))));
-  if (previous && previous.manifest.contentDigest === scannedContentDigest) {
+  if (previous && previousCompatible && previous.manifest.contentDigest === scannedContentDigest) {
     return { manifest: previous.manifest, snapshotDir: previous.snapshotDir, stats: { ...previous.manifest.stats, changedFiles: 0, reusedFiles: entries.length, buildMs: Date.now() - startedAt, noOp: true } };
   }
   const changedEntries = entries.filter((entry) => {
     const old = priorFiles.get(entry.path);
     return !old || old.digest !== entry.digest || old.language !== entry.language || old.parserVersion !== PARSER_VERSION;
   });
-  for (const entry of changedEntries) entry.source = fs.readFileSync(entry.absolute, 'utf8');
   let parsedChanged = parseEntries(changedEntries);
-  for (const entry of changedEntries) delete entry.source;
   const parsedByFile = new Map();
   for (const entry of entries) parsedByFile.set(entry.path, parsedChanged.get(entry.path) || parsedPrevious.get(entry.path) || { path: entry.path, status: 'partial', error: 'missing-parser-result', symbols: [], relations: [] });
   parsedPrevious = null;
@@ -186,7 +185,7 @@ export function indexRepository(repoRoot, storeRoot, { incremental = true, maxFi
   const moduleRecords = allSymbols.filter((symbol) => symbol.kind === 'module');
   const indexes = {
     moduleByQualified: new Map(moduleRecords.map((symbol) => [symbol.qualifiedName, symbol])),
-    moduleByPath: new Map(moduleRecords.map((symbol) => [symbol.path.replace(/\.(js|jsx|mjs|cjs|ts|tsx|py)$/, ''), symbol])),
+    moduleByPath: new Map(moduleRecords.map((symbol) => [symbol.path.replace(/\.(js|jsx|mjs|cjs|ts|tsx|py|c|h|cc|cpp|cxx|hh|hpp|hxx)$/, ''), symbol])),
     symbolsByQualified: new Map(allSymbols.map((symbol) => [symbol.qualifiedName, symbol])),
     symbolsByName: new Map(),
     symbolsByFileName: new Map(),

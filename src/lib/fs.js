@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { hashBytes, hashText, shortHash } from './hash.js';
 
-export const PARSER_VERSION = 'codeindex-parser-0.1.0';
+export const PARSER_VERSION = 'codeindex-parser-0.2.0';
 export const DEFAULT_IGNORES = new Set([
   '.git', '.hg', '.svn', 'node_modules', '.venv', 'venv', '__pycache__',
   'dist', 'build', 'coverage', '.next', '.turbo', '.cache', 'target',
@@ -11,6 +11,8 @@ export const DEFAULT_IGNORES = new Set([
 
 const EXTENSIONS = new Map([
   ['.py', 'python'], ['.pyi', 'python'],
+  ['.c', 'c'], ['.h', 'c'],
+  ['.cc', 'cpp'], ['.cpp', 'cpp'], ['.cxx', 'cpp'], ['.hh', 'cpp'], ['.hpp', 'cpp'], ['.hxx', 'cpp'],
   ['.js', 'javascript'], ['.jsx', 'javascript'], ['.mjs', 'javascript'], ['.cjs', 'javascript'],
   ['.ts', 'typescript'], ['.tsx', 'typescript'], ['.mts', 'typescript'], ['.cts', 'typescript'],
   ['.java', 'java'], ['.go', 'go'], ['.rs', 'rust'], ['.rb', 'ruby'],

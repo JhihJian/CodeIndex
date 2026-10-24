@@ -7,7 +7,8 @@ CodeIndex 是一个面向大型代码仓库的 Node.js 结构化索引和推理�
 ## 特性
 
 - 固定快照和原子发布，查询结果绑定 snapshot、路径、行号、字节范围和 blob digest。
-- 支持 Python AST、JavaScript 和 TypeScript 符号解析，对其他文本文件保留文件级索引。
+- 支持 Python AST、JavaScript/TypeScript 和 Tree-sitter C/C++ 结构化解析，对其他文本文件保留文件级索引。
+- C/C++ 解析覆盖函数定义和声明、结构体、联合体、枚举、typedef、C++ 类和命名空间、`#include`、宏定义、直接函数调用和继承关系。
 - 建立仓库、目录、文件和符号包含树，以及 imports、calls、inherits、implements 等关系。
 - 使用 SQLite FTS5 检索候选节点，使用关系 B-tree 索引访问邻接边。
 - 元数据候选和源码证据分阶段读取，支持 `--metadata-only` 低延迟查询。
@@ -16,13 +17,14 @@ CodeIndex 是一个面向大型代码仓库的 Node.js 结构化索引和推理�
 
 ## 环境要求
 
-- Node.js `>=22.5`，用于使用内置 `node:sqlite` 和 SQLite FTS5。
+- Node.js `>=22.5`，用于使用内置 `node:sqlite`、SQLite FTS5 和 Tree-sitter 运行时。
 - Python 3，用于 Python AST 解析器。
+- `npm install` 会安装 Tree-sitter C/C++ grammar 的原生模块。
 
 ## 安装
 
 ```bash
-git clone https://github.com/heyjude0919/CodeIndex.git
+git clone https://github.com/JhihJian/CodeIndex.git
 cd CodeIndex
 npm install
 npm test
@@ -130,6 +132,4 @@ CodeIndex 在该仓库上全量构建约快 18%，但峰值内存约为对照项
 
 ## 超大型开源仓库基准（Linux v6.12）
 
-Linux v6.12 使用 kernel.org 官方源码包，SHA256 为 `b1a2562be56e42afb3f8489d4c2a7ac472ac23098f1ef1c1e40da601f54625eb`。源码快照包含 86,677 个 Git 文件，跟踪源码约 1.38 GiB，主要由 C 文件和头文件组成。CodeIndex 当前对 Linux 只结构化解析 259 个 Python 文件，C 文件保留文件级索引；`code-review-graph` 解析 61,078 个文件并生成 3,020,668 个节点。
-
-CodeIndex 全量构建耗时 66.66 秒，最大 RSS 约 1,677 MiB；`code-review-graph` 使用默认完整后处理，耗时 1,160.20 秒，最大 RSS 约 9,778 MiB。两边在 Python 问题集上均为 4/4 命中；在 4 个 C 函数问题上，CodeIndex 为 0/4，`code-review-graph` 为 4/4。详细数据、问题集和原始结果见 [`benchmarks/linux-code-review-graph-comparison.md`](benchmarks/linux-code-review-graph-comparison.md)。
+Linux v6.12 的历史基线是在 C/C++ 适配器接入前完成的：当时 CodeIndex 只结构化解析 Python，C 函数问题集为 0/4。当前适配器已经覆盖 Linux 使用的 `.c` 和 `.h` 文件类型，并通过独立 C/C++ fixture 验证函数、类型、包含、宏和调用关系。完整 Linux 重建需要进一步处理超大型 C 仓库的符号聚合内存，当前历史基线数字仅用于旧版本资源和覆盖范围的对照。详细历史数据、问题集和原始结果见 [`benchmarks/linux-code-review-graph-comparison.md`](benchmarks/linux-code-review-graph-comparison.md)。

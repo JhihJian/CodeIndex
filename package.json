@@ -3,12 +3,21 @@
   "version": "0.1.0",
   "description": "Snapshot-aware, structure-first code repository indexing and reasoning for large repositories.",
   "type": "module",
-  "bin": {"codeindex": "./bin/codeindex.js"},
+  "bin": {
+    "codeindex": "./bin/codeindex.js"
+  },
   "scripts": {
     "test": "node --test",
     "check": "find src bin -name '*.js' -print0 | xargs -0 -n1 node --check && python3 -m py_compile src/parsers/python_ast.py",
     "benchmark": "node bin/codeindex.js benchmark --repo /data/github/PageIndex --store .data/pageindex --questions benchmarks/questions-pageindex.json --output benchmarks/results/pageindex.json"
   },
-  "engines": {"node": ">=22.5"},
-  "license": "MIT"
+  "engines": {
+    "node": ">=22.5"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "tree-sitter": "^0.21.1",
+    "tree-sitter-c": "^0.23.0",
+    "tree-sitter-cpp": "^0.23.0"
+  }
 }

@@ -1,0 +1,64 @@
+{
+  "dataset": "linux-v6.12",
+  "repositoryCommit": "e81dbc9fe6c78c547c2ce7a3354b52479b26edd9",
+  "parserVersion": "codeindex-parser-0.2.0",
+  "adapter": "tree-sitter-c",
+  "queryRecall": "4/4",
+  "files": [
+    {
+      "path": "fs/exec.c",
+      "expectedSymbol": "do_execveat_common",
+      "found": true,
+      "status": "partial",
+      "symbols": 201,
+      "functions": 65,
+      "includes": 52,
+      "calls": 405,
+      "references": 4
+    },
+    {
+      "path": "net/ipv4/tcp_ipv4.c",
+      "expectedSymbol": "tcp_v4_syn_recv_sock",
+      "found": true,
+      "status": "partial",
+      "symbols": 528,
+      "functions": 88,
+      "includes": 34,
+      "calls": 887,
+      "references": 0
+    },
+    {
+      "path": "fs/open.c",
+      "expectedSymbol": "vfs_open",
+      "found": true,
+      "status": "partial",
+      "symbols": 140,
+      "functions": 40,
+      "includes": 29,
+      "calls": 235,
+      "references": 2
+    },
+    {
+      "path": "kernel/sched/fair.c",
+      "expectedSymbol": "pick_next_task_fair",
+      "found": true,
+      "status": "partial",
+      "symbols": 1473,
+      "functions": 457,
+      "includes": 32,
+      "calls": 2177,
+      "references": 43
+    }
+  ],
+  "totals": {
+    "symbols": 2342,
+    "functions": 650,
+    "includes": 147,
+    "calls": 3704,
+    "references": 49
+  },
+  "notes": [
+    "partial 表示源码包含条件编译或 Tree-sitter 错误节点，已识别的符号和关系仍保留。",
+    "宏调用以 references 关系记录，这是四个真实 Linux C 文件的适配器验证，不是全仓库构建性能结果。"
+  ]
+}

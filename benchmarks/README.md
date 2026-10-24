@@ -30,7 +30,7 @@ Bun 的完整对比结果见 [`bun-code-review-graph-comparison.md`](bun-code-re
 
 ## Linux v6.12
 
-数据集：86,362 个 CodeIndex 文件，1.21 GB 可读源码，5,175 个符号，24,284 条关系。Linux v6.12 主要由 C 和头文件组成，CodeIndex 当前只结构化解析 259 个 Python 文件；`code-review-graph` 解析 61,078 个文件并生成 3,020,668 个节点、7,654,413 条关系。完整构建对比见 [`linux-code-review-graph-comparison.md`](linux-code-review-graph-comparison.md)。
+历史基线数据集包含 86,362 个 CodeIndex 文件、1.21 GB 可读源码、5,175 个符号和 24,284 条关系。当时 CodeIndex 还没有 C/C++ 结构化解析，只解析了 259 个 Python 文件。当前版本新增 Tree-sitter C/C++ 适配器，并已在 Linux 四个目标文件上识别 `do_execveat_common`、`tcp_v4_syn_recv_sock`、`vfs_open` 和 `pick_next_task_fair`，同时提取函数、类型、包含、宏和直接调用关系。完整 Linux 重建需要继续优化超大型 C 仓库的符号聚合内存，因此历史对照数字仍应按旧版本基线解读。验证明细保存在 [`benchmarks/results/linux-codeindex-c-adapter.json`](results/linux-codeindex-c-adapter.json)，历史构建对比见 [`linux-code-review-graph-comparison.md`](linux-code-review-graph-comparison.md)。
 
 ## Pi provider 推理验证
 
