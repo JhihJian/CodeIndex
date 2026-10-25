@@ -252,9 +252,14 @@ function databaseFiles(database, { normalizeHeader = false } = {}) {
   } finally { fs.closeSync(fd); }
 }
 
-// Cscope 15.9 copyinverted() loses macro context when a DEFINEEND marker
-// precedes a nonempty source tail. Reparse those files instead of replaying them.
-function macroTailFiles(database) {
+// Cscope 15.9 copyinverted() loses macro-tail context and treats multiline
+// source fragments as identifiers. Reparse affected files instead of replaying them.
+function replayUnsafeFiles(database) {
+  const first = Buffer.from(' teisaprnl(of)=c');
+  const second = Buffer.from(' tnerpla');
+  const letter = (c) => (c >= 65 && c <= 90) || (c >= 97 && c <= 122) || c === 95;
+  const word = (c) => letter(c) || (c >= 48 && c <= 57);
+  const identifierByte = Uint8Array.from({ length: 256 }, (_, c) => c < 128 ? word(c) : word(first[(c & 127) >> 3]) && word(second[c & 7]));
   const files = new Set();
   const fd = fs.openSync(database, 'r');
   const chunk = Buffer.allocUnsafe(1024 * 1024);
@@ -269,6 +274,12 @@ function macroTailFiles(database) {
       while ((end = data.indexOf(10, start)) !== -1) {
         const length = end - start;
         if (macroEnd && length && file) files.add(file);
+        const initial = data[start] < 128 ? data[start] : first[(data[start] & 127) >> 3];
+        if (length && file && letter(initial) && !files.has(file)) {
+          for (let cursor = start; cursor < end; cursor++) {
+            if (!identifierByte[data[cursor]]) { files.add(file); break; }
+          }
+        }
         macroEnd = length === 2 && data[start] === 9 && data[start + 1] === 41;
         if (length >= 2 && data[start] === 9 && data[start + 1] === 64) file = data.toString('utf8', start + 2, end);
         start = end + 1;
@@ -299,9 +310,9 @@ function seedCscope({ previousDir, database, root, closure, changedPaths }) {
     if (!oldRoot || Buffer.byteLength(oldRoot) !== Buffer.byteLength(root)) return false;
   } catch { return false; }
   const referenceTime = closure.reduce((latest, file) => Math.max(latest, Math.floor(fs.statSync(path.join(root, file)).mtimeMs / 1000)), 0);
-  const macroTails = macroTailFiles(seed);
-  if (!macroTails) return false;
-  const changed = new Set([...changedPaths, ...macroTails]);
+  const unsafeFiles = replayUnsafeFiles(seed);
+  if (!unsafeFiles) return false;
+  const changed = new Set([...changedPaths, ...unsafeFiles]);
   const scratch = fs.mkdtempSync(path.join(path.dirname(database), '.seed-'));
   try {
     for (const file of closure) {

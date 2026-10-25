@@ -16,7 +16,7 @@ Ctags 按连续文件分片并行输出，结果按输入顺序逐行写入 SQLi
 
 SQL 关系在查询时解析目标，因此删除或重命名目标后，旧的原始调用记录会按当前快照重新判定。Cscope 15.9 在路径条件满足时复用旧交叉引用记录，仍需遍历旧库并重建全局倒排索引。
 
-复用仅复制旧 `cscope.out`，在副本中等字节长度替换 cwd。全部摘要变化路径都参与判断，包括 `.inc`、`.def` 等被 include 的文本。变化文件在新 staging tree 中先解除与 blob 的硬链接，再设置严格大于种子库的秒级 mtime，使用 `-U` 强制检查删除与 include 变化。Cscope 15.9 的 `copyinverted()` 会丢失部分宏尾部引用的作用域，因此流式检查旧库的 `DEFINEEND` 后续记录，对含非空宏尾部的文件也强制重新解析。旧快照、共享 blob 和工作树均不修改。使用文件名 alias、cwd 含空白、header 长度不等、种子格式不符或其他 Cscope 版本时全量构建。输入安全检查失败直接终止，构建失败保留旧发布版本。
+复用仅复制旧 `cscope.out`，在副本中等字节长度替换 cwd。全部摘要变化路径都参与判断，包括 `.inc`、`.def` 等被 include 的文本。变化文件在新 staging tree 中先解除与 blob 的硬链接，再设置严格大于种子库的秒级 mtime，使用 `-U` 强制检查删除与 include 变化。Cscope 15.9 的 `copyinverted()` 会丢失部分宏尾部引用的作用域，并将跨行源码片段误当成标识符。因此流式检查旧库，对含非空宏尾部或这类源码片段的文件也强制重新解析。旧快照、共享 blob 和工作树均不修改。使用文件名 alias、cwd 含空白、header 长度不等、种子格式不符或其他 Cscope 版本时全量构建。输入安全检查失败直接终止，构建失败保留旧发布版本。
 
 ## 并行度与调用接口
 
@@ -67,7 +67,7 @@ node bin/codeindex.js export --store /path/to/index --output /path/to/empty-audi
 
 ## 验证入口
 
-- `test/performance.test.js`：并行等价、宏尾部引用作用域、连续秒级增量、旧快照不变和取消清理。
+- `test/performance.test.js`：并行等价、宏尾部及跨行字符串引用、连续秒级增量、旧快照不变和取消清理。
 - `test/production.test.js`：原生增量、旧读者、重命名、JS/TS 导入、UTF-8 证据、产物恢复和审计导出。
 - `test/native-tools.test.js`：真实工具、路径、迁移、倒排损坏、超时和错误诊断。
 - `test/compact-store.test.js`：FTS、稳定身份、增量隔离和偏移。

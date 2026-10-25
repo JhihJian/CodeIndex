@@ -91,10 +91,13 @@ test('Cscope successive same-second updates, deletes and transitive non-C includ
   }
 });
 
-test('unchanged macro tails retain their reference context across incremental rebuilds', async (t) => {
+test('unchanged macro tails and multiline strings retain their references across incremental rebuilds', async (t) => {
   const { root, repo, store } = fixture(t);
   const tools = resolveNativeTools({ needsCtags: false });
   fs.writeFileSync(path.join(repo, 'macros.h'), '#define FN(obj, field_name) obj->field_name\n#define ID(x) x\n#define CTX(ctx) ctx\n');
+  fs.writeFileSync(path.join(repo, 'strings.c'), String.raw`const char *message = "hello\
+_world: more text";
+`);
   fs.writeFileSync(path.join(repo, 'a.c'), 'int a(void) { return 1; }\n');
   let previous = await indexRepository(repo, store);
   for (let generation = 2; generation <= 3; generation++) {
@@ -103,7 +106,7 @@ test('unchanged macro tails retain their reference context across incremental re
     const updated = await indexRepository(repo, store);
     const full = await indexRepository(repo, path.join(root, `full-${generation}`), { incremental: false });
     assert.equal(updated.stats.nativeBuildMode, 'incremental');
-    for (const name of ['field_name', 'x', 'ctx']) {
+    for (const name of ['field_name', 'x', 'ctx', '.*']) {
       const query = (built) => queryCscope({ snapshotDir: built.snapshotDir, treeRoot: path.join(built.snapshotDir, 'tree'), tools, name, mode: 'references' }).rows;
       assert.deepEqual(query(updated), query(full));
     }
