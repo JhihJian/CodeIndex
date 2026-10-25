@@ -1,0 +1,115 @@
+{
+  "capturedAt": "2026-10-25T05:50:37.253411+00:00",
+  "host": "jhihjian-MACO",
+  "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+  "logicalCpus": 16,
+  "memTotal": "MemTotal:       20255952 kB",
+  "codeindexVersion": "0.3.0",
+  "codeindexProductionRevision": "362cbce6e00f7f13018bbecd91ab72f2e051ed9c",
+  "benchmarkImplementationRevision": "ec79fa3f069273f0dc46da23b1c0470b6af56d88",
+  "versions": {
+    "node": {
+      "command": [
+        "node",
+        "--version"
+      ],
+      "exitCode": 0,
+      "output": "v24.13.1"
+    },
+    "java": {
+      "command": [
+        "java",
+        "-version"
+      ],
+      "exitCode": 0,
+      "output": "openjdk version \"21.0.12.1\" 2026-08-18\nOpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)\nOpenJDK 64-Bit Server VM (build 21.0.12.1+1-1-24.04.4-Ubuntu, mixed mode, sharing)"
+    },
+    "opengrok": {
+      "command": [
+        "java",
+        "-jar",
+        "/data/dev/benchmark-tools/opengrok-1.14.20/lib/opengrok.jar",
+        "--version"
+      ],
+      "exitCode": 0,
+      "output": "OpenGrok v1.14.20 rev 3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3\nOct 25, 2026 1:50:37 PM org.opengrok.indexer.index.Indexer parseOptions\nINFO: Indexer options: [--version]"
+    },
+    "go": {
+      "command": [
+        "go",
+        "version"
+      ],
+      "exitCode": 0,
+      "output": "go version go1.24.3 linux/amd64"
+    },
+    "zoektRevision": {
+      "command": [
+        "git",
+        "-C",
+        "/data/dev/benchmark-tools/zoekt",
+        "rev-parse",
+        "HEAD"
+      ],
+      "exitCode": 0,
+      "output": "572f5e4a3a37532300298e2ba38513c15b2e0319"
+    },
+    "ctags": {
+      "command": [
+        "/home/jhihjian/.local/bin/ctags-universal",
+        "--version"
+      ],
+      "exitCode": 0,
+      "output": "Universal Ctags 5.9.0, Copyright (C) 2015 Universal Ctags Team\nUniversal Ctags is derived from Exuberant Ctags.\nExuberant Ctags 5.8, Copyright (C) 1996-2009 Darren Hiebert\n  Compiled: Sep  3 2021, 18:12:18\n  URL: https://ctags.io/\n  Optional compiled features: +wildcards, +regex, +gnulib_regex, +iconv, +option-directory, +xpath, +json, +interactive, +sandbox, +yaml, +packcc, +optscript"
+    },
+    "cscope": {
+      "command": [
+        "/home/jhihjian/.local/bin/cscope",
+        "-V"
+      ],
+      "exitCode": 0,
+      "output": "/home/jhihjian/.local/bin/cscope: version 15.9"
+    },
+    "cgc": {
+      "command": [
+        "/data/dev/benchmark-tools/cgc-venv/bin/python",
+        "-c",
+        "import importlib.metadata as m,json;print(json.dumps({d.metadata['Name']:d.version for d in m.distributions() if d.metadata['Name'].lower() in ('codegraphcontext','falkordb','falkordblite','tree-sitter','tree-sitter-language-pack')}))"
+      ],
+      "exitCode": 0,
+      "output": "{\"codegraphcontext\": \"0.6.13\", \"tree-sitter-language-pack\": \"1.22.1\", \"falkordblite\": \"0.9.0\", \"tree-sitter\": \"0.25.2\", \"FalkorDB\": \"1.2.0\"}"
+    }
+  },
+  "artifactSha256": {
+    "/data/dev/benchmark-tools/zoekt-git-index": "a58f7db76f0c4c84e595e6bb406b2947b818bafa891f1d32057d00d19c512466",
+    "/data/dev/benchmark-tools/zoekt-query": "674c9d52b40be203cd953148e515d58cb2f5e930fee2b5f02a1e5a81fec32b33",
+    "/data/dev/benchmark-tools/zoekt-audit": "d727302c44b92f22603b22bdb60a0beeb337f12a4e72c1e18cb7d8c05af1762e",
+    "/data/dev/benchmark-tools/opengrok-1.14.20/lib/opengrok.jar": "bc1f4650710cb92c4a43221c826018c6358bcbc30bf2aaa86688261a0f145aa1",
+    "/home/jhihjian/.local/bin/ctags-universal": "40f96d35ec2b5ff4b4a873dddd2f42c01ff66a1adc4bc45ed0bb6264fae20b6e",
+    "/home/jhihjian/.local/bin/cscope": "65134b72c1cb940f4721fd77b5d538c1bda21fbfc5a9f9b96d7f2fed7bdaf5cf"
+  },
+  "questionSha256": {
+    "benchmarks/heldout/questions/llvm-content.json": "9585d168fc2804f357df03d881c4622826b6d3a5efbd4837a65748d40c39a14b",
+    "benchmarks/heldout/questions/llvm.json": "a3f3288f6eab48441b6dbe03229b2898e3eb2cc843de283162b5be6e60bea3dc",
+    "benchmarks/heldout/questions/vscode-content.json": "d831570136c6a6a4aad0c88931d02b7c45ff6783543c7d53dea8d6180d368878",
+    "benchmarks/heldout/questions/vscode.json": "124f357a9b6dba946eed5fcd98bf1fffb310d95871d56f905702a1348061ae19",
+    "benchmarks/heldout/questions/cpython.json": "64dbeee0907a7f2dfcee0851513134815960399a85d6746a3359219eacd96ac3",
+    "benchmarks/heldout/questions/cpython-content.json": "8aac6cdbcabc7f4a6b7f8e60777e498f6324560df129442891a96aae568bfe73"
+  },
+  "originalProductionPointerSha256": {
+    "/data/dev/CodeIndex/.data/linux-native-v3/repo-67168d4b0edd4e638610/published.json": "5dc17ffa3995cf7df4aac79e6fb9d2241213bc9306aa0f32d0559dedc42531a8"
+  },
+  "limits": {
+    "memoryGiB": 12,
+    "swapBytes": 0,
+    "buildSeconds": 1800,
+    "updateSeconds": 300,
+    "querySeconds": 300,
+    "codeindexWorkers": 4,
+    "workerOldGenerationMiB": 256,
+    "NODE_OPTIONS": "unset",
+    "opengrokHeap": "-Xmx8g",
+    "zoektWorkers": 4,
+    "cgcIndexSource": true
+  },
+  "measurementOrder": "round-robin tool order across three fresh builds, serial; source and Git prewarmed; first failure retained without repetition"
+}
