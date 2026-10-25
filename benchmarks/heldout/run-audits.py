@@ -63,6 +63,8 @@ for corpus in args.corpora:
         else:
             command = [study.tools / 'cgc-venv/bin/python', adapters / 'cgc-audit.py', store, source, inventory]
         study.adapter(prefix + '-audit', command)
+        if tool == 'cgc':
+            study.adapter(prefix + '-definitions', [study.tools / 'cgc-venv/bin/python', ROOT / 'benchmarks/heldout/cgc-definition-audit.py', store, source, questions])
         study.relation_query(tool, corpus, store, prefix + '-relations')
         query_file = study.results / f'{prefix}-query.json'
         if query_file.exists():
@@ -73,4 +75,7 @@ for corpus in args.corpora:
         if content is not None:
             evidence(corpus, tool, content, content_questions, 'content')
     study.verify(corpus, revisions[corpus])
+if 'llvm' in args.corpora:
+    study.adapter('ctags-llvm-overflow-diagnostic', ['python3', ROOT / 'benchmarks/heldout/reproduce-ctags-crash.py', study.ctags, study.source('llvm')])
+    study.verify('llvm', revisions['llvm'])
 print('AUDITS_COMPLETE', flush=True)

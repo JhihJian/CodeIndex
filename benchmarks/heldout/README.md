@@ -42,8 +42,14 @@ python3 benchmarks/heldout/run-audits.py \
   --data /path/to/heldout --tools /path/to/benchmark-tools
 python3 benchmarks/heldout/run-updates.py \
   --data /path/to/heldout --tools /path/to/benchmark-tools
+python3 benchmarks/heldout/summarize.py \
+  --results benchmarks/results/heldout
 ```
 
 各运行器支持 `--corpora`、`--tool-names` 和 `--results`。重复建库默认三次，可用 `--repetitions` 调整；正式结论采用预先约定的三次。已存在的测量保留，失败组合不会被重新解释为成功。修复测量器时，应先归档受影响记录，并说明最小补测范围。
+
+审计阶段另执行两项只读诊断，均根据首轮结果补充：CGC 按目标文件和名字检查 Function/Class 节点，用于区分定义缺失与公共查询结果限制；LLVM 的 `parser_overflow.c` 使用冻结的 Ctags 及 CodeIndex 解析选项单文件复现，记录退出信号、源码摘要和字节数。诊断在正式构建轮次结束后执行，采用相同资源上限，独立于符号计分。Ctags 复现脚本正常退出只表示诊断完成，实际 Ctags 返回码另列。
+
+汇总要求成功组合具有三轮构建记录、每个项目已完成更新尝试并恢复。失败的实际耗时保留在原始记录和汇总中，报告将其标注为失败耗时。原始日志、计时文件和失败记录保持原样。
 
 查询和审计适配器复用 [competitors](../competitors/README.md)，原始结果写入 `benchmarks/results/heldout`，旧轮次结果保持原样。更新恢复信息位于数据目录的 `update-backups` 及结果目录的 `*-updates.json`。最终汇总分别评价速度、资源、覆盖、证据和更新，功能范围不同的工具按具体负载比较。
