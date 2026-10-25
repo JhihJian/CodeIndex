@@ -102,7 +102,7 @@ test('Ctags emits C/C++ ranges, scopes, signatures and inheritance without sourc
   const f = fixture(t, { spaces: true });
   const outputPath = path.join(f.snapshotDir, 'tags.jsonl');
   const output = await extractCTags({ ...f, tools, outputPath });
-  assert.deepEqual(output, { outputPath, warnings: [] });
+  assert.deepEqual(output, { outputPaths: [outputPath], warnings: [] });
   const tags = fs.readFileSync(outputPath, 'utf8').trim().split('\n').map(JSON.parse);
   assert.ok(tags.every((tag) => tag._type === 'tag' && !Object.hasOwn(tag, 'pattern')));
   assert.ok(!tags.some((tag) => tag.name === 'python_only'));
@@ -302,7 +302,7 @@ test('empty inputs require no native dependencies and invalid query modes are re
   const f = fixture(t);
   assert.deepEqual(await buildCscope({ ...f, paths: ['ignored.py'], tools: {} }), { files: [], indexedFiles: [], artifacts: [], warnings: [] });
   const outputPath = path.join(f.snapshotDir, 'empty.jsonl');
-  assert.deepEqual(await extractCTags({ ...f, paths: [], outputPath, tools: {} }), { outputPath, warnings: [] });
+  assert.deepEqual(await extractCTags({ ...f, paths: [], outputPath, tools: {} }), { outputPaths: [outputPath], warnings: [] });
   assert.equal(fs.readFileSync(outputPath, 'utf8'), '');
   assert.throws(() => queryCscope({ ...f, name: 'target', mode: 'unknown', tools: {} }), /Unsupported Cscope mode/);
 });

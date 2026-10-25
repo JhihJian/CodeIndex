@@ -127,7 +127,7 @@ export async function extractCTags({ treeRoot, paths, outputPath, tools, workers
   fs.mkdirSync(path.dirname(outputPath), { recursive: true });
   if (!files.length) {
     fs.writeFileSync(outputPath, '', 'utf8');
-    return { outputPath, warnings: [] };
+    return { outputPaths: [outputPath], warnings: [] };
   }
   const scratch = fs.mkdtempSync(path.join(path.dirname(outputPath), '.ctags-'));
   const controller = new AbortController();
@@ -153,22 +153,12 @@ export async function extractCTags({ treeRoot, paths, outputPath, tools, workers
       } catch (error) { failure ||= error; controller.abort(); return null; }
     }));
     if (failure) throw failure;
-    if (shards.length === 1) {
-      fs.renameSync(shards[0].output, outputPath);
-      return { outputPath, warnings: warnings(responses[0].stderr) };
-    }
-    const fd = fs.openSync(outputPath, 'w');
-    const buffer = Buffer.allocUnsafe(256 * 1024);
-    try {
-      for (const shard of shards) {
-        const input = fs.openSync(shard.output, 'r');
-        try {
-          let bytes;
-          while ((bytes = fs.readSync(input, buffer, 0, buffer.length, null))) fs.writeSync(fd, buffer, 0, bytes);
-        } finally { fs.closeSync(input); }
-      }
-    } finally { fs.closeSync(fd); }
-    return { outputPath, warnings: responses.flatMap((response) => warnings(response.stderr)) };
+    const outputPaths = shards.map((shard, index) => {
+      const output = index ? `${outputPath}.${index}` : outputPath;
+      fs.renameSync(shard.output, output);
+      return output;
+    });
+    return { outputPaths, warnings: responses.flatMap((response) => warnings(response.stderr)) };
   } finally {
     signal?.removeEventListener('abort', abort);
     fs.rmSync(scratch, { recursive: true, force: true });

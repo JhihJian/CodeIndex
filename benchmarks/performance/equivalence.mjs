@@ -3,10 +3,15 @@ import path from 'node:path';
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import { loadIndex } from '../../src/index.js';
+import { openCompactStore } from '../../src/lib/compact-store.js';
 
 const [baseline, optimized, inventoryFile] = process.argv.slice(2);
-const before = loadIndex(baseline);
-const after = loadIndex(optimized);
+function open(location) {
+  const manifest = path.join(location, 'manifest.json');
+  return fs.existsSync(manifest) ? openCompactStore(location, JSON.parse(fs.readFileSync(manifest, 'utf8'))) : loadIndex(location);
+}
+const before = open(baseline);
+const after = open(optimized);
 const inventory = JSON.parse(fs.readFileSync(inventoryFile, 'utf8'));
 function records(index, file) {
   const { id } = index.db.prepare('SELECT id FROM files WHERE path=?').get(file);

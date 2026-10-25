@@ -71,6 +71,13 @@ function copyBlob(source, destination) {
   }
 }
 
+function* iterateTagShards(files) {
+  for (const file of files) {
+    yield* iterateJsonl(file);
+    fs.unlinkSync(file);
+  }
+}
+
 export async function indexRepository(repoRoot, storeRoot, {
   incremental = true, maxFileBytes = 5 * 1024 * 1024, onProgress = () => {}, ctags, cscope, workers,
 } = {}) {
@@ -188,7 +195,7 @@ export async function indexRepository(repoRoot, storeRoot, {
       session.begin();
       let currentPath;
       let seen = new Set();
-      for (const tag of iterateJsonl(tagsFile)) {
+      for (const tag of iterateTagShards(extracted.outputPaths)) {
         if (tag._type !== 'tag') continue;
         const filePath = path.posix.normalize(tag.path);
         const info = fileInfo.get(filePath);
@@ -210,7 +217,6 @@ export async function indexRepository(repoRoot, storeRoot, {
         }
       }
       session.commit();
-      fs.unlinkSync(tagsFile);
     }
     progress('native-symbols');
     const updateModule = session.db.prepare('UPDATE symbols SET name=?,qualified_name=?,signature=?,doc=?,symbol_key=? WHERE id=?');

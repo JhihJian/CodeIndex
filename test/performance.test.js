@@ -5,7 +5,7 @@ import path from 'node:path';
 import { createHash } from 'node:crypto';
 import test from 'node:test';
 import { indexRepository, loadIndex } from '../src/lib/indexer.js';
-import { queryCscope, resolveNativeTools } from '../src/lib/native-tools.js';
+import { extractCTags, queryCscope, resolveNativeTools } from '../src/lib/native-tools.js';
 import { runProcess, workerCount } from '../src/lib/build-jobs.js';
 import { parseEntries } from '../src/parsers/index.js';
 import { parseEntriesParallel } from '../src/parsers/parallel.js';
@@ -50,6 +50,18 @@ test('bounded parser workers preserve UTF-8 spans, docs and all serial records; 
   controller.abort(new Error('native failure'));
   await assert.rejects(cancelled, /native failure/);
   for (const workers of [0, 9, 1.5, 'bad']) assert.throws(() => workerCount(workers), /workers/);
+});
+
+test('Ctags shards preserve all serial tags and input order without concatenating temporary output', async (t) => {
+  const { root, repo } = fixture(t);
+  const paths = Array.from({ length: 257 }, (_, i) => `${String(i).padStart(3, '0')}.c`);
+  for (const [i, file] of paths.entries()) fs.writeFileSync(path.join(repo, file), `int f${i}(void) { return target${i}(); }\n`);
+  const tools = resolveNativeTools({ needsCscope: false });
+  const serial = await extractCTags({ treeRoot: repo, paths, tools, outputPath: path.join(root, 'serial'), workers: 1 });
+  const parallel = await extractCTags({ treeRoot: repo, paths, tools, outputPath: path.join(root, 'parallel'), workers: 4 });
+  const read = (result) => result.outputPaths.map((file) => fs.readFileSync(file, 'utf8')).join('');
+  assert.ok(parallel.outputPaths.length > 1);
+  assert.equal(read(parallel), read(serial));
 });
 
 test('Cscope successive same-second updates, deletes and transitive non-C includes match full builds without changing old snapshots', async (t) => {
