@@ -1,0 +1,16 @@
+[
+  {
+    "query": "Heaps are arrays for which",
+    "expectedPaths": [
+      "Lib/heapq.py"
+    ],
+    "expectedLine": 3
+  },
+  {
+    "query": "Exception ignored in",
+    "expectedPaths": [
+      "Python/errors.c"
+    ],
+    "expectedLine": 1464
+  }
+]

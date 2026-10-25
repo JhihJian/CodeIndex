@@ -1,0 +1,24 @@
+{
+  "command": [
+    "node",
+    "benchmarks/competitors/prepare-inputs.mjs",
+    "/data/dev/CodeIndex/.data/heldout/sources-ready.json",
+    "/data/dev/CodeIndex/.data/heldout/inputs"
+  ],
+  "cwd": "/data/dev/CodeIndex-worktrees/feature/heldout-comparison",
+  "systemdUnit": "codeindex-benchmark-1755052.scope",
+  "systemdResult": "success",
+  "status": "success",
+  "exitCode": 0,
+  "wallSeconds": 6.69,
+  "wallSecondsIncludingSupervisor": 6.787406370043755,
+  "timeLimitSeconds": 600,
+  "memoryLimitGiB": 12,
+  "gnuTimeMaxRssKiB": 238248,
+  "sampledProcessTreeRssSumBytes": 239243264,
+  "workloadSampled": true,
+  "cgroupMemoryPeakBytes": 670756864,
+  "sampleIntervalSeconds": 0.25,
+  "leftoverProcessIdsTerminated": [],
+  "memoryNotes": "RSS sum can double-count shared pages; cgroup memory includes page cache; GNU time max RSS is not simultaneous tree total"
+}

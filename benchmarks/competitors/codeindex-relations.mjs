@@ -10,7 +10,7 @@ try {
     const begin = performance.now();
     const relations = index.getRelationsForSource(source.symbolId, ['calls']);
     const elapsedMs = performance.now() - begin;
-    const matching = relations.filter((edge) => edge.target_name?.split('.').at(-1) === test.callee);
+    const matching = relations.filter((edge) => edge.target_name?.split(/::|\./).at(-1) === test.callee);
     return { ...test, hit: matching.length > 0, elapsedMs, totalCalls: relations.length, matches: matching };
   });
   console.log(JSON.stringify({ tool: 'CodeIndex', corpus, rows }, null, 2));

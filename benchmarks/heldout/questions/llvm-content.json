@@ -1,0 +1,16 @@
+[
+  {
+    "query": "important class for using LLVM in a threaded context",
+    "expectedPaths": [
+      "llvm/include/llvm/IR/LLVMContext.h"
+    ],
+    "expectedLine": 63
+  },
+  {
+    "query": "expected top-level entity",
+    "expectedPaths": [
+      "llvm/lib/AsmParser/LLParser.cpp"
+    ],
+    "expectedLine": 547
+  }
+]

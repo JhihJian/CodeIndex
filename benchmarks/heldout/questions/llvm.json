@@ -1,0 +1,58 @@
+[
+  {
+    "query": "LLVMContext",
+    "expectedPaths": [
+      "llvm/include/llvm/IR/LLVMContext.h"
+    ],
+    "expectedLine": 68
+  },
+  {
+    "query": "DominatorTree",
+    "expectedPaths": [
+      "llvm/include/llvm/IR/Dominators.h"
+    ],
+    "expectedLine": 165
+  },
+  {
+    "query": "APInt",
+    "expectedPaths": [
+      "llvm/include/llvm/ADT/APInt.h"
+    ],
+    "expectedLine": 78
+  },
+  {
+    "query": "SmallVector",
+    "expectedPaths": [
+      "llvm/include/llvm/ADT/SmallVector.h"
+    ],
+    "expectedLine": 1196
+  },
+  {
+    "query": "parseAssemblyString",
+    "expectedPaths": [
+      "llvm/lib/AsmParser/Parser.cpp"
+    ],
+    "expectedLine": 136
+  },
+  {
+    "query": "parseIRFile",
+    "expectedPaths": [
+      "llvm/lib/IRReader/IRReader.cpp"
+    ],
+    "expectedLine": 94
+  },
+  {
+    "query": "verifyModule",
+    "expectedPaths": [
+      "llvm/lib/IR/Verifier.cpp"
+    ],
+    "expectedLine": 7537
+  },
+  {
+    "query": "ExecuteCompilerInvocation",
+    "expectedPaths": [
+      "clang/lib/FrontendTool/ExecuteCompilerInvocation.cpp"
+    ],
+    "expectedLine": 209
+  }
+]

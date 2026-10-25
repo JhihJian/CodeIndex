@@ -1,0 +1,14 @@
+{
+  "cpython": {
+    "path": "Python/pylifecycle.c",
+    "addition": "\n\nint {marker}(void) { return 42; }\n"
+  },
+  "vscode": {
+    "path": "src/vs/base/common/lifecycle.ts",
+    "addition": "\n\nexport function {marker}() { return 42; }\n"
+  },
+  "llvm": {
+    "path": "llvm/lib/IR/LLVMContext.cpp",
+    "addition": "\n\nint {marker}(void) { return 42; }\n"
+  }
+}

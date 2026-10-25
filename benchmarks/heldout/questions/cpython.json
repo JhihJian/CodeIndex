@@ -1,0 +1,58 @@
+[
+  {
+    "query": "SequenceMatcher",
+    "expectedPaths": [
+      "Lib/difflib.py"
+    ],
+    "expectedLine": 44
+  },
+  {
+    "query": "JSONDecoder",
+    "expectedPaths": [
+      "Lib/json/decoder.py"
+    ],
+    "expectedLine": 262
+  },
+  {
+    "query": "ArgumentParser",
+    "expectedPaths": [
+      "Lib/argparse.py"
+    ],
+    "expectedLine": 1840
+  },
+  {
+    "query": "heappush",
+    "expectedPaths": [
+      "Lib/heapq.py"
+    ],
+    "expectedLine": 132
+  },
+  {
+    "query": "Py_Initialize",
+    "expectedPaths": [
+      "Python/pylifecycle.c"
+    ],
+    "expectedLine": 1483
+  },
+  {
+    "query": "PyErr_SetString",
+    "expectedPaths": [
+      "Python/errors.c"
+    ],
+    "expectedLine": 294
+  },
+  {
+    "query": "PyUnicode_FromString",
+    "expectedPaths": [
+      "Objects/unicodeobject.c"
+    ],
+    "expectedLine": 2169
+  },
+  {
+    "query": "PyLong_FromLong",
+    "expectedPaths": [
+      "Objects/longobject.c"
+    ],
+    "expectedLine": 373
+  }
+]

@@ -1,0 +1,16 @@
+[
+  {
+    "query": "Manages a collection of disposable values",
+    "expectedPaths": [
+      "src/vs/base/common/lifecycle.ts"
+    ],
+    "expectedLine": 403
+  },
+  {
+    "query": "Encountered errors while disposing of store",
+    "expectedPaths": [
+      "src/vs/base/common/lifecycle.ts"
+    ],
+    "expectedLine": 342
+  }
+]

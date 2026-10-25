@@ -1,0 +1,58 @@
+[
+  {
+    "query": "DisposableStore",
+    "expectedPaths": [
+      "src/vs/base/common/lifecycle.ts"
+    ],
+    "expectedLine": 409
+  },
+  {
+    "query": "MutableDisposable",
+    "expectedPaths": [
+      "src/vs/base/common/lifecycle.ts"
+    ],
+    "expectedLine": 559
+  },
+  {
+    "query": "CancellationTokenSource",
+    "expectedPaths": [
+      "src/vs/base/common/cancellation.ts"
+    ],
+    "expectedLine": 97
+  },
+  {
+    "query": "Emitter",
+    "expectedPaths": [
+      "src/vs/base/common/event.ts"
+    ],
+    "expectedLine": 995
+  },
+  {
+    "query": "URI",
+    "expectedPaths": [
+      "src/vs/base/common/uri.ts"
+    ],
+    "expectedLine": 98
+  },
+  {
+    "query": "Delayer",
+    "expectedPaths": [
+      "src/vs/base/common/async.ts"
+    ],
+    "expectedLine": 373
+  },
+  {
+    "query": "RunOnceScheduler",
+    "expectedPaths": [
+      "src/vs/base/common/async.ts"
+    ],
+    "expectedLine": 1086
+  },
+  {
+    "query": "combinedDisposable",
+    "expectedPaths": [
+      "src/vs/base/common/lifecycle.ts"
+    ],
+    "expectedLine": 364
+  }
+]

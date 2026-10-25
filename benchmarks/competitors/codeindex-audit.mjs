@@ -13,8 +13,16 @@ try {
     found.add(file.path);
     if (inventory.get(file.path) !== file.digest) digestMismatches.push(file.path);
   }
+  const questions = JSON.parse(fs.readFileSync(questionFile, 'utf8'));
+  const definitionProbes = questions.flatMap((question) => question.expectedPaths.map((filePath) => {
+    const symbols = index.findSymbols({ name: question.query, path: filePath, limit: 100 }).filter((symbol) => symbol.kind !== 'module');
+    return { query: question.query, expectedPath: filePath, scopedMatch: symbols.length > 0,
+      expectedLineCovered: question.expectedLine == null ? null : symbols.some((symbol) =>
+        symbol.sourceSpan.startLine <= question.expectedLine && symbol.sourceSpan.endLine >= question.expectedLine),
+      matches: symbols.map(({ name, kind, sourceSpan }) => ({ name, kind, sourceSpan })) };
+  }));
   let evidenceChecked = 0;
-  for (const question of JSON.parse(fs.readFileSync(questionFile, 'utf8'))) {
+  for (const question of questions) {
     for (const evidence of queryIndex(index, question.query, { maxEvidence: 10 }).evidence) {
       const source = fs.readFileSync(path.join(index.snapshotDir, 'source', evidence.blobDigest));
       assert.equal(hashBytes(source), evidence.blobDigest);
@@ -25,6 +33,6 @@ try {
     }
   }
   console.log(JSON.stringify({ inputFiles: inventory.size, indexedInputFiles: [...inventory.keys()].filter((name) => found.has(name)).length,
-    missingFiles: [...inventory.keys()].filter((name) => !found.has(name)), digestMismatches, evidenceChecked,
+    missingFiles: [...inventory.keys()].filter((name) => !found.has(name)), digestMismatches, evidenceChecked, definitionProbes,
     checks: ['snapshot identity', 'blob sha256', 'inventory digest', 'UTF-8 byte slice equals returned source'], coverage: index.manifest.coverage }, null, 2));
 } finally { index.close(); }

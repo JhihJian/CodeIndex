@@ -1,0 +1,74 @@
+{
+  "cpython": [
+    {
+      "caller": "Py_Initialize",
+      "callee": "Py_InitializeEx",
+      "path": "Python/pylifecycle.c",
+      "callLine": 1485
+    },
+    {
+      "caller": "_PyErr_SetString",
+      "callee": "PyUnicode_FromString",
+      "path": "Python/errors.c",
+      "callLine": 286
+    },
+    {
+      "caller": "heappush",
+      "callee": "_siftdown",
+      "path": "Lib/heapq.py",
+      "callLine": 135
+    },
+    {
+      "caller": "heappop",
+      "callee": "_siftup",
+      "path": "Lib/heapq.py",
+      "callLine": 143
+    }
+  ],
+  "vscode": [
+    {
+      "caller": "disposeIfDisposable",
+      "callee": "isDisposable",
+      "path": "src/vs/base/common/lifecycle.ts",
+      "callLine": 354
+    },
+    {
+      "caller": "combinedDisposable",
+      "callee": "toDisposable",
+      "path": "src/vs/base/common/lifecycle.ts",
+      "callLine": 365
+    },
+    {
+      "caller": "combinedDisposable",
+      "callee": "setParentOfDisposables",
+      "path": "src/vs/base/common/lifecycle.ts",
+      "callLine": 366
+    }
+  ],
+  "llvm": [
+    {
+      "caller": "parseAssemblyFile",
+      "callee": "parseAssembly",
+      "path": "llvm/lib/AsmParser/Parser.cpp",
+      "callLine": 71
+    },
+    {
+      "caller": "parseAssemblyString",
+      "callee": "parseAssembly",
+      "path": "llvm/lib/AsmParser/Parser.cpp",
+      "callLine": 141
+    },
+    {
+      "caller": "getLazyIRFileModule",
+      "callee": "getLazyIRModule",
+      "path": "llvm/lib/IRReader/IRReader.cpp",
+      "callLine": 65
+    },
+    {
+      "caller": "parseIRFile",
+      "callee": "parseIR",
+      "path": "llvm/lib/IRReader/IRReader.cpp",
+      "callLine": 105
+    }
+  ]
+}
