@@ -176,7 +176,7 @@ export async function indexRepository(repoRoot, storeRoot, {
       allowedFiles: entries.map((entry) => entry.path), snapshotDir: temporary, tools,
       previousDir: compatible ? previous.snapshotDir : null, changedPaths, signal: controller.signal,
     }).then((value) => ({ value, durationMs: Date.now() - nativeStarted }), (error) => {
-      controller.abort();
+      controller.abort(error);
       return { error };
     });
     const changedNative = changed.filter((entry) => nativeLanguage(entry.language));
@@ -245,7 +245,7 @@ export async function indexRepository(repoRoot, storeRoot, {
         session.insertRelation({ fileId: info.fileId, sourceId, type: relation.type,
           ...targetFields(relation, info.entry, paths), startLine: Math.max(1, relation.line || 1), endColumn: null });
       }
-    }, { workers });
+    }, { workers, signal: controller.signal });
     session.commit();
     progress('parser-symbols');
     progress('relations');
@@ -295,7 +295,7 @@ export async function indexRepository(repoRoot, storeRoot, {
     published = true;
     return { manifest, snapshotDir: destination, stats: { ...manifest.stats, buildMs: Date.now() - started } };
   } catch (error) {
-    controller.abort();
+    controller.abort(error);
     await nativeTask;
     try { session?.close(); } catch {}
     if (!published) fs.rmSync(destination, { recursive: true, force: true });

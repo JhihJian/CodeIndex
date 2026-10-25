@@ -45,6 +45,10 @@ test('bounded parser workers preserve UTF-8 spans, docs and all serial records; 
   let calls = 0;
   await assert.rejects(parseEntriesParallel(entries, () => { calls++; throw new Error('storage failure'); }, { workers: 4 }), /storage failure/);
   assert.equal(calls, 1);
+  const controller = new AbortController();
+  const cancelled = parseEntriesParallel(entries, () => {}, { workers: 4, signal: controller.signal });
+  controller.abort(new Error('native failure'));
+  await assert.rejects(cancelled, /native failure/);
   for (const workers of [0, 9, 1.5, 'bad']) assert.throws(() => workerCount(workers), /workers/);
 });
 

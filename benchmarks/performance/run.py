@@ -5,6 +5,7 @@ import hashlib
 import json
 import os
 from pathlib import Path
+import signal
 import subprocess
 import sys
 import time
@@ -19,6 +20,14 @@ p.add_argument('--corpora', nargs='+', default=['pageindex', 'typescript', 'linu
 p.add_argument('--workers', type=int, default=4)
 p.add_argument('--build-only', action='store_true')
 a = p.parse_args()
+
+def interrupt(signum, frame):
+    raise KeyboardInterrupt
+
+signal.signal(signal.SIGTERM, interrupt)
+environment = dict(os.environ)
+environment.pop('NODE_OPTIONS', None)
+active_measurement = None
 for key in ['baseline_root', 'inputs', 'store_root', 'results']:
     setattr(a, key, getattr(a, key).resolve())
 a.results.mkdir(parents=True, exist_ok=True)
@@ -26,9 +35,9 @@ a.store_root.mkdir(parents=True, exist_ok=True)
 QUESTIONS = {'pageindex': 'questions-identifiers-pageindex.json', 'typescript': 'questions-identifiers-typescript.json', 'linux': 'questions-linux-c.json'}
 FILES = {'pageindex': 'pageindex/tree_optimize.py', 'typescript': 'packages/typescript/src/api/async/api.ts', 'linux': 'fs/open.c'}
 PROBE = 'codeindex_benchmark_update_probe_20261025'
-APPEND = {'pageindex': f'\n\ndef {PROBE}(value):\n    return value\n',
-          'typescript': f'\nexport function {PROBE}(value: number): number {{ return value; }}\n',
-          'linux': f'\nint {PROBE}(int value) {{ return value; }}\n'}
+APPEND = {'pageindex': f'\n\ndef {PROBE}():\n    return 42\n',
+          'typescript': f'\n\nexport function {PROBE}() {{ return 42; }}\n',
+          'linux': f'\n\nstatic int {PROBE}(void) {{ return 42; }}\n'}
 
 def git(source, *args):
     return subprocess.check_output(['git', '-C', str(source), *args], text=True).strip()
@@ -37,10 +46,31 @@ def save(file, value):
     file.write_text(json.dumps(value, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
 
 def measure(name, command, seconds=1800):
+    global active_measurement
     prefix = a.results / name
     print(f'{time.strftime("%H:%M:%S")} {name}', flush=True)
-    subprocess.run([sys.executable, str(ROOT / 'benchmarks/competitors/measure.py'), '--output', str(prefix),
-                    '--memory-gib', '12', '--seconds', str(seconds), '--', *map(str, command)], cwd=ROOT, check=True)
+    child = subprocess.Popen([sys.executable, str(ROOT / 'benchmarks/competitors/measure.py'), '--output', str(prefix),
+                              '--memory-gib', '12', '--seconds', str(seconds), '--', *map(str, command)], cwd=ROOT, env=environment)
+    active_measurement = f'codeindex-benchmark-{child.pid}.scope'
+    try:
+        if child.wait() != 0:
+            raise RuntimeError(f'Measurement failed: {name}')
+    except BaseException:
+        child.terminate()
+        try:
+            child.wait(timeout=30)
+        except subprocess.TimeoutExpired:
+            subprocess.run(['systemctl', '--user', 'kill', '--signal=SIGKILL', '--kill-whom=all', f'codeindex-benchmark-{child.pid}.scope'], check=False)
+            child.kill()
+            child.wait()
+        raise
+    finally:
+        unit = f'codeindex-benchmark-{child.pid}.scope'
+        group = subprocess.run(['systemctl', '--user', 'show', unit, '--property=ControlGroup', '--value'], capture_output=True, text=True).stdout.strip()
+        procs = Path('/sys/fs/cgroup' + group) / 'cgroup.procs' if group else None
+        if procs and procs.exists() and procs.read_text().strip():
+            raise RuntimeError(f'Measurement still has descendants: {unit}')
+        active_measurement = None
     result = json.loads(prefix.with_suffix('.json').read_text())
     if result['status'] != 'success':
         raise RuntimeError(f'{name}: {result["status"]}')
@@ -68,7 +98,8 @@ def query(corpus, store, suffix, questions):
 
 save(a.results / 'environment.json', {'baselineRevision': git(a.baseline_root, 'rev-parse', 'HEAD'),
     'optimizedRevision': git(ROOT, 'rev-parse', 'HEAD'), 'optimizedDirty': git(ROOT, 'status', '--porcelain'),
-    'workers': a.workers, 'memoryMaxBytes': 12 * 1024 ** 3, 'swapMaxBytes': 0, 'nodeHeapMiB': 2048,
+    'workers': a.workers, 'memoryMaxBytes': 12 * 1024 ** 3, 'swapMaxBytes': 0,
+    'nodeHeap': 'automatic; NODE_OPTIONS cleared', 'workerOldGenerationMiB': 256,
     'cache': 'Pre-read source and Git objects; new output; no parser cache reuse',
     'serial': True, 'host': subprocess.check_output(['hostname'], text=True).strip(),
     'node': subprocess.check_output(['node', '--version'], text=True).strip(),
@@ -90,7 +121,7 @@ for corpus in a.corpora:
             with file.open('rb') as stream:
                 while stream.read(1024 * 1024):
                     pass
-    command = ['node', '--max-old-space-size=2048', ROOT / 'bin/codeindex.js']
+    command = ['node', ROOT / 'bin/codeindex.js']
     options = ['--repo', source, '--store', store, '--workers', str(a.workers), '--progress']
     measure(corpus + '-build', [*command, 'index', *options])
     build = json.loads((a.results / (corpus + '-build.stdout')).read_text())
@@ -123,14 +154,18 @@ for corpus in a.corpora:
     revision = git(source, 'rev-parse', 'HEAD')
     changed = source / FILES[corpus]
     original = changed.read_bytes()
-    report = {'completed': False, 'restored': False, 'file': FILES[corpus], 'originalRevision': revision}
+    report = {'completed': False, 'restored': False, 'file': FILES[corpus], 'originalRevision': revision,
+              'pointer': str(pointer), 'originalPointer': original_pointer.decode(),
+              'originalFileDigest': hashlib.sha256(original).hexdigest()}
+    verification_file = a.results / (corpus + '-update-verification.json')
+    save(verification_file, report)
+    probe_questions = json.loads(question_file.read_text()) + [{'query': PROBE, 'expectedPaths': [FILES[corpus]]}]
+    probes = a.results / (corpus + '-update-questions.json')
+    save(probes, probe_questions)
     try:
         changed.write_bytes(original + APPEND[corpus].encode())
         git(source, 'add', '--', FILES[corpus])
         git(source, 'commit', '-qm', '性能更新验证')
-        probe_questions = json.loads(question_file.read_text()) + [{'query': PROBE, 'expectedPaths': [FILES[corpus]]}]
-        probes = a.results / (corpus + '-update-questions.json')
-        save(probes, probe_questions)
         measure(corpus + '-update', [*command, 'update', *options], 300)
         update = json.loads((a.results / (corpus + '-update.stdout')).read_text())
         assert update['stats']['changedFiles'] == 1
@@ -138,8 +173,13 @@ for corpus in a.corpora:
         if corpus != 'typescript':
             relations = adapter(corpus + '-update-relations', 'codeindex-relations.mjs', store, corpus, ROOT / 'benchmarks/competitors/relation-cases.json')
             assert all(row['hit'] for row in relations['rows'])
+        report['updatedFileDigest'] = hashlib.sha256(changed.read_bytes()).hexdigest()
         report['completed'] = True
     finally:
+        if active_measurement:
+            report['restorationBlockedByUnit'] = active_measurement
+            save(verification_file, report)
+            raise RuntimeError(f'Refusing input restoration while {active_measurement} has descendants')
         git(source, 'reset', '--hard', revision)
         changed.write_bytes(original)
         pointer.write_bytes(original_pointer)

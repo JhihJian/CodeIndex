@@ -9,6 +9,7 @@ class ParserWorker {
     this.worker.on('message', (result) => {
       const pending = this.pending;
       this.pending = null;
+      if (!pending) return;
       if (result.error) pending.reject(new Error(result.error)); else pending.resolve(result.records);
     });
     this.worker.on('error', (error) => this.fail(error));
@@ -42,19 +43,29 @@ function* batches(entries) {
   if (batch.length) yield batch;
 }
 
-export async function parseEntriesParallel(entries, onResult, { workers = 1 } = {}) {
+export async function parseEntriesParallel(entries, onResult, { workers = 1, signal } = {}) {
+  signal?.throwIfAborted();
+  const consume = (record) => { signal?.throwIfAborted(); onResult(record); };
   const scripts = entries.filter((entry) => ['javascript', 'typescript'].includes(entry.language));
   // Avoid thread startup on small repositories and one-file updates.
   if (workers === 1 || scripts.reduce((sum, entry) => sum + (entry.bytes ?? Buffer.byteLength(entry.source || '')), 0) < 256 * 1024 || scripts.length < 2) {
-    parseEntriesBatched(entries, onResult);
+    parseEntriesBatched(entries, consume);
     return;
   }
-  parseEntriesBatched(entries.filter((entry) => !['javascript', 'typescript'].includes(entry.language)), onResult);
+  parseEntriesBatched(entries.filter((entry) => !['javascript', 'typescript'].includes(entry.language)), consume);
   const pool = [];
+  const abort = () => {
+    for (const parser of pool) {
+      parser.fail(signal.reason);
+      void parser.worker.terminate();
+    }
+  };
+  signal?.addEventListener('abort', abort, { once: true });
   try {
     for (let i = 0; i < Math.min(workers, scripts.length); i++) pool.push(new ParserWorker());
     const iterator = batches(scripts);
     while (true) {
+      signal?.throwIfAborted();
       const pending = [];
       for (const worker of pool) {
         const next = iterator.next();
@@ -63,9 +74,10 @@ export async function parseEntriesParallel(entries, onResult, { workers = 1 } = 
       }
       if (!pending.length) break;
       // At most one bounded batch/result per worker, consumed in input order.
-      for (const records of await Promise.all(pending)) for (const record of records) onResult(record);
+      for (const records of await Promise.all(pending)) for (const record of records) consume(record);
     }
   } finally {
+    signal?.removeEventListener('abort', abort);
     await Promise.all(pool.map(({ worker }) => worker.terminate()));
   }
 }
