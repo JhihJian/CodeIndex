@@ -252,6 +252,34 @@ function databaseFiles(database, { normalizeHeader = false } = {}) {
   } finally { fs.closeSync(fd); }
 }
 
+// Cscope 15.9 copyinverted() loses macro context when a DEFINEEND marker
+// precedes a nonempty source tail. Reparse those files instead of replaying them.
+function macroTailFiles(database) {
+  const files = new Set();
+  const fd = fs.openSync(database, 'r');
+  const chunk = Buffer.allocUnsafe(1024 * 1024);
+  let pending = Buffer.alloc(0);
+  let file = '';
+  let macroEnd = false;
+  try {
+    let bytes;
+    while ((bytes = fs.readSync(fd, chunk, 0, chunk.length, null))) {
+      const data = Buffer.concat([pending, chunk.subarray(0, bytes)]);
+      let start = 0, end;
+      while ((end = data.indexOf(10, start)) !== -1) {
+        const length = end - start;
+        if (macroEnd && length && file) files.add(file);
+        macroEnd = length === 2 && data[start] === 9 && data[start + 1] === 41;
+        if (length >= 2 && data[start] === 9 && data[start + 1] === 64) file = data.toString('utf8', start + 2, end);
+        start = end + 1;
+      }
+      pending = Buffer.from(data.subarray(start));
+      if (pending.length > chunk.length) return null;
+    }
+    return pending.length ? null : files;
+  } finally { fs.closeSync(fd); }
+}
+
 // Reuse only the v15.9 format whose cwd and second-resolution timestamp rules
 // have been verified. Never modify a seed or a shared immutable source inode.
 function seedCscope({ previousDir, database, root, closure, changedPaths }) {
@@ -271,7 +299,9 @@ function seedCscope({ previousDir, database, root, closure, changedPaths }) {
     if (!oldRoot || Buffer.byteLength(oldRoot) !== Buffer.byteLength(root)) return false;
   } catch { return false; }
   const referenceTime = closure.reduce((latest, file) => Math.max(latest, Math.floor(fs.statSync(path.join(root, file)).mtimeMs / 1000)), 0);
-  const changed = new Set(changedPaths);
+  const macroTails = macroTailFiles(seed);
+  if (!macroTails) return false;
+  const changed = new Set([...changedPaths, ...macroTails]);
   const scratch = fs.mkdtempSync(path.join(path.dirname(database), '.seed-'));
   try {
     for (const file of closure) {

@@ -16,11 +16,11 @@ Ctags 按连续文件分片并行输出，结果按输入顺序逐行写入 SQLi
 
 SQL 关系在查询时解析目标，因此删除或重命名目标后，旧的原始调用记录会按当前快照重新判定。Cscope 15.9 在路径条件满足时复用旧交叉引用记录，仍需遍历旧库并重建全局倒排索引。
 
-复用仅复制旧 `cscope.out`，在副本中等字节长度替换 cwd。全部摘要变化路径都参与判断，包括 `.inc`、`.def` 等被 include 的文本。变化文件在新 staging tree 中先解除与 blob 的硬链接，再设置严格大于种子库的秒级 mtime，使用 `-U` 强制检查删除与 include 变化。旧快照、共享 blob 和工作树均不修改。使用文件名 alias、cwd 含空白、header 长度不等、种子格式不符或其他 Cscope 版本时全量构建。输入安全检查失败直接终止，构建失败保留旧发布版本。
+复用仅复制旧 `cscope.out`，在副本中等字节长度替换 cwd。全部摘要变化路径都参与判断，包括 `.inc`、`.def` 等被 include 的文本。变化文件在新 staging tree 中先解除与 blob 的硬链接，再设置严格大于种子库的秒级 mtime，使用 `-U` 强制检查删除与 include 变化。Cscope 15.9 的 `copyinverted()` 会丢失部分宏尾部引用的作用域，因此流式检查旧库的 `DEFINEEND` 后续记录，对含非空宏尾部的文件也强制重新解析。旧快照、共享 blob 和工作树均不修改。使用文件名 alias、cwd 含空白、header 长度不等、种子格式不符或其他 Cscope 版本时全量构建。输入安全检查失败直接终止，构建失败保留旧发布版本。
 
 ## 并行度与调用接口
 
-CLI `index` / `update` 支持 `--workers 1..8`，也可设置 `CODEINDEX_WORKERS`，默认取可用 CPU 数与 4 的较小值。小于 256 KiB 或仅一个 JS/TS 文件时直接串行解析。原生构建使用独立进程组，超时或构建取消会终止其后代，等待退出后清理 staging。
+CLI `index` / `update` 支持 `--workers 1..8`，也可设置 `CODEINDEX_WORKERS`，默认取可用 CPU 数与 4 的较小值。该参数分别限制 JS/TS 池和 Ctags 分片，Cscope 是另一个独立任务。小于 256 KiB 或仅一个 JS/TS 文件时直接串行解析。原生构建使用独立进程组，超时或构建取消会终止其后代，等待退出后清理 staging。
 
 JavaScript 的 `indexRepository()` 和 `runBenchmark()` 返回 Promise，调用方必须 `await`。`loadIndex()` 和查询仍为同步接口：
 
@@ -67,10 +67,11 @@ node bin/codeindex.js export --store /path/to/index --output /path/to/empty-audi
 
 ## 验证入口
 
+- `test/performance.test.js`：并行等价、宏尾部引用作用域、连续秒级增量、旧快照不变和取消清理。
 - `test/production.test.js`：原生增量、旧读者、重命名、JS/TS 导入、UTF-8 证据、产物恢复和审计导出。
 - `test/native-tools.test.js`：真实工具、路径、迁移、倒排损坏、超时和错误诊断。
 - `test/compact-store.test.js`：FTS、稳定身份、增量隔离和偏移。
 - `test/streaming.test.js`：批次消费、失败清理、配置变化及全量/增量一致性。
 - `benchmarks/verify-linux-native.mjs`：Linux C 定位、双向调用、源码摘要和范围核验，`--update` 可执行自动恢复的单文件更新测量。
 
-Linux 正式结果见 [性能报告](../benchmarks/linux-native.md)。Tree-sitter 流式实现的历史说明保留在 [streaming-index.md](streaming-index.md)。
+0.3 的全量、更新与内存测量见 [性能迭代报告](../benchmarks/index-performance.md)，0.2 的验收记录见 [Linux 原生后端](../benchmarks/linux-native.md)。Tree-sitter 流式实现的历史说明保留在 [streaming-index.md](streaming-index.md)。

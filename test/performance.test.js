@@ -91,6 +91,29 @@ test('Cscope successive same-second updates, deletes and transitive non-C includ
   }
 });
 
+test('unchanged macro tails retain their reference context across incremental rebuilds', async (t) => {
+  const { root, repo, store } = fixture(t);
+  const tools = resolveNativeTools({ needsCtags: false });
+  fs.writeFileSync(path.join(repo, 'macros.h'), '#define FN(obj, field_name) obj->field_name\n#define ID(x) x\n#define CTX(ctx) ctx\n');
+  fs.writeFileSync(path.join(repo, 'a.c'), 'int a(void) { return 1; }\n');
+  let previous = await indexRepository(repo, store);
+  for (let generation = 2; generation <= 3; generation++) {
+    const old = inventory(previous.snapshotDir);
+    fs.writeFileSync(path.join(repo, 'a.c'), `int a(void) { return ${generation}; }\n`);
+    const updated = await indexRepository(repo, store);
+    const full = await indexRepository(repo, path.join(root, `full-${generation}`), { incremental: false });
+    assert.equal(updated.stats.nativeBuildMode, 'incremental');
+    for (const name of ['field_name', 'x', 'ctx']) {
+      const query = (built) => queryCscope({ snapshotDir: built.snapshotDir, treeRoot: path.join(built.snapshotDir, 'tree'), tools, name, mode: 'references' }).rows;
+      assert.deepEqual(query(updated), query(full));
+    }
+    const body = (built) => { const bytes = fs.readFileSync(path.join(built.snapshotDir, 'native/cscope.out')); return bytes.subarray(bytes.indexOf(10) + 1); };
+    assert.deepEqual(body(updated), body(full));
+    assert.deepEqual(inventory(previous.snapshotDir), old);
+    previous = updated;
+  }
+});
+
 test('Cscope alias reordering falls back to a full build', async (t) => {
   const { repo, store } = fixture(t);
   fs.writeFileSync(path.join(repo, 'z space.c'), 'int old(void) { return 1; }\n');
