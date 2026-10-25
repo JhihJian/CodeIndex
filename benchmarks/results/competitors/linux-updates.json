@@ -1,0 +1,275 @@
+{
+  "completed": true,
+  "corpus": "linux",
+  "originalRevision": "6e6422c5a68bce90a14242fa5e24a1544d3840d3",
+  "changedFile": "fs/open.c",
+  "marker": "codeindex_benchmark_update_probe_20261025",
+  "timeLimitSeconds": 300,
+  "operations": [
+    {
+      "tool": "codeindex",
+      "mode": "noop",
+      "measurement": {
+        "command": [
+          "node",
+          "/data/dev/CodeIndex/bin/codeindex.js",
+          "update",
+          "--repo",
+          "/data/dev/CodeIndex/.data/competitors/inputs/linux",
+          "--store",
+          "/data/dev/CodeIndex/.data/competitors/codeindex/linux",
+          "--progress"
+        ],
+        "cwd": "/data/dev/CodeIndex",
+        "systemdUnit": "codeindex-benchmark-1441024.scope",
+        "systemdResult": "success",
+        "status": "success",
+        "exitCode": 0,
+        "wallSeconds": 0.25,
+        "wallSecondsIncludingSupervisor": 0.519821560010314,
+        "timeLimitSeconds": 300,
+        "memoryLimitGiB": 12,
+        "gnuTimeMaxRssKiB": 53776,
+        "sampledProcessTreeRssSumBytes": 57442304,
+        "cgroupMemoryPeakBytes": 61161472,
+        "sampleIntervalSeconds": 0.25,
+        "leftoverProcessIdsTerminated": [],
+        "memoryNotes": "RSS sum can double-count shared pages; cgroup memory includes page cache; GNU time max RSS is not simultaneous tree total"
+      },
+      "semantics": "normal CLI update with unchanged input"
+    },
+    {
+      "tool": "opengrok",
+      "mode": "noop",
+      "measurement": {
+        "command": [
+          "java",
+          "-Xmx8g",
+          "-jar",
+          "/data/dev/benchmark-tools/opengrok-1.14.20/lib/opengrok.jar",
+          "-s",
+          "/data/dev/CodeIndex/.data/competitors/inputs/linux",
+          "-d",
+          "/data/dev/CodeIndex/.data/competitors/opengrok/linux/data",
+          "-W",
+          "/data/dev/CodeIndex/.data/competitors/opengrok/linux/config.xml",
+          "-c",
+          "/home/jhihjian/.local/bin/ctags-universal",
+          "-S"
+        ],
+        "cwd": "/data/dev/CodeIndex",
+        "systemdUnit": "codeindex-benchmark-1441102.scope",
+        "systemdResult": "success",
+        "status": "success",
+        "exitCode": 0,
+        "wallSeconds": 15.59,
+        "wallSecondsIncludingSupervisor": 15.799755276879296,
+        "timeLimitSeconds": 300,
+        "memoryLimitGiB": 12,
+        "gnuTimeMaxRssKiB": 827648,
+        "sampledProcessTreeRssSumBytes": 848175104,
+        "cgroupMemoryPeakBytes": 794726400,
+        "sampleIntervalSeconds": 0.25,
+        "leftoverProcessIdsTerminated": [],
+        "memoryNotes": "RSS sum can double-count shared pages; cgroup memory includes page cache; GNU time max RSS is not simultaneous tree total"
+      },
+      "semantics": "normal CLI update with unchanged input"
+    },
+    {
+      "tool": "zoekt",
+      "mode": "noop",
+      "measurement": {
+        "command": [
+          "/data/dev/benchmark-tools/zoekt-git-index",
+          "-index",
+          "/data/dev/CodeIndex/.data/competitors/zoekt/linux",
+          "-require_ctags",
+          "-file_limit",
+          "5242880",
+          "/data/dev/CodeIndex/.data/competitors/inputs/linux"
+        ],
+        "cwd": "/data/dev/CodeIndex",
+        "systemdUnit": "codeindex-benchmark-1441525.scope",
+        "systemdResult": "success",
+        "status": "success",
+        "exitCode": 0,
+        "wallSeconds": 0.07,
+        "wallSecondsIncludingSupervisor": 0.2722617508843541,
+        "timeLimitSeconds": 300,
+        "memoryLimitGiB": 12,
+        "gnuTimeMaxRssKiB": 45084,
+        "sampledProcessTreeRssSumBytes": 286720,
+        "cgroupMemoryPeakBytes": null,
+        "sampleIntervalSeconds": 0.25,
+        "leftoverProcessIdsTerminated": [],
+        "memoryNotes": "RSS sum can double-count shared pages; cgroup memory includes page cache; GNU time max RSS is not simultaneous tree total"
+      },
+      "semantics": "normal CLI update with unchanged input"
+    },
+    {
+      "tool": "codeindex",
+      "mode": "update",
+      "measurement": {
+        "command": [
+          "node",
+          "/data/dev/CodeIndex/bin/codeindex.js",
+          "update",
+          "--repo",
+          "/data/dev/CodeIndex/.data/competitors/inputs/linux",
+          "--store",
+          "/data/dev/CodeIndex/.data/competitors/codeindex/linux",
+          "--progress"
+        ],
+        "cwd": "/data/dev/CodeIndex",
+        "systemdUnit": "codeindex-benchmark-1441617.scope",
+        "systemdResult": "success",
+        "status": "success",
+        "exitCode": 0,
+        "wallSeconds": 74.93,
+        "wallSecondsIncludingSupervisor": 74.98713441891596,
+        "timeLimitSeconds": 300,
+        "memoryLimitGiB": 12,
+        "gnuTimeMaxRssKiB": 2534564,
+        "sampledProcessTreeRssSumBytes": 3007315968,
+        "cgroupMemoryPeakBytes": 6082539520,
+        "sampleIntervalSeconds": 0.25,
+        "leftoverProcessIdsTerminated": [],
+        "memoryNotes": "RSS sum can double-count shared pages; cgroup memory includes page cache; GNU time max RSS is not simultaneous tree total"
+      },
+      "checks": {
+        "probeHit": true,
+        "baselineHitsPreserved": true,
+        "relationsPreserved": true
+      }
+    },
+    {
+      "tool": "opengrok",
+      "mode": "update",
+      "measurement": {
+        "command": [
+          "java",
+          "-Xmx8g",
+          "-jar",
+          "/data/dev/benchmark-tools/opengrok-1.14.20/lib/opengrok.jar",
+          "-s",
+          "/data/dev/CodeIndex/.data/competitors/inputs/linux",
+          "-d",
+          "/data/dev/CodeIndex/.data/competitors/opengrok/linux/data",
+          "-W",
+          "/data/dev/CodeIndex/.data/competitors/opengrok/linux/config.xml",
+          "-c",
+          "/home/jhihjian/.local/bin/ctags-universal",
+          "-S"
+        ],
+        "cwd": "/data/dev/CodeIndex",
+        "systemdUnit": "codeindex-benchmark-1443062.scope",
+        "systemdResult": "success",
+        "status": "success",
+        "exitCode": 0,
+        "wallSeconds": 12.93,
+        "wallSecondsIncludingSupervisor": 13.04836090002209,
+        "timeLimitSeconds": 300,
+        "memoryLimitGiB": 12,
+        "gnuTimeMaxRssKiB": 856912,
+        "sampledProcessTreeRssSumBytes": 880185344,
+        "cgroupMemoryPeakBytes": 810725376,
+        "sampleIntervalSeconds": 0.25,
+        "leftoverProcessIdsTerminated": [],
+        "memoryNotes": "RSS sum can double-count shared pages; cgroup memory includes page cache; GNU time max RSS is not simultaneous tree total"
+      },
+      "checks": {
+        "probeHit": true,
+        "baselineHitsPreserved": true
+      }
+    },
+    {
+      "tool": "zoekt",
+      "mode": "update",
+      "measurement": {
+        "command": [
+          "/data/dev/benchmark-tools/zoekt-git-index",
+          "-index",
+          "/data/dev/CodeIndex/.data/competitors/zoekt/linux",
+          "-require_ctags",
+          "-file_limit",
+          "5242880",
+          "/data/dev/CodeIndex/.data/competitors/inputs/linux"
+        ],
+        "cwd": "/data/dev/CodeIndex",
+        "systemdUnit": "codeindex-benchmark-1443420.scope",
+        "systemdResult": "success",
+        "status": "success",
+        "exitCode": 0,
+        "wallSeconds": 123.19,
+        "wallSecondsIncludingSupervisor": 123.31425982085057,
+        "timeLimitSeconds": 300,
+        "memoryLimitGiB": 12,
+        "gnuTimeMaxRssKiB": 1671380,
+        "sampledProcessTreeRssSumBytes": 1714851840,
+        "cgroupMemoryPeakBytes": 2956677120,
+        "sampleIntervalSeconds": 0.25,
+        "leftoverProcessIdsTerminated": [],
+        "memoryNotes": "RSS sum can double-count shared pages; cgroup memory includes page cache; GNU time max RSS is not simultaneous tree total"
+      },
+      "checks": {
+        "probeHit": true,
+        "baselineHitsPreserved": true
+      }
+    },
+    {
+      "tool": "zoekt",
+      "mode": "delta-update",
+      "measurement": {
+        "command": [
+          "/data/dev/benchmark-tools/zoekt-git-index",
+          "-index",
+          "/data/dev/CodeIndex/.data/competitors/zoekt/linux",
+          "-require_ctags",
+          "-file_limit",
+          "5242880",
+          "-delta",
+          "/data/dev/CodeIndex/.data/competitors/inputs/linux"
+        ],
+        "cwd": "/data/dev/CodeIndex",
+        "systemdUnit": "codeindex-benchmark-1445735.scope",
+        "systemdResult": "success",
+        "status": "success",
+        "exitCode": 0,
+        "wallSeconds": 121.72,
+        "wallSecondsIncludingSupervisor": 121.79187892796472,
+        "timeLimitSeconds": 300,
+        "memoryLimitGiB": 12,
+        "gnuTimeMaxRssKiB": 1616044,
+        "sampledProcessTreeRssSumBytes": 1657413632,
+        "workloadSampled": true,
+        "cgroupMemoryPeakBytes": 3935608832,
+        "sampleIntervalSeconds": 0.25,
+        "leftoverProcessIdsTerminated": [],
+        "memoryNotes": "RSS sum can double-count shared pages; cgroup memory includes page cache; GNU time max RSS is not simultaneous tree total"
+      },
+      "checks": {
+        "probeHit": true,
+        "baselineHitsPreserved": true
+      }
+    }
+  ],
+  "updatedRevision": "62cc88c1e1b9ef622f5b63294f7377fdd2700b9a",
+  "restoredRevision": "6e6422c5a68bce90a14242fa5e24a1544d3840d3",
+  "restoredInput": true,
+  "restoredIndexes": {
+    "codeindex": {
+      "probeHit": false,
+      "baselineHitsPreserved": true,
+      "relationsPreserved": true
+    },
+    "opengrok": {
+      "probeHit": false,
+      "baselineHitsPreserved": true
+    },
+    "zoekt": {
+      "probeHit": false,
+      "baselineHitsPreserved": true
+    }
+  },
+  "restoredIndexesVerified": true
+}

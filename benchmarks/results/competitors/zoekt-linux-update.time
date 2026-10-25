@@ -1,0 +1,23 @@
+	Command being timed: "/data/dev/benchmark-tools/zoekt-git-index -index /data/dev/CodeIndex/.data/competitors/zoekt/linux -require_ctags -file_limit 5242880 /data/dev/CodeIndex/.data/competitors/inputs/linux"
+	User time (seconds): 201.78
+	System time (seconds): 12.37
+	Percent of CPU this job got: 173%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 2:03.19
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 1671380
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 318
+	Minor (reclaiming a frame) page faults: 1040206
+	Voluntary context switches: 420144
+	Involuntary context switches: 6987
+	Swaps: 0
+	File system inputs: 62928
+	File system outputs: 9780976
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

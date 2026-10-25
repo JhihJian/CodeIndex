@@ -1,0 +1,70 @@
+{
+  "checksumAlgorithm": "CRC64-ISO",
+  "checksumMismatches": [],
+  "checksumsChecked": 86361,
+  "contentOmitted": [
+    {
+      "path": "arch/m68k/ifpsp060/src/fpsp.S",
+      "reason": "contains too many trigrams"
+    },
+    {
+      "path": "MAINTAINERS",
+      "reason": "contains too many trigrams"
+    }
+  ],
+  "expectedRevision": "6e6422c5a68bce90a14242fa5e24a1544d3840d3",
+  "gitVersions": {
+    "6e6422c5a68bce90a14242fa5e24a1544d3840d3": true
+  },
+  "indexedInputFiles": 86363,
+  "inputFiles": 86363,
+  "missingFiles": [],
+  "nameSearchStats": {
+    "ContentBytesLoaded": 0,
+    "IndexBytesLoaded": 0,
+    "Crashes": 0,
+    "Duration": 163784959,
+    "FileCount": 86363,
+    "ShardFilesConsidered": 0,
+    "FilesConsidered": 86363,
+    "FilesLoaded": 0,
+    "FilesSkipped": 0,
+    "FilesSkippedDueToCancellation": 0,
+    "ShardsScanned": 12,
+    "ShardsSkipped": 0,
+    "ShardsSkippedFilter": 0,
+    "MatchCount": 86363,
+    "NgramMatches": 0,
+    "NgramLookups": 0,
+    "Wait": 3286,
+    "MatchTreeConstruction": 292008,
+    "MatchTreeSearch": 253744137,
+    "RegexpsConsidered": 86363,
+    "FlushReason": 0
+  },
+  "omissionSearchStats": {
+    "ContentBytesLoaded": 82,
+    "IndexBytesLoaded": 86289,
+    "Crashes": 0,
+    "Duration": 2597297,
+    "FileCount": 2,
+    "ShardFilesConsidered": 0,
+    "FilesConsidered": 2,
+    "FilesLoaded": 2,
+    "FilesSkipped": 0,
+    "FilesSkippedDueToCancellation": 0,
+    "ShardsScanned": 7,
+    "ShardsSkipped": 0,
+    "ShardsSkippedFilter": 5,
+    "MatchCount": 2,
+    "NgramMatches": 2,
+    "NgramLookups": 129,
+    "Wait": 6302,
+    "MatchTreeConstruction": 13198448,
+    "MatchTreeSearch": 293478,
+    "RegexpsConsidered": 0,
+    "FlushReason": 0
+  },
+  "sourceDigestMismatches": [],
+  "versionMismatches": []
+}

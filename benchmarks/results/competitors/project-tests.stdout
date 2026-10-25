@@ -1,0 +1,61 @@
+
+> codeindex@0.2.0 test
+> node --test
+
+(node:1450264) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ native C/C++ symbols, calls, macros, includes and inheritance survive source removal (62.303675ms)
+(node:1450265) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ UTF-8 行偏移提供 metadata evidence，精确 parser span 可覆盖默认值 (9.155811ms)
+✔ 增量 clone 不污染旧 DB，删除维护 FTS，完整与增量构建 ID 一致 (12.017046ms)
+✔ FTS update triggers 更新名称、scope、signature、doc 和文件路径 (5.378348ms)
+✔ 同文件 scope 和 enclosing range 找 parent，不把同名歧义声明为唯一 (5.388076ms)
+✔ 拒绝未 finalize 的快照及错误行偏移 (2.194131ms)
+(node:1450266) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ indexes symbols, containment and resolved call relations with immutable evidence (118.510834ms)
+✔ update reuses unchanged parse results and publishes a new snapshot (194.306208ms)
+✔ only resolves requested tools and gives explicit missing dependency errors (2.284738ms)
+✔ prefers Universal Ctags, validates JSON, and respects explicit and environment options (297.835914ms)
+✔ Cscope version identity does not contain its installation path (95.336258ms)
+✔ native command timeout and captured-output limits are enforced (122.144994ms)
+✔ Ctags emits C/C++ ranges, scopes, signatures and inheritance without source patterns (25.183358ms)
+✔ real Cscope survives snapshot move and live repository deletion (41.720357ms)
+✔ real Cscope survives snapshot move and live repository deletion, including spaced paths (39.327452ms)
+✔ Cscope uses system PATH for internal env and sort, ignoring include environment (22.517241ms)
+✔ rejects unsupported filenames and snapshot escapes before spawning tools (1.28778ms)
+✔ rejects external, symlinked and unlisted includes before native execution (2.058853ms)
+✔ Cscope accepts missing parent/generated includes and resolves quoted includes from cwd (21.880504ms)
+✔ Cscope follows allowed saved non-C includes transitively and reports actual indexed files (22.079519ms)
+✔ Cscope -k has no angle-include search directories (21.388552ms)
+✔ Cscope refuses filename aliases when extra include closure files would be lost (1.574176ms)
+✔ fails on zero-exit Cscope inverted-index diagnostics and cleans artifacts (23.311697ms)
+✔ fails on missing inverted files even when Cscope exits successfully (22.221969ms)
+✔ rejects corrupt inverted indexes and zero-exit query errors (43.217461ms)
+✔ checks the actual native database file list before accepting artifacts (38.570103ms)
+✔ empty inputs require no native dependencies and invalid query modes are rejected (1.071634ms)
+(node:1450278) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ native updates delete stale facts, preserve readers and match a full rebuild (179.444318ms)
+✔ JS/TS imports ignore comments and strings and resolve incoming module references (13.097597ms)
+✔ UTF-8 clipped evidence matches byte ranges and metadata queries do not read blobs (34.430265ms)
+✔ missing native artifact rebuilds a generation and export states its audit scope (82.51526ms)
+(node:1450284) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ streamed updates reuse records without whole JSONL reads and match full rebuild identity (122.624755ms)
+✔ parser consumers propagate storage failure exactly once (25.061224ms)
+✔ failed build preserves published snapshot and removes temporary files (63.406035ms)
+✔ build configuration changes snapshot identity and invalidates no-op (62.824229ms)
+✔ JSONL streaming preserves UTF-8 crossing chunk boundary and final record (1.594232ms)
+✔ navigation and imports are independent of incremental insertion order (108.684464ms)
+✔ rebuilding restores a missing database under the same snapshot identity (87.885171ms)
+✔ C type usages do not create definition symbols (33.915833ms)
+ℹ tests 39
+ℹ suites 0
+ℹ pass 39
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 930.116095

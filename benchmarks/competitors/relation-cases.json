@@ -1,0 +1,14 @@
+{
+  "pageindex": [
+    {"path":"pageindex/tree_optimize.py","caller":"tree_cost","callee":"is_frontier","callLine":294},
+    {"path":"pageindex/tree_optimize.py","caller":"tree_cost","callee":"S_residual","callLine":297},
+    {"path":"pageindex/tree_optimize.py","caller":"tree_cost_via_frontier","callee":"frontier_costs","callLine":320},
+    {"path":"pageindex/page_index_md.py","caller":"md_to_tree","callee":"build_tree_from_nodes","callLine":262}
+  ],
+  "linux": [
+    {"path":"fs/open.c","caller":"vfs_open","callee":"fsnotify_open","callLine":1095},
+    {"path":"fs/open.c","caller":"vfs_open","callee":"do_dentry_open","callLine":1088},
+    {"path":"fs/exec.c","caller":"do_execveat_common","callee":"alloc_bprm","callLine":1903},
+    {"path":"fs/exec.c","caller":"do_execveat_common","callee":"bprm_execve","callLine":1952}
+  ]
+}

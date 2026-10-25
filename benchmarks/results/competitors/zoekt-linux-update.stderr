@@ -1,0 +1,26 @@
+2026/10/25 09:50:26 git cat-file does not support --filter (exit status 129: error: option `filters' takes no value), using go-git
+2026/10/25 09:50:26 attempting to index 86363 total files (0 via cat-file, 86363 via go-git)
+2026/10/25 09:50:32 symbol analysis finished for shard statistics: duration=1s symbols=89039 bytes=103972290
+2026/10/25 09:50:35 finished shard /data/dev/CodeIndex/.data/competitors/zoekt/linux/linux_v16.00000.zoekt: 296690385 index bytes (overhead 2.8), 18335 files processed 
+2026/10/25 09:50:46 symbol analysis finished for shard statistics: duration=4s symbols=483594 bytes=104477603
+2026/10/25 09:50:49 finished shard /data/dev/CodeIndex/.data/competitors/zoekt/linux/linux_v16.00001.zoekt: 297123006 index bytes (overhead 2.8), 11959 files processed 
+2026/10/25 09:50:57 symbol analysis finished for shard statistics: duration=4s symbols=622701 bytes=105024075
+2026/10/25 09:50:59 finished shard /data/dev/CodeIndex/.data/competitors/zoekt/linux/linux_v16.00002.zoekt: 280154029 index bytes (overhead 2.7), 4377 files processed 
+2026/10/25 09:51:07 symbol analysis finished for shard statistics: duration=4s symbols=1022925 bytes=109268550
+2026/10/25 09:51:08 finished shard /data/dev/CodeIndex/.data/competitors/zoekt/linux/linux_v16.00003.zoekt: 258995873 index bytes (overhead 2.4), 129 files processed 
+2026/10/25 09:51:17 symbol analysis finished for shard statistics: duration=4s symbols=795649 bytes=104696096
+2026/10/25 09:51:19 finished shard /data/dev/CodeIndex/.data/competitors/zoekt/linux/linux_v16.00004.zoekt: 269420910 index bytes (overhead 2.6), 3859 files processed 
+2026/10/25 09:51:28 symbol analysis finished for shard statistics: duration=4s symbols=445769 bytes=104604232
+2026/10/25 09:51:31 finished shard /data/dev/CodeIndex/.data/competitors/zoekt/linux/linux_v16.00005.zoekt: 298745880 index bytes (overhead 2.8), 7176 files processed 
+2026/10/25 09:51:40 symbol analysis finished for shard statistics: duration=4s symbols=472027 bytes=104655518
+2026/10/25 09:51:43 finished shard /data/dev/CodeIndex/.data/competitors/zoekt/linux/linux_v16.00006.zoekt: 298933989 index bytes (overhead 2.9), 5369 files processed 
+2026/10/25 09:51:51 symbol analysis finished for shard statistics: duration=4s symbols=461869 bytes=104661585
+2026/10/25 09:51:54 finished shard /data/dev/CodeIndex/.data/competitors/zoekt/linux/linux_v16.00007.zoekt: 290551840 index bytes (overhead 2.8), 5186 files processed 
+2026/10/25 09:52:02 symbol analysis finished for shard statistics: duration=4s symbols=393022 bytes=104671788
+2026/10/25 09:52:05 finished shard /data/dev/CodeIndex/.data/competitors/zoekt/linux/linux_v16.00008.zoekt: 301055365 index bytes (overhead 2.9), 6609 files processed 
+2026/10/25 09:52:14 symbol analysis finished for shard statistics: duration=5s symbols=624615 bytes=104649052
+2026/10/25 09:52:18 finished shard /data/dev/CodeIndex/.data/competitors/zoekt/linux/linux_v16.00009.zoekt: 301724088 index bytes (overhead 2.9), 9441 files processed 
+2026/10/25 09:52:24 symbol analysis finished for shard statistics: duration=3s symbols=358244 bytes=104705384
+2026/10/25 09:52:26 symbol analysis finished for shard statistics: duration=1s symbols=80484 bytes=55863212
+2026/10/25 09:52:27 finished shard /data/dev/CodeIndex/.data/competitors/zoekt/linux/linux_v16.00011.zoekt: 157899357 index bytes (overhead 2.8), 6329 files processed 
+2026/10/25 09:52:27 finished shard /data/dev/CodeIndex/.data/competitors/zoekt/linux/linux_v16.00010.zoekt: 297203722 index bytes (overhead 2.8), 7594 files processed 

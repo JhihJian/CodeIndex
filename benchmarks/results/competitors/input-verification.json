@@ -1,0 +1,32 @@
+[
+  {
+    "corpus": "pageindex",
+    "checkedFiles": 155,
+    "inventoryDigest": "37d2127a581e26f89fc44513e5a227670345aa862ee155e34ba9204f1054c444",
+    "mismatches": [],
+    "inputClean": true,
+    "inputRevisionRestored": true,
+    "sameTrackedFiles": true,
+    "originalGitStateUnchanged": true
+  },
+  {
+    "corpus": "typescript",
+    "checkedFiles": 67863,
+    "inventoryDigest": "564247542b15f96ec1060aac5e607ab9dd0f0fb1f3fd10ade032836aa39cb4f7",
+    "mismatches": [],
+    "inputClean": true,
+    "inputRevisionRestored": true,
+    "sameTrackedFiles": true,
+    "originalGitStateUnchanged": true
+  },
+  {
+    "corpus": "linux",
+    "checkedFiles": 86363,
+    "inventoryDigest": "972d1ee7cbb50b7b8b3d71b358a2d9bcefd1d4f966563acbc0706fb5ee13706b",
+    "mismatches": [],
+    "inputClean": true,
+    "inputRevisionRestored": true,
+    "sameTrackedFiles": true,
+    "originalGitStateUnchanged": true
+  }
+]

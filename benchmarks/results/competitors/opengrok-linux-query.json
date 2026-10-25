@@ -1,0 +1,61 @@
+{
+  "repetitions" : 20,
+  "rows" : [ {
+    "totalFiles" : 1,
+    "query" : "do_execveat_common",
+    "coldMs" : 250.224152,
+    "hitAt10" : true,
+    "medianMs" : 1.3067935,
+    "files" : [ {
+      "path" : "fs/exec.c",
+      "lines" : [ {
+        "source" : "static int <b>do_execveat_common</b>(int fd, struct filename *filename,",
+        "line" : "1876"
+      } ]
+    } ]
+  }, {
+    "totalFiles" : 1,
+    "query" : "tcp_v4_syn_recv_sock",
+    "coldMs" : 2.424943,
+    "hitAt10" : true,
+    "medianMs" : 1.004913,
+    "files" : [ {
+      "path" : "net/ipv4/tcp_ipv4.c",
+      "lines" : [ {
+        "source" : "struct sock *<b>tcp_v4_syn_recv_sock</b>(const struct sock *sk, struct sk_buff *skb,",
+        "line" : "1739"
+      } ]
+    } ]
+  }, {
+    "totalFiles" : 1,
+    "query" : "vfs_open",
+    "coldMs" : 1.298539,
+    "hitAt10" : true,
+    "medianMs" : 0.6170305,
+    "files" : [ {
+      "path" : "fs/open.c",
+      "lines" : [ {
+        "source" : "int <b>vfs_open</b>(const struct path *path, struct file *file)",
+        "line" : "1083"
+      } ]
+    } ]
+  }, {
+    "totalFiles" : 1,
+    "query" : "pick_next_task_fair",
+    "coldMs" : 2.06134,
+    "hitAt10" : true,
+    "medianMs" : 1.8887755,
+    "files" : [ {
+      "path" : "kernel/sched/fair.c",
+      "lines" : [ {
+        "source" : "<b>pick_next_task_fair</b>(struct rq *rq, struct task_struct *prev, struct rq_flags *rf)",
+        "line" : "8879"
+      } ]
+    } ]
+  } ],
+  "loadMs" : 205.466894,
+  "tool" : "OpenGrok",
+  "indexedDocuments" : 92102,
+  "warmup" : 1,
+  "mode" : "symbol"
+}

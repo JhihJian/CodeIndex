@@ -1,0 +1,43 @@
+Resolving context...
+Initializing services and database connection...
+Services initialized.
+Starting indexing for: /data/dev/CodeIndex/.data/competitors/inputs/pageindex
+Skipped 849 unresolved call relationship(s): ambiguous_function_target=810, 
+ambiguous_class_target=39
+┏━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ Call          ┃ Reason                    ┃ Location                         ┃
+┡━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│ client.chat   │ ambiguous_function_target │ /data/dev/CodeIndex/.data/compet │
+│               │                           │ itors/inputs/pageindex/cookbook/ │
+│               │                           │ pageindex-citation.ipynb:79      │
+│ client.chat   │ ambiguous_function_target │ /data/dev/CodeIndex/.data/compet │
+│               │                           │ itors/inputs/pageindex/cookbook/ │
+│               │                           │ pageindex-claude-subscription.py │
+│               │                           │ :28                              │
+│ client.chat   │ ambiguous_function_target │ /data/dev/CodeIndex/.data/compet │
+│               │                           │ itors/inputs/pageindex/cookbook/ │
+│               │                           │ pageindex-flash-demo.ipynb:87    │
+│ response.json │ ambiguous_function_target │ /data/dev/CodeIndex/.data/compet │
+│               │                           │ itors/inputs/pageindex/cookbook/ │
+│               │                           │ pageindex-indexing-cost-demo.ipy │
+│               │                           │ nb:147                           │
+│ client.chat   │ ambiguous_function_target │ /data/dev/CodeIndex/.data/compet │
+│               │                           │ itors/inputs/pageindex/cookbook/ │
+│               │                           │ pageindex-metadata.ipynb:146     │
+└───────────────┴───────────────────────────┴──────────────────────────────────┘
+                          CGC Index Execution Summary                           
++------------------------------------------------------------------------------+
+| Metric                | Value                                                |
+|-----------------------+------------------------------------------------------|
+| Total scanned files   | 149                                                  |
+| Files by extension    | .gitignore (generic): 1, .ipynb (python): 9, .json   |
+|                       | (generic): 16, .md (generic): 3, .py (python): 112,  |
+|                       | .toml (generic): 1, .txt (generic): 1, .yaml         |
+|                       | (generic): 1, .yml (generic): 5                      |
+| Function nodes        | 2399                                                 |
+| Class nodes           | 159                                                  |
+| CALLS edges           | 10975                                                |
+| Serialization seconds | 3.66                                                 |
++------------------------------------------------------------------------------+
+Successfully finished indexing: 
+/data/dev/CodeIndex/.data/competitors/inputs/pageindex in 7.73 seconds

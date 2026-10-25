@@ -1,0 +1,531 @@
+{
+  "builds": [
+    {
+      "corpus": "pageindex",
+      "tool": "codeindex",
+      "status": "success",
+      "seconds": 1.54,
+      "timeSource": "GNU time",
+      "gnuTimeMaxRssKiB": 119164,
+      "sampledProcessTreeRssSumBytes": 156868608,
+      "cgroupMemoryPeakBytes": 106074112,
+      "storageBytes": 9563068,
+      "hits": 6,
+      "questions": 6,
+      "queryMedianMs": 0.3328662499999986,
+      "queryMinMs": 0.19999399999999667,
+      "queryMaxMs": 1.505826000000006,
+      "indexedInputFiles": 155,
+      "inputFiles": 155,
+      "contentOmitted": 0,
+      "evidenceMismatches": 0,
+      "evidenceAbsentPaths": 0,
+      "relationHits": 4,
+      "relationCases": 4
+    },
+    {
+      "corpus": "pageindex",
+      "tool": "opengrok",
+      "status": "success",
+      "seconds": 2.37,
+      "timeSource": "GNU time",
+      "gnuTimeMaxRssKiB": 447948,
+      "sampledProcessTreeRssSumBytes": 428711936,
+      "cgroupMemoryPeakBytes": 472719360,
+      "storageBytes": 12965387,
+      "hits": 6,
+      "questions": 6,
+      "queryMedianMs": 0.60305175,
+      "queryMinMs": 0.29505899999999996,
+      "queryMaxMs": 1.0250645,
+      "indexedInputFiles": 155,
+      "inputFiles": 155,
+      "contentOmitted": 0,
+      "evidenceMismatches": 0,
+      "evidenceAbsentPaths": 0
+    },
+    {
+      "corpus": "pageindex",
+      "tool": "zoekt",
+      "status": "success",
+      "seconds": 0.28,
+      "timeSource": "GNU time",
+      "gnuTimeMaxRssKiB": 112468,
+      "sampledProcessTreeRssSumBytes": 105660416,
+      "cgroupMemoryPeakBytes": 79876096,
+      "storageBytes": 9222368,
+      "hits": 6,
+      "questions": 6,
+      "queryMedianMs": 0.05716275,
+      "queryMinMs": 0.0246455,
+      "queryMaxMs": 0.072283,
+      "indexedInputFiles": 155,
+      "inputFiles": 155,
+      "contentOmitted": 3,
+      "evidenceMismatches": 0,
+      "evidenceAbsentPaths": 0
+    },
+    {
+      "corpus": "pageindex",
+      "tool": "cgc",
+      "status": "success",
+      "seconds": 8.45,
+      "timeSource": "GNU time",
+      "gnuTimeMaxRssKiB": 246880,
+      "sampledProcessTreeRssSumBytes": 291196928,
+      "cgroupMemoryPeakBytes": 395612160,
+      "storageBytes": 3442002,
+      "hits": 6,
+      "questions": 6,
+      "queryMedianMs": 0.22753176745027304,
+      "queryMinMs": 0.18698442727327347,
+      "queryMaxMs": 0.6257385248318315,
+      "indexedInputFiles": 149,
+      "inputFiles": 155,
+      "contentOmitted": 0,
+      "evidenceMismatches": 0,
+      "evidenceAbsentPaths": 0,
+      "relationHits": 4,
+      "relationCases": 4
+    },
+    {
+      "corpus": "typescript",
+      "tool": "codeindex",
+      "status": "success",
+      "seconds": 148.37,
+      "timeSource": "GNU time",
+      "gnuTimeMaxRssKiB": 708456,
+      "sampledProcessTreeRssSumBytes": 707624960,
+      "cgroupMemoryPeakBytes": 1427734528,
+      "storageBytes": 396810313,
+      "hits": 4,
+      "questions": 4,
+      "queryMedianMs": 1.0772689999999976,
+      "queryMinMs": 0.5141325000000023,
+      "queryMaxMs": 1.3825289999999981,
+      "indexedInputFiles": 67863,
+      "inputFiles": 67863,
+      "contentOmitted": 0,
+      "evidenceMismatches": 0,
+      "evidenceAbsentPaths": 0
+    },
+    {
+      "corpus": "typescript",
+      "tool": "opengrok",
+      "status": "success",
+      "seconds": 33.02,
+      "timeSource": "GNU time",
+      "gnuTimeMaxRssKiB": 1573700,
+      "sampledProcessTreeRssSumBytes": 1686745088,
+      "cgroupMemoryPeakBytes": 2387521536,
+      "storageBytes": 359604489,
+      "hits": 2,
+      "questions": 4,
+      "queryMedianMs": 2.4052622500000003,
+      "queryMinMs": 1.712592,
+      "queryMaxMs": 3.124977,
+      "indexedInputFiles": 67861,
+      "inputFiles": 67863,
+      "contentOmitted": 0,
+      "evidenceMismatches": 0,
+      "evidenceAbsentPaths": 0
+    },
+    {
+      "corpus": "typescript",
+      "tool": "zoekt",
+      "status": "success",
+      "seconds": 14.7,
+      "timeSource": "GNU time",
+      "gnuTimeMaxRssKiB": 1425036,
+      "sampledProcessTreeRssSumBytes": 1462149120,
+      "cgroupMemoryPeakBytes": 1615323136,
+      "storageBytes": 561813010,
+      "hits": 4,
+      "questions": 4,
+      "queryMedianMs": 0.6166495,
+      "queryMinMs": 0.219374,
+      "queryMaxMs": 1.3369490000000002,
+      "indexedInputFiles": 67863,
+      "inputFiles": 67863,
+      "contentOmitted": 5,
+      "evidenceMismatches": 0,
+      "evidenceAbsentPaths": 0
+    },
+    {
+      "corpus": "typescript",
+      "tool": "cgc",
+      "status": "oom",
+      "seconds": 1228.4605400760192,
+      "timeSource": "supervisor",
+      "gnuTimeMaxRssKiB": null,
+      "sampledProcessTreeRssSumBytes": 12242751488,
+      "cgroupMemoryPeakBytes": 12822523904
+    },
+    {
+      "corpus": "linux",
+      "tool": "codeindex",
+      "status": "success",
+      "seconds": 135.88,
+      "timeSource": "GNU time",
+      "gnuTimeMaxRssKiB": 3844904,
+      "sampledProcessTreeRssSumBytes": 4416897024,
+      "cgroupMemoryPeakBytes": 9353273344,
+      "storageBytes": 4713853083,
+      "hits": 4,
+      "questions": 4,
+      "queryMedianMs": 1.6450459999999953,
+      "queryMinMs": 1.124143000000032,
+      "queryMaxMs": 3.146908499999995,
+      "indexedInputFiles": 86363,
+      "inputFiles": 86363,
+      "contentOmitted": 0,
+      "evidenceMismatches": 0,
+      "evidenceAbsentPaths": 0,
+      "relationHits": 4,
+      "relationCases": 4
+    },
+    {
+      "corpus": "linux",
+      "tool": "opengrok",
+      "status": "success",
+      "seconds": 82.98,
+      "timeSource": "GNU time",
+      "gnuTimeMaxRssKiB": 3031264,
+      "sampledProcessTreeRssSumBytes": 3089199104,
+      "cgroupMemoryPeakBytes": 6454251520,
+      "storageBytes": 2810270694,
+      "hits": 4,
+      "questions": 4,
+      "queryMedianMs": 1.1558532499999998,
+      "queryMinMs": 0.6170305,
+      "queryMaxMs": 1.8887755,
+      "indexedInputFiles": 86363,
+      "inputFiles": 86363,
+      "contentOmitted": 0,
+      "evidenceMismatches": 0,
+      "evidenceAbsentPaths": 0
+    },
+    {
+      "corpus": "linux",
+      "tool": "zoekt",
+      "status": "success",
+      "seconds": 123.51,
+      "timeSource": "GNU time",
+      "gnuTimeMaxRssKiB": 1645772,
+      "sampledProcessTreeRssSumBytes": 1678721024,
+      "cgroupMemoryPeakBytes": 3057909760,
+      "storageBytes": 3348498168,
+      "hits": 4,
+      "questions": 4,
+      "queryMedianMs": 0.195863,
+      "queryMinMs": 0.12068200000000001,
+      "queryMaxMs": 0.398463,
+      "indexedInputFiles": 86363,
+      "inputFiles": 86363,
+      "contentOmitted": 2,
+      "evidenceMismatches": 0,
+      "evidenceAbsentPaths": 0
+    },
+    {
+      "corpus": "linux",
+      "tool": "cgc",
+      "status": "timeout",
+      "seconds": 1800.0415758660529,
+      "timeSource": "supervisor",
+      "gnuTimeMaxRssKiB": null,
+      "sampledProcessTreeRssSumBytes": 720302080,
+      "cgroupMemoryPeakBytes": 776720384
+    }
+  ],
+  "updates": [
+    {
+      "corpus": "pageindex",
+      "tool": "codeindex",
+      "mode": "noop",
+      "status": "success",
+      "seconds": 0.07,
+      "checks": null,
+      "semantics": "normal CLI update with unchanged input"
+    },
+    {
+      "corpus": "pageindex",
+      "tool": "opengrok",
+      "mode": "noop",
+      "status": "success",
+      "seconds": 0.84,
+      "checks": null,
+      "semantics": "normal CLI update with unchanged input"
+    },
+    {
+      "corpus": "pageindex",
+      "tool": "zoekt",
+      "mode": "noop",
+      "status": "success",
+      "seconds": 0.02,
+      "checks": null,
+      "semantics": "normal CLI update with unchanged input"
+    },
+    {
+      "corpus": "pageindex",
+      "tool": "cgc",
+      "mode": "noop",
+      "status": "success",
+      "seconds": 1.2,
+      "checks": null,
+      "semantics": "CLI index checks registration; not a content-digest reconciliation"
+    },
+    {
+      "corpus": "pageindex",
+      "tool": "codeindex",
+      "mode": "update",
+      "status": "success",
+      "seconds": 0.22,
+      "checks": {
+        "probeHit": true,
+        "baselineHitsPreserved": true,
+        "relationsPreserved": true
+      },
+      "semantics": null
+    },
+    {
+      "corpus": "pageindex",
+      "tool": "opengrok",
+      "mode": "update",
+      "status": "success",
+      "seconds": 0.91,
+      "checks": {
+        "probeHit": true,
+        "baselineHitsPreserved": true
+      },
+      "semantics": null
+    },
+    {
+      "corpus": "pageindex",
+      "tool": "zoekt",
+      "mode": "update",
+      "status": "success",
+      "seconds": 0.3,
+      "checks": {
+        "probeHit": true,
+        "baselineHitsPreserved": true
+      },
+      "semantics": null
+    },
+    {
+      "corpus": "pageindex",
+      "tool": "zoekt",
+      "mode": "delta-update",
+      "status": "success",
+      "seconds": 0.28,
+      "checks": {
+        "probeHit": true,
+        "baselineHitsPreserved": true
+      },
+      "semantics": null,
+      "fellBackToFullBuild": true
+    },
+    {
+      "corpus": "pageindex",
+      "tool": "cgc",
+      "mode": "watch-handler",
+      "status": "success",
+      "seconds": 2.42,
+      "checks": {
+        "probeHit": true,
+        "baselineHitsPreserved": true,
+        "relationsPreserved": true
+      },
+      "semantics": null
+    },
+    {
+      "corpus": "typescript",
+      "tool": "codeindex",
+      "mode": "noop",
+      "status": "success",
+      "seconds": 0.16,
+      "checks": null,
+      "semantics": "normal CLI update with unchanged input"
+    },
+    {
+      "corpus": "typescript",
+      "tool": "opengrok",
+      "mode": "noop",
+      "status": "success",
+      "seconds": 5.08,
+      "checks": null,
+      "semantics": "normal CLI update with unchanged input"
+    },
+    {
+      "corpus": "typescript",
+      "tool": "zoekt",
+      "mode": "noop",
+      "status": "success",
+      "seconds": 0.04,
+      "checks": null,
+      "semantics": "normal CLI update with unchanged input"
+    },
+    {
+      "corpus": "typescript",
+      "tool": "codeindex",
+      "mode": "update",
+      "status": "success",
+      "seconds": 5.63,
+      "checks": {
+        "probeHit": true,
+        "baselineHitsPreserved": true
+      },
+      "semantics": null
+    },
+    {
+      "corpus": "typescript",
+      "tool": "opengrok",
+      "mode": "update",
+      "status": "success",
+      "seconds": 5.95,
+      "checks": {
+        "probeHit": true,
+        "baselineHitsPreserved": true
+      },
+      "semantics": null
+    },
+    {
+      "corpus": "typescript",
+      "tool": "zoekt",
+      "mode": "update",
+      "status": "success",
+      "seconds": 17.17,
+      "checks": {
+        "probeHit": true,
+        "baselineHitsPreserved": true
+      },
+      "semantics": null
+    },
+    {
+      "corpus": "typescript",
+      "tool": "zoekt",
+      "mode": "delta-update",
+      "status": "success",
+      "seconds": 15.84,
+      "checks": {
+        "probeHit": true,
+        "baselineHitsPreserved": true
+      },
+      "semantics": null,
+      "fellBackToFullBuild": true
+    },
+    {
+      "corpus": "linux",
+      "tool": "codeindex",
+      "mode": "noop",
+      "status": "success",
+      "seconds": 0.25,
+      "checks": null,
+      "semantics": "normal CLI update with unchanged input"
+    },
+    {
+      "corpus": "linux",
+      "tool": "opengrok",
+      "mode": "noop",
+      "status": "success",
+      "seconds": 15.59,
+      "checks": null,
+      "semantics": "normal CLI update with unchanged input"
+    },
+    {
+      "corpus": "linux",
+      "tool": "zoekt",
+      "mode": "noop",
+      "status": "success",
+      "seconds": 0.07,
+      "checks": null,
+      "semantics": "normal CLI update with unchanged input"
+    },
+    {
+      "corpus": "linux",
+      "tool": "codeindex",
+      "mode": "update",
+      "status": "success",
+      "seconds": 74.93,
+      "checks": {
+        "probeHit": true,
+        "baselineHitsPreserved": true,
+        "relationsPreserved": true
+      },
+      "semantics": null
+    },
+    {
+      "corpus": "linux",
+      "tool": "opengrok",
+      "mode": "update",
+      "status": "success",
+      "seconds": 12.93,
+      "checks": {
+        "probeHit": true,
+        "baselineHitsPreserved": true
+      },
+      "semantics": null
+    },
+    {
+      "corpus": "linux",
+      "tool": "zoekt",
+      "mode": "update",
+      "status": "success",
+      "seconds": 123.19,
+      "checks": {
+        "probeHit": true,
+        "baselineHitsPreserved": true
+      },
+      "semantics": null
+    },
+    {
+      "corpus": "linux",
+      "tool": "zoekt",
+      "mode": "delta-update",
+      "status": "success",
+      "seconds": 121.72,
+      "checks": {
+        "probeHit": true,
+        "baselineHitsPreserved": true
+      },
+      "semantics": null,
+      "fellBackToFullBuild": true
+    },
+    {
+      "corpus": "pageindex",
+      "tool": "zoekt",
+      "mode": "delta-submodules-disabled",
+      "status": "success",
+      "seconds": 0.07,
+      "checks": {
+        "probeHit": true,
+        "baselineHitsPreserved": true
+      },
+      "fellBackToFullBuild": false
+    },
+    {
+      "corpus": "typescript",
+      "tool": "zoekt",
+      "mode": "delta-submodules-disabled",
+      "status": "success",
+      "seconds": 0.09,
+      "checks": {
+        "probeHit": true,
+        "baselineHitsPreserved": true
+      },
+      "fellBackToFullBuild": false
+    },
+    {
+      "corpus": "linux",
+      "tool": "zoekt",
+      "mode": "delta-submodules-disabled",
+      "status": "success",
+      "seconds": 0.15,
+      "checks": {
+        "probeHit": true,
+        "baselineHitsPreserved": true
+      },
+      "fellBackToFullBuild": false
+    }
+  ],
+  "inputAndPublishedIndexesRestored": true
+}

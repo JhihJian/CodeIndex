@@ -1,0 +1,6 @@
+Resolving context...
+Initializing services and database connection...
+Services initialized.
+Repository '/data/dev/CodeIndex/.data/competitors/inputs/pageindex' is already 
+indexed with 149 files. Skipping.
+💡 Tip: Use 'cgc index --force' to re-index

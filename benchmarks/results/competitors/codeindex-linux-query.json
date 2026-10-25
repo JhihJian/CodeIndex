@@ -1,0 +1,161 @@
+{
+  "tool": "CodeIndex",
+  "loadMs": 3.042155000000001,
+  "mode": "metadata",
+  "warmup": 1,
+  "repetitions": 20,
+  "rows": [
+    {
+      "query": "do_execveat_common",
+      "hitAt10": true,
+      "coldMs": 14.458462999999995,
+      "medianMs": 1.7675914999999982,
+      "evidenceMs": 2.7129699999999985,
+      "files": [
+        {
+          "path": "fs/exec.c",
+          "symbol": "do_execveat_common",
+          "lines": [
+            {
+              "line": 1876,
+              "source": "static int do_execveat_common(int fd, struct filename *filename,\n\t\t\t      struct user_arg_ptr argv,\n\t\t\t      struct user_arg_ptr envp,"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": "tcp_v4_syn_recv_sock",
+      "hitAt10": true,
+      "coldMs": 17.729558999999995,
+      "medianMs": 3.146908499999995,
+      "evidenceMs": 3.852706000000012,
+      "files": [
+        {
+          "path": "net/ipv4/tcp_ipv4.c",
+          "symbol": "tcp_v4_syn_recv_sock",
+          "lines": [
+            {
+              "line": 1739,
+              "source": "struct sock *tcp_v4_syn_recv_sock(const struct sock *sk, struct sk_buff *skb,\n\t\t\t\t  struct request_sock *req,\n\t\t\t\t  struct dst_entry *dst,"
+            },
+            {
+              "line": 1856,
+              "source": "EXPORT_SYMBOL(tcp_v4_syn_recv_sock);"
+            }
+          ]
+        },
+        {
+          "path": "include/net/tcp.h",
+          "symbol": "tcp_v4_syn_recv_sock",
+          "lines": [
+            {
+              "line": 461,
+              "source": "struct sock *tcp_v4_syn_recv_sock(const struct sock *sk, struct sk_buff *skb,\n\t\t\t\t  struct request_sock *req,\n\t\t\t\t  struct dst_entry *dst,"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": "vfs_open",
+      "hitAt10": true,
+      "coldMs": 11.773615000000007,
+      "medianMs": 1.5225004999999925,
+      "evidenceMs": 1.930419999999998,
+      "files": [
+        {
+          "path": "fs/open.c",
+          "symbol": "vfs_open",
+          "lines": [
+            {
+              "line": 1083,
+              "source": "int vfs_open(const struct path *path, struct file *file)\n{\n\tint ret;"
+            }
+          ]
+        },
+        {
+          "path": "fs/internal.h",
+          "symbol": "vfs_open",
+          "lines": [
+            {
+              "line": 196,
+              "source": "extern int vfs_open(const struct path *, struct file *);"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": "pick_next_task_fair",
+      "hitAt10": true,
+      "coldMs": 20.78776399999998,
+      "medianMs": 1.124143000000032,
+      "evidenceMs": 3.6518159999999966,
+      "files": [
+        {
+          "path": "kernel/sched/fair.c",
+          "symbol": "pick_next_task_fair",
+          "lines": [
+            {
+              "line": 8879,
+              "source": "pick_next_task_fair(struct rq *rq, struct task_struct *prev, struct rq_flags *rf)\n{\n\tstruct sched_entity *se;"
+            },
+            {
+              "line": 8965,
+              "source": "static struct task_struct *__pick_next_task_fair(struct rq *rq, struct task_struct *prev)\n{\n\treturn pick_next_task_fair(rq, prev, NULL);"
+            }
+          ]
+        },
+        {
+          "path": "kernel/sched/sched.h",
+          "symbol": "pick_next_task_fair",
+          "lines": [
+            {
+              "line": 2577,
+              "source": "extern struct task_struct *pick_next_task_fair(struct rq *rq, struct task_struct *prev, struct rq_flags *rf);"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "snapshotId": "snapshot:repo-cc85df8a7b9b3118a52b:a8b6aab760ad45a485996561",
+  "snapshotDir": "/data/dev/CodeIndex/.data/competitors/codeindex/linux/repo-cc85df8a7b9b3118a52b/snapshots/snapshot:repo-cc85df8a7b9b3118a52b:a8b6aab760ad45a485996561-48518601",
+  "counts": {
+    "files": 86363,
+    "symbols": 6190587,
+    "relations": 403090,
+    "sourceBytes": 1212793499,
+    "changedFiles": 86363,
+    "removedFiles": 0,
+    "reusedFiles": 0,
+    "parsedFiles": 60006,
+    "partialFiles": 26358,
+    "skipped": 1,
+    "nodes": 6282688,
+    "nativeFiles": 59746,
+    "nativeIndexedFiles": 59746,
+    "relationsScope": "stored-sql-relations; native calls and references queried from cscope",
+    "stages": {
+      "scan": 7019,
+      "source-and-files": 11476,
+      "native-symbols": 43229,
+      "parser-symbols": 1652,
+      "relations": 0,
+      "indexes": 13953,
+      "native-cross-references": 56555,
+      "validation": 1917
+    },
+    "buildMs": 135802
+  },
+  "coverage": {
+    "sourceFiles": 86363,
+    "parsedFiles": 60005,
+    "unsupportedFiles": 26357,
+    "partialFiles": 26358,
+    "skippedFiles": 1,
+    "nativeCalls": true,
+    "semantics": "syntax-level symbols and cross-references; no compiler-level overload or pointer resolution"
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "checksumAlgorithm": "CRC64-ISO",
+  "checksumMismatches": [],
+  "checksumsChecked": 152,
+  "contentOmitted": [
+    {
+      "path": "cookbook/pageindex-citation.ipynb",
+      "reason": "contains too many trigrams"
+    },
+    {
+      "path": "cookbook/pageindex-multimodal.ipynb",
+      "reason": "contains too many trigrams"
+    },
+    {
+      "path": "pageindex/flash/data/boilerplate_phrases.json",
+      "reason": "contains too many trigrams"
+    }
+  ],
+  "expectedRevision": "fdd0c3ee9eca068717d30c54f3211a4e770ba7b4",
+  "gitVersions": {
+    "fdd0c3ee9eca068717d30c54f3211a4e770ba7b4": true
+  },
+  "indexedInputFiles": 155,
+  "inputFiles": 155,
+  "missingFiles": [],
+  "nameSearchStats": {
+    "ContentBytesLoaded": 0,
+    "IndexBytesLoaded": 0,
+    "Crashes": 0,
+    "Duration": 421545,
+    "FileCount": 155,
+    "ShardFilesConsidered": 0,
+    "FilesConsidered": 155,
+    "FilesLoaded": 0,
+    "FilesSkipped": 0,
+    "FilesSkippedDueToCancellation": 0,
+    "ShardsScanned": 1,
+    "ShardsSkipped": 0,
+    "ShardsSkippedFilter": 0,
+    "MatchCount": 155,
+    "NgramMatches": 0,
+    "NgramLookups": 0,
+    "Wait": 1713,
+    "MatchTreeConstruction": 27281,
+    "MatchTreeSearch": 305612,
+    "RegexpsConsidered": 155,
+    "FlushReason": 0
+  },
+  "omissionSearchStats": {
+    "ContentBytesLoaded": 123,
+    "IndexBytesLoaded": 129,
+    "Crashes": 0,
+    "Duration": 42228,
+    "FileCount": 3,
+    "ShardFilesConsidered": 0,
+    "FilesConsidered": 3,
+    "FilesLoaded": 3,
+    "FilesSkipped": 0,
+    "FilesSkippedDueToCancellation": 0,
+    "ShardsScanned": 1,
+    "ShardsSkipped": 0,
+    "ShardsSkippedFilter": 0,
+    "MatchCount": 3,
+    "NgramMatches": 3,
+    "NgramLookups": 13,
+    "Wait": 1202,
+    "MatchTreeConstruction": 21810,
+    "MatchTreeSearch": 6212,
+    "RegexpsConsidered": 0,
+    "FlushReason": 0
+  },
+  "sourceDigestMismatches": [],
+  "versionMismatches": []
+}

@@ -1,0 +1,13 @@
+{
+  "inputFiles": 155,
+  "indexedInputFiles": 149,
+  "missingFiles": [
+    ".gitattributes",
+    "LICENSE",
+    "assets/vectorless-rag-dark.svg",
+    "assets/vectorless-rag-light.svg",
+    "cookbook/pageindex-vs-vector-10k/answers_pageindex.jsonl",
+    "pageindex/py.typed"
+  ],
+  "additionalFiles": []
+}

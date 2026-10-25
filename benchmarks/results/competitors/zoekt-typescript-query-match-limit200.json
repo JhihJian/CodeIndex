@@ -1,0 +1,696 @@
+{
+  "loadMs": 14.241,
+  "mode": "symbol",
+  "repetitions": 20,
+  "repositories": {
+    "Repos": [
+      {
+        "Repository": {
+          "TenantID": 0,
+          "ID": 0,
+          "Name": "typescript",
+          "URL": "",
+          "Metadata": null,
+          "Source": "/data/dev/CodeIndex/.data/competitors/inputs/typescript",
+          "Branches": [
+            {
+              "Name": "HEAD",
+              "Version": "9e31a165373dd1663a788ee7549773c8e637bb64"
+            }
+          ],
+          "SubRepoMap": {},
+          "CommitURLTemplate": "",
+          "FileURLTemplate": "",
+          "LineFragmentTemplate": "",
+          "RawConfig": null,
+          "Rank": 0,
+          "IndexOptions": "825dea1219bd742fea432a98a0f4df6bf04c2f1b",
+          "HasSymbols": true,
+          "Tombstone": false,
+          "LatestCommitDate": "2026-10-25T08:24:57+08:00"
+        },
+        "IndexMetadata": {
+          "IndexFormatVersion": 16,
+          "IndexFeatureVersion": 12,
+          "IndexMinReaderVersion": 10,
+          "IndexTime": "2026-10-25T08:49:27.46080437+08:00",
+          "PlainASCII": false,
+          "LanguageMap": {
+            "": 18,
+            "Git Attributes": 17,
+            "Git Revision List": 11,
+            "Go": 9,
+            "Go Checksums": 3,
+            "Go Module": 2,
+            "Go Workspace": 0,
+            "Ignore List": 16,
+            "JSON": 5,
+            "JSON with Comments": 7,
+            "JavaScript": 8,
+            "Markdown": 1,
+            "Motorola 68K Assembly": 14,
+            "Shell": 10,
+            "Text": 4,
+            "TypeScript": 13,
+            "Unix Assembly": 15,
+            "XML": 12,
+            "YAML": 6
+          },
+          "ZoektVersion": "",
+          "ID": "dbel45qjrguthsliu710"
+        },
+        "Stats": {
+          "Repos": 0,
+          "Shards": 3,
+          "Documents": 67863,
+          "IndexBytes": 6496164,
+          "ContentBytes": 215641650,
+          "NewLinesCount": 6296363,
+          "DefaultBranchNewLinesCount": 6296363,
+          "OtherBranchesNewLinesCount": 0
+        }
+      }
+    ],
+    "ReposMap": {},
+    "Crashes": 0,
+    "Stats": {
+      "Repos": 1,
+      "Shards": 3,
+      "Documents": 67863,
+      "IndexBytes": 6496164,
+      "ContentBytes": 215641650,
+      "NewLinesCount": 6296363,
+      "DefaultBranchNewLinesCount": 6296363,
+      "OtherBranchesNewLinesCount": 0
+    }
+  },
+  "rows": [
+    {
+      "coldMs": 4.513372,
+      "files": [
+        {
+          "lines": [
+            {
+              "line": 2619,
+              "source": "export class LanguageService {\r\n"
+            }
+          ],
+          "path": "packages/typescript/src/api/sync/api.ts"
+        },
+        {
+          "lines": [
+            {
+              "line": 1588,
+              "source": "export class LanguageService {\r\n"
+            }
+          ],
+          "path": "packages/typescript/src/api/async/api.ts"
+        },
+        {
+          "lines": [
+            {
+              "line": 16,
+              "source": "type LanguageService struct {\n"
+            },
+            {
+              "line": 25,
+              "source": "func NewLanguageService(\n"
+            }
+          ],
+          "path": "tsc/internal/ls/languageservice.go"
+        },
+        {
+          "lines": [
+            {
+              "line": 1146,
+              "source": "func (s *Session) GetLanguageService(ctx context.Context, uri lsproto.DocumentUri) (*ls.LanguageService, error) {\n"
+            },
+            {
+              "line": 1154,
+              "source": "func (s *Session) GetLanguageServiceAndProjectsForFile(ctx context.Context, uri lsproto.DocumentUri) (*Project, *ls.LanguageService, []ls.Project, error) {\n"
+            },
+            {
+              "line": 1209,
+              "source": "func (s *Session) GetLanguageServiceForProjectWithFile(ctx context.Context, project *Project, uri lsproto.DocumentUri) *ls.LanguageService {\n"
+            }
+          ],
+          "path": "tsc/internal/project/session.go"
+        },
+        {
+          "lines": [
+            {
+              "line": 175,
+              "source": "func (c *ProjectCollection) LanguageServiceProjects() []*Project {\n"
+            },
+            {
+              "line": 190,
+              "source": "func (c *ProjectCollection) GetLanguageServiceProjectsContainingFile(path tspath.PathKey) []ls.Project {\n"
+            }
+          ],
+          "path": "tsc/internal/project/projectcollection.go"
+        },
+        {
+          "lines": [
+            {
+              "line": 859,
+              "source": "func (s *Session) setupLanguageService(snapshot *project.Snapshot, program *compiler.Program, projectHandle project.Handle, activeFile string) (*ls.LanguageService, error) {\n"
+            }
+          ],
+          "path": "tsc/internal/api/session.go"
+        },
+        {
+          "lines": [
+            {
+              "line": 3506,
+              "source": "        getLanguageService() {\r\n"
+            }
+          ],
+          "path": "tsc/testdata/baselines/reference/conformance/parserharness.js"
+        },
+        {
+          "lines": [
+            {
+              "line": 86,
+              "source": "func TestPatternAmbientModuleWithImportAttributesLanguageService(t *testing.T) {\n"
+            }
+          ],
+          "path": "tsc/internal/fourslash/tests/importAttributesTypesLanguageService_test.go"
+        },
+        {
+          "lines": [
+            {
+              "line": 1485,
+              "source": "func (c *crossProjectOrchestrator) GetLanguageServiceForProjectWithFile(ctx context.Context, p ls.Project, uri lsproto.DocumentUri) *ls.LanguageService {\n"
+            },
+            {
+              "line": 1378,
+              "source": "func (handlers handlerMap) registerLanguageServiceDocumentRequestHandler[Req lsproto.HasTextDocumentURI, Resp any](info lsproto.RequestInfo[Req, Resp], fn func(*Server, context.Context, *ls.LanguageService, Req) (Resp, error)) {\n"
+            },
+            {
+              "line": 1405,
+              "source": "func (handlers handlerMap) registerLanguageServiceWithAutoImportsRequestHandler[Req lsproto.HasTextDocumentURI, Resp any](info lsproto.RequestInfo[Req, Resp], fn func(*Server, context.Context, *ls.LanguageService, Req) (Resp, error)) {\n"
+            }
+          ],
+          "path": "tsc/internal/lsp/server.go"
+        },
+        {
+          "lines": [
+            {
+              "line": 210,
+              "source": "func (s *Snapshot) GetLanguageServiceProjectsContainingFile(uri lsproto.DocumentUri) []ls.Project {\n"
+            }
+          ],
+          "path": "tsc/internal/project/snapshot.go"
+        }
+      ],
+      "hitAt10": true,
+      "medianMs": 0.33720649999999996,
+      "query": "LanguageService",
+      "searchStats": {
+        "ContentBytesLoaded": 3011565,
+        "IndexBytesLoaded": 11826,
+        "Crashes": 0,
+        "Duration": 307467,
+        "FileCount": 12,
+        "ShardFilesConsidered": 0,
+        "FilesConsidered": 143,
+        "FilesLoaded": 25,
+        "FilesSkipped": 0,
+        "FilesSkippedDueToCancellation": 0,
+        "ShardsScanned": 3,
+        "ShardsSkipped": 0,
+        "ShardsSkippedFilter": 0,
+        "MatchCount": 28,
+        "NgramMatches": 1670,
+        "NgramLookups": 45,
+        "Wait": 622,
+        "MatchTreeConstruction": 12603,
+        "MatchTreeSearch": 327152,
+        "RegexpsConsidered": 0,
+        "FlushReason": 0
+      }
+    },
+    {
+      "coldMs": 1.360549,
+      "files": [
+        {
+          "lines": [
+            {
+              "line": 3938,
+              "source": "export class BuildOrchestrator {\r\n"
+            },
+            {
+              "line": 3918,
+              "source": "export interface BuildOrchestratorOptions {\r\n"
+            }
+          ],
+          "path": "packages/typescript/src/api/sync/api.ts"
+        },
+        {
+          "lines": [
+            {
+              "line": 2183,
+              "source": "export class BuildOrchestrator {\r\n"
+            },
+            {
+              "line": 2163,
+              "source": "export interface BuildOrchestratorOptions {\r\n"
+            }
+          ],
+          "path": "packages/typescript/src/api/async/api.ts"
+        },
+        {
+          "lines": [
+            {
+              "line": 1007,
+              "source": "type BuildOrchestrator struct {\n"
+            },
+            {
+              "line": 43,
+              "source": "\tBuildOrchestratorID uint64\n"
+            },
+            {
+              "line": 977,
+              "source": "\tBuildOrchestratorID BuildOrchestratorID `json:\"buildOrchestratorID\"`\n"
+            }
+          ],
+          "path": "tsc/internal/api/proto.go"
+        },
+        {
+          "lines": [
+            {
+              "line": 35,
+              "source": "    type BuildOrchestrator,\r\n"
+            },
+            {
+              "line": 366,
+              "source": "function assertBuildOrchestratorsEquivalent(actual: BuildOrchestrator, expected: BuildOrchestrator, message?: string): void {\r\n"
+            }
+          ],
+          "path": "packages/typescript/test/sync/api-generators.test.ts"
+        },
+        {
+          "lines": [
+            {
+              "line": 1859,
+              "source": "func (s *Session) handleCreateBuildOrchestrator(ctx context.Context, params *CreateBuildOrchestratorParams) (*CreateBuildOrchestratorResponse, error) {\n"
+            },
+            {
+              "line": 1880,
+              "source": "func (s *Session) handleDisposeBuildOrchestrator(ctx context.Context, params *DisposeBuildOrchestratorParams) (any, error) {\n"
+            }
+          ],
+          "path": "tsc/internal/api/session.go"
+        },
+        {
+          "lines": [
+            {
+              "line": 51,
+              "source": "    createBuildOrchestrator: APIMethod\u003cCreateBuildOrchestratorParams, CreateBuildOrchestratorResponse\u003e;\r\n"
+            },
+            {
+              "line": 52,
+              "source": "    disposeBuildOrchestrator: APIMethod\u003cDisposeBuildOrchestratorParams, unknown\u003e;\r\n"
+            },
+            {
+              "line": 341,
+              "source": "export interface CreateBuildOrchestratorParams extends BuildOptions, CompilerOptions {\r\n"
+            }
+          ],
+          "path": "packages/typescript/src/api/proto.generated.ts"
+        },
+        {
+          "lines": [
+            {
+              "line": 132,
+              "source": "export interface CreateBuildOrchestratorParams {\r\n"
+            }
+          ],
+          "path": "packages/typescript/src/api/proto.ts"
+        }
+      ],
+      "hitAt10": true,
+      "medianMs": 0.1987965,
+      "query": "BuildOrchestrator",
+      "searchStats": {
+        "ContentBytesLoaded": 1041142,
+        "IndexBytesLoaded": 41057,
+        "Crashes": 0,
+        "Duration": 255271,
+        "FileCount": 7,
+        "ShardFilesConsidered": 0,
+        "FilesConsidered": 10,
+        "FilesLoaded": 7,
+        "FilesSkipped": 0,
+        "FilesSkippedDueToCancellation": 0,
+        "ShardsScanned": 3,
+        "ShardsSkipped": 0,
+        "ShardsSkippedFilter": 0,
+        "MatchCount": 27,
+        "NgramMatches": 201,
+        "NgramLookups": 51,
+        "Wait": 701,
+        "MatchTreeConstruction": 9206,
+        "MatchTreeSearch": 254769,
+        "RegexpsConsidered": 0,
+        "FlushReason": 0
+      }
+    },
+    {
+      "coldMs": 8.433549,
+      "files": [
+        {
+          "lines": [
+            {
+              "line": 11,
+              "source": "type Client interface {\n"
+            }
+          ],
+          "path": "tsc/internal/project/client.go"
+        },
+        {
+          "lines": [
+            {
+              "line": 64,
+              "source": "export class Client implements vscode.Disposable {\r\n"
+            },
+            {
+              "line": 547,
+              "source": "class NativePreviewLanguageClient extends LanguageClient {\r\n"
+            }
+          ],
+          "path": "packages/vscode-typescript/src/client.ts"
+        },
+        {
+          "lines": [
+            {
+              "line": 18,
+              "source": "export class Client extends createService\u003cstring\u003e() {\n"
+            },
+            {
+              "line": 29,
+              "source": "export class Client extends createService() {\r\n"
+            }
+          ],
+          "path": "tsc/testdata/baselines/reference/compiler/declarationEmitExportValueSymbolWithTsIgnore.js"
+        },
+        {
+          "lines": [
+            {
+              "line": 32,
+              "source": "export class Client {\r\n"
+            },
+            {
+              "line": 6,
+              "source": "    type ClientOptions,\r\n"
+            },
+            {
+              "line": 7,
+              "source": "    type ClientSocketOptions,\r\n"
+            }
+          ],
+          "path": "packages/typescript/src/api/sync/client.ts"
+        },
+        {
+          "lines": [
+            {
+              "line": 54,
+              "source": "export class Client {\r\n"
+            },
+            {
+              "line": 24,
+              "source": "    type ClientOptions,\r\n"
+            },
+            {
+              "line": 25,
+              "source": "    type ClientSocketOptions,\r\n"
+            }
+          ],
+          "path": "packages/typescript/src/api/async/client.ts"
+        },
+        {
+          "lines": [
+            {
+              "line": 401,
+              "source": "declare class Client {\r\n"
+            },
+            {
+              "line": 396,
+              "source": "interface ClientEvents {\r\n"
+            }
+          ],
+          "path": "tsc/testdata/tests/cases/conformance/controlFlow/dependentDestructuredVariables.ts"
+        },
+        {
+          "lines": [
+            {
+              "line": 20,
+              "source": "export class Client extends createService\u003cstring\u003e() {\n"
+            }
+          ],
+          "path": "tsc/testdata/tests/cases/compiler/declarationEmitExportValueSymbolWithTsIgnore.ts"
+        },
+        {
+          "lines": [
+            {
+              "line": 51,
+              "source": "func (h *SessionUtils) Client() *ClientMock {\n"
+            }
+          ],
+          "path": "tsc/internal/testutil/projecttestutil/projecttestutil.go"
+        },
+        {
+          "lines": [
+            {
+              "line": 3065,
+              "source": "interface Client {\n"
+            },
+            {
+              "line": 3099,
+              "source": "declare var Client: {\n"
+            },
+            {
+              "line": 157,
+              "source": "interface ClientQueryOptions {\n"
+            }
+          ],
+          "path": "tsc/internal/bundled/libs/lib.webworker.d.ts"
+        },
+        {
+          "lines": [
+            {
+              "line": 89,
+              "source": "\tClient        Client\n"
+            }
+          ],
+          "path": "tsc/internal/project/session.go"
+        }
+      ],
+      "hitAt10": true,
+      "medianMs": 1.517202,
+      "query": "Client",
+      "searchStats": {
+        "ContentBytesLoaded": 2782048,
+        "IndexBytesLoaded": 520325,
+        "Crashes": 0,
+        "Duration": 1905483,
+        "FileCount": 37,
+        "ShardFilesConsidered": 0,
+        "FilesConsidered": 196,
+        "FilesLoaded": 37,
+        "FilesSkipped": 0,
+        "FilesSkippedDueToCancellation": 0,
+        "ShardsScanned": 3,
+        "ShardsSkipped": 0,
+        "ShardsSkippedFilter": 0,
+        "MatchCount": 235,
+        "NgramMatches": 2552,
+        "NgramLookups": 18,
+        "Wait": 4579,
+        "MatchTreeConstruction": 58478,
+        "MatchTreeSearch": 3425155,
+        "RegexpsConsidered": 0,
+        "FlushReason": 0
+      }
+    },
+    {
+      "coldMs": 4.889916,
+      "files": [
+        {
+          "lines": [
+            {
+              "line": 1675,
+              "source": "export class Snapshot {\r\n"
+            },
+            {
+              "line": 1961,
+              "source": "class SnapshotObjectRegistry {\r\n"
+            },
+            {
+              "line": 1617,
+              "source": "export interface SnapshotOperation {\r\n"
+            }
+          ],
+          "path": "packages/typescript/src/api/sync/api.ts"
+        },
+        {
+          "lines": [
+            {
+              "line": 1047,
+              "source": "export class Snapshot {\r\n"
+            },
+            {
+              "line": 1229,
+              "source": "class SnapshotObjectRegistry {\r\n"
+            },
+            {
+              "line": 989,
+              "source": "export interface SnapshotOperation {\r\n"
+            }
+          ],
+          "path": "packages/typescript/src/api/async/api.ts"
+        },
+        {
+          "lines": [
+            {
+              "line": 31,
+              "source": "type Snapshot struct {\n"
+            },
+            {
+              "line": 398,
+              "source": "type SnapshotChange struct {\n"
+            },
+            {
+              "line": 84,
+              "source": "func (host *SnapshotHost) newSnapshot(\n"
+            }
+          ],
+          "path": "tsc/internal/project/snapshot.go"
+        },
+        {
+          "lines": [
+            {
+              "line": 26,
+              "source": "type Snapshot struct {\n"
+            }
+          ],
+          "path": "tsc/internal/testutil/fsbaselineutil/differ.go"
+        },
+        {
+          "lines": [
+            {
+              "line": 1046,
+              "source": "func (s *Session) Snapshot() *Snapshot {\n"
+            },
+            {
+              "line": 1285,
+              "source": "func (s *Session) WithLanguageServiceAndSnapshot(\n"
+            },
+            {
+              "line": 1372,
+              "source": "func (s *Session) UpdateSnapshot(ctx context.Context, overlays map[tspath.PathKey]*Overlay, change SnapshotChange) {\n"
+            }
+          ],
+          "path": "tsc/internal/project/session.go"
+        },
+        {
+          "lines": [
+            {
+              "line": 8,
+              "source": "interface Snapshot\u003cT\u003e extends DataSnapshot {\n"
+            },
+            {
+              "line": 4,
+              "source": "interface DataSnapshot\u003cX = {}\u003e {\n"
+            }
+          ],
+          "path": "tsc/testdata/tests/cases/compiler/deeplyNestedCheck.ts"
+        },
+        {
+          "lines": [
+            {
+              "line": 472,
+              "source": "\tSnapshot SnapshotID            `json:\"snapshot\"`\n"
+            },
+            {
+              "line": 532,
+              "source": "\tSnapshot            SnapshotID         `json:\"snapshot,omitempty\"`\n"
+            },
+            {
+              "line": 544,
+              "source": "\tSnapshot            *SnapshotID     `json:\"snapshot,omitempty\"`\n"
+            }
+          ],
+          "path": "tsc/internal/api/proto.go"
+        },
+        {
+          "lines": [
+            {
+              "line": 17,
+              "source": "    type Snapshot,\r\n"
+            },
+            {
+              "line": 206,
+              "source": "    function loadSnapshot() {\r\n"
+            }
+          ],
+          "path": "packages/typescript/test/sync/api.bench.ts"
+        },
+        {
+          "lines": [
+            {
+              "line": 9,
+              "source": "    type Snapshot,\r\n"
+            },
+            {
+              "line": 208,
+              "source": "    async function loadSnapshot() {\r\n"
+            }
+          ],
+          "path": "packages/typescript/test/async/api.bench.ts"
+        },
+        {
+          "lines": [
+            {
+              "line": 17,
+              "source": "    type Snapshot,\r\n"
+            },
+            {
+              "line": 202,
+              "source": "    function loadSnapshot() {\r\n"
+            }
+          ],
+          "path": "packages/typescript/test/generators/api.bench.ts"
+        }
+      ],
+      "hitAt10": true,
+      "medianMs": 0.647469,
+      "query": "Snapshot",
+      "searchStats": {
+        "ContentBytesLoaded": 3645728,
+        "IndexBytesLoaded": 18225,
+        "Crashes": 0,
+        "Duration": 643015,
+        "FileCount": 42,
+        "ShardFilesConsidered": 0,
+        "FilesConsidered": 96,
+        "FilesLoaded": 42,
+        "FilesSkipped": 0,
+        "FilesSkippedDueToCancellation": 0,
+        "ShardsScanned": 3,
+        "ShardsSkipped": 0,
+        "ShardsSkippedFilter": 0,
+        "MatchCount": 307,
+        "NgramMatches": 3887,
+        "NgramLookups": 24,
+        "Wait": 972,
+        "MatchTreeConstruction": 17231,
+        "MatchTreeSearch": 665246,
+        "RegexpsConsidered": 0,
+        "FlushReason": 0
+      }
+    }
+  ],
+  "tool": "Zoekt",
+  "warmup": 1
+}

@@ -1,0 +1,98 @@
+{
+  "tool": "CodeGraphContext",
+  "corpus": "pageindex",
+  "rows": [
+    {
+      "path": "pageindex/tree_optimize.py",
+      "caller": "tree_cost",
+      "callee": "is_frontier",
+      "callLine": 294,
+      "hit": true,
+      "elapsedMs": 514.8360230959952,
+      "totalCalls": 4,
+      "matches": [
+        {
+          "called_function": "is_frontier",
+          "called_file_path": "/data/dev/CodeIndex/.data/competitors/inputs/pageindex/pageindex/tree_optimize.py",
+          "called_line_number": 184,
+          "called_docstring": null,
+          "called_is_dependency": false,
+          "call_line_number": 294,
+          "call_args": [
+            "node"
+          ],
+          "full_call_name": "is_frontier"
+        }
+      ]
+    },
+    {
+      "path": "pageindex/tree_optimize.py",
+      "caller": "tree_cost",
+      "callee": "S_residual",
+      "callLine": 297,
+      "hit": true,
+      "elapsedMs": 1.5122608747333288,
+      "totalCalls": 4,
+      "matches": [
+        {
+          "called_function": "S_residual",
+          "called_file_path": "/data/dev/CodeIndex/.data/competitors/inputs/pageindex/pageindex/tree_optimize.py",
+          "called_line_number": 281,
+          "called_docstring": null,
+          "called_is_dependency": false,
+          "call_line_number": 297,
+          "call_args": [
+            "node"
+          ],
+          "full_call_name": "S_residual"
+        }
+      ]
+    },
+    {
+      "path": "pageindex/tree_optimize.py",
+      "caller": "tree_cost_via_frontier",
+      "callee": "frontier_costs",
+      "callLine": 320,
+      "hit": true,
+      "elapsedMs": 1.212980831041932,
+      "totalCalls": 1,
+      "matches": [
+        {
+          "called_function": "frontier_costs",
+          "called_file_path": "/data/dev/CodeIndex/.data/competitors/inputs/pageindex/pageindex/tree_optimize.py",
+          "called_line_number": 303,
+          "called_docstring": null,
+          "called_is_dependency": false,
+          "call_line_number": 320,
+          "call_args": [
+            "node"
+          ],
+          "full_call_name": "frontier_costs"
+        }
+      ]
+    },
+    {
+      "path": "pageindex/page_index_md.py",
+      "caller": "md_to_tree",
+      "callee": "build_tree_from_nodes",
+      "callLine": 262,
+      "hit": true,
+      "elapsedMs": 1.2410120107233524,
+      "totalCalls": 14,
+      "matches": [
+        {
+          "called_function": "build_tree_from_nodes",
+          "called_file_path": "/data/dev/CodeIndex/.data/competitors/inputs/pageindex/pageindex/page_index_md.py",
+          "called_line_number": 192,
+          "called_docstring": null,
+          "called_is_dependency": false,
+          "call_line_number": 262,
+          "call_args": [
+            "nodes_with_content"
+          ],
+          "full_call_name": "build_tree_from_nodes"
+        }
+      ]
+    }
+  ]
+}

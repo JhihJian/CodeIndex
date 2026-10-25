@@ -90,6 +90,7 @@ node bin/codeindex.js benchmark \
 
 以下报告保留各自版本和测量口径：
 
+- [OpenGrok、Zoekt、CodeGraphContext 固定输入实测](benchmarks/index-tool-comparison.md)
 - [Linux 正式原生后端](benchmarks/linux-native.md)
 - [三分钟方案原型，116.84 秒](benchmarks/linux-fast-alternatives.md)
 - [Linux Tree-sitter 流式版本，1,930.66 秒](benchmarks/linux-streaming.md)

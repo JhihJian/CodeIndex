@@ -1,0 +1,27 @@
+{
+  "definitionProbes" : [ {
+    "query" : "LanguageService",
+    "matches" : [ "packages/typescript/src/api/async/api.ts" ],
+    "expectedPath" : "packages/typescript/src/api/async/api.ts",
+    "scopedMatch" : true
+  }, {
+    "query" : "BuildOrchestrator",
+    "matches" : [ "packages/typescript/src/api/async/api.ts" ],
+    "expectedPath" : "packages/typescript/src/api/async/api.ts",
+    "scopedMatch" : true
+  }, {
+    "query" : "Client",
+    "matches" : [ "packages/typescript/src/api/async/client.ts" ],
+    "expectedPath" : "packages/typescript/src/api/async/client.ts",
+    "scopedMatch" : true
+  }, {
+    "query" : "Snapshot",
+    "matches" : [ "packages/typescript/src/api/async/api.ts" ],
+    "expectedPath" : "packages/typescript/src/api/async/api.ts",
+    "scopedMatch" : true
+  } ],
+  "missingFiles" : [ "tsc/testdata/baselines/reference/conformance/generatedContextualTyping.js", "tsc/testdata/baselines/reference/conformance/parserRealSource12.js" ],
+  "inputFiles" : 67863,
+  "indexedInputFiles" : 67861,
+  "additionalDocuments" : 0
+}

@@ -1,0 +1,4 @@
+2026/10/25 09:54:40 git cat-file does not support --filter (exit status 129: error: option `filters' takes no value), using go-git
+2026/10/25 09:54:40 attempting to index 1 total files (0 via cat-file, 1 via go-git)
+2026/10/25 09:54:40 symbol analysis finished for shard statistics: duration=0s symbols=507 bytes=163360
+2026/10/25 09:54:40 finished shard /data/dev/CodeIndex/.data/competitors/zoekt/typescript/typescript_v16.00003.zoekt: 515966 index bytes (overhead 3.2), 1 files processed 

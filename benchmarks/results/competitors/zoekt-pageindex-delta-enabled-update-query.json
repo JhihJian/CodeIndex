@@ -1,0 +1,384 @@
+{
+  "loadMs": 0.845,
+  "mode": "symbol",
+  "repetitions": 20,
+  "repositories": {
+    "Repos": [
+      {
+        "Repository": {
+          "TenantID": 0,
+          "ID": 0,
+          "Name": "pageindex",
+          "URL": "",
+          "Metadata": null,
+          "Source": "/data/dev/CodeIndex/.data/competitors/inputs/pageindex",
+          "Branches": [
+            {
+              "Name": "HEAD",
+              "Version": "8c5edd980b16fe541016c8cb07e9feaacbab32c2"
+            }
+          ],
+          "SubRepoMap": {},
+          "CommitURLTemplate": "",
+          "FileURLTemplate": "",
+          "LineFragmentTemplate": "",
+          "RawConfig": null,
+          "Rank": 0,
+          "IndexOptions": "825dea1219bd742fea432a98a0f4df6bf04c2f1b",
+          "HasSymbols": true,
+          "Tombstone": false,
+          "LatestCommitDate": "2026-10-25T09:47:07+08:00"
+        },
+        "IndexMetadata": {
+          "IndexFormatVersion": 16,
+          "IndexFeatureVersion": 12,
+          "IndexMinReaderVersion": 10,
+          "IndexTime": "2026-10-25T09:54:39.059123173+08:00",
+          "PlainASCII": false,
+          "LanguageMap": {
+            "Python": 0
+          },
+          "ZoektVersion": "",
+          "ID": "dbem2nqjrguhf5q2cfhg"
+        },
+        "Stats": {
+          "Repos": 0,
+          "Shards": 2,
+          "Documents": 156,
+          "IndexBytes": 45388,
+          "ContentBytes": 3153367,
+          "NewLinesCount": 58947,
+          "DefaultBranchNewLinesCount": 58947,
+          "OtherBranchesNewLinesCount": 0
+        }
+      }
+    ],
+    "ReposMap": {},
+    "Crashes": 0,
+    "Stats": {
+      "Repos": 1,
+      "Shards": 2,
+      "Documents": 156,
+      "IndexBytes": 45388,
+      "ContentBytes": 3153367,
+      "NewLinesCount": 58947,
+      "DefaultBranchNewLinesCount": 58947,
+      "OtherBranchesNewLinesCount": 0
+    }
+  },
+  "rows": [
+    {
+      "coldMs": 0.099693,
+      "files": [
+        {
+          "lines": [
+            {
+              "line": 73,
+              "source": "class DocStore:\n"
+            }
+          ],
+          "path": "pageindex/local_store.py"
+        }
+      ],
+      "hitAt10": true,
+      "medianMs": 0.0316875,
+      "query": "DocStore",
+      "searchStats": {
+        "ContentBytesLoaded": 6739,
+        "IndexBytesLoaded": 434,
+        "Crashes": 0,
+        "Duration": 33261,
+        "FileCount": 1,
+        "ShardFilesConsidered": 0,
+        "FilesConsidered": 5,
+        "FilesLoaded": 1,
+        "FilesSkipped": 0,
+        "FilesSkippedDueToCancellation": 0,
+        "ShardsScanned": 2,
+        "ShardsSkipped": 0,
+        "ShardsSkippedFilter": 0,
+        "MatchCount": 1,
+        "NgramMatches": 9,
+        "NgramLookups": 9,
+        "Wait": 1282,
+        "MatchTreeConstruction": 6713,
+        "MatchTreeSearch": 11110,
+        "RegexpsConsidered": 0,
+        "FlushReason": 0
+      }
+    },
+    {
+      "coldMs": 0.07084,
+      "files": [
+        {
+          "lines": [
+            {
+              "line": 292,
+              "source": "def tree_cost(node, routing=ROUTING_COST):\n"
+            },
+            {
+              "line": 319,
+              "source": "def tree_cost_via_frontier(node, routing=ROUTING_COST):\n"
+            }
+          ],
+          "path": "pageindex/tree_optimize.py"
+        }
+      ],
+      "hitAt10": true,
+      "medianMs": 0.0791,
+      "query": "tree_cost",
+      "searchStats": {
+        "ContentBytesLoaded": 51882,
+        "IndexBytesLoaded": 1482,
+        "Crashes": 0,
+        "Duration": 38481,
+        "FileCount": 1,
+        "ShardFilesConsidered": 0,
+        "FilesConsidered": 2,
+        "FilesLoaded": 1,
+        "FilesSkipped": 0,
+        "FilesSkippedDueToCancellation": 0,
+        "ShardsScanned": 2,
+        "ShardsSkipped": 0,
+        "ShardsSkippedFilter": 0,
+        "MatchCount": 2,
+        "NgramMatches": 26,
+        "NgramLookups": 132,
+        "Wait": 1162,
+        "MatchTreeConstruction": 8556,
+        "MatchTreeSearch": 21270,
+        "RegexpsConsidered": 0,
+        "FlushReason": 0
+      }
+    },
+    {
+      "coldMs": 0.135708,
+      "files": [
+        {
+          "lines": [
+            {
+              "line": 1004,
+              "source": "    def get_document_structure(self, doc_id: str) -\u003e list[dict[str, Any]]:\n"
+            }
+          ],
+          "path": "pageindex/client.py"
+        },
+        {
+          "lines": [
+            {
+              "line": 910,
+              "source": "def _get_document_structure(client, doc_name: str,\n"
+            }
+          ],
+          "path": "pageindex/agent_tools.py"
+        },
+        {
+          "lines": [
+            {
+              "line": 575,
+              "source": "def test_get_document_structure(local_client, indexed_doc):\n"
+            }
+          ],
+          "path": "tests/test_client.py"
+        }
+      ],
+      "hitAt10": true,
+      "medianMs": 0.08655850000000001,
+      "query": "get_document_structure",
+      "searchStats": {
+        "ContentBytesLoaded": 413486,
+        "IndexBytesLoaded": 2622,
+        "Crashes": 0,
+        "Duration": 313575,
+        "FileCount": 3,
+        "ShardFilesConsidered": 0,
+        "FilesConsidered": 9,
+        "FilesLoaded": 3,
+        "FilesSkipped": 0,
+        "FilesSkippedDueToCancellation": 0,
+        "ShardsScanned": 2,
+        "ShardsSkipped": 0,
+        "ShardsSkippedFilter": 0,
+        "MatchCount": 3,
+        "NgramMatches": 45,
+        "NgramLookups": 202,
+        "Wait": 2004,
+        "MatchTreeConstruction": 25396,
+        "MatchTreeSearch": 135569,
+        "RegexpsConsidered": 0,
+        "FlushReason": 0
+      }
+    },
+    {
+      "coldMs": 0.104161,
+      "files": [
+        {
+          "lines": [
+            {
+              "line": 192,
+              "source": "def build_tree_from_nodes(node_list):\n"
+            }
+          ],
+          "path": "pageindex/page_index_md.py"
+        }
+      ],
+      "hitAt10": true,
+      "medianMs": 0.03015,
+      "query": "build_tree_from_nodes",
+      "searchStats": {
+        "ContentBytesLoaded": 12575,
+        "IndexBytesLoaded": 67,
+        "Crashes": 0,
+        "Duration": 21199,
+        "FileCount": 1,
+        "ShardFilesConsidered": 0,
+        "FilesConsidered": 1,
+        "FilesLoaded": 1,
+        "FilesSkipped": 0,
+        "FilesSkippedDueToCancellation": 0,
+        "ShardsScanned": 2,
+        "ShardsSkipped": 0,
+        "ShardsSkippedFilter": 0,
+        "MatchCount": 1,
+        "NgramMatches": 2,
+        "NgramLookups": 196,
+        "Wait": 721,
+        "MatchTreeConstruction": 12222,
+        "MatchTreeSearch": 5050,
+        "RegexpsConsidered": 0,
+        "FlushReason": 0
+      }
+    },
+    {
+      "coldMs": 0.108018,
+      "files": [
+        {
+          "lines": [
+            {
+              "line": 316,
+              "source": "class PageIndexClient:\n"
+            }
+          ],
+          "path": "pageindex/client.py"
+        }
+      ],
+      "hitAt10": true,
+      "medianMs": 0.06817000000000001,
+      "query": "PageIndexClient",
+      "searchStats": {
+        "ContentBytesLoaded": 149215,
+        "IndexBytesLoaded": 10524,
+        "Crashes": 0,
+        "Duration": 64618,
+        "FileCount": 1,
+        "ShardFilesConsidered": 0,
+        "FilesConsidered": 21,
+        "FilesLoaded": 1,
+        "FilesSkipped": 0,
+        "FilesSkippedDueToCancellation": 0,
+        "ShardsScanned": 2,
+        "ShardsSkipped": 0,
+        "ShardsSkippedFilter": 0,
+        "MatchCount": 1,
+        "NgramMatches": 272,
+        "NgramLookups": 16,
+        "Wait": 601,
+        "MatchTreeConstruction": 7504,
+        "MatchTreeSearch": 50271,
+        "RegexpsConsidered": 0,
+        "FlushReason": 0
+      }
+    },
+    {
+      "coldMs": 0.191992,
+      "files": [
+        {
+          "lines": [
+            {
+              "line": 124,
+              "source": "def extract_toc(\n"
+            }
+          ],
+          "path": "pageindex/flash/main.py"
+        },
+        {
+          "lines": [
+            {
+              "line": 238,
+              "source": "def extract_toc_content(content, model=None):\n"
+            }
+          ],
+          "path": "pageindex/page_index_classic.py"
+        }
+      ],
+      "hitAt10": true,
+      "medianMs": 0.064328,
+      "query": "extract_toc",
+      "searchStats": {
+        "ContentBytesLoaded": 412978,
+        "IndexBytesLoaded": 2410,
+        "Crashes": 0,
+        "Duration": 37529,
+        "FileCount": 2,
+        "ShardFilesConsidered": 0,
+        "FilesConsidered": 36,
+        "FilesLoaded": 12,
+        "FilesSkipped": 0,
+        "FilesSkippedDueToCancellation": 0,
+        "ShardsScanned": 2,
+        "ShardsSkipped": 0,
+        "ShardsSkippedFilter": 0,
+        "MatchCount": 2,
+        "NgramMatches": 161,
+        "NgramLookups": 144,
+        "Wait": 581,
+        "MatchTreeConstruction": 5800,
+        "MatchTreeSearch": 26128,
+        "RegexpsConsidered": 0,
+        "FlushReason": 0
+      }
+    },
+    {
+      "coldMs": 0.093241,
+      "files": [
+        {
+          "lines": [
+            {
+              "line": 1149,
+              "source": "def codeindex_benchmark_update_probe_20261025():\n"
+            }
+          ],
+          "path": "pageindex/tree_optimize.py"
+        }
+      ],
+      "hitAt10": true,
+      "medianMs": 0.042457999999999996,
+      "query": "codeindex_benchmark_update_probe_20261025",
+      "searchStats": {
+        "ContentBytesLoaded": 51882,
+        "IndexBytesLoaded": 19,
+        "Crashes": 0,
+        "Duration": 38590,
+        "FileCount": 1,
+        "ShardFilesConsidered": 0,
+        "FilesConsidered": 1,
+        "FilesLoaded": 1,
+        "FilesSkipped": 0,
+        "FilesSkippedDueToCancellation": 0,
+        "ShardsScanned": 2,
+        "ShardsSkipped": 0,
+        "ShardsSkippedFilter": 0,
+        "MatchCount": 1,
+        "NgramMatches": 1,
+        "NgramLookups": 470,
+        "Wait": 771,
+        "MatchTreeConstruction": 37098,
+        "MatchTreeSearch": 8686,
+        "RegexpsConsidered": 0,
+        "FlushReason": 0
+      }
+    }
+  ],
+  "tool": "Zoekt",
+  "warmup": 1
+}

@@ -1,0 +1,272 @@
+{
+  "repetitions" : 20,
+  "mode" : "symbol",
+  "warmup" : 1,
+  "indexedDocuments" : 68578,
+  "tool" : "OpenGrok",
+  "loadMs" : 143.420178,
+  "rows" : [ {
+    "files" : [ {
+      "path" : "tsc/internal/ls/folding.go",
+      "lines" : [ {
+        "line" : 203,
+        "source" : "func visitNode(ctx context.Context, n *ast.Node, depthRemaining int, sourceFile *ast.SourceFile, l *<b>LanguageService</b>) []*lsproto.FoldingRange {"
+      }, {
+        "line" : 295,
+        "source" : "func addOutliningForLeadingCommentsForNode(ctx context.Context, n *ast.Node, sourceFile *ast.SourceFile, l *<b>LanguageService</b>) []*lsproto.FoldingRange {"
+      }, {
+        "line" : 302,
+        "source" : "func addOutliningForLeadingCommentsForPos(ctx context.Context, pos int, sourceFile *ast.SourceFile, l *<b>LanguageService</b>) []*lsproto.FoldingRange {"
+      } ]
+    }, {
+      "path" : "tsc/internal/lsp/server.go",
+      "lines" : [ {
+        "line" : 1910,
+        "source" : "func (s *Server) handleDocumentDiagnostic(ctx context.Context, languageService *ls.<b>LanguageService</b>, params *lsproto.DocumentDiagnosticParams) (lsproto.DocumentDiagnosticResponse, error) {"
+      }, {
+        "line" : 1968,
+        "source" : "func (s *Server) handleHover(ctx context.Context, ls *ls.<b>LanguageService</b>, params *lsproto.HoverParams) (lsproto.HoverResponse, error) {"
+      }, {
+        "line" : 1972,
+        "source" : "func (s *Server) handlePrepareRename(ctx context.Context, languageService *ls.<b>LanguageService</b>, params *lsproto.PrepareRenameParams) (lsproto.PrepareRenameResponse, error) {"
+      } ]
+    }, {
+      "path" : "tsc/internal/ls/selectionranges.go",
+      "lines" : [ {
+        "line" : 185,
+        "source" : "func getSmartSelectionRange(l *<b>LanguageService</b>, sourceFile *ast.SourceFile, pos int) *lsproto.SelectionRange {"
+      } ]
+    }, {
+      "path" : "tsc/internal/ls/languageservice.go",
+      "lines" : [ {
+        "line" : 16,
+        "source" : "type <b>LanguageService</b> struct {"
+      } ]
+    }, {
+      "path" : "tsc/internal/project/session.go",
+      "lines" : [ {
+        "line" : 1288,
+        "source" : "\tfn func(*ls.<b>LanguageService</b>, *Snapshot) (func() error, error),"
+      } ]
+    }, {
+      "path" : "packages/typescript/src/api/async/api.ts",
+      "lines" : [ {
+        "line" : 1588,
+        "source" : "export class <b>LanguageService</b> {\r"
+      } ]
+    }, {
+      "path" : "packages/typescript/src/api/sync/api.ts",
+      "lines" : [ {
+        "line" : 2619,
+        "source" : "export class <b>LanguageService</b> {\r"
+      } ]
+    } ],
+    "medianMs" : 2.7460975000000003,
+    "hitAt10" : true,
+    "coldMs" : 232.31375,
+    "query" : "LanguageService",
+    "totalFiles" : 7
+  }, {
+    "files" : [ {
+      "path" : "packages/typescript/test/sync/api-generators.test.ts",
+      "lines" : [ {
+        "line" : 35,
+        "source" : "    type <b>BuildOrchestrator</b>,\r"
+      } ]
+    }, {
+      "path" : "packages/typescript/src/api/async/api.ts",
+      "lines" : [ {
+        "line" : 2183,
+        "source" : "export class <b>BuildOrchestrator</b> {\r"
+      } ]
+    }, {
+      "path" : "packages/typescript/src/api/sync/api.ts",
+      "lines" : [ {
+        "line" : 3938,
+        "source" : "export class <b>BuildOrchestrator</b> {\r"
+      } ]
+    }, {
+      "path" : "tsc/internal/api/proto.go",
+      "lines" : [ {
+        "line" : 1007,
+        "source" : "type <b>BuildOrchestrator</b> struct {"
+      } ]
+    } ],
+    "medianMs" : 2.7897425,
+    "hitAt10" : true,
+    "coldMs" : 4.336551,
+    "query" : "BuildOrchestrator",
+    "totalFiles" : 4
+  }, {
+    "files" : [ {
+      "path" : "tsc/testdata/tests/cases/compiler/declarationEmitShadowingInferNotRenamed.ts",
+      "lines" : [ {
+        "line" : 5,
+        "source" : "type <b>Client</b> = string\r"
+      }, {
+        "line" : 12,
+        "source" : "    | (new (...args: any[]) =&gt; <b>Client</b>) // accept class\r"
+      } ]
+    }, {
+      "path" : "tsc/testdata/baselines/reference/compiler/declarationEmitExportValueSymbolWithTsIgnore.js",
+      "lines" : [ {
+        "line" : 18,
+        "source" : "export class <b>Client</b> extends createService&lt;string&gt;() {"
+      }, {
+        "line" : 29,
+        "source" : "export class <b>Client</b> extends createService() {\r"
+      } ]
+    }, {
+      "path" : "tsc/testdata/tests/cases/compiler/circularConstructorWithReturn.ts",
+      "lines" : [ {
+        "line" : 5,
+        "source" : "export type <b>Client</b> = ReturnType&lt;typeof getPrismaClient&gt; extends new () =&gt; infer T ? T : never"
+      } ]
+    }, {
+      "path" : "tsc/testdata/tests/cases/compiler/declarationEmitExportValueSymbolWithTsIgnore.ts",
+      "lines" : [ {
+        "line" : 20,
+        "source" : "export class <b>Client</b> extends createService&lt;string&gt;() {"
+      } ]
+    }, {
+      "path" : "tsc/testdata/baselines/reference/compiler/circularConstructorWithReturn.js",
+      "lines" : [ {
+        "line" : 19,
+        "source" : "export function applyModelsAndClientExtensions(client: <b>Client</b>) {"
+      } ]
+    }, {
+      "path" : "tsc/internal/project/client.go",
+      "lines" : [ {
+        "line" : 11,
+        "source" : "type <b>Client</b> interface {"
+      } ]
+    }, {
+      "path" : "packages/typescript/src/api/sync/client.ts",
+      "lines" : [ {
+        "line" : 32,
+        "source" : "export class <b>Client</b> {\r"
+      } ]
+    }, {
+      "path" : "tsc/internal/testutil/projecttestutil/projecttestutil.go",
+      "lines" : [ {
+        "line" : 51,
+        "source" : "func (h *SessionUtils) <b>Client</b>() *ClientMock {"
+      } ]
+    }, {
+      "path" : "tsc/testdata/tests/cases/conformance/controlFlow/dependentDestructuredVariables.ts",
+      "lines" : [ {
+        "line" : 401,
+        "source" : "declare class <b>Client</b> {\r"
+      } ]
+    }, {
+      "path" : "packages/vscode-typescript/src/client.ts",
+      "lines" : [ {
+        "line" : 64,
+        "source" : "export class <b>Client</b> implements vscode.Disposable {\r"
+      } ]
+    } ],
+    "medianMs" : 1.2753695,
+    "hitAt10" : false,
+    "coldMs" : 2.856721,
+    "query" : "Client",
+    "totalFiles" : 14
+  }, {
+    "files" : [ {
+      "path" : "packages/typescript/enums/symbolOwnerKind.d.ts",
+      "lines" : [ {
+        "line" : 5,
+        "source" : "    <b>Snapshot</b> = 1,\r"
+      } ]
+    }, {
+      "path" : "tsc/internal/project/snapshothost.go",
+      "lines" : [ {
+        "line" : 105,
+        "source" : "func (s *SnapshotHost) RetainSnapshot(snapshot *<b>Snapshot</b>) {"
+      }, {
+        "line" : 113,
+        "source" : "\tbaseSnapshot *<b>Snapshot</b>,"
+      }, {
+        "line" : 137,
+        "source" : "func (s *SnapshotHost) update(ctx context.Context, baseSnapshot *<b>Snapshot</b>, change SnapshotChange) *<b>Snapshot</b> {"
+      } ]
+    }, {
+      "path" : "tsc/internal/project/api.go",
+      "lines" : [ {
+        "line" : 59,
+        "source" : "func (s *Session) TryAdoptSnapshotInBackground(baseSnapshot, newSnapshot *<b>Snapshot</b>) {"
+      } ]
+    }, {
+      "path" : "tsc/internal/api/proto.go",
+      "lines" : [ {
+        "line" : 472,
+        "source" : "\t<b>Snapshot</b> SnapshotID            `json:\"snapshot\"`"
+      }, {
+        "line" : 532,
+        "source" : "\t<b>Snapshot</b>            SnapshotID         `json:\"snapshot,omitempty\"`"
+      }, {
+        "line" : 544,
+        "source" : "\t<b>Snapshot</b>            *SnapshotID     `json:\"snapshot,omitempty\"`"
+      } ]
+    }, {
+      "path" : "tsc/internal/project/session.go",
+      "lines" : [ {
+        "line" : 887,
+        "source" : "func (s *Session) sendProjectInfoTelemetryForNewProjects(oldSnapshot *<b>Snapshot</b>, newSnapshot *<b>Snapshot</b>) {"
+      }, {
+        "line" : 1046,
+        "source" : "func (s *Session) <b>Snapshot</b>() *<b>Snapshot</b> {"
+      }, {
+        "line" : 1233,
+        "source" : "\tfn func(*<b>Snapshot</b>),"
+      } ]
+    }, {
+      "path" : "tsc/internal/fourslash/statebaseline.go",
+      "lines" : [ {
+        "line" : 254,
+        "source" : "func (f *FourslashTest) printProjectsDiff(t *testing.T, snapshot *project.<b>Snapshot</b>, w io.Writer) {"
+      }, {
+        "line" : 335,
+        "source" : "func (f *FourslashTest) printOpenFilesDiff(t *testing.T, snapshot *project.<b>Snapshot</b>, w io.Writer) {"
+      }, {
+        "line" : 395,
+        "source" : "func (f *FourslashTest) printConfigFileRegistryDiff(t *testing.T, snapshot *project.<b>Snapshot</b>, w io.Writer) {"
+      } ]
+    }, {
+      "path" : "tsc/testdata/tests/cases/compiler/deeplyNestedCheck.ts",
+      "lines" : [ {
+        "line" : 8,
+        "source" : "interface <b>Snapshot</b>&lt;T&gt; extends DataSnapshot {"
+      } ]
+    }, {
+      "path" : "tsc/internal/testutil/fsbaselineutil/differ.go",
+      "lines" : [ {
+        "line" : 26,
+        "source" : "type <b>Snapshot</b> struct {"
+      } ]
+    }, {
+      "path" : "packages/typescript/test/generators/api.bench.ts",
+      "lines" : [ {
+        "line" : 17,
+        "source" : "    type <b>Snapshot</b>,\r"
+      } ]
+    }, {
+      "path" : "packages/typescript/test/async/api.bench.ts",
+      "lines" : [ {
+        "line" : 9,
+        "source" : "    type <b>Snapshot</b>,\r"
+      } ]
+    } ],
+    "medianMs" : 2.1057,
+    "hitAt10" : false,
+    "coldMs" : 2.493563,
+    "query" : "Snapshot",
+    "totalFiles" : 19
+  }, {
+    "files" : [ ],
+    "medianMs" : 0.28209300000000004,
+    "hitAt10" : false,
+    "coldMs" : 0.801744,
+    "query" : "codeindex_benchmark_update_probe_20261025",
+    "totalFiles" : 0
+  } ]
+}

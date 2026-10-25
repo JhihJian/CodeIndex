@@ -1,0 +1,33 @@
+{
+  "repositoryId": "repo-cc85df8a7b9b3118a52b",
+  "snapshotId": "snapshot:repo-cc85df8a7b9b3118a52b:a8b6aab760ad45a485996561",
+  "status": "partial",
+  "stats": {
+    "files": 86363,
+    "symbols": 6190587,
+    "relations": 403090,
+    "sourceBytes": 1212793499,
+    "changedFiles": 86363,
+    "removedFiles": 0,
+    "reusedFiles": 0,
+    "parsedFiles": 60006,
+    "partialFiles": 26358,
+    "skipped": 1,
+    "nodes": 6282688,
+    "nativeFiles": 59746,
+    "nativeIndexedFiles": 59746,
+    "relationsScope": "stored-sql-relations; native calls and references queried from cscope",
+    "stages": {
+      "scan": 7019,
+      "source-and-files": 11476,
+      "native-symbols": 43229,
+      "parser-symbols": 1652,
+      "relations": 0,
+      "indexes": 13953,
+      "native-cross-references": 56555,
+      "validation": 1917
+    },
+    "buildMs": 135802
+  },
+  "store": "/data/dev/CodeIndex/.data/competitors/codeindex/linux"
+}

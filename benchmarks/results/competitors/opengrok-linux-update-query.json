@@ -1,0 +1,74 @@
+{
+  "tool" : "OpenGrok",
+  "indexedDocuments" : 92102,
+  "warmup" : 1,
+  "mode" : "symbol",
+  "repetitions" : 20,
+  "rows" : [ {
+    "coldMs" : 242.897368,
+    "hitAt10" : true,
+    "medianMs" : 1.4736354999999999,
+    "files" : [ {
+      "path" : "fs/exec.c",
+      "lines" : [ {
+        "line" : 1876,
+        "source" : "static int <b>do_execveat_common</b>(int fd, struct filename *filename,"
+      } ]
+    } ],
+    "totalFiles" : 1,
+    "query" : "do_execveat_common"
+  }, {
+    "coldMs" : 3.109509,
+    "hitAt10" : true,
+    "medianMs" : 1.0104899999999999,
+    "files" : [ {
+      "path" : "net/ipv4/tcp_ipv4.c",
+      "lines" : [ {
+        "line" : 1739,
+        "source" : "struct sock *<b>tcp_v4_syn_recv_sock</b>(const struct sock *sk, struct sk_buff *skb,"
+      } ]
+    } ],
+    "totalFiles" : 1,
+    "query" : "tcp_v4_syn_recv_sock"
+  }, {
+    "coldMs" : 1.532283,
+    "hitAt10" : true,
+    "medianMs" : 0.6163965,
+    "files" : [ {
+      "path" : "fs/open.c",
+      "lines" : [ {
+        "line" : 1083,
+        "source" : "int <b>vfs_open</b>(const struct path *path, struct file *file)"
+      } ]
+    } ],
+    "totalFiles" : 1,
+    "query" : "vfs_open"
+  }, {
+    "coldMs" : 3.047345,
+    "hitAt10" : true,
+    "medianMs" : 2.072636,
+    "files" : [ {
+      "path" : "kernel/sched/fair.c",
+      "lines" : [ {
+        "line" : 8879,
+        "source" : "<b>pick_next_task_fair</b>(struct rq *rq, struct task_struct *prev, struct rq_flags *rf)"
+      } ]
+    } ],
+    "totalFiles" : 1,
+    "query" : "pick_next_task_fair"
+  }, {
+    "coldMs" : 2.022383,
+    "hitAt10" : true,
+    "medianMs" : 0.8646675,
+    "files" : [ {
+      "path" : "fs/open.c",
+      "lines" : [ {
+        "line" : 1658,
+        "source" : "static int <b>codeindex_benchmark_update_probe_20261025</b>(void) { return 42; }"
+      } ]
+    } ],
+    "totalFiles" : 1,
+    "query" : "codeindex_benchmark_update_probe_20261025"
+  } ],
+  "loadMs" : 171.349928
+}

@@ -1,0 +1,20 @@
+[
+  {
+    "case": "success",
+    "status": "success",
+    "descendantCleanupVerified": true,
+    "missingWorkloadSampleIsNull": true
+  },
+  {
+    "case": "timeout",
+    "status": "timeout",
+    "descendantCleanupVerified": true,
+    "missingWorkloadSampleIsNull": true
+  },
+  {
+    "case": "interrupt",
+    "status": "interrupted",
+    "descendantCleanupVerified": true,
+    "missingWorkloadSampleIsNull": true
+  }
+]

@@ -1,0 +1,29 @@
+{
+  "command": [
+    "/data/dev/benchmark-tools/zoekt-git-index",
+    "-index",
+    "/data/dev/CodeIndex/.data/competitors/zoekt/typescript",
+    "-require_ctags",
+    "-file_limit",
+    "5242880",
+    "-delta",
+    "-submodules=false",
+    "/data/dev/CodeIndex/.data/competitors/inputs/typescript"
+  ],
+  "cwd": "/data/dev/CodeIndex",
+  "systemdUnit": "codeindex-benchmark-1449001.scope",
+  "systemdResult": "success",
+  "status": "success",
+  "exitCode": 0,
+  "wallSeconds": 0.09,
+  "wallSecondsIncludingSupervisor": 0.270912708947435,
+  "timeLimitSeconds": 300,
+  "memoryLimitGiB": 12,
+  "gnuTimeMaxRssKiB": 83068,
+  "sampledProcessTreeRssSumBytes": null,
+  "workloadSampled": false,
+  "cgroupMemoryPeakBytes": null,
+  "sampleIntervalSeconds": 0.25,
+  "leftoverProcessIdsTerminated": [],
+  "memoryNotes": "RSS sum can double-count shared pages; cgroup memory includes page cache; GNU time max RSS is not simultaneous tree total"
+}

@@ -1,0 +1,82 @@
+{
+  "checksumAlgorithm": "CRC64-ISO",
+  "checksumMismatches": [],
+  "checksumsChecked": 67858,
+  "contentOmitted": [
+    {
+      "path": "tsc/internal/diagnostics/loc/zh-CN.generated.json",
+      "reason": "contains too many trigrams"
+    },
+    {
+      "path": "tsc/internal/diagnostics/loc/zh-TW.generated.json",
+      "reason": "contains too many trigrams"
+    },
+    {
+      "path": "tsc/internal/bundled/libs/lib.dom.d.ts",
+      "reason": "contains too many trigrams"
+    },
+    {
+      "path": "package-lock.json",
+      "reason": "contains too many trigrams"
+    },
+    {
+      "path": "tsc/testdata/fixtures/lib/dom.generated.d.ts",
+      "reason": "contains too many trigrams"
+    }
+  ],
+  "expectedRevision": "9e31a165373dd1663a788ee7549773c8e637bb64",
+  "gitVersions": {
+    "9e31a165373dd1663a788ee7549773c8e637bb64": true
+  },
+  "indexedInputFiles": 67863,
+  "inputFiles": 67863,
+  "missingFiles": [],
+  "nameSearchStats": {
+    "ContentBytesLoaded": 0,
+    "IndexBytesLoaded": 0,
+    "Crashes": 0,
+    "Duration": 107731992,
+    "FileCount": 67863,
+    "ShardFilesConsidered": 0,
+    "FilesConsidered": 67863,
+    "FilesLoaded": 0,
+    "FilesSkipped": 0,
+    "FilesSkippedDueToCancellation": 0,
+    "ShardsScanned": 3,
+    "ShardsSkipped": 0,
+    "ShardsSkippedFilter": 0,
+    "MatchCount": 67863,
+    "NgramMatches": 0,
+    "NgramLookups": 0,
+    "Wait": 2364,
+    "MatchTreeConstruction": 36438,
+    "MatchTreeSearch": 174762513,
+    "RegexpsConsidered": 67863,
+    "FlushReason": 0
+  },
+  "omissionSearchStats": {
+    "ContentBytesLoaded": 205,
+    "IndexBytesLoaded": 1989,
+    "Crashes": 0,
+    "Duration": 793550,
+    "FileCount": 5,
+    "ShardFilesConsidered": 0,
+    "FilesConsidered": 5,
+    "FilesLoaded": 5,
+    "FilesSkipped": 0,
+    "FilesSkippedDueToCancellation": 0,
+    "ShardsScanned": 2,
+    "ShardsSkipped": 0,
+    "ShardsSkippedFilter": 1,
+    "MatchCount": 5,
+    "NgramMatches": 5,
+    "NgramLookups": 27,
+    "Wait": 6882,
+    "MatchTreeConstruction": 1176524,
+    "MatchTreeSearch": 64778,
+    "RegexpsConsidered": 0,
+    "FlushReason": 0
+  },
+  "sourceDigestMismatches": [],
+  "versionMismatches": []
+}

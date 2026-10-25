@@ -1,0 +1,93 @@
+{
+  "repetitions" : 20,
+  "mode" : "symbol",
+  "warmup" : 1,
+  "indexedDocuments" : 187,
+  "tool" : "OpenGrok",
+  "loadMs" : 154.6119,
+  "rows" : [ {
+    "files" : [ {
+      "path" : "pageindex/local_store.py",
+      "lines" : [ {
+        "line" : "73",
+        "source" : "class <b>DocStore</b>:"
+      } ]
+    } ],
+    "medianMs" : 1.0250645,
+    "hitAt10" : true,
+    "coldMs" : 182.504975,
+    "query" : "DocStore",
+    "totalFiles" : 1
+  }, {
+    "files" : [ {
+      "path" : "pageindex/tree_optimize.py",
+      "lines" : [ {
+        "line" : "292",
+        "source" : "def <b>tree_cost</b>(node, routing=ROUTING_COST):"
+      } ]
+    } ],
+    "medianMs" : 0.71366,
+    "hitAt10" : true,
+    "coldMs" : 1.488534,
+    "query" : "tree_cost",
+    "totalFiles" : 1
+  }, {
+    "files" : [ {
+      "path" : "tests/data/cloud_mcp_contract.json",
+      "lines" : [ {
+        "line" : "90",
+        "source" : "    \"<b>get_document_structure</b>\": {"
+      } ]
+    }, {
+      "path" : "pageindex/client.py",
+      "lines" : [ {
+        "line" : "1004",
+        "source" : "    def <b>get_document_structure</b>(self, doc_id: str) -&gt; list[dict[str, Any]]:"
+      } ]
+    } ],
+    "medianMs" : 0.9386555,
+    "hitAt10" : true,
+    "coldMs" : 2.351274,
+    "query" : "get_document_structure",
+    "totalFiles" : 2
+  }, {
+    "files" : [ {
+      "path" : "pageindex/page_index_md.py",
+      "lines" : [ {
+        "line" : "192",
+        "source" : "def <b>build_tree_from_nodes</b>(node_list):"
+      } ]
+    } ],
+    "medianMs" : 0.3200955,
+    "hitAt10" : true,
+    "coldMs" : 0.93259,
+    "query" : "build_tree_from_nodes",
+    "totalFiles" : 1
+  }, {
+    "files" : [ {
+      "path" : "pageindex/client.py",
+      "lines" : [ {
+        "line" : "316",
+        "source" : "class <b>PageIndexClient</b>:"
+      } ]
+    } ],
+    "medianMs" : 0.49244350000000003,
+    "hitAt10" : true,
+    "coldMs" : 0.546958,
+    "query" : "PageIndexClient",
+    "totalFiles" : 1
+  }, {
+    "files" : [ {
+      "path" : "pageindex/flash/main.py",
+      "lines" : [ {
+        "line" : "124",
+        "source" : "def <b>extract_toc</b>("
+      } ]
+    } ],
+    "medianMs" : 0.29505899999999996,
+    "hitAt10" : true,
+    "coldMs" : 0.741006,
+    "query" : "extract_toc",
+    "totalFiles" : 1
+  } ]
+}

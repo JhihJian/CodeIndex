@@ -1,0 +1,5 @@
+2026/10/25 09:47:10 delta build: falling back to normal build since delta build failed, repository="pageindex", err=delta builds currently don't support submodule indexing
+2026/10/25 09:47:10 git cat-file does not support --filter (exit status 129: error: option `filters' takes no value), using go-git
+2026/10/25 09:47:10 attempting to index 155 total files (0 via cat-file, 155 via go-git)
+2026/10/25 09:47:10 symbol analysis finished for shard statistics: duration=0s symbols=3159 bytes=3097236
+2026/10/25 09:47:10 finished shard /data/dev/CodeIndex/.data/competitors/zoekt/pageindex/pageindex_v16.00000.zoekt: 9222632 index bytes (overhead 3.0), 155 files processed 

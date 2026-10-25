@@ -1,0 +1,42 @@
+{
+  "indexedInputFiles" : 155,
+  "additionalDocuments" : 0,
+  "definitionProbes" : [ {
+    "matches" : [ "pageindex/local_store.py" ],
+    "expectedPath" : "pageindex/local_store.py",
+    "scopedMatch" : true,
+    "query" : "DocStore"
+  }, {
+    "matches" : [ "pageindex/tree_optimize.py" ],
+    "expectedPath" : "pageindex/tree_optimize.py",
+    "scopedMatch" : true,
+    "query" : "tree_cost"
+  }, {
+    "matches" : [ ],
+    "expectedPath" : "pageindex/agent_tools.py",
+    "scopedMatch" : false,
+    "query" : "get_document_structure"
+  }, {
+    "matches" : [ "pageindex/client.py" ],
+    "expectedPath" : "pageindex/client.py",
+    "scopedMatch" : true,
+    "query" : "get_document_structure"
+  }, {
+    "matches" : [ "pageindex/page_index_md.py" ],
+    "expectedPath" : "pageindex/page_index_md.py",
+    "scopedMatch" : true,
+    "query" : "build_tree_from_nodes"
+  }, {
+    "matches" : [ "pageindex/client.py" ],
+    "expectedPath" : "pageindex/client.py",
+    "scopedMatch" : true,
+    "query" : "PageIndexClient"
+  }, {
+    "matches" : [ "pageindex/flash/main.py" ],
+    "expectedPath" : "pageindex/flash/main.py",
+    "scopedMatch" : true,
+    "query" : "extract_toc"
+  } ],
+  "missingFiles" : [ ],
+  "inputFiles" : 155
+}

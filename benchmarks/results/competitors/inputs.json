@@ -1,0 +1,857 @@
+[
+  {
+    "name": "pageindex",
+    "source": "/data/github/PageIndex",
+    "sourceGit": {
+      "repository": "https://github.com/VectifyAI/PageIndex",
+      "revision": "b3422f9ba7ee8f3b589ac9e41cf5dc35dc6ad64a",
+      "dirty": true,
+      "statusLines": 1,
+      "submodules": ""
+    },
+    "target": "/data/dev/CodeIndex/.data/competitors/inputs/pageindex",
+    "inputGitRevision": "fdd0c3ee9eca068717d30c54f3211a4e770ba7b4",
+    "files": 155,
+    "sourceBytes": 5268104,
+    "inventoryDigest": "37d2127a581e26f89fc44513e5a227670345aa862ee155e34ba9204f1054c444",
+    "maxFileBytes": 5242880,
+    "languages": {
+      "unknown": 17,
+      "yaml": 6,
+      "python": 112,
+      "json": 16,
+      "markdown": 3,
+      "toml": 1
+    },
+    "skipped": [
+      {
+        "path": ".git",
+        "reason": "ignored"
+      },
+      {
+        "path": "assets/financebench-dark.png",
+        "bytes": 84270,
+        "reason": "binary"
+      },
+      {
+        "path": "assets/financebench-light.png",
+        "bytes": 81684,
+        "reason": "binary"
+      },
+      {
+        "path": "assets/index-cost-dark.png",
+        "bytes": 149965,
+        "reason": "binary"
+      },
+      {
+        "path": "assets/index-cost-light.png",
+        "bytes": 144894,
+        "reason": "binary"
+      },
+      {
+        "path": "assets/index-time-dark.png",
+        "bytes": 140246,
+        "reason": "binary"
+      },
+      {
+        "path": "assets/index-time-light.png",
+        "bytes": 135104,
+        "reason": "binary"
+      },
+      {
+        "path": "assets/query-cost-dark.png",
+        "bytes": 129593,
+        "reason": "binary"
+      },
+      {
+        "path": "assets/query-cost-light.png",
+        "bytes": 126284,
+        "reason": "binary"
+      },
+      {
+        "path": "assets/results-dark.png",
+        "bytes": 146948,
+        "reason": "binary"
+      },
+      {
+        "path": "assets/results-light.png",
+        "bytes": 143106,
+        "reason": "binary"
+      },
+      {
+        "path": "cookbook/pageindex-vs-vector-10k/accuracy-by-embedding.png",
+        "bytes": 204214,
+        "reason": "binary"
+      },
+      {
+        "path": "cookbook/pageindex-vs-vector-10k/query-cost-and-accuracy.png",
+        "bytes": 98875,
+        "reason": "binary"
+      },
+      {
+        "path": "examples/documents/2023-annual-report-truncated.pdf",
+        "bytes": 1463411,
+        "reason": "binary"
+      },
+      {
+        "path": "examples/documents/2023-annual-report.pdf",
+        "bytes": 2255266,
+        "reason": "binary"
+      },
+      {
+        "path": "examples/documents/attention-residuals.pdf",
+        "bytes": 1065095,
+        "reason": "binary"
+      },
+      {
+        "path": "examples/documents/earthmover.pdf",
+        "bytes": 1036803,
+        "reason": "binary"
+      },
+      {
+        "path": "examples/documents/four-lectures.pdf",
+        "bytes": 310124,
+        "reason": "binary"
+      },
+      {
+        "path": "examples/documents/PRML.pdf",
+        "bytes": 18090775,
+        "reason": "too-large"
+      },
+      {
+        "path": "examples/documents/q1-fy25-earnings.pdf",
+        "bytes": 101417,
+        "reason": "binary"
+      },
+      {
+        "path": "examples/documents/Regulation Best Interest_Interpretive release.pdf",
+        "bytes": 357253,
+        "reason": "binary"
+      },
+      {
+        "path": "examples/documents/Regulation Best Interest_proposed rule.pdf",
+        "bytes": 1803860,
+        "reason": "binary"
+      },
+      {
+        "path": "pageindex/flash/assets/time_vs_pages.png",
+        "bytes": 66996,
+        "reason": "binary"
+      },
+      {
+        "path": "tests/data/flash/ar_report.pdf",
+        "bytes": 35774,
+        "reason": "binary"
+      },
+      {
+        "path": "tests/data/flash/hi_report.pdf",
+        "bytes": 37355,
+        "reason": "binary"
+      },
+      {
+        "path": "tests/data/flash/ja_report.pdf",
+        "bytes": 25354,
+        "reason": "binary"
+      },
+      {
+        "path": "tests/data/flash/zh_body_en_headings.pdf",
+        "bytes": 25343,
+        "reason": "binary"
+      }
+    ]
+  },
+  {
+    "name": "typescript",
+    "source": "/data/dev/bench-repos/typescript-benchmark",
+    "sourceGit": {
+      "repository": "https://github.com/microsoft/TypeScript.git",
+      "revision": "8d9b6da99ea7d4a8e7d906dd2532456dfe14e24f",
+      "dirty": false,
+      "statusLines": 0,
+      "submodules": ""
+    },
+    "target": "/data/dev/CodeIndex/.data/competitors/inputs/typescript",
+    "inputGitRevision": "9e31a165373dd1663a788ee7549773c8e637bb64",
+    "files": 67863,
+    "sourceBytes": 215644618,
+    "inventoryDigest": "564247542b15f96ec1060aac5e607ab9dd0f0fb1f3fd10ade032836aa39cb4f7",
+    "maxFileBytes": 5242880,
+    "languages": {
+      "unknown": 35601,
+      "yaml": 35,
+      "json": 206,
+      "markdown": 66,
+      "javascript": 13376,
+      "typescript": 13390,
+      "go": 5189
+    },
+    "skipped": [
+      {
+        "path": ".code-review-graph/graph.db",
+        "bytes": 881471488,
+        "reason": "too-large"
+      },
+      {
+        "path": ".git",
+        "reason": "ignored"
+      },
+      {
+        "path": ".vscode",
+        "reason": "ignored"
+      },
+      {
+        "path": "packages/typescript/vendor",
+        "reason": "ignored"
+      },
+      {
+        "path": "packages/vscode-typescript/logo.png",
+        "bytes": 3352,
+        "reason": "binary"
+      },
+      {
+        "path": "tsc/internal/diagnostics/loc/cs-CZ.json.gz",
+        "bytes": 87618,
+        "reason": "binary"
+      },
+      {
+        "path": "tsc/internal/diagnostics/loc/de-DE.json.gz",
+        "bytes": 89290,
+        "reason": "binary"
+      },
+      {
+        "path": "tsc/internal/diagnostics/loc/es-ES.json.gz",
+        "bytes": 85725,
+        "reason": "binary"
+      },
+      {
+        "path": "tsc/internal/diagnostics/loc/fr-FR.json.gz",
+        "bytes": 87608,
+        "reason": "binary"
+      },
+      {
+        "path": "tsc/internal/diagnostics/loc/it-IT.json.gz",
+        "bytes": 84205,
+        "reason": "binary"
+      },
+      {
+        "path": "tsc/internal/diagnostics/loc/ja-JP.json.gz",
+        "bytes": 89903,
+        "reason": "binary"
+      },
+      {
+        "path": "tsc/internal/diagnostics/loc/ko-KR.json.gz",
+        "bytes": 85612,
+        "reason": "binary"
+      },
+      {
+        "path": "tsc/internal/diagnostics/loc/pl-PL.json.gz",
+        "bytes": 89950,
+        "reason": "binary"
+      },
+      {
+        "path": "tsc/internal/diagnostics/loc/pt-BR.json.gz",
+        "bytes": 84391,
+        "reason": "binary"
+      },
+      {
+        "path": "tsc/internal/diagnostics/loc/ru-RU.json.gz",
+        "bytes": 100048,
+        "reason": "binary"
+      },
+      {
+        "path": "tsc/internal/diagnostics/loc/tr-TR.json.gz",
+        "bytes": 85360,
+        "reason": "binary"
+      },
+      {
+        "path": "tsc/internal/diagnostics/loc/zh-CN.json.gz",
+        "bytes": 84706,
+        "reason": "binary"
+      },
+      {
+        "path": "tsc/internal/diagnostics/loc/zh-TW.json.gz",
+        "bytes": 84732,
+        "reason": "binary"
+      },
+      {
+        "path": "tsc/internal/execute/build",
+        "reason": "ignored"
+      },
+      {
+        "path": "tsc/testdata/baselines/reference/compiler/regexInvalidUtf8WithUnicodeFlag.js",
+        "bytes": 188,
+        "reason": "binary"
+      },
+      {
+        "path": "tsc/testdata/baselines/reference/compiler/regexInvalidUtf8WithUnicodeFlag.symbols",
+        "bytes": 125,
+        "reason": "binary"
+      },
+      {
+        "path": "tsc/testdata/baselines/reference/compiler/regexInvalidUtf8WithUnicodeFlag.types",
+        "bytes": 139,
+        "reason": "binary"
+      },
+      {
+        "path": "tsc/testdata/baselines/reference/conformance/scannerStringLiteralWithContainingNullCharacter1.js",
+        "bytes": 264,
+        "reason": "binary"
+      },
+      {
+        "path": "tsc/testdata/baselines/reference/conformance/scannerStringLiteralWithContainingNullCharacter1.symbols",
+        "bytes": 182,
+        "reason": "binary"
+      },
+      {
+        "path": "tsc/testdata/baselines/reference/conformance/scannerStringLiteralWithContainingNullCharacter1.types",
+        "bytes": 199,
+        "reason": "binary"
+      },
+      {
+        "path": "tsc/testdata/baselines/reference/conformance/scannerUnexpectedNullCharacter1.errors.txt",
+        "bytes": 593,
+        "reason": "binary"
+      },
+      {
+        "path": "tsc/testdata/baselines/reference/conformance/scannerUnexpectedNullCharacter1.js",
+        "bytes": 225,
+        "reason": "binary"
+      },
+      {
+        "path": "tsc/testdata/baselines/reference/conformance/scannerUnexpectedNullCharacter1.symbols",
+        "bytes": 152,
+        "reason": "binary"
+      },
+      {
+        "path": "tsc/testdata/baselines/reference/conformance/scannerUnexpectedNullCharacter1.types",
+        "bytes": 198,
+        "reason": "binary"
+      },
+      {
+        "path": "tsc/testdata/tests/cases/compiler/bom-utf16be.ts",
+        "bytes": 24,
+        "reason": "binary"
+      },
+      {
+        "path": "tsc/testdata/tests/cases/compiler/bom-utf16le.ts",
+        "bytes": 24,
+        "reason": "binary"
+      },
+      {
+        "path": "tsc/testdata/tests/cases/compiler/collisionCodeGenModuleWithUnicodeNames.ts",
+        "bytes": 724,
+        "reason": "binary"
+      },
+      {
+        "path": "tsc/testdata/tests/cases/compiler/instanceofOperator.ts",
+        "bytes": 1236,
+        "reason": "binary"
+      },
+      {
+        "path": "tsc/testdata/tests/cases/compiler/promiseTest.ts",
+        "bytes": 566,
+        "reason": "binary"
+      },
+      {
+        "path": "tsc/testdata/tests/cases/compiler/regexInvalidUtf8WithUnicodeFlag.ts",
+        "bytes": 24,
+        "reason": "binary"
+      },
+      {
+        "path": "tsc/testdata/tests/cases/compiler/targetTypeBaseCalls.ts",
+        "bytes": 826,
+        "reason": "binary"
+      },
+      {
+        "path": "tsc/testdata/tests/cases/compiler/unicodeIdentifierNames.ts",
+        "bytes": 674,
+        "reason": "binary"
+      },
+      {
+        "path": "tsc/testdata/tests/cases/conformance/scanner/ecmascript5/scannerStringLiteralWithContainingNullCharacter1.ts",
+        "bytes": 25,
+        "reason": "binary"
+      },
+      {
+        "path": "tsc/testdata/tests/cases/conformance/scanner/ecmascript5/scannerUnexpectedNullCharacter1.ts",
+        "bytes": 29,
+        "reason": "binary"
+      }
+    ]
+  },
+  {
+    "name": "linux",
+    "source": "/data/dev/bench-repos/linux-benchmark",
+    "sourceGit": {
+      "repository": "/data/dev/bench-repos/linux-benchmark",
+      "revision": "e81dbc9fe6c78c547c2ce7a3354b52479b26edd9",
+      "dirty": false,
+      "statusLines": 0,
+      "submodules": ""
+    },
+    "target": "/data/dev/CodeIndex/.data/competitors/inputs/linux",
+    "inputGitRevision": "6e6422c5a68bce90a14242fa5e24a1544d3840d3",
+    "files": 86363,
+    "sourceBytes": 1212793499,
+    "inventoryDigest": "972d1ee7cbb50b7b8b3d71b358a2d9bcefd1d4f966563acbc0706fb5ee13706b",
+    "maxFileBytes": 5242880,
+    "languages": {
+      "unknown": 20113,
+      "toml": 1,
+      "c": 59742,
+      "shell": 908,
+      "python": 260,
+      "yaml": 4388,
+      "css": 3,
+      "rust": 76,
+      "cpp": 4,
+      "ruby": 1,
+      "json": 866,
+      "markdown": 1
+    },
+    "skipped": [
+      {
+        "path": ".code-review-graph/graph.db",
+        "bytes": 9247584256,
+        "reason": "too-large"
+      },
+      {
+        "path": ".git",
+        "reason": "ignored"
+      },
+      {
+        "path": "arch/arm/boot/dts/allwinner/sun8i-a23-ippo-q8h-v1.2.dts",
+        "reason": "symlink"
+      },
+      {
+        "path": "arch/arm/boot/dts/allwinner/sun8i-a23-ippo-q8h-v5.dts",
+        "reason": "symlink"
+      },
+      {
+        "path": "arch/arm/boot/dts/allwinner/sun8i-a33-et-q8-v1.6.dts",
+        "reason": "symlink"
+      },
+      {
+        "path": "arch/arm/boot/dts/allwinner/sun8i-a33-ippo-q8h-v1.2.dts",
+        "reason": "symlink"
+      },
+      {
+        "path": "arch/arm64/boot/dts/renesas/r9a07g054l2-smarc-cru-csi-ov5645.dtso",
+        "reason": "symlink"
+      },
+      {
+        "path": "arch/arm64/tools/syscall_64.tbl",
+        "reason": "symlink"
+      },
+      {
+        "path": "arch/m68k/hp300/hp300map.map",
+        "bytes": 5563,
+        "reason": "binary"
+      },
+      {
+        "path": "arch/powerpc/configs/kvm_guest.config",
+        "reason": "symlink"
+      },
+      {
+        "path": "Documentation/Changes",
+        "reason": "symlink"
+      },
+      {
+        "path": "Documentation/images/logo.gif",
+        "bytes": 16335,
+        "reason": "binary"
+      },
+      {
+        "path": "Documentation/target",
+        "reason": "ignored"
+      },
+      {
+        "path": "drivers/gpu/drm/amd/include/asic_reg/dce/dce_12_0_sh_mask.h",
+        "bytes": 6831284,
+        "reason": "too-large"
+      },
+      {
+        "path": "drivers/gpu/drm/amd/include/asic_reg/dcn/dcn_1_0_sh_mask.h",
+        "bytes": 5751342,
+        "reason": "too-large"
+      },
+      {
+        "path": "drivers/gpu/drm/amd/include/asic_reg/dcn/dcn_2_0_0_sh_mask.h",
+        "bytes": 7205864,
+        "reason": "too-large"
+      },
+      {
+        "path": "drivers/gpu/drm/amd/include/asic_reg/dcn/dcn_2_1_0_sh_mask.h",
+        "bytes": 6041093,
+        "reason": "too-large"
+      },
+      {
+        "path": "drivers/gpu/drm/amd/include/asic_reg/dcn/dcn_3_0_0_sh_mask.h",
+        "bytes": 7568214,
+        "reason": "too-large"
+      },
+      {
+        "path": "drivers/gpu/drm/amd/include/asic_reg/dcn/dcn_3_0_1_sh_mask.h",
+        "bytes": 5674868,
+        "reason": "too-large"
+      },
+      {
+        "path": "drivers/gpu/drm/amd/include/asic_reg/dcn/dcn_3_0_2_sh_mask.h",
+        "bytes": 6648643,
+        "reason": "too-large"
+      },
+      {
+        "path": "drivers/gpu/drm/amd/include/asic_reg/dcn/dcn_3_1_2_sh_mask.h",
+        "bytes": 6475365,
+        "reason": "too-large"
+      },
+      {
+        "path": "drivers/gpu/drm/amd/include/asic_reg/dcn/dcn_3_1_4_sh_mask.h",
+        "bytes": 6585844,
+        "reason": "too-large"
+      },
+      {
+        "path": "drivers/gpu/drm/amd/include/asic_reg/dcn/dcn_3_1_5_sh_mask.h",
+        "bytes": 6511378,
+        "reason": "too-large"
+      },
+      {
+        "path": "drivers/gpu/drm/amd/include/asic_reg/dcn/dcn_3_1_6_sh_mask.h",
+        "bytes": 6677185,
+        "reason": "too-large"
+      },
+      {
+        "path": "drivers/gpu/drm/amd/include/asic_reg/dcn/dcn_3_2_0_sh_mask.h",
+        "bytes": 23949786,
+        "reason": "too-large"
+      },
+      {
+        "path": "drivers/gpu/drm/amd/include/asic_reg/dcn/dcn_3_2_1_sh_mask.h",
+        "bytes": 6015121,
+        "reason": "too-large"
+      },
+      {
+        "path": "drivers/gpu/drm/amd/include/asic_reg/dcn/dcn_3_5_0_sh_mask.h",
+        "bytes": 6297632,
+        "reason": "too-large"
+      },
+      {
+        "path": "drivers/gpu/drm/amd/include/asic_reg/dcn/dcn_3_5_1_sh_mask.h",
+        "bytes": 6296546,
+        "reason": "too-large"
+      },
+      {
+        "path": "drivers/gpu/drm/amd/include/asic_reg/dcn/dcn_4_1_0_sh_mask.h",
+        "bytes": 15636900,
+        "reason": "too-large"
+      },
+      {
+        "path": "drivers/gpu/drm/amd/include/asic_reg/dpcs/dpcs_3_1_4_sh_mask.h",
+        "bytes": 5931549,
+        "reason": "too-large"
+      },
+      {
+        "path": "drivers/gpu/drm/amd/include/asic_reg/dpcs/dpcs_4_2_0_sh_mask.h",
+        "bytes": 11368060,
+        "reason": "too-large"
+      },
+      {
+        "path": "drivers/gpu/drm/amd/include/asic_reg/dpcs/dpcs_4_2_2_sh_mask.h",
+        "bytes": 11394491,
+        "reason": "too-large"
+      },
+      {
+        "path": "drivers/gpu/drm/amd/include/asic_reg/dpcs/dpcs_4_2_3_sh_mask.h",
+        "bytes": 14373916,
+        "reason": "too-large"
+      },
+      {
+        "path": "drivers/gpu/drm/amd/include/asic_reg/nbio/nbio_2_3_sh_mask.h",
+        "bytes": 12839488,
+        "reason": "too-large"
+      },
+      {
+        "path": "drivers/gpu/drm/amd/include/asic_reg/nbio/nbio_4_3_0_sh_mask.h",
+        "bytes": 8724471,
+        "reason": "too-large"
+      },
+      {
+        "path": "drivers/gpu/drm/amd/include/asic_reg/nbio/nbio_6_1_sh_mask.h",
+        "bytes": 14151728,
+        "reason": "too-large"
+      },
+      {
+        "path": "drivers/gpu/drm/amd/include/asic_reg/nbio/nbio_7_0_sh_mask.h",
+        "bytes": 12748346,
+        "reason": "too-large"
+      },
+      {
+        "path": "drivers/gpu/drm/amd/include/asic_reg/nbio/nbio_7_11_0_sh_mask.h",
+        "bytes": 6164005,
+        "reason": "too-large"
+      },
+      {
+        "path": "drivers/gpu/drm/amd/include/asic_reg/nbio/nbio_7_2_0_sh_mask.h",
+        "bytes": 16414003,
+        "reason": "too-large"
+      },
+      {
+        "path": "drivers/gpu/drm/amd/include/asic_reg/nbio/nbio_7_7_0_sh_mask.h",
+        "bytes": 16730577,
+        "reason": "too-large"
+      },
+      {
+        "path": "drivers/nvme/target",
+        "reason": "ignored"
+      },
+      {
+        "path": "drivers/target",
+        "reason": "ignored"
+      },
+      {
+        "path": "drivers/tty/vt/defkeymap.map",
+        "bytes": 12218,
+        "reason": "binary"
+      },
+      {
+        "path": "include/dt-bindings/clock/qcom,dispcc-sm8150.h",
+        "reason": "symlink"
+      },
+      {
+        "path": "include/dt-bindings/clock/qcom,dispcc-sm8350.h",
+        "reason": "symlink"
+      },
+      {
+        "path": "include/dt-bindings/clock/qcom,sm8650-dispcc.h",
+        "reason": "symlink"
+      },
+      {
+        "path": "include/dt-bindings/input/linux-event-codes.h",
+        "reason": "symlink"
+      },
+      {
+        "path": "include/target",
+        "reason": "ignored"
+      },
+      {
+        "path": "scripts/dtc/include-prefixes/arc",
+        "reason": "symlink"
+      },
+      {
+        "path": "scripts/dtc/include-prefixes/arm",
+        "reason": "symlink"
+      },
+      {
+        "path": "scripts/dtc/include-prefixes/arm64",
+        "reason": "symlink"
+      },
+      {
+        "path": "scripts/dtc/include-prefixes/dt-bindings",
+        "reason": "symlink"
+      },
+      {
+        "path": "scripts/dtc/include-prefixes/microblaze",
+        "reason": "symlink"
+      },
+      {
+        "path": "scripts/dtc/include-prefixes/mips",
+        "reason": "symlink"
+      },
+      {
+        "path": "scripts/dtc/include-prefixes/nios2",
+        "reason": "symlink"
+      },
+      {
+        "path": "scripts/dtc/include-prefixes/openrisc",
+        "reason": "symlink"
+      },
+      {
+        "path": "scripts/dtc/include-prefixes/powerpc",
+        "reason": "symlink"
+      },
+      {
+        "path": "scripts/dtc/include-prefixes/riscv",
+        "reason": "symlink"
+      },
+      {
+        "path": "scripts/dtc/include-prefixes/sh",
+        "reason": "symlink"
+      },
+      {
+        "path": "scripts/dtc/include-prefixes/xtensa",
+        "reason": "symlink"
+      },
+      {
+        "path": "scripts/dummy-tools/nm",
+        "reason": "symlink"
+      },
+      {
+        "path": "scripts/dummy-tools/objcopy",
+        "reason": "symlink"
+      },
+      {
+        "path": "tools/build",
+        "reason": "ignored"
+      },
+      {
+        "path": "tools/perf/tests/pe-file.exe",
+        "bytes": 75595,
+        "reason": "binary"
+      },
+      {
+        "path": "tools/perf/tests/pe-file.exe.debug",
+        "bytes": 141644,
+        "reason": "binary"
+      },
+      {
+        "path": "tools/testing/selftests/bpf/disasm.c",
+        "reason": "symlink"
+      },
+      {
+        "path": "tools/testing/selftests/bpf/disasm.h",
+        "reason": "symlink"
+      },
+      {
+        "path": "tools/testing/selftests/bpf/json_writer.c",
+        "reason": "symlink"
+      },
+      {
+        "path": "tools/testing/selftests/bpf/json_writer.h",
+        "reason": "symlink"
+      },
+      {
+        "path": "tools/testing/selftests/drivers/net/dsa/bridge_locked_port.sh",
+        "reason": "symlink"
+      },
+      {
+        "path": "tools/testing/selftests/drivers/net/dsa/bridge_mdb.sh",
+        "reason": "symlink"
+      },
+      {
+        "path": "tools/testing/selftests/drivers/net/dsa/bridge_mld.sh",
+        "reason": "symlink"
+      },
+      {
+        "path": "tools/testing/selftests/drivers/net/dsa/bridge_vlan_aware.sh",
+        "reason": "symlink"
+      },
+      {
+        "path": "tools/testing/selftests/drivers/net/dsa/bridge_vlan_mcast.sh",
+        "reason": "symlink"
+      },
+      {
+        "path": "tools/testing/selftests/drivers/net/dsa/bridge_vlan_unaware.sh",
+        "reason": "symlink"
+      },
+      {
+        "path": "tools/testing/selftests/drivers/net/dsa/local_termination.sh",
+        "reason": "symlink"
+      },
+      {
+        "path": "tools/testing/selftests/drivers/net/dsa/no_forwarding.sh",
+        "reason": "symlink"
+      },
+      {
+        "path": "tools/testing/selftests/drivers/net/dsa/tc_actions.sh",
+        "reason": "symlink"
+      },
+      {
+        "path": "tools/testing/selftests/drivers/net/mlxsw/spectrum-2/port_range_scale.sh",
+        "reason": "symlink"
+      },
+      {
+        "path": "tools/testing/selftests/drivers/net/mlxsw/spectrum-2/rif_counter_scale.sh",
+        "reason": "symlink"
+      },
+      {
+        "path": "tools/testing/selftests/net/tcp_ao/icmps-accept.c",
+        "reason": "symlink"
+      },
+      {
+        "path": "tools/testing/selftests/powerpc/copyloops/copy_mc_64.S",
+        "reason": "symlink"
+      },
+      {
+        "path": "tools/testing/selftests/powerpc/copyloops/copyuser_64.S",
+        "reason": "symlink"
+      },
+      {
+        "path": "tools/testing/selftests/powerpc/copyloops/copyuser_power7.S",
+        "reason": "symlink"
+      },
+      {
+        "path": "tools/testing/selftests/powerpc/copyloops/mem_64.S",
+        "reason": "symlink"
+      },
+      {
+        "path": "tools/testing/selftests/powerpc/copyloops/memcpy_64.S",
+        "reason": "symlink"
+      },
+      {
+        "path": "tools/testing/selftests/powerpc/copyloops/memcpy_power7.S",
+        "reason": "symlink"
+      },
+      {
+        "path": "tools/testing/selftests/powerpc/mce/vas-api.h",
+        "reason": "symlink"
+      },
+      {
+        "path": "tools/testing/selftests/powerpc/nx-gzip/include/vas-api.h",
+        "reason": "symlink"
+      },
+      {
+        "path": "tools/testing/selftests/powerpc/primitives/asm/asm-compat.h",
+        "reason": "symlink"
+      },
+      {
+        "path": "tools/testing/selftests/powerpc/primitives/asm/asm-const.h",
+        "reason": "symlink"
+      },
+      {
+        "path": "tools/testing/selftests/powerpc/primitives/asm/extable.h",
+        "reason": "symlink"
+      },
+      {
+        "path": "tools/testing/selftests/powerpc/primitives/asm/feature-fixups.h",
+        "reason": "symlink"
+      },
+      {
+        "path": "tools/testing/selftests/powerpc/primitives/asm/ppc_asm.h",
+        "reason": "symlink"
+      },
+      {
+        "path": "tools/testing/selftests/powerpc/primitives/linux/wordpart.h",
+        "reason": "symlink"
+      },
+      {
+        "path": "tools/testing/selftests/powerpc/primitives/word-at-a-time.h",
+        "reason": "symlink"
+      },
+      {
+        "path": "tools/testing/selftests/powerpc/stringloops/memcmp_32.S",
+        "reason": "symlink"
+      },
+      {
+        "path": "tools/testing/selftests/powerpc/stringloops/memcmp_64.S",
+        "reason": "symlink"
+      },
+      {
+        "path": "tools/testing/selftests/powerpc/stringloops/strlen_32.S",
+        "reason": "symlink"
+      },
+      {
+        "path": "tools/testing/selftests/powerpc/vphn/asm/vphn.h",
+        "reason": "symlink"
+      },
+      {
+        "path": "tools/testing/selftests/powerpc/vphn/vphn.c",
+        "reason": "symlink"
+      },
+      {
+        "path": "tools/testing/selftests/tc-testing/action-ebpf",
+        "bytes": 856,
+        "reason": "binary"
+      }
+    ]
+  }
+]

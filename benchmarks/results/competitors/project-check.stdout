@@ -1,0 +1,4 @@
+
+> codeindex@0.2.0 check
+> find src bin -name '*.js' -print0 | xargs -0 -n1 node --check && python3 -m py_compile src/parsers/python_ast.py
+

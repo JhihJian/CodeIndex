@@ -1,0 +1,106 @@
+{
+  "rows" : [ {
+    "totalFiles" : 1,
+    "files" : [ {
+      "path" : "pageindex/local_store.py",
+      "lines" : [ {
+        "source" : "class <b>DocStore</b>:",
+        "line" : 73
+      } ]
+    } ],
+    "medianMs" : 1.223656,
+    "hitAt10" : true,
+    "coldMs" : 179.076919,
+    "query" : "DocStore"
+  }, {
+    "totalFiles" : 1,
+    "files" : [ {
+      "path" : "pageindex/tree_optimize.py",
+      "lines" : [ {
+        "source" : "def <b>tree_cost</b>(node, routing=ROUTING_COST):",
+        "line" : 292
+      } ]
+    } ],
+    "medianMs" : 0.9397679999999999,
+    "hitAt10" : true,
+    "coldMs" : 1.265518,
+    "query" : "tree_cost"
+  }, {
+    "totalFiles" : 2,
+    "files" : [ {
+      "path" : "tests/data/cloud_mcp_contract.json",
+      "lines" : [ {
+        "source" : "    \"<b>get_document_structure</b>\": {",
+        "line" : 90
+      } ]
+    }, {
+      "path" : "pageindex/client.py",
+      "lines" : [ {
+        "source" : "    def <b>get_document_structure</b>(self, doc_id: str) -&gt; list[dict[str, Any]]:",
+        "line" : 1004
+      } ]
+    } ],
+    "medianMs" : 1.1774455,
+    "hitAt10" : true,
+    "coldMs" : 1.689999,
+    "query" : "get_document_structure"
+  }, {
+    "totalFiles" : 1,
+    "files" : [ {
+      "path" : "pageindex/page_index_md.py",
+      "lines" : [ {
+        "source" : "def <b>build_tree_from_nodes</b>(node_list):",
+        "line" : 192
+      } ]
+    } ],
+    "medianMs" : 0.34219900000000003,
+    "hitAt10" : true,
+    "coldMs" : 0.888905,
+    "query" : "build_tree_from_nodes"
+  }, {
+    "totalFiles" : 1,
+    "files" : [ {
+      "path" : "pageindex/client.py",
+      "lines" : [ {
+        "source" : "class <b>PageIndexClient</b>:",
+        "line" : 316
+      } ]
+    } ],
+    "medianMs" : 0.522887,
+    "hitAt10" : true,
+    "coldMs" : 0.701561,
+    "query" : "PageIndexClient"
+  }, {
+    "totalFiles" : 1,
+    "files" : [ {
+      "path" : "pageindex/flash/main.py",
+      "lines" : [ {
+        "source" : "def <b>extract_toc</b>(",
+        "line" : 124
+      } ]
+    } ],
+    "medianMs" : 0.3267405,
+    "hitAt10" : true,
+    "coldMs" : 0.785154,
+    "query" : "extract_toc"
+  }, {
+    "totalFiles" : 1,
+    "files" : [ {
+      "path" : "pageindex/tree_optimize.py",
+      "lines" : [ {
+        "source" : "def <b>codeindex_benchmark_update_probe_20261025</b>():",
+        "line" : 1149
+      } ]
+    } ],
+    "medianMs" : 0.48260749999999997,
+    "hitAt10" : true,
+    "coldMs" : 0.436503,
+    "query" : "codeindex_benchmark_update_probe_20261025"
+  } ],
+  "repetitions" : 20,
+  "mode" : "symbol",
+  "warmup" : 1,
+  "indexedDocuments" : 187,
+  "tool" : "OpenGrok",
+  "loadMs" : 156.505055
+}

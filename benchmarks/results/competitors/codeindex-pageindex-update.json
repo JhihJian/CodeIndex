@@ -1,0 +1,27 @@
+{
+  "command": [
+    "node",
+    "/data/dev/CodeIndex/bin/codeindex.js",
+    "update",
+    "--repo",
+    "/data/dev/CodeIndex/.data/competitors/inputs/pageindex",
+    "--store",
+    "/data/dev/CodeIndex/.data/competitors/codeindex/pageindex",
+    "--progress"
+  ],
+  "cwd": "/data/dev/CodeIndex",
+  "systemdUnit": "codeindex-benchmark-1437165.scope",
+  "systemdResult": "success",
+  "status": "success",
+  "exitCode": 0,
+  "wallSeconds": 0.22,
+  "wallSecondsIncludingSupervisor": 0.270734456833452,
+  "timeLimitSeconds": 300,
+  "memoryLimitGiB": 12,
+  "gnuTimeMaxRssKiB": 82400,
+  "sampledProcessTreeRssSumBytes": 303104,
+  "cgroupMemoryPeakBytes": null,
+  "sampleIntervalSeconds": 0.25,
+  "leftoverProcessIdsTerminated": [],
+  "memoryNotes": "RSS sum can double-count shared pages; cgroup memory includes page cache; GNU time max RSS is not simultaneous tree total"
+}

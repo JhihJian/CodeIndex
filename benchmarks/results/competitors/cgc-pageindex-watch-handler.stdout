@@ -1,0 +1,1 @@
+{"operation": "RepositoryEventHandler._handle_modification", "startupSeconds": 0.5190286999568343, "importPreparationSeconds": 0.919544197851792, "handlerSeconds": 0.7248400240205228, "knownChangedPath": "/data/dev/CodeIndex/.data/competitors/inputs/pageindex/pageindex/tree_optimize.py", "excludes": "OS notification and two-second debounce"}

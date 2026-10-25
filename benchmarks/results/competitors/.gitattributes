@@ -1,0 +1,5 @@
+# 保留工具原始日志中的空白。
+*.stdout -whitespace
+*.stderr -whitespace
+*.time -whitespace
+*.log -whitespace

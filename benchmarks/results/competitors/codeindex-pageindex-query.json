@@ -1,0 +1,211 @@
+{
+  "tool": "CodeIndex",
+  "loadMs": 1.1182610000000004,
+  "mode": "metadata",
+  "warmup": 1,
+  "repetitions": 20,
+  "rows": [
+    {
+      "query": "DocStore",
+      "hitAt10": true,
+      "coldMs": 7.267648999999999,
+      "medianMs": 0.9557220000000015,
+      "evidenceMs": 1.5469519999999974,
+      "files": [
+        {
+          "path": "pageindex/local_store.py",
+          "symbol": "pageindex.local_store.DocStore",
+          "lines": [
+            {
+              "line": 73,
+              "source": "class DocStore:\n    def __init__(self, storage_dir: str):\n        self._root = Path(storage_dir).expanduser()"
+            },
+            {
+              "line": 74,
+              "source": "def __init__(self, storage_dir: str):\n        self._root = Path(storage_dir).expanduser()\n        self._docs = self._root / \"docs\""
+            },
+            {
+              "line": 85,
+              "source": "def _read_manifest(self) -> dict:\n        data = _read_json(self._manifest)\n        docs = data.get(\"docs\") if isinstance(data, dict) else None"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": "tree_cost",
+      "hitAt10": true,
+      "coldMs": 0.38473899999999617,
+      "medianMs": 0.28141899999999964,
+      "evidenceMs": 0.690954000000005,
+      "files": [
+        {
+          "path": "pageindex/tree_optimize.py",
+          "symbol": "pageindex.tree_optimize.tree_cost",
+          "lines": [
+            {
+              "line": 292,
+              "source": "def tree_cost(node, routing=ROUTING_COST):\n    \"\"\"Worst-case search cost of the subtree as it currently stands.\"\"\"\n    if is_frontier(node):"
+            },
+            {
+              "line": 319,
+              "source": "def tree_cost_via_frontier(node, routing=ROUTING_COST):\n    entries = frontier_costs(node)\n    return max(d * routing + s for d, s, _ in entries) if entries else 0"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": "get_document_structure",
+      "hitAt10": true,
+      "coldMs": 0.606788999999992,
+      "medianMs": 0.38431349999999753,
+      "evidenceMs": 1.3745639999999923,
+      "files": [
+        {
+          "path": "pageindex/client.py",
+          "symbol": "pageindex.client.PageIndexClient.get_document_structure",
+          "lines": [
+            {
+              "line": 1004,
+              "source": "def get_document_structure(self, doc_id: str) -> list[dict[str, Any]]:\n        \"\"\"\n        Get the document's tree structure without text — summaries included."
+            }
+          ]
+        },
+        {
+          "path": "pageindex/agent_tools.py",
+          "symbol": "pageindex.agent_tools._get_document_structure",
+          "lines": [
+            {
+              "line": 910,
+              "source": "def _get_document_structure(client, doc_name: str,\n                            folder_id: Optional[str] = None, part: int = 1,\n                            wait_for_completion: bool = False,"
+            }
+          ]
+        },
+        {
+          "path": "tests/test_client.py",
+          "symbol": "tests.test_client.test_get_document_structure",
+          "lines": [
+            {
+              "line": 575,
+              "source": "def test_get_document_structure(local_client, indexed_doc):\n    result = local_client.get_document_structure(indexed_doc)\n    assert isinstance(result, list)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": "build_tree_from_nodes",
+      "hitAt10": true,
+      "coldMs": 0.24819699999999045,
+      "medianMs": 0.19999399999999667,
+      "evidenceMs": 0.28137899999998695,
+      "files": [
+        {
+          "path": "pageindex/page_index_md.py",
+          "symbol": "pageindex.page_index_md.build_tree_from_nodes",
+          "lines": [
+            {
+              "line": 192,
+              "source": "def build_tree_from_nodes(node_list):\n    if not node_list:\n        return []"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": "PageIndexClient",
+      "hitAt10": true,
+      "coldMs": 2.3573860000000053,
+      "medianMs": 1.505826000000006,
+      "evidenceMs": 2.0197439999999887,
+      "files": [
+        {
+          "path": "pageindex/client.py",
+          "symbol": "pageindex.client.PageIndexClient",
+          "lines": [
+            {
+              "line": 316,
+              "source": "class PageIndexClient:\n    \"\"\"\n    Python SDK client for PageIndex."
+            },
+            {
+              "line": 701,
+              "source": "@property\n    def _local_chat(self) -> bool:\n        # Derived, never stored: own-model chat is exactly \"a chat model"
+            },
+            {
+              "line": 748,
+              "source": "@chat_model.setter\n    def chat_model(self, value):\n        # Any assignment is a choice; only the untouched stock default"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": "extract_toc",
+      "hitAt10": true,
+      "coldMs": 0.4663800000000009,
+      "medianMs": 0.26471349999999916,
+      "evidenceMs": 0.5427109999999971,
+      "files": [
+        {
+          "path": "pageindex/flash/main.py",
+          "symbol": "pageindex.flash.main.extract_toc",
+          "lines": [
+            {
+              "line": 124,
+              "source": "def extract_toc(\n    doc_handle: Union[str, Path, BytesIO],\n    workers: Optional[int] = None,"
+            }
+          ]
+        },
+        {
+          "path": "pageindex/page_index_classic.py",
+          "symbol": "pageindex.page_index_classic.extract_toc_content",
+          "lines": [
+            {
+              "line": 238,
+              "source": "def extract_toc_content(content, model=None):\n    prompt = f\"\"\"\n    Your job is to extract the full table of contents from the given text, replace ... with :"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "snapshotId": "snapshot:repo-bd9cf8796bf4f90863e3:462beda886ce8d2443893f26",
+  "snapshotDir": "/data/dev/CodeIndex/.data/competitors/codeindex/pageindex/repo-bd9cf8796bf4f90863e3/snapshots/snapshot:repo-bd9cf8796bf4f90863e3:462beda886ce8d2443893f26-41db30c7",
+  "counts": {
+    "files": 155,
+    "symbols": 2668,
+    "relations": 17651,
+    "sourceBytes": 5268104,
+    "changedFiles": 155,
+    "removedFiles": 0,
+    "reusedFiles": 0,
+    "parsedFiles": 112,
+    "partialFiles": 43,
+    "skipped": 1,
+    "nodes": 2854,
+    "nativeFiles": 0,
+    "nativeIndexedFiles": 0,
+    "relationsScope": "stored-sql-relations; native calls and references queried from cscope",
+    "stages": {
+      "scan": 108,
+      "source-and-files": 28,
+      "native-symbols": 0,
+      "parser-symbols": 1349,
+      "relations": 0,
+      "indexes": 16,
+      "native-cross-references": 1,
+      "validation": 2
+    },
+    "buildMs": 1504
+  },
+  "coverage": {
+    "sourceFiles": 155,
+    "parsedFiles": 112,
+    "unsupportedFiles": 43,
+    "partialFiles": 43,
+    "skippedFiles": 1,
+    "nativeCalls": false,
+    "semantics": "syntax-level symbols and cross-references; no compiler-level overload or pointer resolution"
+  }
+}

@@ -1,0 +1,265 @@
+{
+  "loadMs": 18.013,
+  "mode": "symbol",
+  "repetitions": 20,
+  "repositories": {
+    "Repos": [
+      {
+        "Repository": {
+          "TenantID": 0,
+          "ID": 0,
+          "Name": "linux",
+          "URL": "",
+          "Metadata": null,
+          "Source": "/data/dev/CodeIndex/.data/competitors/inputs/linux",
+          "Branches": [
+            {
+              "Name": "HEAD",
+              "Version": "6e6422c5a68bce90a14242fa5e24a1544d3840d3"
+            }
+          ],
+          "SubRepoMap": {},
+          "CommitURLTemplate": "",
+          "FileURLTemplate": "",
+          "LineFragmentTemplate": "",
+          "RawConfig": null,
+          "Rank": 0,
+          "IndexOptions": "825dea1219bd742fea432a98a0f4df6bf04c2f1b",
+          "HasSymbols": true,
+          "Tombstone": false,
+          "LatestCommitDate": "2026-10-25T08:25:33+08:00"
+        },
+        "IndexMetadata": {
+          "IndexFormatVersion": 16,
+          "IndexFeatureVersion": 12,
+          "IndexMinReaderVersion": 10,
+          "IndexTime": "2026-10-25T09:14:30.179229889+08:00",
+          "PlainASCII": false,
+          "LanguageMap": {
+            "": 0,
+            "Assembly": 16,
+            "C": 2,
+            "C++": 3,
+            "CSV": 22,
+            "Clojure": 25,
+            "Gettext Catalog": 15,
+            "HAProxy": 17,
+            "INI": 13,
+            "Ignore List": 28,
+            "JSON": 21,
+            "Lex": 7,
+            "Linker Script": 19,
+            "M4Sugar": 14,
+            "MATLAB": 23,
+            "Makefile": 1,
+            "Markdown": 10,
+            "Perl": 12,
+            "Python": 4,
+            "Raku": 20,
+            "Roff Manpage": 11,
+            "SWIG": 26,
+            "Shell": 5,
+            "Text": 9,
+            "Unix Assembly": 6,
+            "XS": 24,
+            "YAML": 27,
+            "Yacc": 8,
+            "reStructuredText": 18
+          },
+          "ZoektVersion": "",
+          "ID": "dbelftijrguk14gn2om0"
+        },
+        "Stats": {
+          "Repos": 0,
+          "Shards": 12,
+          "Documents": 86363,
+          "IndexBytes": 51329372,
+          "ContentBytes": 1214564261,
+          "NewLinesCount": 37055619,
+          "DefaultBranchNewLinesCount": 37055619,
+          "OtherBranchesNewLinesCount": 0
+        }
+      }
+    ],
+    "ReposMap": {},
+    "Crashes": 0,
+    "Stats": {
+      "Repos": 1,
+      "Shards": 12,
+      "Documents": 86363,
+      "IndexBytes": 51329372,
+      "ContentBytes": 1214564261,
+      "NewLinesCount": 37055619,
+      "DefaultBranchNewLinesCount": 37055619,
+      "OtherBranchesNewLinesCount": 0
+    }
+  },
+  "rows": [
+    {
+      "coldMs": 0.578855,
+      "files": [
+        {
+          "lines": [
+            {
+              "line": 1876,
+              "source": "static int do_execveat_common(int fd, struct filename *filename,\n"
+            }
+          ],
+          "path": "fs/exec.c"
+        }
+      ],
+      "hitAt10": true,
+      "medianMs": 0.1859475,
+      "query": "do_execveat_common",
+      "searchStats": {
+        "ContentBytesLoaded": 69462,
+        "IndexBytesLoaded": 98268,
+        "Crashes": 0,
+        "Duration": 137803,
+        "FileCount": 1,
+        "ShardFilesConsidered": 0,
+        "FilesConsidered": 43,
+        "FilesLoaded": 2,
+        "FilesSkipped": 0,
+        "FilesSkippedDueToCancellation": 0,
+        "ShardsScanned": 12,
+        "ShardsSkipped": 0,
+        "ShardsSkippedFilter": 0,
+        "MatchCount": 1,
+        "NgramMatches": 225,
+        "NgramLookups": 1368,
+        "Wait": 1133,
+        "MatchTreeConstruction": 180692,
+        "MatchTreeSearch": 427496,
+        "RegexpsConsidered": 0,
+        "FlushReason": 0
+      }
+    },
+    {
+      "coldMs": 0.16892,
+      "files": [
+        {
+          "lines": [
+            {
+              "line": 1739,
+              "source": "struct sock *tcp_v4_syn_recv_sock(const struct sock *sk, struct sk_buff *skb,\n"
+            }
+          ],
+          "path": "net/ipv4/tcp_ipv4.c"
+        }
+      ],
+      "hitAt10": true,
+      "medianMs": 0.12068200000000001,
+      "query": "tcp_v4_syn_recv_sock",
+      "searchStats": {
+        "ContentBytesLoaded": 103205,
+        "IndexBytesLoaded": 46849,
+        "Crashes": 0,
+        "Duration": 84896,
+        "FileCount": 1,
+        "ShardFilesConsidered": 0,
+        "FilesConsidered": 5,
+        "FilesLoaded": 1,
+        "FilesSkipped": 0,
+        "FilesSkippedDueToCancellation": 0,
+        "ShardsScanned": 12,
+        "ShardsSkipped": 0,
+        "ShardsSkippedFilter": 0,
+        "MatchCount": 1,
+        "NgramMatches": 13,
+        "NgramLookups": 1309,
+        "Wait": 541,
+        "MatchTreeConstruction": 139379,
+        "MatchTreeSearch": 225252,
+        "RegexpsConsidered": 0,
+        "FlushReason": 0
+      }
+    },
+    {
+      "coldMs": 2.097859,
+      "files": [
+        {
+          "lines": [
+            {
+              "line": 1083,
+              "source": "int vfs_open(const struct path *path, struct file *file)\n"
+            }
+          ],
+          "path": "fs/open.c"
+        }
+      ],
+      "hitAt10": true,
+      "medianMs": 0.398463,
+      "query": "vfs_open",
+      "searchStats": {
+        "ContentBytesLoaded": 156246,
+        "IndexBytesLoaded": 537182,
+        "Crashes": 0,
+        "Duration": 361846,
+        "FileCount": 1,
+        "ShardFilesConsidered": 0,
+        "FilesConsidered": 43,
+        "FilesLoaded": 5,
+        "FilesSkipped": 0,
+        "FilesSkippedDueToCancellation": 0,
+        "ShardsScanned": 12,
+        "ShardsSkipped": 0,
+        "ShardsSkippedFilter": 0,
+        "MatchCount": 1,
+        "NgramMatches": 309,
+        "NgramLookups": 718,
+        "Wait": 1072,
+        "MatchTreeConstruction": 117426,
+        "MatchTreeSearch": 2011560,
+        "RegexpsConsidered": 0,
+        "FlushReason": 0
+      }
+    },
+    {
+      "coldMs": 0.754298,
+      "files": [
+        {
+          "lines": [
+            {
+              "line": 8879,
+              "source": "pick_next_task_fair(struct rq *rq, struct task_struct *prev, struct rq_flags *rf)\n"
+            },
+            {
+              "line": 8965,
+              "source": "static struct task_struct *__pick_next_task_fair(struct rq *rq, struct task_struct *prev)\n"
+            }
+          ],
+          "path": "kernel/sched/fair.c"
+        }
+      ],
+      "hitAt10": true,
+      "medianMs": 0.2057785,
+      "query": "pick_next_task_fair",
+      "searchStats": {
+        "ContentBytesLoaded": 537856,
+        "IndexBytesLoaded": 86245,
+        "Crashes": 0,
+        "Duration": 215516,
+        "FileCount": 1,
+        "ShardFilesConsidered": 0,
+        "FilesConsidered": 8,
+        "FilesLoaded": 2,
+        "FilesSkipped": 0,
+        "FilesSkippedDueToCancellation": 0,
+        "ShardsScanned": 12,
+        "ShardsSkipped": 0,
+        "ShardsSkippedFilter": 0,
+        "MatchCount": 2,
+        "NgramMatches": 20,
+        "NgramLookups": 1724,
+        "Wait": 1132,
+        "MatchTreeConstruction": 226747,
+        "MatchTreeSearch": 552216,
+        "RegexpsConsidered": 0,
+        "FlushReason": 0
+      }
+    }
+  ],
+  "tool": "Zoekt",
+  "warmup": 1
+}

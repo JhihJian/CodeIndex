@@ -1,0 +1,24 @@
+{
+  "command": [
+    "/data/dev/benchmark-tools/cgc-venv/bin/cgc",
+    "--database",
+    "falkordb",
+    "--path",
+    "/data/dev/CodeIndex/.data/competitors/cgc/typescript",
+    "index",
+    "/data/dev/CodeIndex/.data/competitors/inputs/typescript",
+    "--no-progress"
+  ],
+  "cwd": "/data/dev/CodeIndex",
+  "status": "failed",
+  "exitCode": -15,
+  "wallSeconds": null,
+  "wallSecondsIncludingSupervisor": 1228.4605400760192,
+  "timeLimitSeconds": 1800,
+  "memoryLimitGiB": 12,
+  "gnuTimeMaxRssKiB": null,
+  "sampledProcessTreeRssSumBytes": 12242751488,
+  "cgroupMemoryPeakBytes": 12822523904,
+  "sampleIntervalSeconds": 0.25,
+  "memoryNotes": "RSS sum can double-count shared pages; cgroup memory includes page cache; GNU time max RSS is not simultaneous tree total"
+}

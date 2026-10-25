@@ -1,0 +1,27 @@
+{
+  "additionalDocuments" : 0,
+  "definitionProbes" : [ {
+    "expectedPath" : "fs/exec.c",
+    "scopedMatch" : true,
+    "query" : "do_execveat_common",
+    "matches" : [ "fs/exec.c" ]
+  }, {
+    "expectedPath" : "net/ipv4/tcp_ipv4.c",
+    "scopedMatch" : true,
+    "query" : "tcp_v4_syn_recv_sock",
+    "matches" : [ "net/ipv4/tcp_ipv4.c" ]
+  }, {
+    "expectedPath" : "fs/open.c",
+    "scopedMatch" : true,
+    "query" : "vfs_open",
+    "matches" : [ "fs/open.c" ]
+  }, {
+    "expectedPath" : "kernel/sched/fair.c",
+    "scopedMatch" : true,
+    "query" : "pick_next_task_fair",
+    "matches" : [ "kernel/sched/fair.c" ]
+  } ],
+  "missingFiles" : [ ],
+  "inputFiles" : 86363,
+  "indexedInputFiles" : 86363
+}

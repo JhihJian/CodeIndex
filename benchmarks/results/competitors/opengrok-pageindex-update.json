@@ -1,0 +1,32 @@
+{
+  "command": [
+    "java",
+    "-Xmx8g",
+    "-jar",
+    "/data/dev/benchmark-tools/opengrok-1.14.20/lib/opengrok.jar",
+    "-s",
+    "/data/dev/CodeIndex/.data/competitors/inputs/pageindex",
+    "-d",
+    "/data/dev/CodeIndex/.data/competitors/opengrok/pageindex/data",
+    "-W",
+    "/data/dev/CodeIndex/.data/competitors/opengrok/pageindex/config.xml",
+    "-c",
+    "/home/jhihjian/.local/bin/ctags-universal",
+    "-S"
+  ],
+  "cwd": "/data/dev/CodeIndex",
+  "systemdUnit": "codeindex-benchmark-1437250.scope",
+  "systemdResult": "success",
+  "status": "success",
+  "exitCode": 0,
+  "wallSeconds": 0.91,
+  "wallSecondsIncludingSupervisor": 1.0202048539649695,
+  "timeLimitSeconds": 300,
+  "memoryLimitGiB": 12,
+  "gnuTimeMaxRssKiB": 180392,
+  "sampledProcessTreeRssSumBytes": 176300032,
+  "cgroupMemoryPeakBytes": 154976256,
+  "sampleIntervalSeconds": 0.25,
+  "leftoverProcessIdsTerminated": [],
+  "memoryNotes": "RSS sum can double-count shared pages; cgroup memory includes page cache; GNU time max RSS is not simultaneous tree total"
+}

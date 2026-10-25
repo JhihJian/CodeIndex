@@ -1,0 +1,6 @@
+{
+  "systemdUnit": "codeindex-benchmark-1365641.scope",
+  "systemdResult": "oom-kill",
+  "classification": "oom",
+  "note": "GNU time was terminated with the scope and produced no RSS/wall summary; use supervisor wall and sampled memory."
+}

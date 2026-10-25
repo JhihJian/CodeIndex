@@ -1,0 +1,30 @@
+{
+  "command": [
+    "/data/dev/benchmark-tools/cgc-venv/bin/cgc",
+    "--database",
+    "falkordb",
+    "--path",
+    "/data/dev/CodeIndex/.data/competitors/cgc/linux",
+    "index",
+    "/data/dev/CodeIndex/.data/competitors/inputs/linux",
+    "--no-progress"
+  ],
+  "cwd": "/data/dev/CodeIndex",
+  "systemdUnit": "codeindex-benchmark-1398357.scope",
+  "systemdResult": "success",
+  "status": "timeout",
+  "exitCode": -15,
+  "wallSeconds": null,
+  "wallSecondsIncludingSupervisor": 1800.0415758660529,
+  "timeLimitSeconds": 1800,
+  "memoryLimitGiB": 12,
+  "gnuTimeMaxRssKiB": null,
+  "sampledProcessTreeRssSumBytes": 720302080,
+  "cgroupMemoryPeakBytes": 776720384,
+  "sampleIntervalSeconds": 0.25,
+  "leftoverProcessIdsTerminated": [
+    1398360,
+    1398365
+  ],
+  "memoryNotes": "RSS sum can double-count shared pages; cgroup memory includes page cache; GNU time max RSS is not simultaneous tree total"
+}
