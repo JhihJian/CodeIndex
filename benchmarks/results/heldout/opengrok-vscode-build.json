@@ -1,0 +1,33 @@
+{
+  "command": [
+    "java",
+    "-Xmx8g",
+    "-jar",
+    "/data/dev/benchmark-tools/opengrok-1.14.20/lib/opengrok.jar",
+    "-s",
+    "/data/dev/CodeIndex/.data/heldout/inputs/vscode",
+    "-d",
+    "/data/dev/CodeIndex/.data/heldout/indexes/opengrok/vscode/data",
+    "-W",
+    "/data/dev/CodeIndex/.data/heldout/indexes/opengrok/vscode/config.xml",
+    "-c",
+    "/home/jhihjian/.local/bin/ctags-universal",
+    "-S"
+  ],
+  "cwd": "/data/dev/CodeIndex-worktrees/feature/heldout-comparison",
+  "systemdUnit": "codeindex-benchmark-1788729.scope",
+  "systemdResult": "success",
+  "status": "success",
+  "exitCode": 0,
+  "wallSeconds": 12.91,
+  "wallSecondsIncludingSupervisor": 13.055916175013408,
+  "timeLimitSeconds": 1800,
+  "memoryLimitGiB": 12,
+  "gnuTimeMaxRssKiB": 1518228,
+  "sampledProcessTreeRssSumBytes": 1545961472,
+  "workloadSampled": true,
+  "cgroupMemoryPeakBytes": 1936396288,
+  "sampleIntervalSeconds": 0.25,
+  "leftoverProcessIdsTerminated": [],
+  "memoryNotes": "RSS sum can double-count shared pages; cgroup memory includes page cache; GNU time max RSS is not simultaneous tree total"
+}

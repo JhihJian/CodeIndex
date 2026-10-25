@@ -1,0 +1,26 @@
+{
+  "command": [
+    "/data/dev/benchmark-tools/cgc-venv/bin/python",
+    "/data/dev/CodeIndex-worktrees/feature/heldout-comparison/benchmarks/competitors/cgc-query.py",
+    "/data/dev/CodeIndex/.data/heldout/indexes/cgc/cpython",
+    "/data/dev/CodeIndex/.data/heldout/inputs/cpython",
+    "/data/dev/CodeIndex-worktrees/feature/heldout-comparison/benchmarks/heldout/questions/cpython.json",
+    "symbol"
+  ],
+  "cwd": "/data/dev/CodeIndex-worktrees/feature/heldout-comparison",
+  "systemdUnit": "codeindex-benchmark-1788262.scope",
+  "systemdResult": "success",
+  "status": "success",
+  "exitCode": 0,
+  "wallSeconds": 2.7,
+  "wallSecondsIncludingSupervisor": 2.7765591079369187,
+  "timeLimitSeconds": 300,
+  "memoryLimitGiB": 12,
+  "gnuTimeMaxRssKiB": 41500,
+  "sampledProcessTreeRssSumBytes": 84004864,
+  "workloadSampled": true,
+  "cgroupMemoryPeakBytes": 683126784,
+  "sampleIntervalSeconds": 0.25,
+  "leftoverProcessIdsTerminated": [],
+  "memoryNotes": "RSS sum can double-count shared pages; cgroup memory includes page cache; GNU time max RSS is not simultaneous tree total"
+}

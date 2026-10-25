@@ -1,0 +1,57 @@
+Resolving context...
+Initializing services and database connection...
+Services initialized.
+Starting indexing for: /data/dev/CodeIndex/.data/heldout/inputs/vscode
+Skipped 33319 unresolved call relationship(s): ambiguous_function_target=33269, 
+ambiguous_class_target=49, unresolved_overloaded_call=1
+┏━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ Call                    ┃ Reason                  ┃ Location                 ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│ context.getSourceCode() │ ambiguous_function_tar… │ /data/dev/CodeIndex/.dat │
+│ .getText(node)          │                         │ a/heldout/inputs/vscode/ │
+│                         │                         │ .eslint-plugin-local/cod │
+│                         │                         │ e-ensure-no-disposables- │
+│                         │                         │ leak-in-test.ts:30       │
+│ minimatch(relativeFilen │ ambiguous_function_tar… │ /data/dev/CodeIndex/.dat │
+│ ame, config.target)     │                         │ a/heldout/inputs/vscode/ │
+│                         │                         │ .eslint-plugin-local/cod │
+│                         │                         │ e-import-patterns.ts:63  │
+│ /^src\/vs\//.test(targe │ ambiguous_function_tar… │ /data/dev/CodeIndex/.dat │
+│ t)                      │                         │ a/heldout/inputs/vscode/ │
+│                         │                         │ .eslint-plugin-local/cod │
+│                         │                         │ e-import-patterns.ts:192 │
+│ /\/\~$/.test(target)    │ ambiguous_function_tar… │ /data/dev/CodeIndex/.dat │
+│                         │                         │ a/heldout/inputs/vscode/ │
+│                         │                         │ .eslint-plugin-local/cod │
+│                         │                         │ e-import-patterns.ts:212 │
+│ this._optionsCache.get( │ ambiguous_function_tar… │ /data/dev/CodeIndex/.dat │
+│ options)                │                         │ a/heldout/inputs/vscode/ │
+│                         │                         │ .eslint-plugin-local/cod │
+│                         │                         │ e-import-patterns.ts:80  │
+└─────────────────────────┴─────────────────────────┴──────────────────────────┘
+                          CGC Index Execution Summary                           
++------------------------------------------------------------------------------+
+| Metric                | Value                                                |
+|-----------------------+------------------------------------------------------|
+| Total scanned files   | 7571                                                 |
+| Files by extension    | .bat (generic): 11, .c (c): 1, .cpp (cpp): 5, .cs    |
+|                       | (c_sharp): 1, .css (css): 282, .dart (dart): 1,      |
+|                       | .gitignore (generic): 19, .go (go): 2, .html (html): |
+|                       | 37, .ini (generic): 1, .ipynb (python): 1, .java     |
+|                       | (java): 1, .js (javascript): 144, .json (generic):   |
+|                       | 905, .jsx (javascript): 1, .lua (lua): 1, .md        |
+|                       | (generic): 93, .mjs (javascript): 10, .php (php): 3, |
+|                       | .pl (perl): 2, .ps1 (generic): 7, .py (python): 2,   |
+|                       | .rb (ruby): 1, .rs (rust): 71, .sh (generic): 48,    |
+|                       | .swift (swift): 1, .toml (generic): 3, .ts           |
+|                       | (typescript): 5819, .tsx (tsx): 3, .txt (generic):   |
+|                       | 68, .yaml (generic): 6, .yml (generic): 19,          |
+|                       | Dockerfile (generic): 2                              |
+| Files failed to parse | 5                                                    |
+| Function nodes        | 101395                                               |
+| Class nodes           | 9270                                                 |
+| CALLS edges           | 539122                                               |
+| Serialization seconds | 200.17                                               |
++------------------------------------------------------------------------------+
+Successfully finished indexing: /data/dev/CodeIndex/.data/heldout/inputs/vscode 
+in 518.86 seconds

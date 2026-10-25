@@ -1,0 +1,27 @@
+{
+  "command": [
+    "/data/dev/benchmark-tools/zoekt-git-index",
+    "-index",
+    "/data/dev/CodeIndex/.data/heldout/indexes/zoekt/llvm",
+    "-require_ctags",
+    "-file_limit",
+    "5242880",
+    "/data/dev/CodeIndex/.data/heldout/inputs/llvm"
+  ],
+  "cwd": "/data/dev/CodeIndex-worktrees/feature/heldout-comparison",
+  "systemdUnit": "codeindex-benchmark-1801632.scope",
+  "systemdResult": "success",
+  "status": "failed",
+  "exitCode": 1,
+  "wallSeconds": 29.95,
+  "wallSecondsIncludingSupervisor": 30.12384473485872,
+  "timeLimitSeconds": 1800,
+  "memoryLimitGiB": 12,
+  "gnuTimeMaxRssKiB": 1616572,
+  "sampledProcessTreeRssSumBytes": 1658703872,
+  "workloadSampled": true,
+  "cgroupMemoryPeakBytes": 2527715328,
+  "sampleIntervalSeconds": 0.25,
+  "leftoverProcessIdsTerminated": [],
+  "memoryNotes": "RSS sum can double-count shared pages; cgroup memory includes page cache; GNU time max RSS is not simultaneous tree total"
+}

@@ -1,0 +1,7 @@
+(node:1798670) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+{"stage":"scan","durationMs":10441,"elapsedMs":10441,"rssMiB":396,"files":158039,"changedFiles":158039}
+{"stage":"source-and-files","durationMs":18909,"elapsedMs":29350,"rssMiB":483}
+CodeIndex error: /home/jhihjian/.local/bin/ctags-universal failed: exit null, signal SIGSEGV
+ctags-universal: Notice: No options will be read from files or environment
+

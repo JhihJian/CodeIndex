@@ -1,0 +1,905 @@
+{
+  "loadMs": 7.857,
+  "mode": "symbol",
+  "repetitions": 20,
+  "repositories": {
+    "Repos": [
+      {
+        "Repository": {
+          "TenantID": 0,
+          "ID": 0,
+          "Name": "vscode",
+          "URL": "",
+          "Metadata": null,
+          "Source": "/data/dev/CodeIndex/.data/heldout/inputs/vscode",
+          "Branches": [
+            {
+              "Name": "HEAD",
+              "Version": "60868d86768caf8bc153a7ebc2bac5d3dd03b007"
+            }
+          ],
+          "SubRepoMap": {},
+          "CommitURLTemplate": "",
+          "FileURLTemplate": "",
+          "LineFragmentTemplate": "",
+          "RawConfig": null,
+          "Rank": 0,
+          "IndexOptions": "825dea1219bd742fea432a98a0f4df6bf04c2f1b",
+          "HasSymbols": true,
+          "Tombstone": false,
+          "LatestCommitDate": "2026-10-25T13:24:22+08:00"
+        },
+        "IndexMetadata": {
+          "IndexFormatVersion": 16,
+          "IndexFeatureVersion": 12,
+          "IndexMinReaderVersion": 10,
+          "IndexTime": "2026-10-25T13:58:43.525408375+08:00",
+          "PlainASCII": false,
+          "LanguageMap": {
+            "": 0,
+            "Batchfile": 12,
+            "BibTeX": 50,
+            "C": 31,
+            "C#": 35,
+            "C++": 37,
+            "CODEOWNERS": 71,
+            "CSS": 20,
+            "Clojure": 46,
+            "CoffeeScript": 64,
+            "Cuda": 33,
+            "Dart": 59,
+            "Diff": 57,
+            "Dockerfile": 17,
+            "EditorConfig": 9,
+            "F#": 42,
+            "GAP": 27,
+            "Git Attributes": 70,
+            "Git Commit": 66,
+            "Git Revision List": 15,
+            "Go": 39,
+            "Groovy": 62,
+            "HLSL": 58,
+            "HTML": 14,
+            "HTML+Razor": 65,
+            "Hack": 68,
+            "Handlebars": 52,
+            "INI": 49,
+            "Ignore List": 18,
+            "JSON": 4,
+            "JSON with Comments": 13,
+            "Java": 60,
+            "JavaScript": 6,
+            "Julia": 44,
+            "Jupyter Notebook": 25,
+            "Less": 29,
+            "Lua": 47,
+            "Makefile": 55,
+            "Markdown": 2,
+            "NPM Config": 1,
+            "Objective-C": 32,
+            "Objective-C++": 41,
+            "Option List": 23,
+            "PHP": 45,
+            "Perl": 40,
+            "PowerShell": 16,
+            "Pug": 53,
+            "Python": 34,
+            "R": 30,
+            "Raku": 38,
+            "Ruby": 36,
+            "Rust": 8,
+            "SCSS": 56,
+            "SQL": 48,
+            "SVG": 21,
+            "Scilab": 26,
+            "ShaderLab": 63,
+            "Shell": 11,
+            "Swift": 61,
+            "TOML": 10,
+            "TSX": 28,
+            "TeX": 51,
+            "Text": 7,
+            "Tree-sitter Query": 24,
+            "TypeScript": 3,
+            "Visual Basic .NET": 43,
+            "XML": 22,
+            "XML Property List": 69,
+            "YAML": 5,
+            "desktop": 19,
+            "fish": 67,
+            "reStructuredText": 54
+          },
+          "ZoektVersion": "",
+          "ID": "dbepl4qjrguk1s816p80"
+        },
+        "Stats": {
+          "Repos": 0,
+          "Shards": 1,
+          "Documents": 8071,
+          "IndexBytes": 2548308,
+          "ContentBytes": 93337926,
+          "NewLinesCount": 2400229,
+          "DefaultBranchNewLinesCount": 2400229,
+          "OtherBranchesNewLinesCount": 0
+        }
+      }
+    ],
+    "ReposMap": {},
+    "Crashes": 0,
+    "Stats": {
+      "Repos": 1,
+      "Shards": 1,
+      "Documents": 8071,
+      "IndexBytes": 2548308,
+      "ContentBytes": 93337926,
+      "NewLinesCount": 2400229,
+      "DefaultBranchNewLinesCount": 2400229,
+      "OtherBranchesNewLinesCount": 0
+    }
+  },
+  "rows": [
+    {
+      "coldMs": 1.75603,
+      "files": [
+        {
+          "lines": [
+            {
+              "line": 9,
+              "source": "export class DisposableStore {\n"
+            }
+          ],
+          "path": "extensions/github/src/util.ts"
+        },
+        {
+          "lines": [
+            {
+              "line": 409,
+              "source": "export class DisposableStore implements IDisposable {\n"
+            }
+          ],
+          "path": "src/vs/base/common/lifecycle.ts"
+        },
+        {
+          "lines": [
+            {
+              "line": 58,
+              "source": "export class DisposableStore extends Disposable {\n"
+            }
+          ],
+          "path": "extensions/typescript-language-features/src/utils/dispose.ts"
+        },
+        {
+          "lines": [
+            {
+              "line": 165,
+              "source": "type DisposableStore = ReturnType\u003ctypeof createDisposableStore\u003e;\n"
+            },
+            {
+              "line": 151,
+              "source": "function createDisposableStore(): { push(...disposables: IDisposable[]): void; dispose(): void } {\n"
+            }
+          ],
+          "path": "extensions/notebook-renderers/src/index.ts"
+        },
+        {
+          "lines": [
+            {
+              "line": 37,
+              "source": "\tconst localDisposableStore = new DisposableStore();\n"
+            }
+          ],
+          "path": "src/vs/workbench/contrib/debug/common/loadedScriptsPicker.ts"
+        },
+        {
+          "lines": [
+            {
+              "line": 23,
+              "source": "\tconst localDisposableStore = new DisposableStore();\n"
+            }
+          ],
+          "path": "src/vs/workbench/contrib/debug/browser/debugSessionPicker.ts"
+        },
+        {
+          "lines": [
+            {
+              "line": 139,
+              "source": "\t\tconst localDisposableStore = new DisposableStore();\n"
+            },
+            {
+              "line": 720,
+              "source": "\t\tconst localDisposableStore = new DisposableStore();\n"
+            }
+          ],
+          "path": "src/vs/workbench/contrib/notebook/browser/viewParts/notebookKernelQuickPickStrategy.ts"
+        },
+        {
+          "lines": [
+            {
+              "line": 35,
+              "source": "\tprivate readonly _localDisposableStore = this._register(new DisposableStore());\n"
+            }
+          ],
+          "path": "src/vs/workbench/contrib/notebook/browser/viewModel/cellEditorOptions.ts"
+        }
+      ],
+      "hitAt10": true,
+      "medianMs": 1.2980915,
+      "query": "DisposableStore",
+      "searchStats": {
+        "ContentBytesLoaded": 1756039,
+        "IndexBytesLoaded": 194825,
+        "Crashes": 0,
+        "Duration": 1354142,
+        "FileCount": 8,
+        "ShardFilesConsidered": 0,
+        "FilesConsidered": 974,
+        "FilesLoaded": 61,
+        "FilesSkipped": 0,
+        "FilesSkippedDueToCancellation": 0,
+        "ShardsScanned": 1,
+        "ShardsSkipped": 0,
+        "ShardsSkippedFilter": 0,
+        "MatchCount": 10,
+        "NgramMatches": 4030,
+        "NgramLookups": 15,
+        "Wait": 3005,
+        "MatchTreeConstruction": 16301,
+        "MatchTreeSearch": 1305600,
+        "RegexpsConsidered": 0,
+        "FlushReason": 0
+      }
+    },
+    {
+      "coldMs": 0.231912,
+      "files": [
+        {
+          "lines": [
+            {
+              "line": 559,
+              "source": "export class MutableDisposable\u003cT extends IDisposable\u003e implements IDisposable {\n"
+            },
+            {
+              "line": 615,
+              "source": "export class MandatoryMutableDisposable\u003cT extends IDisposable\u003e implements IDisposable {\n"
+            }
+          ],
+          "path": "src/vs/base/common/lifecycle.ts"
+        }
+      ],
+      "hitAt10": true,
+      "medianMs": 0.10139899999999999,
+      "query": "MutableDisposable",
+      "searchStats": {
+        "ContentBytesLoaded": 24322,
+        "IndexBytesLoaded": 8843,
+        "Crashes": 0,
+        "Duration": 99786,
+        "FileCount": 1,
+        "ShardFilesConsidered": 0,
+        "FilesConsidered": 227,
+        "FilesLoaded": 1,
+        "FilesSkipped": 0,
+        "FilesSkippedDueToCancellation": 0,
+        "ShardsScanned": 1,
+        "ShardsSkipped": 0,
+        "ShardsSkippedFilter": 0,
+        "MatchCount": 2,
+        "NgramMatches": 618,
+        "NgramLookups": 17,
+        "Wait": 662,
+        "MatchTreeConstruction": 4008,
+        "MatchTreeSearch": 89016,
+        "RegexpsConsidered": 0,
+        "FlushReason": 0
+      }
+    },
+    {
+      "coldMs": 1.222236,
+      "files": [
+        {
+          "lines": [
+            {
+              "line": 97,
+              "source": "export class CancellationTokenSource {\n"
+            }
+          ],
+          "path": "src/vs/base/common/cancellation.ts"
+        },
+        {
+          "lines": [
+            {
+              "line": 25,
+              "source": "export const CancellationTokenSource = api.CancellationTokenSource;\n"
+            }
+          ],
+          "path": "src/vs/editor/editor.api.ts"
+        },
+        {
+          "lines": [
+            {
+              "line": 378,
+              "source": "export class DisposableCancellationTokenSource extends CancellationTokenSource {\n"
+            }
+          ],
+          "path": "src/vs/editor/browser/widget/diffEditor/utils.ts"
+        },
+        {
+          "lines": [
+            {
+              "line": 92,
+              "source": "export class EditorStateCancellationTokenSource extends EditorKeybindingCancellationTokenSource implements IDisposable {\n"
+            },
+            {
+              "line": 131,
+              "source": "export class TextModelCancellationTokenSource extends CancellationTokenSource implements IDisposable {\n"
+            }
+          ],
+          "path": "src/vs/editor/contrib/editorState/browser/editorState.ts"
+        },
+        {
+          "lines": [
+            {
+              "line": 75,
+              "source": "export class EditorKeybindingCancellationTokenSource extends CancellationTokenSource {\n"
+            }
+          ],
+          "path": "src/vs/editor/contrib/editorState/browser/keybindingCancellation.ts"
+        },
+        {
+          "lines": [
+            {
+              "line": 106,
+              "source": "\tprivate _currentDocumentRequestCancellationTokenSource: CancellationTokenSource | null;\n"
+            }
+          ],
+          "path": "src/vs/editor/contrib/semanticTokens/browser/documentSemanticTokens.ts"
+        },
+        {
+          "lines": [
+            {
+              "line": 199,
+              "source": "\tprivate readonly _currentRequestCancellationTokenSource: CancellationTokenSource;\n"
+            }
+          ],
+          "path": "src/vs/workbench/contrib/codeEditor/browser/inspectEditorTokens/inspectEditorTokens.ts"
+        }
+      ],
+      "hitAt10": true,
+      "medianMs": 0.256638,
+      "query": "CancellationTokenSource",
+      "searchStats": {
+        "ContentBytesLoaded": 462465,
+        "IndexBytesLoaded": 49102,
+        "Crashes": 0,
+        "Duration": 231992,
+        "FileCount": 7,
+        "ShardFilesConsidered": 0,
+        "FilesConsidered": 222,
+        "FilesLoaded": 22,
+        "FilesSkipped": 0,
+        "FilesSkippedDueToCancellation": 0,
+        "ShardsScanned": 1,
+        "ShardsSkipped": 0,
+        "ShardsSkippedFilter": 0,
+        "MatchCount": 8,
+        "NgramMatches": 1001,
+        "NgramLookups": 23,
+        "Wait": 541,
+        "MatchTreeConstruction": 3546,
+        "MatchTreeSearch": 220751,
+        "RegexpsConsidered": 0,
+        "FlushReason": 0
+      }
+    },
+    {
+      "coldMs": 2.615128,
+      "files": [
+        {
+          "lines": [
+            {
+              "line": 995,
+              "source": "export class Emitter\u003cT\u003e {\n"
+            },
+            {
+              "line": 649,
+              "source": "\tclass EmitterObserver\u003cT\u003e implements IObserver {\n"
+            },
+            {
+              "line": 1296,
+              "source": "export class AsyncEmitter\u003cT extends IWaitUntil\u003e extends Emitter\u003cT\u003e {\n"
+            }
+          ],
+          "path": "src/vs/base/common/event.ts"
+        },
+        {
+          "lines": [
+            {
+              "line": 66,
+              "source": "\texport class Emitter\u003cT\u003e {\n"
+            }
+          ],
+          "path": "src/vs/monaco.d.ts"
+        },
+        {
+          "lines": [
+            {
+              "line": 26,
+              "source": "export const Emitter = api.Emitter;\n"
+            }
+          ],
+          "path": "src/vs/editor/editor.api.ts"
+        },
+        {
+          "lines": [
+            {
+              "line": 207,
+              "source": "\t\tEmitter: Emitter,\n"
+            }
+          ],
+          "path": "src/vs/workbench/workbench.web.main.internal.ts"
+        },
+        {
+          "lines": [
+            {
+              "line": 1699,
+              "source": "export class ModifierKeyEmitter extends event.Emitter\u003cIModifierKeyStatus\u003e {\n"
+            }
+          ],
+          "path": "src/vs/base/browser/dom.ts"
+        },
+        {
+          "lines": [
+            {
+              "line": 28,
+              "source": "export class DomEmitter\u003cK extends keyof DOMEventMap\u003e implements IDisposable {\n"
+            }
+          ],
+          "path": "src/vs/base/browser/event.ts"
+        },
+        {
+          "lines": [
+            {
+              "line": 2519,
+              "source": "class DidChangeDecorationsEmitter extends Disposable {\n"
+            },
+            {
+              "line": 2631,
+              "source": "class DidChangeContentEmitter extends Disposable {\n"
+            },
+            {
+              "line": 2636,
+              "source": "\tprivate readonly _fastEmitter: Emitter\u003cInternalModelContentChangeEvent\u003e = this._register(new Emitter\u003cInternalModelContentChangeEvent\u003e());\n"
+            }
+          ],
+          "path": "src/vs/editor/common/model/textModel.ts"
+        },
+        {
+          "lines": [
+            {
+              "line": 611,
+              "source": "export class BufferedEmitter\u003cT\u003e {\n"
+            }
+          ],
+          "path": "src/vs/base/parts/ipc/common/ipc.net.ts"
+        },
+        {
+          "lines": [
+            {
+              "line": 2088,
+              "source": "export class BooleanEventEmitter extends Disposable {\n"
+            },
+            {
+              "line": 2125,
+              "source": "class InteractionEmitter\u003cT\u003e extends Emitter\u003cT\u003e {\n"
+            }
+          ],
+          "path": "src/vs/editor/browser/widget/codeEditor/codeEditorWidget.ts"
+        },
+        {
+          "lines": [
+            {
+              "line": 176,
+              "source": "class NotebookEventEmitter extends PauseableEmitter\u003cNotebookTextModelChangedEvent\u003e {\n"
+            },
+            {
+              "line": 52,
+              "source": "\t\tprivate readonly _pauseableEmitter: PauseableEmitter\u003cNotebookTextModelChangedEvent\u003e,\n"
+            },
+            {
+              "line": 129,
+              "source": "\t\tprivate _pauseableEmitter: PauseableEmitter\u003cNotebookTextModelChangedEvent\u003e,\n"
+            }
+          ],
+          "path": "src/vs/workbench/contrib/notebook/common/model/notebookTextModel.ts"
+        }
+      ],
+      "hitAt10": true,
+      "medianMs": 0.9227025,
+      "query": "Emitter",
+      "searchStats": {
+        "ContentBytesLoaded": 2937201,
+        "IndexBytesLoaded": 61899,
+        "Crashes": 0,
+        "Duration": 875981,
+        "FileCount": 92,
+        "ShardFilesConsidered": 0,
+        "FilesConsidered": 1019,
+        "FilesLoaded": 93,
+        "FilesSkipped": 0,
+        "FilesSkippedDueToCancellation": 0,
+        "ShardsScanned": 1,
+        "ShardsSkipped": 0,
+        "ShardsSkippedFilter": 0,
+        "MatchCount": 150,
+        "NgramMatches": 5470,
+        "NgramLookups": 7,
+        "Wait": 691,
+        "MatchTreeConstruction": 4559,
+        "MatchTreeSearch": 856354,
+        "RegexpsConsidered": 0,
+        "FlushReason": 0
+      }
+    },
+    {
+      "coldMs": 3.422642,
+      "files": [
+        {
+          "lines": [
+            {
+              "line": 98,
+              "source": "export class URI implements UriComponents {\n"
+            },
+            {
+              "line": 537,
+              "source": "function encodeURIComponentFast(uriComponent: string, isPath: boolean, isAuthority: boolean): string {\n"
+            },
+            {
+              "line": 601,
+              "source": "function encodeURIComponentMinimal(path: string): string {\n"
+            }
+          ],
+          "path": "src/vs/base/common/uri.ts"
+        },
+        {
+          "lines": [
+            {
+              "line": 74,
+              "source": "\treadonly currentProfile = toUserDataProfile('test', 'test', URI.file('tests').with({ scheme: 'vscode-tests' }), URI.file('tests').with({ scheme: 'vscode-tests' }));\n"
+            }
+          ],
+          "path": "src/vs/workbench/test/common/workbenchTestServices.ts"
+        },
+        {
+          "lines": [
+            {
+              "line": 32,
+              "source": "\tconst uri = path ? URI.parse(path!) : undefined;\n"
+            }
+          ],
+          "path": "src/vs/editor/browser/dataTransfer.ts"
+        },
+        {
+          "lines": [
+            {
+              "line": 225,
+              "source": "\t\tconst activeFileResource = args.activeFileResource ? URI.revive(uriTransformer.transformIncoming(args.activeFileResource)) : undefined;\n"
+            }
+          ],
+          "path": "src/vs/server/node/remoteTerminalChannel.ts"
+        },
+        {
+          "lines": [
+            {
+              "line": 87,
+              "source": "\t\t\tconst rootUri = this.provider.rootUri ?? URI.file('/');\n"
+            }
+          ],
+          "path": "src/vs/workbench/api/browser/mainThreadSCM.ts"
+        },
+        {
+          "lines": [
+            {
+              "line": 343,
+              "source": "\t\t\t\tconst profileLocation = args[1] ? URI.revive(uriTransformer.transformIncoming(args[1])) : undefined;\n"
+            }
+          ],
+          "path": "src/vs/server/node/remoteExtensionsScanner.ts"
+        },
+        {
+          "lines": [
+            {
+              "line": 14,
+              "source": "\tconst uri = typeof url === 'string' ? URI.parse(url) : url;\n"
+            }
+          ],
+          "path": "src/vs/workbench/contrib/url/common/urlGlob.ts"
+        },
+        {
+          "lines": [
+            {
+              "line": 217,
+              "source": "\t\tconst uri = typeof resource === 'string' ? URI.parse(resource) : resource;\n"
+            },
+            {
+              "line": 176,
+              "source": "\t\t\tconst targetURI = typeof target === 'string' ? URI.parse(target) : target;\n"
+            }
+          ],
+          "path": "src/vs/editor/browser/services/openerService.ts"
+        },
+        {
+          "lines": [
+            {
+              "line": 205,
+              "source": "\t\tURI: URI,\n"
+            }
+          ],
+          "path": "src/vs/workbench/workbench.web.main.internal.ts"
+        },
+        {
+          "lines": [
+            {
+              "line": 1330,
+              "source": "\t\tconst resource = node.resourceUri ? URI.revive(node.resourceUri) : null;\n"
+            },
+            {
+              "line": 1352,
+              "source": "\t\tconst iconUrl = icon ? URI.revive(icon) : undefined;\n"
+            }
+          ],
+          "path": "src/vs/workbench/browser/parts/views/treeView.ts"
+        }
+      ],
+      "hitAt10": true,
+      "medianMs": 1.5363455,
+      "query": "URI",
+      "searchStats": {
+        "ContentBytesLoaded": 4844769,
+        "IndexBytesLoaded": 26646,
+        "Crashes": 0,
+        "Duration": 1455500,
+        "FileCount": 162,
+        "ShardFilesConsidered": 0,
+        "FilesConsidered": 1661,
+        "FilesLoaded": 162,
+        "FilesSkipped": 0,
+        "FilesSkippedDueToCancellation": 0,
+        "ShardsScanned": 1,
+        "ShardsSkipped": 0,
+        "ShardsSkippedFilter": 0,
+        "MatchCount": 283,
+        "NgramMatches": 15296,
+        "NgramLookups": 2,
+        "Wait": 661,
+        "MatchTreeConstruction": 3838,
+        "MatchTreeSearch": 1429371,
+        "RegexpsConsidered": 0,
+        "FlushReason": 0
+      }
+    },
+    {
+      "coldMs": 0.708629,
+      "files": [
+        {
+          "lines": [
+            {
+              "line": 373,
+              "source": "export class Delayer\u003cT\u003e implements IDisposable {\n"
+            },
+            {
+              "line": 451,
+              "source": "export class ThrottledDelayer\u003cT\u003e {\n"
+            }
+          ],
+          "path": "src/vs/base/common/async.ts"
+        },
+        {
+          "lines": [
+            {
+              "line": 86,
+              "source": "export class Delayer\u003cT\u003e {\n"
+            }
+          ],
+          "path": "extensions/ipynb/src/helper.ts"
+        },
+        {
+          "lines": [
+            {
+              "line": 10,
+              "source": "export class Delayer\u003cT\u003e {\n"
+            }
+          ],
+          "path": "extensions/merge-conflict/src/delayer.ts"
+        },
+        {
+          "lines": [
+            {
+              "line": 10,
+              "source": "export class Delayer\u003cT\u003e {\n"
+            }
+          ],
+          "path": "extensions/markdown-language-features/src/util/async.ts"
+        },
+        {
+          "lines": [
+            {
+              "line": 12,
+              "source": "export class Delayer\u003cT\u003e {\n"
+            }
+          ],
+          "path": "extensions/typescript-language-features/src/utils/async.ts"
+        },
+        {
+          "lines": [
+            {
+              "line": 103,
+              "source": "export class Delayer\u003cT\u003e {\n"
+            },
+            {
+              "line": 172,
+              "source": "export class ThrottledDelayer\u003cT\u003e extends Delayer\u003cPromise\u003cT\u003e\u003e {\n"
+            }
+          ],
+          "path": "extensions/php-language-features/src/features/utils/async.ts"
+        },
+        {
+          "lines": [
+            {
+              "line": 1697,
+              "source": "\t\tconst validationDelayer = new ThrottledDelayer\u003cany\u003e(200);\n"
+            }
+          ],
+          "path": "src/vs/workbench/contrib/scm/browser/scmViewPane.ts"
+        },
+        {
+          "lines": [
+            {
+              "line": 67,
+              "source": "\t\tconst updateDelayer = this._register(new Delayer\u003cvoid\u003e(400));\n"
+            }
+          ],
+          "path": "src/vs/workbench/contrib/testing/browser/testingExplorerFilter.ts"
+        },
+        {
+          "lines": [
+            {
+              "line": 686,
+              "source": "\t\t\tconst layoutDelayer = new Delayer(50);\n"
+            }
+          ],
+          "path": "src/vs/workbench/contrib/welcomeGettingStarted/browser/gettingStarted.ts"
+        },
+        {
+          "lines": [
+            {
+              "line": 366,
+              "source": "\t\tconst validateAllDelayer = this._register(new Delayer\u003cvoid\u003e(200));\n"
+            }
+          ],
+          "path": "src/vs/workbench/contrib/chat/common/promptSyntax/languageProviders/promptValidator.ts"
+        }
+      ],
+      "hitAt10": true,
+      "medianMs": 0.1931445,
+      "query": "Delayer",
+      "searchStats": {
+        "ContentBytesLoaded": 1420955,
+        "IndexBytesLoaded": 16291,
+        "Crashes": 0,
+        "Duration": 169676,
+        "FileCount": 25,
+        "ShardFilesConsidered": 0,
+        "FilesConsidered": 94,
+        "FilesLoaded": 39,
+        "FilesSkipped": 0,
+        "FilesSkippedDueToCancellation": 0,
+        "ShardsScanned": 1,
+        "ShardsSkipped": 0,
+        "ShardsSkippedFilter": 0,
+        "MatchCount": 30,
+        "NgramMatches": 641,
+        "NgramLookups": 7,
+        "Wait": 511,
+        "MatchTreeConstruction": 2274,
+        "MatchTreeSearch": 159778,
+        "RegexpsConsidered": 0,
+        "FlushReason": 0
+      }
+    },
+    {
+      "coldMs": 0.121366,
+      "files": [
+        {
+          "lines": [
+            {
+              "line": 1086,
+              "source": "export class RunOnceScheduler implements IDisposable {\n"
+            },
+            {
+              "line": 1169,
+              "source": "export class ProcessTimeRunOnceScheduler {\n"
+            }
+          ],
+          "path": "src/vs/base/common/async.ts"
+        }
+      ],
+      "hitAt10": true,
+      "medianMs": 0.09097949999999999,
+      "query": "RunOnceScheduler",
+      "searchStats": {
+        "ContentBytesLoaded": 72662,
+        "IndexBytesLoaded": 12235,
+        "Crashes": 0,
+        "Duration": 432525,
+        "FileCount": 1,
+        "ShardFilesConsidered": 0,
+        "FilesConsidered": 138,
+        "FilesLoaded": 1,
+        "FilesSkipped": 0,
+        "FilesSkippedDueToCancellation": 0,
+        "ShardsScanned": 1,
+        "ShardsSkipped": 0,
+        "ShardsSkippedFilter": 0,
+        "MatchCount": 2,
+        "NgramMatches": 409,
+        "NgramLookups": 16,
+        "Wait": 972,
+        "MatchTreeConstruction": 2364,
+        "MatchTreeSearch": 402289,
+        "RegexpsConsidered": 0,
+        "FlushReason": 0
+      }
+    },
+    {
+      "coldMs": 1.884198,
+      "files": [
+        {
+          "lines": [
+            {
+              "line": 35,
+              "source": "export function combinedDisposable(disposables: IDisposable[]): IDisposable {\n"
+            }
+          ],
+          "path": "extensions/git/src/util.ts"
+        },
+        {
+          "lines": [
+            {
+              "line": 364,
+              "source": "export function combinedDisposable(...disposables: IDisposable[]): IDisposable {\n"
+            }
+          ],
+          "path": "src/vs/base/common/lifecycle.ts"
+        }
+      ],
+      "hitAt10": true,
+      "medianMs": 0.703916,
+      "query": "combinedDisposable",
+      "searchStats": {
+        "ContentBytesLoaded": 224994,
+        "IndexBytesLoaded": 203399,
+        "Crashes": 0,
+        "Duration": 678934,
+        "FileCount": 2,
+        "ShardFilesConsidered": 0,
+        "FilesConsidered": 222,
+        "FilesLoaded": 9,
+        "FilesSkipped": 0,
+        "FilesSkippedDueToCancellation": 0,
+        "ShardsScanned": 1,
+        "ShardsSkipped": 0,
+        "ShardsSkippedFilter": 0,
+        "MatchCount": 2,
+        "NgramMatches": 851,
+        "NgramLookups": 18,
+        "Wait": 581,
+        "MatchTreeConstruction": 2485,
+        "MatchTreeSearch": 669787,
+        "RegexpsConsidered": 0,
+        "FlushReason": 0
+      }
+    }
+  ],
+  "tool": "Zoekt",
+  "warmup": 1
+}

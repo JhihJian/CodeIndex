@@ -1,0 +1,181 @@
+{
+  "rows": [
+    {
+      "totalFiles": 1,
+      "files": [
+        {
+          "path": "Lib/difflib.py",
+          "lines": [
+            {
+              "line": 44,
+              "source": "class <b>SequenceMatcher</b>:"
+            }
+          ]
+        }
+      ],
+      "medianMs": 1.3967675,
+      "hitAt10": true,
+      "coldMs": 233.758058,
+      "query": "SequenceMatcher"
+    },
+    {
+      "totalFiles": 1,
+      "files": [
+        {
+          "path": "Lib/json/decoder.py",
+          "lines": [
+            {
+              "line": 262,
+              "source": "class <b>JSONDecoder</b>(object):"
+            }
+          ]
+        }
+      ],
+      "medianMs": 0.5089165,
+      "hitAt10": true,
+      "coldMs": 1.042128,
+      "query": "JSONDecoder"
+    },
+    {
+      "totalFiles": 3,
+      "files": [
+        {
+          "path": "Tools/clinic/libclinic/cli.py",
+          "lines": [
+            {
+              "line": 122,
+              "source": "def run_clinic(parser: argparse.<b>ArgumentParser</b>, ns: argparse.Namespace) -&gt; None:"
+            }
+          ]
+        },
+        {
+          "path": "Tools/scripts/sortperf.py",
+          "lines": [
+            {
+              "line": 144,
+              "source": "def add_parser_args(parser: argparse.<b>ArgumentParser</b>) -&gt; None:"
+            }
+          ]
+        },
+        {
+          "path": "Lib/argparse.py",
+          "lines": [
+            {
+              "line": 1840,
+              "source": "class <b>ArgumentParser</b>(_AttributeHolder, _ActionsContainer):"
+            }
+          ]
+        }
+      ],
+      "medianMs": 1.073556,
+      "hitAt10": true,
+      "coldMs": 2.160198,
+      "query": "ArgumentParser"
+    },
+    {
+      "totalFiles": 2,
+      "files": [
+        {
+          "path": "Lib/heapq.py",
+          "lines": [
+            {
+              "line": 132,
+              "source": "def <b>heappush</b>(heap, item):"
+            }
+          ]
+        },
+        {
+          "path": "Lib/asyncio/queues.py",
+          "lines": [
+            {
+              "line": 291,
+              "source": "    def _put(self, item, <b>heappush</b>=heapq.<b>heappush</b>):"
+            }
+          ]
+        }
+      ],
+      "medianMs": 0.609333,
+      "hitAt10": true,
+      "coldMs": 1.313021,
+      "query": "heappush"
+    },
+    {
+      "totalFiles": 1,
+      "files": [
+        {
+          "path": "Python/pylifecycle.c",
+          "lines": [
+            {
+              "line": 1483,
+              "source": "<b>Py_Initialize</b>(void)"
+            }
+          ]
+        }
+      ],
+      "medianMs": 0.7361795,
+      "hitAt10": true,
+      "coldMs": 1.357113,
+      "query": "Py_Initialize"
+    },
+    {
+      "totalFiles": 1,
+      "files": [
+        {
+          "path": "Python/errors.c",
+          "lines": [
+            {
+              "line": 294,
+              "source": "<b>PyErr_SetString</b>(PyObject *exception, const char *string)"
+            }
+          ]
+        }
+      ],
+      "medianMs": 0.599059,
+      "hitAt10": true,
+      "coldMs": 1.109302,
+      "query": "PyErr_SetString"
+    },
+    {
+      "totalFiles": 1,
+      "files": [
+        {
+          "path": "Objects/unicodeobject.c",
+          "lines": [
+            {
+              "line": 2169,
+              "source": "<b>PyUnicode_FromString</b>(const char *u)"
+            }
+          ]
+        }
+      ],
+      "medianMs": 1.365364,
+      "hitAt10": true,
+      "coldMs": 1.547268,
+      "query": "PyUnicode_FromString"
+    },
+    {
+      "totalFiles": 1,
+      "files": [
+        {
+          "path": "Objects/longobject.c",
+          "lines": [
+            {
+              "line": 373,
+              "source": "<b>PyLong_FromLong</b>(long ival)"
+            }
+          ]
+        }
+      ],
+      "medianMs": 0.690244,
+      "hitAt10": true,
+      "coldMs": 1.325815,
+      "query": "PyLong_FromLong"
+    }
+  ],
+  "repetitions": 20,
+  "mode": "symbol",
+  "warmup": 1,
+  "indexedDocuments": 5448,
+  "tool": "OpenGrok",
+  "loadMs": 176.963028
+}

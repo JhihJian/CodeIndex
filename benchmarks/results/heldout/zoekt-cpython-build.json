@@ -1,0 +1,27 @@
+{
+  "command": [
+    "/data/dev/benchmark-tools/zoekt-git-index",
+    "-index",
+    "/data/dev/CodeIndex/.data/heldout/indexes/zoekt/cpython",
+    "-require_ctags",
+    "-file_limit",
+    "5242880",
+    "/data/dev/CodeIndex/.data/heldout/inputs/cpython"
+  ],
+  "cwd": "/data/dev/CodeIndex-worktrees/feature/heldout-comparison",
+  "systemdUnit": "codeindex-benchmark-1781473.scope",
+  "systemdResult": "success",
+  "status": "success",
+  "exitCode": 0,
+  "wallSeconds": 8.85,
+  "wallSecondsIncludingSupervisor": 9.047019093064591,
+  "timeLimitSeconds": 1800,
+  "memoryLimitGiB": 12,
+  "gnuTimeMaxRssKiB": 837032,
+  "sampledProcessTreeRssSumBytes": 854265856,
+  "workloadSampled": true,
+  "cgroupMemoryPeakBytes": 1085145088,
+  "sampleIntervalSeconds": 0.25,
+  "leftoverProcessIdsTerminated": [],
+  "memoryNotes": "RSS sum can double-count shared pages; cgroup memory includes page cache; GNU time max RSS is not simultaneous tree total"
+}

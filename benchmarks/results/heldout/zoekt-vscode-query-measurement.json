@@ -1,0 +1,24 @@
+{
+  "command": [
+    "/data/dev/benchmark-tools/zoekt-query",
+    "/data/dev/CodeIndex/.data/heldout/indexes/zoekt/vscode",
+    "/data/dev/CodeIndex-worktrees/feature/heldout-comparison/benchmarks/heldout/questions/vscode.json",
+    "symbol"
+  ],
+  "cwd": "/data/dev/CodeIndex-worktrees/feature/heldout-comparison",
+  "systemdUnit": "codeindex-benchmark-1789358.scope",
+  "systemdResult": "success",
+  "status": "success",
+  "exitCode": 0,
+  "wallSeconds": 0.17,
+  "wallSecondsIncludingSupervisor": 0.27523248293437064,
+  "timeLimitSeconds": 300,
+  "memoryLimitGiB": 12,
+  "gnuTimeMaxRssKiB": 157664,
+  "sampledProcessTreeRssSumBytes": null,
+  "workloadSampled": false,
+  "cgroupMemoryPeakBytes": null,
+  "sampleIntervalSeconds": 0.25,
+  "leftoverProcessIdsTerminated": [],
+  "memoryNotes": "RSS sum can double-count shared pages; cgroup memory includes page cache; GNU time max RSS is not simultaneous tree total"
+}

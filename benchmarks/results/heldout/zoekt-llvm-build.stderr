@@ -1,0 +1,13 @@
+2026/10/25 14:11:18 git cat-file does not support --filter (exit status 129: error: option `filters' takes no value), using go-git
+2026/10/25 14:11:18 attempting to index 158039 total files (0 via cat-file, 158039 via go-git)
+2026/10/25 14:11:25 symbol analysis finished for shard statistics: duration=3s symbols=204028 bytes=104431211
+2026/10/25 14:11:27 finished shard /data/dev/CodeIndex/.data/heldout/indexes/zoekt/llvm/llvm_v16.00000.zoekt: 290779864 index bytes (overhead 2.8), 7961 files processed 
+2026/10/25 14:11:33 symbol analysis finished for shard statistics: duration=2s symbols=167909 bytes=104558224
+2026/10/25 14:11:35 finished shard /data/dev/CodeIndex/.data/heldout/indexes/zoekt/llvm/llvm_v16.00001.zoekt: 281696739 index bytes (overhead 2.7), 5417 files processed 
+2026/10/25 14:11:40 symbol analysis finished for shard statistics: duration=2s symbols=142790 bytes=104220048
+2026/10/25 14:11:43 finished shard /data/dev/CodeIndex/.data/heldout/indexes/zoekt/llvm/llvm_v16.00002.zoekt: 279580668 index bytes (overhead 2.7), 14578 files processed 
+2026/10/25 14:11:44 symbol analysis finished for shard statistics: duration=1s symbols=15397 bytes=32235304
+2026/10/25 14:11:47 Builder.Finish /data/dev/CodeIndex/.data/heldout/indexes/zoekt/llvm/llvm_v16.00000.zoekt.1481113651.tmp
+2026/10/25 14:11:47 Builder.Finish /data/dev/CodeIndex/.data/heldout/indexes/zoekt/llvm/llvm_v16.00001.zoekt.3317907053.tmp
+2026/10/25 14:11:47 Builder.Finish /data/dev/CodeIndex/.data/heldout/indexes/zoekt/llvm/llvm_v16.00002.zoekt.1742192948.tmp
+2026/10/25 14:11:47 indexGitRepo(/data/dev/CodeIndex/.data/heldout/inputs/llvm, delta=false): error adding document with name lldb/include/lldb/Host/FileSystem.h: ctags unexpected response  for clang/test/Parser/parser_overflow.c

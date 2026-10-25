@@ -1,0 +1,47 @@
+Resolving context...
+Initializing services and database connection...
+Services initialized.
+Starting indexing for: /data/dev/CodeIndex/.data/heldout/inputs/cpython
+Skipped 37976 unresolved call relationship(s): ambiguous_function_target=33837, 
+ambiguous_class_target=4139
+┏━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ Call                    ┃ Reason                  ┃ Location                 ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│ (PYTHON_DIR /           │ ambiguous_function_tar… │ /data/dev/CodeIndex/.dat │
+│ "pyconfig.h.in").exists │                         │ a/heldout/inputs/cpython │
+│                         │                         │ /Android/android.py:29   │
+│ path.is_symlink         │ ambiguous_function_tar… │ /data/dev/CodeIndex/.dat │
+│                         │                         │ a/heldout/inputs/cpython │
+│                         │                         │ /Android/android.py:75   │
+│ CROSS_BUILD_DIR.joinpat │ ambiguous_function_tar… │ /data/dev/CodeIndex/.dat │
+│ h                       │                         │ a/heldout/inputs/cpython │
+│                         │                         │ /Android/android.py:82   │
+│ path.exists             │ ambiguous_function_tar… │ /data/dev/CodeIndex/.dat │
+│                         │                         │ a/heldout/inputs/cpython │
+│                         │                         │ /Android/android.py:83   │
+│ binary.is_file          │ ambiguous_function_tar… │ /data/dev/CodeIndex/.dat │
+│                         │                         │ a/heldout/inputs/cpython │
+│                         │                         │ /Android/android.py:163  │
+└─────────────────────────┴─────────────────────────┴──────────────────────────┘
+                          CGC Index Execution Summary                           
++------------------------------------------------------------------------------+
+| Metric                | Value                                                |
+|-----------------------+------------------------------------------------------|
+| Total scanned files   | 3575                                                 |
+| Files by extension    | .bat (generic): 30, .c (c): 467, .cfg (generic): 1,  |
+|                       | .cpp (cpp): 7, .css (css): 2, .gitignore (generic):  |
+|                       | 5, .h (cpp): 618, .html (html): 13, .ini (generic):  |
+|                       | 9, .js (javascript): 3, .json (generic): 32, .kt     |
+|                       | (kotlin): 2, .md (generic): 30, .mjs (javascript):   |
+|                       | 3, .ps1 (generic): 5, .py (python): 2088, .sh        |
+|                       | (generic): 10, .toml (generic): 72, .ts              |
+|                       | (typescript): 2, .txt (generic): 139, .yaml          |
+|                       | (generic): 2, .yml (generic): 31, Makefile           |
+|                       | (generic): 4                                         |
+| Function nodes        | 91161                                                |
+| Class nodes           | 18227                                                |
+| CALLS edges           | 718075                                               |
+| Serialization seconds | 153.75                                               |
++------------------------------------------------------------------------------+
+Successfully finished indexing: /data/dev/CodeIndex/.data/heldout/inputs/cpython
+in 361.70 seconds

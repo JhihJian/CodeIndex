@@ -1,0 +1,320 @@
+Oct 25, 2026 2:09:34 PM org.opengrok.indexer.index.Indexer parseOptions
+INFO: Indexer options: [-s, /data/dev/CodeIndex/.data/heldout/inputs/llvm, -d, /data/dev/CodeIndex/.data/heldout/indexes/opengrok/llvm/data, -W, /data/dev/CodeIndex/.data/heldout/indexes/opengrok/llvm/config.xml, -c, /home/jhihjian/.local/bin/ctags-universal, -S]
+Oct 25, 2026 2:09:34 PM org.opengrok.indexer.configuration.Configuration checkConfiguration
+INFO: History based reindex is on, however history is off. History has to be enabled for history based reindex.
+Oct 25, 2026 2:09:34 PM org.opengrok.indexer.index.Indexer runMain
+INFO: Indexer version 1.14.20 (3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3) running on Java version: 21.0.12.1+1-1-24.04.4-Ubuntu, name: OpenJDK 64-Bit Server VM, vendor: Ubuntu, arch: amd64 with properties: ncpu: 12, maxMemory: 8.0 GiB
+Oct 25, 2026 2:09:34 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: Unknown language "terraform:+.tf.Tf.TF" in "langmap" option
+Oct 25, 2026 2:09:34 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: Unknown language "terraform:+.tfvars.Tfvars.TFVARS" in "langmap" option
+Oct 25, 2026 2:09:35 PM org.opengrok.indexer.configuration.RuntimeEnvironment validateUniversalCtags
+INFO: Using ctags: Universal Ctags 5.9.0, Copyright (C) 2015 Universal Ctags Team
+Universal Ctags is derived from Exuberant Ctags.
+Exuberant Ctags 5.8, Copyright (C) 1996-2009 Darren Hiebert
+  Compiled: Sep  3 2021, 18:12:18
+  URL: https://ctags.io/
+  Optional compiled features: +wildcards, +regex, +gnulib_regex, +iconv, +option-directory, +xpath, +json, +interactive, +sandbox, +yaml, +packcc, +optscript
+Oct 25, 2026 2:09:35 PM org.opengrok.indexer.index.Indexer prepareIndexer
+INFO: Scanning for repositories in [/data/dev/CodeIndex/.data/heldout/inputs/llvm/.clang-format-ignore, /data/dev/CodeIndex/.data/heldout/inputs/llvm/bolt, /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang-tools-extra, /data/dev/CodeIndex/.data/heldout/inputs/llvm/CODE_OF_CONDUCT.md, /data/dev/CodeIndex/.data/heldout/inputs/llvm/flang-rt, /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang, /data/dev/CodeIndex/.data/heldout/inputs/llvm/CONTRIBUTING.md, /data/dev/CodeIndex/.data/heldout/inputs/llvm/cmake, /data/dev/CodeIndex/.data/heldout/inputs/llvm/.github, /data/dev/CodeIndex/.data/heldout/inputs/llvm/mlir, /data/dev/CodeIndex/.data/heldout/inputs/llvm/.mailmap, /data/dev/CodeIndex/.data/heldout/inputs/llvm/LICENSE.TXT, /data/dev/CodeIndex/.data/heldout/inputs/llvm/libunwind, /data/dev/CodeIndex/.data/heldout/inputs/llvm/compiler-rt, /data/dev/CodeIndex/.data/heldout/inputs/llvm/.gitattributes, /data/dev/CodeIndex/.data/heldout/inputs/llvm/.clang-format, /data/dev/CodeIndex/.data/heldout/inputs/llvm/lld, /data/dev/CodeIndex/.data/heldout/inputs/llvm/runtimes, /data/dev/CodeIndex/.data/heldout/inputs/llvm/.git-blame-ignore-revs, /data/dev/CodeIndex/.data/heldout/inputs/llvm/libcxxabi, /data/dev/CodeIndex/.data/heldout/inputs/llvm/llvm-libgcc, /data/dev/CodeIndex/.data/heldout/inputs/llvm/flang, /data/dev/CodeIndex/.data/heldout/inputs/llvm/third-party, /data/dev/CodeIndex/.data/heldout/inputs/llvm/pyproject.toml, /data/dev/CodeIndex/.data/heldout/inputs/llvm/libcxx, /data/dev/CodeIndex/.data/heldout/inputs/llvm/.gitignore, /data/dev/CodeIndex/.data/heldout/inputs/llvm/.clang-tidy, /data/dev/CodeIndex/.data/heldout/inputs/llvm/cross-project-tests, /data/dev/CodeIndex/.data/heldout/inputs/llvm/polly, /data/dev/CodeIndex/.data/heldout/inputs/llvm/.git, /data/dev/CodeIndex/.data/heldout/inputs/llvm/.ci, /data/dev/CodeIndex/.data/heldout/inputs/llvm/utils, /data/dev/CodeIndex/.data/heldout/inputs/llvm/offload, /data/dev/CodeIndex/.data/heldout/inputs/llvm/openmp, /data/dev/CodeIndex/.data/heldout/inputs/llvm/SECURITY.md, /data/dev/CodeIndex/.data/heldout/inputs/llvm/README.md, /data/dev/CodeIndex/.data/heldout/inputs/llvm/libc, /data/dev/CodeIndex/.data/heldout/inputs/llvm/lldb, /data/dev/CodeIndex/.data/heldout/inputs/llvm/llvm, /data/dev/CodeIndex/.data/heldout/inputs/llvm/libclc] (down to 3 levels below source root)
+Oct 25, 2026 2:09:35 PM org.opengrok.indexer.history.PerforceRepository isP4Working
+WARNING: Command 'p4' does not work. Some operations with Perforce repositories will fail as a result.
+Oct 25, 2026 2:09:35 PM org.opengrok.indexer.util.Statistics logIt
+INFO: Done scanning for repositories, found 0 repositories (took 66 ms)
+Oct 25, 2026 2:09:35 PM org.opengrok.indexer.index.Indexer prepareIndexer
+INFO: Generating history cache for all repositories ...
+Oct 25, 2026 2:09:35 PM org.opengrok.indexer.index.Indexer prepareIndexer
+INFO: Done generating history cache
+Oct 25, 2026 2:09:35 PM org.opengrok.indexer.index.Indexer doIndexerExecution
+INFO: Starting indexing
+WARNING: A restricted method in java.lang.foreign.Linker has been called
+WARNING: java.lang.foreign.Linker::downcallHandle has been called by the unnamed module
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for this module
+
+Oct 25, 2026 2:09:35 PM org.apache.lucene.store.MemorySegmentIndexInputProvider <init>
+INFO: Using MemorySegmentIndexInput and native madvise support with Java 21 or later; to disable start with -Dorg.apache.lucene.store.MMapDirectory.enableMemorySegments=false
+Oct 25, 2026 2:09:35 PM org.apache.lucene.internal.vectorization.VectorizationProvider lookup
+WARNING: Java vector incubator module is not readable. For optimal vector performance, pass '--add-modules jdk.incubator.vector' to enable Vector API.
+Oct 25, 2026 2:09:35 PM org.opengrok.indexer.index.IndexDatabase getIndexDownArgs
+INFO: Starting file collection using file-system traversal for directory ''
+Oct 25, 2026 2:09:41 PM org.opengrok.indexer.util.Statistics logIt
+INFO: Done file collection for directory '' (took 5.982 seconds)
+Oct 25, 2026 2:09:41 PM org.opengrok.indexer.index.IndexDatabase update
+INFO: Starting indexing of directory ''
+Oct 25, 2026 2:09:41 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: Unknown language "terraform:+.tf.Tf.TF" in "langmap" option
+Oct 25, 2026 2:09:41 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: Unknown language "terraform:+.tf.Tf.TF" in "langmap" option
+Oct 25, 2026 2:09:41 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: Unknown language "terraform:+.tfvars.Tfvars.TFVARS" in "langmap" option
+Oct 25, 2026 2:09:41 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: Unknown language "terraform:+.tf.Tf.TF" in "langmap" option
+Oct 25, 2026 2:09:41 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: Unknown language "terraform:+.tf.Tf.TF" in "langmap" option
+Oct 25, 2026 2:09:41 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: Unknown language "terraform:+.tf.Tf.TF" in "langmap" option
+Oct 25, 2026 2:09:41 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: Unknown language "terraform:+.tfvars.Tfvars.TFVARS" in "langmap" option
+Oct 25, 2026 2:09:41 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: Unknown language "terraform:+.tf.Tf.TF" in "langmap" option
+Oct 25, 2026 2:09:41 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: Unknown language "terraform:+.tfvars.Tfvars.TFVARS" in "langmap" option
+Oct 25, 2026 2:09:41 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: Unknown language "terraform:+.tf.Tf.TF" in "langmap" option
+Oct 25, 2026 2:09:41 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: Unknown language "terraform:+.tfvars.Tfvars.TFVARS" in "langmap" option
+Oct 25, 2026 2:09:41 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: Unknown language "terraform:+.tfvars.Tfvars.TFVARS" in "langmap" option
+Oct 25, 2026 2:09:41 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: Unknown language "terraform:+.tfvars.Tfvars.TFVARS" in "langmap" option
+Oct 25, 2026 2:09:41 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: Unknown language "terraform:+.tfvars.Tfvars.TFVARS" in "langmap" option
+Oct 25, 2026 2:09:41 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: Unknown language "terraform:+.tf.Tf.TF" in "langmap" option
+Oct 25, 2026 2:09:41 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: Unknown language "terraform:+.tf.Tf.TF" in "langmap" option
+Oct 25, 2026 2:09:41 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: Unknown language "terraform:+.tfvars.Tfvars.TFVARS" in "langmap" option
+Oct 25, 2026 2:09:41 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: Unknown language "terraform:+.tfvars.Tfvars.TFVARS" in "langmap" option
+Oct 25, 2026 2:09:41 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: Unknown language "terraform:+.tf.Tf.TF" in "langmap" option
+Oct 25, 2026 2:09:41 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: Unknown language "terraform:+.tfvars.Tfvars.TFVARS" in "langmap" option
+Oct 25, 2026 2:09:41 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: Unknown language "terraform:+.tf.Tf.TF" in "langmap" option
+Oct 25, 2026 2:09:41 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: Unknown language "terraform:+.tfvars.Tfvars.TFVARS" in "langmap" option
+Oct 25, 2026 2:09:41 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: Unknown language "terraform:+.tf.Tf.TF" in "langmap" option
+Oct 25, 2026 2:09:41 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: Unknown language "terraform:+.tfvars.Tfvars.TFVARS" in "langmap" option
+Oct 25, 2026 2:09:43 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/CodeGenObjC/blocks-1.m(line: 47)
+Oct 25, 2026 2:09:44 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/Rewriter/rewrite-function-decl.mm(line: 5)
+Oct 25, 2026 2:09:44 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/Rewriter/rewrite-function-decl.mm(line: 9)
+Oct 25, 2026 2:09:44 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/Rewriter/rewrite-function-decl.mm(line: 12)
+Oct 25, 2026 2:09:44 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/Rewriter/rewrite-function-decl.mm(line: 20)
+Oct 25, 2026 2:09:44 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/Rewriter/rewrite-function-decl.mm(line: 24)
+Oct 25, 2026 2:09:44 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/Rewriter/rewrite-function-decl.mm(line: 27)
+Oct 25, 2026 2:09:45 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/Rewriter/rewrite-typeof.mm(line: 13)
+Oct 25, 2026 2:09:45 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/Rewriter/rewrite-typeof.mm(line: 17)
+Oct 25, 2026 2:09:46 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/CodeGenObjCXX/mangle-blocks.mm(line: 20)
+Oct 25, 2026 2:09:47 PM org.opengrok.indexer.analysis.Ctags readTags
+WARNING: ctags: Unexpected end of file!
+Oct 25, 2026 2:09:47 PM org.opengrok.indexer.analysis.Ctags readTags
+WARNING: ctags exited with code: 139
+Oct 25, 2026 2:09:47 PM org.opengrok.indexer.analysis.Ctags doCtags
+WARNING: execution exception
+java.util.concurrent.ExecutionException: java.lang.InterruptedException: tagLine == null
+	at java.base/java.util.concurrent.FutureTask.report(FutureTask.java:122)
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:205)
+	at org.opengrok.indexer.analysis.Ctags.doCtags(Ctags.java:514)
+	at org.opengrok.indexer.analysis.plain.PlainAnalyzer.analyze(PlainAnalyzer.java:121)
+	at org.opengrok.indexer.analysis.AnalyzerGuru.populateDocument(AnalyzerGuru.java:634)
+	at org.opengrok.indexer.index.IndexDatabase.addFile(IndexDatabase.java:1190)
+	at org.opengrok.indexer.index.IndexDatabase.lambda$indexParallel$8(IndexDatabase.java:1863)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: java.lang.InterruptedException: tagLine == null
+	at org.opengrok.indexer.analysis.Ctags.readTags(Ctags.java:624)
+	at org.opengrok.indexer.analysis.Ctags.lambda$doCtags$2(Ctags.java:509)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	... 3 more
+
+Oct 25, 2026 2:09:47 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: Unknown language "terraform:+.tf.Tf.TF" in "langmap" option
+Oct 25, 2026 2:09:47 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: Unknown language "terraform:+.tfvars.Tfvars.TFVARS" in "langmap" option
+Oct 25, 2026 2:09:48 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/Rewriter/rewrite-modern-typeof.mm(line: 15)
+Oct 25, 2026 2:09:48 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/Rewriter/rewrite-modern-typeof.mm(line: 19)
+Oct 25, 2026 2:09:48 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/SemaObjC/crash-label.m(line: 3)
+Oct 25, 2026 2:09:51 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/Parser/cxx1z-decomposition.cpp(line: 99)
+Oct 25, 2026 2:09:55 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/Parser/objcxx-at.mm(line: 9)
+Oct 25, 2026 2:09:55 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/Sema/warn-documentation.m(line: 233)
+Oct 25, 2026 2:09:55 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/Sema/warn-documentation.m(line: 253)
+Oct 25, 2026 2:09:56 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/SemaObjCXX/overload.mm(line: 98)
+Oct 25, 2026 2:09:57 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/SemaObjC/attr-malloc.m(line: 13)
+Oct 25, 2026 2:09:57 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/SemaObjC/attr-malloc.m(line: 14)
+Oct 25, 2026 2:09:57 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/SemaObjC/attr-malloc.m(line: 15)
+Oct 25, 2026 2:09:57 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/SemaObjC/unguarded-availability.m(line: 142)
+Oct 25, 2026 2:09:59 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/SemaObjC/block-explicit-return-type.m(line: 70)
+Oct 25, 2026 2:10:00 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/SemaObjC/externally-retained.m(line: 65)
+Oct 25, 2026 2:10:00 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/SemaObjC/externally-retained.m(line: 66)
+Oct 25, 2026 2:10:00 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/SemaObjC/externally-retained.m(line: 71)
+Oct 25, 2026 2:10:00 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/SemaObjC/externally-retained.m(line: 72)
+Oct 25, 2026 2:10:00 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/SemaObjC/externally-retained.m(line: 84)
+Oct 25, 2026 2:10:00 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/SemaObjC/externally-retained.m(line: 84)
+Oct 25, 2026 2:10:01 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/SemaObjC/property-9.m(line: 47)
+Oct 25, 2026 2:10:03 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/SemaObjC/block-literal-with-attribute.m(line: 4)
+Oct 25, 2026 2:10:05 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/SemaObjCXX/noescape.mm(line: 77)
+Oct 25, 2026 2:10:05 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/SemaObjCXX/noescape.mm(line: 78)
+Oct 25, 2026 2:10:05 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/SemaObjCXX/noescape.mm(line: 79)
+Oct 25, 2026 2:10:05 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/SemaObjCXX/noescape.mm(line: 83)
+Oct 25, 2026 2:10:05 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/CodeGenObjC/blocks.m(line: 12)
+Oct 25, 2026 2:10:07 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/CodeGenObjCXX/block-id.mm(line: 22)
+Oct 25, 2026 2:10:07 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/SemaObjC/sizeof-interface.m(line: 44)
+Oct 25, 2026 2:10:08 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/lib/Analysis/FlowSensitive/HTMLLogger.js(line: 101)
+Oct 25, 2026 2:10:08 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/FixIt/fixit-static-object-decl.m(line: 26)
+Oct 25, 2026 2:10:09 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/SemaObjC/nonnull.m(line: 122)
+Oct 25, 2026 2:10:09 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/SemaObjC/nonnull.m(line: 122)
+Oct 25, 2026 2:10:09 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/SemaObjC/nonnull.m(line: 127)
+Oct 25, 2026 2:10:12 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/Analysis/Checkers/WebKit/retain-ptr-ctor-adopt-use-arc.mm(line: 141)
+Oct 25, 2026 2:10:12 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/Analysis/Checkers/WebKit/retain-ptr-ctor-adopt-use-arc.mm(line: 146)
+Oct 25, 2026 2:10:13 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: definition tag for refonly kind(section) is made: secnum
+Oct 25, 2026 2:10:14 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: definition tag for refonly kind(section) is made: secoffset
+Oct 25, 2026 2:10:14 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/Rewriter/rewrite-block-literal.mm(line: 11)
+Oct 25, 2026 2:10:14 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/Rewriter/rewrite-block-literal.mm(line: 67)
+Oct 25, 2026 2:10:16 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/Rewriter/rewrite-byref-vars.mm(line: 6)
+Oct 25, 2026 2:10:16 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/Rewriter/rewrite-byref-vars.mm(line: 21)
+Oct 25, 2026 2:10:16 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/Rewriter/rewrite-byref-vars.mm(line: 25)
+Oct 25, 2026 2:10:16 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/Rewriter/rewrite-byref-vars.mm(line: 28)
+Oct 25, 2026 2:10:16 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/Analysis/stack-capture-leak-arc.mm(line: 225)
+Oct 25, 2026 2:10:16 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/Rewriter/rewrite-modern-extern-c-func-decl.mm(line: 7)
+Oct 25, 2026 2:10:16 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/Rewriter/rewrite-modern-extern-c-func-decl.mm(line: 11)
+Oct 25, 2026 2:10:16 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/Rewriter/rewrite-modern-extern-c-func-decl.mm(line: 14)
+Oct 25, 2026 2:10:16 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/Rewriter/rewrite-modern-extern-c-func-decl.mm(line: 22)
+Oct 25, 2026 2:10:16 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/Rewriter/rewrite-modern-extern-c-func-decl.mm(line: 26)
+Oct 25, 2026 2:10:16 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/Rewriter/rewrite-modern-extern-c-func-decl.mm(line: 29)
+Oct 25, 2026 2:10:18 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/CodeGenObjC/arc-blocks.m(line: 19)
+Oct 25, 2026 2:10:18 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/CodeGenObjC/arc-blocks.m(line: 512)
+Oct 25, 2026 2:10:19 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/CodeGenObjC/encode-test-3.m(line: 18)
+Oct 25, 2026 2:10:20 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/Parser/objc-static-assert.m(line: 29)
+Oct 25, 2026 2:10:21 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/Sema/warn-strict-prototypes.m(line: 26)
+Oct 25, 2026 2:10:22 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/CodeGenObjC/ptrauth-block-isa.m(line: 3)
+Oct 25, 2026 2:10:22 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/CodeGenObjC/ivar-invariant.m(line: 66)
+Oct 25, 2026 2:10:22 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/CodeGenObjC/ivar-invariant.m(line: 66)
+Oct 25, 2026 2:10:22 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: definition tag for refonly kind(section) is made: section
+Oct 25, 2026 2:10:22 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/Rewriter/rewrite-block-pointer.mm(line: 83)
+Oct 25, 2026 2:10:23 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/ExtractAPI/objc_block.m(line: 559)
+Oct 25, 2026 2:10:23 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/SemaObjC/exprs.m(line: 21)
+Oct 25, 2026 2:10:23 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/SemaObjC/exprs.m(line: 21)
+Oct 25, 2026 2:10:25 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/Parser/missing-selector-name.mm(line: 20)
+Oct 25, 2026 2:10:26 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/SemaObjC/attr-ns_returns_retained.m(line: 5)
+Oct 25, 2026 2:10:26 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/SemaObjC/attr-ns_returns_retained.m(line: 6)
+Oct 25, 2026 2:10:26 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/SemaObjC/attr-ns_returns_retained.m(line: 8)
+Oct 25, 2026 2:10:26 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/SemaObjC/attr-ns_returns_retained.m(line: 9)
+Oct 25, 2026 2:10:33 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/CodeGenObjCXX/return.mm(line: 19)
+Oct 25, 2026 2:10:37 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/Index/KeepGoingWithLotsOfErrors.mm(line: 5)
+Oct 25, 2026 2:10:37 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/Index/KeepGoingWithLotsOfErrors.mm(line: 14)
+Oct 25, 2026 2:10:38 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/CodeGenObjCXX/auto-release-result-assert.mm(line: 33)
+Oct 25, 2026 2:10:40 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/Analysis/Checkers/WebKit/retain-ptr-ctor-adopt-use.mm(line: 146)
+Oct 25, 2026 2:10:40 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/Analysis/Checkers/WebKit/retain-ptr-ctor-adopt-use.mm(line: 151)
+Oct 25, 2026 2:10:44 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/FixIt/fixit-objc-message.m(line: 24)
+Oct 25, 2026 2:10:47 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/SemaObjC/missing-method-context.m(line: 2)
+Oct 25, 2026 2:10:49 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/AST/pragma-attribute-objc-subject-match-rules.m(line: 95)
+Oct 25, 2026 2:10:50 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/CodeGenObjC/block-byref-debuginfo.m(line: 41)
+Oct 25, 2026 2:10:52 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/CodeGenObjC/runtime-abi-match.m(line: 4)
+Oct 25, 2026 2:10:52 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/CodeGenObjC/runtime-abi-match.m(line: 5)
+Oct 25, 2026 2:10:53 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/SemaObjCXX/cxxoperator-selector.mm(line: 10)
+Oct 25, 2026 2:10:53 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/SemaObjCXX/cxxoperator-selector.mm(line: 12)
+Oct 25, 2026 2:10:55 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/CodeGenObjC/local-static-block.m(line: 10)
+Oct 25, 2026 2:10:55 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: ignoring null tag in /data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/CodeGenObjC/local-static-block.m(line: 10)
+Oct 25, 2026 2:11:01 PM org.opengrok.indexer.util.Statistics logIt
+INFO: Done indexing of directory '' (took 0:01:19)
+Oct 25, 2026 2:11:03 PM org.opengrok.indexer.util.Statistics logIt
+INFO: Done indexing data of all repositories (took 0:01:28)
+Oct 25, 2026 2:11:03 PM org.opengrok.indexer.index.Indexer writeConfigToFile
+INFO: Writing configuration to '/data/dev/CodeIndex/.data/heldout/indexes/opengrok/llvm/config.xml'
+Oct 25, 2026 2:11:03 PM org.opengrok.indexer.index.Indexer writeConfigToFile
+INFO: Done writing configuration to '/data/dev/CodeIndex/.data/heldout/indexes/opengrok/llvm/config.xml'
+Oct 25, 2026 2:11:03 PM org.opengrok.indexer.util.Statistics logIt
+INFO: Indexer finished (took 0:01:29)
+Oct 25, 2026 2:11:03 PM org.opengrok.indexer.index.Indexer runMain
+INFO: Indexer finished with success

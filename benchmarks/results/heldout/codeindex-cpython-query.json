@@ -1,0 +1,475 @@
+{
+  "tool": "CodeIndex",
+  "loadMs": 1.2196079999999974,
+  "mode": "metadata",
+  "warmup": 1,
+  "repetitions": 20,
+  "rows": [
+    {
+      "query": "SequenceMatcher",
+      "hitAt10": true,
+      "coldMs": 7.913536000000001,
+      "medianMs": 1.1458859999999973,
+      "evidenceMs": 2.1037219999999905,
+      "files": [
+        {
+          "path": "Lib/difflib.py",
+          "symbol": "Lib.difflib.SequenceMatcher",
+          "lines": [
+            {
+              "line": 44,
+              "source": "class SequenceMatcher:\n\n    \"\"\"",
+              "digest": "000f99f04cf8fd967753ed9929be6d5025e006437e0ef19b65e3303072538b74"
+            },
+            {
+              "line": 120,
+              "source": "def __init__(self, isjunk=None, a='', b='', autojunk=True):\n        \"\"\"Construct a SequenceMatcher.\n",
+              "digest": "000f99f04cf8fd967753ed9929be6d5025e006437e0ef19b65e3303072538b74"
+            },
+            {
+              "line": 266,
+              "source": "def __chain_b(self):\n        # Because isjunk is a user-defined (not C) function, and we test\n        # for junk a LOT, it's important to minimize the number of calls.",
+              "digest": "000f99f04cf8fd967753ed9929be6d5025e006437e0ef19b65e3303072538b74"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": "JSONDecoder",
+      "hitAt10": true,
+      "coldMs": 0.578045000000003,
+      "medianMs": 0.4567545000000024,
+      "evidenceMs": 0.5914399999999915,
+      "files": [
+        {
+          "path": "Lib/json/decoder.py",
+          "symbol": "Lib.json.decoder.JSONDecoder",
+          "lines": [
+            {
+              "line": 262,
+              "source": "class JSONDecoder(object):\n    \"\"\"Simple JSON <https://json.org> decoder\n",
+              "digest": "6d95679fccf178f2af9e9eead42f8efb084c58735951dc47fce89aec11d44955"
+            },
+            {
+              "line": 340,
+              "source": "def decode(self, s, _w=WHITESPACE.match):\n        \"\"\"Return the Python representation of ``s`` (a ``str`` instance\n        containing a JSON document).",
+              "digest": "6d95679fccf178f2af9e9eead42f8efb084c58735951dc47fce89aec11d44955"
+            },
+            {
+              "line": 351,
+              "source": "def raw_decode(self, s, idx=0):\n        \"\"\"Decode a JSON document from ``s`` (a ``str`` beginning with\n        a JSON document) and return a 2-tuple of the Python",
+              "digest": "6d95679fccf178f2af9e9eead42f8efb084c58735951dc47fce89aec11d44955"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": "ArgumentParser",
+      "hitAt10": true,
+      "coldMs": 1.2435720000000003,
+      "medianMs": 1.096584,
+      "evidenceMs": 1.4419420000000116,
+      "files": [
+        {
+          "path": "Lib/argparse.py",
+          "symbol": "Lib.argparse.ArgumentParser",
+          "lines": [
+            {
+              "line": 1840,
+              "source": "class ArgumentParser(_AttributeHolder, _ActionsContainer):\n    \"\"\"Object for parsing command line strings into Python objects.\n",
+              "digest": "c2cd895b117dbc4d55439773e3f11e57b833b1e20f05d311c4465b794b044898"
+            },
+            {
+              "line": 1906,
+              "source": "def identity(string):\n            return string",
+              "digest": "c2cd895b117dbc4d55439773e3f11e57b833b1e20f05d311c4465b794b044898"
+            },
+            {
+              "line": 2773,
+              "source": "def _warning(self, message):\n        args = {'prog': self.prog, 'message': message}\n        self._print_message(_('%(prog)s: warning: %(message)s\\n') % args, _sys.stderr)",
+              "digest": "c2cd895b117dbc4d55439773e3f11e57b833b1e20f05d311c4465b794b044898"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": "heappush",
+      "hitAt10": true,
+      "coldMs": 1.1992699999999985,
+      "medianMs": 0.9470360000000042,
+      "evidenceMs": 1.463782000000009,
+      "files": [
+        {
+          "path": "Lib/heapq.py",
+          "symbol": "Lib.heapq.heappush",
+          "lines": [
+            {
+              "line": 132,
+              "source": "def heappush(heap, item):\n    \"\"\"Push item onto heap, maintaining the heap invariant.\"\"\"\n    heap.append(item)",
+              "digest": "8a1d516c404e991c04f6ca7c7532be4e2abb45518122fdac724a05f710a94697"
+            },
+            {
+              "line": 198,
+              "source": "def heappush_max(heap, item):\n    \"\"\"Maxheap version of a heappush.\"\"\"\n    heap.append(item)",
+              "digest": "8a1d516c404e991c04f6ca7c7532be4e2abb45518122fdac724a05f710a94697"
+            },
+            {
+              "line": 163,
+              "source": "def heappushpop(heap, item):\n    \"\"\"Fast version of a heappush followed by a heappop.\"\"\"\n    if heap and heap[0] < item:",
+              "digest": "8a1d516c404e991c04f6ca7c7532be4e2abb45518122fdac724a05f710a94697"
+            }
+          ]
+        },
+        {
+          "path": "Lib/asyncio/queues.py",
+          "symbol": "Lib.asyncio.queues.PriorityQueue._put",
+          "lines": [
+            {
+              "line": 291,
+              "source": "def _put(self, item, heappush=heapq.heappush):\n        heappush(self._queue, item)",
+              "digest": "48693f7c118584b0a896d3ad7c5fd6c1250104733075be071e6b19708b866d96"
+            }
+          ]
+        },
+        {
+          "path": "Lib/test/test_heapq.py",
+          "symbol": "Lib.test.test_heapq.TestHeap.test_heappushpop",
+          "lines": [
+            {
+              "line": 243,
+              "source": "def test_heappushpop(self):\n        h = []\n        x = self.module.heappushpop(h, 10)",
+              "digest": "bf78080cb1f095dcaa2dc68b7da9a86767d0a55f8199e747d5d1ff1b97a51af2"
+            },
+            {
+              "line": 262,
+              "source": "def test_heappushpop_max(self):\n        h = []\n        x = self.module.heappushpop_max(h, 10)",
+              "digest": "bf78080cb1f095dcaa2dc68b7da9a86767d0a55f8199e747d5d1ff1b97a51af2"
+            },
+            {
+              "line": 567,
+              "source": "def test_heappush_mutating_heap(self):\n        heap = []\n        heap.extend(SideEffectLT(i, heap) for i in range(200))",
+              "digest": "bf78080cb1f095dcaa2dc68b7da9a86767d0a55f8199e747d5d1ff1b97a51af2"
+            }
+          ]
+        },
+        {
+          "path": "Modules/_heapqmodule.c",
+          "symbol": "_heapq_heappush_impl",
+          "lines": [
+            {
+              "line": 132,
+              "source": "_heapq_heappush_impl(PyObject *module, PyObject *heap, PyObject *item)\n/*[clinic end generated code: output=912c094f47663935 input=f7a4f03ef8d52e67]*/\n{",
+              "digest": "e28abbac38c38b9af23130a02da42bc6ff131368361e35d524e2cf04e31852c1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": "Py_Initialize",
+      "hitAt10": true,
+      "coldMs": 1.366310999999996,
+      "medianMs": 1.2034179999999992,
+      "evidenceMs": 3.4439140000000066,
+      "files": [
+        {
+          "path": "Python/pylifecycle.c",
+          "symbol": "Py_Initialize",
+          "lines": [
+            {
+              "line": 1483,
+              "source": "Py_Initialize(void)\n{\n    Py_InitializeEx(1);",
+              "digest": "c6c1256d8f1d6edb692aaa1d07c2cd2273411c9f461b0a6a21566236fa3e7d7d"
+            },
+            {
+              "line": 1422,
+              "source": "Py_InitializeFromConfig(const PyConfig *config)\n{\n    if (config == NULL) {",
+              "digest": "c6c1256d8f1d6edb692aaa1d07c2cd2273411c9f461b0a6a21566236fa3e7d7d"
+            }
+          ]
+        },
+        {
+          "path": "Include/pylifecycle.h",
+          "symbol": "Py_Initialize",
+          "lines": [
+            {
+              "line": 12,
+              "source": "PyAPI_FUNC(void) Py_Initialize(void);",
+              "digest": "2a05239b2e57efefe32fad328c5f567a4712db4ce8610c9d39ba0df25ce51cdb"
+            }
+          ]
+        },
+        {
+          "path": "Lib/test/test_embed.py",
+          "symbol": "Lib.test.test_embed.EmbeddingTests.test_initialize_twice",
+          "lines": [
+            {
+              "line": 334,
+              "source": "def test_initialize_twice(self):\n        \"\"\"\n        bpo-33932: Calling Py_Initialize() twice should do nothing (and not",
+              "digest": "60d3f4dcaf604738d96b52a54245e9dbc90331eae7f2e591383660163d7c547a"
+            },
+            {
+              "line": 343,
+              "source": "def test_initialize_pymain(self):\n        \"\"\"\n        bpo-34008: Calling Py_Main() after Py_Initialize() must not fail.",
+              "digest": "60d3f4dcaf604738d96b52a54245e9dbc90331eae7f2e591383660163d7c547a"
+            }
+          ]
+        },
+        {
+          "path": "Objects/typevarobject.c",
+          "symbol": "_Py_initialize_generic",
+          "lines": [
+            {
+              "line": 2331,
+              "source": "int _Py_initialize_generic(PyInterpreterState *interp)\n{\n#define MAKE_TYPE(name) \\",
+              "digest": "a72bf71c95355f4fc1508bd6bebcac38004006dd9a98729cfc00676b6fb4915f"
+            }
+          ]
+        },
+        {
+          "path": "Programs/_testembed.c",
+          "symbol": "_testembed_Py_InitializeFromConfig",
+          "lines": [
+            {
+              "line": 83,
+              "source": "static void _testembed_Py_InitializeFromConfig(void)\n{\n    PyConfig config;",
+              "digest": "a2741810a8dd6f7c3b71e1d1fb8e266e1ec6879c7ec7c73a247f460abcc9d65b"
+            },
+            {
+              "line": 91,
+              "source": "static void _testembed_Py_Initialize(void)\n{\n   Py_SetProgramName(PROGRAM_NAME);",
+              "digest": "a2741810a8dd6f7c3b71e1d1fb8e266e1ec6879c7ec7c73a247f460abcc9d65b"
+            }
+          ]
+        },
+        {
+          "path": "Python/ceval.c",
+          "symbol": "_Py_InitializeRecursionLimits",
+          "lines": [
+            {
+              "line": 429,
+              "source": "_Py_InitializeRecursionLimits(PyThreadState *tstate)\n{\n    _PyThreadStateImpl *_tstate = (_PyThreadStateImpl *)tstate;",
+              "digest": "d78971f92339384e42cebb967e38dd18928efd3dbefa0c66a9200527cf23f3ea"
+            }
+          ]
+        },
+        {
+          "path": "Python/initconfig.c",
+          "symbol": "Py_InitializeFromInitConfig",
+          "lines": [
+            {
+              "line": 4177,
+              "source": "Py_InitializeFromInitConfig(PyInitConfig *config)\n{\n    if (config->inittab_size >= 1) {",
+              "digest": "8da347ab922966eab679c0a0314701a0bed6df647b14eb3ecdef14ec298cd227"
+            }
+          ]
+        },
+        {
+          "path": "Include/cpython/initconfig.h",
+          "symbol": "Py_InitializeFromInitConfig",
+          "lines": []
+        }
+      ]
+    },
+    {
+      "query": "PyErr_SetString",
+      "hitAt10": true,
+      "coldMs": 0.7714849999999842,
+      "medianMs": 0.5053894999999926,
+      "evidenceMs": 0.9084189999999808,
+      "files": [
+        {
+          "path": "Python/errors.c",
+          "symbol": "PyErr_SetString",
+          "lines": [
+            {
+              "line": 294,
+              "source": "PyErr_SetString(PyObject *exception, const char *string)\n{\n    PyThreadState *tstate = _PyThreadState_GET();",
+              "digest": "e54d738e9dca16b07d9efaeb08eed9fb6276a4af8a01640bad06680599450e49"
+            },
+            {
+              "line": 283,
+              "source": "_PyErr_SetString(PyThreadState *tstate, PyObject *exception,\n                 const char *string)\n{",
+              "digest": "e54d738e9dca16b07d9efaeb08eed9fb6276a4af8a01640bad06680599450e49"
+            }
+          ]
+        },
+        {
+          "path": "Include/pyerrors.h",
+          "symbol": "PyErr_SetString",
+          "lines": [
+            {
+              "line": 11,
+              "source": "PyAPI_FUNC(void) PyErr_SetString(\n    PyObject *exception,\n    const char *string   /* decoded from utf-8 */",
+              "digest": "d7947aded270de2b45a9cdfa2e3d523d46655f0d8edad3ce69d405e0d9f51d1f"
+            }
+          ]
+        },
+        {
+          "path": "Lib/test/test_capi/test_exceptions.py",
+          "symbol": "Lib.test.test_capi.test_exceptions.Test_ErrSetAndRestore.test_set_string",
+          "lines": [
+            {
+              "line": 241,
+              "source": "def test_set_string(self):\n        \"\"\"Test PyErr_SetString()\"\"\"\n        setstring = _testcapi.err_setstring",
+              "digest": "c9a7d72c756dab76eb83de646e9b607156caa83ba78765e386c076df48169845"
+            }
+          ]
+        },
+        {
+          "path": "Include/internal/pycore_pyerrors.h",
+          "symbol": "_PyErr_SetString",
+          "lines": [
+            {
+              "line": 130,
+              "source": "PyAPI_FUNC(void) _PyErr_SetString(\n    PyThreadState *tstate,\n    PyObject *exception,",
+              "digest": "6d110e715444e9e693c07ef0bb0dbf0ff5606763c669d5c1a587eac7428d3fdd"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": "PyUnicode_FromString",
+      "hitAt10": true,
+      "coldMs": 0.8077920000000063,
+      "medianMs": 0.6823639999999926,
+      "evidenceMs": 2.2190769999999986,
+      "files": [
+        {
+          "path": "Objects/unicodeobject.c",
+          "symbol": "PyUnicode_FromString",
+          "lines": [
+            {
+              "line": 2169,
+              "source": "PyUnicode_FromString(const char *u)\n{\n    size_t size = strlen(u);",
+              "digest": "cf6885efb5011a036d4741372cec22ef3945fb11abe01d8079917714a33addd0"
+            },
+            {
+              "line": 2150,
+              "source": "PyUnicode_FromStringAndSize(const char *u, Py_ssize_t size)\n{\n    if (size < 0) {",
+              "digest": "cf6885efb5011a036d4741372cec22ef3945fb11abe01d8079917714a33addd0"
+            }
+          ]
+        },
+        {
+          "path": "Include/unicodeobject.h",
+          "symbol": "PyUnicode_FromString",
+          "lines": [
+            {
+              "line": 129,
+              "source": "PyAPI_FUNC(PyObject*) PyUnicode_FromString(\n    const char *u              /* UTF-8 encoded string */\n    );",
+              "digest": "63cdbaf2e99744b3825b8809dc3d55b14071015d394293c462edf274b6d27fb6"
+            },
+            {
+              "line": 122,
+              "source": "PyAPI_FUNC(PyObject*) PyUnicode_FromStringAndSize(\n    const char *u,             /* UTF-8 encoded string */\n    Py_ssize_t size            /* size of buffer */",
+              "digest": "63cdbaf2e99744b3825b8809dc3d55b14071015d394293c462edf274b6d27fb6"
+            }
+          ]
+        },
+        {
+          "path": "Lib/test/test_capi/test_unicode.py",
+          "symbol": "Lib.test.test_capi.test_unicode.CAPITest.test_fromstringandsize",
+          "lines": [
+            {
+              "line": 206,
+              "source": "@support.cpython_only\n    @unittest.skipIf(_testlimitedcapi is None, 'need _testlimitedcapi module')\n    def test_fromstringandsize(self):",
+              "digest": "cacf5d80a684096a6d97ec468e259bc460ffac3b904dde4606f857e96a34ebb7"
+            },
+            {
+              "line": 231,
+              "source": "@support.cpython_only\n    @unittest.skipIf(_testlimitedcapi is None, 'need _testlimitedcapi module')\n    def test_fromstring(self):",
+              "digest": "cacf5d80a684096a6d97ec468e259bc460ffac3b904dde4606f857e96a34ebb7"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": "PyLong_FromLong",
+      "hitAt10": true,
+      "coldMs": 0.6316449999999918,
+      "medianMs": 0.44572399999999845,
+      "evidenceMs": 0.9402180000000158,
+      "files": [
+        {
+          "path": "Objects/longobject.c",
+          "symbol": "PyLong_FromLong",
+          "lines": [
+            {
+              "line": 373,
+              "source": "PyLong_FromLong(long ival)\n{\n    PYLONG_FROM_INT(unsigned long, long, ival);",
+              "digest": "35e8ae447cd4993c57c943472526b8977b0af11088782cedbdd2e8e5d846218d"
+            },
+            {
+              "line": 1482,
+              "source": "PyLong_FromLongLong(long long ival)\n{\n    PYLONG_FROM_INT(unsigned long long, long long, ival);",
+              "digest": "35e8ae447cd4993c57c943472526b8977b0af11088782cedbdd2e8e5d846218d"
+            }
+          ]
+        },
+        {
+          "path": "Include/longobject.h",
+          "symbol": "PyLong_FromLong",
+          "lines": [
+            {
+              "line": 16,
+              "source": "PyAPI_FUNC(PyObject *) PyLong_FromLong(long);",
+              "digest": "3bdead460eb2015c6de27b92bc4df74199fc5b92a5347851dfa4d4a0ba38c087"
+            },
+            {
+              "line": 154,
+              "source": "PyAPI_FUNC(PyObject *) PyLong_FromLongLong(long long);",
+              "digest": "3bdead460eb2015c6de27b92bc4df74199fc5b92a5347851dfa4d4a0ba38c087"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "snapshotId": "snapshot:repo-3a171d820584dd59589e:3e42020676ce9098ec1aa837",
+  "snapshotDir": "/data/dev/CodeIndex/.data/heldout/indexes/codeindex/cpython/repo-3a171d820584dd59589e/snapshots/snapshot:repo-3a171d820584dd59589e:3e42020676ce9098ec1aa837-d03a7238",
+  "counts": {
+    "files": 5019,
+    "symbols": 148169,
+    "relations": 392843,
+    "sourceBytes": 103533479,
+    "changedFiles": 5019,
+    "removedFiles": 0,
+    "reusedFiles": 0,
+    "parsedFiles": 3189,
+    "partialFiles": 1904,
+    "skipped": 1,
+    "nodes": 153617,
+    "nativeFiles": 1092,
+    "nativeIndexedFiles": 1092,
+    "workers": 4,
+    "nativeBuildMode": "full",
+    "nativeTaskMs": 27336,
+    "relationsScope": "stored-sql-relations; native calls and references queried from cscope",
+    "stages": {
+      "scan": 718,
+      "source-and-files": 652,
+      "native-symbols": 557,
+      "parser-symbols": 26202,
+      "relations": 0,
+      "indexes": 564,
+      "native-cross-references": 14,
+      "validation": 102
+    },
+    "buildMs": 28810
+  },
+  "coverage": {
+    "sourceFiles": 5019,
+    "parsedFiles": 3115,
+    "unsupportedFiles": 1830,
+    "partialFiles": 1904,
+    "skippedFiles": 1,
+    "nativeCalls": true,
+    "semantics": "syntax-level symbols and cross-references; no compiler-level overload or pointer resolution"
+  }
+}
