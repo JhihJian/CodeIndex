@@ -1,0 +1,39 @@
+(node:1659859) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✖ unchanged macro tails retain their reference context across incremental rebuilds (109.628862ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 160.797434
+
+✖ failing tests:
+
+test at test/performance.test.js:94:1
+✖ unchanged macro tails retain their reference context across incremental rebuilds (109.628862ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+      {
+        line: 1,
+        path: 'macros.h',
+  +     peer: '<global>',
+  -     peer: 'FN',
+        text: '#define FN(obj, field_name) obj->field_name'
+      }
+    ]
+  
+      at TestContext.<anonymous> (file:///data/dev/CodeIndex-worktrees/feature/index-performance/test/performance.test.js:108:14)
+      at async Test.run (node:internal/test_runner/test:1110:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ { path: 'macros.h', peer: '<global>', line: 1, text: '#define FN(obj, field_name) obj->field_name' } ],
+    expected: [ { path: 'macros.h', peer: 'FN', line: 1, text: '#define FN(obj, field_name) obj->field_name' } ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

@@ -1,0 +1,24 @@
+(node:1679929) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✖ unchanged macro tails and multiline strings retain their references across incremental rebuilds (3131.603054ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3183.824301
+
+✖ failing tests:
+
+test at test/performance.test.js:94:1
+✖ unchanged macro tails and multiline strings retain their references across incremental rebuilds (3131.603054ms)
+  Error: cscope failed: exit 1, signal null
+  Internal error: cannot get source line from database
+      at run (file:///data/dev/CodeIndex-worktrees/feature/index-performance/src/lib/native-tools.js:33:11)
+      at queryCscope (file:///data/dev/CodeIndex-worktrees/feature/index-performance/src/lib/native-tools.js:408:22)
+      at query (file:///data/dev/CodeIndex-worktrees/feature/index-performance/test/performance.test.js:110:32)
+      at TestContext.<anonymous> (file:///data/dev/CodeIndex-worktrees/feature/index-performance/test/performance.test.js:111:24)
+      at async Test.run (node:internal/test_runner/test:1110:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3)
