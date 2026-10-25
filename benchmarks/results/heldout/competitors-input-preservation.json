@@ -1,0 +1,29 @@
+{
+  "verified": true,
+  "rows": [
+    {
+      "corpus": "pageindex",
+      "checkedFiles": 155,
+      "inputAndOriginalDigestsMatch": true,
+      "trackedFilesMatch": true,
+      "inputRevisionRestored": true,
+      "originalGitStateUnchanged": true
+    },
+    {
+      "corpus": "typescript",
+      "checkedFiles": 67863,
+      "inputAndOriginalDigestsMatch": true,
+      "trackedFilesMatch": true,
+      "inputRevisionRestored": true,
+      "originalGitStateUnchanged": true
+    },
+    {
+      "corpus": "linux",
+      "checkedFiles": 86363,
+      "inputAndOriginalDigestsMatch": true,
+      "trackedFilesMatch": true,
+      "inputRevisionRestored": true,
+      "originalGitStateUnchanged": true
+    }
+  ]
+}

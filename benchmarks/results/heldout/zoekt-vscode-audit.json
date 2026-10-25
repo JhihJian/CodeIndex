@@ -1,0 +1,458 @@
+{
+  "checksumAlgorithm": "CRC64-ISO",
+  "checksumMismatches": [],
+  "checksumsChecked": 7972,
+  "contentOmitted": [
+    {
+      "path": "src/vs/code/browser/workbench/callback.html",
+      "reason": "contains too many trigrams"
+    },
+    {
+      "path": "extensions/cpp/syntaxes/platform.tmLanguage.json",
+      "reason": "contains too many trigrams"
+    },
+    {
+      "path": "src/vs/editor/test/node/diffing/fixtures/trivial/2.txt",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "src/vs/workbench/contrib/welcomeGettingStarted/common/media/extensions.svg",
+      "reason": "contains too many trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/test_c.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/test_m.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/test_r.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "src/vs/workbench/contrib/welcomeGettingStarted/common/media/extensions-web.svg",
+      "reason": "contains too many trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/test_cc.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/test_cs.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/test_cu.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/test_fs.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/test_go.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/test_jl.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/test_js.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/test_md.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/test_mm.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/test_p6.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/test_pl.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/test_py.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/test_rb.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/test_rs.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/test_sh.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/test_vb.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/makefile.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/test2_pl.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/test_bat.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/test_bib.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/test_clj.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/test_cpp.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/test_hbs.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/test_jsx.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/test_log.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/test_lua.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/test_php.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/test_ps1.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/test_pug.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/test_rst.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/test_sql.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/test_sty.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/test_tex.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/test_xml.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "src/vs/workbench/contrib/welcomeGettingStarted/common/media/multi-file-edits.svg",
+      "reason": "contains too many trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/test_dart.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/test_diff.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/test_hlsl.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/test_html.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/test_json.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/test_less.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/test_scss.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/test_yaml.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/12750_html.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/13448_html.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/14119_less.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/25920_html.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/Dockerfile.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/basic_java.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/md-math_md.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/test_swift.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/test6916_js.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/test_coffee.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/test_cshtml.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/test_groovy.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/test_shader.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/test-6611_rs.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/test-13777_go.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/test-33886_md.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/test-4287_pug.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/test-7115_xml.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/COMMIT_EDITMSG.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/test-166781_rs.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/test-173216_sh.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/test-173224_sh.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/test-173336_sh.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/test-23630_cpp.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/test-23850_cpp.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/test-78769_cpp.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/test-80644_cpp.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/git-rebase-todo.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/issue-1550_yaml.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/issue-28354_php.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/issue-4008_yaml.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/issue-6303_yaml.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/issue-76997_php.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/test_handlebars.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/issue-224862_yaml.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/test-brackets_tsx.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/test-regex_coffee.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/tsconfig_off_json.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/test_code-snippets.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/test-embedding_html.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "src/vs/workbench/contrib/chat/test/browser/__snapshots__/ChatMarkdownRenderer_simple.0.snap",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/test-freeze-56377_py.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/test-freeze-56476_ps1.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/test-cssvariables_less.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-tree-sitter-results/test-cssvariables_scss.json",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "src/vs/workbench/contrib/notebook/test/browser/diff/notebookDiffService.test.ts",
+      "reason": "contains too many trigrams"
+    },
+    {
+      "path": "package-lock.json",
+      "reason": "contains too many trigrams"
+    },
+    {
+      "path": "test/mcp/package-lock.json",
+      "reason": "contains too many trigrams"
+    }
+  ],
+  "expectedRevision": "60868d86768caf8bc153a7ebc2bac5d3dd03b007",
+  "gitVersions": {
+    "60868d86768caf8bc153a7ebc2bac5d3dd03b007": true
+  },
+  "indexedInputFiles": 8071,
+  "inputFiles": 8071,
+  "missingFiles": [],
+  "nameSearchStats": {
+    "ContentBytesLoaded": 0,
+    "IndexBytesLoaded": 0,
+    "Crashes": 0,
+    "Duration": 17673622,
+    "FileCount": 8071,
+    "ShardFilesConsidered": 0,
+    "FilesConsidered": 8071,
+    "FilesLoaded": 0,
+    "FilesSkipped": 0,
+    "FilesSkippedDueToCancellation": 0,
+    "ShardsScanned": 1,
+    "ShardsSkipped": 0,
+    "ShardsSkippedFilter": 0,
+    "MatchCount": 8071,
+    "NgramMatches": 0,
+    "NgramLookups": 0,
+    "Wait": 2965,
+    "MatchTreeConstruction": 385705,
+    "MatchTreeSearch": 16217282,
+    "RegexpsConsidered": 8071,
+    "FlushReason": 0
+  },
+  "omissionSearchStats": {
+    "ContentBytesLoaded": 3968,
+    "IndexBytesLoaded": 5045,
+    "Crashes": 0,
+    "Duration": 482805,
+    "FileCount": 99,
+    "ShardFilesConsidered": 0,
+    "FilesConsidered": 99,
+    "FilesLoaded": 99,
+    "FilesSkipped": 0,
+    "FilesSkippedDueToCancellation": 0,
+    "ShardsScanned": 1,
+    "ShardsSkipped": 0,
+    "ShardsSkippedFilter": 0,
+    "MatchCount": 99,
+    "NgramMatches": 99,
+    "NgramLookups": 13,
+    "Wait": 3136,
+    "MatchTreeConstruction": 353625,
+    "MatchTreeSearch": 97611,
+    "RegexpsConsidered": 0,
+    "FlushReason": 0
+  },
+  "sourceDigestMismatches": [],
+  "versionMismatches": []
+}

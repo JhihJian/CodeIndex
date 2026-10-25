@@ -1,0 +1,252 @@
+{
+  "tool": "CodeIndex",
+  "loadMs": 1.7358070000000012,
+  "mode": "metadata",
+  "warmup": 1,
+  "repetitions": 20,
+  "rows": [
+    {
+      "query": "Manages a collection of disposable values",
+      "hitAt10": true,
+      "coldMs": 139.99787,
+      "medianMs": 15.842060500000002,
+      "evidenceMs": 19.10958499999998,
+      "files": [
+        {
+          "path": "src/vs/base/common/lifecycle.ts",
+          "symbol": "src.vs.base.common.lifecycle.DisposableMap",
+          "lines": [
+            {
+              "line": 736,
+              "source": "export class DisposableMap<K, V extends IDisposable = IDisposable> implements IDisposable {\n\n\tprivate readonly _store = new Map<K, V>();",
+              "digest": "7ac563cbec7e6f38b603cb9471fe466aadedcc2d70ac85020c4146e47a2584ce"
+            },
+            {
+              "line": 698,
+              "source": "export class AsyncReferenceCollection<T> {\n\n\tconstructor(private referenceCollection: ReferenceCollection<Promise<T>>) { }",
+              "digest": "7ac563cbec7e6f38b603cb9471fe466aadedcc2d70ac85020c4146e47a2584ce"
+            },
+            {
+              "line": 615,
+              "source": "export class MandatoryMutableDisposable<T extends IDisposable> implements IDisposable {\n\tprivate readonly _disposable = new MutableDisposable<T>();\n\tprivate _isDisposed = false;",
+              "digest": "7ac563cbec7e6f38b603cb9471fe466aadedcc2d70ac85020c4146e47a2584ce"
+            }
+          ]
+        },
+        {
+          "path": "extensions/typescript-language-features/src/tsServer/bufferSyncSupport.ts",
+          "symbol": "extensions.typescript-language-features.src.tsServer.bufferSyncSupport.BufferSynchronizer",
+          "lines": [
+            {
+              "line": 66,
+              "source": "class BufferSynchronizer {\n\n\tprivate readonly _pending: ResourceMap<BufferOperation>;",
+              "digest": "978eedee59ed01b237bf613be1f0273f897e0ea2934c31f316df1c9906cefd32"
+            }
+          ]
+        },
+        {
+          "path": "src/vs/base/browser/ui/list/listWidget.ts",
+          "symbol": "src.vs.base.browser.ui.list.listWidget.disjunction",
+          "lines": [
+            {
+              "line": 1176,
+              "source": "function disjunction(one: number[], other: number[]): number[] {\n\tconst result: number[] = [];\n\tlet i = 0, j = 0;",
+              "digest": "b1610d6f6f14a7b8c53826c5d0e502d0568f52b753fc797645498281525fdf72"
+            },
+            {
+              "line": 1204,
+              "source": "function relativeComplement(one: number[], other: number[]): number[] {\n\tconst result: number[] = [];\n\tlet i = 0, j = 0;",
+              "digest": "b1610d6f6f14a7b8c53826c5d0e502d0568f52b753fc797645498281525fdf72"
+            }
+          ]
+        },
+        {
+          "path": "src/vs/base/browser/ui/list/rangeMap.ts",
+          "symbol": "src.vs.base.browser.ui.list.rangeMap.concat",
+          "lines": [
+            {
+              "line": 86,
+              "source": "function concat(...groups: IRangedGroup[][]): IRangedGroup[] {\n\treturn consolidate(groups.reduce((r, g) => r.concat(g), []));\n}",
+              "digest": "b9712d5a2e0a861b008972602fc3559aa8e22f82a0c4c84be6b0d97d720f477a"
+            }
+          ]
+        },
+        {
+          "path": "src/vs/base/common/labels.ts",
+          "symbol": "src.vs.base.common.labels.template",
+          "lines": [
+            {
+              "line": 336,
+              "source": "export function template(template: string, values: { [key: string]: string | ISeparator | undefined | null } = Object.create(null)): string {",
+              "digest": "58630a07f9bb4c528cba78e4b76432372f1138f4a0d89cdfd2a1c185ffbfbafe"
+            }
+          ]
+        },
+        {
+          "path": "src/vs/workbench/api/common/extHost.protocol.ts",
+          "symbol": "src.vs.workbench.api.common.extHost.protocol.TerminalCompletionListDto",
+          "lines": []
+        }
+      ]
+    },
+    {
+      "query": "Encountered errors while disposing of store",
+      "hitAt10": true,
+      "coldMs": 8.530729000000008,
+      "medianMs": 4.3747975000000565,
+      "evidenceMs": 7.400124000000005,
+      "files": [
+        {
+          "path": "extensions/typescript-language-features/src/languageFeatures/tsconfig.ts",
+          "symbol": "extensions.typescript-language-features.src.languageFeatures.tsconfig.getTsconfigPath",
+          "lines": [
+            {
+              "line": 164,
+              "source": "async function getTsconfigPath(baseDirUri: vscode.Uri, pathValue: string, linkType: TsConfigLinkType): Promise<vscode.Uri | undefined> {\n\tasync function resolve(absolutePath: vscode.Uri): Promise<vscode.Uri> {\n\t\tif (absolutePath.path.endsWith('.json') || await exists(absolutePath)) {",
+              "digest": "2f8b09648f80380f1256e64f9aca545a2196f9a2c06627487dd043c5b013f22d"
+            }
+          ]
+        },
+        {
+          "path": "src/vs/base/common/errors.ts",
+          "symbol": "src.vs.base.common.errors.ErrorHandler",
+          "lines": [
+            {
+              "line": 15,
+              "source": "export class ErrorHandler {\n\tprivate unexpectedErrorHandler: (e: any) => void;\n\tprivate listeners: ErrorListenerCallback[];",
+              "digest": "4bd4c09416a68c2511e7ff20de8b6e8344a4c3c17d9e05aac05f25d3e699b823"
+            }
+          ]
+        },
+        {
+          "path": "src/vs/base/common/lifecycle.ts",
+          "symbol": "src.vs.base.common.lifecycle.DisposableMap",
+          "lines": [
+            {
+              "line": 736,
+              "source": "export class DisposableMap<K, V extends IDisposable = IDisposable> implements IDisposable {\n\n\tprivate readonly _store = new Map<K, V>();",
+              "digest": "7ac563cbec7e6f38b603cb9471fe466aadedcc2d70ac85020c4146e47a2584ce"
+            }
+          ]
+        },
+        {
+          "path": "src/vs/editor/standalone/browser/standaloneLanguages.ts",
+          "symbol": "src.vs.editor.standalone.browser.standaloneLanguages.onLanguageEncountered",
+          "lines": [
+            {
+              "line": 77,
+              "source": "export function onLanguageEncountered(languageId: string, callback: () => void): IDisposable {\n\treturn StandaloneServices.withServices(() => {\n\t\tconst languageService = StandaloneServices.get(ILanguageService);",
+              "digest": "45a867da3a03a4349f5220ae870606fcc711519a1074a3e28bf7eff13f7a0ad3"
+            }
+          ]
+        },
+        {
+          "path": "src/vs/monaco.d.ts",
+          "symbol": "src.vs.monaco.d.onLanguageEncountered",
+          "lines": [
+            {
+              "line": 6586,
+              "source": "\texport function onLanguageEncountered(languageId: string, callback: () => void): IDisposable;\n\n\t/**",
+              "digest": "3c9a0d1dbd0deca0927cd1bc45773bc1b7cff3e66c060f0d0dae6843ebffb9f6"
+            }
+          ]
+        },
+        {
+          "path": "src/vs/platform/keybinding/common/keybindingResolver.ts",
+          "symbol": "src.vs.platform.keybinding.common.keybindingResolver.KeybindingResolver",
+          "lines": [
+            {
+              "line": 42,
+              "source": "export class KeybindingResolver {\n\tprivate readonly _log: (str: string) => void;\n\tprivate readonly _defaultKeybindings: ResolvedKeybindingItem[];",
+              "digest": "1b3f84a5f70855fcf0792bd0959f6c234711804a6ec7a0dfa0fe104d45f348bf"
+            }
+          ]
+        },
+        {
+          "path": "src/vs/base/browser/ui/list/list.ts",
+          "symbol": "src.vs.base.browser.ui.list.list.IListDragAndDrop",
+          "lines": [
+            {
+              "line": 125,
+              "source": "export interface IListDragAndDrop<T> extends IDisposable {\n\tgetDragURI(element: T): string | null;\n\tgetDragLabel?(elements: T[], originalEvent: DragEvent): string | undefined;",
+              "digest": "6f3aaf4aaf3c21e6bc1ef1c91a6c78866057da4d744deba7c5f45c5331ba248e"
+            }
+          ]
+        },
+        {
+          "path": "src/vs/base/common/observableInternal/base.ts",
+          "symbol": "src.vs.base.common.observableInternal.base.IObservableWithChange",
+          "lines": [
+            {
+              "line": 26,
+              "source": "export interface IObservableWithChange<T, TChange = unknown> {\n\t/**\n\t * Returns the current value.",
+              "digest": "f6d06e62df1bc8e219a4a1072e0aee5ad32e06d2645c768bd95182702e116a01"
+            }
+          ]
+        },
+        {
+          "path": "src/vs/platform/userDataProfile/common/userDataProfile.ts",
+          "symbol": "src.vs.platform.userDataProfile.common.userDataProfile.StoredUserDataProfile",
+          "lines": [
+            {
+              "line": 178,
+              "source": "export type StoredUserDataProfile = {\n\tname: string;",
+              "digest": "4eb2a366beda2ce05da35ca1beaf75e5048b9ba0265ec40377d9c03e8aece0fc"
+            },
+            {
+              "line": 185,
+              "source": "export type StoredProfileAssociations = {\n\tworkspaces?: IStringDictionary<string>;",
+              "digest": "4eb2a366beda2ce05da35ca1beaf75e5048b9ba0265ec40377d9c03e8aece0fc"
+            }
+          ]
+        },
+        {
+          "path": "src/vs/platform/userDataProfile/node/userDataProfile.ts",
+          "symbol": "src.vs.platform.userDataProfile.node.userDataProfile.StoredUserDataProfileState",
+          "lines": []
+        }
+      ]
+    }
+  ],
+  "snapshotId": "snapshot:repo-326e81ee10b80ed316f1:eae31caa84b5471d790d3546",
+  "snapshotDir": "/data/dev/CodeIndex/.data/heldout/indexes/codeindex/vscode/repo-326e81ee10b80ed316f1/snapshots/snapshot:repo-326e81ee10b80ed316f1:eae31caa84b5471d790d3546-091c27b9",
+  "counts": {
+    "files": 8071,
+    "symbols": 39721,
+    "relations": 434643,
+    "sourceBytes": 95990525,
+    "changedFiles": 8071,
+    "removedFiles": 0,
+    "reusedFiles": 0,
+    "parsedFiles": 5988,
+    "partialFiles": 2085,
+    "skipped": 1,
+    "nodes": 50132,
+    "nativeFiles": 7,
+    "nativeIndexedFiles": 7,
+    "workers": 4,
+    "nativeBuildMode": "full",
+    "nativeTaskMs": 28,
+    "relationsScope": "stored-sql-relations; native calls and references queried from cscope",
+    "stages": {
+      "scan": 750,
+      "source-and-files": 729,
+      "native-symbols": 33,
+      "parser-symbols": 2585,
+      "relations": 0,
+      "indexes": 434,
+      "native-cross-references": 0,
+      "validation": 63
+    },
+    "buildMs": 4594
+  },
+  "coverage": {
+    "sourceFiles": 8071,
+    "parsedFiles": 5986,
+    "unsupportedFiles": 2083,
+    "partialFiles": 2085,
+    "skippedFiles": 1,
+    "nativeCalls": true,
+    "semantics": "syntax-level symbols and cross-references; no compiler-level overload or pointer resolution"
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "snippetsChecked": 7,
+  "metadataOnlyLocations": 0,
+  "mismatches": [
+    {
+      "query": "Py_Initialize",
+      "path": "Python/pylifecycle.c",
+      "line": 1483,
+      "returned": "void\nPy_Initialize(void)\n{",
+      "actual": "Py_Initialize(void)\n{\n    Py_InitializeEx(1);"
+    },
+    {
+      "query": "PyErr_SetString",
+      "path": "Python/errors.c",
+      "line": 294,
+      "returned": "void\nPyErr_SetString(PyObject *exception, const char *string)\n{",
+      "actual": "PyErr_SetString(PyObject *exception, const char *string)\n{\n    PyThreadState *tstate = _PyThreadState_GET();"
+    },
+    {
+      "query": "PyUnicode_FromString",
+      "path": "Objects/unicodeobject.c",
+      "line": 2169,
+      "returned": "PyObject *\nPyUnicode_FromString(const char *u)\n{",
+      "actual": "PyUnicode_FromString(const char *u)\n{\n    size_t size = strlen(u);"
+    }
+  ],
+  "absentPaths": [],
+  "locations": [
+    {
+      "query": "SequenceMatcher",
+      "hitAt10": true,
+      "expectedLineReturned": true
+    },
+    {
+      "query": "JSONDecoder",
+      "hitAt10": true,
+      "expectedLineReturned": true
+    },
+    {
+      "query": "ArgumentParser",
+      "hitAt10": true,
+      "expectedLineReturned": true
+    },
+    {
+      "query": "heappush",
+      "hitAt10": true,
+      "expectedLineReturned": true
+    },
+    {
+      "query": "Py_Initialize",
+      "hitAt10": true,
+      "expectedLineReturned": true
+    },
+    {
+      "query": "PyErr_SetString",
+      "hitAt10": true,
+      "expectedLineReturned": true
+    },
+    {
+      "query": "PyUnicode_FromString",
+      "hitAt10": true,
+      "expectedLineReturned": true
+    },
+    {
+      "query": "PyLong_FromLong",
+      "hitAt10": false,
+      "expectedLineReturned": false
+    }
+  ]
+}

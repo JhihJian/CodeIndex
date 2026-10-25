@@ -1,0 +1,28 @@
+{
+  "command": [
+    "/data/dev/benchmark-tools/cgc-venv/bin/cgc",
+    "--database",
+    "falkordb",
+    "--path",
+    "/data/dev/CodeIndex/.data/heldout/repeat-3/cgc/vscode",
+    "index",
+    "/data/dev/CodeIndex/.data/heldout/inputs/vscode",
+    "--no-progress"
+  ],
+  "cwd": "/data/dev/CodeIndex-worktrees/feature/heldout-comparison",
+  "systemdUnit": "codeindex-benchmark-1856135.scope",
+  "systemdResult": "success",
+  "status": "success",
+  "exitCode": 0,
+  "wallSeconds": 519.24,
+  "wallSecondsIncludingSupervisor": 519.3093866140116,
+  "timeLimitSeconds": 1800,
+  "memoryLimitGiB": 12,
+  "gnuTimeMaxRssKiB": 3287528,
+  "sampledProcessTreeRssSumBytes": 3408982016,
+  "workloadSampled": true,
+  "cgroupMemoryPeakBytes": 3851771904,
+  "sampleIntervalSeconds": 0.25,
+  "leftoverProcessIdsTerminated": [],
+  "memoryNotes": "RSS sum can double-count shared pages; cgroup memory includes page cache; GNU time max RSS is not simultaneous tree total"
+}

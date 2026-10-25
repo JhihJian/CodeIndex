@@ -1,0 +1,18 @@
+{
+  "snippetsChecked": 18,
+  "metadataOnlyLocations": 0,
+  "mismatches": [],
+  "absentPaths": [],
+  "locations": [
+    {
+      "query": "Manages a collection of disposable values",
+      "hitAt10": true,
+      "expectedLineReturned": false
+    },
+    {
+      "query": "Encountered errors while disposing of store",
+      "hitAt10": true,
+      "expectedLineReturned": false
+    }
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "tool": "CodeGraphContext",
+  "corpus": "cpython",
+  "rows": [
+    {
+      "caller": "Py_Initialize",
+      "callee": "Py_InitializeEx",
+      "path": "Python/pylifecycle.c",
+      "callLine": 1485,
+      "resolvedCaller": "Py_Initialize",
+      "hit": true,
+      "elapsedMs": 1.4094719663262367,
+      "totalCalls": 1,
+      "matches": [
+        {
+          "called_function": "Py_InitializeEx",
+          "called_file_path": "/data/dev/CodeIndex/.data/heldout/inputs/cpython/Python/pylifecycle.c",
+          "called_line_number": 1455,
+          "called_docstring": "/* Python interpreter top-level routines, including init/exit */",
+          "called_is_dependency": false,
+          "call_line_number": 1485,
+          "call_args": [
+            "1"
+          ],
+          "full_call_name": "Py_InitializeEx"
+        }
+      ]
+    },
+    {
+      "caller": "_PyErr_SetString",
+      "callee": "PyUnicode_FromString",
+      "path": "Python/errors.c",
+      "callLine": 286,
+      "resolvedCaller": "_PyErr_SetString",
+      "hit": true,
+      "elapsedMs": 1.0772091336548328,
+      "totalCalls": 2,
+      "matches": [
+        {
+          "called_function": "PyUnicode_FromString",
+          "called_file_path": "/data/dev/CodeIndex/.data/heldout/inputs/cpython/Objects/unicodeobject.c",
+          "called_line_number": 2169,
+          "called_docstring": "/*\n\nUnicode implementation based on original code by Fredrik Lundh,\nmodified by Marc-Andre Lemburg <mal@lemburg.com>.\n\nMajor speed upgrades to the method implementations at the Reykjavik\nNeedForSpeed sprint, by Fredrik Lundh and Andrew Dalke.\n\nCopyright (c) Corporation for National Research Initiatives.\n\n--------------------------------------------------------------------\nThe original string type implementation is:\n\n  Copyright (c) 1999 by Secret Labs AB\n  Copyright (c) 1999 by Fredrik Lundh\n\nBy obtaining, using, and/or copying this software and/or its\nassociated documentation, you agree that you have read, understood,\nand will comply with the following terms and conditions:\n\nPermission to use, copy, modify, and distribute this software and its\nassociated documentation for any purpose and without fee is hereby\ngranted, provided that the above copyright notice appears in all\ncopies, and that both that copyright notice and this permission notice\nappear in supporting documentation, and that the name of Secret Labs\nAB or the author not be used in advertising or publicity pertaining to\ndistribution of the software without specific, written prior\npermission.\n\nSECRET LABS AB AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH REGARD TO\nTHIS SOFTWARE, INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND\nFITNESS.  IN NO EVENT SHALL SECRET LABS AB OR THE AUTHOR BE LIABLE FOR\nANY SPECIAL, INDIRECT OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES\nWHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN\nACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT\nOF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.\n--------------------------------------------------------------------\n\n*/",
+          "called_is_dependency": false,
+          "call_line_number": 286,
+          "call_args": [
+            "string"
+          ],
+          "full_call_name": "PyUnicode_FromString"
+        }
+      ]
+    },
+    {
+      "caller": "heappush",
+      "callee": "_siftdown",
+      "path": "Lib/heapq.py",
+      "callLine": 135,
+      "resolvedCaller": "heappush",
+      "hit": true,
+      "elapsedMs": 1.2335479259490967,
+      "totalCalls": 2,
+      "matches": [
+        {
+          "called_function": "_siftdown",
+          "called_file_path": "/data/dev/CodeIndex/.data/heldout/inputs/cpython/Lib/heapq.py",
+          "called_line_number": 220,
+          "called_docstring": null,
+          "called_is_dependency": false,
+          "call_line_number": 135,
+          "call_args": [
+            "heap",
+            "0",
+            "len(heap)-1"
+          ],
+          "full_call_name": "_siftdown"
+        }
+      ]
+    },
+    {
+      "caller": "heappop",
+      "callee": "_siftup",
+      "path": "Lib/heapq.py",
+      "callLine": 143,
+      "resolvedCaller": "heappop",
+      "hit": true,
+      "elapsedMs": 1.1723448988050222,
+      "totalCalls": 1,
+      "matches": [
+        {
+          "called_function": "_siftup",
+          "called_file_path": "/data/dev/CodeIndex/.data/heldout/inputs/cpython/Lib/heapq.py",
+          "called_line_number": 273,
+          "called_docstring": null,
+          "called_is_dependency": false,
+          "call_line_number": 143,
+          "call_args": [
+            "heap",
+            "0"
+          ],
+          "full_call_name": "_siftup"
+        }
+      ]
+    }
+  ]
+}

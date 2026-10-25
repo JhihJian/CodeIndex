@@ -1,0 +1,14 @@
+{
+  "verified": true,
+  "jsonFilesParsedBeforeThisRecord": 282,
+  "freshBuildAttempts": 30,
+  "perQuestionScoresStable": true,
+  "allUpdatesAndRestorationsPassed": true,
+  "modifiedFileMtimesRestored": true,
+  "originalPublishedSnapshotsRestored": true,
+  "frozenProductAndQuestionsUnchanged": true,
+  "toolArtifactsAndProductionPointerHashesUnchanged": true,
+  "oldResultDirectoriesUnchanged": true,
+  "documentLinksValid": true,
+  "activeBenchmarkScopes": []
+}

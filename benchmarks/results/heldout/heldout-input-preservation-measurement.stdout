@@ -1,0 +1,29 @@
+{
+  "verified": true,
+  "rows": [
+    {
+      "corpus": "cpython",
+      "checkedFiles": 5019,
+      "inputAndOriginalDigestsMatch": true,
+      "trackedFilesMatch": true,
+      "inputRevisionRestored": true,
+      "originalGitStateUnchanged": true
+    },
+    {
+      "corpus": "vscode",
+      "checkedFiles": 8071,
+      "inputAndOriginalDigestsMatch": true,
+      "trackedFilesMatch": true,
+      "inputRevisionRestored": true,
+      "originalGitStateUnchanged": true
+    },
+    {
+      "corpus": "llvm",
+      "checkedFiles": 158039,
+      "inputAndOriginalDigestsMatch": true,
+      "trackedFilesMatch": true,
+      "inputRevisionRestored": true,
+      "originalGitStateUnchanged": true
+    }
+  ]
+}

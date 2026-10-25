@@ -1,0 +1,369 @@
+{
+  "loadMs" : 159.870742,
+  "rows" : [ {
+    "query" : "LLVMContext",
+    "totalFiles" : 90,
+    "files" : [ {
+      "path" : "mlir/include/mlir/Target/LLVMIR/Export.h",
+      "lines" : [ {
+        "source" : "class <b>LLVMContext</b>;",
+        "line" : 16
+      } ]
+    }, {
+      "path" : "clang/include/clang/CIR/LowerToLLVM.h",
+      "lines" : [ {
+        "source" : "class <b>LLVMContext</b>;",
+        "line" : 18
+      } ]
+    }, {
+      "path" : "llvm/lib/Target/SPIRV/SPIRVLegalizerInfo.h",
+      "lines" : [ {
+        "source" : "class <b>LLVMContext</b>;",
+        "line" : 21
+      } ]
+    }, {
+      "path" : "llvm/include/llvm/IRReader/IRReader.h",
+      "lines" : [ {
+        "source" : "class <b>LLVMContext</b>;",
+        "line" : 28
+      } ]
+    }, {
+      "path" : "mlir/include/mlir/Target/LLVMIR/TypeToLLVM.h",
+      "lines" : [ {
+        "source" : "class <b>LLVMContext</b>;",
+        "line" : 21
+      } ]
+    }, {
+      "path" : "llvm/include/llvm/Frontend/HLSL/RootSignatureMetadata.h",
+      "lines" : [ {
+        "source" : "class <b>LLVMContext</b>;",
+        "line" : 20
+      } ]
+    }, {
+      "path" : "mlir/include/mlir/Dialect/GPU/Transforms/Passes.h",
+      "lines" : [ {
+        "source" : "class <b>LLVMContext</b>;",
+        "line" : 25
+      } ]
+    }, {
+      "path" : "llvm/tools/llc/NewPMDriver.h",
+      "lines" : [ {
+        "source" : "class <b>LLVMContext</b>;",
+        "line" : 32
+      } ]
+    }, {
+      "path" : "llvm/include/llvm/Transforms/Scalar/Float2Int.h",
+      "lines" : [ {
+        "source" : "class <b>LLVMContext</b>;",
+        "line" : 27
+      } ]
+    }, {
+      "path" : "llvm/include/llvm/CodeGen/MIRParser/MIRParser.h",
+      "lines" : [ {
+        "source" : "class <b>LLVMContext</b>;",
+        "line" : 30
+      } ]
+    } ],
+    "medianMs" : 1.5750484999999999,
+    "hitAt10" : false,
+    "coldMs" : 211.672969
+  }, {
+    "query" : "DominatorTree",
+    "totalFiles" : 58,
+    "files" : [ {
+      "path" : "llvm/unittests/IR/DominatorTreeTest.cpp",
+      "lines" : [ {
+        "source" : "TEST(<b>DominatorTree</b>, PHIs) {",
+        "line" : 46
+      }, {
+        "source" : "TEST(<b>DominatorTree</b>, Unreachable) {",
+        "line" : 77
+      }, {
+        "source" : "TEST(<b>DominatorTree</b>, NonUniqueEdges) {",
+        "line" : 307
+      } ]
+    }, {
+      "path" : "llvm/include/llvm/Transforms/Utils/PromoteMemToReg.h",
+      "lines" : [ {
+        "source" : "class <b>DominatorTree</b>;",
+        "line" : 23
+      } ]
+    }, {
+      "path" : "llvm/include/llvm/Transforms/Scalar/LowerConstantIntrinsics.h",
+      "lines" : [ {
+        "source" : "class <b>DominatorTree</b>;",
+        "line" : 22
+      } ]
+    }, {
+      "path" : "llvm/include/llvm/Transforms/Utils/CodeMoverUtils.h",
+      "lines" : [ {
+        "source" : "class <b>DominatorTree</b>;",
+        "line" : 26
+      } ]
+    }, {
+      "path" : "llvm/include/llvm/Transforms/Utils/LoopSimplify.h",
+      "lines" : [ {
+        "source" : "class <b>DominatorTree</b>;",
+        "line" : 47
+      } ]
+    }, {
+      "path" : "llvm/include/llvm/Analysis/AssumeBundleQueries.h",
+      "lines" : [ {
+        "source" : "class <b>DominatorTree</b>;",
+        "line" : 23
+      } ]
+    }, {
+      "path" : "llvm/include/llvm/Transforms/Scalar/RewriteStatepointsForGC.h",
+      "lines" : [ {
+        "source" : "class <b>DominatorTree</b>;",
+        "line" : 23
+      } ]
+    }, {
+      "path" : "llvm/include/llvm/Transforms/Utils/LoopRotationUtils.h",
+      "lines" : [ {
+        "source" : "class <b>DominatorTree</b>;",
+        "line" : 21
+      } ]
+    }, {
+      "path" : "llvm/include/llvm/Transforms/Utils/AssumeBundleBuilder.h",
+      "lines" : [ {
+        "source" : "class <b>DominatorTree</b>;",
+        "line" : 29
+      } ]
+    }, {
+      "path" : "llvm/include/llvm/Transforms/Scalar/AlignmentFromAssumptions.h",
+      "lines" : [ {
+        "source" : "class <b>DominatorTree</b>;",
+        "line" : 26
+      } ]
+    } ],
+    "medianMs" : 1.331056,
+    "hitAt10" : false,
+    "coldMs" : 2.781428
+  }, {
+    "query" : "APInt",
+    "totalFiles" : 53,
+    "files" : [ {
+      "path" : "clang/lib/AST/ByteCode/Integral.h",
+      "lines" : [ {
+        "source" : "using <b>APInt</b> = llvm::<b>APInt</b>;",
+        "line" : 29
+      } ]
+    }, {
+      "path" : "llvm/lib/Target/X86/MCTargetDesc/X86ShuffleDecode.h",
+      "lines" : [ {
+        "source" : "class <b>APInt</b>;",
+        "line" : 24
+      } ]
+    }, {
+      "path" : "llvm/include/llvm/Analysis/ConstantFolding.h",
+      "lines" : [ {
+        "source" : "class <b>APInt</b>;",
+        "line" : 31
+      } ]
+    }, {
+      "path" : "llvm/include/llvm/IR/Constant.h",
+      "lines" : [ {
+        "source" : "class <b>APInt</b>;",
+        "line" : 24
+      } ]
+    }, {
+      "path" : "llvm/lib/Target/RISCV/MCTargetDesc/RISCVMatInt.h",
+      "lines" : [ {
+        "source" : "class <b>APInt</b>;",
+        "line" : 18
+      } ]
+    }, {
+      "path" : "llvm/include/llvm/CodeGen/SelectionDAGNodes.h",
+      "lines" : [ {
+        "source" : "class <b>APInt</b>;",
+        "line" : 61
+      } ]
+    }, {
+      "path" : "llvm/include/llvm/IR/Verifier.h",
+      "lines" : [ {
+        "source" : "class <b>APInt</b>;",
+        "line" : 30
+      } ]
+    }, {
+      "path" : "llvm/include/llvm/IR/MDBuilder.h",
+      "lines" : [ {
+        "source" : "class <b>APInt</b>;",
+        "line" : 27
+      } ]
+    }, {
+      "path" : "llvm/include/llvm/CodeGen/GlobalISel/LegalizerHelper.h",
+      "lines" : [ {
+        "source" : "class <b>APInt</b>;",
+        "line" : 32
+      } ]
+    }, {
+      "path" : "llvm/include/llvm/Transforms/Scalar/Reassociate.h",
+      "lines" : [ {
+        "source" : "class <b>APInt</b>;",
+        "line" : 35
+      } ]
+    } ],
+    "medianMs" : 1.187774,
+    "hitAt10" : false,
+    "coldMs" : 1.620561
+  }, {
+    "query" : "SmallVector",
+    "totalFiles" : 11,
+    "files" : [ {
+      "path" : "clang/test/SemaCXX/invalid-instantiated-field-decl.cpp",
+      "lines" : [ {
+        "source" : "class <b>SmallVector</b> : public SmallVectorImpl&lt;T&gt; {",
+        "line" : 14
+      }, {
+        "source" : "  <b>SmallVector</b>() : SmallVectorImpl&lt;T&gt;(NumInlineEltsElts) {",
+        "line" : 25
+      } ]
+    }, {
+      "path" : "clang/include/clang/Sema/SemaARM.h",
+      "lines" : [ {
+        "source" : "template &lt;typename T, unsigned N&gt; class <b>SmallVector</b>;",
+        "line" : 24
+      } ]
+    }, {
+      "path" : "llvm/include/llvm/ADT/SmallVector.h",
+      "lines" : [ {
+        "source" : "template &lt;typename T, unsigned N&gt; class LLVM_GSL_OWNER <b>SmallVector</b>;",
+        "line" : 1123
+      }, {
+        "source" : "  <b>SmallVector</b>() : SmallVectorImpl&lt;T&gt;(N) {}",
+        "line" : 1199
+      }, {
+        "source" : "  explicit <b>SmallVector</b>(size_t Size)",
+        "line" : 1206
+      } ]
+    }, {
+      "path" : "lld/include/lld/Common/LLVM.h",
+      "lines" : [ {
+        "source" : "template &lt;typename T, unsigned N&gt; class <b>SmallVector</b>;",
+        "line" : 35
+      } ]
+    }, {
+      "path" : "clang/include/clang/Basic/LLVM.h",
+      "lines" : [ {
+        "source" : "  template&lt;typename T, unsigned N&gt; class <b>SmallVector</b>;",
+        "line" : 35
+      } ]
+    }, {
+      "path" : "flang/include/flang/Lower/OpenACC.h",
+      "lines" : [ {
+        "source" : "class <b>SmallVector</b>;",
+        "line" : 20
+      } ]
+    }, {
+      "path" : "clang/test/Modules/Inputs/templates-top.h",
+      "lines" : [ {
+        "source" : "  template&lt;typename T, unsigned N&gt; struct <b>SmallVector</b> : SmallVectorImpl&lt;T&gt; {",
+        "line" : 50
+      } ]
+    }, {
+      "path" : "clang/test/Analysis/llvm-conventions.cpp",
+      "lines" : [ {
+        "source" : "struct <b>SmallVector</b> {};",
+        "line" : 192
+      } ]
+    }, {
+      "path" : "clang-tools-extra/test/clang-tidy/checkers/misc/const-correctness-pointer-as-values.cpp",
+      "lines" : [ {
+        "source" : "struct <b>SmallVector</b> : SmallVectorBase&lt;T&gt; {};",
+        "line" : 53
+      } ]
+    }, {
+      "path" : "cross-project-tests/debuginfo-tests/llvm-prettyprinters/gdb/llvm-support.cpp",
+      "lines" : [ {
+        "source" : "llvm::<b>SmallVector</b>&lt;int, 5&gt; <b>SmallVector</b> = {10, 11, 12};",
+        "line" : 22
+      } ]
+    } ],
+    "medianMs" : 0.732554,
+    "hitAt10" : true,
+    "coldMs" : 2.006788
+  }, {
+    "query" : "parseAssemblyString",
+    "totalFiles" : 1,
+    "files" : [ {
+      "path" : "llvm/lib/AsmParser/Parser.cpp",
+      "lines" : [ {
+        "source" : "std::unique_ptr&lt;Module&gt; llvm::<b>parseAssemblyString</b>(StringRef AsmString,",
+        "line" : 136
+      } ]
+    } ],
+    "medianMs" : 0.3368765,
+    "hitAt10" : true,
+    "coldMs" : 1.308472
+  }, {
+    "query" : "parseIRFile",
+    "totalFiles" : 1,
+    "files" : [ {
+      "path" : "llvm/lib/IRReader/IRReader.cpp",
+      "lines" : [ {
+        "source" : "std::unique_ptr&lt;Module&gt; llvm::<b>parseIRFile</b>(StringRef Filename, SMDiagnostic &amp;Err,",
+        "line" : 94
+      } ]
+    } ],
+    "medianMs" : 0.2691565,
+    "hitAt10" : true,
+    "coldMs" : 0.563828
+  }, {
+    "query" : "verifyModule",
+    "totalFiles" : 3,
+    "files" : [ {
+      "path" : "clang/lib/CIR/CodeGen/CIRGenerator.cpp",
+      "lines" : [ {
+        "source" : "bool CIRGenerator::<b>verifyModule</b>() const { return cgm-&gt;<b>verifyModule</b>(); }",
+        "line" : 70
+      } ]
+    }, {
+      "path" : "clang/lib/CIR/CodeGen/CIRGenModule.cpp",
+      "lines" : [ {
+        "source" : "bool CIRGenModule::<b>verifyModule</b>() const {",
+        "line" : 1928
+      } ]
+    }, {
+      "path" : "llvm/lib/IR/Verifier.cpp",
+      "lines" : [ {
+        "source" : "bool llvm::<b>verifyModule</b>(const Module &amp;M, raw_ostream *OS,",
+        "line" : 7537
+      } ]
+    } ],
+    "medianMs" : 1.825094,
+    "hitAt10" : true,
+    "coldMs" : 1.739615
+  }, {
+    "query" : "ExecuteCompilerInvocation",
+    "totalFiles" : 1,
+    "files" : [ {
+      "path" : "clang/lib/FrontendTool/ExecuteCompilerInvocation.cpp",
+      "lines" : [ {
+        "source" : "bool <b>ExecuteCompilerInvocation</b>(CompilerInstance *Clang) {",
+        "line" : 209
+      } ]
+    } ],
+    "medianMs" : 0.3345365,
+    "hitAt10" : true,
+    "coldMs" : 1.168864
+  }, {
+    "query" : "codeindex_heldout_update_probe_20261025",
+    "totalFiles" : 1,
+    "files" : [ {
+      "path" : "llvm/lib/IR/LLVMContext.cpp",
+      "lines" : [ {
+        "source" : "int <b>codeindex_heldout_update_probe_20261025</b>(void) { return 42; }",
+        "line" : 390
+      } ]
+    } ],
+    "medianMs" : 0.418231,
+    "hitAt10" : true,
+    "coldMs" : 0.870725
+  } ],
+  "repetitions" : 20,
+  "mode" : "symbol",
+  "warmup" : 1,
+  "indexedDocuments" : 170101,
+  "tool" : "OpenGrok"
+}

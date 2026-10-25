@@ -1,0 +1,78 @@
+{
+  "checksumAlgorithm": "CRC64-ISO",
+  "checksumMismatches": [],
+  "checksumsChecked": 5015,
+  "contentOmitted": [
+    {
+      "path": "Misc/HISTORY",
+      "reason": "contains too many trigrams"
+    },
+    {
+      "path": "Modules/posixmodule.c",
+      "reason": "contains too many trigrams"
+    },
+    {
+      "path": "Lib/test/test_tomllib/data/invalid/table/eof-after-opening.toml",
+      "reason": "contains too few trigrams"
+    },
+    {
+      "path": "configure",
+      "reason": "contains too many trigrams"
+    }
+  ],
+  "expectedRevision": "673fe4d2229c9921e3a24972682e3db8cf482a95",
+  "gitVersions": {
+    "673fe4d2229c9921e3a24972682e3db8cf482a95": true
+  },
+  "indexedInputFiles": 5019,
+  "inputFiles": 5019,
+  "missingFiles": [],
+  "nameSearchStats": {
+    "ContentBytesLoaded": 0,
+    "IndexBytesLoaded": 0,
+    "Crashes": 0,
+    "Duration": 11046027,
+    "FileCount": 5019,
+    "ShardFilesConsidered": 0,
+    "FilesConsidered": 5019,
+    "FilesLoaded": 0,
+    "FilesSkipped": 0,
+    "FilesSkippedDueToCancellation": 0,
+    "ShardsScanned": 1,
+    "ShardsSkipped": 0,
+    "ShardsSkippedFilter": 0,
+    "MatchCount": 5019,
+    "NgramMatches": 0,
+    "NgramLookups": 0,
+    "Wait": 2745,
+    "MatchTreeConstruction": 216052,
+    "MatchTreeSearch": 9956894,
+    "RegexpsConsidered": 5019,
+    "FlushReason": 0
+  },
+  "omissionSearchStats": {
+    "ContentBytesLoaded": 163,
+    "IndexBytesLoaded": 11078,
+    "Crashes": 0,
+    "Duration": 469993,
+    "FileCount": 4,
+    "ShardFilesConsidered": 0,
+    "FilesConsidered": 4,
+    "FilesLoaded": 4,
+    "FilesSkipped": 0,
+    "FilesSkippedDueToCancellation": 0,
+    "ShardsScanned": 1,
+    "ShardsSkipped": 0,
+    "ShardsSkippedFilter": 0,
+    "MatchCount": 4,
+    "NgramMatches": 4,
+    "NgramLookups": 13,
+    "Wait": 2895,
+    "MatchTreeConstruction": 412756,
+    "MatchTreeSearch": 35226,
+    "RegexpsConsidered": 0,
+    "FlushReason": 0
+  },
+  "sourceDigestMismatches": [],
+  "versionMismatches": []
+}

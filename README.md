@@ -91,6 +91,7 @@ node bin/codeindex.js benchmark \
 以下报告保留各自版本和测量口径：
 
 - [0.3 性能迭代与内存受限实测](benchmarks/index-performance.md)
+- [CPython、VS Code、LLVM 新项目横向验证](benchmarks/heldout-comparison.md)
 - [OpenGrok、Zoekt、CodeGraphContext 固定输入实测](benchmarks/index-tool-comparison.md)
 - [Linux 正式原生后端](benchmarks/linux-native.md)
 - [三分钟方案原型，116.84 秒](benchmarks/linux-fast-alternatives.md)

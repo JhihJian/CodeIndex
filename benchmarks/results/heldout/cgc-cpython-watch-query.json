@@ -1,0 +1,168 @@
+{
+  "tool": "CodeGraphContext",
+  "backend": "FalkorDB Lite",
+  "loadMs": 1912.4557971954346,
+  "mode": "symbol",
+  "warmup": 1,
+  "repetitions": 20,
+  "rows": [
+    {
+      "query": "SequenceMatcher",
+      "hitAt10": true,
+      "coldMs": 2.5201740209013224,
+      "medianMs": 0.5777670303359628,
+      "files": [
+        {
+          "path": "Lib/difflib.py",
+          "symbol": "SequenceMatcher",
+          "lines": [
+            {
+              "line": 44,
+              "source": "class SequenceMatcher:\n\n    \"\"\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": "JSONDecoder",
+      "hitAt10": true,
+      "coldMs": 0.36352104507386684,
+      "medianMs": 0.24651538114994764,
+      "files": [
+        {
+          "path": "Lib/json/decoder.py",
+          "symbol": "JSONDecoder",
+          "lines": [
+            {
+              "line": 262,
+              "source": "class JSONDecoder(object):\n    \"\"\"Simple JSON <https://json.org> decoder\n"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": "ArgumentParser",
+      "hitAt10": true,
+      "coldMs": 0.3113849088549614,
+      "medianMs": 0.21891947835683823,
+      "files": [
+        {
+          "path": "Lib/argparse.py",
+          "symbol": "ArgumentParser",
+          "lines": [
+            {
+              "line": 1840,
+              "source": "class ArgumentParser(_AttributeHolder, _ActionsContainer):\n    \"\"\"Object for parsing command line strings into Python objects.\n"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": "heappush",
+      "hitAt10": true,
+      "coldMs": 0.2292341087013483,
+      "medianMs": 0.22438447922468185,
+      "files": [
+        {
+          "path": "Lib/heapq.py",
+          "symbol": "heappush",
+          "lines": [
+            {
+              "line": 132,
+              "source": "def heappush(heap, item):\n    \"\"\"Push item onto heap, maintaining the heap invariant.\"\"\"\n    heap.append(item)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": "Py_Initialize",
+      "hitAt10": true,
+      "coldMs": 0.22090808488428593,
+      "medianMs": 0.20941253751516342,
+      "files": [
+        {
+          "path": "Python/pylifecycle.c",
+          "symbol": "Py_Initialize",
+          "lines": [
+            {
+              "line": 1483,
+              "source": "void\nPy_Initialize(void)\n{"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": "PyErr_SetString",
+      "hitAt10": true,
+      "coldMs": 0.3332849591970444,
+      "medianMs": 0.20525907166302204,
+      "files": [
+        {
+          "path": "Python/errors.c",
+          "symbol": "PyErr_SetString",
+          "lines": [
+            {
+              "line": 294,
+              "source": "void\nPyErr_SetString(PyObject *exception, const char *string)\n{"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": "PyUnicode_FromString",
+      "hitAt10": true,
+      "coldMs": 0.2236629370599985,
+      "medianMs": 0.2082999562844634,
+      "files": [
+        {
+          "path": "Objects/unicodeobject.c",
+          "symbol": "PyUnicode_FromString",
+          "lines": [
+            {
+              "line": 2169,
+              "source": "PyObject *\nPyUnicode_FromString(const char *u)\n{"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": "PyLong_FromLong",
+      "hitAt10": false,
+      "coldMs": 0.2120619174093008,
+      "medianMs": 0.19036151934415102,
+      "files": []
+    },
+    {
+      "query": "codeindex_heldout_update_probe_20261025",
+      "hitAt10": true,
+      "coldMs": 0.21466705948114395,
+      "medianMs": 0.19878242164850235,
+      "files": [
+        {
+          "path": "Python/pylifecycle.c",
+          "symbol": "codeindex_heldout_update_probe_20261025",
+          "lines": [
+            {
+              "line": 3629,
+              "source": "int codeindex_heldout_update_probe_20261025(void) { return 42; }"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "counts": {
+    "nodes": 441971,
+    "relations": 964419,
+    "files": 3575,
+    "functions": 93250,
+    "classes": 18227
+  }
+}

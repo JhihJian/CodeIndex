@@ -1,0 +1,72 @@
+{
+  "additionalDocuments": 0,
+  "indexedInputFiles": 8071,
+  "inputFiles": 8071,
+  "missingFiles": [],
+  "definitionProbes": [
+    {
+      "scopedMatch": true,
+      "expectedPath": "src/vs/base/common/lifecycle.ts",
+      "matches": [
+        "src/vs/base/common/lifecycle.ts"
+      ],
+      "query": "DisposableStore"
+    },
+    {
+      "scopedMatch": true,
+      "expectedPath": "src/vs/base/common/lifecycle.ts",
+      "matches": [
+        "src/vs/base/common/lifecycle.ts"
+      ],
+      "query": "MutableDisposable"
+    },
+    {
+      "scopedMatch": true,
+      "expectedPath": "src/vs/base/common/cancellation.ts",
+      "matches": [
+        "src/vs/base/common/cancellation.ts"
+      ],
+      "query": "CancellationTokenSource"
+    },
+    {
+      "scopedMatch": true,
+      "expectedPath": "src/vs/base/common/event.ts",
+      "matches": [
+        "src/vs/base/common/event.ts"
+      ],
+      "query": "Emitter"
+    },
+    {
+      "scopedMatch": true,
+      "expectedPath": "src/vs/base/common/uri.ts",
+      "matches": [
+        "src/vs/base/common/uri.ts"
+      ],
+      "query": "URI"
+    },
+    {
+      "scopedMatch": true,
+      "expectedPath": "src/vs/base/common/async.ts",
+      "matches": [
+        "src/vs/base/common/async.ts"
+      ],
+      "query": "Delayer"
+    },
+    {
+      "scopedMatch": true,
+      "expectedPath": "src/vs/base/common/async.ts",
+      "matches": [
+        "src/vs/base/common/async.ts"
+      ],
+      "query": "RunOnceScheduler"
+    },
+    {
+      "scopedMatch": true,
+      "expectedPath": "src/vs/base/common/lifecycle.ts",
+      "matches": [
+        "src/vs/base/common/lifecycle.ts"
+      ],
+      "query": "combinedDisposable"
+    }
+  ]
+}

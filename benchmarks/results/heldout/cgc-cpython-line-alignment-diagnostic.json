@@ -1,0 +1,86 @@
+{
+  "method": "Offline comparison of captured mismatches against unchanged source; search five lines around returned line; scoring unchanged",
+  "rows": [
+    {
+      "kind": "symbol",
+      "query": "Py_Initialize",
+      "path": "Python/pylifecycle.c",
+      "returnedLine": 1483,
+      "matchingSourceStartLines": [
+        1482
+      ]
+    },
+    {
+      "kind": "symbol",
+      "query": "PyErr_SetString",
+      "path": "Python/errors.c",
+      "returnedLine": 294,
+      "matchingSourceStartLines": [
+        293
+      ]
+    },
+    {
+      "kind": "symbol",
+      "query": "PyUnicode_FromString",
+      "path": "Objects/unicodeobject.c",
+      "returnedLine": 2169,
+      "matchingSourceStartLines": [
+        2168
+      ]
+    },
+    {
+      "kind": "content",
+      "query": "Exception ignored in",
+      "path": "Modules/_curses_panel.c",
+      "returnedLine": 324,
+      "matchingSourceStartLines": [
+        323
+      ]
+    },
+    {
+      "kind": "content",
+      "query": "Exception ignored in",
+      "path": "Objects/dictobject.c",
+      "returnedLine": 2272,
+      "matchingSourceStartLines": [
+        2271
+      ]
+    },
+    {
+      "kind": "content",
+      "query": "Exception ignored in",
+      "path": "Python/ceval.c",
+      "returnedLine": 2484,
+      "matchingSourceStartLines": [
+        2483
+      ]
+    },
+    {
+      "kind": "content",
+      "query": "Exception ignored in",
+      "path": "Objects/abstract.c",
+      "returnedLine": 2396,
+      "matchingSourceStartLines": [
+        2395
+      ]
+    },
+    {
+      "kind": "content",
+      "query": "Exception ignored in",
+      "path": "Objects/object.c",
+      "returnedLine": 1423,
+      "matchingSourceStartLines": [
+        1422
+      ]
+    },
+    {
+      "kind": "content",
+      "query": "Exception ignored in",
+      "path": "Python/sysmodule.c",
+      "returnedLine": 148,
+      "matchingSourceStartLines": [
+        147
+      ]
+    }
+  ]
+}

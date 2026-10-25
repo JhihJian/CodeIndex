@@ -2,6 +2,8 @@
 
 结果见 [代码索引工具对比](../index-tool-comparison.md)，原始命令、标准输出、错误输出和资源记录见 [results/competitors](../results/competitors/)。脚本从隔离的源码副本建库，不修改原仓库。
 
+CPython、VS Code、LLVM 的重复测量复用这里的查询和覆盖适配器，结果见 [新项目横向对比](../heldout-comparison.md)，协议与阶段运行器见 [heldout](../heldout/README.md)。输入准备会核对 Git blob 与工作树字节，CodeIndex 覆盖审计同时报告目标文件中的定义及源码范围。
+
 ## 固定环境
 
 - CodeIndex：`9222f7efca28db10c90f06becd5799196d433e27`，Node.js 24.13.1。

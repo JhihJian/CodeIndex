@@ -1,0 +1,23 @@
+{
+  "command": [
+    "/home/jhihjian/.local/bin/ctags-universal",
+    "--options=NONE",
+    "--output-format=json",
+    "--languages=C,C++",
+    "--sort=no",
+    "--fields=+neKStiaZ",
+    "--fields=-P",
+    "--extras=-p",
+    "--kinds-C=+p",
+    "--kinds-C++=+p",
+    "-f",
+    "/dev/null",
+    "/data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/Parser/parser_overflow.c"
+  ],
+  "path": "/data/dev/CodeIndex/.data/heldout/inputs/llvm/clang/test/Parser/parser_overflow.c",
+  "bytes": 33973,
+  "sha256": "d8c7c3dd318a6d98e4a6f15b07986380bbd2490b7a13528669acc4648b470a72",
+  "returnCode": -11,
+  "segmentationFaultReproduced": true,
+  "scope": "One original file, identical CodeIndex Ctags parsing options, core dumps disabled; diagnostic only"
+}

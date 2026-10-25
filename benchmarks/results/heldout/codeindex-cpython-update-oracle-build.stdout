@@ -1,0 +1,36 @@
+{
+  "repositoryId": "repo-3a171d820584dd59589e",
+  "snapshotId": "snapshot:repo-3a171d820584dd59589e:28c151cac21c3c6bd9ee57ac",
+  "status": "partial",
+  "stats": {
+    "files": 5019,
+    "symbols": 148170,
+    "relations": 392843,
+    "sourceBytes": 103533546,
+    "changedFiles": 5019,
+    "removedFiles": 0,
+    "reusedFiles": 0,
+    "parsedFiles": 3189,
+    "partialFiles": 1904,
+    "skipped": 1,
+    "nodes": 153618,
+    "nativeFiles": 1092,
+    "nativeIndexedFiles": 1092,
+    "workers": 4,
+    "nativeBuildMode": "full",
+    "nativeTaskMs": 27433,
+    "relationsScope": "stored-sql-relations; native calls and references queried from cscope",
+    "stages": {
+      "scan": 737,
+      "source-and-files": 636,
+      "native-symbols": 593,
+      "parser-symbols": 26265,
+      "relations": 0,
+      "indexes": 561,
+      "native-cross-references": 14,
+      "validation": 108
+    },
+    "buildMs": 28915
+  },
+  "store": "/data/dev/CodeIndex/.data/heldout/update-oracles/cpython"
+}

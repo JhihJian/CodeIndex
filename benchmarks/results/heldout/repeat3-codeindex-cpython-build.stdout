@@ -1,0 +1,36 @@
+{
+  "repositoryId": "repo-3a171d820584dd59589e",
+  "snapshotId": "snapshot:repo-3a171d820584dd59589e:3e42020676ce9098ec1aa837",
+  "status": "partial",
+  "stats": {
+    "files": 5019,
+    "symbols": 148169,
+    "relations": 392843,
+    "sourceBytes": 103533479,
+    "changedFiles": 5019,
+    "removedFiles": 0,
+    "reusedFiles": 0,
+    "parsedFiles": 3189,
+    "partialFiles": 1904,
+    "skipped": 1,
+    "nodes": 153617,
+    "nativeFiles": 1092,
+    "nativeIndexedFiles": 1092,
+    "workers": 4,
+    "nativeBuildMode": "full",
+    "nativeTaskMs": 27268,
+    "relationsScope": "stored-sql-relations; native calls and references queried from cscope",
+    "stages": {
+      "scan": 722,
+      "source-and-files": 640,
+      "native-symbols": 551,
+      "parser-symbols": 26139,
+      "relations": 0,
+      "indexes": 564,
+      "native-cross-references": 14,
+      "validation": 110
+    },
+    "buildMs": 28741
+  },
+  "store": "/data/dev/CodeIndex/.data/heldout/repeat-3/codeindex/cpython"
+}

@@ -1,0 +1,48 @@
+{
+  "snippetsChecked": 11,
+  "metadataOnlyLocations": 0,
+  "mismatches": [],
+  "absentPaths": [],
+  "locations": [
+    {
+      "query": "SequenceMatcher",
+      "hitAt10": true,
+      "expectedLineReturned": true
+    },
+    {
+      "query": "JSONDecoder",
+      "hitAt10": true,
+      "expectedLineReturned": true
+    },
+    {
+      "query": "ArgumentParser",
+      "hitAt10": true,
+      "expectedLineReturned": true
+    },
+    {
+      "query": "heappush",
+      "hitAt10": true,
+      "expectedLineReturned": true
+    },
+    {
+      "query": "Py_Initialize",
+      "hitAt10": true,
+      "expectedLineReturned": true
+    },
+    {
+      "query": "PyErr_SetString",
+      "hitAt10": true,
+      "expectedLineReturned": true
+    },
+    {
+      "query": "PyUnicode_FromString",
+      "hitAt10": true,
+      "expectedLineReturned": true
+    },
+    {
+      "query": "PyLong_FromLong",
+      "hitAt10": true,
+      "expectedLineReturned": true
+    }
+  ]
+}

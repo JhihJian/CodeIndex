@@ -1,0 +1,255 @@
+{
+  "tool": "CodeIndex",
+  "loadMs": 1.1150710000000004,
+  "mode": "metadata",
+  "warmup": 1,
+  "repetitions": 20,
+  "rows": [
+    {
+      "query": "Heaps are arrays for which",
+      "hitAt10": false,
+      "coldMs": 135.549958,
+      "medianMs": 10.609759999999994,
+      "evidenceMs": 42.33892400000002,
+      "files": [
+        {
+          "path": "Lib/profile.py",
+          "symbol": "Lib.profile._Utils",
+          "lines": [
+            {
+              "line": 42,
+              "source": "class _Utils:\n    \"\"\"Support class for utility functions which are shared by\n    profile.py and cProfile.py modules.",
+              "digest": "13a71363e2318222971f155f8511d7965c8d7efdee56a48f28a01bfae54ca30c"
+            }
+          ]
+        },
+        {
+          "path": "Lib/test/test_statistics.py",
+          "symbol": "Lib.test.test_statistics.UnivariateTypeMixin.prepare_types_for_conservation_test",
+          "lines": [
+            {
+              "line": 1143,
+              "source": "def prepare_types_for_conservation_test(self):\n        \"\"\"Return the types which are expected to be conserved.\"\"\"\n        class MyFloat(float):",
+              "digest": "b0ef9aebda493c7e15218ea3ab9d5c959bf246e1519e90b246249407c23dac71"
+            }
+          ]
+        },
+        {
+          "path": "Lib/webbrowser.py",
+          "symbol": "Lib.webbrowser.BackgroundBrowser",
+          "lines": [
+            {
+              "line": 195,
+              "source": "class BackgroundBrowser(GenericBrowser):\n    \"\"\"Class for all browsers which are to be started in the\n       background.\"\"\"",
+              "digest": "006f62a80308c86408c06ac4425a834a0d7d687841be5257ab5db74d4976a016"
+            }
+          ]
+        },
+        {
+          "path": "Lib/argparse.py",
+          "symbol": "Lib.argparse.RawDescriptionHelpFormatter",
+          "lines": [
+            {
+              "line": 714,
+              "source": "class RawDescriptionHelpFormatter(HelpFormatter):\n    \"\"\"Help message formatter which retains any formatting in descriptions.\n",
+              "digest": "c2cd895b117dbc4d55439773e3f11e57b833b1e20f05d311c4465b794b044898"
+            },
+            {
+              "line": 725,
+              "source": "class RawTextHelpFormatter(RawDescriptionHelpFormatter):\n    \"\"\"Help message formatter which retains formatting of all help text.\n",
+              "digest": "c2cd895b117dbc4d55439773e3f11e57b833b1e20f05d311c4465b794b044898"
+            },
+            {
+              "line": 736,
+              "source": "class ArgumentDefaultsHelpFormatter(HelpFormatter):\n    \"\"\"Help message formatter which adds default values to argument help.\n",
+              "digest": "c2cd895b117dbc4d55439773e3f11e57b833b1e20f05d311c4465b794b044898"
+            }
+          ]
+        },
+        {
+          "path": "Lib/dis.py",
+          "symbol": "Lib.dis.findlabels",
+          "lines": [
+            {
+              "line": 965,
+              "source": "def findlabels(code):\n    \"\"\"Detect all offsets in a byte code which are jump targets.\n",
+              "digest": "17d4d9a9195c9ee5aa27a96f3e0871f9363fd501e3a64ef20cb1cc876d7ad553"
+            },
+            {
+              "line": 1018,
+              "source": "def _find_store_names(co):\n    \"\"\"Find names of variables which are written in the code\n",
+              "digest": "17d4d9a9195c9ee5aa27a96f3e0871f9363fd501e3a64ef20cb1cc876d7ad553"
+            },
+            {
+              "line": 981,
+              "source": "def findlinestarts(code):\n    \"\"\"Find the offsets in a byte code which are start of lines in the source.\n",
+              "digest": "17d4d9a9195c9ee5aa27a96f3e0871f9363fd501e3a64ef20cb1cc876d7ad553"
+            }
+          ]
+        },
+        {
+          "path": "Lib/email/_policybase.py",
+          "symbol": "Lib.email._policybase.Policy",
+          "lines": []
+        },
+        {
+          "path": "Lib/importlib/abc.py",
+          "symbol": "Lib.importlib.abc.InspectLoader",
+          "lines": []
+        }
+      ]
+    },
+    {
+      "query": "Exception ignored in",
+      "hitAt10": false,
+      "coldMs": 138.57756799999999,
+      "medianMs": 30.92793999999998,
+      "evidenceMs": 39.459123999999974,
+      "files": [
+        {
+          "path": "Python/clinic/sysmodule.c.h",
+          "symbol": "sys_exception",
+          "lines": [
+            {
+              "line": 177,
+              "source": "sys_exception(PyObject *module, PyObject *Py_UNUSED(ignored))\n{\n    return sys_exception_impl(module);",
+              "digest": "39f36034154a560d96362414cf7336ddc51550a0eff7868b7f8a272ff464e050"
+            },
+            {
+              "line": 1207,
+              "source": "sys__current_exceptions(PyObject *module, PyObject *Py_UNUSED(ignored))\n{\n    return sys__current_exceptions_impl(module);",
+              "digest": "39f36034154a560d96362414cf7336ddc51550a0eff7868b7f8a272ff464e050"
+            }
+          ]
+        },
+        {
+          "path": "Lib/asyncio/exceptions.py",
+          "symbol": "Lib.asyncio.exceptions.IncompleteReadError.__init__",
+          "lines": [
+            {
+              "line": 36,
+              "source": "def __init__(self, partial, expected):\n        r_expected = 'undefined' if expected is None else repr(expected)\n        super().__init__(f'{len(partial)} bytes read on a total of '",
+              "digest": "a5971f88be14cd1417d59adf539ae48c5d818f95362a4e0eb00017e3690ab37b"
+            },
+            {
+              "line": 29,
+              "source": "class IncompleteReadError(EOFError):\n    \"\"\"\n    Incomplete read error. Attributes:",
+              "digest": "a5971f88be14cd1417d59adf539ae48c5d818f95362a4e0eb00017e3690ab37b"
+            },
+            {
+              "line": 53,
+              "source": "def __init__(self, message, consumed):\n        super().__init__(message)\n        self.consumed = consumed",
+              "digest": "a5971f88be14cd1417d59adf539ae48c5d818f95362a4e0eb00017e3690ab37b"
+            }
+          ]
+        },
+        {
+          "path": "Lib/bdb.py",
+          "symbol": "Lib.bdb.Bdb.user_exception",
+          "lines": [
+            {
+              "line": 518,
+              "source": "def user_exception(self, frame, exc_info):\n        \"\"\"Called when we stop on an exception.\"\"\"\n        pass",
+              "digest": "5b9dbe9428d433baee045ece24f83a27a60ce974e73bdaf115fc958c168e6c51"
+            }
+          ]
+        },
+        {
+          "path": "Lib/contextlib.py",
+          "symbol": "Lib.contextlib.suppress.__init__",
+          "lines": [
+            {
+              "line": 444,
+              "source": "def __init__(self, *exceptions):\n        self._exceptions = exceptions",
+              "digest": "c1e0d67b2007de11ae93cd36cf6faf38d9ab32656a832d592a49325eec579f96"
+            }
+          ]
+        },
+        {
+          "path": "Lib/idlelib/debugger.py",
+          "symbol": "Lib.idlelib.debugger.Idb.user_exception",
+          "lines": [
+            {
+              "line": 50,
+              "source": "def user_exception(self, frame, exc_info):\n        \"\"\"Handle an the occurrence of an exception.\"\"\"\n        if _in_rpc_code(frame):",
+              "digest": "55439579ba33224b2f1eeb2e3a012b80134d6d2094f12cf20e70f669962e6ec6"
+            }
+          ]
+        },
+        {
+          "path": "Lib/logging/__init__.py",
+          "symbol": "Lib.logging.Logger.exception",
+          "lines": [
+            {
+              "line": 1551,
+              "source": "def exception(self, msg, *args, exc_info=True, **kwargs):\n        \"\"\"\n        Convenience method for logging an ERROR with exception information.",
+              "digest": "dc42e5cf19a2dd03bd95ed3600803effa9c5f107927ab5f66cacf3eebcfd9a47"
+            }
+          ]
+        },
+        {
+          "path": "Lib/multiprocessing/pool.py",
+          "symbol": "Lib.multiprocessing.pool.ExceptionWithTraceback.__init__",
+          "lines": [
+            {
+              "line": 64,
+              "source": "def __init__(self, exc, tb):\n        tb = traceback.format_exception(type(exc), exc, tb)\n        tb = ''.join(tb)",
+              "digest": "2b1e92bfc230007ac463aa0a3bd18c948a3c62f97e7e73858ae8b3f61dd13a6e"
+            }
+          ]
+        },
+        {
+          "path": "Lib/pdb.py",
+          "symbol": "Lib.pdb.Pdb.user_exception",
+          "lines": []
+        },
+        {
+          "path": "Lib/tarfile.py",
+          "symbol": "Lib.tarfile.InvalidHeaderError",
+          "lines": []
+        }
+      ]
+    }
+  ],
+  "snapshotId": "snapshot:repo-3a171d820584dd59589e:3e42020676ce9098ec1aa837",
+  "snapshotDir": "/data/dev/CodeIndex/.data/heldout/indexes/codeindex/cpython/repo-3a171d820584dd59589e/snapshots/snapshot:repo-3a171d820584dd59589e:3e42020676ce9098ec1aa837-d03a7238",
+  "counts": {
+    "files": 5019,
+    "symbols": 148169,
+    "relations": 392843,
+    "sourceBytes": 103533479,
+    "changedFiles": 5019,
+    "removedFiles": 0,
+    "reusedFiles": 0,
+    "parsedFiles": 3189,
+    "partialFiles": 1904,
+    "skipped": 1,
+    "nodes": 153617,
+    "nativeFiles": 1092,
+    "nativeIndexedFiles": 1092,
+    "workers": 4,
+    "nativeBuildMode": "full",
+    "nativeTaskMs": 27336,
+    "relationsScope": "stored-sql-relations; native calls and references queried from cscope",
+    "stages": {
+      "scan": 718,
+      "source-and-files": 652,
+      "native-symbols": 557,
+      "parser-symbols": 26202,
+      "relations": 0,
+      "indexes": 564,
+      "native-cross-references": 14,
+      "validation": 102
+    },
+    "buildMs": 28810
+  },
+  "coverage": {
+    "sourceFiles": 5019,
+    "parsedFiles": 3115,
+    "unsupportedFiles": 1830,
+    "partialFiles": 1904,
+    "skippedFiles": 1,
+    "nativeCalls": true,
+    "semantics": "syntax-level symbols and cross-references; no compiler-level overload or pointer resolution"
+  }
+}

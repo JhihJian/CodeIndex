@@ -1,0 +1,384 @@
+{
+  "completed": true,
+  "restored": true,
+  "originalRevision": "673fe4d2229c9921e3a24972682e3db8cf482a95",
+  "changedFile": "Python/pylifecycle.c",
+  "originalDigest": "c6c1256d8f1d6edb692aaa1d07c2cd2273411c9f461b0a6a21566236fa3e7d7d",
+  "mtimeNs": 1792905857052386562,
+  "operations": [
+    {
+      "tool": "codeindex",
+      "mode": "noop",
+      "measurement": {
+        "command": [
+          "node",
+          "/data/dev/CodeIndex-worktrees/feature/heldout-comparison/bin/codeindex.js",
+          "update",
+          "--repo",
+          "/data/dev/CodeIndex/.data/heldout/inputs/cpython",
+          "--store",
+          "/data/dev/CodeIndex/.data/heldout/indexes/codeindex/cpython",
+          "--workers",
+          "4",
+          "--progress"
+        ],
+        "cwd": "/data/dev/CodeIndex-worktrees/feature/heldout-comparison",
+        "systemdUnit": "codeindex-benchmark-1870718.scope",
+        "systemdResult": "success",
+        "status": "success",
+        "exitCode": 0,
+        "wallSeconds": 0.09,
+        "wallSecondsIncludingSupervisor": 0.275029688840732,
+        "timeLimitSeconds": 300,
+        "memoryLimitGiB": 12,
+        "gnuTimeMaxRssKiB": 53408,
+        "sampledProcessTreeRssSumBytes": null,
+        "workloadSampled": false,
+        "cgroupMemoryPeakBytes": null,
+        "sampleIntervalSeconds": 0.25,
+        "leftoverProcessIdsTerminated": [],
+        "memoryNotes": "RSS sum can double-count shared pages; cgroup memory includes page cache; GNU time max RSS is not simultaneous tree total"
+      },
+      "semantics": "normal unchanged-input update"
+    },
+    {
+      "tool": "opengrok",
+      "mode": "noop",
+      "measurement": {
+        "command": [
+          "java",
+          "-Xmx8g",
+          "-jar",
+          "/data/dev/benchmark-tools/opengrok-1.14.20/lib/opengrok.jar",
+          "-s",
+          "/data/dev/CodeIndex/.data/heldout/inputs/cpython",
+          "-d",
+          "/data/dev/CodeIndex/.data/heldout/indexes/opengrok/cpython/data",
+          "-W",
+          "/data/dev/CodeIndex/.data/heldout/indexes/opengrok/cpython/config.xml",
+          "-c",
+          "/home/jhihjian/.local/bin/ctags-universal",
+          "-S"
+        ],
+        "cwd": "/data/dev/CodeIndex-worktrees/feature/heldout-comparison",
+        "systemdUnit": "codeindex-benchmark-1870789.scope",
+        "systemdResult": "success",
+        "status": "success",
+        "exitCode": 0,
+        "wallSeconds": 1.71,
+        "wallSecondsIncludingSupervisor": 1.7726571240928024,
+        "timeLimitSeconds": 300,
+        "memoryLimitGiB": 12,
+        "gnuTimeMaxRssKiB": 285376,
+        "sampledProcessTreeRssSumBytes": 292429824,
+        "workloadSampled": true,
+        "cgroupMemoryPeakBytes": 269930496,
+        "sampleIntervalSeconds": 0.25,
+        "leftoverProcessIdsTerminated": [],
+        "memoryNotes": "RSS sum can double-count shared pages; cgroup memory includes page cache; GNU time max RSS is not simultaneous tree total"
+      },
+      "semantics": "normal unchanged-input update"
+    },
+    {
+      "tool": "zoekt",
+      "mode": "noop",
+      "measurement": {
+        "command": [
+          "/data/dev/benchmark-tools/zoekt-git-index",
+          "-index",
+          "/data/dev/CodeIndex/.data/heldout/indexes/zoekt/cpython",
+          "-require_ctags",
+          "-file_limit",
+          "5242880",
+          "/data/dev/CodeIndex/.data/heldout/inputs/cpython"
+        ],
+        "cwd": "/data/dev/CodeIndex-worktrees/feature/heldout-comparison",
+        "systemdUnit": "codeindex-benchmark-1870917.scope",
+        "systemdResult": "success",
+        "status": "success",
+        "exitCode": 0,
+        "wallSeconds": 0.02,
+        "wallSecondsIncludingSupervisor": 0.27179657807573676,
+        "timeLimitSeconds": 300,
+        "memoryLimitGiB": 12,
+        "gnuTimeMaxRssKiB": 45932,
+        "sampledProcessTreeRssSumBytes": null,
+        "workloadSampled": false,
+        "cgroupMemoryPeakBytes": null,
+        "sampleIntervalSeconds": 0.25,
+        "leftoverProcessIdsTerminated": [],
+        "memoryNotes": "RSS sum can double-count shared pages; cgroup memory includes page cache; GNU time max RSS is not simultaneous tree total"
+      },
+      "semantics": "normal unchanged-input update"
+    },
+    {
+      "tool": "cgc",
+      "mode": "noop",
+      "measurement": {
+        "command": [
+          "/data/dev/benchmark-tools/cgc-venv/bin/cgc",
+          "--database",
+          "falkordb",
+          "--path",
+          "/data/dev/CodeIndex/.data/heldout/indexes/cgc/cpython",
+          "index",
+          "/data/dev/CodeIndex/.data/heldout/inputs/cpython",
+          "--no-progress"
+        ],
+        "cwd": "/data/dev/CodeIndex-worktrees/feature/heldout-comparison",
+        "systemdUnit": "codeindex-benchmark-1870943.scope",
+        "systemdResult": "success",
+        "status": "success",
+        "exitCode": 0,
+        "wallSeconds": 4.02,
+        "wallSecondsIncludingSupervisor": 4.278895111056045,
+        "timeLimitSeconds": 300,
+        "memoryLimitGiB": 12,
+        "gnuTimeMaxRssKiB": 113048,
+        "sampledProcessTreeRssSumBytes": 157970432,
+        "workloadSampled": true,
+        "cgroupMemoryPeakBytes": 791908352,
+        "sampleIntervalSeconds": 0.25,
+        "leftoverProcessIdsTerminated": [],
+        "memoryNotes": "RSS sum can double-count shared pages; cgroup memory includes page cache; GNU time max RSS is not simultaneous tree total"
+      },
+      "semantics": "registration check only"
+    },
+    {
+      "tool": "codeindex",
+      "mode": "update",
+      "measurement": {
+        "command": [
+          "node",
+          "/data/dev/CodeIndex-worktrees/feature/heldout-comparison/bin/codeindex.js",
+          "update",
+          "--repo",
+          "/data/dev/CodeIndex/.data/heldout/inputs/cpython",
+          "--store",
+          "/data/dev/CodeIndex/.data/heldout/indexes/codeindex/cpython",
+          "--workers",
+          "4",
+          "--progress"
+        ],
+        "cwd": "/data/dev/CodeIndex-worktrees/feature/heldout-comparison",
+        "systemdUnit": "codeindex-benchmark-1871262.scope",
+        "systemdResult": "success",
+        "status": "success",
+        "exitCode": 0,
+        "wallSeconds": 1.92,
+        "wallSecondsIncludingSupervisor": 2.0238939609844238,
+        "timeLimitSeconds": 300,
+        "memoryLimitGiB": 12,
+        "gnuTimeMaxRssKiB": 214264,
+        "sampledProcessTreeRssSumBytes": 335990784,
+        "workloadSampled": true,
+        "cgroupMemoryPeakBytes": 610144256,
+        "sampleIntervalSeconds": 0.25,
+        "leftoverProcessIdsTerminated": [],
+        "memoryNotes": "RSS sum can double-count shared pages; cgroup memory includes page cache; GNU time max RSS is not simultaneous tree total"
+      },
+      "checks": {
+        "querySucceeded": true,
+        "probeHit": true,
+        "baselinePreserved": true,
+        "relationsPreserved": true,
+        "fullBuildEquivalent": true
+      },
+      "storageAfter": {
+        "bytes": 435120117,
+        "scope": "All regular index artifacts, hard links counted once; source input and Git excluded"
+      }
+    },
+    {
+      "tool": "opengrok",
+      "mode": "update",
+      "measurement": {
+        "command": [
+          "java",
+          "-Xmx8g",
+          "-jar",
+          "/data/dev/benchmark-tools/opengrok-1.14.20/lib/opengrok.jar",
+          "-s",
+          "/data/dev/CodeIndex/.data/heldout/inputs/cpython",
+          "-d",
+          "/data/dev/CodeIndex/.data/heldout/indexes/opengrok/cpython/data",
+          "-W",
+          "/data/dev/CodeIndex/.data/heldout/indexes/opengrok/cpython/config.xml",
+          "-c",
+          "/home/jhihjian/.local/bin/ctags-universal",
+          "-S"
+        ],
+        "cwd": "/data/dev/CodeIndex-worktrees/feature/heldout-comparison",
+        "systemdUnit": "codeindex-benchmark-1871996.scope",
+        "systemdResult": "success",
+        "status": "success",
+        "exitCode": 0,
+        "wallSeconds": 1.52,
+        "wallSecondsIncludingSupervisor": 1.76988785690628,
+        "timeLimitSeconds": 300,
+        "memoryLimitGiB": 12,
+        "gnuTimeMaxRssKiB": 284836,
+        "sampledProcessTreeRssSumBytes": 287735808,
+        "workloadSampled": true,
+        "cgroupMemoryPeakBytes": 258129920,
+        "sampleIntervalSeconds": 0.25,
+        "leftoverProcessIdsTerminated": [],
+        "memoryNotes": "RSS sum can double-count shared pages; cgroup memory includes page cache; GNU time max RSS is not simultaneous tree total"
+      },
+      "checks": {
+        "querySucceeded": true,
+        "probeHit": true,
+        "baselinePreserved": true
+      },
+      "storageAfter": {
+        "bytes": 201954027,
+        "scope": "All regular index artifacts, hard links counted once; source input and Git excluded"
+      }
+    },
+    {
+      "tool": "zoekt",
+      "mode": "update",
+      "measurement": {
+        "command": [
+          "/data/dev/benchmark-tools/zoekt-git-index",
+          "-index",
+          "/data/dev/CodeIndex/.data/heldout/indexes/zoekt/cpython",
+          "-require_ctags",
+          "-file_limit",
+          "5242880",
+          "/data/dev/CodeIndex/.data/heldout/inputs/cpython"
+        ],
+        "cwd": "/data/dev/CodeIndex-worktrees/feature/heldout-comparison",
+        "systemdUnit": "codeindex-benchmark-1872214.scope",
+        "systemdResult": "success",
+        "status": "success",
+        "exitCode": 0,
+        "wallSeconds": 8.53,
+        "wallSecondsIncludingSupervisor": 8.790175926173106,
+        "timeLimitSeconds": 300,
+        "memoryLimitGiB": 12,
+        "gnuTimeMaxRssKiB": 872924,
+        "sampledProcessTreeRssSumBytes": 872685568,
+        "workloadSampled": true,
+        "cgroupMemoryPeakBytes": 1160704000,
+        "sampleIntervalSeconds": 0.25,
+        "leftoverProcessIdsTerminated": [],
+        "memoryNotes": "RSS sum can double-count shared pages; cgroup memory includes page cache; GNU time max RSS is not simultaneous tree total"
+      },
+      "checks": {
+        "querySucceeded": true,
+        "probeHit": true,
+        "baselinePreserved": true
+      },
+      "storageAfter": {
+        "bytes": 279038512,
+        "scope": "All regular index artifacts, hard links counted once; source input and Git excluded"
+      }
+    },
+    {
+      "tool": "zoekt",
+      "mode": "delta",
+      "measurement": {
+        "command": [
+          "/data/dev/benchmark-tools/zoekt-git-index",
+          "-index",
+          "/data/dev/CodeIndex/.data/heldout/indexes/zoekt/cpython",
+          "-require_ctags",
+          "-file_limit",
+          "5242880",
+          "-delta",
+          "-submodules=false",
+          "/data/dev/CodeIndex/.data/heldout/inputs/cpython"
+        ],
+        "cwd": "/data/dev/CodeIndex-worktrees/feature/heldout-comparison",
+        "systemdUnit": "codeindex-benchmark-1872366.scope",
+        "systemdResult": "success",
+        "status": "success",
+        "exitCode": 0,
+        "wallSeconds": 0.11,
+        "wallSecondsIncludingSupervisor": 0.2753207120113075,
+        "timeLimitSeconds": 300,
+        "memoryLimitGiB": 12,
+        "gnuTimeMaxRssKiB": 85344,
+        "sampledProcessTreeRssSumBytes": null,
+        "workloadSampled": false,
+        "cgroupMemoryPeakBytes": null,
+        "sampleIntervalSeconds": 0.25,
+        "leftoverProcessIdsTerminated": [],
+        "memoryNotes": "RSS sum can double-count shared pages; cgroup memory includes page cache; GNU time max RSS is not simultaneous tree total"
+      },
+      "checks": {
+        "querySucceeded": true,
+        "probeHit": true,
+        "baselinePreserved": true,
+        "fallbackToFull": false
+      }
+    },
+    {
+      "tool": "cgc",
+      "mode": "watch",
+      "measurement": {
+        "command": [
+          "/data/dev/benchmark-tools/cgc-venv/bin/python",
+          "/data/dev/CodeIndex-worktrees/feature/heldout-comparison/benchmarks/competitors/cgc-watch-update.py",
+          "/data/dev/CodeIndex/.data/heldout/indexes/cgc/cpython",
+          "/data/dev/CodeIndex/.data/heldout/inputs/cpython",
+          "/data/dev/CodeIndex/.data/heldout/inputs/cpython/Python/pylifecycle.c"
+        ],
+        "cwd": "/data/dev/CodeIndex-worktrees/feature/heldout-comparison",
+        "systemdUnit": "codeindex-benchmark-1872433.scope",
+        "systemdResult": "success",
+        "status": "success",
+        "exitCode": 0,
+        "wallSeconds": 66.53,
+        "wallSecondsIncludingSupervisor": 66.72413556207903,
+        "timeLimitSeconds": 300,
+        "memoryLimitGiB": 12,
+        "gnuTimeMaxRssKiB": 237368,
+        "sampledProcessTreeRssSumBytes": 284770304,
+        "workloadSampled": true,
+        "cgroupMemoryPeakBytes": 972718080,
+        "sampleIntervalSeconds": 0.25,
+        "leftoverProcessIdsTerminated": [],
+        "memoryNotes": "RSS sum can double-count shared pages; cgroup memory includes page cache; GNU time max RSS is not simultaneous tree total"
+      },
+      "checks": {
+        "querySucceeded": true,
+        "probeHit": true,
+        "baselinePreserved": true,
+        "relationsPreserved": true
+      },
+      "storageAfter": {
+        "bytes": 81705780,
+        "scope": "All regular index artifacts, hard links counted once; source input and Git excluded"
+      }
+    }
+  ],
+  "recoveryDirectory": "/data/dev/CodeIndex/.data/heldout/update-backups/cpython",
+  "updatedRevision": "fa38947dc25b74a817fcda85db7658ed2fc422a8",
+  "updatedDigest": "8afae39fa4b006ad19c2e1ae0eaf7b47b0eea2db5af8cb395a0a3914c6271341",
+  "restoredChecks": {
+    "codeindex": {
+      "querySucceeded": true,
+      "probeHit": false,
+      "baselinePreserved": true,
+      "relationsPreserved": true
+    },
+    "opengrok": {
+      "querySucceeded": true,
+      "probeHit": false,
+      "baselinePreserved": true
+    },
+    "zoekt": {
+      "querySucceeded": true,
+      "probeHit": false,
+      "baselinePreserved": true
+    },
+    "cgc": {
+      "querySucceeded": true,
+      "probeHit": false,
+      "baselinePreserved": true,
+      "relationsPreserved": true
+    }
+  }
+}

@@ -46,6 +46,7 @@ def summarize(results):
             if builds[0]['status'] == 'success' and (results / f'{name}-query.json').exists():
                 assert len(builds) == 3, name
             query_measurements = [optional(results / f'{prefix}-query-measurement.json') for prefix in (name, f'repeat2-{name}', f'repeat3-{name}')]
+            scores = [[(item['query'], item['hitAt10']) for item in query['rows']] for query in queries]
             audit = optional(results / f'{name}-audit.json')
             definitions = optional(results / f'{name}-definitions.json') or audit
             relations = optional(results / f'{name}-relations.json')
@@ -67,6 +68,8 @@ def summarize(results):
                 'firstQueryMs': distribution([item['coldMs'] for query in queries for item in query['rows']]),
                 'loadMs': distribution([query['loadMs'] for query in queries]),
                 'symbolMisses': [item['query'] for item in queries[0]['rows'] if not item['hitAt10']] if queries else None,
+                'symbolMissesByRun': [[item['query'] for item in query['rows'] if not item['hitAt10']] for query in queries],
+                'symbolScoresStable': all(score == scores[0] for score in scores) if scores else None,
                 'indexedFiles': audit.get('indexedInputFiles') if audit else None,
                 'missingFiles': len(audit['missingFiles']) if audit else None,
                 'definitionProbes': definitions.get('definitionProbes') if definitions else None,

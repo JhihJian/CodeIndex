@@ -1,0 +1,48 @@
+{
+  "snippetsChecked": 51,
+  "metadataOnlyLocations": 0,
+  "mismatches": [],
+  "absentPaths": [],
+  "locations": [
+    {
+      "query": "LLVMContext",
+      "hitAt10": false,
+      "expectedLineReturned": false
+    },
+    {
+      "query": "DominatorTree",
+      "hitAt10": false,
+      "expectedLineReturned": false
+    },
+    {
+      "query": "APInt",
+      "hitAt10": false,
+      "expectedLineReturned": false
+    },
+    {
+      "query": "SmallVector",
+      "hitAt10": true,
+      "expectedLineReturned": false
+    },
+    {
+      "query": "parseAssemblyString",
+      "hitAt10": true,
+      "expectedLineReturned": true
+    },
+    {
+      "query": "parseIRFile",
+      "hitAt10": true,
+      "expectedLineReturned": true
+    },
+    {
+      "query": "verifyModule",
+      "hitAt10": true,
+      "expectedLineReturned": true
+    },
+    {
+      "query": "ExecuteCompilerInvocation",
+      "hitAt10": true,
+      "expectedLineReturned": true
+    }
+  ]
+}

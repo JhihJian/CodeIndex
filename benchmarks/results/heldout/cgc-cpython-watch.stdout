@@ -1,0 +1,1 @@
+{"operation": "RepositoryEventHandler._handle_modification", "startupSeconds": 1.9220935839693993, "importPreparationSeconds": 54.89765667100437, "handlerSeconds": 8.833582028979436, "knownChangedPath": "/data/dev/CodeIndex/.data/heldout/inputs/cpython/Python/pylifecycle.c", "excludes": "OS notification and two-second debounce"}

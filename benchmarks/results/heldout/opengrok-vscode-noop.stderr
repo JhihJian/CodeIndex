@@ -1,0 +1,55 @@
+Oct 25, 2026 3:21:51 PM org.opengrok.indexer.index.Indexer parseOptions
+INFO: Indexer options: [-s, /data/dev/CodeIndex/.data/heldout/inputs/vscode, -d, /data/dev/CodeIndex/.data/heldout/indexes/opengrok/vscode/data, -W, /data/dev/CodeIndex/.data/heldout/indexes/opengrok/vscode/config.xml, -c, /home/jhihjian/.local/bin/ctags-universal, -S]
+Oct 25, 2026 3:21:51 PM org.opengrok.indexer.configuration.Configuration checkConfiguration
+INFO: History based reindex is on, however history is off. History has to be enabled for history based reindex.
+Oct 25, 2026 3:21:51 PM org.opengrok.indexer.index.Indexer runMain
+INFO: Indexer version 1.14.20 (3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3) running on Java version: 21.0.12.1+1-1-24.04.4-Ubuntu, name: OpenJDK 64-Bit Server VM, vendor: Ubuntu, arch: amd64 with properties: ncpu: 12, maxMemory: 8.0 GiB
+Oct 25, 2026 3:21:51 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: Unknown language "terraform:+.tf.Tf.TF" in "langmap" option
+Oct 25, 2026 3:21:51 PM org.opengrok.indexer.analysis.Ctags lambda$run$0
+WARNING: Error from ctags: ctags-universal: Warning: Unknown language "terraform:+.tfvars.Tfvars.TFVARS" in "langmap" option
+Oct 25, 2026 3:21:51 PM org.opengrok.indexer.configuration.RuntimeEnvironment validateUniversalCtags
+INFO: Using ctags: Universal Ctags 5.9.0, Copyright (C) 2015 Universal Ctags Team
+Universal Ctags is derived from Exuberant Ctags.
+Exuberant Ctags 5.8, Copyright (C) 1996-2009 Darren Hiebert
+  Compiled: Sep  3 2021, 18:12:18
+  URL: https://ctags.io/
+  Optional compiled features: +wildcards, +regex, +gnulib_regex, +iconv, +option-directory, +xpath, +json, +interactive, +sandbox, +yaml, +packcc, +optscript
+Oct 25, 2026 3:21:51 PM org.opengrok.indexer.index.Indexer prepareIndexer
+INFO: Scanning for repositories in [/data/dev/CodeIndex/.data/heldout/inputs/vscode/tsfmt.json, /data/dev/CodeIndex/.data/heldout/inputs/vscode/CONTRIBUTING.md, /data/dev/CodeIndex/.data/heldout/inputs/vscode/LICENSE.txt, /data/dev/CodeIndex/.data/heldout/inputs/vscode/gulpfile.js, /data/dev/CodeIndex/.data/heldout/inputs/vscode/cli, /data/dev/CodeIndex/.data/heldout/inputs/vscode/.mailmap, /data/dev/CodeIndex/.data/heldout/inputs/vscode/cglicenses.json, /data/dev/CodeIndex/.data/heldout/inputs/vscode/test, /data/dev/CodeIndex/.data/heldout/inputs/vscode/SECURITY.md, /data/dev/CodeIndex/.data/heldout/inputs/vscode/src, /data/dev/CodeIndex/.data/heldout/inputs/vscode/.devcontainer, /data/dev/CodeIndex/.data/heldout/inputs/vscode/.npmrc, /data/dev/CodeIndex/.data/heldout/inputs/vscode/remote, /data/dev/CodeIndex/.data/heldout/inputs/vscode/.gitignore, /data/dev/CodeIndex/.data/heldout/inputs/vscode/.mention-bot, /data/dev/CodeIndex/.data/heldout/inputs/vscode/resources, /data/dev/CodeIndex/.data/heldout/inputs/vscode/.vscode-test.js, /data/dev/CodeIndex/.data/heldout/inputs/vscode/.git-blame-ignore-revs, /data/dev/CodeIndex/.data/heldout/inputs/vscode/.git, /data/dev/CodeIndex/.data/heldout/inputs/vscode/package-lock.json, /data/dev/CodeIndex/.data/heldout/inputs/vscode/.config, /data/dev/CodeIndex/.data/heldout/inputs/vscode/.lsifrc.json, /data/dev/CodeIndex/.data/heldout/inputs/vscode/eslint.config.js, /data/dev/CodeIndex/.data/heldout/inputs/vscode/scripts, /data/dev/CodeIndex/.data/heldout/inputs/vscode/README.md, /data/dev/CodeIndex/.data/heldout/inputs/vscode/.nvmrc, /data/dev/CodeIndex/.data/heldout/inputs/vscode/ThirdPartyNotices.txt, /data/dev/CodeIndex/.data/heldout/inputs/vscode/.eslint-ignore, /data/dev/CodeIndex/.data/heldout/inputs/vscode/product.json, /data/dev/CodeIndex/.data/heldout/inputs/vscode/CodeQL.yml, /data/dev/CodeIndex/.data/heldout/inputs/vscode/package.json, /data/dev/CodeIndex/.data/heldout/inputs/vscode/.eslint-plugin-local, /data/dev/CodeIndex/.data/heldout/inputs/vscode/.editorconfig, /data/dev/CodeIndex/.data/heldout/inputs/vscode/cgmanifest.json, /data/dev/CodeIndex/.data/heldout/inputs/vscode/.github, /data/dev/CodeIndex/.data/heldout/inputs/vscode/extensions, /data/dev/CodeIndex/.data/heldout/inputs/vscode/.gitattributes] (down to 3 levels below source root)
+Oct 25, 2026 3:21:51 PM org.opengrok.indexer.history.PerforceRepository isP4Working
+WARNING: Command 'p4' does not work. Some operations with Perforce repositories will fail as a result.
+Oct 25, 2026 3:21:51 PM org.opengrok.indexer.util.Statistics logIt
+INFO: Done scanning for repositories, found 0 repositories (took 53 ms)
+Oct 25, 2026 3:21:51 PM org.opengrok.indexer.index.Indexer prepareIndexer
+INFO: Generating history cache for all repositories ...
+Oct 25, 2026 3:21:51 PM org.opengrok.indexer.index.Indexer prepareIndexer
+INFO: Done generating history cache
+Oct 25, 2026 3:21:51 PM org.opengrok.indexer.index.Indexer doIndexerExecution
+INFO: Starting indexing
+WARNING: A restricted method in java.lang.foreign.Linker has been called
+WARNING: java.lang.foreign.Linker::downcallHandle has been called by the unnamed module
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for this module
+
+Oct 25, 2026 3:21:51 PM org.apache.lucene.store.MemorySegmentIndexInputProvider <init>
+INFO: Using MemorySegmentIndexInput and native madvise support with Java 21 or later; to disable start with -Dorg.apache.lucene.store.MMapDirectory.enableMemorySegments=false
+Oct 25, 2026 3:21:51 PM org.apache.lucene.internal.vectorization.VectorizationProvider lookup
+WARNING: Java vector incubator module is not readable. For optimal vector performance, pass '--add-modules jdk.incubator.vector' to enable Vector API.
+Oct 25, 2026 3:21:52 PM org.opengrok.indexer.index.IndexDatabase getIndexDownArgs
+INFO: Starting file collection using file-system traversal for directory ''
+Oct 25, 2026 3:21:52 PM org.opengrok.indexer.util.Statistics logIt
+INFO: Done file collection for directory '' (took 778 ms)
+Oct 25, 2026 3:21:52 PM org.opengrok.indexer.index.IndexDatabase update
+INFO: Starting indexing of directory ''
+Oct 25, 2026 3:21:52 PM org.opengrok.indexer.util.Statistics logIt
+INFO: Done indexing of directory '' (took 39 ms)
+Oct 25, 2026 3:21:53 PM org.opengrok.indexer.util.Statistics logIt
+INFO: Done indexing data of all repositories (took 1.993 seconds)
+Oct 25, 2026 3:21:53 PM org.opengrok.indexer.index.Indexer writeConfigToFile
+INFO: Writing configuration to '/data/dev/CodeIndex/.data/heldout/indexes/opengrok/vscode/config.xml'
+Oct 25, 2026 3:21:53 PM org.opengrok.indexer.index.Indexer writeConfigToFile
+INFO: Done writing configuration to '/data/dev/CodeIndex/.data/heldout/indexes/opengrok/vscode/config.xml'
+Oct 25, 2026 3:21:53 PM org.opengrok.indexer.util.Statistics logIt
+INFO: Indexer finished (took 2.433 seconds)
+Oct 25, 2026 3:21:53 PM org.opengrok.indexer.index.Indexer runMain
+INFO: Indexer finished with success

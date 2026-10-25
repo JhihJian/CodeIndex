@@ -1,0 +1,25 @@
+{
+  "command": [
+    "node",
+    "/data/dev/CodeIndex-worktrees/feature/heldout-comparison/benchmarks/performance/equivalence.mjs",
+    "/data/dev/CodeIndex/.data/heldout/update-oracles/vscode",
+    "/data/dev/CodeIndex/.data/heldout/indexes/codeindex/vscode",
+    "/data/dev/CodeIndex/.data/heldout/updated-inventories/vscode.json"
+  ],
+  "cwd": "/data/dev/CodeIndex-worktrees/feature/heldout-comparison",
+  "systemdUnit": "codeindex-benchmark-1875568.scope",
+  "systemdResult": "success",
+  "status": "success",
+  "exitCode": 0,
+  "wallSeconds": 5.08,
+  "wallSecondsIncludingSupervisor": 5.279642153065652,
+  "timeLimitSeconds": 1800,
+  "memoryLimitGiB": 12,
+  "gnuTimeMaxRssKiB": 265664,
+  "sampledProcessTreeRssSumBytes": 274472960,
+  "workloadSampled": true,
+  "cgroupMemoryPeakBytes": 342814720,
+  "sampleIntervalSeconds": 0.25,
+  "leftoverProcessIdsTerminated": [],
+  "memoryNotes": "RSS sum can double-count shared pages; cgroup memory includes page cache; GNU time max RSS is not simultaneous tree total"
+}

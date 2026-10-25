@@ -1,0 +1,131 @@
+{
+  "definitionProbes": [
+    {
+      "query": "SequenceMatcher",
+      "expectedPath": "Lib/difflib.py",
+      "scopedMatch": true,
+      "expectedLineCovered": true,
+      "matches": [
+        {
+          "name": "SequenceMatcher",
+          "line": 44,
+          "labels": [
+            "Class"
+          ],
+          "sourceLines": 89,
+          "expectedLineCovered": true
+        }
+      ]
+    },
+    {
+      "query": "JSONDecoder",
+      "expectedPath": "Lib/json/decoder.py",
+      "scopedMatch": true,
+      "expectedLineCovered": true,
+      "matches": [
+        {
+          "name": "JSONDecoder",
+          "line": 262,
+          "labels": [
+            "Class"
+          ],
+          "sourceLines": 95,
+          "expectedLineCovered": true
+        }
+      ]
+    },
+    {
+      "query": "ArgumentParser",
+      "expectedPath": "Lib/argparse.py",
+      "scopedMatch": true,
+      "expectedLineCovered": true,
+      "matches": [
+        {
+          "name": "ArgumentParser",
+          "line": 1840,
+          "labels": [
+            "Class"
+          ],
+          "sourceLines": 103,
+          "expectedLineCovered": true
+        }
+      ]
+    },
+    {
+      "query": "heappush",
+      "expectedPath": "Lib/heapq.py",
+      "scopedMatch": true,
+      "expectedLineCovered": true,
+      "matches": [
+        {
+          "name": "heappush",
+          "line": 132,
+          "labels": [
+            "Function"
+          ],
+          "sourceLines": 4,
+          "expectedLineCovered": true
+        }
+      ]
+    },
+    {
+      "query": "Py_Initialize",
+      "expectedPath": "Python/pylifecycle.c",
+      "scopedMatch": true,
+      "expectedLineCovered": true,
+      "matches": [
+        {
+          "name": "Py_Initialize",
+          "line": 1483,
+          "labels": [
+            "Function"
+          ],
+          "sourceLines": 5,
+          "expectedLineCovered": true
+        }
+      ]
+    },
+    {
+      "query": "PyErr_SetString",
+      "expectedPath": "Python/errors.c",
+      "scopedMatch": true,
+      "expectedLineCovered": true,
+      "matches": [
+        {
+          "name": "PyErr_SetString",
+          "line": 294,
+          "labels": [
+            "Function"
+          ],
+          "sourceLines": 6,
+          "expectedLineCovered": true
+        }
+      ]
+    },
+    {
+      "query": "PyUnicode_FromString",
+      "expectedPath": "Objects/unicodeobject.c",
+      "scopedMatch": true,
+      "expectedLineCovered": true,
+      "matches": [
+        {
+          "name": "PyUnicode_FromString",
+          "line": 2169,
+          "labels": [
+            "Function"
+          ],
+          "sourceLines": 10,
+          "expectedLineCovered": true
+        }
+      ]
+    },
+    {
+      "query": "PyLong_FromLong",
+      "expectedPath": "Objects/longobject.c",
+      "scopedMatch": false,
+      "expectedLineCovered": false,
+      "matches": []
+    }
+  ],
+  "scope": "Exact expected file and identifier leaf, independent of the public API limit and ranking"
+}

@@ -1,0 +1,300 @@
+{
+  "warmup": 1,
+  "indexedDocuments": 5448,
+  "tool": "OpenGrok",
+  "loadMs": 151.214183,
+  "rows": [
+    {
+      "medianMs": 2.6601965,
+      "hitAt10": true,
+      "coldMs": 229.584648,
+      "query": "Heaps are arrays for which",
+      "totalFiles": 6,
+      "files": [
+        {
+          "path": "Lib/heapq.py",
+          "lines": [
+            {
+              "source": "<b>Heaps</b> <b>are</b> <b>arrays</b> <b>for</b> <b>which</b> a[k] &lt;= a[2*k+1] and a[k] &lt;= a[2*k+2] <b>for</b>",
+              "line": 3
+            },
+            {
+              "source": "all k, counting elements from 0.  <b>For</b> the sake of comparison,",
+              "line": 4
+            },
+            {
+              "source": "non-existing elements <b>are</b> considered to be infinite.  The interesting",
+              "line": 5
+            }
+          ]
+        },
+        {
+          "path": "Doc/library/heapq.rst",
+          "lines": [
+            {
+              "source": "Min-<b>heaps</b> <b>are</b> binary trees <b>for</b> <b>which</b> every parent node has a value less than",
+              "line": 19
+            },
+            {
+              "source": "<b>For</b> min-<b>heaps</b>, this implementation uses lists <b>for</b> <b>which</b>",
+              "line": 23
+            },
+            {
+              "source": "``heap[k] &lt;= heap[2*k+1]`` and ``heap[k] &lt;= heap[2*k+2]`` <b>for</b> all *k* <b>for</b> <b>which</b>",
+              "line": 24
+            }
+          ]
+        },
+        {
+          "path": "Modules/_heapqmodule.c",
+          "lines": [
+            {
+              "source": "/* Drop in replacement <b>for</b> heapq.py",
+              "line": 1
+            },
+            {
+              "source": "<b>which</b> was written by Kevin O'Connor, augmented by Tim Peters,",
+              "line": 4
+            },
+            {
+              "source": "   on nodes whose children <b>are</b> already <b>heaps</b>.",
+              "line": 315
+            }
+          ]
+        },
+        {
+          "path": "Objects/obmalloc.c",
+          "lines": [
+            {
+              "source": "#  include \"mimalloc/internal.h\"  // <b>for</b> stats",
+              "line": 24
+            },
+            {
+              "source": "       <b>for</b> malloc(0), <b>which</b> would be treated as an error. Some platforms would",
+              "line": 58
+            },
+            {
+              "source": "       return a pointer with no memory behind it, <b>which</b> would break pymalloc.",
+              "line": 59
+            }
+          ]
+        },
+        {
+          "path": "Doc/whatsnew/2.4.rst",
+          "lines": [
+            {
+              "source": ".. Don't write extensive text <b>for</b> new sections; I'll do that.",
+              "line": 10
+            },
+            {
+              "source": "release.  The most significant new language features <b>are</b> function decorators and",
+              "line": 19
+            },
+            {
+              "source": "generator expressions; most other changes <b>are</b> to the standard library.",
+              "line": 20
+            }
+          ]
+        },
+        {
+          "path": "Misc/HISTORY",
+          "lines": [
+            {
+              "source": "This file contains the release messages <b>for</b> previous Python releases.",
+              "line": 4
+            },
+            {
+              "source": "- Issue #27758: Fix possible integer overflow in the _csv module <b>for</b> large record",
+              "line": 48
+            },
+            {
+              "source": "  HTTP_PROXY variable when REQUEST_METHOD environment is set, <b>which</b> indicates",
+              "line": 52
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "medianMs": 2.193379,
+      "hitAt10": false,
+      "coldMs": 5.239722,
+      "query": "Exception ignored in",
+      "totalFiles": 409,
+      "files": [
+        {
+          "path": "Python/clinic/sysmodule.c.h",
+          "lines": [
+            {
+              "source": "\"Print an object to sys.stdout and also save it <b>in</b> builtins._\");",
+              "line": 122
+            },
+            {
+              "source": "\"Handle an <b>exception</b> by displaying it with a traceback on sys.stderr.\");",
+              "line": 131
+            },
+            {
+              "source": "\"<b>exception</b>($module, /)\\n\"",
+              "line": 161
+            }
+          ]
+        },
+        {
+          "path": "Doc/library/queue.rst",
+          "lines": [
+            {
+              "source": "It is especially useful <b>in</b> threaded programming when information must be",
+              "line": 12
+            },
+            {
+              "source": "exchanged safely between multiple threads.  The :class:`Queue` class <b>in</b> this",
+              "line": 13
+            },
+            {
+              "source": "The module implements three types of queue, which differ only <b>in</b> the order <b>in</b>",
+              "line": 16
+            }
+          ]
+        },
+        {
+          "path": "Lib/test/test_signal.py",
+          "lines": [
+            {
+              "source": "        for name <b>in</b> dir(signal):",
+              "line": 29
+            },
+            {
+              "source": "            if name <b>in</b> {'SIG_DFL', 'SIG_IGN'}:",
+              "line": 31
+            },
+            {
+              "source": "            elif name <b>in</b> {'SIG_BLOCK', 'SIG_UNBLOCK', 'SIG_SETMASK'}:",
+              "line": 33
+            }
+          ]
+        },
+        {
+          "path": "Lib/queue.py",
+          "lines": [
+            {
+              "source": "    class Empty(<b>Exception</b>):",
+              "line": 27
+            },
+            {
+              "source": "        '<b>Exception</b> raised by Queue.get(block=0)/get_nowait().'",
+              "line": 28
+            },
+            {
+              "source": "class Full(<b>Exception</b>):",
+              "line": 31
+            }
+          ]
+        },
+        {
+          "path": "Objects/genobject.c",
+          "lines": [
+            {
+              "source": "                                 \"async generator <b>ignored</b> GeneratorExit\";",
+              "line": 44
+            },
+            {
+              "source": "       participate <b>in</b> a reference cycle. */",
+              "line": 81
+            },
+            {
+              "source": "            /* Save the current <b>exception</b>, if any. */",
+              "line": 100
+            }
+          ]
+        },
+        {
+          "path": "Modules/_ctypes/callbacks.c",
+          "lines": [
+            {
+              "source": "                    \"<b>Exception</b> <b>ignored</b> while setting error for \"",
+              "line": 191
+            },
+            {
+              "source": "        PyErr_FormatUnraisable(\"<b>Exception</b> <b>ignored</b> while \"",
+              "line": 212
+            },
+            {
+              "source": "        /* See the corresponding code <b>in</b> _ctypes_callproc():",
+              "line": 235
+            }
+          ]
+        },
+        {
+          "path": "Lib/test/test___all__.py",
+          "lines": [
+            {
+              "source": "                # may not be available or not initialize properly <b>in</b> all",
+              "line": 46
+            },
+            {
+              "source": "                except <b>Exception</b> as e:",
+              "line": 60
+            },
+            {
+              "source": "                    # Include the module name <b>in</b> the <b>exception</b> string",
+              "line": 61
+            }
+          ]
+        },
+        {
+          "path": "Modules/_testcapi/gc.c",
+          "lines": [
+            {
+              "source": "test_gc_control(PyObject *self, PyObject *Py_UNUSED(<b>ignored</b>))",
+              "line": 4
+            },
+            {
+              "source": "    PyErr_Format(PyExc_ValueError, \"GC control failed <b>in</b> %s\", msg);",
+              "line": 61
+            },
+            {
+              "source": "    /* Save the current <b>exception</b>, if any. */",
+              "line": 92
+            }
+          ]
+        },
+        {
+          "path": "Doc/library/exceptions.rst",
+          "lines": [
+            {
+              "source": "Built-<b>in</b> Exceptions",
+              "line": 3
+            },
+            {
+              "source": "<b>In</b> Python, all exceptions must be instances of a class that derives from",
+              "line": 10
+            },
+            {
+              "source": ":class:`BaseException`.  <b>In</b> a :keyword:`try` statement with an :keyword:`except`",
+              "line": 11
+            }
+          ]
+        },
+        {
+          "path": "Doc/library/warnings.rst",
+          "lines": [
+            {
+              "source": "Warning messages are typically issued <b>in</b> situations where it is useful to alert",
+              "line": 13
+            },
+            {
+              "source": "the user of some condition <b>in</b> a program, where that condition (normally) doesn't",
+              "line": 14
+            },
+            {
+              "source": "warrant raising an <b>exception</b> and terminating the program.  For example, one",
+              "line": 15
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "repetitions": 20,
+  "mode": "text"
+}

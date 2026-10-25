@@ -1,0 +1,3073 @@
+{
+  "method": "Three fresh builds for initially successful build/query pairs; failures retained once. Ranges summarize actual observations, not confidence intervals. Hot queries summarize per-question medians of 20 runs. Memory statistics use their separate original definitions.",
+  "rows": [
+    {
+      "corpus": "cpython",
+      "tool": "codeindex",
+      "buildStatuses": [
+        "success",
+        "success",
+        "success"
+      ],
+      "buildSeconds": {
+        "n": 3,
+        "median": 28.87,
+        "min": 28.8,
+        "max": 29.0
+      },
+      "supervisedSeconds": {
+        "n": 3,
+        "median": 29.14302471699193,
+        "min": 28.89867115789093,
+        "max": 29.152275238884613
+      },
+      "attempts": [
+        {
+          "status": "success",
+          "wallSeconds": 28.87,
+          "supervisedSeconds": 29.152275238884613,
+          "timeLimitSeconds": 1800
+        },
+        {
+          "status": "success",
+          "wallSeconds": 29.0,
+          "supervisedSeconds": 29.14302471699193,
+          "timeLimitSeconds": 1800
+        },
+        {
+          "status": "success",
+          "wallSeconds": 28.8,
+          "supervisedSeconds": 28.89867115789093,
+          "timeLimitSeconds": 1800
+        }
+      ],
+      "cpuSeconds": {
+        "n": 3,
+        "median": 30.72,
+        "min": 30.68,
+        "max": 30.86
+      },
+      "gnuTimeMaxRssMiB": {
+        "n": 3,
+        "median": 386.0078125,
+        "min": 384.8515625,
+        "max": 386.0234375
+      },
+      "sampledTreeRssMiB": {
+        "n": 3,
+        "median": 405.3828125,
+        "min": 405.08203125,
+        "max": 420.31640625
+      },
+      "cgroupPeakGiB": {
+        "n": 3,
+        "median": 0.5958633422851562,
+        "min": 0.5806961059570312,
+        "max": 0.6172828674316406
+      },
+      "indexMiB": {
+        "n": 3,
+        "median": 255.53110027313232,
+        "min": 255.531099319458,
+        "max": 255.53110027313232
+      },
+      "queryStatuses": [
+        "success",
+        "success",
+        "success"
+      ],
+      "symbolHitsByRun": [
+        8,
+        8,
+        8
+      ],
+      "symbolQuestions": 8,
+      "hotQueryMs": {
+        "n": 24,
+        "median": 0.7953834999999962,
+        "min": 0.44073750000000445,
+        "max": 1.2235854999999987
+      },
+      "firstQueryMs": {
+        "n": 24,
+        "median": 0.9778220000000033,
+        "min": 0.5503880000000123,
+        "max": 7.913536000000001
+      },
+      "loadMs": {
+        "n": 3,
+        "median": 1.1193719999999985,
+        "min": 1.1129079999999973,
+        "max": 1.2196079999999974
+      },
+      "symbolMisses": [],
+      "symbolMissesByRun": [
+        [],
+        [],
+        []
+      ],
+      "symbolScoresStable": true,
+      "indexedFiles": 5019,
+      "missingFiles": 0,
+      "definitionProbes": [
+        {
+          "query": "SequenceMatcher",
+          "expectedPath": "Lib/difflib.py",
+          "scopedMatch": true,
+          "expectedLineCovered": true,
+          "matches": [
+            {
+              "name": "SequenceMatcher",
+              "kind": "class",
+              "sourceSpan": {
+                "path": "Lib/difflib.py",
+                "startLine": 44,
+                "endLine": 663,
+                "startColumn": 0,
+                "endColumn": 49,
+                "startByte": 1356,
+                "endByte": 27182,
+                "blobDigest": "000f99f04cf8fd967753ed9929be6d5025e006437e0ef19b65e3303072538b74",
+                "snapshotId": "snapshot:repo-3a171d820584dd59589e:3e42020676ce9098ec1aa837"
+              }
+            }
+          ]
+        },
+        {
+          "query": "JSONDecoder",
+          "expectedPath": "Lib/json/decoder.py",
+          "scopedMatch": true,
+          "expectedLineCovered": true,
+          "matches": [
+            {
+              "name": "JSONDecoder",
+              "kind": "class",
+              "sourceSpan": {
+                "path": "Lib/json/decoder.py",
+                "startLine": 262,
+                "endLine": 364,
+                "startColumn": 0,
+                "endColumn": 23,
+                "startByte": 8502,
+                "endByte": 12871,
+                "blobDigest": "6d95679fccf178f2af9e9eead42f8efb084c58735951dc47fce89aec11d44955",
+                "snapshotId": "snapshot:repo-3a171d820584dd59589e:3e42020676ce9098ec1aa837"
+              }
+            }
+          ]
+        },
+        {
+          "query": "ArgumentParser",
+          "expectedPath": "Lib/argparse.py",
+          "scopedMatch": true,
+          "expectedLineCovered": true,
+          "matches": [
+            {
+              "name": "ArgumentParser",
+              "kind": "class",
+              "sourceSpan": {
+                "path": "Lib/argparse.py",
+                "startLine": 1840,
+                "endLine": 2775,
+                "startColumn": 0,
+                "endColumn": 86,
+                "startByte": 66365,
+                "endByte": 105823,
+                "blobDigest": "c2cd895b117dbc4d55439773e3f11e57b833b1e20f05d311c4465b794b044898",
+                "snapshotId": "snapshot:repo-3a171d820584dd59589e:3e42020676ce9098ec1aa837"
+              }
+            }
+          ]
+        },
+        {
+          "query": "heappush",
+          "expectedPath": "Lib/heapq.py",
+          "scopedMatch": true,
+          "expectedLineCovered": true,
+          "matches": [
+            {
+              "name": "heappush",
+              "kind": "function",
+              "sourceSpan": {
+                "path": "Lib/heapq.py",
+                "startLine": 132,
+                "endLine": 135,
+                "startColumn": 0,
+                "endColumn": 35,
+                "startByte": 6369,
+                "endByte": 6515,
+                "blobDigest": "8a1d516c404e991c04f6ca7c7532be4e2abb45518122fdac724a05f710a94697",
+                "snapshotId": "snapshot:repo-3a171d820584dd59589e:3e42020676ce9098ec1aa837"
+              }
+            }
+          ]
+        },
+        {
+          "query": "Py_Initialize",
+          "expectedPath": "Python/pylifecycle.c",
+          "scopedMatch": true,
+          "expectedLineCovered": true,
+          "matches": [
+            {
+              "name": "Py_Initialize",
+              "kind": "function",
+              "sourceSpan": {
+                "path": "Python/pylifecycle.c",
+                "startLine": 1483,
+                "endLine": 1486,
+                "startColumn": 0,
+                "endColumn": 0,
+                "startByte": 42521,
+                "endByte": 42568,
+                "blobDigest": "c6c1256d8f1d6edb692aaa1d07c2cd2273411c9f461b0a6a21566236fa3e7d7d",
+                "snapshotId": "snapshot:repo-3a171d820584dd59589e:3e42020676ce9098ec1aa837"
+              }
+            }
+          ]
+        },
+        {
+          "query": "PyErr_SetString",
+          "expectedPath": "Python/errors.c",
+          "scopedMatch": true,
+          "expectedLineCovered": true,
+          "matches": [
+            {
+              "name": "PyErr_SetString",
+              "kind": "function",
+              "sourceSpan": {
+                "path": "Python/errors.c",
+                "startLine": 294,
+                "endLine": 298,
+                "startColumn": 0,
+                "endColumn": 0,
+                "startByte": 8707,
+                "endByte": 8866,
+                "blobDigest": "e54d738e9dca16b07d9efaeb08eed9fb6276a4af8a01640bad06680599450e49",
+                "snapshotId": "snapshot:repo-3a171d820584dd59589e:3e42020676ce9098ec1aa837"
+              }
+            }
+          ]
+        },
+        {
+          "query": "PyUnicode_FromString",
+          "expectedPath": "Objects/unicodeobject.c",
+          "scopedMatch": true,
+          "expectedLineCovered": true,
+          "matches": [
+            {
+              "name": "PyUnicode_FromString",
+              "kind": "function",
+              "sourceSpan": {
+                "path": "Objects/unicodeobject.c",
+                "startLine": 2169,
+                "endLine": 2177,
+                "startColumn": 0,
+                "endColumn": 0,
+                "startByte": 66049,
+                "endByte": 66315,
+                "blobDigest": "cf6885efb5011a036d4741372cec22ef3945fb11abe01d8079917714a33addd0",
+                "snapshotId": "snapshot:repo-3a171d820584dd59589e:3e42020676ce9098ec1aa837"
+              }
+            }
+          ]
+        },
+        {
+          "query": "PyLong_FromLong",
+          "expectedPath": "Objects/longobject.c",
+          "scopedMatch": true,
+          "expectedLineCovered": true,
+          "matches": [
+            {
+              "name": "PyLong_FromLong",
+              "kind": "function",
+              "sourceSpan": {
+                "path": "Objects/longobject.c",
+                "startLine": 373,
+                "endLine": 376,
+                "startColumn": 0,
+                "endColumn": 0,
+                "startByte": 13376,
+                "endByte": 13454,
+                "blobDigest": "35e8ae447cd4993c57c943472526b8977b0af11088782cedbdd2e8e5d846218d",
+                "snapshotId": "snapshot:repo-3a171d820584dd59589e:3e42020676ce9098ec1aa837"
+              }
+            }
+          ]
+        }
+      ],
+      "coverage": {
+        "sourceFiles": 5019,
+        "parsedFiles": 3115,
+        "unsupportedFiles": 1830,
+        "partialFiles": 1904,
+        "skippedFiles": 1,
+        "nativeCalls": true,
+        "semantics": "syntax-level symbols and cross-references; no compiler-level overload or pointer resolution"
+      },
+      "contentOmittedFiles": 0,
+      "contentHits": 0,
+      "contentQuestions": 2,
+      "relations": {
+        "hits": 4,
+        "questions": 4
+      },
+      "evidence": {
+        "symbol": {
+          "snippetsChecked": 42,
+          "metadataOnlyLocations": 0,
+          "mismatches": [],
+          "absentPaths": [],
+          "locations": [
+            {
+              "query": "SequenceMatcher",
+              "hitAt10": true,
+              "expectedLineReturned": true
+            },
+            {
+              "query": "JSONDecoder",
+              "hitAt10": true,
+              "expectedLineReturned": true
+            },
+            {
+              "query": "ArgumentParser",
+              "hitAt10": true,
+              "expectedLineReturned": true
+            },
+            {
+              "query": "heappush",
+              "hitAt10": true,
+              "expectedLineReturned": true
+            },
+            {
+              "query": "Py_Initialize",
+              "hitAt10": true,
+              "expectedLineReturned": true
+            },
+            {
+              "query": "PyErr_SetString",
+              "hitAt10": true,
+              "expectedLineReturned": true
+            },
+            {
+              "query": "PyUnicode_FromString",
+              "hitAt10": true,
+              "expectedLineReturned": true
+            },
+            {
+              "query": "PyLong_FromLong",
+              "hitAt10": true,
+              "expectedLineReturned": true
+            }
+          ]
+        },
+        "content": {
+          "snippetsChecked": 19,
+          "metadataOnlyLocations": 0,
+          "mismatches": [],
+          "absentPaths": [],
+          "locations": [
+            {
+              "query": "Heaps are arrays for which",
+              "hitAt10": false,
+              "expectedLineReturned": false
+            },
+            {
+              "query": "Exception ignored in",
+              "hitAt10": false,
+              "expectedLineReturned": false
+            }
+          ]
+        }
+      },
+      "updates": [
+        {
+          "mode": "noop",
+          "status": "success",
+          "seconds": 0.09,
+          "checks": null,
+          "semantics": "normal unchanged-input update"
+        },
+        {
+          "mode": "update",
+          "status": "success",
+          "seconds": 1.92,
+          "checks": {
+            "querySucceeded": true,
+            "probeHit": true,
+            "baselinePreserved": true,
+            "relationsPreserved": true,
+            "fullBuildEquivalent": true
+          },
+          "semantics": null
+        }
+      ],
+      "restored": {
+        "querySucceeded": true,
+        "probeHit": false,
+        "baselinePreserved": true,
+        "relationsPreserved": true
+      }
+    },
+    {
+      "corpus": "cpython",
+      "tool": "opengrok",
+      "buildStatuses": [
+        "success",
+        "success",
+        "success"
+      ],
+      "buildSeconds": {
+        "n": 3,
+        "median": 10.2,
+        "min": 9.28,
+        "max": 11.97
+      },
+      "supervisedSeconds": {
+        "n": 3,
+        "median": 10.293832783121616,
+        "min": 9.562888415995985,
+        "max": 12.064643919933587
+      },
+      "attempts": [
+        {
+          "status": "success",
+          "wallSeconds": 11.97,
+          "supervisedSeconds": 12.064643919933587,
+          "timeLimitSeconds": 1800
+        },
+        {
+          "status": "success",
+          "wallSeconds": 9.28,
+          "supervisedSeconds": 9.562888415995985,
+          "timeLimitSeconds": 1800
+        },
+        {
+          "status": "success",
+          "wallSeconds": 10.2,
+          "supervisedSeconds": 10.293832783121616,
+          "timeLimitSeconds": 1800
+        }
+      ],
+      "cpuSeconds": {
+        "n": 3,
+        "median": 99.56,
+        "min": 93.65,
+        "max": 119.93
+      },
+      "gnuTimeMaxRssMiB": {
+        "n": 3,
+        "median": 1404.203125,
+        "min": 1363.4609375,
+        "max": 1407.12890625
+      },
+      "sampledTreeRssMiB": {
+        "n": 3,
+        "median": 1404.28515625,
+        "min": 1360.0390625,
+        "max": 1409.828125
+      },
+      "cgroupPeakGiB": {
+        "n": 3,
+        "median": 1.6789741516113281,
+        "min": 1.6470909118652344,
+        "max": 1.6976318359375
+      },
+      "indexMiB": {
+        "n": 3,
+        "median": 192.57707023620605,
+        "min": 192.54565715789795,
+        "max": 192.97416973114014
+      },
+      "queryStatuses": [
+        "success",
+        "success",
+        "success"
+      ],
+      "symbolHitsByRun": [
+        8,
+        8,
+        8
+      ],
+      "symbolQuestions": 8,
+      "hotQueryMs": {
+        "n": 24,
+        "median": 0.6965542499999999,
+        "min": 0.462636,
+        "max": 1.426478
+      },
+      "firstQueryMs": {
+        "n": 24,
+        "median": 1.341464,
+        "min": 0.877153,
+        "max": 233.758058
+      },
+      "loadMs": {
+        "n": 3,
+        "median": 174.109271,
+        "min": 169.410148,
+        "max": 176.963028
+      },
+      "symbolMisses": [],
+      "symbolMissesByRun": [
+        [],
+        [],
+        []
+      ],
+      "symbolScoresStable": true,
+      "indexedFiles": 5019,
+      "missingFiles": 0,
+      "definitionProbes": [
+        {
+          "matches": [
+            "Lib/difflib.py"
+          ],
+          "expectedPath": "Lib/difflib.py",
+          "scopedMatch": true,
+          "query": "SequenceMatcher"
+        },
+        {
+          "matches": [
+            "Lib/json/decoder.py"
+          ],
+          "expectedPath": "Lib/json/decoder.py",
+          "scopedMatch": true,
+          "query": "JSONDecoder"
+        },
+        {
+          "matches": [
+            "Lib/argparse.py"
+          ],
+          "expectedPath": "Lib/argparse.py",
+          "scopedMatch": true,
+          "query": "ArgumentParser"
+        },
+        {
+          "matches": [
+            "Lib/heapq.py"
+          ],
+          "expectedPath": "Lib/heapq.py",
+          "scopedMatch": true,
+          "query": "heappush"
+        },
+        {
+          "matches": [
+            "Python/pylifecycle.c"
+          ],
+          "expectedPath": "Python/pylifecycle.c",
+          "scopedMatch": true,
+          "query": "Py_Initialize"
+        },
+        {
+          "matches": [
+            "Python/errors.c"
+          ],
+          "expectedPath": "Python/errors.c",
+          "scopedMatch": true,
+          "query": "PyErr_SetString"
+        },
+        {
+          "matches": [
+            "Objects/unicodeobject.c"
+          ],
+          "expectedPath": "Objects/unicodeobject.c",
+          "scopedMatch": true,
+          "query": "PyUnicode_FromString"
+        },
+        {
+          "matches": [
+            "Objects/longobject.c"
+          ],
+          "expectedPath": "Objects/longobject.c",
+          "scopedMatch": true,
+          "query": "PyLong_FromLong"
+        }
+      ],
+      "coverage": null,
+      "contentOmittedFiles": 0,
+      "contentHits": 1,
+      "contentQuestions": 2,
+      "relations": null,
+      "evidence": {
+        "symbol": {
+          "snippetsChecked": 11,
+          "metadataOnlyLocations": 0,
+          "mismatches": [],
+          "absentPaths": [],
+          "locations": [
+            {
+              "query": "SequenceMatcher",
+              "hitAt10": true,
+              "expectedLineReturned": true
+            },
+            {
+              "query": "JSONDecoder",
+              "hitAt10": true,
+              "expectedLineReturned": true
+            },
+            {
+              "query": "ArgumentParser",
+              "hitAt10": true,
+              "expectedLineReturned": true
+            },
+            {
+              "query": "heappush",
+              "hitAt10": true,
+              "expectedLineReturned": true
+            },
+            {
+              "query": "Py_Initialize",
+              "hitAt10": true,
+              "expectedLineReturned": true
+            },
+            {
+              "query": "PyErr_SetString",
+              "hitAt10": true,
+              "expectedLineReturned": true
+            },
+            {
+              "query": "PyUnicode_FromString",
+              "hitAt10": true,
+              "expectedLineReturned": true
+            },
+            {
+              "query": "PyLong_FromLong",
+              "hitAt10": true,
+              "expectedLineReturned": true
+            }
+          ]
+        },
+        "content": {
+          "snippetsChecked": 48,
+          "metadataOnlyLocations": 0,
+          "mismatches": [],
+          "absentPaths": [],
+          "locations": [
+            {
+              "query": "Heaps are arrays for which",
+              "hitAt10": true,
+              "expectedLineReturned": true
+            },
+            {
+              "query": "Exception ignored in",
+              "hitAt10": false,
+              "expectedLineReturned": false
+            }
+          ]
+        }
+      },
+      "updates": [
+        {
+          "mode": "noop",
+          "status": "success",
+          "seconds": 1.71,
+          "checks": null,
+          "semantics": "normal unchanged-input update"
+        },
+        {
+          "mode": "update",
+          "status": "success",
+          "seconds": 1.52,
+          "checks": {
+            "querySucceeded": true,
+            "probeHit": true,
+            "baselinePreserved": true
+          },
+          "semantics": null
+        }
+      ],
+      "restored": {
+        "querySucceeded": true,
+        "probeHit": false,
+        "baselinePreserved": true
+      }
+    },
+    {
+      "corpus": "cpython",
+      "tool": "zoekt",
+      "buildStatuses": [
+        "success",
+        "success",
+        "success"
+      ],
+      "buildSeconds": {
+        "n": 3,
+        "median": 8.82,
+        "min": 8.54,
+        "max": 8.85
+      },
+      "supervisedSeconds": {
+        "n": 3,
+        "median": 9.044894121121615,
+        "min": 8.790083962026983,
+        "max": 9.047019093064591
+      },
+      "attempts": [
+        {
+          "status": "success",
+          "wallSeconds": 8.85,
+          "supervisedSeconds": 9.047019093064591,
+          "timeLimitSeconds": 1800
+        },
+        {
+          "status": "success",
+          "wallSeconds": 8.54,
+          "supervisedSeconds": 8.790083962026983,
+          "timeLimitSeconds": 1800
+        },
+        {
+          "status": "success",
+          "wallSeconds": 8.82,
+          "supervisedSeconds": 9.044894121121615,
+          "timeLimitSeconds": 1800
+        }
+      ],
+      "cpuSeconds": {
+        "n": 3,
+        "median": 9.34,
+        "min": 9.18,
+        "max": 9.48
+      },
+      "gnuTimeMaxRssMiB": {
+        "n": 3,
+        "median": 793.70703125,
+        "min": 777.3984375,
+        "max": 817.4140625
+      },
+      "sampledTreeRssMiB": {
+        "n": 3,
+        "median": 774.40234375,
+        "min": 759.9375,
+        "max": 814.69140625
+      },
+      "cgroupPeakGiB": {
+        "n": 3,
+        "median": 1.0106201171875,
+        "min": 1.0075111389160156,
+        "max": 1.0239067077636719
+      },
+      "indexMiB": {
+        "n": 3,
+        "median": 266.1116142272949,
+        "min": 266.1116142272949,
+        "max": 266.1116142272949
+      },
+      "queryStatuses": [
+        "success",
+        "success",
+        "success"
+      ],
+      "symbolHitsByRun": [
+        8,
+        8,
+        8
+      ],
+      "symbolQuestions": 8,
+      "hotQueryMs": {
+        "n": 24,
+        "median": 0.1782165,
+        "min": 0.0344945,
+        "max": 0.4509835
+      },
+      "firstQueryMs": {
+        "n": 24,
+        "median": 0.4509585,
+        "min": 0.063696,
+        "max": 1.252926
+      },
+      "loadMs": {
+        "n": 3,
+        "median": 7.329,
+        "min": 7.207,
+        "max": 7.377
+      },
+      "symbolMisses": [],
+      "symbolMissesByRun": [
+        [],
+        [],
+        []
+      ],
+      "symbolScoresStable": true,
+      "indexedFiles": 5019,
+      "missingFiles": 0,
+      "definitionProbes": null,
+      "coverage": null,
+      "contentOmittedFiles": 4,
+      "contentHits": 2,
+      "contentQuestions": 2,
+      "relations": null,
+      "evidence": {
+        "symbol": {
+          "snippetsChecked": 34,
+          "metadataOnlyLocations": 0,
+          "mismatches": [],
+          "absentPaths": [],
+          "locations": [
+            {
+              "query": "SequenceMatcher",
+              "hitAt10": true,
+              "expectedLineReturned": true
+            },
+            {
+              "query": "JSONDecoder",
+              "hitAt10": true,
+              "expectedLineReturned": true
+            },
+            {
+              "query": "ArgumentParser",
+              "hitAt10": true,
+              "expectedLineReturned": true
+            },
+            {
+              "query": "heappush",
+              "hitAt10": true,
+              "expectedLineReturned": true
+            },
+            {
+              "query": "Py_Initialize",
+              "hitAt10": true,
+              "expectedLineReturned": true
+            },
+            {
+              "query": "PyErr_SetString",
+              "hitAt10": true,
+              "expectedLineReturned": true
+            },
+            {
+              "query": "PyUnicode_FromString",
+              "hitAt10": true,
+              "expectedLineReturned": true
+            },
+            {
+              "query": "PyLong_FromLong",
+              "hitAt10": true,
+              "expectedLineReturned": true
+            }
+          ]
+        },
+        "content": {
+          "snippetsChecked": 42,
+          "metadataOnlyLocations": 0,
+          "mismatches": [],
+          "absentPaths": [],
+          "locations": [
+            {
+              "query": "Heaps are arrays for which",
+              "hitAt10": true,
+              "expectedLineReturned": true
+            },
+            {
+              "query": "Exception ignored in",
+              "hitAt10": true,
+              "expectedLineReturned": false
+            }
+          ]
+        }
+      },
+      "updates": [
+        {
+          "mode": "noop",
+          "status": "success",
+          "seconds": 0.02,
+          "checks": null,
+          "semantics": "normal unchanged-input update"
+        },
+        {
+          "mode": "update",
+          "status": "success",
+          "seconds": 8.53,
+          "checks": {
+            "querySucceeded": true,
+            "probeHit": true,
+            "baselinePreserved": true
+          },
+          "semantics": null
+        },
+        {
+          "mode": "delta",
+          "status": "success",
+          "seconds": 0.11,
+          "checks": {
+            "querySucceeded": true,
+            "probeHit": true,
+            "baselinePreserved": true,
+            "fallbackToFull": false
+          },
+          "semantics": null
+        }
+      ],
+      "restored": {
+        "querySucceeded": true,
+        "probeHit": false,
+        "baselinePreserved": true
+      }
+    },
+    {
+      "corpus": "cpython",
+      "tool": "cgc",
+      "buildStatuses": [
+        "success",
+        "success",
+        "success"
+      ],
+      "buildSeconds": {
+        "n": 3,
+        "median": 363.95,
+        "min": 363.36,
+        "max": 364.83
+      },
+      "supervisedSeconds": {
+        "n": 3,
+        "median": 364.1061777740251,
+        "min": 363.6201118119061,
+        "max": 364.868355080951
+      },
+      "attempts": [
+        {
+          "status": "success",
+          "wallSeconds": 363.36,
+          "supervisedSeconds": 363.6201118119061,
+          "timeLimitSeconds": 1800
+        },
+        {
+          "status": "success",
+          "wallSeconds": 363.95,
+          "supervisedSeconds": 364.1061777740251,
+          "timeLimitSeconds": 1800
+        },
+        {
+          "status": "success",
+          "wallSeconds": 364.83,
+          "supervisedSeconds": 364.868355080951,
+          "timeLimitSeconds": 1800
+        }
+      ],
+      "cpuSeconds": {
+        "n": 3,
+        "median": 301.05,
+        "min": 300.43,
+        "max": 301.34
+      },
+      "gnuTimeMaxRssMiB": {
+        "n": 3,
+        "median": 3152.23046875,
+        "min": 3145.4765625,
+        "max": 3172.87109375
+      },
+      "sampledTreeRssMiB": {
+        "n": 3,
+        "median": 3190.99609375,
+        "min": 3185.421875,
+        "max": 3212.63671875
+      },
+      "cgroupPeakGiB": {
+        "n": 3,
+        "median": 3.7179107666015625,
+        "min": 3.7076339721679688,
+        "max": 3.89581298828125
+      },
+      "indexMiB": {
+        "n": 3,
+        "median": 77.70628070831299,
+        "min": 77.69330215454102,
+        "max": 77.73807525634766
+      },
+      "queryStatuses": [
+        "success",
+        "success",
+        "success"
+      ],
+      "symbolHitsByRun": [
+        7,
+        7,
+        7
+      ],
+      "symbolQuestions": 8,
+      "hotQueryMs": {
+        "n": 24,
+        "median": 0.1987817813642323,
+        "min": 0.16122497618198395,
+        "max": 0.6595883751288056
+      },
+      "firstQueryMs": {
+        "n": 24,
+        "median": 0.2603125758469105,
+        "min": 0.19252789206802845,
+        "max": 2.2507759276777506
+      },
+      "loadMs": {
+        "n": 3,
+        "median": 1906.558687100187,
+        "min": 1883.328767027706,
+        "max": 1922.3267978522927
+      },
+      "symbolMisses": [
+        "PyLong_FromLong"
+      ],
+      "symbolMissesByRun": [
+        [
+          "PyLong_FromLong"
+        ],
+        [
+          "PyLong_FromLong"
+        ],
+        [
+          "PyLong_FromLong"
+        ]
+      ],
+      "symbolScoresStable": true,
+      "indexedFiles": 3575,
+      "missingFiles": 1444,
+      "definitionProbes": [
+        {
+          "query": "SequenceMatcher",
+          "expectedPath": "Lib/difflib.py",
+          "scopedMatch": true,
+          "expectedLineCovered": true,
+          "matches": [
+            {
+              "name": "SequenceMatcher",
+              "line": 44,
+              "labels": [
+                "Class"
+              ],
+              "sourceLines": 89,
+              "expectedLineCovered": true
+            }
+          ]
+        },
+        {
+          "query": "JSONDecoder",
+          "expectedPath": "Lib/json/decoder.py",
+          "scopedMatch": true,
+          "expectedLineCovered": true,
+          "matches": [
+            {
+              "name": "JSONDecoder",
+              "line": 262,
+              "labels": [
+                "Class"
+              ],
+              "sourceLines": 95,
+              "expectedLineCovered": true
+            }
+          ]
+        },
+        {
+          "query": "ArgumentParser",
+          "expectedPath": "Lib/argparse.py",
+          "scopedMatch": true,
+          "expectedLineCovered": true,
+          "matches": [
+            {
+              "name": "ArgumentParser",
+              "line": 1840,
+              "labels": [
+                "Class"
+              ],
+              "sourceLines": 103,
+              "expectedLineCovered": true
+            }
+          ]
+        },
+        {
+          "query": "heappush",
+          "expectedPath": "Lib/heapq.py",
+          "scopedMatch": true,
+          "expectedLineCovered": true,
+          "matches": [
+            {
+              "name": "heappush",
+              "line": 132,
+              "labels": [
+                "Function"
+              ],
+              "sourceLines": 4,
+              "expectedLineCovered": true
+            }
+          ]
+        },
+        {
+          "query": "Py_Initialize",
+          "expectedPath": "Python/pylifecycle.c",
+          "scopedMatch": true,
+          "expectedLineCovered": true,
+          "matches": [
+            {
+              "name": "Py_Initialize",
+              "line": 1483,
+              "labels": [
+                "Function"
+              ],
+              "sourceLines": 5,
+              "expectedLineCovered": true
+            }
+          ]
+        },
+        {
+          "query": "PyErr_SetString",
+          "expectedPath": "Python/errors.c",
+          "scopedMatch": true,
+          "expectedLineCovered": true,
+          "matches": [
+            {
+              "name": "PyErr_SetString",
+              "line": 294,
+              "labels": [
+                "Function"
+              ],
+              "sourceLines": 6,
+              "expectedLineCovered": true
+            }
+          ]
+        },
+        {
+          "query": "PyUnicode_FromString",
+          "expectedPath": "Objects/unicodeobject.c",
+          "scopedMatch": true,
+          "expectedLineCovered": true,
+          "matches": [
+            {
+              "name": "PyUnicode_FromString",
+              "line": 2169,
+              "labels": [
+                "Function"
+              ],
+              "sourceLines": 10,
+              "expectedLineCovered": true
+            }
+          ]
+        },
+        {
+          "query": "PyLong_FromLong",
+          "expectedPath": "Objects/longobject.c",
+          "scopedMatch": false,
+          "expectedLineCovered": false,
+          "matches": []
+        }
+      ],
+      "coverage": null,
+      "contentOmittedFiles": 0,
+      "contentHits": 1,
+      "contentQuestions": 2,
+      "relations": {
+        "hits": 4,
+        "questions": 4
+      },
+      "evidence": {
+        "symbol": {
+          "snippetsChecked": 7,
+          "metadataOnlyLocations": 0,
+          "mismatches": [
+            {
+              "query": "Py_Initialize",
+              "path": "Python/pylifecycle.c",
+              "line": 1483,
+              "returned": "void\nPy_Initialize(void)\n{",
+              "actual": "Py_Initialize(void)\n{\n    Py_InitializeEx(1);"
+            },
+            {
+              "query": "PyErr_SetString",
+              "path": "Python/errors.c",
+              "line": 294,
+              "returned": "void\nPyErr_SetString(PyObject *exception, const char *string)\n{",
+              "actual": "PyErr_SetString(PyObject *exception, const char *string)\n{\n    PyThreadState *tstate = _PyThreadState_GET();"
+            },
+            {
+              "query": "PyUnicode_FromString",
+              "path": "Objects/unicodeobject.c",
+              "line": 2169,
+              "returned": "PyObject *\nPyUnicode_FromString(const char *u)\n{",
+              "actual": "PyUnicode_FromString(const char *u)\n{\n    size_t size = strlen(u);"
+            }
+          ],
+          "absentPaths": [],
+          "locations": [
+            {
+              "query": "SequenceMatcher",
+              "hitAt10": true,
+              "expectedLineReturned": true
+            },
+            {
+              "query": "JSONDecoder",
+              "hitAt10": true,
+              "expectedLineReturned": true
+            },
+            {
+              "query": "ArgumentParser",
+              "hitAt10": true,
+              "expectedLineReturned": true
+            },
+            {
+              "query": "heappush",
+              "hitAt10": true,
+              "expectedLineReturned": true
+            },
+            {
+              "query": "Py_Initialize",
+              "hitAt10": true,
+              "expectedLineReturned": true
+            },
+            {
+              "query": "PyErr_SetString",
+              "hitAt10": true,
+              "expectedLineReturned": true
+            },
+            {
+              "query": "PyUnicode_FromString",
+              "hitAt10": true,
+              "expectedLineReturned": true
+            },
+            {
+              "query": "PyLong_FromLong",
+              "hitAt10": false,
+              "expectedLineReturned": false
+            }
+          ]
+        },
+        "content": {
+          "snippetsChecked": 11,
+          "metadataOnlyLocations": 0,
+          "mismatches": [
+            {
+              "query": "Exception ignored in",
+              "path": "Modules/_curses_panel.c",
+              "line": 324,
+              "returned": "static void\nPyCursesPanel_Dealloc(PyObject *self)\n{",
+              "actual": "PyCursesPanel_Dealloc(PyObject *self)\n{\n    PyTypeObject *tp = Py_TYPE(self);"
+            },
+            {
+              "query": "Exception ignored in",
+              "path": "Objects/dictobject.c",
+              "line": 2272,
+              "returned": "PyObject *\nPyDict_GetItem(PyObject *op, PyObject *key)\n{",
+              "actual": "PyDict_GetItem(PyObject *op, PyObject *key)\n{\n    return dict_getitem(op, key,"
+            },
+            {
+              "query": "Exception ignored in",
+              "path": "Python/ceval.c",
+              "line": 2484,
+              "returned": "void\nPyEval_SetProfile(Py_tracefunc func, PyObject *arg)\n{",
+              "actual": "PyEval_SetProfile(Py_tracefunc func, PyObject *arg)\n{\n    PyThreadState *tstate = _PyThreadState_GET();"
+            },
+            {
+              "query": "Exception ignored in",
+              "path": "Objects/abstract.c",
+              "line": 2396,
+              "returned": "int\nPyMapping_HasKey(PyObject *obj, PyObject *key)\n{",
+              "actual": "PyMapping_HasKey(PyObject *obj, PyObject *key)\n{\n    PyObject *value;"
+            },
+            {
+              "query": "Exception ignored in",
+              "path": "Objects/object.c",
+              "line": 1423,
+              "returned": "int\nPyObject_HasAttr(PyObject *obj, PyObject *name)\n{",
+              "actual": "PyObject_HasAttr(PyObject *obj, PyObject *name)\n{\n    int rc = PyObject_HasAttrWithError(obj, name);"
+            },
+            {
+              "query": "Exception ignored in",
+              "path": "Python/sysmodule.c",
+              "line": 148,
+              "returned": "PyObject *\nPySys_GetObject(const char *name)\n{",
+              "actual": "PySys_GetObject(const char *name)\n{\n    PyThreadState *tstate = _PyThreadState_GET();"
+            }
+          ],
+          "absentPaths": [],
+          "locations": [
+            {
+              "query": "Heaps are arrays for which",
+              "hitAt10": true,
+              "expectedLineReturned": true
+            },
+            {
+              "query": "Exception ignored in",
+              "hitAt10": false,
+              "expectedLineReturned": false
+            }
+          ]
+        }
+      },
+      "updates": [
+        {
+          "mode": "noop",
+          "status": "success",
+          "seconds": 4.02,
+          "checks": null,
+          "semantics": "registration check only"
+        },
+        {
+          "mode": "watch",
+          "status": "success",
+          "seconds": 66.53,
+          "checks": {
+            "querySucceeded": true,
+            "probeHit": true,
+            "baselinePreserved": true,
+            "relationsPreserved": true
+          },
+          "semantics": null
+        }
+      ],
+      "restored": {
+        "querySucceeded": true,
+        "probeHit": false,
+        "baselinePreserved": true,
+        "relationsPreserved": true
+      }
+    },
+    {
+      "corpus": "vscode",
+      "tool": "codeindex",
+      "buildStatuses": [
+        "success",
+        "success",
+        "success"
+      ],
+      "buildSeconds": {
+        "n": 3,
+        "median": 4.7,
+        "min": 4.67,
+        "max": 4.72
+      },
+      "supervisedSeconds": {
+        "n": 3,
+        "median": 4.779121110914275,
+        "min": 4.777545002056286,
+        "max": 4.7807048878166825
+      },
+      "attempts": [
+        {
+          "status": "success",
+          "wallSeconds": 4.67,
+          "supervisedSeconds": 4.777545002056286,
+          "timeLimitSeconds": 1800
+        },
+        {
+          "status": "success",
+          "wallSeconds": 4.72,
+          "supervisedSeconds": 4.779121110914275,
+          "timeLimitSeconds": 1800
+        },
+        {
+          "status": "success",
+          "wallSeconds": 4.7,
+          "supervisedSeconds": 4.7807048878166825,
+          "timeLimitSeconds": 1800
+        }
+      ],
+      "cpuSeconds": {
+        "n": 3,
+        "median": 7.8,
+        "min": 7.76,
+        "max": 7.82
+      },
+      "gnuTimeMaxRssMiB": {
+        "n": 3,
+        "median": 581.66015625,
+        "min": 581.4453125,
+        "max": 582.609375
+      },
+      "sampledTreeRssMiB": {
+        "n": 3,
+        "median": 558.296875,
+        "min": 553.53125,
+        "max": 570.99609375
+      },
+      "cgroupPeakGiB": {
+        "n": 3,
+        "median": 0.702056884765625,
+        "min": 0.6969871520996094,
+        "max": 0.7061271667480469
+      },
+      "indexMiB": {
+        "n": 3,
+        "median": 183.44770050048828,
+        "min": 183.44769954681396,
+        "max": 183.44770050048828
+      },
+      "queryStatuses": [
+        "success",
+        "success",
+        "success"
+      ],
+      "symbolHitsByRun": [
+        8,
+        8,
+        8
+      ],
+      "symbolQuestions": 8,
+      "hotQueryMs": {
+        "n": 24,
+        "median": 0.7006292499999986,
+        "min": 0.1890044999999958,
+        "max": 1.7180384999999987
+      },
+      "firstQueryMs": {
+        "n": 24,
+        "median": 1.0925869999999982,
+        "min": 0.25973600000000374,
+        "max": 7.865027000000001
+      },
+      "loadMs": {
+        "n": 3,
+        "median": 1.1632950000000015,
+        "min": 1.1029009999999992,
+        "max": 1.176407000000001
+      },
+      "symbolMisses": [],
+      "symbolMissesByRun": [
+        [],
+        [],
+        []
+      ],
+      "symbolScoresStable": true,
+      "indexedFiles": 8071,
+      "missingFiles": 0,
+      "definitionProbes": [
+        {
+          "query": "DisposableStore",
+          "expectedPath": "src/vs/base/common/lifecycle.ts",
+          "scopedMatch": true,
+          "expectedLineCovered": true,
+          "matches": [
+            {
+              "name": "DisposableStore",
+              "kind": "class",
+              "sourceSpan": {
+                "path": "src/vs/base/common/lifecycle.ts",
+                "startLine": 409,
+                "endLine": 513,
+                "startColumn": 0,
+                "endColumn": 0,
+                "startByte": 12851,
+                "endByte": 15233,
+                "blobDigest": "7ac563cbec7e6f38b603cb9471fe466aadedcc2d70ac85020c4146e47a2584ce",
+                "snapshotId": "snapshot:repo-326e81ee10b80ed316f1:eae31caa84b5471d790d3546"
+              }
+            }
+          ]
+        },
+        {
+          "query": "MutableDisposable",
+          "expectedPath": "src/vs/base/common/lifecycle.ts",
+          "scopedMatch": true,
+          "expectedLineCovered": true,
+          "matches": [
+            {
+              "name": "MutableDisposable",
+              "kind": "class",
+              "sourceSpan": {
+                "path": "src/vs/base/common/lifecycle.ts",
+                "startLine": 559,
+                "endLine": 609,
+                "startColumn": 0,
+                "endColumn": 0,
+                "startByte": 16487,
+                "endByte": 17488,
+                "blobDigest": "7ac563cbec7e6f38b603cb9471fe466aadedcc2d70ac85020c4146e47a2584ce",
+                "snapshotId": "snapshot:repo-326e81ee10b80ed316f1:eae31caa84b5471d790d3546"
+              }
+            }
+          ]
+        },
+        {
+          "query": "CancellationTokenSource",
+          "expectedPath": "src/vs/base/common/cancellation.ts",
+          "scopedMatch": true,
+          "expectedLineCovered": true,
+          "matches": [
+            {
+              "name": "CancellationTokenSource",
+              "kind": "class",
+              "sourceSpan": {
+                "path": "src/vs/base/common/cancellation.ts",
+                "startLine": 97,
+                "endLine": 142,
+                "startColumn": 0,
+                "endColumn": 0,
+                "startByte": 2706,
+                "endByte": 3850,
+                "blobDigest": "c8da8418c76cf8a3ca7509494a28cb9586f8a5ade75f81f4474ceecd089c699e",
+                "snapshotId": "snapshot:repo-326e81ee10b80ed316f1:eae31caa84b5471d790d3546"
+              }
+            }
+          ]
+        },
+        {
+          "query": "Emitter",
+          "expectedPath": "src/vs/base/common/event.ts",
+          "scopedMatch": true,
+          "expectedLineCovered": true,
+          "matches": [
+            {
+              "name": "Emitter",
+              "kind": "class",
+              "sourceSpan": {
+                "path": "src/vs/base/common/event.ts",
+                "startLine": 995,
+                "endLine": 1245,
+                "startColumn": 0,
+                "endColumn": 0,
+                "startByte": 33137,
+                "endByte": 41381,
+                "blobDigest": "c58bebdc0099f9f4078e2497f8a5a71580b4c21437881437257114ca0739af84",
+                "snapshotId": "snapshot:repo-326e81ee10b80ed316f1:eae31caa84b5471d790d3546"
+              }
+            }
+          ]
+        },
+        {
+          "query": "URI",
+          "expectedPath": "src/vs/base/common/uri.ts",
+          "scopedMatch": true,
+          "expectedLineCovered": true,
+          "matches": [
+            {
+              "name": "URI",
+              "kind": "class",
+              "sourceSpan": {
+                "path": "src/vs/base/common/uri.ts",
+                "startLine": 98,
+                "endLine": 420,
+                "startColumn": 0,
+                "endColumn": 0,
+                "startByte": 3636,
+                "endByte": 13590,
+                "blobDigest": "91bf39a5b8401917eaffe6142b90a704efa91b5e6d83c32d8b7aafd5479a0dc3",
+                "snapshotId": "snapshot:repo-326e81ee10b80ed316f1:eae31caa84b5471d790d3546"
+              }
+            }
+          ]
+        },
+        {
+          "query": "Delayer",
+          "expectedPath": "src/vs/base/common/async.ts",
+          "scopedMatch": true,
+          "expectedLineCovered": true,
+          "matches": [
+            {
+              "name": "Delayer",
+              "kind": "class",
+              "sourceSpan": {
+                "path": "src/vs/base/common/async.ts",
+                "startLine": 373,
+                "endLine": 440,
+                "startColumn": 0,
+                "endColumn": 0,
+                "startByte": 11725,
+                "endByte": 13299,
+                "blobDigest": "e496ee61e3054743947b3436296a2ee21dde1bdc960c8b935702b948267f0b4e",
+                "snapshotId": "snapshot:repo-326e81ee10b80ed316f1:eae31caa84b5471d790d3546"
+              }
+            }
+          ]
+        },
+        {
+          "query": "RunOnceScheduler",
+          "expectedPath": "src/vs/base/common/async.ts",
+          "scopedMatch": true,
+          "expectedLineCovered": true,
+          "matches": [
+            {
+              "name": "RunOnceScheduler",
+              "kind": "class",
+              "sourceSpan": {
+                "path": "src/vs/base/common/async.ts",
+                "startLine": 1086,
+                "endLine": 1159,
+                "startColumn": 0,
+                "endColumn": 0,
+                "startByte": 29486,
+                "endByte": 30844,
+                "blobDigest": "e496ee61e3054743947b3436296a2ee21dde1bdc960c8b935702b948267f0b4e",
+                "snapshotId": "snapshot:repo-326e81ee10b80ed316f1:eae31caa84b5471d790d3546"
+              }
+            }
+          ]
+        },
+        {
+          "query": "combinedDisposable",
+          "expectedPath": "src/vs/base/common/lifecycle.ts",
+          "scopedMatch": true,
+          "expectedLineCovered": true,
+          "matches": [
+            {
+              "name": "combinedDisposable",
+              "kind": "function",
+              "sourceSpan": {
+                "path": "src/vs/base/common/lifecycle.ts",
+                "startLine": 364,
+                "endLine": 368,
+                "startColumn": 0,
+                "endColumn": 0,
+                "startByte": 11581,
+                "endByte": 11784,
+                "blobDigest": "7ac563cbec7e6f38b603cb9471fe466aadedcc2d70ac85020c4146e47a2584ce",
+                "snapshotId": "snapshot:repo-326e81ee10b80ed316f1:eae31caa84b5471d790d3546"
+              }
+            }
+          ]
+        }
+      ],
+      "coverage": {
+        "sourceFiles": 8071,
+        "parsedFiles": 5986,
+        "unsupportedFiles": 2083,
+        "partialFiles": 2085,
+        "skippedFiles": 1,
+        "nativeCalls": true,
+        "semantics": "syntax-level symbols and cross-references; no compiler-level overload or pointer resolution"
+      },
+      "contentOmittedFiles": 0,
+      "contentHits": 2,
+      "contentQuestions": 2,
+      "relations": {
+        "hits": 2,
+        "questions": 3
+      },
+      "evidence": {
+        "symbol": {
+          "snippetsChecked": 43,
+          "metadataOnlyLocations": 0,
+          "mismatches": [],
+          "absentPaths": [],
+          "locations": [
+            {
+              "query": "DisposableStore",
+              "hitAt10": true,
+              "expectedLineReturned": true
+            },
+            {
+              "query": "MutableDisposable",
+              "hitAt10": true,
+              "expectedLineReturned": true
+            },
+            {
+              "query": "CancellationTokenSource",
+              "hitAt10": true,
+              "expectedLineReturned": true
+            },
+            {
+              "query": "Emitter",
+              "hitAt10": true,
+              "expectedLineReturned": true
+            },
+            {
+              "query": "URI",
+              "hitAt10": true,
+              "expectedLineReturned": true
+            },
+            {
+              "query": "Delayer",
+              "hitAt10": true,
+              "expectedLineReturned": true
+            },
+            {
+              "query": "RunOnceScheduler",
+              "hitAt10": true,
+              "expectedLineReturned": true
+            },
+            {
+              "query": "combinedDisposable",
+              "hitAt10": true,
+              "expectedLineReturned": true
+            }
+          ]
+        },
+        "content": {
+          "snippetsChecked": 18,
+          "metadataOnlyLocations": 0,
+          "mismatches": [],
+          "absentPaths": [],
+          "locations": [
+            {
+              "query": "Manages a collection of disposable values",
+              "hitAt10": true,
+              "expectedLineReturned": false
+            },
+            {
+              "query": "Encountered errors while disposing of store",
+              "hitAt10": true,
+              "expectedLineReturned": false
+            }
+          ]
+        }
+      },
+      "updates": [
+        {
+          "mode": "noop",
+          "status": "success",
+          "seconds": 0.11,
+          "checks": null,
+          "semantics": "normal unchanged-input update"
+        },
+        {
+          "mode": "update",
+          "status": "success",
+          "seconds": 1.32,
+          "checks": {
+            "querySucceeded": true,
+            "probeHit": true,
+            "baselinePreserved": true,
+            "relationsPreserved": true,
+            "fullBuildEquivalent": true
+          },
+          "semantics": null
+        }
+      ],
+      "restored": {
+        "querySucceeded": true,
+        "probeHit": false,
+        "baselinePreserved": true,
+        "relationsPreserved": true
+      }
+    },
+    {
+      "corpus": "vscode",
+      "tool": "opengrok",
+      "buildStatuses": [
+        "success",
+        "success",
+        "success"
+      ],
+      "buildSeconds": {
+        "n": 3,
+        "median": 11.9,
+        "min": 11.41,
+        "max": 12.91
+      },
+      "supervisedSeconds": {
+        "n": 3,
+        "median": 12.047547196038067,
+        "min": 11.549006992951035,
+        "max": 13.055916175013408
+      },
+      "attempts": [
+        {
+          "status": "success",
+          "wallSeconds": 12.91,
+          "supervisedSeconds": 13.055916175013408,
+          "timeLimitSeconds": 1800
+        },
+        {
+          "status": "success",
+          "wallSeconds": 11.9,
+          "supervisedSeconds": 12.047547196038067,
+          "timeLimitSeconds": 1800
+        },
+        {
+          "status": "success",
+          "wallSeconds": 11.41,
+          "supervisedSeconds": 11.549006992951035,
+          "timeLimitSeconds": 1800
+        }
+      ],
+      "cpuSeconds": {
+        "n": 3,
+        "median": 122.31,
+        "min": 113.1,
+        "max": 126.99
+      },
+      "gnuTimeMaxRssMiB": {
+        "n": 3,
+        "median": 1658.484375,
+        "min": 1482.64453125,
+        "max": 1732.91796875
+      },
+      "sampledTreeRssMiB": {
+        "n": 3,
+        "median": 1661.29296875,
+        "min": 1474.34375,
+        "max": 1735.1953125
+      },
+      "cgroupPeakGiB": {
+        "n": 3,
+        "median": 1.9466552734375,
+        "min": 1.8034095764160156,
+        "max": 1.9865226745605469
+      },
+      "indexMiB": {
+        "n": 3,
+        "median": 174.47311878204346,
+        "min": 174.00189971923828,
+        "max": 174.75677490234375
+      },
+      "queryStatuses": [
+        "success",
+        "success",
+        "success"
+      ],
+      "symbolHitsByRun": [
+        7,
+        7,
+        7
+      ],
+      "symbolQuestions": 8,
+      "hotQueryMs": {
+        "n": 24,
+        "median": 0.60412675,
+        "min": 0.32287,
+        "max": 1.4936655
+      },
+      "firstQueryMs": {
+        "n": 24,
+        "median": 1.092644,
+        "min": 0.710441,
+        "max": 224.585415
+      },
+      "loadMs": {
+        "n": 3,
+        "median": 165.741928,
+        "min": 163.242327,
+        "max": 166.211028
+      },
+      "symbolMisses": [
+        "URI"
+      ],
+      "symbolMissesByRun": [
+        [
+          "URI"
+        ],
+        [
+          "URI"
+        ],
+        [
+          "URI"
+        ]
+      ],
+      "symbolScoresStable": true,
+      "indexedFiles": 8071,
+      "missingFiles": 0,
+      "definitionProbes": [
+        {
+          "scopedMatch": true,
+          "expectedPath": "src/vs/base/common/lifecycle.ts",
+          "matches": [
+            "src/vs/base/common/lifecycle.ts"
+          ],
+          "query": "DisposableStore"
+        },
+        {
+          "scopedMatch": true,
+          "expectedPath": "src/vs/base/common/lifecycle.ts",
+          "matches": [
+            "src/vs/base/common/lifecycle.ts"
+          ],
+          "query": "MutableDisposable"
+        },
+        {
+          "scopedMatch": true,
+          "expectedPath": "src/vs/base/common/cancellation.ts",
+          "matches": [
+            "src/vs/base/common/cancellation.ts"
+          ],
+          "query": "CancellationTokenSource"
+        },
+        {
+          "scopedMatch": true,
+          "expectedPath": "src/vs/base/common/event.ts",
+          "matches": [
+            "src/vs/base/common/event.ts"
+          ],
+          "query": "Emitter"
+        },
+        {
+          "scopedMatch": true,
+          "expectedPath": "src/vs/base/common/uri.ts",
+          "matches": [
+            "src/vs/base/common/uri.ts"
+          ],
+          "query": "URI"
+        },
+        {
+          "scopedMatch": true,
+          "expectedPath": "src/vs/base/common/async.ts",
+          "matches": [
+            "src/vs/base/common/async.ts"
+          ],
+          "query": "Delayer"
+        },
+        {
+          "scopedMatch": true,
+          "expectedPath": "src/vs/base/common/async.ts",
+          "matches": [
+            "src/vs/base/common/async.ts"
+          ],
+          "query": "RunOnceScheduler"
+        },
+        {
+          "scopedMatch": true,
+          "expectedPath": "src/vs/base/common/lifecycle.ts",
+          "matches": [
+            "src/vs/base/common/lifecycle.ts"
+          ],
+          "query": "combinedDisposable"
+        }
+      ],
+      "coverage": null,
+      "contentOmittedFiles": 0,
+      "contentHits": 2,
+      "contentQuestions": 2,
+      "relations": null,
+      "evidence": {
+        "symbol": {
+          "snippetsChecked": 38,
+          "metadataOnlyLocations": 0,
+          "mismatches": [],
+          "absentPaths": [],
+          "locations": [
+            {
+              "query": "DisposableStore",
+              "hitAt10": true,
+              "expectedLineReturned": true
+            },
+            {
+              "query": "MutableDisposable",
+              "hitAt10": true,
+              "expectedLineReturned": true
+            },
+            {
+              "query": "CancellationTokenSource",
+              "hitAt10": true,
+              "expectedLineReturned": true
+            },
+            {
+              "query": "Emitter",
+              "hitAt10": true,
+              "expectedLineReturned": true
+            },
+            {
+              "query": "URI",
+              "hitAt10": false,
+              "expectedLineReturned": false
+            },
+            {
+              "query": "Delayer",
+              "hitAt10": true,
+              "expectedLineReturned": true
+            },
+            {
+              "query": "RunOnceScheduler",
+              "hitAt10": true,
+              "expectedLineReturned": true
+            },
+            {
+              "query": "combinedDisposable",
+              "hitAt10": true,
+              "expectedLineReturned": true
+            }
+          ]
+        },
+        "content": {
+          "snippetsChecked": 21,
+          "metadataOnlyLocations": 0,
+          "mismatches": [],
+          "absentPaths": [],
+          "locations": [
+            {
+              "query": "Manages a collection of disposable values",
+              "hitAt10": true,
+              "expectedLineReturned": false
+            },
+            {
+              "query": "Encountered errors while disposing of store",
+              "hitAt10": true,
+              "expectedLineReturned": false
+            }
+          ]
+        }
+      },
+      "updates": [
+        {
+          "mode": "noop",
+          "status": "success",
+          "seconds": 2.51,
+          "checks": null,
+          "semantics": "normal unchanged-input update"
+        },
+        {
+          "mode": "update",
+          "status": "success",
+          "seconds": 1.85,
+          "checks": {
+            "querySucceeded": true,
+            "probeHit": true,
+            "baselinePreserved": true
+          },
+          "semantics": null
+        }
+      ],
+      "restored": {
+        "querySucceeded": true,
+        "probeHit": false,
+        "baselinePreserved": true
+      }
+    },
+    {
+      "corpus": "vscode",
+      "tool": "zoekt",
+      "buildStatuses": [
+        "success",
+        "success",
+        "success"
+      ],
+      "buildSeconds": {
+        "n": 3,
+        "median": 9.67,
+        "min": 9.56,
+        "max": 9.69
+      },
+      "supervisedSeconds": {
+        "n": 3,
+        "median": 9.790813110070303,
+        "min": 9.789958795998245,
+        "max": 9.79090603790246
+      },
+      "attempts": [
+        {
+          "status": "success",
+          "wallSeconds": 9.69,
+          "supervisedSeconds": 9.789958795998245,
+          "timeLimitSeconds": 1800
+        },
+        {
+          "status": "success",
+          "wallSeconds": 9.56,
+          "supervisedSeconds": 9.79090603790246,
+          "timeLimitSeconds": 1800
+        },
+        {
+          "status": "success",
+          "wallSeconds": 9.67,
+          "supervisedSeconds": 9.790813110070303,
+          "timeLimitSeconds": 1800
+        }
+      ],
+      "cpuSeconds": {
+        "n": 3,
+        "median": 10.62,
+        "min": 10.54,
+        "max": 10.66
+      },
+      "gnuTimeMaxRssMiB": {
+        "n": 3,
+        "median": 808.453125,
+        "min": 778.81640625,
+        "max": 824.140625
+      },
+      "sampledTreeRssMiB": {
+        "n": 3,
+        "median": 788.703125,
+        "min": 775.3203125,
+        "max": 793.75
+      },
+      "cgroupPeakGiB": {
+        "n": 3,
+        "median": 0.8412399291992188,
+        "min": 0.8216438293457031,
+        "max": 1.0220413208007812
+      },
+      "indexMiB": {
+        "n": 3,
+        "median": 245.68140029907227,
+        "min": 245.68140029907227,
+        "max": 245.68140029907227
+      },
+      "queryStatuses": [
+        "success",
+        "success",
+        "success"
+      ],
+      "symbolHitsByRun": [
+        8,
+        8,
+        8
+      ],
+      "symbolQuestions": 8,
+      "hotQueryMs": {
+        "n": 24,
+        "median": 0.50666925,
+        "min": 0.08017650000000001,
+        "max": 1.597183
+      },
+      "firstQueryMs": {
+        "n": 24,
+        "median": 1.0389675,
+        "min": 0.121366,
+        "max": 3.422642
+      },
+      "loadMs": {
+        "n": 3,
+        "median": 8.157,
+        "min": 7.857,
+        "max": 8.797
+      },
+      "symbolMisses": [],
+      "symbolMissesByRun": [
+        [],
+        [],
+        []
+      ],
+      "symbolScoresStable": true,
+      "indexedFiles": 8071,
+      "missingFiles": 0,
+      "definitionProbes": null,
+      "coverage": null,
+      "contentOmittedFiles": 99,
+      "contentHits": 2,
+      "contentQuestions": 2,
+      "relations": null,
+      "evidence": {
+        "symbol": {
+          "snippetsChecked": 67,
+          "metadataOnlyLocations": 0,
+          "mismatches": [],
+          "absentPaths": [],
+          "locations": [
+            {
+              "query": "DisposableStore",
+              "hitAt10": true,
+              "expectedLineReturned": true
+            },
+            {
+              "query": "MutableDisposable",
+              "hitAt10": true,
+              "expectedLineReturned": true
+            },
+            {
+              "query": "CancellationTokenSource",
+              "hitAt10": true,
+              "expectedLineReturned": true
+            },
+            {
+              "query": "Emitter",
+              "hitAt10": true,
+              "expectedLineReturned": true
+            },
+            {
+              "query": "URI",
+              "hitAt10": true,
+              "expectedLineReturned": true
+            },
+            {
+              "query": "Delayer",
+              "hitAt10": true,
+              "expectedLineReturned": true
+            },
+            {
+              "query": "RunOnceScheduler",
+              "hitAt10": true,
+              "expectedLineReturned": true
+            },
+            {
+              "query": "combinedDisposable",
+              "hitAt10": true,
+              "expectedLineReturned": true
+            }
+          ]
+        },
+        "content": {
+          "snippetsChecked": 15,
+          "metadataOnlyLocations": 0,
+          "mismatches": [],
+          "absentPaths": [],
+          "locations": [
+            {
+              "query": "Manages a collection of disposable values",
+              "hitAt10": true,
+              "expectedLineReturned": false
+            },
+            {
+              "query": "Encountered errors while disposing of store",
+              "hitAt10": true,
+              "expectedLineReturned": false
+            }
+          ]
+        }
+      },
+      "updates": [
+        {
+          "mode": "noop",
+          "status": "success",
+          "seconds": 0.02,
+          "checks": null,
+          "semantics": "normal unchanged-input update"
+        },
+        {
+          "mode": "update",
+          "status": "success",
+          "seconds": 9.78,
+          "checks": {
+            "querySucceeded": true,
+            "probeHit": true,
+            "baselinePreserved": true
+          },
+          "semantics": null
+        },
+        {
+          "mode": "delta",
+          "status": "success",
+          "seconds": 0.09,
+          "checks": {
+            "querySucceeded": true,
+            "probeHit": true,
+            "baselinePreserved": true,
+            "fallbackToFull": false
+          },
+          "semantics": null
+        }
+      ],
+      "restored": {
+        "querySucceeded": true,
+        "probeHit": false,
+        "baselinePreserved": true
+      }
+    },
+    {
+      "corpus": "vscode",
+      "tool": "cgc",
+      "buildStatuses": [
+        "success",
+        "success",
+        "success"
+      ],
+      "buildSeconds": {
+        "n": 3,
+        "median": 519.24,
+        "min": 518.06,
+        "max": 520.49
+      },
+      "supervisedSeconds": {
+        "n": 3,
+        "median": 519.3093866140116,
+        "min": 518.2891816690098,
+        "max": 520.5448764457833
+      },
+      "attempts": [
+        {
+          "status": "success",
+          "wallSeconds": 520.49,
+          "supervisedSeconds": 520.5448764457833,
+          "timeLimitSeconds": 1800
+        },
+        {
+          "status": "success",
+          "wallSeconds": 518.06,
+          "supervisedSeconds": 518.2891816690098,
+          "timeLimitSeconds": 1800
+        },
+        {
+          "status": "success",
+          "wallSeconds": 519.24,
+          "supervisedSeconds": 519.3093866140116,
+          "timeLimitSeconds": 1800
+        }
+      ],
+      "cpuSeconds": {
+        "n": 3,
+        "median": 440.32,
+        "min": 439.81,
+        "max": 441.12
+      },
+      "gnuTimeMaxRssMiB": {
+        "n": 3,
+        "median": 3210.4765625,
+        "min": 3207.93359375,
+        "max": 3212.79296875
+      },
+      "sampledTreeRssMiB": {
+        "n": 3,
+        "median": 3249.48828125,
+        "min": 3248.859375,
+        "max": 3251.05859375
+      },
+      "cgroupPeakGiB": {
+        "n": 3,
+        "median": 3.59210205078125,
+        "min": 3.5872421264648438,
+        "max": 3.609668731689453
+      },
+      "indexMiB": {
+        "n": 3,
+        "median": 82.57464408874512,
+        "min": 82.52375030517578,
+        "max": 82.5860710144043
+      },
+      "queryStatuses": [
+        "success",
+        "success",
+        "success"
+      ],
+      "symbolHitsByRun": [
+        8,
+        8,
+        8
+      ],
+      "symbolQuestions": 8,
+      "hotQueryMs": {
+        "n": 24,
+        "median": 0.23449078435078263,
+        "min": 0.17166207544505596,
+        "max": 0.6726834690198302
+      },
+      "firstQueryMs": {
+        "n": 24,
+        "median": 0.2817974891513586,
+        "min": 0.18292292952537537,
+        "max": 2.0707689691334963
+      },
+      "loadMs": {
+        "n": 3,
+        "median": 1729.0921290405095,
+        "min": 1724.1382128559053,
+        "max": 1743.467970052734
+      },
+      "symbolMisses": [],
+      "symbolMissesByRun": [
+        [],
+        [],
+        []
+      ],
+      "symbolScoresStable": true,
+      "indexedFiles": 7571,
+      "missingFiles": 500,
+      "definitionProbes": [
+        {
+          "query": "DisposableStore",
+          "expectedPath": "src/vs/base/common/lifecycle.ts",
+          "scopedMatch": true,
+          "expectedLineCovered": true,
+          "matches": [
+            {
+              "name": "DisposableStore",
+              "line": 409,
+              "labels": [
+                "Class"
+              ],
+              "sourceLines": 105,
+              "expectedLineCovered": true
+            }
+          ]
+        },
+        {
+          "query": "MutableDisposable",
+          "expectedPath": "src/vs/base/common/lifecycle.ts",
+          "scopedMatch": true,
+          "expectedLineCovered": true,
+          "matches": [
+            {
+              "name": "MutableDisposable",
+              "line": 559,
+              "labels": [
+                "Class"
+              ],
+              "sourceLines": 51,
+              "expectedLineCovered": true
+            }
+          ]
+        },
+        {
+          "query": "CancellationTokenSource",
+          "expectedPath": "src/vs/base/common/cancellation.ts",
+          "scopedMatch": true,
+          "expectedLineCovered": true,
+          "matches": [
+            {
+              "name": "CancellationTokenSource",
+              "line": 97,
+              "labels": [
+                "Class"
+              ],
+              "sourceLines": 46,
+              "expectedLineCovered": true
+            }
+          ]
+        },
+        {
+          "query": "Emitter",
+          "expectedPath": "src/vs/base/common/event.ts",
+          "scopedMatch": true,
+          "expectedLineCovered": true,
+          "matches": [
+            {
+              "name": "Emitter",
+              "line": 995,
+              "labels": [
+                "Class"
+              ],
+              "sourceLines": 97,
+              "expectedLineCovered": true
+            }
+          ]
+        },
+        {
+          "query": "URI",
+          "expectedPath": "src/vs/base/common/uri.ts",
+          "scopedMatch": true,
+          "expectedLineCovered": true,
+          "matches": [
+            {
+              "name": "URI",
+              "line": 98,
+              "labels": [
+                "Class"
+              ],
+              "sourceLines": 127,
+              "expectedLineCovered": true
+            }
+          ]
+        },
+        {
+          "query": "Delayer",
+          "expectedPath": "src/vs/base/common/async.ts",
+          "scopedMatch": true,
+          "expectedLineCovered": true,
+          "matches": [
+            {
+              "name": "Delayer",
+              "line": 373,
+              "labels": [
+                "Class"
+              ],
+              "sourceLines": 68,
+              "expectedLineCovered": true
+            }
+          ]
+        },
+        {
+          "query": "RunOnceScheduler",
+          "expectedPath": "src/vs/base/common/async.ts",
+          "scopedMatch": true,
+          "expectedLineCovered": true,
+          "matches": [
+            {
+              "name": "RunOnceScheduler",
+              "line": 1086,
+              "labels": [
+                "Class"
+              ],
+              "sourceLines": 74,
+              "expectedLineCovered": true
+            }
+          ]
+        },
+        {
+          "query": "combinedDisposable",
+          "expectedPath": "src/vs/base/common/lifecycle.ts",
+          "scopedMatch": true,
+          "expectedLineCovered": true,
+          "matches": [
+            {
+              "name": "combinedDisposable",
+              "line": 364,
+              "labels": [
+                "Function"
+              ],
+              "sourceLines": 5,
+              "expectedLineCovered": true
+            }
+          ]
+        }
+      ],
+      "coverage": null,
+      "contentOmittedFiles": 0,
+      "contentHits": 1,
+      "contentQuestions": 2,
+      "relations": {
+        "hits": 3,
+        "questions": 3
+      },
+      "evidence": {
+        "symbol": {
+          "snippetsChecked": 19,
+          "metadataOnlyLocations": 0,
+          "mismatches": [],
+          "absentPaths": [],
+          "locations": [
+            {
+              "query": "DisposableStore",
+              "hitAt10": true,
+              "expectedLineReturned": true
+            },
+            {
+              "query": "MutableDisposable",
+              "hitAt10": true,
+              "expectedLineReturned": true
+            },
+            {
+              "query": "CancellationTokenSource",
+              "hitAt10": true,
+              "expectedLineReturned": true
+            },
+            {
+              "query": "Emitter",
+              "hitAt10": true,
+              "expectedLineReturned": true
+            },
+            {
+              "query": "URI",
+              "hitAt10": true,
+              "expectedLineReturned": true
+            },
+            {
+              "query": "Delayer",
+              "hitAt10": true,
+              "expectedLineReturned": true
+            },
+            {
+              "query": "RunOnceScheduler",
+              "hitAt10": true,
+              "expectedLineReturned": true
+            },
+            {
+              "query": "combinedDisposable",
+              "hitAt10": true,
+              "expectedLineReturned": true
+            }
+          ]
+        },
+        "content": {
+          "snippetsChecked": 3,
+          "metadataOnlyLocations": 0,
+          "mismatches": [],
+          "absentPaths": [],
+          "locations": [
+            {
+              "query": "Manages a collection of disposable values",
+              "hitAt10": false,
+              "expectedLineReturned": false
+            },
+            {
+              "query": "Encountered errors while disposing of store",
+              "hitAt10": true,
+              "expectedLineReturned": false
+            }
+          ]
+        }
+      },
+      "updates": [
+        {
+          "mode": "noop",
+          "status": "success",
+          "seconds": 5.69,
+          "checks": null,
+          "semantics": "registration check only"
+        },
+        {
+          "mode": "watch",
+          "status": "success",
+          "seconds": 95.46000000000001,
+          "checks": {
+            "querySucceeded": true,
+            "probeHit": true,
+            "baselinePreserved": true,
+            "relationsPreserved": true
+          },
+          "semantics": null
+        }
+      ],
+      "restored": {
+        "querySucceeded": true,
+        "probeHit": false,
+        "baselinePreserved": true,
+        "relationsPreserved": true
+      }
+    },
+    {
+      "corpus": "llvm",
+      "tool": "codeindex",
+      "buildStatuses": [
+        "failed"
+      ],
+      "buildSeconds": {
+        "n": 1,
+        "median": 47.39,
+        "min": 47.39,
+        "max": 47.39
+      },
+      "supervisedSeconds": {
+        "n": 1,
+        "median": 47.6520220360253,
+        "min": 47.6520220360253,
+        "max": 47.6520220360253
+      },
+      "attempts": [
+        {
+          "status": "failed",
+          "wallSeconds": 47.39,
+          "supervisedSeconds": 47.6520220360253,
+          "timeLimitSeconds": 1800
+        }
+      ],
+      "cpuSeconds": {
+        "n": 1,
+        "median": 51.2,
+        "min": 51.2,
+        "max": 51.2
+      },
+      "gnuTimeMaxRssMiB": {
+        "n": 1,
+        "median": 560.1640625,
+        "min": 560.1640625,
+        "max": 560.1640625
+      },
+      "sampledTreeRssMiB": {
+        "n": 1,
+        "median": 560.71484375,
+        "min": 560.71484375,
+        "max": 560.71484375
+      },
+      "cgroupPeakGiB": {
+        "n": 1,
+        "median": 3.6094436645507812,
+        "min": 3.6094436645507812,
+        "max": 3.6094436645507812
+      },
+      "indexMiB": null,
+      "queryStatuses": [],
+      "symbolHitsByRun": [],
+      "symbolQuestions": 8,
+      "hotQueryMs": null,
+      "firstQueryMs": null,
+      "loadMs": null,
+      "symbolMisses": null,
+      "symbolMissesByRun": [],
+      "symbolScoresStable": null,
+      "indexedFiles": null,
+      "missingFiles": null,
+      "definitionProbes": null,
+      "coverage": null,
+      "contentOmittedFiles": null,
+      "contentHits": null,
+      "contentQuestions": 2,
+      "relations": null,
+      "evidence": {
+        "symbol": null,
+        "content": null
+      },
+      "updates": [],
+      "restored": null
+    },
+    {
+      "corpus": "llvm",
+      "tool": "opengrok",
+      "buildStatuses": [
+        "success",
+        "success",
+        "success"
+      ],
+      "buildSeconds": {
+        "n": 3,
+        "median": 80.9,
+        "min": 79.06,
+        "max": 89.23
+      },
+      "supervisedSeconds": {
+        "n": 3,
+        "median": 81.03090302902274,
+        "min": 79.30811035702936,
+        "max": 89.33664834010415
+      },
+      "attempts": [
+        {
+          "status": "success",
+          "wallSeconds": 89.23,
+          "supervisedSeconds": 89.33664834010415,
+          "timeLimitSeconds": 1800
+        },
+        {
+          "status": "success",
+          "wallSeconds": 80.9,
+          "supervisedSeconds": 81.03090302902274,
+          "timeLimitSeconds": 1800
+        },
+        {
+          "status": "success",
+          "wallSeconds": 79.06,
+          "supervisedSeconds": 79.30811035702936,
+          "timeLimitSeconds": 1800
+        }
+      ],
+      "cpuSeconds": {
+        "n": 3,
+        "median": 848.55,
+        "min": 843.61,
+        "max": 962.25
+      },
+      "gnuTimeMaxRssMiB": {
+        "n": 3,
+        "median": 2258.10546875,
+        "min": 2099.53125,
+        "max": 2444.2890625
+      },
+      "sampledTreeRssMiB": {
+        "n": 3,
+        "median": 2257.08203125,
+        "min": 2082.26953125,
+        "max": 2445.5546875
+      },
+      "cgroupPeakGiB": {
+        "n": 3,
+        "median": 4.2470245361328125,
+        "min": 3.146160125732422,
+        "max": 4.578838348388672
+      },
+      "indexMiB": {
+        "n": 3,
+        "median": 2680.1505422592163,
+        "min": 2679.9875144958496,
+        "max": 2681.1248626708984
+      },
+      "queryStatuses": [
+        "success",
+        "success",
+        "success"
+      ],
+      "symbolHitsByRun": [
+        5,
+        5,
+        5
+      ],
+      "symbolQuestions": 8,
+      "hotQueryMs": {
+        "n": 24,
+        "median": 0.87598375,
+        "min": 0.2844115,
+        "max": 1.9073105
+      },
+      "firstQueryMs": {
+        "n": 24,
+        "median": 3.011231,
+        "min": 0.341484,
+        "max": 276.95322
+      },
+      "loadMs": {
+        "n": 3,
+        "median": 182.042837,
+        "min": 175.417291,
+        "max": 193.048574
+      },
+      "symbolMisses": [
+        "LLVMContext",
+        "DominatorTree",
+        "APInt"
+      ],
+      "symbolMissesByRun": [
+        [
+          "LLVMContext",
+          "DominatorTree",
+          "APInt"
+        ],
+        [
+          "LLVMContext",
+          "DominatorTree",
+          "APInt"
+        ],
+        [
+          "LLVMContext",
+          "DominatorTree",
+          "APInt"
+        ]
+      ],
+      "symbolScoresStable": true,
+      "indexedFiles": 158039,
+      "missingFiles": 0,
+      "definitionProbes": [
+        {
+          "scopedMatch": true,
+          "expectedPath": "llvm/include/llvm/IR/LLVMContext.h",
+          "matches": [
+            "llvm/include/llvm/IR/LLVMContext.h"
+          ],
+          "query": "LLVMContext"
+        },
+        {
+          "scopedMatch": false,
+          "expectedPath": "llvm/include/llvm/IR/Dominators.h",
+          "matches": [],
+          "query": "DominatorTree"
+        },
+        {
+          "scopedMatch": true,
+          "expectedPath": "llvm/include/llvm/ADT/APInt.h",
+          "matches": [
+            "llvm/include/llvm/ADT/APInt.h"
+          ],
+          "query": "APInt"
+        },
+        {
+          "scopedMatch": true,
+          "expectedPath": "llvm/include/llvm/ADT/SmallVector.h",
+          "matches": [
+            "llvm/include/llvm/ADT/SmallVector.h"
+          ],
+          "query": "SmallVector"
+        },
+        {
+          "scopedMatch": true,
+          "expectedPath": "llvm/lib/AsmParser/Parser.cpp",
+          "matches": [
+            "llvm/lib/AsmParser/Parser.cpp"
+          ],
+          "query": "parseAssemblyString"
+        },
+        {
+          "scopedMatch": true,
+          "expectedPath": "llvm/lib/IRReader/IRReader.cpp",
+          "matches": [
+            "llvm/lib/IRReader/IRReader.cpp"
+          ],
+          "query": "parseIRFile"
+        },
+        {
+          "scopedMatch": true,
+          "expectedPath": "llvm/lib/IR/Verifier.cpp",
+          "matches": [
+            "llvm/lib/IR/Verifier.cpp"
+          ],
+          "query": "verifyModule"
+        },
+        {
+          "scopedMatch": true,
+          "expectedPath": "clang/lib/FrontendTool/ExecuteCompilerInvocation.cpp",
+          "matches": [
+            "clang/lib/FrontendTool/ExecuteCompilerInvocation.cpp"
+          ],
+          "query": "ExecuteCompilerInvocation"
+        }
+      ],
+      "coverage": null,
+      "contentOmittedFiles": 0,
+      "contentHits": 1,
+      "contentQuestions": 2,
+      "relations": null,
+      "evidence": {
+        "symbol": {
+          "snippetsChecked": 51,
+          "metadataOnlyLocations": 0,
+          "mismatches": [],
+          "absentPaths": [],
+          "locations": [
+            {
+              "query": "LLVMContext",
+              "hitAt10": false,
+              "expectedLineReturned": false
+            },
+            {
+              "query": "DominatorTree",
+              "hitAt10": false,
+              "expectedLineReturned": false
+            },
+            {
+              "query": "APInt",
+              "hitAt10": false,
+              "expectedLineReturned": false
+            },
+            {
+              "query": "SmallVector",
+              "hitAt10": true,
+              "expectedLineReturned": false
+            },
+            {
+              "query": "parseAssemblyString",
+              "hitAt10": true,
+              "expectedLineReturned": true
+            },
+            {
+              "query": "parseIRFile",
+              "hitAt10": true,
+              "expectedLineReturned": true
+            },
+            {
+              "query": "verifyModule",
+              "hitAt10": true,
+              "expectedLineReturned": true
+            },
+            {
+              "query": "ExecuteCompilerInvocation",
+              "hitAt10": true,
+              "expectedLineReturned": true
+            }
+          ]
+        },
+        "content": {
+          "snippetsChecked": 57,
+          "metadataOnlyLocations": 0,
+          "mismatches": [],
+          "absentPaths": [],
+          "locations": [
+            {
+              "query": "important class for using LLVM in a threaded context",
+              "hitAt10": true,
+              "expectedLineReturned": false
+            },
+            {
+              "query": "expected top-level entity",
+              "hitAt10": false,
+              "expectedLineReturned": false
+            }
+          ]
+        }
+      },
+      "updates": [
+        {
+          "mode": "noop",
+          "status": "success",
+          "seconds": 13.82,
+          "checks": null,
+          "semantics": "normal unchanged-input update"
+        },
+        {
+          "mode": "update",
+          "status": "success",
+          "seconds": 11.94,
+          "checks": {
+            "querySucceeded": true,
+            "probeHit": true,
+            "baselinePreserved": true
+          },
+          "semantics": null
+        }
+      ],
+      "restored": {
+        "querySucceeded": true,
+        "probeHit": false,
+        "baselinePreserved": true
+      }
+    },
+    {
+      "corpus": "llvm",
+      "tool": "zoekt",
+      "buildStatuses": [
+        "failed"
+      ],
+      "buildSeconds": {
+        "n": 1,
+        "median": 29.95,
+        "min": 29.95,
+        "max": 29.95
+      },
+      "supervisedSeconds": {
+        "n": 1,
+        "median": 30.12384473485872,
+        "min": 30.12384473485872,
+        "max": 30.12384473485872
+      },
+      "attempts": [
+        {
+          "status": "failed",
+          "wallSeconds": 29.95,
+          "supervisedSeconds": 30.12384473485872,
+          "timeLimitSeconds": 1800
+        }
+      ],
+      "cpuSeconds": {
+        "n": 1,
+        "median": 47.46,
+        "min": 47.46,
+        "max": 47.46
+      },
+      "gnuTimeMaxRssMiB": {
+        "n": 1,
+        "median": 1578.68359375,
+        "min": 1578.68359375,
+        "max": 1578.68359375
+      },
+      "sampledTreeRssMiB": {
+        "n": 1,
+        "median": 1581.86328125,
+        "min": 1581.86328125,
+        "max": 1581.86328125
+      },
+      "cgroupPeakGiB": {
+        "n": 1,
+        "median": 2.3541183471679688,
+        "min": 2.3541183471679688,
+        "max": 2.3541183471679688
+      },
+      "indexMiB": null,
+      "queryStatuses": [],
+      "symbolHitsByRun": [],
+      "symbolQuestions": 8,
+      "hotQueryMs": null,
+      "firstQueryMs": null,
+      "loadMs": null,
+      "symbolMisses": null,
+      "symbolMissesByRun": [],
+      "symbolScoresStable": null,
+      "indexedFiles": null,
+      "missingFiles": null,
+      "definitionProbes": null,
+      "coverage": null,
+      "contentOmittedFiles": null,
+      "contentHits": null,
+      "contentQuestions": 2,
+      "relations": null,
+      "evidence": {
+        "symbol": null,
+        "content": null
+      },
+      "updates": [],
+      "restored": null
+    },
+    {
+      "corpus": "llvm",
+      "tool": "cgc",
+      "buildStatuses": [
+        "timeout"
+      ],
+      "buildSeconds": null,
+      "supervisedSeconds": {
+        "n": 1,
+        "median": 1800.1549933578353,
+        "min": 1800.1549933578353,
+        "max": 1800.1549933578353
+      },
+      "attempts": [
+        {
+          "status": "timeout",
+          "wallSeconds": null,
+          "supervisedSeconds": 1800.1549933578353,
+          "timeLimitSeconds": 1800
+        }
+      ],
+      "cpuSeconds": null,
+      "gnuTimeMaxRssMiB": null,
+      "sampledTreeRssMiB": {
+        "n": 1,
+        "median": 317.38671875,
+        "min": 317.38671875,
+        "max": 317.38671875
+      },
+      "cgroupPeakGiB": {
+        "n": 1,
+        "median": 0.3459815979003906,
+        "min": 0.3459815979003906,
+        "max": 0.3459815979003906
+      },
+      "indexMiB": null,
+      "queryStatuses": [],
+      "symbolHitsByRun": [],
+      "symbolQuestions": 8,
+      "hotQueryMs": null,
+      "firstQueryMs": null,
+      "loadMs": null,
+      "symbolMisses": null,
+      "symbolMissesByRun": [],
+      "symbolScoresStable": null,
+      "indexedFiles": null,
+      "missingFiles": null,
+      "definitionProbes": null,
+      "coverage": null,
+      "contentOmittedFiles": null,
+      "contentHits": null,
+      "contentQuestions": 2,
+      "relations": null,
+      "evidence": {
+        "symbol": null,
+        "content": null
+      },
+      "updates": [],
+      "restored": null
+    }
+  ]
+}

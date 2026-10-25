@@ -1,0 +1,384 @@
+{
+  "repetitions": 20,
+  "rows": [
+    {
+      "totalFiles": 4,
+      "query": "DisposableStore",
+      "coldMs": 216.157104,
+      "hitAt10": true,
+      "medianMs": 1.0605514999999999,
+      "files": [
+        {
+          "path": "extensions/typescript-language-features/src/utils/dispose.ts",
+          "lines": [
+            {
+              "source": "export class <b>DisposableStore</b> extends Disposable {",
+              "line": 58
+            }
+          ]
+        },
+        {
+          "path": "extensions/github/src/util.ts",
+          "lines": [
+            {
+              "source": "export class <b>DisposableStore</b> {",
+              "line": 9
+            }
+          ]
+        },
+        {
+          "path": "extensions/notebook-renderers/src/index.ts",
+          "lines": [
+            {
+              "source": "type <b>DisposableStore</b> = ReturnType&lt;typeof createDisposableStore&gt;;",
+              "line": 165
+            }
+          ]
+        },
+        {
+          "path": "src/vs/base/common/lifecycle.ts",
+          "lines": [
+            {
+              "source": "export class <b>DisposableStore</b> implements IDisposable {",
+              "line": 409
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "totalFiles": 1,
+      "query": "MutableDisposable",
+      "coldMs": 0.994173,
+      "hitAt10": true,
+      "medianMs": 0.48946199999999995,
+      "files": [
+        {
+          "path": "src/vs/base/common/lifecycle.ts",
+          "lines": [
+            {
+              "source": "export class <b>MutableDisposable</b>&lt;T extends IDisposable&gt; implements IDisposable {",
+              "line": 559
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "totalFiles": 2,
+      "query": "CancellationTokenSource",
+      "coldMs": 0.764111,
+      "hitAt10": true,
+      "medianMs": 0.4796935,
+      "files": [
+        {
+          "path": "src/vs/editor/editor.api.ts",
+          "lines": [
+            {
+              "source": "export const <b>CancellationTokenSource</b> = api.<b>CancellationTokenSource</b>;",
+              "line": 25
+            }
+          ]
+        },
+        {
+          "path": "src/vs/base/common/cancellation.ts",
+          "lines": [
+            {
+              "source": "export class <b>CancellationTokenSource</b> {",
+              "line": 97
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "totalFiles": 4,
+      "query": "Emitter",
+      "coldMs": 1.528643,
+      "hitAt10": true,
+      "medianMs": 1.4664875,
+      "files": [
+        {
+          "path": "src/vs/workbench/workbench.web.main.internal.ts",
+          "lines": [
+            {
+              "source": "\t\t<b>Emitter</b>: <b>Emitter</b>,",
+              "line": 207
+            }
+          ]
+        },
+        {
+          "path": "src/vs/editor/editor.api.ts",
+          "lines": [
+            {
+              "source": "export const <b>Emitter</b> = api.<b>Emitter</b>;",
+              "line": 26
+            }
+          ]
+        },
+        {
+          "path": "src/vs/base/common/event.ts",
+          "lines": [
+            {
+              "source": "export class <b>Emitter</b>&lt;T&gt; {",
+              "line": 995
+            }
+          ]
+        },
+        {
+          "path": "src/vs/monaco.d.ts",
+          "lines": [
+            {
+              "source": "\texport class <b>Emitter</b>&lt;T&gt; {",
+              "line": 66
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "totalFiles": 53,
+      "query": "URI",
+      "coldMs": 3.324998,
+      "hitAt10": false,
+      "medianMs": 1.047713,
+      "files": [
+        {
+          "path": "src/vs/base/test/common/resources.test.ts",
+          "lines": [
+            {
+              "source": "\t\tconst fileURI = isWindows ? <b>URI</b>.file('c:\\\\foo\\\\bar') : <b>URI</b>.file('/foo/bar');",
+              "line": 369
+            },
+            {
+              "source": "\t\tconst fileURI2 = isWindows ? <b>URI</b>.file('C:\\\\foo\\\\Bar') : <b>URI</b>.file('/foo/Bar');",
+              "line": 370
+            },
+            {
+              "source": "\t\tconst fileURI = isWindows ? <b>URI</b>.file('c:\\\\foo\\\\bar') : <b>URI</b>.file('/foo/bar');",
+              "line": 405
+            }
+          ]
+        },
+        {
+          "path": "src/vs/workbench/contrib/terminalContrib/links/test/browser/terminalLocalLinkDetector.test.ts",
+          "lines": [
+            {
+              "source": "\t\tconst uri = resource ?? <b>URI</b>.file(link);",
+              "line": 212
+            },
+            {
+              "source": "\t\t\tconst resource = typeof l === 'string' ? <b>URI</b>.file(l) : l.resource;",
+              "line": 298
+            },
+            {
+              "source": "\t\t\t\tconst resource = typeof l === 'string' ? <b>URI</b>.file(l) : l.resource;",
+              "line": 350
+            }
+          ]
+        },
+        {
+          "path": "src/vs/workbench/contrib/output/test/browser/outputLinkProvider.test.ts",
+          "lines": [
+            {
+              "source": "\t\tconst rootFolder = isWindows ? <b>URI</b>.file('C:\\\\Users\\\\someone\\\\AppData\\\\Local\\\\Temp\\\\_monacodata_9888\\\\workspaces\\\\mankala') :",
+              "line": 24
+            },
+            {
+              "source": "\t\tconst rootFolder = isWindows ? <b>URI</b>.file('C:\\\\Users\\\\username\\\\Desktop\\\\test-ts') :",
+              "line": 286
+            }
+          ]
+        },
+        {
+          "path": "src/vs/workbench/contrib/terminalContrib/links/test/browser/terminalMultiLineLinkDetector.test.ts",
+          "lines": [
+            {
+              "source": "\t\tconst uri = resource ?? <b>URI</b>.file(link);",
+              "line": 128
+            },
+            {
+              "source": "\t\t\tconst resource = typeof l === 'string' ? <b>URI</b>.file(l) : l.resource;",
+              "line": 172
+            },
+            {
+              "source": "\t\t\t\tconst resource = typeof l === 'string' ? <b>URI</b>.file(l) : l.resource;",
+              "line": 201
+            }
+          ]
+        },
+        {
+          "path": "src/vs/editor/browser/services/openerService.ts",
+          "lines": [
+            {
+              "source": "\t\t\tconst targetURI = typeof target === 'string' ? <b>URI</b>.parse(target) : target;",
+              "line": 176
+            },
+            {
+              "source": "\t\tconst uri = typeof resource === 'string' ? <b>URI</b>.parse(resource) : resource;",
+              "line": 217
+            }
+          ]
+        },
+        {
+          "path": "src/vs/workbench/contrib/url/common/trustedDomains.ts",
+          "lines": [
+            {
+              "source": "\t\tconst parsed = typeof url === 'string' ? <b>URI</b>.parse(url, true) : url;",
+              "line": 45
+            }
+          ]
+        },
+        {
+          "path": "src/vs/workbench/contrib/url/common/urlGlob.ts",
+          "lines": [
+            {
+              "source": "\tconst uri = typeof url === 'string' ? <b>URI</b>.parse(url) : url;",
+              "line": 14
+            }
+          ]
+        },
+        {
+          "path": "src/vs/workbench/workbench.web.main.internal.ts",
+          "lines": [
+            {
+              "source": "\t\t<b>URI</b>: <b>URI</b>,",
+              "line": 205
+            }
+          ]
+        },
+        {
+          "path": "src/vs/workbench/contrib/terminalContrib/links/test/browser/terminalUriLinkDetector.test.ts",
+          "lines": [
+            {
+              "source": "\t\t/* Stat resource  */ <b>URI</b>?",
+              "line": 74
+            }
+          ]
+        },
+        {
+          "path": "src/vs/workbench/api/browser/mainThreadDialogs.ts",
+          "lines": [
+            {
+              "source": "\t\t\tdefaultUri: options?.defaultUri ? <b>URI</b>.revive(options.defaultUri) : undefined,",
+              "line": 62
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "totalFiles": 6,
+      "query": "Delayer",
+      "coldMs": 1.117463,
+      "hitAt10": true,
+      "medianMs": 0.6089405,
+      "files": [
+        {
+          "path": "extensions/markdown-language-features/src/util/async.ts",
+          "lines": [
+            {
+              "source": "export class <b>Delayer</b>&lt;T&gt; {",
+              "line": 10
+            }
+          ]
+        },
+        {
+          "path": "extensions/merge-conflict/src/delayer.ts",
+          "lines": [
+            {
+              "source": "export class <b>Delayer</b>&lt;T&gt; {",
+              "line": 10
+            }
+          ]
+        },
+        {
+          "path": "extensions/ipynb/src/helper.ts",
+          "lines": [
+            {
+              "source": "export class <b>Delayer</b>&lt;T&gt; {",
+              "line": 86
+            }
+          ]
+        },
+        {
+          "path": "extensions/typescript-language-features/src/utils/async.ts",
+          "lines": [
+            {
+              "source": "export class <b>Delayer</b>&lt;T&gt; {",
+              "line": 12
+            }
+          ]
+        },
+        {
+          "path": "extensions/php-language-features/src/features/utils/async.ts",
+          "lines": [
+            {
+              "source": "export class <b>Delayer</b>&lt;T&gt; {",
+              "line": 103
+            }
+          ]
+        },
+        {
+          "path": "src/vs/base/common/async.ts",
+          "lines": [
+            {
+              "source": "export class <b>Delayer</b>&lt;T&gt; implements IDisposable {",
+              "line": 373
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "totalFiles": 1,
+      "query": "RunOnceScheduler",
+      "coldMs": 0.755114,
+      "hitAt10": true,
+      "medianMs": 0.3605505,
+      "files": [
+        {
+          "path": "src/vs/base/common/async.ts",
+          "lines": [
+            {
+              "source": "export class <b>RunOnceScheduler</b> implements IDisposable {",
+              "line": 1086
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "totalFiles": 2,
+      "query": "combinedDisposable",
+      "coldMs": 0.710441,
+      "hitAt10": true,
+      "medianMs": 0.32287,
+      "files": [
+        {
+          "path": "src/vs/base/common/lifecycle.ts",
+          "lines": [
+            {
+              "source": "export function <b>combinedDisposable</b>(...disposables: IDisposable[]): IDisposable {",
+              "line": 364
+            }
+          ]
+        },
+        {
+          "path": "extensions/git/src/util.ts",
+          "lines": [
+            {
+              "source": "export function <b>combinedDisposable</b>(disposables: IDisposable[]): IDisposable {",
+              "line": 35
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "loadMs": 163.242327,
+  "tool": "OpenGrok",
+  "indexedDocuments": 10396,
+  "warmup": 1,
+  "mode": "symbol"
+}

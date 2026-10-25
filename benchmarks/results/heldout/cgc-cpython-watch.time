@@ -1,0 +1,23 @@
+	Command being timed: "/data/dev/benchmark-tools/cgc-venv/bin/python /data/dev/CodeIndex-worktrees/feature/heldout-comparison/benchmarks/competitors/cgc-watch-update.py /data/dev/CodeIndex/.data/heldout/indexes/cgc/cpython /data/dev/CodeIndex/.data/heldout/inputs/cpython /data/dev/CodeIndex/.data/heldout/inputs/cpython/Python/pylifecycle.c"
+	User time (seconds): 59.53
+	System time (seconds): 1.67
+	Percent of CPU this job got: 91%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 1:06.53
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 237368
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 127
+	Minor (reclaiming a frame) page faults: 117494
+	Voluntary context switches: 1442
+	Involuntary context switches: 902
+	Swaps: 0
+	File system inputs: 61976
+	File system outputs: 48
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

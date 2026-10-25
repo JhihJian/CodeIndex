@@ -1,0 +1,15 @@
+Oct 25, 2026 3:06:48 PM org.opengrok.indexer.configuration.Configuration read
+INFO: Reading configuration from '/data/dev/CodeIndex/.data/heldout/repeat-3/opengrok/cpython/config.xml'
+Oct 25, 2026 3:06:48 PM org.opengrok.indexer.Metrics <clinit>
+INFO: configuring PrometheusRegistry
+SLF4J(W): No SLF4J providers were found.
+SLF4J(W): Defaulting to no-operation (NOP) logger implementation
+SLF4J(W): See https://www.slf4j.org/codes.html#noProviders for further details.
+WARNING: A restricted method in java.lang.foreign.Linker has been called
+WARNING: java.lang.foreign.Linker::downcallHandle has been called by the unnamed module
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for this module
+
+Oct 25, 2026 3:06:48 PM org.apache.lucene.store.MemorySegmentIndexInputProvider <init>
+INFO: Using MemorySegmentIndexInput and native madvise support with Java 21 or later; to disable start with -Dorg.apache.lucene.store.MMapDirectory.enableMemorySegments=false
+Oct 25, 2026 3:06:48 PM org.apache.lucene.internal.vectorization.VectorizationProvider lookup
+WARNING: Java vector incubator module is not readable. For optimal vector performance, pass '--add-modules jdk.incubator.vector' to enable Vector API.

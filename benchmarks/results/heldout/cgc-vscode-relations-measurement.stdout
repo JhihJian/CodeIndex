@@ -1,0 +1,79 @@
+{
+  "tool": "CodeGraphContext",
+  "corpus": "vscode",
+  "rows": [
+    {
+      "caller": "disposeIfDisposable",
+      "callee": "isDisposable",
+      "path": "src/vs/base/common/lifecycle.ts",
+      "callLine": 354,
+      "resolvedCaller": "disposeIfDisposable",
+      "hit": true,
+      "elapsedMs": 1.1112289503216743,
+      "totalCalls": 1,
+      "matches": [
+        {
+          "called_function": "isDisposable",
+          "called_file_path": "/data/dev/CodeIndex/.data/heldout/inputs/vscode/src/vs/base/common/lifecycle.ts",
+          "called_line_number": 313,
+          "called_docstring": null,
+          "called_is_dependency": false,
+          "call_line_number": 354,
+          "call_args": [
+            "d"
+          ],
+          "full_call_name": "isDisposable(d)"
+        }
+      ]
+    },
+    {
+      "caller": "combinedDisposable",
+      "callee": "toDisposable",
+      "path": "src/vs/base/common/lifecycle.ts",
+      "callLine": 365,
+      "resolvedCaller": "combinedDisposable",
+      "hit": true,
+      "elapsedMs": 0.6591919809579849,
+      "totalCalls": 3,
+      "matches": [
+        {
+          "called_function": "toDisposable",
+          "called_file_path": "/data/dev/CodeIndex/.data/heldout/inputs/vscode/src/vs/base/common/lifecycle.ts",
+          "called_line_number": 398,
+          "called_docstring": null,
+          "called_is_dependency": false,
+          "call_line_number": 365,
+          "call_args": [
+            "() => dispose(disposables)"
+          ],
+          "full_call_name": "toDisposable(() => dispose(disposables))"
+        }
+      ]
+    },
+    {
+      "caller": "combinedDisposable",
+      "callee": "setParentOfDisposables",
+      "path": "src/vs/base/common/lifecycle.ts",
+      "callLine": 366,
+      "resolvedCaller": "combinedDisposable",
+      "hit": true,
+      "elapsedMs": 0.6340749096125364,
+      "totalCalls": 3,
+      "matches": [
+        {
+          "called_function": "setParentOfDisposables",
+          "called_file_path": "/data/dev/CodeIndex/.data/heldout/inputs/vscode/src/vs/base/common/lifecycle.ts",
+          "called_line_number": 278,
+          "called_docstring": null,
+          "called_is_dependency": false,
+          "call_line_number": 366,
+          "call_args": [
+            "disposables",
+            "parent"
+          ],
+          "full_call_name": "setParentOfDisposables(disposables, parent)"
+        }
+      ]
+    }
+  ]
+}

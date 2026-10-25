@@ -1,0 +1,140 @@
+{
+  "tool": "CodeIndex",
+  "corpus": "cpython",
+  "rows": [
+    {
+      "caller": "Py_Initialize",
+      "callee": "Py_InitializeEx",
+      "path": "Python/pylifecycle.c",
+      "callLine": 1485,
+      "hit": true,
+      "elapsedMs": 9.031315999999997,
+      "totalCalls": 1,
+      "matches": [
+        {
+          "relation_id": "relation:cd9e22c962bb03e087c8e79e3c82fe0c",
+          "source_id": "symbol:WyJmaWxlOjY5MjIzZjViYjAxZjM1OWEyMzI0NmFmYiIsIlB5X0luaXRpYWxpemUiLCJmdW5jdGlvbiIsIiIsMTQ4MywwXQ",
+          "target_id": "symbol:WyJmaWxlOjY5MjIzZjViYjAxZjM1OWEyMzI0NmFmYiIsIlB5X0luaXRpYWxpemVFeCIsImZ1bmN0aW9uIiwiIiwxNDU1LDBd",
+          "target_name": "Py_InitializeEx",
+          "type": "calls",
+          "status": "resolved",
+          "confidence": 0.6,
+          "origin": "cscope",
+          "path": "Python/pylifecycle.c",
+          "start_line": 1485,
+          "end_line": 1485,
+          "start_column": 0,
+          "end_column": null,
+          "start_byte": 42543,
+          "end_byte": 42566,
+          "blob_digest": "8afae39fa4b006ad19c2e1ae0eaf7b47b0eea2db5af8cb395a0a3914c6271341"
+        }
+      ]
+    },
+    {
+      "caller": "_PyErr_SetString",
+      "callee": "PyUnicode_FromString",
+      "path": "Python/errors.c",
+      "callLine": 286,
+      "hit": true,
+      "elapsedMs": 4.768802000000001,
+      "totalCalls": 3,
+      "matches": [
+        {
+          "relation_id": "relation:0f0c66e40dcbaff3be590a79703ae787",
+          "source_id": "symbol:WyJmaWxlOmMzN2M4MzZkMDUzNWI3OWQ4N2I4ZWIwNiIsIl9QeUVycl9TZXRTdHJpbmciLCJmdW5jdGlvbiIsIiIsMjgzLDBd",
+          "target_id": "symbol:WyJmaWxlOjM0Yzk2NmU3ODc2ZDZmOGJmODAxZGQ1MSIsIlB5VW5pY29kZV9Gcm9tU3RyaW5nIiwiZnVuY3Rpb24iLCIiLDIxNjksMF0",
+          "target_name": "PyUnicode_FromString",
+          "type": "calls",
+          "status": "resolved",
+          "confidence": 0.6,
+          "origin": "cscope",
+          "path": "Python/errors.c",
+          "start_line": 286,
+          "end_line": 286,
+          "start_column": 0,
+          "end_column": null,
+          "start_byte": 8538,
+          "end_byte": 8589,
+          "blob_digest": "e54d738e9dca16b07d9efaeb08eed9fb6276a4af8a01640bad06680599450e49"
+        }
+      ]
+    },
+    {
+      "caller": "heappush",
+      "callee": "_siftdown",
+      "path": "Lib/heapq.py",
+      "callLine": 135,
+      "hit": true,
+      "elapsedMs": 2.497831000000005,
+      "totalCalls": 3,
+      "matches": [
+        {
+          "id": 29641,
+          "relation_id": "relation:WyJzeW1ib2w6V3lKbWFXeGxPak0yTXpCbFpUWXhObUZsWWpOak56SXpOamN5Tm1Jd1pTSXNJbWhsWVhCd2RYTm9JaXdpWm5WdVkzUnBiMjRpTENKTWFXSXVhR1ZoY0hFaUxERXpNaXd3WFEiLCJjYWxscyIsIl9zaWZ0ZG93biIsMTM1LDAsMTM1LG51bGxd",
+          "file_id": 1350,
+          "source_id": "symbol:WyJmaWxlOjM2MzBlZTYxNmFlYjNjNzIzNjcyNmIwZSIsImhlYXBwdXNoIiwiZnVuY3Rpb24iLCJMaWIuaGVhcHEiLDEzMiwwXQ",
+          "type": "calls",
+          "target_name": "_siftdown",
+          "target_normalized": "_siftdown",
+          "target_leaf": "_siftdown",
+          "target_module_path": "",
+          "start_line": 135,
+          "end_line": 135,
+          "start_column": 0,
+          "end_column": null,
+          "start_byte": 6480,
+          "end_byte": 6515,
+          "file_public_id": "file:3630ee616aeb3c7236726b0e",
+          "path": "Lib/heapq.py",
+          "blob_digest": "8a1d516c404e991c04f6ca7c7532be4e2abb45518122fdac724a05f710a94697",
+          "file_bytes": 23345,
+          "line_count": 611,
+          "source_internal_id": 76292,
+          "target_id": "symbol:WyJmaWxlOjM2MzBlZTYxNmFlYjNjNzIzNjcyNmIwZSIsIl9zaWZ0ZG93biIsImZ1bmN0aW9uIiwiTGliLmhlYXBxIiwyMjAsMF0",
+          "status": "resolved",
+          "confidence": 0.8,
+          "origin": "parser"
+        }
+      ]
+    },
+    {
+      "caller": "heappop",
+      "callee": "_siftup",
+      "path": "Lib/heapq.py",
+      "callLine": 143,
+      "hit": true,
+      "elapsedMs": 1.6940840000000037,
+      "totalCalls": 2,
+      "matches": [
+        {
+          "id": 29644,
+          "relation_id": "relation:WyJzeW1ib2w6V3lKbWFXeGxPak0yTXpCbFpUWXhObUZsWWpOak56SXpOamN5Tm1Jd1pTSXNJbWhsWVhCd2IzQWlMQ0ptZFc1amRHbHZiaUlzSWt4cFlpNW9aV0Z3Y1NJc01UTTNMREJkIiwiY2FsbHMiLCJfc2lmdHVwIiwxNDMsMCwxNDMsbnVsbF0",
+          "file_id": 1350,
+          "source_id": "symbol:WyJmaWxlOjM2MzBlZTYxNmFlYjNjNzIzNjcyNmIwZSIsImhlYXBwb3AiLCJmdW5jdGlvbiIsIkxpYi5oZWFwcSIsMTM3LDBd",
+          "type": "calls",
+          "target_name": "_siftup",
+          "target_normalized": "_siftup",
+          "target_leaf": "_siftup",
+          "target_module_path": "",
+          "start_line": 143,
+          "end_line": 143,
+          "start_column": 0,
+          "end_column": null,
+          "start_byte": 6759,
+          "end_byte": 6783,
+          "file_public_id": "file:3630ee616aeb3c7236726b0e",
+          "path": "Lib/heapq.py",
+          "blob_digest": "8a1d516c404e991c04f6ca7c7532be4e2abb45518122fdac724a05f710a94697",
+          "file_bytes": 23345,
+          "line_count": 611,
+          "source_internal_id": 76293,
+          "target_id": "symbol:WyJmaWxlOjM2MzBlZTYxNmFlYjNjNzIzNjcyNmIwZSIsIl9zaWZ0dXAiLCJmdW5jdGlvbiIsIkxpYi5oZWFwcSIsMjczLDBd",
+          "status": "resolved",
+          "confidence": 0.8,
+          "origin": "parser"
+        }
+      ]
+    }
+  ]
+}

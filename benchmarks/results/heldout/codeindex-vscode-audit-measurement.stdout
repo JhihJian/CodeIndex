@@ -1,0 +1,208 @@
+{
+  "inputFiles": 8071,
+  "indexedInputFiles": 8071,
+  "missingFiles": [],
+  "digestMismatches": [],
+  "evidenceChecked": 45,
+  "definitionProbes": [
+    {
+      "query": "DisposableStore",
+      "expectedPath": "src/vs/base/common/lifecycle.ts",
+      "scopedMatch": true,
+      "expectedLineCovered": true,
+      "matches": [
+        {
+          "name": "DisposableStore",
+          "kind": "class",
+          "sourceSpan": {
+            "path": "src/vs/base/common/lifecycle.ts",
+            "startLine": 409,
+            "endLine": 513,
+            "startColumn": 0,
+            "endColumn": 0,
+            "startByte": 12851,
+            "endByte": 15233,
+            "blobDigest": "7ac563cbec7e6f38b603cb9471fe466aadedcc2d70ac85020c4146e47a2584ce",
+            "snapshotId": "snapshot:repo-326e81ee10b80ed316f1:eae31caa84b5471d790d3546"
+          }
+        }
+      ]
+    },
+    {
+      "query": "MutableDisposable",
+      "expectedPath": "src/vs/base/common/lifecycle.ts",
+      "scopedMatch": true,
+      "expectedLineCovered": true,
+      "matches": [
+        {
+          "name": "MutableDisposable",
+          "kind": "class",
+          "sourceSpan": {
+            "path": "src/vs/base/common/lifecycle.ts",
+            "startLine": 559,
+            "endLine": 609,
+            "startColumn": 0,
+            "endColumn": 0,
+            "startByte": 16487,
+            "endByte": 17488,
+            "blobDigest": "7ac563cbec7e6f38b603cb9471fe466aadedcc2d70ac85020c4146e47a2584ce",
+            "snapshotId": "snapshot:repo-326e81ee10b80ed316f1:eae31caa84b5471d790d3546"
+          }
+        }
+      ]
+    },
+    {
+      "query": "CancellationTokenSource",
+      "expectedPath": "src/vs/base/common/cancellation.ts",
+      "scopedMatch": true,
+      "expectedLineCovered": true,
+      "matches": [
+        {
+          "name": "CancellationTokenSource",
+          "kind": "class",
+          "sourceSpan": {
+            "path": "src/vs/base/common/cancellation.ts",
+            "startLine": 97,
+            "endLine": 142,
+            "startColumn": 0,
+            "endColumn": 0,
+            "startByte": 2706,
+            "endByte": 3850,
+            "blobDigest": "c8da8418c76cf8a3ca7509494a28cb9586f8a5ade75f81f4474ceecd089c699e",
+            "snapshotId": "snapshot:repo-326e81ee10b80ed316f1:eae31caa84b5471d790d3546"
+          }
+        }
+      ]
+    },
+    {
+      "query": "Emitter",
+      "expectedPath": "src/vs/base/common/event.ts",
+      "scopedMatch": true,
+      "expectedLineCovered": true,
+      "matches": [
+        {
+          "name": "Emitter",
+          "kind": "class",
+          "sourceSpan": {
+            "path": "src/vs/base/common/event.ts",
+            "startLine": 995,
+            "endLine": 1245,
+            "startColumn": 0,
+            "endColumn": 0,
+            "startByte": 33137,
+            "endByte": 41381,
+            "blobDigest": "c58bebdc0099f9f4078e2497f8a5a71580b4c21437881437257114ca0739af84",
+            "snapshotId": "snapshot:repo-326e81ee10b80ed316f1:eae31caa84b5471d790d3546"
+          }
+        }
+      ]
+    },
+    {
+      "query": "URI",
+      "expectedPath": "src/vs/base/common/uri.ts",
+      "scopedMatch": true,
+      "expectedLineCovered": true,
+      "matches": [
+        {
+          "name": "URI",
+          "kind": "class",
+          "sourceSpan": {
+            "path": "src/vs/base/common/uri.ts",
+            "startLine": 98,
+            "endLine": 420,
+            "startColumn": 0,
+            "endColumn": 0,
+            "startByte": 3636,
+            "endByte": 13590,
+            "blobDigest": "91bf39a5b8401917eaffe6142b90a704efa91b5e6d83c32d8b7aafd5479a0dc3",
+            "snapshotId": "snapshot:repo-326e81ee10b80ed316f1:eae31caa84b5471d790d3546"
+          }
+        }
+      ]
+    },
+    {
+      "query": "Delayer",
+      "expectedPath": "src/vs/base/common/async.ts",
+      "scopedMatch": true,
+      "expectedLineCovered": true,
+      "matches": [
+        {
+          "name": "Delayer",
+          "kind": "class",
+          "sourceSpan": {
+            "path": "src/vs/base/common/async.ts",
+            "startLine": 373,
+            "endLine": 440,
+            "startColumn": 0,
+            "endColumn": 0,
+            "startByte": 11725,
+            "endByte": 13299,
+            "blobDigest": "e496ee61e3054743947b3436296a2ee21dde1bdc960c8b935702b948267f0b4e",
+            "snapshotId": "snapshot:repo-326e81ee10b80ed316f1:eae31caa84b5471d790d3546"
+          }
+        }
+      ]
+    },
+    {
+      "query": "RunOnceScheduler",
+      "expectedPath": "src/vs/base/common/async.ts",
+      "scopedMatch": true,
+      "expectedLineCovered": true,
+      "matches": [
+        {
+          "name": "RunOnceScheduler",
+          "kind": "class",
+          "sourceSpan": {
+            "path": "src/vs/base/common/async.ts",
+            "startLine": 1086,
+            "endLine": 1159,
+            "startColumn": 0,
+            "endColumn": 0,
+            "startByte": 29486,
+            "endByte": 30844,
+            "blobDigest": "e496ee61e3054743947b3436296a2ee21dde1bdc960c8b935702b948267f0b4e",
+            "snapshotId": "snapshot:repo-326e81ee10b80ed316f1:eae31caa84b5471d790d3546"
+          }
+        }
+      ]
+    },
+    {
+      "query": "combinedDisposable",
+      "expectedPath": "src/vs/base/common/lifecycle.ts",
+      "scopedMatch": true,
+      "expectedLineCovered": true,
+      "matches": [
+        {
+          "name": "combinedDisposable",
+          "kind": "function",
+          "sourceSpan": {
+            "path": "src/vs/base/common/lifecycle.ts",
+            "startLine": 364,
+            "endLine": 368,
+            "startColumn": 0,
+            "endColumn": 0,
+            "startByte": 11581,
+            "endByte": 11784,
+            "blobDigest": "7ac563cbec7e6f38b603cb9471fe466aadedcc2d70ac85020c4146e47a2584ce",
+            "snapshotId": "snapshot:repo-326e81ee10b80ed316f1:eae31caa84b5471d790d3546"
+          }
+        }
+      ]
+    }
+  ],
+  "checks": [
+    "snapshot identity",
+    "blob sha256",
+    "inventory digest",
+    "UTF-8 byte slice equals returned source"
+  ],
+  "coverage": {
+    "sourceFiles": 8071,
+    "parsedFiles": 5986,
+    "unsupportedFiles": 2083,
+    "partialFiles": 2085,
+    "skippedFiles": 1,
+    "nativeCalls": true,
+    "semantics": "syntax-level symbols and cross-references; no compiler-level overload or pointer resolution"
+  }
+}

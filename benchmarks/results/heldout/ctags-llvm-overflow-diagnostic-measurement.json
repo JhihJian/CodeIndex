@@ -1,0 +1,24 @@
+{
+  "command": [
+    "python3",
+    "/data/dev/CodeIndex-worktrees/feature/heldout-comparison/benchmarks/heldout/reproduce-ctags-crash.py",
+    "/home/jhihjian/.local/bin/ctags-universal",
+    "/data/dev/CodeIndex/.data/heldout/inputs/llvm"
+  ],
+  "cwd": "/data/dev/CodeIndex-worktrees/feature/heldout-comparison",
+  "systemdUnit": "codeindex-benchmark-1870594.scope",
+  "systemdResult": "success",
+  "status": "success",
+  "exitCode": 0,
+  "wallSeconds": 1.11,
+  "wallSecondsIncludingSupervisor": 1.2708530209492892,
+  "timeLimitSeconds": 300,
+  "memoryLimitGiB": 12,
+  "gnuTimeMaxRssKiB": 16660,
+  "sampledProcessTreeRssSumBytes": 34553856,
+  "workloadSampled": true,
+  "cgroupMemoryPeakBytes": 17727488,
+  "sampleIntervalSeconds": 0.25,
+  "leftoverProcessIdsTerminated": [],
+  "memoryNotes": "RSS sum can double-count shared pages; cgroup memory includes page cache; GNU time max RSS is not simultaneous tree total"
+}

@@ -1,0 +1,51 @@
+15:17:40 codeindex-cpython-audit-measurement
+codeindex-cpython-audit-measurement success 0.13
+15:17:40 codeindex-cpython-relations-measurement
+codeindex-cpython-relations-measurement success 0.08
+15:17:40 codeindex-cpython-content-query-measurement
+codeindex-cpython-content-query-measurement success 1.39
+15:17:42 opengrok-cpython-audit-measurement
+opengrok-cpython-audit-measurement success 0.91
+15:17:43 opengrok-cpython-content-query-measurement
+opengrok-cpython-content-query-measurement success 0.88
+15:17:44 zoekt-cpython-audit-measurement
+zoekt-cpython-audit-measurement success 0.28
+15:17:44 zoekt-cpython-content-query-measurement
+zoekt-cpython-content-query-measurement success 3.12
+15:17:48 cgc-cpython-audit-measurement
+cgc-cpython-audit-measurement success 2.91
+15:17:51 cgc-cpython-definitions-measurement
+cgc-cpython-definitions-measurement success 2.67
+15:17:54 cgc-cpython-relations-measurement
+cgc-cpython-relations-measurement success 2.73
+15:17:56 cgc-cpython-content-query-measurement
+cgc-cpython-content-query-measurement success 36.79
+15:18:33 codeindex-vscode-audit-measurement
+codeindex-vscode-audit-measurement success 0.14
+15:18:34 codeindex-vscode-relations-measurement
+codeindex-vscode-relations-measurement success 0.04
+15:18:34 codeindex-vscode-content-query-measurement
+codeindex-vscode-content-query-measurement success 0.62
+15:18:35 opengrok-vscode-audit-measurement
+opengrok-vscode-audit-measurement success 1.18
+15:18:36 opengrok-vscode-content-query-measurement
+opengrok-vscode-content-query-measurement success 0.8
+15:18:37 zoekt-vscode-audit-measurement
+zoekt-vscode-audit-measurement success 0.25
+15:18:38 zoekt-vscode-content-query-measurement
+zoekt-vscode-content-query-measurement success 0.25
+15:18:38 cgc-vscode-audit-measurement
+cgc-vscode-audit-measurement success 3.0
+15:18:42 cgc-vscode-definitions-measurement
+cgc-vscode-definitions-measurement success 2.52
+15:18:44 cgc-vscode-relations-measurement
+cgc-vscode-relations-measurement success 2.67
+15:18:47 cgc-vscode-content-query-measurement
+cgc-vscode-content-query-measurement success 27.14
+15:19:15 opengrok-llvm-audit-measurement
+opengrok-llvm-audit-measurement success 4.45
+15:19:19 opengrok-llvm-content-query-measurement
+opengrok-llvm-content-query-measurement success 0.92
+15:19:24 ctags-llvm-overflow-diagnostic-measurement
+ctags-llvm-overflow-diagnostic-measurement success 1.11
+AUDITS_COMPLETE

@@ -1,0 +1,36 @@
+{
+  "repositoryId": "repo-326e81ee10b80ed316f1",
+  "snapshotId": "snapshot:repo-326e81ee10b80ed316f1:c9206dddc2699c143618ad2f",
+  "status": "partial",
+  "stats": {
+    "files": 8071,
+    "symbols": 39722,
+    "relations": 434643,
+    "sourceBytes": 95990600,
+    "changedFiles": 1,
+    "removedFiles": 0,
+    "reusedFiles": 8070,
+    "parsedFiles": 1,
+    "partialFiles": 2085,
+    "skipped": 1,
+    "nodes": 50133,
+    "nativeFiles": 7,
+    "nativeIndexedFiles": 7,
+    "workers": 4,
+    "nativeBuildMode": "incremental",
+    "nativeTaskMs": 41,
+    "relationsScope": "stored-sql-relations; native calls and references queried from cscope",
+    "stages": {
+      "scan": 829,
+      "source-and-files": 312,
+      "native-symbols": 16,
+      "parser-symbols": 19,
+      "relations": 0,
+      "indexes": 1,
+      "native-cross-references": 6,
+      "validation": 87
+    },
+    "buildMs": 1274
+  },
+  "store": "/data/dev/CodeIndex/.data/heldout/indexes/codeindex/vscode"
+}

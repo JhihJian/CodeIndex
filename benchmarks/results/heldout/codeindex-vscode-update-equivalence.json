@@ -1,0 +1,10 @@
+{
+  "files": 8071,
+  "symbols": 39722,
+  "relations": 434643,
+  "factsSha256": "15a06a096c6c04f9d6c574e8f0f94e9f779347308a6f115b592d1868dd6dbd43",
+  "sourceBlobsChecked": 7755,
+  "nativeBodySha256": "a711f8e162d1df66546d4b7f6483b82dbac2e7a444434d0adfcd1e8292b20cae",
+  "equivalent": true,
+  "scope": "Every file: symbol fields and parent identities, stored relations and source identities, source/blob digests; entire Cscope body after the cwd header"
+}

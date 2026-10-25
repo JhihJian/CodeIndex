@@ -1,0 +1,208 @@
+{
+  "inputFiles": 5019,
+  "indexedInputFiles": 5019,
+  "missingFiles": [],
+  "digestMismatches": [],
+  "evidenceChecked": 60,
+  "definitionProbes": [
+    {
+      "query": "SequenceMatcher",
+      "expectedPath": "Lib/difflib.py",
+      "scopedMatch": true,
+      "expectedLineCovered": true,
+      "matches": [
+        {
+          "name": "SequenceMatcher",
+          "kind": "class",
+          "sourceSpan": {
+            "path": "Lib/difflib.py",
+            "startLine": 44,
+            "endLine": 663,
+            "startColumn": 0,
+            "endColumn": 49,
+            "startByte": 1356,
+            "endByte": 27182,
+            "blobDigest": "000f99f04cf8fd967753ed9929be6d5025e006437e0ef19b65e3303072538b74",
+            "snapshotId": "snapshot:repo-3a171d820584dd59589e:3e42020676ce9098ec1aa837"
+          }
+        }
+      ]
+    },
+    {
+      "query": "JSONDecoder",
+      "expectedPath": "Lib/json/decoder.py",
+      "scopedMatch": true,
+      "expectedLineCovered": true,
+      "matches": [
+        {
+          "name": "JSONDecoder",
+          "kind": "class",
+          "sourceSpan": {
+            "path": "Lib/json/decoder.py",
+            "startLine": 262,
+            "endLine": 364,
+            "startColumn": 0,
+            "endColumn": 23,
+            "startByte": 8502,
+            "endByte": 12871,
+            "blobDigest": "6d95679fccf178f2af9e9eead42f8efb084c58735951dc47fce89aec11d44955",
+            "snapshotId": "snapshot:repo-3a171d820584dd59589e:3e42020676ce9098ec1aa837"
+          }
+        }
+      ]
+    },
+    {
+      "query": "ArgumentParser",
+      "expectedPath": "Lib/argparse.py",
+      "scopedMatch": true,
+      "expectedLineCovered": true,
+      "matches": [
+        {
+          "name": "ArgumentParser",
+          "kind": "class",
+          "sourceSpan": {
+            "path": "Lib/argparse.py",
+            "startLine": 1840,
+            "endLine": 2775,
+            "startColumn": 0,
+            "endColumn": 86,
+            "startByte": 66365,
+            "endByte": 105823,
+            "blobDigest": "c2cd895b117dbc4d55439773e3f11e57b833b1e20f05d311c4465b794b044898",
+            "snapshotId": "snapshot:repo-3a171d820584dd59589e:3e42020676ce9098ec1aa837"
+          }
+        }
+      ]
+    },
+    {
+      "query": "heappush",
+      "expectedPath": "Lib/heapq.py",
+      "scopedMatch": true,
+      "expectedLineCovered": true,
+      "matches": [
+        {
+          "name": "heappush",
+          "kind": "function",
+          "sourceSpan": {
+            "path": "Lib/heapq.py",
+            "startLine": 132,
+            "endLine": 135,
+            "startColumn": 0,
+            "endColumn": 35,
+            "startByte": 6369,
+            "endByte": 6515,
+            "blobDigest": "8a1d516c404e991c04f6ca7c7532be4e2abb45518122fdac724a05f710a94697",
+            "snapshotId": "snapshot:repo-3a171d820584dd59589e:3e42020676ce9098ec1aa837"
+          }
+        }
+      ]
+    },
+    {
+      "query": "Py_Initialize",
+      "expectedPath": "Python/pylifecycle.c",
+      "scopedMatch": true,
+      "expectedLineCovered": true,
+      "matches": [
+        {
+          "name": "Py_Initialize",
+          "kind": "function",
+          "sourceSpan": {
+            "path": "Python/pylifecycle.c",
+            "startLine": 1483,
+            "endLine": 1486,
+            "startColumn": 0,
+            "endColumn": 0,
+            "startByte": 42521,
+            "endByte": 42568,
+            "blobDigest": "c6c1256d8f1d6edb692aaa1d07c2cd2273411c9f461b0a6a21566236fa3e7d7d",
+            "snapshotId": "snapshot:repo-3a171d820584dd59589e:3e42020676ce9098ec1aa837"
+          }
+        }
+      ]
+    },
+    {
+      "query": "PyErr_SetString",
+      "expectedPath": "Python/errors.c",
+      "scopedMatch": true,
+      "expectedLineCovered": true,
+      "matches": [
+        {
+          "name": "PyErr_SetString",
+          "kind": "function",
+          "sourceSpan": {
+            "path": "Python/errors.c",
+            "startLine": 294,
+            "endLine": 298,
+            "startColumn": 0,
+            "endColumn": 0,
+            "startByte": 8707,
+            "endByte": 8866,
+            "blobDigest": "e54d738e9dca16b07d9efaeb08eed9fb6276a4af8a01640bad06680599450e49",
+            "snapshotId": "snapshot:repo-3a171d820584dd59589e:3e42020676ce9098ec1aa837"
+          }
+        }
+      ]
+    },
+    {
+      "query": "PyUnicode_FromString",
+      "expectedPath": "Objects/unicodeobject.c",
+      "scopedMatch": true,
+      "expectedLineCovered": true,
+      "matches": [
+        {
+          "name": "PyUnicode_FromString",
+          "kind": "function",
+          "sourceSpan": {
+            "path": "Objects/unicodeobject.c",
+            "startLine": 2169,
+            "endLine": 2177,
+            "startColumn": 0,
+            "endColumn": 0,
+            "startByte": 66049,
+            "endByte": 66315,
+            "blobDigest": "cf6885efb5011a036d4741372cec22ef3945fb11abe01d8079917714a33addd0",
+            "snapshotId": "snapshot:repo-3a171d820584dd59589e:3e42020676ce9098ec1aa837"
+          }
+        }
+      ]
+    },
+    {
+      "query": "PyLong_FromLong",
+      "expectedPath": "Objects/longobject.c",
+      "scopedMatch": true,
+      "expectedLineCovered": true,
+      "matches": [
+        {
+          "name": "PyLong_FromLong",
+          "kind": "function",
+          "sourceSpan": {
+            "path": "Objects/longobject.c",
+            "startLine": 373,
+            "endLine": 376,
+            "startColumn": 0,
+            "endColumn": 0,
+            "startByte": 13376,
+            "endByte": 13454,
+            "blobDigest": "35e8ae447cd4993c57c943472526b8977b0af11088782cedbdd2e8e5d846218d",
+            "snapshotId": "snapshot:repo-3a171d820584dd59589e:3e42020676ce9098ec1aa837"
+          }
+        }
+      ]
+    }
+  ],
+  "checks": [
+    "snapshot identity",
+    "blob sha256",
+    "inventory digest",
+    "UTF-8 byte slice equals returned source"
+  ],
+  "coverage": {
+    "sourceFiles": 5019,
+    "parsedFiles": 3115,
+    "unsupportedFiles": 1830,
+    "partialFiles": 1904,
+    "skippedFiles": 1,
+    "nativeCalls": true,
+    "semantics": "syntax-level symbols and cross-references; no compiler-level overload or pointer resolution"
+  }
+}

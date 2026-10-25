@@ -1,0 +1,23 @@
+	Command being timed: "node /data/dev/CodeIndex-worktrees/feature/heldout-comparison/benchmarks/heldout/verify-preservation.mjs /data/dev/CodeIndex/.data/heldout/inputs /data/dev/CodeIndex-worktrees/feature/heldout-comparison/benchmarks/heldout/relation-cases.json"
+	User time (seconds): 5.54
+	System time (seconds): 6.28
+	Percent of CPU this job got: 71%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:16.46
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 438272
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 22
+	Minor (reclaiming a frame) page faults: 286257
+	Voluntary context switches: 177787
+	Involuntary context switches: 517
+	Swaps: 0
+	File system inputs: 4578688
+	File system outputs: 8
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

@@ -1,0 +1,18 @@
+{
+  "snippetsChecked": 48,
+  "metadataOnlyLocations": 0,
+  "mismatches": [],
+  "absentPaths": [],
+  "locations": [
+    {
+      "query": "Heaps are arrays for which",
+      "hitAt10": true,
+      "expectedLineReturned": true
+    },
+    {
+      "query": "Exception ignored in",
+      "hitAt10": false,
+      "expectedLineReturned": false
+    }
+  ]
+}

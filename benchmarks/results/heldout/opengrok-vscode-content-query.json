@@ -1,0 +1,147 @@
+{
+  "repetitions": 20,
+  "rows": [
+    {
+      "totalFiles": 2,
+      "query": "Manages a collection of disposable values",
+      "coldMs": 211.36816,
+      "hitAt10": true,
+      "medianMs": 2.457204,
+      "files": [
+        {
+          "path": "src/vs/base/common/lifecycle.ts",
+          "lines": [
+            {
+              "source": "// #region <b>Disposable</b> Tracking",
+              "line": 13
+            },
+            {
+              "source": " * Enables logging <b>of</b> potentially leaked disposables.",
+              "line": 16
+            },
+            {
+              "source": " * <b>A</b> <b>disposable</b> is considered leaked if it is not disposed or not registered as the child <b>of</b>",
+              "line": 18
+            }
+          ]
+        },
+        {
+          "path": "src/vscode-dts/vscode.d.ts",
+          "lines": [
+            {
+              "source": "\t * The version <b>of</b> the editor.",
+              "line": 9
+            },
+            {
+              "source": "\t * Represents <b>a</b> reference to <b>a</b> command. Provides <b>a</b> title which",
+              "line": 14
+            },
+            {
+              "source": "\t * will be used to represent <b>a</b> command in the UI and, optionally,",
+              "line": 15
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "totalFiles": 5,
+      "query": "Encountered errors while disposing of store",
+      "coldMs": 7.178142,
+      "hitAt10": true,
+      "medianMs": 2.351873,
+      "files": [
+        {
+          "path": "extensions/markdown-language-features/src/util/dispose.ts",
+          "lines": [
+            {
+              "source": "\tconst <b>errors</b>: any[] = [];",
+              "line": 9
+            },
+            {
+              "source": "\tfor (const disposable <b>of</b> disposables) {",
+              "line": 11
+            },
+            {
+              "source": "\t\t\t<b>errors</b>.push(e);",
+              "line": 15
+            }
+          ]
+        },
+        {
+          "path": "extensions/typescript-language-features/src/utils/dispose.ts",
+          "lines": [
+            {
+              "source": "\tconst <b>errors</b>: any[] = [];",
+              "line": 10
+            },
+            {
+              "source": "\tfor (const disposable <b>of</b> disposables) {",
+              "line": 12
+            },
+            {
+              "source": "\t\t\t<b>errors</b>.push(e);",
+              "line": 16
+            }
+          ]
+        },
+        {
+          "path": "src/vs/base/common/lifecycle.ts",
+          "lines": [
+            {
+              "source": "import { BugIndicatingError, onUnexpectedError } from './<b>errors</b>.js';",
+              "line": 11
+            },
+            {
+              "source": " * Enables logging <b>of</b> potentially leaked disposables.",
+              "line": 16
+            },
+            {
+              "source": " * A disposable is considered leaked if it is not disposed or not registered as the child <b>of</b>",
+              "line": 18
+            }
+          ]
+        },
+        {
+          "path": "src/vscode-dts/vscode.d.ts",
+          "lines": [
+            {
+              "source": "\t * The version <b>of</b> the editor.",
+              "line": 9
+            },
+            {
+              "source": "\t * an array <b>of</b> arguments which will be passed to the command handler",
+              "line": 16
+            },
+            {
+              "source": "\t\t * Title <b>of</b> the command, like `save`.",
+              "line": 21
+            }
+          ]
+        },
+        {
+          "path": "src/vs/monaco.d.ts",
+          "lines": [
+            {
+              "source": "\t\t * scheme is the 'http' part <b>of</b> 'http://www.example.com/some/path?query#fragment'.",
+              "line": 127
+            },
+            {
+              "source": "\t\t * authority is the 'www.example.com' part <b>of</b> 'http://www.example.com/some/path?query#fragment'.",
+              "line": 132
+            },
+            {
+              "source": "\t\t * path is the '/some/path' part <b>of</b> 'http://www.example.com/some/path?query#fragment'.",
+              "line": 137
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "loadMs": 141.664476,
+  "tool": "OpenGrok",
+  "indexedDocuments": 10396,
+  "warmup": 1,
+  "mode": "text"
+}

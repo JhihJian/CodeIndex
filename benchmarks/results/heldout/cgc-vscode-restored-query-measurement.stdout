@@ -1,0 +1,278 @@
+{
+  "tool": "CodeGraphContext",
+  "backend": "FalkorDB Lite",
+  "loadMs": 1694.1120130941272,
+  "mode": "symbol",
+  "warmup": 1,
+  "repetitions": 20,
+  "rows": [
+    {
+      "query": "DisposableStore",
+      "hitAt10": true,
+      "coldMs": 2.610623836517334,
+      "medianMs": 0.5997475236654282,
+      "files": [
+        {
+          "path": "extensions/github/src/util.ts",
+          "symbol": "DisposableStore",
+          "lines": [
+            {
+              "line": 9,
+              "source": "class DisposableStore {\n\n\tprivate disposables = new Set<vscode.Disposable>();"
+            }
+          ]
+        },
+        {
+          "path": "extensions/typescript-language-features/src/utils/dispose.ts",
+          "symbol": "DisposableStore",
+          "lines": [
+            {
+              "line": 58,
+              "source": "class DisposableStore extends Disposable {\n\n\tpublic add<T extends IDisposable>(disposable: T): T {"
+            }
+          ]
+        },
+        {
+          "path": "src/vs/base/common/lifecycle.ts",
+          "symbol": "DisposableStore",
+          "lines": [
+            {
+              "line": 409,
+              "source": "class DisposableStore implements IDisposable {\n\n\tstatic DISABLE_DISPOSED_WARNING = false;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": "MutableDisposable",
+      "hitAt10": true,
+      "coldMs": 0.38473308086395264,
+      "medianMs": 0.22749998606741428,
+      "files": [
+        {
+          "path": "src/vs/base/common/lifecycle.ts",
+          "symbol": "MutableDisposable",
+          "lines": [
+            {
+              "line": 559,
+              "source": "class MutableDisposable<T extends IDisposable> implements IDisposable {\n\tprivate _value?: T;\n\tprivate _isDisposed = false;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": "CancellationTokenSource",
+      "hitAt10": true,
+      "coldMs": 0.259205000475049,
+      "medianMs": 0.3020589938387275,
+      "files": [
+        {
+          "path": "src/vs/base/common/cancellation.ts",
+          "symbol": "CancellationTokenSource",
+          "lines": [
+            {
+              "line": 97,
+              "source": "class CancellationTokenSource {\n\n\tprivate _token?: CancellationToken = undefined;"
+            }
+          ]
+        },
+        {
+          "path": "src/vs/monaco.d.ts",
+          "symbol": "CancellationTokenSource",
+          "lines": [
+            {
+              "line": 86,
+              "source": "class CancellationTokenSource {\n\t\tconstructor(parent?: CancellationToken);\n\t\tget token(): CancellationToken;"
+            }
+          ]
+        },
+        {
+          "path": "src/vscode-dts/vscode.d.ts",
+          "symbol": "CancellationTokenSource",
+          "lines": [
+            {
+              "line": 1675,
+              "source": "class CancellationTokenSource {\n\n\t\t/**"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": "Emitter",
+      "hitAt10": true,
+      "coldMs": 0.23778807371854782,
+      "medianMs": 0.22857205476611853,
+      "files": [
+        {
+          "path": "src/vs/base/common/event.ts",
+          "symbol": "Emitter",
+          "lines": [
+            {
+              "line": 995,
+              "source": "class Emitter<T> {\n\n\tprivate readonly _options?: EmitterOptions;"
+            }
+          ]
+        },
+        {
+          "path": "src/vs/monaco.d.ts",
+          "symbol": "Emitter",
+          "lines": [
+            {
+              "line": 66,
+              "source": "class Emitter<T> {\n\t\tconstructor();\n\t\treadonly event: IEvent<T>;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": "URI",
+      "hitAt10": true,
+      "coldMs": 0.3161858767271042,
+      "medianMs": 0.2156656701117754,
+      "files": [
+        {
+          "path": "src/vs/base/common/uri.ts",
+          "symbol": "URI",
+          "lines": [
+            {
+              "line": 98,
+              "source": "class URI implements UriComponents {\n\n\tstatic isUri(thing: unknown): thing is URI {"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": "Delayer",
+      "hitAt10": true,
+      "coldMs": 0.32872194424271584,
+      "medianMs": 0.2838859800249338,
+      "files": [
+        {
+          "path": "extensions/ipynb/src/helper.ts",
+          "symbol": "Delayer",
+          "lines": [
+            {
+              "line": 86,
+              "source": "class Delayer<T> {\n\n\tpublic defaultDelay: number;"
+            }
+          ]
+        },
+        {
+          "path": "extensions/markdown-language-features/src/util/async.ts",
+          "symbol": "Delayer",
+          "lines": [
+            {
+              "line": 10,
+              "source": "class Delayer<T> {\n\n\tpublic defaultDelay: number;"
+            }
+          ]
+        },
+        {
+          "path": "extensions/merge-conflict/src/delayer.ts",
+          "symbol": "Delayer",
+          "lines": [
+            {
+              "line": 10,
+              "source": "class Delayer<T> {\n\n\tpublic defaultDelay: number;"
+            }
+          ]
+        },
+        {
+          "path": "extensions/php-language-features/src/features/utils/async.ts",
+          "symbol": "Delayer",
+          "lines": [
+            {
+              "line": 103,
+              "source": "class Delayer<T> {\n\n\tpublic defaultDelay: number;"
+            }
+          ]
+        },
+        {
+          "path": "extensions/typescript-language-features/src/utils/async.ts",
+          "symbol": "Delayer",
+          "lines": [
+            {
+              "line": 12,
+              "source": "class Delayer<T> {\n\n\tpublic defaultDelay: number;"
+            }
+          ]
+        },
+        {
+          "path": "src/vs/base/common/async.ts",
+          "symbol": "Delayer",
+          "lines": [
+            {
+              "line": 373,
+              "source": "class Delayer<T> implements IDisposable {\n\n\tprivate deferred: IScheduledLater | null;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": "RunOnceScheduler",
+      "hitAt10": true,
+      "coldMs": 0.260696979239583,
+      "medianMs": 0.23387803230434656,
+      "files": [
+        {
+          "path": "src/vs/base/common/async.ts",
+          "symbol": "RunOnceScheduler",
+          "lines": [
+            {
+              "line": 1086,
+              "source": "class RunOnceScheduler implements IDisposable {\n\n\tprotected runner: ((...args: unknown[]) => void) | null;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": "combinedDisposable",
+      "hitAt10": true,
+      "coldMs": 0.33697299659252167,
+      "medianMs": 0.21808338351547718,
+      "files": [
+        {
+          "path": "extensions/git/src/util.ts",
+          "symbol": "combinedDisposable",
+          "lines": [
+            {
+              "line": 35,
+              "source": "function combinedDisposable(disposables: IDisposable[]): IDisposable {\n\treturn toDisposable(() => dispose(disposables));\n}"
+            }
+          ]
+        },
+        {
+          "path": "src/vs/base/common/lifecycle.ts",
+          "symbol": "combinedDisposable",
+          "lines": [
+            {
+              "line": 364,
+              "source": "function combinedDisposable(...disposables: IDisposable[]): IDisposable {\n\tconst parent = toDisposable(() => dispose(disposables));\n\tsetParentOfDisposables(disposables, parent);"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": "codeindex_heldout_update_probe_20261025",
+      "hitAt10": false,
+      "coldMs": 0.22127781994640827,
+      "medianMs": 0.1908844569697976,
+      "files": []
+    }
+  ],
+  "counts": {
+    "nodes": 360932,
+    "relations": 859224,
+    "files": 7571,
+    "functions": 101398,
+    "classes": 9270
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "snippetsChecked": 11,
+  "metadataOnlyLocations": 0,
+  "mismatches": [
+    {
+      "query": "Exception ignored in",
+      "path": "Modules/_curses_panel.c",
+      "line": 324,
+      "returned": "static void\nPyCursesPanel_Dealloc(PyObject *self)\n{",
+      "actual": "PyCursesPanel_Dealloc(PyObject *self)\n{\n    PyTypeObject *tp = Py_TYPE(self);"
+    },
+    {
+      "query": "Exception ignored in",
+      "path": "Objects/dictobject.c",
+      "line": 2272,
+      "returned": "PyObject *\nPyDict_GetItem(PyObject *op, PyObject *key)\n{",
+      "actual": "PyDict_GetItem(PyObject *op, PyObject *key)\n{\n    return dict_getitem(op, key,"
+    },
+    {
+      "query": "Exception ignored in",
+      "path": "Python/ceval.c",
+      "line": 2484,
+      "returned": "void\nPyEval_SetProfile(Py_tracefunc func, PyObject *arg)\n{",
+      "actual": "PyEval_SetProfile(Py_tracefunc func, PyObject *arg)\n{\n    PyThreadState *tstate = _PyThreadState_GET();"
+    },
+    {
+      "query": "Exception ignored in",
+      "path": "Objects/abstract.c",
+      "line": 2396,
+      "returned": "int\nPyMapping_HasKey(PyObject *obj, PyObject *key)\n{",
+      "actual": "PyMapping_HasKey(PyObject *obj, PyObject *key)\n{\n    PyObject *value;"
+    },
+    {
+      "query": "Exception ignored in",
+      "path": "Objects/object.c",
+      "line": 1423,
+      "returned": "int\nPyObject_HasAttr(PyObject *obj, PyObject *name)\n{",
+      "actual": "PyObject_HasAttr(PyObject *obj, PyObject *name)\n{\n    int rc = PyObject_HasAttrWithError(obj, name);"
+    },
+    {
+      "query": "Exception ignored in",
+      "path": "Python/sysmodule.c",
+      "line": 148,
+      "returned": "PyObject *\nPySys_GetObject(const char *name)\n{",
+      "actual": "PySys_GetObject(const char *name)\n{\n    PyThreadState *tstate = _PyThreadState_GET();"
+    }
+  ],
+  "absentPaths": [],
+  "locations": [
+    {
+      "query": "Heaps are arrays for which",
+      "hitAt10": true,
+      "expectedLineReturned": true
+    },
+    {
+      "query": "Exception ignored in",
+      "hitAt10": false,
+      "expectedLineReturned": false
+    }
+  ]
+}

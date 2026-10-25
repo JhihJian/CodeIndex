@@ -1,0 +1,47 @@
+{
+  "definitionProbes" : [ {
+    "scopedMatch" : true,
+    "expectedPath" : "llvm/include/llvm/IR/LLVMContext.h",
+    "matches" : [ "llvm/include/llvm/IR/LLVMContext.h" ],
+    "query" : "LLVMContext"
+  }, {
+    "scopedMatch" : false,
+    "expectedPath" : "llvm/include/llvm/IR/Dominators.h",
+    "matches" : [ ],
+    "query" : "DominatorTree"
+  }, {
+    "scopedMatch" : true,
+    "expectedPath" : "llvm/include/llvm/ADT/APInt.h",
+    "matches" : [ "llvm/include/llvm/ADT/APInt.h" ],
+    "query" : "APInt"
+  }, {
+    "scopedMatch" : true,
+    "expectedPath" : "llvm/include/llvm/ADT/SmallVector.h",
+    "matches" : [ "llvm/include/llvm/ADT/SmallVector.h" ],
+    "query" : "SmallVector"
+  }, {
+    "scopedMatch" : true,
+    "expectedPath" : "llvm/lib/AsmParser/Parser.cpp",
+    "matches" : [ "llvm/lib/AsmParser/Parser.cpp" ],
+    "query" : "parseAssemblyString"
+  }, {
+    "scopedMatch" : true,
+    "expectedPath" : "llvm/lib/IRReader/IRReader.cpp",
+    "matches" : [ "llvm/lib/IRReader/IRReader.cpp" ],
+    "query" : "parseIRFile"
+  }, {
+    "scopedMatch" : true,
+    "expectedPath" : "llvm/lib/IR/Verifier.cpp",
+    "matches" : [ "llvm/lib/IR/Verifier.cpp" ],
+    "query" : "verifyModule"
+  }, {
+    "scopedMatch" : true,
+    "expectedPath" : "clang/lib/FrontendTool/ExecuteCompilerInvocation.cpp",
+    "matches" : [ "clang/lib/FrontendTool/ExecuteCompilerInvocation.cpp" ],
+    "query" : "ExecuteCompilerInvocation"
+  } ],
+  "additionalDocuments" : 0,
+  "indexedInputFiles" : 158039,
+  "inputFiles" : 158039,
+  "missingFiles" : [ ]
+}

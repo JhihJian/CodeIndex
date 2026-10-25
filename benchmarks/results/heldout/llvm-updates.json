@@ -1,0 +1,104 @@
+{
+  "completed": true,
+  "restored": true,
+  "originalRevision": "6e6779437d2e2b870c12dae6d6fce9042faa2e1e",
+  "changedFile": "llvm/lib/IR/LLVMContext.cpp",
+  "originalDigest": "d045f26f07ec338847b738fdcb2493a1e5ffd33cba9fbdc40e2ff1865056f6d5",
+  "mtimeNs": 1792906987603498136,
+  "operations": [
+    {
+      "tool": "opengrok",
+      "mode": "noop",
+      "measurement": {
+        "command": [
+          "java",
+          "-Xmx8g",
+          "-jar",
+          "/data/dev/benchmark-tools/opengrok-1.14.20/lib/opengrok.jar",
+          "-s",
+          "/data/dev/CodeIndex/.data/heldout/inputs/llvm",
+          "-d",
+          "/data/dev/CodeIndex/.data/heldout/indexes/opengrok/llvm/data",
+          "-W",
+          "/data/dev/CodeIndex/.data/heldout/indexes/opengrok/llvm/config.xml",
+          "-c",
+          "/home/jhihjian/.local/bin/ctags-universal",
+          "-S"
+        ],
+        "cwd": "/data/dev/CodeIndex-worktrees/feature/heldout-comparison",
+        "systemdUnit": "codeindex-benchmark-1879229.scope",
+        "systemdResult": "success",
+        "status": "success",
+        "exitCode": 0,
+        "wallSeconds": 13.82,
+        "wallSecondsIncludingSupervisor": 14.053112884052098,
+        "timeLimitSeconds": 300,
+        "memoryLimitGiB": 12,
+        "gnuTimeMaxRssKiB": 597776,
+        "sampledProcessTreeRssSumBytes": 603881472,
+        "workloadSampled": true,
+        "cgroupMemoryPeakBytes": 543895552,
+        "sampleIntervalSeconds": 0.25,
+        "leftoverProcessIdsTerminated": [],
+        "memoryNotes": "RSS sum can double-count shared pages; cgroup memory includes page cache; GNU time max RSS is not simultaneous tree total"
+      },
+      "semantics": "normal unchanged-input update"
+    },
+    {
+      "tool": "opengrok",
+      "mode": "update",
+      "measurement": {
+        "command": [
+          "java",
+          "-Xmx8g",
+          "-jar",
+          "/data/dev/benchmark-tools/opengrok-1.14.20/lib/opengrok.jar",
+          "-s",
+          "/data/dev/CodeIndex/.data/heldout/inputs/llvm",
+          "-d",
+          "/data/dev/CodeIndex/.data/heldout/indexes/opengrok/llvm/data",
+          "-W",
+          "/data/dev/CodeIndex/.data/heldout/indexes/opengrok/llvm/config.xml",
+          "-c",
+          "/home/jhihjian/.local/bin/ctags-universal",
+          "-S"
+        ],
+        "cwd": "/data/dev/CodeIndex-worktrees/feature/heldout-comparison",
+        "systemdUnit": "codeindex-benchmark-1879644.scope",
+        "systemdResult": "success",
+        "status": "success",
+        "exitCode": 0,
+        "wallSeconds": 11.94,
+        "wallSecondsIncludingSupervisor": 12.046867829980329,
+        "timeLimitSeconds": 300,
+        "memoryLimitGiB": 12,
+        "gnuTimeMaxRssKiB": 651912,
+        "sampledProcessTreeRssSumBytes": 668073984,
+        "workloadSampled": true,
+        "cgroupMemoryPeakBytes": 350830592,
+        "sampleIntervalSeconds": 0.25,
+        "leftoverProcessIdsTerminated": [],
+        "memoryNotes": "RSS sum can double-count shared pages; cgroup memory includes page cache; GNU time max RSS is not simultaneous tree total"
+      },
+      "checks": {
+        "querySucceeded": true,
+        "probeHit": true,
+        "baselinePreserved": true
+      },
+      "storageAfter": {
+        "bytes": 2810766401,
+        "scope": "All regular index artifacts, hard links counted once; source input and Git excluded"
+      }
+    }
+  ],
+  "recoveryDirectory": "/data/dev/CodeIndex/.data/heldout/update-backups/llvm",
+  "updatedRevision": "f25189f9b8353b563e90c801c672a93250de4f23",
+  "updatedDigest": "c9ea0debfefb82939f3823b22e870737b30e01d24e032049a9c7e6465a0a531c",
+  "restoredChecks": {
+    "opengrok": {
+      "querySucceeded": true,
+      "probeHit": false,
+      "baselinePreserved": true
+    }
+  }
+}

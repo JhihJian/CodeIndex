@@ -1,0 +1,1 @@
+{"operation": "RepositoryEventHandler._handle_modification", "startupSeconds": 1.7454589218832552, "importPreparationSeconds": 74.0806640710216, "handlerSeconds": 18.71668409393169, "knownChangedPath": "/data/dev/CodeIndex/.data/heldout/inputs/vscode/src/vs/base/common/lifecycle.ts", "excludes": "OS notification and two-second debounce"}

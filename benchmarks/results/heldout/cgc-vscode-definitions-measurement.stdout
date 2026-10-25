@@ -1,0 +1,141 @@
+{
+  "definitionProbes": [
+    {
+      "query": "DisposableStore",
+      "expectedPath": "src/vs/base/common/lifecycle.ts",
+      "scopedMatch": true,
+      "expectedLineCovered": true,
+      "matches": [
+        {
+          "name": "DisposableStore",
+          "line": 409,
+          "labels": [
+            "Class"
+          ],
+          "sourceLines": 105,
+          "expectedLineCovered": true
+        }
+      ]
+    },
+    {
+      "query": "MutableDisposable",
+      "expectedPath": "src/vs/base/common/lifecycle.ts",
+      "scopedMatch": true,
+      "expectedLineCovered": true,
+      "matches": [
+        {
+          "name": "MutableDisposable",
+          "line": 559,
+          "labels": [
+            "Class"
+          ],
+          "sourceLines": 51,
+          "expectedLineCovered": true
+        }
+      ]
+    },
+    {
+      "query": "CancellationTokenSource",
+      "expectedPath": "src/vs/base/common/cancellation.ts",
+      "scopedMatch": true,
+      "expectedLineCovered": true,
+      "matches": [
+        {
+          "name": "CancellationTokenSource",
+          "line": 97,
+          "labels": [
+            "Class"
+          ],
+          "sourceLines": 46,
+          "expectedLineCovered": true
+        }
+      ]
+    },
+    {
+      "query": "Emitter",
+      "expectedPath": "src/vs/base/common/event.ts",
+      "scopedMatch": true,
+      "expectedLineCovered": true,
+      "matches": [
+        {
+          "name": "Emitter",
+          "line": 995,
+          "labels": [
+            "Class"
+          ],
+          "sourceLines": 97,
+          "expectedLineCovered": true
+        }
+      ]
+    },
+    {
+      "query": "URI",
+      "expectedPath": "src/vs/base/common/uri.ts",
+      "scopedMatch": true,
+      "expectedLineCovered": true,
+      "matches": [
+        {
+          "name": "URI",
+          "line": 98,
+          "labels": [
+            "Class"
+          ],
+          "sourceLines": 127,
+          "expectedLineCovered": true
+        }
+      ]
+    },
+    {
+      "query": "Delayer",
+      "expectedPath": "src/vs/base/common/async.ts",
+      "scopedMatch": true,
+      "expectedLineCovered": true,
+      "matches": [
+        {
+          "name": "Delayer",
+          "line": 373,
+          "labels": [
+            "Class"
+          ],
+          "sourceLines": 68,
+          "expectedLineCovered": true
+        }
+      ]
+    },
+    {
+      "query": "RunOnceScheduler",
+      "expectedPath": "src/vs/base/common/async.ts",
+      "scopedMatch": true,
+      "expectedLineCovered": true,
+      "matches": [
+        {
+          "name": "RunOnceScheduler",
+          "line": 1086,
+          "labels": [
+            "Class"
+          ],
+          "sourceLines": 74,
+          "expectedLineCovered": true
+        }
+      ]
+    },
+    {
+      "query": "combinedDisposable",
+      "expectedPath": "src/vs/base/common/lifecycle.ts",
+      "scopedMatch": true,
+      "expectedLineCovered": true,
+      "matches": [
+        {
+          "name": "combinedDisposable",
+          "line": 364,
+          "labels": [
+            "Function"
+          ],
+          "sourceLines": 5,
+          "expectedLineCovered": true
+        }
+      ]
+    }
+  ],
+  "scope": "Exact expected file and identifier leaf, independent of the public API limit and ranking"
+}

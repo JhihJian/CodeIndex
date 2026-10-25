@@ -1,0 +1,291 @@
+{
+  "loadMs": 8.444,
+  "mode": "text",
+  "repetitions": 20,
+  "repositories": {
+    "Repos": [
+      {
+        "Repository": {
+          "TenantID": 0,
+          "ID": 0,
+          "Name": "vscode",
+          "URL": "",
+          "Metadata": null,
+          "Source": "/data/dev/CodeIndex/.data/heldout/inputs/vscode",
+          "Branches": [
+            {
+              "Name": "HEAD",
+              "Version": "60868d86768caf8bc153a7ebc2bac5d3dd03b007"
+            }
+          ],
+          "SubRepoMap": {},
+          "CommitURLTemplate": "",
+          "FileURLTemplate": "",
+          "LineFragmentTemplate": "",
+          "RawConfig": null,
+          "Rank": 0,
+          "IndexOptions": "825dea1219bd742fea432a98a0f4df6bf04c2f1b",
+          "HasSymbols": true,
+          "Tombstone": false,
+          "LatestCommitDate": "2026-10-25T13:24:22+08:00"
+        },
+        "IndexMetadata": {
+          "IndexFormatVersion": 16,
+          "IndexFeatureVersion": 12,
+          "IndexMinReaderVersion": 10,
+          "IndexTime": "2026-10-25T13:58:43.525408375+08:00",
+          "PlainASCII": false,
+          "LanguageMap": {
+            "": 0,
+            "Batchfile": 12,
+            "BibTeX": 50,
+            "C": 31,
+            "C#": 35,
+            "C++": 37,
+            "CODEOWNERS": 71,
+            "CSS": 20,
+            "Clojure": 46,
+            "CoffeeScript": 64,
+            "Cuda": 33,
+            "Dart": 59,
+            "Diff": 57,
+            "Dockerfile": 17,
+            "EditorConfig": 9,
+            "F#": 42,
+            "GAP": 27,
+            "Git Attributes": 70,
+            "Git Commit": 66,
+            "Git Revision List": 15,
+            "Go": 39,
+            "Groovy": 62,
+            "HLSL": 58,
+            "HTML": 14,
+            "HTML+Razor": 65,
+            "Hack": 68,
+            "Handlebars": 52,
+            "INI": 49,
+            "Ignore List": 18,
+            "JSON": 4,
+            "JSON with Comments": 13,
+            "Java": 60,
+            "JavaScript": 6,
+            "Julia": 44,
+            "Jupyter Notebook": 25,
+            "Less": 29,
+            "Lua": 47,
+            "Makefile": 55,
+            "Markdown": 2,
+            "NPM Config": 1,
+            "Objective-C": 32,
+            "Objective-C++": 41,
+            "Option List": 23,
+            "PHP": 45,
+            "Perl": 40,
+            "PowerShell": 16,
+            "Pug": 53,
+            "Python": 34,
+            "R": 30,
+            "Raku": 38,
+            "Ruby": 36,
+            "Rust": 8,
+            "SCSS": 56,
+            "SQL": 48,
+            "SVG": 21,
+            "Scilab": 26,
+            "ShaderLab": 63,
+            "Shell": 11,
+            "Swift": 61,
+            "TOML": 10,
+            "TSX": 28,
+            "TeX": 51,
+            "Text": 7,
+            "Tree-sitter Query": 24,
+            "TypeScript": 3,
+            "Visual Basic .NET": 43,
+            "XML": 22,
+            "XML Property List": 69,
+            "YAML": 5,
+            "desktop": 19,
+            "fish": 67,
+            "reStructuredText": 54
+          },
+          "ZoektVersion": "",
+          "ID": "dbepl4qjrguk1s816p80"
+        },
+        "Stats": {
+          "Repos": 0,
+          "Shards": 1,
+          "Documents": 8071,
+          "IndexBytes": 2548308,
+          "ContentBytes": 93337926,
+          "NewLinesCount": 2400229,
+          "DefaultBranchNewLinesCount": 2400229,
+          "OtherBranchesNewLinesCount": 0
+        }
+      }
+    ],
+    "ReposMap": {},
+    "Crashes": 0,
+    "Stats": {
+      "Repos": 1,
+      "Shards": 1,
+      "Documents": 8071,
+      "IndexBytes": 2548308,
+      "ContentBytes": 93337926,
+      "NewLinesCount": 2400229,
+      "DefaultBranchNewLinesCount": 2400229,
+      "OtherBranchesNewLinesCount": 0
+    }
+  },
+  "rows": [
+    {
+      "coldMs": 22.882512,
+      "files": [
+        {
+          "lines": [
+            {
+              "line": 520,
+              "source": "export abstract class Disposable implements IDisposable {\n"
+            },
+            {
+              "line": 84,
+              "source": "export class DisposableTracker implements IDisposableTracker {\n"
+            },
+            {
+              "line": 370,
+              "source": "class FunctionDisposable implements IDisposable {\n"
+            }
+          ],
+          "path": "src/vs/base/common/lifecycle.ts"
+        }
+      ],
+      "hitAt10": true,
+      "medianMs": 4.4792305,
+      "query": "Manages a collection of disposable values",
+      "searchStats": {
+        "ContentBytesLoaded": 5313619,
+        "IndexBytesLoaded": 568406,
+        "Crashes": 0,
+        "Duration": 4400214,
+        "FileCount": 1,
+        "ShardFilesConsidered": 0,
+        "FilesConsidered": 428,
+        "FilesLoaded": 54,
+        "FilesSkipped": 0,
+        "FilesSkippedDueToCancellation": 0,
+        "ShardsScanned": 1,
+        "ShardsSkipped": 0,
+        "ShardsSkippedFilter": 0,
+        "MatchCount": 364,
+        "NgramMatches": 10706,
+        "NgramLookups": 510,
+        "Wait": 1723,
+        "MatchTreeConstruction": 67595,
+        "MatchTreeSearch": 4306530,
+        "RegexpsConsidered": 4,
+        "FlushReason": 0
+      }
+    },
+    {
+      "coldMs": 10.099455,
+      "files": [
+        {
+          "lines": [
+            {
+              "line": 327,
+              "source": "\t\tconst errors: any[] = [];\n"
+            },
+            {
+              "line": 725,
+              "source": "\tconst store = new DisposableStore();\n"
+            },
+            {
+              "line": 409,
+              "source": "export class DisposableStore implements IDisposable {\n"
+            }
+          ],
+          "path": "src/vs/base/common/lifecycle.ts"
+        },
+        {
+          "lines": [
+            {
+              "line": 9,
+              "source": "\tconst errors: any[] = [];\n"
+            },
+            {
+              "line": 11,
+              "source": "\tfor (const disposable of disposables) {\n"
+            },
+            {
+              "line": 15,
+              "source": "\t\t\terrors.push(e);\n"
+            }
+          ],
+          "path": "extensions/markdown-language-features/src/util/dispose.ts"
+        },
+        {
+          "lines": [
+            {
+              "line": 10,
+              "source": "\tconst errors: any[] = [];\n"
+            },
+            {
+              "line": 58,
+              "source": "export class DisposableStore extends Disposable {\n"
+            },
+            {
+              "line": 12,
+              "source": "\tfor (const disposable of disposables) {\n"
+            }
+          ],
+          "path": "extensions/typescript-language-features/src/utils/dispose.ts"
+        },
+        {
+          "lines": [
+            {
+              "line": 4607,
+              "source": "\t\tOff = 0,\n"
+            },
+            {
+              "line": 5848,
+              "source": "\t\treadonly offsetX: number;\n"
+            },
+            {
+              "line": 1900,
+              "source": "\texport enum EndOfLinePreference {\n"
+            }
+          ],
+          "path": "src/vs/monaco.d.ts"
+        }
+      ],
+      "hitAt10": true,
+      "medianMs": 3.788831,
+      "query": "Encountered errors while disposing of store",
+      "searchStats": {
+        "ContentBytesLoaded": 307578,
+        "IndexBytesLoaded": 652434,
+        "Crashes": 0,
+        "Duration": 3740301,
+        "FileCount": 4,
+        "ShardFilesConsidered": 0,
+        "FilesConsidered": 11,
+        "FilesLoaded": 4,
+        "FilesSkipped": 0,
+        "FilesSkippedDueToCancellation": 0,
+        "ShardsScanned": 1,
+        "ShardsSkipped": 0,
+        "ShardsSkippedFilter": 0,
+        "MatchCount": 654,
+        "NgramMatches": 235,
+        "NgramLookups": 518,
+        "Wait": 1082,
+        "MatchTreeConstruction": 46887,
+        "MatchTreeSearch": 3653871,
+        "RegexpsConsidered": 8,
+        "FlushReason": 0
+      }
+    }
+  ],
+  "tool": "Zoekt",
+  "warmup": 1
+}

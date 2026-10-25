@@ -1,0 +1,47 @@
+{
+  "inputFiles" : 5019,
+  "indexedInputFiles" : 5019,
+  "additionalDocuments" : 0,
+  "definitionProbes" : [ {
+    "matches" : [ "Lib/difflib.py" ],
+    "expectedPath" : "Lib/difflib.py",
+    "scopedMatch" : true,
+    "query" : "SequenceMatcher"
+  }, {
+    "matches" : [ "Lib/json/decoder.py" ],
+    "expectedPath" : "Lib/json/decoder.py",
+    "scopedMatch" : true,
+    "query" : "JSONDecoder"
+  }, {
+    "matches" : [ "Lib/argparse.py" ],
+    "expectedPath" : "Lib/argparse.py",
+    "scopedMatch" : true,
+    "query" : "ArgumentParser"
+  }, {
+    "matches" : [ "Lib/heapq.py" ],
+    "expectedPath" : "Lib/heapq.py",
+    "scopedMatch" : true,
+    "query" : "heappush"
+  }, {
+    "matches" : [ "Python/pylifecycle.c" ],
+    "expectedPath" : "Python/pylifecycle.c",
+    "scopedMatch" : true,
+    "query" : "Py_Initialize"
+  }, {
+    "matches" : [ "Python/errors.c" ],
+    "expectedPath" : "Python/errors.c",
+    "scopedMatch" : true,
+    "query" : "PyErr_SetString"
+  }, {
+    "matches" : [ "Objects/unicodeobject.c" ],
+    "expectedPath" : "Objects/unicodeobject.c",
+    "scopedMatch" : true,
+    "query" : "PyUnicode_FromString"
+  }, {
+    "matches" : [ "Objects/longobject.c" ],
+    "expectedPath" : "Objects/longobject.c",
+    "scopedMatch" : true,
+    "query" : "PyLong_FromLong"
+  } ],
+  "missingFiles" : [ ]
+}

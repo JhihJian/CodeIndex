@@ -1,0 +1,48 @@
+{
+  "snippetsChecked": 19,
+  "metadataOnlyLocations": 0,
+  "mismatches": [],
+  "absentPaths": [],
+  "locations": [
+    {
+      "query": "DisposableStore",
+      "hitAt10": true,
+      "expectedLineReturned": true
+    },
+    {
+      "query": "MutableDisposable",
+      "hitAt10": true,
+      "expectedLineReturned": true
+    },
+    {
+      "query": "CancellationTokenSource",
+      "hitAt10": true,
+      "expectedLineReturned": true
+    },
+    {
+      "query": "Emitter",
+      "hitAt10": true,
+      "expectedLineReturned": true
+    },
+    {
+      "query": "URI",
+      "hitAt10": true,
+      "expectedLineReturned": true
+    },
+    {
+      "query": "Delayer",
+      "hitAt10": true,
+      "expectedLineReturned": true
+    },
+    {
+      "query": "RunOnceScheduler",
+      "hitAt10": true,
+      "expectedLineReturned": true
+    },
+    {
+      "query": "combinedDisposable",
+      "hitAt10": true,
+      "expectedLineReturned": true
+    }
+  ]
+}

@@ -1,0 +1,143 @@
+{
+  "tool": "CodeGraphContext",
+  "backend": "FalkorDB Lite",
+  "loadMs": 1912.1509520336986,
+  "mode": "text",
+  "warmup": 1,
+  "repetitions": 20,
+  "rows": [
+    {
+      "query": "Heaps are arrays for which",
+      "hitAt10": true,
+      "coldMs": 826.6899490263313,
+      "medianMs": 809.2431835830212,
+      "files": [
+        {
+          "path": "Lib/heapq.py",
+          "symbol": "<module>",
+          "lines": [
+            {
+              "line": 1,
+              "source": "\"\"\"Heap queue algorithm (a.k.a. priority queue).\n\nHeaps are arrays for which a[k] <= a[2*k+1] and a[k] <= a[2*k+2] for"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": "Exception ignored in",
+      "hitAt10": false,
+      "coldMs": 812.2880079317838,
+      "medianMs": 810.7085304800421,
+      "files": [
+        {
+          "path": "Lib/test/test_capi/test_watchers.py",
+          "symbol": "<module>",
+          "lines": [
+            {
+              "line": 1,
+              "source": "import unittest\nimport contextvars\n"
+            }
+          ]
+        },
+        {
+          "path": "Lib/test/signalinterproctester.py",
+          "symbol": "<module>",
+          "lines": [
+            {
+              "line": 1,
+              "source": "import gc\nimport os\nimport signal"
+            }
+          ]
+        },
+        {
+          "path": "Lib/test/test_urllib.py",
+          "symbol": "<module>",
+          "lines": [
+            {
+              "line": 1,
+              "source": "\"\"\"Regression tests for what was in Python 2's \"urllib\" module\"\"\"\n\nimport urllib.parse"
+            }
+          ]
+        },
+        {
+          "path": "Lib/test/_test_atexit.py",
+          "symbol": "<module>",
+          "lines": [
+            {
+              "line": 1,
+              "source": "\"\"\"\nTests run by test_atexit in a subprocess since it clears atexit callbacks.\n\"\"\""
+            }
+          ]
+        },
+        {
+          "path": "Modules/_curses_panel.c",
+          "symbol": "PyCursesPanel_Dealloc",
+          "lines": [
+            {
+              "line": 324,
+              "source": "static void\nPyCursesPanel_Dealloc(PyObject *self)\n{"
+            }
+          ]
+        },
+        {
+          "path": "Objects/dictobject.c",
+          "symbol": "PyDict_GetItem",
+          "lines": [
+            {
+              "line": 2272,
+              "source": "PyObject *\nPyDict_GetItem(PyObject *op, PyObject *key)\n{"
+            }
+          ]
+        },
+        {
+          "path": "Python/ceval.c",
+          "symbol": "PyEval_SetProfile",
+          "lines": [
+            {
+              "line": 2484,
+              "source": "void\nPyEval_SetProfile(Py_tracefunc func, PyObject *arg)\n{"
+            }
+          ]
+        },
+        {
+          "path": "Objects/abstract.c",
+          "symbol": "PyMapping_HasKey",
+          "lines": [
+            {
+              "line": 2396,
+              "source": "int\nPyMapping_HasKey(PyObject *obj, PyObject *key)\n{"
+            }
+          ]
+        },
+        {
+          "path": "Objects/object.c",
+          "symbol": "PyObject_HasAttr",
+          "lines": [
+            {
+              "line": 1423,
+              "source": "int\nPyObject_HasAttr(PyObject *obj, PyObject *name)\n{"
+            }
+          ]
+        },
+        {
+          "path": "Python/sysmodule.c",
+          "symbol": "PySys_GetObject",
+          "lines": [
+            {
+              "line": 148,
+              "source": "PyObject *\nPySys_GetObject(const char *name)\n{"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "counts": {
+    "nodes": 442074,
+    "relations": 958011,
+    "files": 3575,
+    "functions": 93249,
+    "classes": 18227
+  }
+}

@@ -1,0 +1,356 @@
+{
+  "warmup": 1,
+  "indexedDocuments": 170101,
+  "tool": "OpenGrok",
+  "loadMs": 140.910858,
+  "rows": [
+    {
+      "medianMs": 4.4902305,
+      "hitAt10": true,
+      "coldMs": 232.35167,
+      "query": "important class for using LLVM in a threaded context",
+      "totalFiles": 17,
+      "files": [
+        {
+          "path": "mlir/test/python/multithreaded_tests.py",
+          "lines": [
+            {
+              "source": "This script generates multi-<b>threaded</b> tests to check free-threading mode <b>using</b> CPython compiled with TSAN.",
+              "line": 3
+            },
+            {
+              "source": "Tests can be run <b>using</b> pytest:",
+              "line": 4
+            },
+            {
+              "source": "<b>IMPORTANT</b>. Running tests are not checking the correctness, but just the execution of the tests <b>in</b> multi-<b>threaded</b> <b>context</b>",
+              "line": 9
+            }
+          ]
+        },
+        {
+          "path": "llvm/include/llvm/DebugInfo/DWARF/DWARFContext.h",
+          "lines": [
+            {
+              "source": "// Part of the <b>LLVM</b> Project, under the Apache License v2.0 with <b>LLVM</b> Exceptions.",
+              "line": 3
+            },
+            {
+              "source": "// See https://<b>llvm</b>.org/LICENSE.txt <b>for</b> license information.",
+              "line": 4
+            },
+            {
+              "source": "// SPDX-License-Identifier: Apache-2.0 WITH <b>LLVM</b>-exception",
+              "line": 5
+            }
+          ]
+        },
+        {
+          "path": "mlir/docs/Diagnostics.md",
+          "lines": [
+            {
+              "source": "This document presents an introduction to <b>using</b> and interfacing with MLIR's",
+              "line": 5
+            },
+            {
+              "source": "See [MLIR specification](LangRef.md) <b>for</b> more information about MLIR, the",
+              "line": 8
+            },
+            {
+              "source": "Source location information is extremely <b>important</b> <b>for</b> any compiler, because it",
+              "line": 13
+            }
+          ]
+        },
+        {
+          "path": "clang/lib/CodeGen/EHScopeStack.h",
+          "lines": [
+            {
+              "source": "//===-- EHScopeStack.h - Stack <b>for</b> cleanup IR generation --------*- C++ -*-===//",
+              "line": 1
+            },
+            {
+              "source": "// Part of the <b>LLVM</b> Project, under the Apache License v2.0 with <b>LLVM</b> Exceptions.",
+              "line": 3
+            },
+            {
+              "source": "// See https://<b>llvm</b>.org/LICENSE.txt <b>for</b> license information.",
+              "line": 4
+            }
+          ]
+        },
+        {
+          "path": "llvm/include/llvm/IR/LLVMContext.h",
+          "lines": [
+            {
+              "source": "//===- <b>llvm</b>/LLVMContext.h - <b>Class</b> <b>for</b> managing \"global\" state ---*- C++ -*-===//",
+              "line": 1
+            },
+            {
+              "source": "// Part of the <b>LLVM</b> Project, under the Apache License v2.0 with <b>LLVM</b> Exceptions.",
+              "line": 3
+            },
+            {
+              "source": "// See https://<b>llvm</b>.org/LICENSE.txt <b>for</b> license information.",
+              "line": 4
+            }
+          ]
+        },
+        {
+          "path": "llvm/docs/ORCv2.rst",
+          "lines": [
+            {
+              "source": "This document aims to provide <b>a</b> high-level overview of the design and",
+              "line": 11
+            },
+            {
+              "source": "refers to the modern ORCv2 APIs (available since <b>LLVM</b> 7). Clients wishing to",
+              "line": 13
+            },
+            {
+              "source": "ORC provides <b>a</b> modular API <b>for</b> building JIT compilers. There are <b>a</b> number",
+              "line": 19
+            }
+          ]
+        },
+        {
+          "path": "llvm/docs/ProgrammersManual.rst",
+          "lines": [
+            {
+              "source": "<b>LLVM</b> Programmer's Manual",
+              "line": 2
+            },
+            {
+              "source": "   This is always <b>a</b> work <b>in</b> progress.",
+              "line": 9
+            },
+            {
+              "source": "This document is meant to highlight some of the <b>important</b> classes and interfaces",
+              "line": 16
+            }
+          ]
+        },
+        {
+          "path": "mlir/docs/PassManagement.md",
+          "lines": [
+            {
+              "source": "Passes represent the basic infrastructure <b>for</b> transformation and optimization.",
+              "line": 5
+            },
+            {
+              "source": "This document provides an overview of the pass infrastructure <b>in</b> MLIR and how to",
+              "line": 6
+            },
+            {
+              "source": "See [MLIR specification](LangRef.md) <b>for</b> more information about MLIR and its",
+              "line": 9
+            }
+          ]
+        },
+        {
+          "path": "mlir/include/mlir/IR/BuiltinAttributes.td",
+          "lines": [
+            {
+              "source": "// Part of the <b>LLVM</b> Project, under the Apache License v2.0 with <b>LLVM</b> Exceptions.",
+              "line": 3
+            },
+            {
+              "source": "// See https://<b>llvm</b>.org/LICENSE.txt <b>for</b> license information.",
+              "line": 4
+            },
+            {
+              "source": "// SPDX-License-Identifier: Apache-2.0 WITH <b>LLVM</b>-exception",
+              "line": 5
+            }
+          ]
+        },
+        {
+          "path": "clang/include/clang/Basic/AttrDocs.td",
+          "lines": [
+            {
+              "source": "// Part of the <b>LLVM</b> Project, under the Apache License v2.0 with <b>LLVM</b> Exceptions.",
+              "line": 3
+            },
+            {
+              "source": "// See https://<b>llvm</b>.org/LICENSE.txt <b>for</b> license information.",
+              "line": 4
+            },
+            {
+              "source": "// SPDX-License-Identifier: Apache-2.0 WITH <b>LLVM</b>-exception",
+              "line": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "medianMs": 3.09103,
+      "hitAt10": false,
+      "coldMs": 10.630033,
+      "query": "expected top-level entity",
+      "totalFiles": 98,
+      "files": [
+        {
+          "path": "flang/docs/ModFiles.md",
+          "lines": [
+            {
+              "source": "&lt;!<b>-</b><b>-</b>===<b>-</b> docs/ModFiles.md ",
+              "line": 1
+            },
+            {
+              "source": "   SPDX<b>-</b>License<b>-</b>Identifier: Apache<b>-</b>2.0 WITH LLVM<b>-</b>exception",
+              "line": 5
+            },
+            {
+              "source": "<b>-</b><b>-</b>&gt;",
+              "line": 7
+            }
+          ]
+        },
+        {
+          "path": "llvm/test/Assembler/invalid-opaque-ptr-double-addrspace.ll",
+          "lines": [
+            {
+              "source": "; RUN: not llvm<b>-</b>as &lt; %s <b>-</b>disable<b>-</b>output 2&gt;&amp;1 | FileCheck %s",
+              "line": 1
+            },
+            {
+              "source": "; CHECK: <b>expected</b> <b>top</b><b>-</b><b>level</b> <b>entity</b>",
+              "line": 3
+            }
+          ]
+        },
+        {
+          "path": "llvm/test/Assembler/2007-08-06-AliasInvalid.ll",
+          "lines": [
+            {
+              "source": "; RUN: not llvm<b>-</b>as <b>-</b>disable<b>-</b>output &lt; %s 2&gt;&amp;1 | FileCheck %s",
+              "line": 1
+            },
+            {
+              "source": "; CHECK: <b>expected</b> <b>top</b><b>-</b><b>level</b> <b>entity</b>",
+              "line": 4
+            }
+          ]
+        },
+        {
+          "path": "llvm/test/Assembler/invalid-c-style-comment2.ll",
+          "lines": [
+            {
+              "source": "; RUN: not llvm<b>-</b>as <b>-</b><b>-</b>disable<b>-</b>output %s 2&gt;&amp;1 | FileCheck %s <b>-</b>DFILE=%s",
+              "line": 1
+            },
+            {
+              "source": "; CHECK: [[FILE]]:[[@LINE+1]]:2: error: <b>expected</b> <b>top</b><b>-</b><b>level</b> <b>entity</b>",
+              "line": 5
+            }
+          ]
+        },
+        {
+          "path": "llvm/test/tools/llvm-sim/fail-cases.test",
+          "lines": [
+            {
+              "source": "# RUN: not llvm<b>-</b>sim %s 2&gt;&amp;1 | FileCheck %s",
+              "line": 1
+            },
+            {
+              "source": "# RUN: not llvm<b>-</b>sim %s.2 2&gt;&amp;1 | FileCheck <b>-</b>DMSG=%errc_ENOENT %s <b>-</b><b>-</b>check<b>-</b>prefix=EXIST",
+              "line": 2
+            },
+            {
+              "source": "# CHECK: error: <b>expected</b> <b>top</b><b>-</b><b>level</b> <b>entity</b>",
+              "line": 6
+            }
+          ]
+        },
+        {
+          "path": "mlir/include/mlir/Dialect/Transform/Interfaces/TransformInterfaces.h",
+          "lines": [
+            {
+              "source": "//===<b>-</b> TransformInterfaces.h <b>-</b> Transform Dialect Interfaces <b>-</b><b>-</b><b>-</b><b>-</b><b>-</b>*<b>-</b> C++ <b>-</b>*<b>-</b>===//",
+              "line": 1
+            },
+            {
+              "source": "// SPDX<b>-</b>License<b>-</b>Identifier: Apache<b>-</b>2.0 WITH LLVM<b>-</b>exception",
+              "line": 5
+            },
+            {
+              "source": "//===<b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b>===//",
+              "line": 7
+            }
+          ]
+        },
+        {
+          "path": "clang/include/clang/Sema/CodeCompleteConsumer.h",
+          "lines": [
+            {
+              "source": "//===<b>-</b> CodeCompleteConsumer.h <b>-</b> Code Completion Interface <b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b>*<b>-</b> C++ <b>-</b>*<b>-</b>===//",
+              "line": 1
+            },
+            {
+              "source": "// SPDX<b>-</b>License<b>-</b>Identifier: Apache<b>-</b>2.0 WITH LLVM<b>-</b>exception",
+              "line": 5
+            },
+            {
+              "source": "//===<b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b>===//",
+              "line": 7
+            }
+          ]
+        },
+        {
+          "path": "clang-tools-extra/clangd/refactor/tweaks/AnnotateHighlightings.cpp",
+          "lines": [
+            {
+              "source": "//===<b>-</b><b>-</b><b>-</b> AnnotateHighlightings.cpp <b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b>*<b>-</b> C++<b>-</b>*<b>-</b>===//",
+              "line": 1
+            },
+            {
+              "source": "// SPDX<b>-</b>License<b>-</b>Identifier: Apache<b>-</b>2.0 WITH LLVM<b>-</b>exception",
+              "line": 5
+            },
+            {
+              "source": "//===<b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b>===//",
+              "line": 7
+            }
+          ]
+        },
+        {
+          "path": "flang/lib/Optimizer/HLFIR/Transforms/LowerHLFIROrderedAssignments.cpp",
+          "lines": [
+            {
+              "source": "//===<b>-</b> LowerHLFIROrderedAssignments.cpp <b>-</b> Lower HLFIR ordered assignments <b>-</b>===//",
+              "line": 1
+            },
+            {
+              "source": "// SPDX<b>-</b>License<b>-</b>Identifier: Apache<b>-</b>2.0 WITH LLVM<b>-</b>exception",
+              "line": 5
+            },
+            {
+              "source": "//===<b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b>===//",
+              "line": 7
+            }
+          ]
+        },
+        {
+          "path": "mlir/docs/Bindings/Python.md",
+          "lines": [
+            {
+              "source": "### Pre<b>-</b>requisites",
+              "line": 9
+            },
+            {
+              "source": "# Make sure your 'python' is what you expect. Note that on multi<b>-</b>python",
+              "line": 34
+            },
+            {
+              "source": "# python2 and python3 co<b>-</b>exist, you may also want to use `python3`.",
+              "line": 36
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "repetitions": 20,
+  "mode": "text"
+}

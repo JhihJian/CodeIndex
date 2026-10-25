@@ -1,0 +1,62 @@
+{
+  "tool": "CodeGraphContext",
+  "backend": "FalkorDB Lite",
+  "loadMs": 1713.4559920523316,
+  "mode": "text",
+  "warmup": 1,
+  "repetitions": 20,
+  "rows": [
+    {
+      "query": "Manages a collection of disposable values",
+      "hitAt10": false,
+      "coldMs": 584.9652239121497,
+      "medianMs": 584.4478275394067,
+      "files": []
+    },
+    {
+      "query": "Encountered errors while disposing of store",
+      "hitAt10": true,
+      "coldMs": 585.1425090804696,
+      "medianMs": 586.4962099585682,
+      "files": [
+        {
+          "path": "src/vs/base/common/lifecycle.ts",
+          "symbol": "dispose",
+          "lines": [
+            {
+              "line": 325,
+              "source": "function dispose<T extends IDisposable>(arg: T | Iterable<T> | undefined): any {\n\tif (Iterable.is(arg)) {\n\t\tconst errors: any[] = [];"
+            }
+          ]
+        },
+        {
+          "path": "extensions/markdown-language-features/src/util/dispose.ts",
+          "symbol": "disposeAll",
+          "lines": [
+            {
+              "line": 8,
+              "source": "function disposeAll(disposables: Iterable<vscode.Disposable>) {\n\tconst errors: any[] = [];\n"
+            }
+          ]
+        },
+        {
+          "path": "extensions/typescript-language-features/src/utils/dispose.ts",
+          "symbol": "disposeAll",
+          "lines": [
+            {
+              "line": 9,
+              "source": "function disposeAll(disposables: Iterable<vscode.Disposable>) {\n\tconst errors: any[] = [];\n"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "counts": {
+    "nodes": 360932,
+    "relations": 859224,
+    "files": 7571,
+    "functions": 101398,
+    "classes": 9270
+  }
+}

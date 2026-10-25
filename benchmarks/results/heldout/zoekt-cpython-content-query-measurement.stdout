@@ -1,0 +1,421 @@
+{
+  "loadMs": 7.473,
+  "mode": "text",
+  "repetitions": 20,
+  "repositories": {
+    "Repos": [
+      {
+        "Repository": {
+          "TenantID": 0,
+          "ID": 0,
+          "Name": "cpython",
+          "URL": "",
+          "Metadata": null,
+          "Source": "/data/dev/CodeIndex/.data/heldout/inputs/cpython",
+          "Branches": [
+            {
+              "Name": "HEAD",
+              "Version": "673fe4d2229c9921e3a24972682e3db8cf482a95"
+            }
+          ],
+          "SubRepoMap": {},
+          "CommitURLTemplate": "",
+          "FileURLTemplate": "",
+          "LineFragmentTemplate": "",
+          "RawConfig": null,
+          "Rank": 0,
+          "IndexOptions": "825dea1219bd742fea432a98a0f4df6bf04c2f1b",
+          "HasSymbols": true,
+          "Tombstone": false,
+          "LatestCommitDate": "2026-10-25T13:24:18+08:00"
+        },
+        "IndexMetadata": {
+          "IndexFormatVersion": 16,
+          "IndexFeatureVersion": 12,
+          "IndexMinReaderVersion": 10,
+          "IndexTime": "2026-10-25T13:52:04.006078253+08:00",
+          "PlainASCII": false,
+          "LanguageMap": {
+            "": 1,
+            "Assembly": 38,
+            "Batchfile": 9,
+            "C": 3,
+            "C++": 7,
+            "CMake": 42,
+            "CODEOWNERS": 48,
+            "CSS": 28,
+            "Common Lisp": 43,
+            "DTrace": 19,
+            "Diff": 41,
+            "EditorConfig": 12,
+            "Gettext Catalog": 40,
+            "Git Attributes": 47,
+            "Gradle Kotlin DSL": 34,
+            "Graphviz (DOT)": 31,
+            "HTML": 26,
+            "INI": 8,
+            "Ignore List": 46,
+            "JSON": 23,
+            "JSON with Comments": 32,
+            "Java Properties": 35,
+            "JavaScript": 33,
+            "Kotlin": 45,
+            "M4Sugar": 11,
+            "Makefile": 10,
+            "Markdown": 17,
+            "Microsoft Visual Studio Solution": 24,
+            "Objective-C": 21,
+            "PHP": 29,
+            "PLSQL": 22,
+            "Pip Requirements": 25,
+            "PostScript": 30,
+            "PowerShell": 13,
+            "Python": 2,
+            "Roff Manpage": 15,
+            "SVG": 14,
+            "Shell": 6,
+            "TOML": 4,
+            "TSV": 36,
+            "Text": 0,
+            "TypeScript": 44,
+            "Unix Assembly": 27,
+            "VBScript": 18,
+            "XML": 20,
+            "XML Property List": 39,
+            "XSLT": 37,
+            "YAML": 16,
+            "reStructuredText": 5
+          },
+          "ZoektVersion": "",
+          "ID": "dbepi12jrgui5ht0tntg"
+        },
+        "Stats": {
+          "Repos": 0,
+          "Shards": 1,
+          "Documents": 5019,
+          "IndexBytes": 1530724,
+          "ContentBytes": 100878650,
+          "NewLinesCount": 2803882,
+          "DefaultBranchNewLinesCount": 2803882,
+          "OtherBranchesNewLinesCount": 0
+        }
+      }
+    ],
+    "ReposMap": {},
+    "Crashes": 0,
+    "Stats": {
+      "Repos": 1,
+      "Shards": 1,
+      "Documents": 5019,
+      "IndexBytes": 1530724,
+      "ContentBytes": 100878650,
+      "NewLinesCount": 2803882,
+      "DefaultBranchNewLinesCount": 2803882,
+      "OtherBranchesNewLinesCount": 0
+    }
+  },
+  "rows": [
+    {
+      "coldMs": 9.950232,
+      "files": [
+        {
+          "lines": [
+            {
+              "line": 3,
+              "source": "Heaps are arrays for which a[k] \u003c= a[2*k+1] and a[k] \u003c= a[2*k+2] for\n"
+            },
+            {
+              "line": 4,
+              "source": "all k, counting elements from 0.  For the sake of comparison,\n"
+            },
+            {
+              "line": 5,
+              "source": "non-existing elements are considered to be infinite.  The interesting\n"
+            }
+          ],
+          "path": "Lib/heapq.py"
+        },
+        {
+          "lines": [
+            {
+              "line": 19,
+              "source": "Min-heaps are binary trees for which every parent node has a value less than\n"
+            },
+            {
+              "line": 23,
+              "source": "For min-heaps, this implementation uses lists for which\n"
+            },
+            {
+              "line": 24,
+              "source": "``heap[k] \u003c= heap[2*k+1]`` and ``heap[k] \u003c= heap[2*k+2]`` for all *k* for which\n"
+            }
+          ],
+          "path": "Doc/library/heapq.rst"
+        },
+        {
+          "lines": [
+            {
+              "line": 1,
+              "source": "/* Drop in replacement for heapq.py\n"
+            },
+            {
+              "line": 4,
+              "source": "which was written by Kevin O'Connor, augmented by Tim Peters,\n"
+            },
+            {
+              "line": 315,
+              "source": "   on nodes whose children are already heaps.\n"
+            }
+          ],
+          "path": "Modules/_heapqmodule.c"
+        },
+        {
+          "lines": [
+            {
+              "line": 1167,
+              "source": "    \u003celf-symbol name='_PyContext_NewHamtForTests' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes'/\u003e\n"
+            },
+            {
+              "line": 1401,
+              "source": "    \u003celf-symbol name='_PyStaticType_InitForExtension' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes'/\u003e\n"
+            },
+            {
+              "line": 1444,
+              "source": "    \u003celf-symbol name='_PyTuple_FromArraySteal' type='func-type' binding='global-binding' visibility='default-visibility' is-defined='yes'/\u003e\n"
+            }
+          ],
+          "path": "Doc/data/python3.14.abi"
+        }
+      ],
+      "hitAt10": true,
+      "medianMs": 1.4773645,
+      "query": "Heaps are arrays for which",
+      "searchStats": {
+        "ContentBytesLoaded": 2734958,
+        "IndexBytesLoaded": 309653,
+        "Crashes": 0,
+        "Duration": 3407549,
+        "FileCount": 4,
+        "ShardFilesConsidered": 0,
+        "FilesConsidered": 9,
+        "FilesLoaded": 4,
+        "FilesSkipped": 0,
+        "FilesSkippedDueToCancellation": 0,
+        "ShardsScanned": 1,
+        "ShardsSkipped": 0,
+        "ShardsSkippedFilter": 0,
+        "MatchCount": 557,
+        "NgramMatches": 1351,
+        "NgramLookups": 230,
+        "Wait": 802,
+        "MatchTreeConstruction": 24756,
+        "MatchTreeSearch": 3317512,
+        "RegexpsConsidered": 0,
+        "FlushReason": 0
+      }
+    },
+    {
+      "coldMs": 174.184706,
+      "files": [
+        {
+          "lines": [
+            {
+              "line": 945,
+              "source": "class ClassFoundException(Exception):\n"
+            },
+            {
+              "line": 431,
+              "source": "def isbuiltin(object):\n"
+            },
+            {
+              "line": 694,
+              "source": "def indentsize(line):\n"
+            }
+          ],
+          "path": "Lib/inspect.py"
+        },
+        {
+          "lines": [
+            {
+              "line": 1852,
+              "source": "class UnexpectedException(Exception):\n"
+            },
+            {
+              "line": 843,
+              "source": "class DocTestFinder:\n"
+            },
+            {
+              "line": 380,
+              "source": "class _OutputRedirectingPdb(pdb.Pdb):\n"
+            }
+          ],
+          "path": "Lib/doctest.py"
+        },
+        {
+          "lines": [
+            {
+              "line": 1069,
+              "source": "_convert_exc_to_TracebackException(PyObject *exc, PyObject **p_tbexc)\n"
+            },
+            {
+              "line": 1128,
+              "source": "_format_TracebackException(PyObject *tbexc)\n"
+            },
+            {
+              "line": 1370,
+              "source": "_PyXI_excinfo_InitFromException(_PyXI_excinfo *info, PyObject *exc)\n"
+            }
+          ],
+          "path": "Python/crossinterp.c"
+        },
+        {
+          "lines": [
+            {
+              "line": 1004,
+              "source": "class TracebackException:\n"
+            },
+            {
+              "line": 140,
+              "source": "def _print_exception_bltin(exc, /):\n"
+            },
+            {
+              "line": 865,
+              "source": "    def increment(lineno, col):\n"
+            }
+          ],
+          "path": "Lib/traceback.py"
+        },
+        {
+          "lines": [
+            {
+              "line": 97,
+              "source": "class DecimalException(ArithmeticError):\n"
+            },
+            {
+              "line": 132,
+              "source": "class InvalidOperation(DecimalException):\n"
+            },
+            {
+              "line": 209,
+              "source": "class Inexact(DecimalException):\n"
+            }
+          ],
+          "path": "Lib/_pydecimal.py"
+        },
+        {
+          "lines": [
+            {
+              "line": 557,
+              "source": "    class ForkingMixIn:\n"
+            },
+            {
+              "line": 678,
+              "source": "class ThreadingMixIn:\n"
+            },
+            {
+              "line": 659,
+              "source": "    def join(self):\n"
+            }
+          ],
+          "path": "Lib/socketserver.py"
+        },
+        {
+          "lines": [
+            {
+              "line": 25,
+              "source": "_PyErr_SetRaisedException(PyThreadState *tstate, PyObject *exc)\n"
+            },
+            {
+              "line": 33,
+              "source": "_PyErr_CreateException(PyObject *exception_type, PyObject *value)\n"
+            },
+            {
+              "line": 109,
+              "source": "PyErr_SetRaisedException(PyObject *exc)\n"
+            }
+          ],
+          "path": "Python/errors.c"
+        },
+        {
+          "lines": [
+            {
+              "line": 5979,
+              "source": "all_contained_in(PyObject *self, PyObject *other)\n"
+            },
+            {
+              "line": 1717,
+              "source": "insertion_resize(PyInterpreterState *interp, PyDictObject *mp, int unicode)\n"
+            },
+            {
+              "line": 1723,
+              "source": "insert_combined_dict(PyInterpreterState *interp, PyDictObject *mp,\n"
+            }
+          ],
+          "path": "Objects/dictobject.c"
+        },
+        {
+          "lines": [
+            {
+              "line": 319,
+              "source": "PyCursesCheckERR_ForWin(PyCursesWindowObject *win, int code, const char *fname)\n"
+            },
+            {
+              "line": 187,
+              "source": "get_cursesmodule_state_by_win(PyCursesWindowObject *win)\n"
+            },
+            {
+              "line": 3223,
+              "source": "_curses_getwin(PyObject *module, PyObject *file)\n"
+            }
+          ],
+          "path": "Modules/_cursesmodule.c"
+        },
+        {
+          "lines": [
+            {
+              "line": 54,
+              "source": "def assertIn(el, series):\n"
+            },
+            {
+              "line": 59,
+              "source": "def assertNotIn(el, series):\n"
+            },
+            {
+              "line": 585,
+              "source": "def test_not_in_gc():\n"
+            }
+          ],
+          "path": "Lib/test/audit-tests.py"
+        }
+      ],
+      "hitAt10": true,
+      "medianMs": 142.5468035,
+      "query": "Exception ignored in",
+      "searchStats": {
+        "ContentBytesLoaded": 21559332,
+        "IndexBytesLoaded": 108181,
+        "Crashes": 0,
+        "Duration": 149500808,
+        "FileCount": 174,
+        "ShardFilesConsidered": 0,
+        "FilesConsidered": 339,
+        "FilesLoaded": 258,
+        "FilesSkipped": 3427,
+        "FilesSkippedDueToCancellation": 0,
+        "ShardsScanned": 1,
+        "ShardsSkipped": 0,
+        "ShardsSkippedFilter": 0,
+        "MatchCount": 100203,
+        "NgramMatches": 4396,
+        "NgramLookups": 122,
+        "Wait": 2354,
+        "MatchTreeConstruction": 47929,
+        "MatchTreeSearch": 149031567,
+        "RegexpsConsidered": 348,
+        "FlushReason": 0
+      }
+    }
+  ],
+  "tool": "Zoekt",
+  "warmup": 1
+}

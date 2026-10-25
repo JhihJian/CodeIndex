@@ -1,0 +1,4 @@
+2026/10/25 15:22:27 git cat-file does not support --filter (exit status 129: error: option `filters' takes no value), using go-git
+2026/10/25 15:22:27 attempting to index 1 total files (0 via cat-file, 1 via go-git)
+2026/10/25 15:22:27 symbol analysis finished for shard statistics: duration=0s symbols=120 bytes=23249
+2026/10/25 15:22:27 finished shard /data/dev/CodeIndex/.data/heldout/indexes/zoekt/vscode/vscode_v16.00001.zoekt: 105356 index bytes (overhead 4.5), 1 files processed 

@@ -1,0 +1,384 @@
+{
+  "completed": true,
+  "restored": true,
+  "originalRevision": "60868d86768caf8bc153a7ebc2bac5d3dd03b007",
+  "changedFile": "src/vs/base/common/lifecycle.ts",
+  "originalDigest": "7ac563cbec7e6f38b603cb9471fe466aadedcc2d70ac85020c4146e47a2584ce",
+  "mtimeNs": 1792905860087906495,
+  "operations": [
+    {
+      "tool": "codeindex",
+      "mode": "noop",
+      "measurement": {
+        "command": [
+          "node",
+          "/data/dev/CodeIndex-worktrees/feature/heldout-comparison/bin/codeindex.js",
+          "update",
+          "--repo",
+          "/data/dev/CodeIndex/.data/heldout/inputs/vscode",
+          "--store",
+          "/data/dev/CodeIndex/.data/heldout/indexes/codeindex/vscode",
+          "--workers",
+          "4",
+          "--progress"
+        ],
+        "cwd": "/data/dev/CodeIndex-worktrees/feature/heldout-comparison",
+        "systemdUnit": "codeindex-benchmark-1874692.scope",
+        "systemdResult": "success",
+        "status": "success",
+        "exitCode": 0,
+        "wallSeconds": 0.11,
+        "wallSecondsIncludingSupervisor": 0.2747185288462788,
+        "timeLimitSeconds": 300,
+        "memoryLimitGiB": 12,
+        "gnuTimeMaxRssKiB": 53612,
+        "sampledProcessTreeRssSumBytes": null,
+        "workloadSampled": false,
+        "cgroupMemoryPeakBytes": null,
+        "sampleIntervalSeconds": 0.25,
+        "leftoverProcessIdsTerminated": [],
+        "memoryNotes": "RSS sum can double-count shared pages; cgroup memory includes page cache; GNU time max RSS is not simultaneous tree total"
+      },
+      "semantics": "normal unchanged-input update"
+    },
+    {
+      "tool": "opengrok",
+      "mode": "noop",
+      "measurement": {
+        "command": [
+          "java",
+          "-Xmx8g",
+          "-jar",
+          "/data/dev/benchmark-tools/opengrok-1.14.20/lib/opengrok.jar",
+          "-s",
+          "/data/dev/CodeIndex/.data/heldout/inputs/vscode",
+          "-d",
+          "/data/dev/CodeIndex/.data/heldout/indexes/opengrok/vscode/data",
+          "-W",
+          "/data/dev/CodeIndex/.data/heldout/indexes/opengrok/vscode/config.xml",
+          "-c",
+          "/home/jhihjian/.local/bin/ctags-universal",
+          "-S"
+        ],
+        "cwd": "/data/dev/CodeIndex-worktrees/feature/heldout-comparison",
+        "systemdUnit": "codeindex-benchmark-1874764.scope",
+        "systemdResult": "success",
+        "status": "success",
+        "exitCode": 0,
+        "wallSeconds": 2.51,
+        "wallSecondsIncludingSupervisor": 2.7725864979438484,
+        "timeLimitSeconds": 300,
+        "memoryLimitGiB": 12,
+        "gnuTimeMaxRssKiB": 334396,
+        "sampledProcessTreeRssSumBytes": 325488640,
+        "workloadSampled": true,
+        "cgroupMemoryPeakBytes": 340766720,
+        "sampleIntervalSeconds": 0.25,
+        "leftoverProcessIdsTerminated": [],
+        "memoryNotes": "RSS sum can double-count shared pages; cgroup memory includes page cache; GNU time max RSS is not simultaneous tree total"
+      },
+      "semantics": "normal unchanged-input update"
+    },
+    {
+      "tool": "zoekt",
+      "mode": "noop",
+      "measurement": {
+        "command": [
+          "/data/dev/benchmark-tools/zoekt-git-index",
+          "-index",
+          "/data/dev/CodeIndex/.data/heldout/indexes/zoekt/vscode",
+          "-require_ctags",
+          "-file_limit",
+          "5242880",
+          "/data/dev/CodeIndex/.data/heldout/inputs/vscode"
+        ],
+        "cwd": "/data/dev/CodeIndex-worktrees/feature/heldout-comparison",
+        "systemdUnit": "codeindex-benchmark-1874954.scope",
+        "systemdResult": "success",
+        "status": "success",
+        "exitCode": 0,
+        "wallSeconds": 0.02,
+        "wallSecondsIncludingSupervisor": 0.27615660591982305,
+        "timeLimitSeconds": 300,
+        "memoryLimitGiB": 12,
+        "gnuTimeMaxRssKiB": 45800,
+        "sampledProcessTreeRssSumBytes": null,
+        "workloadSampled": false,
+        "cgroupMemoryPeakBytes": null,
+        "sampleIntervalSeconds": 0.25,
+        "leftoverProcessIdsTerminated": [],
+        "memoryNotes": "RSS sum can double-count shared pages; cgroup memory includes page cache; GNU time max RSS is not simultaneous tree total"
+      },
+      "semantics": "normal unchanged-input update"
+    },
+    {
+      "tool": "cgc",
+      "mode": "noop",
+      "measurement": {
+        "command": [
+          "/data/dev/benchmark-tools/cgc-venv/bin/cgc",
+          "--database",
+          "falkordb",
+          "--path",
+          "/data/dev/CodeIndex/.data/heldout/indexes/cgc/vscode",
+          "index",
+          "/data/dev/CodeIndex/.data/heldout/inputs/vscode",
+          "--no-progress"
+        ],
+        "cwd": "/data/dev/CodeIndex-worktrees/feature/heldout-comparison",
+        "systemdUnit": "codeindex-benchmark-1874982.scope",
+        "systemdResult": "success",
+        "status": "success",
+        "exitCode": 0,
+        "wallSeconds": 5.69,
+        "wallSecondsIncludingSupervisor": 5.783973739016801,
+        "timeLimitSeconds": 300,
+        "memoryLimitGiB": 12,
+        "gnuTimeMaxRssKiB": 115588,
+        "sampledProcessTreeRssSumBytes": 160387072,
+        "workloadSampled": true,
+        "cgroupMemoryPeakBytes": 787812352,
+        "sampleIntervalSeconds": 0.25,
+        "leftoverProcessIdsTerminated": [],
+        "memoryNotes": "RSS sum can double-count shared pages; cgroup memory includes page cache; GNU time max RSS is not simultaneous tree total"
+      },
+      "semantics": "registration check only"
+    },
+    {
+      "tool": "codeindex",
+      "mode": "update",
+      "measurement": {
+        "command": [
+          "node",
+          "/data/dev/CodeIndex-worktrees/feature/heldout-comparison/bin/codeindex.js",
+          "update",
+          "--repo",
+          "/data/dev/CodeIndex/.data/heldout/inputs/vscode",
+          "--store",
+          "/data/dev/CodeIndex/.data/heldout/indexes/codeindex/vscode",
+          "--workers",
+          "4",
+          "--progress"
+        ],
+        "cwd": "/data/dev/CodeIndex-worktrees/feature/heldout-comparison",
+        "systemdUnit": "codeindex-benchmark-1875225.scope",
+        "systemdResult": "success",
+        "status": "success",
+        "exitCode": 0,
+        "wallSeconds": 1.32,
+        "wallSecondsIncludingSupervisor": 1.5242980369366705,
+        "timeLimitSeconds": 300,
+        "memoryLimitGiB": 12,
+        "gnuTimeMaxRssKiB": 221568,
+        "sampledProcessTreeRssSumBytes": 185528320,
+        "workloadSampled": true,
+        "cgroupMemoryPeakBytes": 347353088,
+        "sampleIntervalSeconds": 0.25,
+        "leftoverProcessIdsTerminated": [],
+        "memoryNotes": "RSS sum can double-count shared pages; cgroup memory includes page cache; GNU time max RSS is not simultaneous tree total"
+      },
+      "checks": {
+        "querySucceeded": true,
+        "probeHit": true,
+        "baselinePreserved": true,
+        "relationsPreserved": true,
+        "fullBuildEquivalent": true
+      },
+      "storageAfter": {
+        "bytes": 290012926,
+        "scope": "All regular index artifacts, hard links counted once; source input and Git excluded"
+      }
+    },
+    {
+      "tool": "opengrok",
+      "mode": "update",
+      "measurement": {
+        "command": [
+          "java",
+          "-Xmx8g",
+          "-jar",
+          "/data/dev/benchmark-tools/opengrok-1.14.20/lib/opengrok.jar",
+          "-s",
+          "/data/dev/CodeIndex/.data/heldout/inputs/vscode",
+          "-d",
+          "/data/dev/CodeIndex/.data/heldout/indexes/opengrok/vscode/data",
+          "-W",
+          "/data/dev/CodeIndex/.data/heldout/indexes/opengrok/vscode/config.xml",
+          "-c",
+          "/home/jhihjian/.local/bin/ctags-universal",
+          "-S"
+        ],
+        "cwd": "/data/dev/CodeIndex-worktrees/feature/heldout-comparison",
+        "systemdUnit": "codeindex-benchmark-1875606.scope",
+        "systemdResult": "success",
+        "status": "success",
+        "exitCode": 0,
+        "wallSeconds": 1.85,
+        "wallSecondsIncludingSupervisor": 2.0228662870358676,
+        "timeLimitSeconds": 300,
+        "memoryLimitGiB": 12,
+        "gnuTimeMaxRssKiB": 303720,
+        "sampledProcessTreeRssSumBytes": 298958848,
+        "workloadSampled": true,
+        "cgroupMemoryPeakBytes": 262918144,
+        "sampleIntervalSeconds": 0.25,
+        "leftoverProcessIdsTerminated": [],
+        "memoryNotes": "RSS sum can double-count shared pages; cgroup memory includes page cache; GNU time max RSS is not simultaneous tree total"
+      },
+      "checks": {
+        "querySucceeded": true,
+        "probeHit": true,
+        "baselinePreserved": true
+      },
+      "storageAfter": {
+        "bytes": 182417065,
+        "scope": "All regular index artifacts, hard links counted once; source input and Git excluded"
+      }
+    },
+    {
+      "tool": "zoekt",
+      "mode": "update",
+      "measurement": {
+        "command": [
+          "/data/dev/benchmark-tools/zoekt-git-index",
+          "-index",
+          "/data/dev/CodeIndex/.data/heldout/indexes/zoekt/vscode",
+          "-require_ctags",
+          "-file_limit",
+          "5242880",
+          "/data/dev/CodeIndex/.data/heldout/inputs/vscode"
+        ],
+        "cwd": "/data/dev/CodeIndex-worktrees/feature/heldout-comparison",
+        "systemdUnit": "codeindex-benchmark-1875855.scope",
+        "systemdResult": "success",
+        "status": "success",
+        "exitCode": 0,
+        "wallSeconds": 9.78,
+        "wallSecondsIncludingSupervisor": 10.04333196603693,
+        "timeLimitSeconds": 300,
+        "memoryLimitGiB": 12,
+        "gnuTimeMaxRssKiB": 819264,
+        "sampledProcessTreeRssSumBytes": 818429952,
+        "workloadSampled": true,
+        "cgroupMemoryPeakBytes": 1074479104,
+        "sampleIntervalSeconds": 0.25,
+        "leftoverProcessIdsTerminated": [],
+        "memoryNotes": "RSS sum can double-count shared pages; cgroup memory includes page cache; GNU time max RSS is not simultaneous tree total"
+      },
+      "checks": {
+        "querySucceeded": true,
+        "probeHit": true,
+        "baselinePreserved": true
+      },
+      "storageAfter": {
+        "bytes": 257615889,
+        "scope": "All regular index artifacts, hard links counted once; source input and Git excluded"
+      }
+    },
+    {
+      "tool": "zoekt",
+      "mode": "delta",
+      "measurement": {
+        "command": [
+          "/data/dev/benchmark-tools/zoekt-git-index",
+          "-index",
+          "/data/dev/CodeIndex/.data/heldout/indexes/zoekt/vscode",
+          "-require_ctags",
+          "-file_limit",
+          "5242880",
+          "-delta",
+          "-submodules=false",
+          "/data/dev/CodeIndex/.data/heldout/inputs/vscode"
+        ],
+        "cwd": "/data/dev/CodeIndex-worktrees/feature/heldout-comparison",
+        "systemdUnit": "codeindex-benchmark-1876034.scope",
+        "systemdResult": "success",
+        "status": "success",
+        "exitCode": 0,
+        "wallSeconds": 0.09,
+        "wallSecondsIncludingSupervisor": 0.2757752069737762,
+        "timeLimitSeconds": 300,
+        "memoryLimitGiB": 12,
+        "gnuTimeMaxRssKiB": 84420,
+        "sampledProcessTreeRssSumBytes": null,
+        "workloadSampled": false,
+        "cgroupMemoryPeakBytes": null,
+        "sampleIntervalSeconds": 0.25,
+        "leftoverProcessIdsTerminated": [],
+        "memoryNotes": "RSS sum can double-count shared pages; cgroup memory includes page cache; GNU time max RSS is not simultaneous tree total"
+      },
+      "checks": {
+        "querySucceeded": true,
+        "probeHit": true,
+        "baselinePreserved": true,
+        "fallbackToFull": false
+      }
+    },
+    {
+      "tool": "cgc",
+      "mode": "watch",
+      "measurement": {
+        "command": [
+          "/data/dev/benchmark-tools/cgc-venv/bin/python",
+          "/data/dev/CodeIndex-worktrees/feature/heldout-comparison/benchmarks/competitors/cgc-watch-update.py",
+          "/data/dev/CodeIndex/.data/heldout/indexes/cgc/vscode",
+          "/data/dev/CodeIndex/.data/heldout/inputs/vscode",
+          "/data/dev/CodeIndex/.data/heldout/inputs/vscode/src/vs/base/common/lifecycle.ts"
+        ],
+        "cwd": "/data/dev/CodeIndex-worktrees/feature/heldout-comparison",
+        "systemdUnit": "codeindex-benchmark-1876091.scope",
+        "systemdResult": "success",
+        "status": "success",
+        "exitCode": 0,
+        "wallSeconds": 95.46000000000001,
+        "wallSecondsIncludingSupervisor": 95.57921193516813,
+        "timeLimitSeconds": 300,
+        "memoryLimitGiB": 12,
+        "gnuTimeMaxRssKiB": 247096,
+        "sampledProcessTreeRssSumBytes": 295178240,
+        "workloadSampled": true,
+        "cgroupMemoryPeakBytes": 1047785472,
+        "sampleIntervalSeconds": 0.25,
+        "leftoverProcessIdsTerminated": [],
+        "memoryNotes": "RSS sum can double-count shared pages; cgroup memory includes page cache; GNU time max RSS is not simultaneous tree total"
+      },
+      "checks": {
+        "querySucceeded": true,
+        "probeHit": true,
+        "baselinePreserved": true,
+        "relationsPreserved": true
+      },
+      "storageAfter": {
+        "bytes": 86649174,
+        "scope": "All regular index artifacts, hard links counted once; source input and Git excluded"
+      }
+    }
+  ],
+  "recoveryDirectory": "/data/dev/CodeIndex/.data/heldout/update-backups/vscode",
+  "updatedRevision": "af462a8622e8f9d4d0f853c32071edca980400ce",
+  "updatedDigest": "69a3ff578a90a3650f39fdde96928b94318c47b0855d476b29289b9859c8719e",
+  "restoredChecks": {
+    "codeindex": {
+      "querySucceeded": true,
+      "probeHit": false,
+      "baselinePreserved": true,
+      "relationsPreserved": true
+    },
+    "opengrok": {
+      "querySucceeded": true,
+      "probeHit": false,
+      "baselinePreserved": true
+    },
+    "zoekt": {
+      "querySucceeded": true,
+      "probeHit": false,
+      "baselinePreserved": true
+    },
+    "cgc": {
+      "querySucceeded": true,
+      "probeHit": false,
+      "baselinePreserved": true,
+      "relationsPreserved": true
+    }
+  }
+}

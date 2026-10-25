@@ -1,0 +1,577 @@
+{
+  "loadMs": 6.7,
+  "mode": "symbol",
+  "repetitions": 20,
+  "repositories": {
+    "Repos": [
+      {
+        "Repository": {
+          "TenantID": 0,
+          "ID": 0,
+          "Name": "cpython",
+          "URL": "",
+          "Metadata": null,
+          "Source": "/data/dev/CodeIndex/.data/heldout/inputs/cpython",
+          "Branches": [
+            {
+              "Name": "HEAD",
+              "Version": "fa38947dc25b74a817fcda85db7658ed2fc422a8"
+            }
+          ],
+          "SubRepoMap": {},
+          "CommitURLTemplate": "",
+          "FileURLTemplate": "",
+          "LineFragmentTemplate": "",
+          "RawConfig": null,
+          "Rank": 0,
+          "IndexOptions": "825dea1219bd742fea432a98a0f4df6bf04c2f1b",
+          "HasSymbols": true,
+          "Tombstone": false,
+          "LatestCommitDate": "2026-10-25T15:19:37+08:00"
+        },
+        "IndexMetadata": {
+          "IndexFormatVersion": 16,
+          "IndexFeatureVersion": 12,
+          "IndexMinReaderVersion": 10,
+          "IndexTime": "2026-10-25T15:20:27.260170015+08:00",
+          "PlainASCII": true,
+          "LanguageMap": {
+            "C": 0
+          },
+          "ZoektVersion": "",
+          "ID": "dbeqreqjrguprl38jhpg"
+        },
+        "Stats": {
+          "Repos": 0,
+          "Shards": 2,
+          "Documents": 5020,
+          "IndexBytes": 1531916,
+          "ContentBytes": 100985387,
+          "NewLinesCount": 2807511,
+          "DefaultBranchNewLinesCount": 2807511,
+          "OtherBranchesNewLinesCount": 0
+        }
+      }
+    ],
+    "ReposMap": {},
+    "Crashes": 0,
+    "Stats": {
+      "Repos": 1,
+      "Shards": 2,
+      "Documents": 5020,
+      "IndexBytes": 1531916,
+      "ContentBytes": 100985387,
+      "NewLinesCount": 2807511,
+      "DefaultBranchNewLinesCount": 2807511,
+      "OtherBranchesNewLinesCount": 0
+    }
+  },
+  "rows": [
+    {
+      "coldMs": 0.543805,
+      "files": [
+        {
+          "lines": [
+            {
+              "line": 44,
+              "source": "class SequenceMatcher:\n"
+            }
+          ],
+          "path": "Lib/difflib.py"
+        }
+      ],
+      "hitAt10": true,
+      "medianMs": 0.20845049999999998,
+      "query": "SequenceMatcher",
+      "searchStats": {
+        "ContentBytesLoaded": 86232,
+        "IndexBytesLoaded": 62601,
+        "Crashes": 0,
+        "Duration": 140399,
+        "FileCount": 1,
+        "ShardFilesConsidered": 0,
+        "FilesConsidered": 11,
+        "FilesLoaded": 1,
+        "FilesSkipped": 0,
+        "FilesSkippedDueToCancellation": 0,
+        "ShardsScanned": 2,
+        "ShardsSkipped": 0,
+        "ShardsSkippedFilter": 0,
+        "MatchCount": 1,
+        "NgramMatches": 90,
+        "NgramLookups": 17,
+        "Wait": 842,
+        "MatchTreeConstruction": 2765,
+        "MatchTreeSearch": 126695,
+        "RegexpsConsidered": 0,
+        "FlushReason": 0
+      }
+    },
+    {
+      "coldMs": 0.070751,
+      "files": [
+        {
+          "lines": [
+            {
+              "line": 262,
+              "source": "class JSONDecoder(object):\n"
+            }
+          ],
+          "path": "Lib/json/decoder.py"
+        }
+      ],
+      "hitAt10": true,
+      "medianMs": 0.040475,
+      "query": "JSONDecoder",
+      "searchStats": {
+        "ContentBytesLoaded": 15486,
+        "IndexBytesLoaded": 1196,
+        "Crashes": 0,
+        "Duration": 22141,
+        "FileCount": 1,
+        "ShardFilesConsidered": 0,
+        "FilesConsidered": 25,
+        "FilesLoaded": 2,
+        "FilesSkipped": 0,
+        "FilesSkippedDueToCancellation": 0,
+        "ShardsScanned": 2,
+        "ShardsSkipped": 0,
+        "ShardsSkippedFilter": 0,
+        "MatchCount": 1,
+        "NgramMatches": 92,
+        "NgramLookups": 13,
+        "Wait": 602,
+        "MatchTreeConstruction": 2475,
+        "MatchTreeSearch": 13934,
+        "RegexpsConsidered": 0,
+        "FlushReason": 0
+      }
+    },
+    {
+      "coldMs": 0.483854,
+      "files": [
+        {
+          "lines": [
+            {
+              "line": 1840,
+              "source": "class ArgumentParser(_AttributeHolder, _ActionsContainer):\n"
+            }
+          ],
+          "path": "Lib/argparse.py"
+        },
+        {
+          "lines": [
+            {
+              "line": 138,
+              "source": "class ArgumentParserError(Exception):\n"
+            },
+            {
+              "line": 186,
+              "source": "class ErrorRaisingArgumentParser(argparse.ArgumentParser):\n"
+            },
+            {
+              "line": 1768,
+              "source": "    class FromFileConverterArgumentParser(ErrorRaisingArgumentParser):\n"
+            }
+          ],
+          "path": "Lib/test/test_argparse.py"
+        }
+      ],
+      "hitAt10": true,
+      "medianMs": 0.4153775,
+      "query": "ArgumentParser",
+      "searchStats": {
+        "ContentBytesLoaded": 591141,
+        "IndexBytesLoaded": 98232,
+        "Crashes": 0,
+        "Duration": 409938,
+        "FileCount": 2,
+        "ShardFilesConsidered": 0,
+        "FilesConsidered": 125,
+        "FilesLoaded": 4,
+        "FilesSkipped": 0,
+        "FilesSkippedDueToCancellation": 0,
+        "ShardsScanned": 2,
+        "ShardsSkipped": 0,
+        "ShardsSkippedFilter": 0,
+        "MatchCount": 7,
+        "NgramMatches": 710,
+        "NgramLookups": 19,
+        "Wait": 641,
+        "MatchTreeConstruction": 3717,
+        "MatchTreeSearch": 392896,
+        "RegexpsConsidered": 0,
+        "FlushReason": 0
+      }
+    },
+    {
+      "coldMs": 0.237579,
+      "files": [
+        {
+          "lines": [
+            {
+              "line": 132,
+              "source": "def heappush(heap, item):\n"
+            },
+            {
+              "line": 198,
+              "source": "def heappush_max(heap, item):\n"
+            },
+            {
+              "line": 163,
+              "source": "def heappushpop(heap, item):\n"
+            }
+          ],
+          "path": "Lib/heapq.py"
+        },
+        {
+          "lines": [
+            {
+              "line": 40,
+              "source": "        def heappush_func(heap):\n"
+            },
+            {
+              "line": 117,
+              "source": "        def heappush_max_func(max_heap):\n"
+            },
+            {
+              "line": 37,
+              "source": "    def test_racing_heappush(self):\n"
+            }
+          ],
+          "path": "Lib/test/test_free_threading/test_heapq.py"
+        },
+        {
+          "lines": [
+            {
+              "line": 21,
+              "source": "_heapq_heappush(PyObject *module, PyObject *const *args, Py_ssize_t nargs)\n"
+            },
+            {
+              "line": 202,
+              "source": "_heapq_heappush_max(PyObject *module, PyObject *const *args, Py_ssize_t nargs)\n"
+            },
+            {
+              "line": 135,
+              "source": "_heapq_heappushpop(PyObject *module, PyObject *const *args, Py_ssize_t nargs)\n"
+            }
+          ],
+          "path": "Modules/clinic/_heapqmodule.c.h"
+        },
+        {
+          "lines": [
+            {
+              "line": 132,
+              "source": "_heapq_heappush_impl(PyObject *module, PyObject *heap, PyObject *item)\n"
+            },
+            {
+              "line": 513,
+              "source": "_heapq_heappush_max_impl(PyObject *module, PyObject *heap, PyObject *item)\n"
+            },
+            {
+              "line": 264,
+              "source": "_heapq_heappushpop_impl(PyObject *module, PyObject *heap, PyObject *item)\n"
+            }
+          ],
+          "path": "Modules/_heapqmodule.c"
+        },
+        {
+          "lines": [
+            {
+              "line": 567,
+              "source": "    def test_heappush_mutating_heap(self):\n"
+            },
+            {
+              "line": 243,
+              "source": "    def test_heappushpop(self):\n"
+            },
+            {
+              "line": 262,
+              "source": "    def test_heappushpop_max(self):\n"
+            }
+          ],
+          "path": "Lib/test/test_heapq.py"
+        }
+      ],
+      "hitAt10": true,
+      "medianMs": 0.1599805,
+      "query": "heappush",
+      "searchStats": {
+        "ContentBytesLoaded": 92760,
+        "IndexBytesLoaded": 11802,
+        "Crashes": 0,
+        "Duration": 124941,
+        "FileCount": 5,
+        "ShardFilesConsidered": 0,
+        "FilesConsidered": 16,
+        "FilesLoaded": 5,
+        "FilesSkipped": 0,
+        "FilesSkippedDueToCancellation": 0,
+        "ShardsScanned": 2,
+        "ShardsSkipped": 0,
+        "ShardsSkippedFilter": 0,
+        "MatchCount": 29,
+        "NgramMatches": 183,
+        "NgramLookups": 108,
+        "Wait": 711,
+        "MatchTreeConstruction": 4929,
+        "MatchTreeSearch": 100225,
+        "RegexpsConsidered": 0,
+        "FlushReason": 0
+      }
+    },
+    {
+      "coldMs": 0.533446,
+      "files": [
+        {
+          "lines": [
+            {
+              "line": 1483,
+              "source": "Py_Initialize(void)\n"
+            },
+            {
+              "line": 1422,
+              "source": "Py_InitializeFromConfig(const PyConfig *config)\n"
+            },
+            {
+              "line": 1455,
+              "source": "Py_InitializeEx(int install_sigs)\n"
+            }
+          ],
+          "path": "Python/pylifecycle.c"
+        },
+        {
+          "lines": [
+            {
+              "line": 4177,
+              "source": "Py_InitializeFromInitConfig(PyInitConfig *config)\n"
+            }
+          ],
+          "path": "Python/initconfig.c"
+        },
+        {
+          "lines": [
+            {
+              "line": 91,
+              "source": "static void _testembed_Py_Initialize(void)\n"
+            },
+            {
+              "line": 83,
+              "source": "static void _testembed_Py_InitializeFromConfig(void)\n"
+            }
+          ],
+          "path": "Programs/_testembed.c"
+        },
+        {
+          "lines": [
+            {
+              "line": 429,
+              "source": "_Py_InitializeRecursionLimits(PyThreadState *tstate)\n"
+            }
+          ],
+          "path": "Python/ceval.c"
+        }
+      ],
+      "hitAt10": true,
+      "medianMs": 0.47318,
+      "query": "Py_Initialize",
+      "searchStats": {
+        "ContentBytesLoaded": 549023,
+        "IndexBytesLoaded": 117954,
+        "Crashes": 0,
+        "Duration": 453448,
+        "FileCount": 4,
+        "ShardFilesConsidered": 0,
+        "FilesConsidered": 83,
+        "FilesLoaded": 6,
+        "FilesSkipped": 0,
+        "FilesSkippedDueToCancellation": 0,
+        "ShardsScanned": 2,
+        "ShardsSkipped": 0,
+        "ShardsSkippedFilter": 0,
+        "MatchCount": 7,
+        "NgramMatches": 300,
+        "NgramLookups": 26,
+        "Wait": 662,
+        "MatchTreeConstruction": 2846,
+        "MatchTreeSearch": 443740,
+        "RegexpsConsidered": 0,
+        "FlushReason": 0
+      }
+    },
+    {
+      "coldMs": 0.483614,
+      "files": [
+        {
+          "lines": [
+            {
+              "line": 294,
+              "source": "PyErr_SetString(PyObject *exception, const char *string)\n"
+            },
+            {
+              "line": 283,
+              "source": "_PyErr_SetString(PyThreadState *tstate, PyObject *exception,\n"
+            }
+          ],
+          "path": "Python/errors.c"
+        }
+      ],
+      "hitAt10": true,
+      "medianMs": 0.477858,
+      "query": "PyErr_SetString",
+      "searchStats": {
+        "ContentBytesLoaded": 296963,
+        "IndexBytesLoaded": 21400,
+        "Crashes": 0,
+        "Duration": 424385,
+        "FileCount": 1,
+        "ShardFilesConsidered": 0,
+        "FilesConsidered": 317,
+        "FilesLoaded": 2,
+        "FilesSkipped": 0,
+        "FilesSkippedDueToCancellation": 0,
+        "ShardsScanned": 2,
+        "ShardsSkipped": 0,
+        "ShardsSkippedFilter": 0,
+        "MatchCount": 2,
+        "NgramMatches": 3162,
+        "NgramLookups": 30,
+        "Wait": 1062,
+        "MatchTreeConstruction": 27491,
+        "MatchTreeSearch": 387336,
+        "RegexpsConsidered": 0,
+        "FlushReason": 0
+      }
+    },
+    {
+      "coldMs": 0.299864,
+      "files": [
+        {
+          "lines": [
+            {
+              "line": 2169,
+              "source": "PyUnicode_FromString(const char *u)\n"
+            },
+            {
+              "line": 2150,
+              "source": "PyUnicode_FromStringAndSize(const char *u, Py_ssize_t size)\n"
+            }
+          ],
+          "path": "Objects/unicodeobject.c"
+        }
+      ],
+      "hitAt10": true,
+      "medianMs": 0.1982365,
+      "query": "PyUnicode_FromString",
+      "searchStats": {
+        "ContentBytesLoaded": 847243,
+        "IndexBytesLoaded": 20519,
+        "Crashes": 0,
+        "Duration": 189069,
+        "FileCount": 1,
+        "ShardFilesConsidered": 0,
+        "FilesConsidered": 250,
+        "FilesLoaded": 8,
+        "FilesSkipped": 0,
+        "FilesSkippedDueToCancellation": 0,
+        "ShardsScanned": 2,
+        "ShardsSkipped": 0,
+        "ShardsSkippedFilter": 0,
+        "MatchCount": 2,
+        "NgramMatches": 1287,
+        "NgramLookups": 40,
+        "Wait": 812,
+        "MatchTreeConstruction": 8475,
+        "MatchTreeSearch": 172790,
+        "RegexpsConsidered": 0,
+        "FlushReason": 0
+      }
+    },
+    {
+      "coldMs": 0.309592,
+      "files": [
+        {
+          "lines": [
+            {
+              "line": 373,
+              "source": "PyLong_FromLong(long ival)\n"
+            },
+            {
+              "line": 1482,
+              "source": "PyLong_FromLongLong(long long ival)\n"
+            }
+          ],
+          "path": "Objects/longobject.c"
+        }
+      ],
+      "hitAt10": true,
+      "medianMs": 0.1744525,
+      "query": "PyLong_FromLong",
+      "searchStats": {
+        "ContentBytesLoaded": 456103,
+        "IndexBytesLoaded": 19247,
+        "Crashes": 0,
+        "Duration": 184962,
+        "FileCount": 1,
+        "ShardFilesConsidered": 0,
+        "FilesConsidered": 228,
+        "FilesLoaded": 4,
+        "FilesSkipped": 0,
+        "FilesSkippedDueToCancellation": 0,
+        "ShardsScanned": 2,
+        "ShardsSkipped": 0,
+        "ShardsSkippedFilter": 0,
+        "MatchCount": 2,
+        "NgramMatches": 1150,
+        "NgramLookups": 22,
+        "Wait": 871,
+        "MatchTreeConstruction": 4138,
+        "MatchTreeSearch": 173050,
+        "RegexpsConsidered": 0,
+        "FlushReason": 0
+      }
+    },
+    {
+      "coldMs": 0.086249,
+      "files": [
+        {
+          "lines": [
+            {
+              "line": 3629,
+              "source": "int codeindex_heldout_update_probe_20261025(void) { return 42; }\n"
+            }
+          ],
+          "path": "Python/pylifecycle.c"
+        }
+      ],
+      "hitAt10": true,
+      "medianMs": 0.053503999999999996,
+      "query": "codeindex_heldout_update_probe_20261025",
+      "searchStats": {
+        "ContentBytesLoaded": 110654,
+        "IndexBytesLoaded": 945,
+        "Crashes": 0,
+        "Duration": 18905,
+        "FileCount": 1,
+        "ShardFilesConsidered": 0,
+        "FilesConsidered": 1,
+        "FilesLoaded": 1,
+        "FilesSkipped": 0,
+        "FilesSkippedDueToCancellation": 0,
+        "ShardsScanned": 2,
+        "ShardsSkipped": 0,
+        "ShardsSkippedFilter": 0,
+        "MatchCount": 1,
+        "NgramMatches": 1,
+        "NgramLookups": 419,
+        "Wait": 521,
+        "MatchTreeConstruction": 14708,
+        "MatchTreeSearch": 9628,
+        "RegexpsConsidered": 0,
+        "FlushReason": 0
+      }
+    }
+  ],
+  "tool": "Zoekt",
+  "warmup": 1
+}

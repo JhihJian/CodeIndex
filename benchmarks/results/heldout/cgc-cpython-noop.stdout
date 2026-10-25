@@ -1,0 +1,6 @@
+Resolving context...
+Initializing services and database connection...
+Services initialized.
+Repository '/data/dev/CodeIndex/.data/heldout/inputs/cpython' is already indexed
+with 3575 files. Skipping.
+💡 Tip: Use 'cgc index --force' to re-index
