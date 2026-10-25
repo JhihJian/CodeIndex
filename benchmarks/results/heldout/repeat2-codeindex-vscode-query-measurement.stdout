@@ -1,0 +1,511 @@
+{
+  "tool": "CodeIndex",
+  "loadMs": 1.1029009999999992,
+  "mode": "metadata",
+  "warmup": 1,
+  "repetitions": 20,
+  "rows": [
+    {
+      "query": "DisposableStore",
+      "hitAt10": true,
+      "coldMs": 7.191969000000004,
+      "medianMs": 0.5672694999999983,
+      "evidenceMs": 1.6053819999999988,
+      "files": [
+        {
+          "path": "extensions/github/src/util.ts",
+          "symbol": "extensions.github.src.util.DisposableStore",
+          "lines": [
+            {
+              "line": 9,
+              "source": "export class DisposableStore {\n\n\tprivate disposables = new Set<vscode.Disposable>();",
+              "digest": "2ae7dfe0b2b64d19791dc9b6310d68afd9dc26f79a045b12fe562e4b322b6872"
+            }
+          ]
+        },
+        {
+          "path": "extensions/typescript-language-features/src/utils/dispose.ts",
+          "symbol": "extensions.typescript-language-features.src.utils.dispose.DisposableStore",
+          "lines": [
+            {
+              "line": 58,
+              "source": "export class DisposableStore extends Disposable {\n\n\tpublic add<T extends IDisposable>(disposable: T): T {",
+              "digest": "181b13edc5d4d14934fe84953c8b9b09bac7b7df84b09ac23c3f5f2557bff378"
+            }
+          ]
+        },
+        {
+          "path": "src/vs/base/common/lifecycle.ts",
+          "symbol": "src.vs.base.common.lifecycle.DisposableStore",
+          "lines": [
+            {
+              "line": 409,
+              "source": "export class DisposableStore implements IDisposable {\n\n\tstatic DISABLE_DISPOSED_WARNING = false;",
+              "digest": "7ac563cbec7e6f38b603cb9471fe466aadedcc2d70ac85020c4146e47a2584ce"
+            }
+          ]
+        },
+        {
+          "path": "extensions/notebook-renderers/src/index.ts",
+          "symbol": "extensions.notebook-renderers.src.index.DisposableStore",
+          "lines": [
+            {
+              "line": 165,
+              "source": "type DisposableStore = ReturnType<typeof createDisposableStore>;",
+              "digest": "da4f12c179cc8cf20a86b13acb916ba5e8b525bac0cb56e9aea6bbd6b256ad44"
+            }
+          ]
+        },
+        {
+          "path": "src/vs/base/test/common/utils.ts",
+          "symbol": "src.vs.base.test.common.utils.ensureNoDisposablesAreLeakedInTestSuite",
+          "lines": [
+            {
+              "line": 53,
+              "source": "export function ensureNoDisposablesAreLeakedInTestSuite(): Pick<DisposableStore, 'add'> {\n\tlet tracker: DisposableTracker | undefined;\n\tlet store: DisposableStore;",
+              "digest": "4cbc0886274c97a793e1ac003c721fd1107b8fdb160621064ec951819467c245"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": "MutableDisposable",
+      "hitAt10": true,
+      "coldMs": 0.37590900000000005,
+      "medianMs": 0.3068825000000004,
+      "evidenceMs": 0.49752199999999647,
+      "files": [
+        {
+          "path": "src/vs/base/common/lifecycle.ts",
+          "symbol": "src.vs.base.common.lifecycle.MutableDisposable",
+          "lines": [
+            {
+              "line": 559,
+              "source": "export class MutableDisposable<T extends IDisposable> implements IDisposable {\n\tprivate _value?: T;\n\tprivate _isDisposed = false;",
+              "digest": "7ac563cbec7e6f38b603cb9471fe466aadedcc2d70ac85020c4146e47a2584ce"
+            },
+            {
+              "line": 615,
+              "source": "export class MandatoryMutableDisposable<T extends IDisposable> implements IDisposable {\n\tprivate readonly _disposable = new MutableDisposable<T>();\n\tprivate _isDisposed = false;",
+              "digest": "7ac563cbec7e6f38b603cb9471fe466aadedcc2d70ac85020c4146e47a2584ce"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": "CancellationTokenSource",
+      "hitAt10": true,
+      "coldMs": 1.015701,
+      "medianMs": 0.8366885000000011,
+      "evidenceMs": 5.291235999999998,
+      "files": [
+        {
+          "path": "src/vs/base/common/cancellation.ts",
+          "symbol": "src.vs.base.common.cancellation.CancellationTokenSource",
+          "lines": [
+            {
+              "line": 97,
+              "source": "export class CancellationTokenSource {\n\n\tprivate _token?: CancellationToken = undefined;",
+              "digest": "c8da8418c76cf8a3ca7509494a28cb9586f8a5ade75f81f4474ceecd089c699e"
+            }
+          ]
+        },
+        {
+          "path": "src/vs/monaco.d.ts",
+          "symbol": "src.vs.monaco.d.CancellationTokenSource",
+          "lines": [
+            {
+              "line": 86,
+              "source": "\texport class CancellationTokenSource {\n\t\tconstructor(parent?: CancellationToken);\n\t\tget token(): CancellationToken;",
+              "digest": "3c9a0d1dbd0deca0927cd1bc45773bc1b7cff3e66c060f0d0dae6843ebffb9f6"
+            }
+          ]
+        },
+        {
+          "path": "src/vscode-dts/vscode.d.ts",
+          "symbol": "src.vscode-dts.vscode.d.CancellationTokenSource",
+          "lines": [
+            {
+              "line": 1675,
+              "source": "\texport class CancellationTokenSource {\n\n\t\t/**",
+              "digest": "58a555fc1e70f9c881159c59a18ae35fbbcc9a96123d63c321580f111ea13c29"
+            },
+            {
+              "line": 20678,
+              "source": "\t\texport function invokeTool(name: string, options: LanguageModelToolInvocationOptions<object>, token?: CancellationToken): Thenable<LanguageModelToolResult>;\n\n\t\t/**",
+              "digest": "58a555fc1e70f9c881159c59a18ae35fbbcc9a96123d63c321580f111ea13c29"
+            },
+            {
+              "line": 1659,
+              "source": "\texport interface CancellationToken {\n\n\t\t/**",
+              "digest": "58a555fc1e70f9c881159c59a18ae35fbbcc9a96123d63c321580f111ea13c29"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": "Emitter",
+      "hitAt10": true,
+      "coldMs": 1.7091820000000126,
+      "medianMs": 0.9020879999999991,
+      "evidenceMs": 1.916140999999996,
+      "files": [
+        {
+          "path": "src/vs/base/common/event.ts",
+          "symbol": "src.vs.base.common.event.Emitter",
+          "lines": [
+            {
+              "line": 995,
+              "source": "export class Emitter<T> {\n\n\tprivate readonly _options?: EmitterOptions;",
+              "digest": "c58bebdc0099f9f4078e2497f8a5a71580b4c21437881437257114ca0739af84"
+            },
+            {
+              "line": 649,
+              "source": "\tclass EmitterObserver<T> implements IObserver {\n\n\t\treadonly emitter: Emitter<T>;",
+              "digest": "c58bebdc0099f9f4078e2497f8a5a71580b4c21437881437257114ca0739af84"
+            },
+            {
+              "line": 1431,
+              "source": "export class MicrotaskEmitter<T> extends Emitter<T> {\n\tprivate _queuedEvents: T[] = [];\n\tprivate _mergeFn?: (input: T[]) => T;",
+              "digest": "c58bebdc0099f9f4078e2497f8a5a71580b4c21437881437257114ca0739af84"
+            }
+          ]
+        },
+        {
+          "path": "src/vs/monaco.d.ts",
+          "symbol": "src.vs.monaco.d.Emitter",
+          "lines": [
+            {
+              "line": 66,
+              "source": "\texport class Emitter<T> {\n\t\tconstructor();\n\t\treadonly event: IEvent<T>;",
+              "digest": "3c9a0d1dbd0deca0927cd1bc45773bc1b7cff3e66c060f0d0dae6843ebffb9f6"
+            }
+          ]
+        },
+        {
+          "path": "src/vs/editor/browser/widget/codeEditor/codeEditorWidget.ts",
+          "symbol": "src.vs.editor.browser.widget.codeEditor.codeEditorWidget.InteractionEmitter",
+          "lines": [
+            {
+              "line": 2125,
+              "source": "class InteractionEmitter<T> extends Emitter<T> {\n\n\tconstructor(",
+              "digest": "70ff5aee4b7e6625c1d6c9f55cb99e9c94a7891b24a8a2c9f0df845212c56b7d"
+            }
+          ]
+        },
+        {
+          "path": "src/vs/base/common/async.ts",
+          "symbol": "src.vs.base.common.async.AsyncIterableExecutor",
+          "lines": [
+            {
+              "line": 1947,
+              "source": "export interface AsyncIterableExecutor<T> {\n\t/**\n\t * @param emitter An object that allows to emit async values valid only for the duration of the executor.",
+              "digest": "e496ee61e3054743947b3436296a2ee21dde1bdc960c8b935702b948267f0b4e"
+            },
+            {
+              "line": 1922,
+              "source": "export interface AsyncIterableEmitter<T> {\n\t/**\n\t * The value will be appended at the end.",
+              "digest": "e496ee61e3054743947b3436296a2ee21dde1bdc960c8b935702b948267f0b4e"
+            }
+          ]
+        },
+        {
+          "path": "src/vs/workbench/contrib/notebook/browser/view/renderers/webviewPreloads.ts",
+          "symbol": "src.vs.workbench.contrib.notebook.browser.view.renderers.webviewPreloads.EmitterLike",
+          "lines": [
+            {
+              "line": 54,
+              "source": "interface EmitterLike<T> {\n\tfire(data: T): void;\n\tevent: Event<T>;",
+              "digest": "c212014e7883b98330568fe40a478816f15fc87b9a67eb91a60263151ec9b37e"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": "URI",
+      "hitAt10": true,
+      "coldMs": 2.814277000000004,
+      "medianMs": 1.6967495000000028,
+      "evidenceMs": 3.7397630000000106,
+      "files": [
+        {
+          "path": "extensions/git/src/test/smoke.test.ts",
+          "symbol": "extensions.git.src.test.smoke.test.uri",
+          "lines": [
+            {
+              "line": 22,
+              "source": "\tfunction uri(relativePath: string) {\n\t\treturn Uri.file(file(relativePath));\n\t}",
+              "digest": "fd4a8abe72e3bd1842ae58b25042377d56c8dec0b2cf62c9fa0cea3b4ce1cfc8"
+            }
+          ]
+        },
+        {
+          "path": "src/vs/base/common/uri.ts",
+          "symbol": "src.vs.base.common.uri.Uri",
+          "lines": [
+            {
+              "line": 451,
+              "source": "class Uri extends URI {\n\n\t_formatted: string | null = null;",
+              "digest": "91bf39a5b8401917eaffe6142b90a704efa91b5e6d83c32d8b7aafd5479a0dc3"
+            },
+            {
+              "line": 98,
+              "source": "export class URI implements UriComponents {\n\n\tstatic isUri(thing: unknown): thing is URI {",
+              "digest": "91bf39a5b8401917eaffe6142b90a704efa91b5e6d83c32d8b7aafd5479a0dc3"
+            }
+          ]
+        },
+        {
+          "path": "src/vs/monaco.d.ts",
+          "symbol": "src.vs.monaco.d.Uri",
+          "lines": [
+            {
+              "line": 124,
+              "source": "\texport class Uri implements UriComponents {\n\t\tstatic isUri(thing: unknown): thing is Uri;\n\t\t/**",
+              "digest": "3c9a0d1dbd0deca0927cd1bc45773bc1b7cff3e66c060f0d0dae6843ebffb9f6"
+            }
+          ]
+        },
+        {
+          "path": "src/vscode-dts/vscode.d.ts",
+          "symbol": "src.vscode-dts.vscode.d.Uri",
+          "lines": [
+            {
+              "line": 1439,
+              "source": "\texport class Uri {\n\n\t\t/**",
+              "digest": "58a555fc1e70f9c881159c59a18ae35fbbcc9a96123d63c321580f111ea13c29"
+            }
+          ]
+        },
+        {
+          "path": "extensions/css-language-features/client/src/dropOrPaste/uriList.ts",
+          "symbol": "extensions.css-language-features.client.src.dropOrPaste.uriList.UriList",
+          "lines": [
+            {
+              "line": 18,
+              "source": "export class UriList {\n\n\tstatic from(str: string): UriList {",
+              "digest": "0b1eea7e4c5950d3bdb3be67ad9a59ec758d2c7dfbaa603c058ea4bb76fd162e"
+            },
+            {
+              "line": 8,
+              "source": "function splitUriList(str: string): string[] {\n\treturn str.split('\\r\\n');\n}",
+              "digest": "0b1eea7e4c5950d3bdb3be67ad9a59ec758d2c7dfbaa603c058ea4bb76fd162e"
+            },
+            {
+              "line": 12,
+              "source": "function parseUriList(str: string): string[] {\n\treturn splitUriList(str)\n\t\t.filter(value => !value.startsWith('#')) // Remove comments",
+              "digest": "0b1eea7e4c5950d3bdb3be67ad9a59ec758d2c7dfbaa603c058ea4bb76fd162e"
+            }
+          ]
+        },
+        {
+          "path": "extensions/git/src/uri.ts",
+          "symbol": "extensions.git.src.uri.toMergeUris",
+          "lines": [
+            {
+              "line": 56,
+              "source": "export function toMergeUris(uri: Uri): { base: Uri; ours: Uri; theirs: Uri } {",
+              "digest": "4e059bb32131ec7ab31368421a7eb0c4fcd0611b5cf40b1bb6e02e37aa52c64d"
+            },
+            {
+              "line": 15,
+              "source": "export function isGitUri(uri: Uri): boolean {\n\treturn /^git$/.test(uri.scheme);\n}",
+              "digest": "4e059bb32131ec7ab31368421a7eb0c4fcd0611b5cf40b1bb6e02e37aa52c64d"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": "Delayer",
+      "hitAt10": true,
+      "coldMs": 1.152983000000006,
+      "medianMs": 0.8069239999999951,
+      "evidenceMs": 1.1880269999999769,
+      "files": [
+        {
+          "path": "extensions/ipynb/src/helper.ts",
+          "symbol": "extensions.ipynb.src.helper.Delayer",
+          "lines": [
+            {
+              "line": 86,
+              "source": "export class Delayer<T> {\n\n\tpublic defaultDelay: number;",
+              "digest": "82ac26df6d65455fe61d7463692cbebf2942d6ecedbc43875fd7bfc531ec645e"
+            }
+          ]
+        },
+        {
+          "path": "extensions/markdown-language-features/src/util/async.ts",
+          "symbol": "extensions.markdown-language-features.src.util.async.Delayer",
+          "lines": [
+            {
+              "line": 10,
+              "source": "export class Delayer<T> {\n\n\tpublic defaultDelay: number;",
+              "digest": "47546b0e15cb9353e280e2cf952101b17a862d08de675e02d3a86f0e98a37e64"
+            }
+          ]
+        },
+        {
+          "path": "extensions/merge-conflict/src/delayer.ts",
+          "symbol": "extensions.merge-conflict.src.delayer.Delayer",
+          "lines": [
+            {
+              "line": 10,
+              "source": "export class Delayer<T> {\n\n\tpublic defaultDelay: number;",
+              "digest": "a2aa55f49c8cefe2778ba0a203e2c2c1a9933104da7d0ebcf8aa09a89ffb99d5"
+            },
+            {
+              "line": 1,
+              "source": "/*---------------------------------------------------------------------------------------------\n *  Copyright (c) Microsoft Corporation. All rights reserved.\n *  Licensed under the MIT License. See License.txt in the project root for license information.",
+              "digest": "a2aa55f49c8cefe2778ba0a203e2c2c1a9933104da7d0ebcf8aa09a89ffb99d5"
+            },
+            {
+              "line": 6,
+              "source": "export interface ITask<T> {\n\t(): T;\n}",
+              "digest": "a2aa55f49c8cefe2778ba0a203e2c2c1a9933104da7d0ebcf8aa09a89ffb99d5"
+            }
+          ]
+        },
+        {
+          "path": "extensions/php-language-features/src/features/utils/async.ts",
+          "symbol": "extensions.php-language-features.src.features.utils.async.Delayer",
+          "lines": [
+            {
+              "line": 103,
+              "source": "export class Delayer<T> {\n\n\tpublic defaultDelay: number;",
+              "digest": "c26e87e3b65d311c1e9c91fc997007950230c86fd2e4a1306170caeaeb61e92f"
+            },
+            {
+              "line": 172,
+              "source": "export class ThrottledDelayer<T> extends Delayer<Promise<T>> {\n\n\tprivate throttler: Throttler<T>;",
+              "digest": "c26e87e3b65d311c1e9c91fc997007950230c86fd2e4a1306170caeaeb61e92f"
+            }
+          ]
+        },
+        {
+          "path": "extensions/typescript-language-features/src/utils/async.ts",
+          "symbol": "extensions.typescript-language-features.src.utils.async.Delayer",
+          "lines": [
+            {
+              "line": 12,
+              "source": "export class Delayer<T> {\n\n\tpublic defaultDelay: number;",
+              "digest": "1ef03be945fa56bd29a3019684f8108a70c1090fde898fbc43e344be8020745f"
+            }
+          ]
+        },
+        {
+          "path": "src/vs/base/common/async.ts",
+          "symbol": "src.vs.base.common.async.Delayer",
+          "lines": [
+            {
+              "line": 373,
+              "source": "export class Delayer<T> implements IDisposable {\n\n\tprivate deferred: IScheduledLater | null;",
+              "digest": "e496ee61e3054743947b3436296a2ee21dde1bdc960c8b935702b948267f0b4e"
+            },
+            {
+              "line": 409,
+              "source": "\t\tconst fn = () => {\n\t\t\tthis.deferred = null;",
+              "digest": "e496ee61e3054743947b3436296a2ee21dde1bdc960c8b935702b948267f0b4e"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": "RunOnceScheduler",
+      "hitAt10": true,
+      "coldMs": 0.25973600000000374,
+      "medianMs": 0.19723700000000122,
+      "evidenceMs": 0.39816999999999325,
+      "files": [
+        {
+          "path": "src/vs/base/common/async.ts",
+          "symbol": "src.vs.base.common.async.RunOnceScheduler",
+          "lines": [
+            {
+              "line": 1086,
+              "source": "export class RunOnceScheduler implements IDisposable {\n\n\tprotected runner: ((...args: unknown[]) => void) | null;",
+              "digest": "e496ee61e3054743947b3436296a2ee21dde1bdc960c8b935702b948267f0b4e"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": "combinedDisposable",
+      "hitAt10": true,
+      "coldMs": 0.3020829999999819,
+      "medianMs": 0.2494569999999925,
+      "evidenceMs": 0.4811420000000055,
+      "files": [
+        {
+          "path": "extensions/git/src/util.ts",
+          "symbol": "extensions.git.src.util.combinedDisposable",
+          "lines": [
+            {
+              "line": 35,
+              "source": "export function combinedDisposable(disposables: IDisposable[]): IDisposable {\n\treturn toDisposable(() => dispose(disposables));\n}",
+              "digest": "ca8970dfd639f76346ada7eaa09e4608582d5fc9bddca35ae2105700dfb23c89"
+            }
+          ]
+        },
+        {
+          "path": "src/vs/base/common/lifecycle.ts",
+          "symbol": "src.vs.base.common.lifecycle.combinedDisposable",
+          "lines": [
+            {
+              "line": 364,
+              "source": "export function combinedDisposable(...disposables: IDisposable[]): IDisposable {\n\tconst parent = toDisposable(() => dispose(disposables));\n\tsetParentOfDisposables(disposables, parent);",
+              "digest": "7ac563cbec7e6f38b603cb9471fe466aadedcc2d70ac85020c4146e47a2584ce"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "snapshotId": "snapshot:repo-326e81ee10b80ed316f1:eae31caa84b5471d790d3546",
+  "snapshotDir": "/data/dev/CodeIndex/.data/heldout/repeat-2/codeindex/vscode/repo-326e81ee10b80ed316f1/snapshots/snapshot:repo-326e81ee10b80ed316f1:eae31caa84b5471d790d3546-403b9f49",
+  "counts": {
+    "files": 8071,
+    "symbols": 39721,
+    "relations": 434643,
+    "sourceBytes": 95990525,
+    "changedFiles": 8071,
+    "removedFiles": 0,
+    "reusedFiles": 0,
+    "parsedFiles": 5988,
+    "partialFiles": 2085,
+    "skipped": 1,
+    "nodes": 50132,
+    "nativeFiles": 7,
+    "nativeIndexedFiles": 7,
+    "workers": 4,
+    "nativeBuildMode": "full",
+    "nativeTaskMs": 29,
+    "relationsScope": "stored-sql-relations; native calls and references queried from cscope",
+    "stages": {
+      "scan": 784,
+      "source-and-files": 730,
+      "native-symbols": 32,
+      "parser-symbols": 2588,
+      "relations": 0,
+      "indexes": 433,
+      "native-cross-references": 1,
+      "validation": 64
+    },
+    "buildMs": 4632
+  },
+  "coverage": {
+    "sourceFiles": 8071,
+    "parsedFiles": 5986,
+    "unsupportedFiles": 2083,
+    "partialFiles": 2085,
+    "skippedFiles": 1,
+    "nativeCalls": true,
+    "semantics": "syntax-level symbols and cross-references; no compiler-level overload or pointer resolution"
+  }
+}

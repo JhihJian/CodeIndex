@@ -1,0 +1,4 @@
+2026/10/25 14:42:13 git cat-file does not support --filter (exit status 129: error: option `filters' takes no value), using go-git
+2026/10/25 14:42:13 attempting to index 5019 total files (0 via cat-file, 5019 via go-git)
+2026/10/25 14:42:19 symbol analysis finished for shard statistics: duration=1s symbols=156733 bytes=100723462
+2026/10/25 14:42:22 finished shard /data/dev/CodeIndex/.data/heldout/repeat-2/zoekt/cpython/cpython_v16.00000.zoekt: 279038252 index bytes (overhead 2.8), 5019 files processed 

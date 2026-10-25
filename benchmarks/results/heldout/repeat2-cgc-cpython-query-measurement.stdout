@@ -1,0 +1,150 @@
+{
+  "tool": "CodeGraphContext",
+  "backend": "FalkorDB Lite",
+  "loadMs": 1906.558687100187,
+  "mode": "symbol",
+  "warmup": 1,
+  "repetitions": 20,
+  "rows": [
+    {
+      "query": "SequenceMatcher",
+      "hitAt10": true,
+      "coldMs": 1.7688979860395193,
+      "medianMs": 0.6479964358732104,
+      "files": [
+        {
+          "path": "Lib/difflib.py",
+          "symbol": "SequenceMatcher",
+          "lines": [
+            {
+              "line": 44,
+              "source": "class SequenceMatcher:\n\n    \"\"\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": "JSONDecoder",
+      "hitAt10": true,
+      "coldMs": 0.5697130691260099,
+      "medianMs": 0.2550975186750293,
+      "files": [
+        {
+          "path": "Lib/json/decoder.py",
+          "symbol": "JSONDecoder",
+          "lines": [
+            {
+              "line": 262,
+              "source": "class JSONDecoder(object):\n    \"\"\"Simple JSON <https://json.org> decoder\n"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": "ArgumentParser",
+      "hitAt10": true,
+      "coldMs": 0.2263849601149559,
+      "medianMs": 0.22316398099064827,
+      "files": [
+        {
+          "path": "Lib/argparse.py",
+          "symbol": "ArgumentParser",
+          "lines": [
+            {
+              "line": 1840,
+              "source": "class ArgumentParser(_AttributeHolder, _ActionsContainer):\n    \"\"\"Object for parsing command line strings into Python objects.\n"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": "heappush",
+      "hitAt10": true,
+      "coldMs": 0.2587039489299059,
+      "medianMs": 0.22043846547603607,
+      "files": [
+        {
+          "path": "Lib/heapq.py",
+          "symbol": "heappush",
+          "lines": [
+            {
+              "line": 132,
+              "source": "def heappush(heap, item):\n    \"\"\"Push item onto heap, maintaining the heap invariant.\"\"\"\n    heap.append(item)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": "Py_Initialize",
+      "hitAt10": true,
+      "coldMs": 0.23516989313066006,
+      "medianMs": 0.20684394985437393,
+      "files": [
+        {
+          "path": "Python/pylifecycle.c",
+          "symbol": "Py_Initialize",
+          "lines": [
+            {
+              "line": 1483,
+              "source": "void\nPy_Initialize(void)\n{"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": "PyErr_SetString",
+      "hitAt10": true,
+      "coldMs": 0.3216590266674757,
+      "medianMs": 0.19437551964074373,
+      "files": [
+        {
+          "path": "Python/errors.c",
+          "symbol": "PyErr_SetString",
+          "lines": [
+            {
+              "line": 294,
+              "source": "void\nPyErr_SetString(PyObject *exception, const char *string)\n{"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": "PyUnicode_FromString",
+      "hitAt10": true,
+      "coldMs": 0.21291011944413185,
+      "medianMs": 0.20518049132078886,
+      "files": [
+        {
+          "path": "Objects/unicodeobject.c",
+          "symbol": "PyUnicode_FromString",
+          "lines": [
+            {
+              "line": 2169,
+              "source": "PyObject *\nPyUnicode_FromString(const char *u)\n{"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": "PyLong_FromLong",
+      "hitAt10": false,
+      "coldMs": 0.23586093448102474,
+      "medianMs": 0.17967401072382927,
+      "files": []
+    }
+  ],
+  "counts": {
+    "nodes": 442074,
+    "relations": 958017,
+    "files": 3575,
+    "functions": 93249,
+    "classes": 18227
+  }
+}

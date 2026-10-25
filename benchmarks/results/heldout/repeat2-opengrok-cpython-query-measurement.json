@@ -1,0 +1,27 @@
+{
+  "command": [
+    "java",
+    "-cp",
+    "/data/dev/benchmark-tools:/data/dev/benchmark-tools/opengrok-1.14.20/lib/*",
+    "OpenGrokQuery",
+    "/data/dev/CodeIndex/.data/heldout/repeat-2/opengrok/cpython/config.xml",
+    "/data/dev/CodeIndex-worktrees/feature/heldout-comparison/benchmarks/heldout/questions/cpython.json",
+    "symbol"
+  ],
+  "cwd": "/data/dev/CodeIndex-worktrees/feature/heldout-comparison",
+  "systemdUnit": "codeindex-benchmark-1829370.scope",
+  "systemdResult": "success",
+  "status": "success",
+  "exitCode": 0,
+  "wallSeconds": 0.87,
+  "wallSecondsIncludingSupervisor": 1.0190743189305067,
+  "timeLimitSeconds": 300,
+  "memoryLimitGiB": 12,
+  "gnuTimeMaxRssKiB": 221504,
+  "sampledProcessTreeRssSumBytes": 207740928,
+  "workloadSampled": true,
+  "cgroupMemoryPeakBytes": 182190080,
+  "sampleIntervalSeconds": 0.25,
+  "leftoverProcessIdsTerminated": [],
+  "memoryNotes": "RSS sum can double-count shared pages; cgroup memory includes page cache; GNU time max RSS is not simultaneous tree total"
+}
