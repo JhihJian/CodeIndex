@@ -6,7 +6,7 @@ import test from 'node:test';
 import { indexRepository, loadIndex } from '../src/lib/indexer.js';
 import { queryIndex } from '../src/lib/query.js';
 
-test('native C/C++ symbols, calls, macros, includes and inheritance survive source removal', (t) => {
+test('native C/C++ symbols, calls, macros, includes and inheritance survive source removal', async (t) => {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'codeindex-c-'));
   t.after(() => fs.rmSync(root, { recursive: true, force: true }));
   const repo = path.join(root, 'repo'), store = path.join(root, 'store');
@@ -14,7 +14,7 @@ test('native C/C++ symbols, calls, macros, includes and inheritance survive sour
   fs.writeFileSync(path.join(repo, 'demo.h'), 'typedef struct Item {\n int value;\n} Item;\nint helper(int value);\n');
   fs.writeFileSync(path.join(repo, 'demo.c'), '#include "demo.h"\n#define TWICE(x) ((x)+(x))\nstatic int helper(int value) { return value; }\nint run(int value) { return helper(TWICE(value)); }\n');
   fs.writeFileSync(path.join(repo, 'demo.cpp'), 'class Base {};\nclass Child : public Base {\npublic:\n int run(int value) { return value; }\n};\n');
-  const built = indexRepository(repo, store);
+  const built = await indexRepository(repo, store);
   fs.rmSync(repo, { recursive: true });
   const index = loadIndex(store);
   t.after(() => index.close());

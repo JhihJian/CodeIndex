@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
+import { runProcess, workerCount } from './build-jobs.js';
 
 const SYSTEM_PATH = '/usr/bin:/bin';
 const ARTIFACTS = ['native/cscope.out', 'native/cscope.out.in', 'native/cscope.out.po', 'native/cscope.paths.json'];
@@ -32,6 +33,15 @@ function run(tool, args, { cwd, query = false } = {}) {
     throw new Error(`${path.basename(tool.path)} failed: ${result.error?.message || `exit ${result.status}, signal ${result.signal}`}\n${result.stderr || ''}`);
   }
   return result;
+}
+
+function runBuild(tool, args, { cwd, signal } = {}) {
+  if (!tool?.path) return Promise.reject(new Error('Native tool is not resolved'));
+  return runProcess(tool.path, args, {
+    cwd, signal, env: nativeEnv(),
+    timeout: positiveSetting('CODEINDEX_NATIVE_TIMEOUT_MS', 180000),
+    maxBuffer: positiveSetting('CODEINDEX_NATIVE_MAX_OUTPUT_BYTES', 32 * 1024 * 1024),
+  });
 }
 
 function executable(candidate) {
@@ -110,7 +120,7 @@ function warnings(stderr) {
 }
 
 /** paths is an iterable of normalized repository-relative strings. Output is streamed by Ctags to disk. */
-export function extractCTags({ treeRoot, paths, outputPath, tools }) {
+export async function extractCTags({ treeRoot, paths, outputPath, tools, workers = 1, signal }) {
   const { root, files } = snapshotFiles(treeRoot, paths);
   outputPath = path.resolve(outputPath);
   if (inside(root, outputPath)) throw new Error('Ctags output must be outside the read-only snapshot tree');
@@ -120,18 +130,49 @@ export function extractCTags({ treeRoot, paths, outputPath, tools }) {
     return { outputPath, warnings: [] };
   }
   const scratch = fs.mkdtempSync(path.join(path.dirname(outputPath), '.ctags-'));
+  const controller = new AbortController();
+  const abort = () => controller.abort();
+  signal?.addEventListener('abort', abort, { once: true });
+  if (signal?.aborted) controller.abort();
   try {
-    const list = path.join(scratch, 'files');
-    // Ctags -L consumes whole lines, not Cscope's shell-style quoted names.
-    fs.writeFileSync(list, files.map((file) => file.startsWith('-') ? `./${file}` : file).join('\n') + '\n', 'utf8');
-    const response = run(tools?.ctags, [
-      '--options=NONE', '--output-format=json', '--languages=C,C++', '--sort=no',
-      '--fields=+neKStiaZ', '--fields=-P', '--extras=-p', '--kinds-C=+p', '--kinds-C++=+p',
-      '-L', list, '-f', path.join(scratch, 'tags.jsonl'),
-    ], { cwd: root });
-    fs.renameSync(path.join(scratch, 'tags.jsonl'), outputPath);
-    return { outputPath, warnings: warnings(response.stderr) };
-  } finally { fs.rmSync(scratch, { recursive: true, force: true }); }
+    const count = Math.min(workerCount(workers), Math.ceil(files.length / 128));
+    const size = Math.ceil(files.length / count);
+    const shards = Array.from({ length: count }, (_, index) => ({
+      list: path.join(scratch, `files-${index}`), output: path.join(scratch, `tags-${index}.jsonl`),
+      files: files.slice(index * size, (index + 1) * size),
+    }));
+    for (const shard of shards) fs.writeFileSync(shard.list, shard.files.map((file) => file.startsWith('-') ? `./${file}` : file).join('\n') + '\n', 'utf8');
+    let failure;
+    const responses = await Promise.all(shards.map(async (shard) => {
+      try {
+        return await runBuild(tools?.ctags, [
+          '--options=NONE', '--output-format=json', '--languages=C,C++', '--sort=no',
+          '--fields=+neKStiaZ', '--fields=-P', '--extras=-p', '--kinds-C=+p', '--kinds-C++=+p',
+          '-L', shard.list, '-f', shard.output,
+        ], { cwd: root, signal: controller.signal });
+      } catch (error) { failure ||= error; controller.abort(); return null; }
+    }));
+    if (failure) throw failure;
+    if (shards.length === 1) {
+      fs.renameSync(shards[0].output, outputPath);
+      return { outputPath, warnings: warnings(responses[0].stderr) };
+    }
+    const fd = fs.openSync(outputPath, 'w');
+    const buffer = Buffer.allocUnsafe(256 * 1024);
+    try {
+      for (const shard of shards) {
+        const input = fs.openSync(shard.output, 'r');
+        try {
+          let bytes;
+          while ((bytes = fs.readSync(input, buffer, 0, buffer.length, null))) fs.writeSync(fd, buffer, 0, bytes);
+        } finally { fs.closeSync(input); }
+      }
+    } finally { fs.closeSync(fd); }
+    return { outputPath, warnings: responses.flatMap((response) => warnings(response.stderr)) };
+  } finally {
+    signal?.removeEventListener('abort', abort);
+    fs.rmSync(scratch, { recursive: true, force: true });
+  }
 }
 
 // With -k, no -I and a sanitized environment, Cscope 15 resolves quoted includes
@@ -221,12 +262,53 @@ function databaseFiles(database, { normalizeHeader = false } = {}) {
   } finally { fs.closeSync(fd); }
 }
 
+// Reuse only the v15.9 format whose cwd and second-resolution timestamp rules
+// have been verified. Never modify a seed or a shared immutable source inode.
+function seedCscope({ previousDir, database, root, closure, changedPaths }) {
+  if (!previousDir || /\s/.test(root)) return false;
+  const seed = path.join(previousDir, ARTIFACTS[0]);
+  let header;
+  let oldRoot;
+  try {
+    databaseFiles(seed);
+    const mapping = JSON.parse(fs.readFileSync(path.join(previousDir, ARTIFACTS[3]), 'utf8'));
+    if (Object.entries(mapping).some(([key, value]) => key !== value)) return false;
+    const fd = fs.openSync(seed, 'r');
+    const buffer = Buffer.alloc(65536);
+    try { header = buffer.subarray(0, fs.readSync(fd, buffer, 0, buffer.length, 0)).toString('utf8').split('\n')[0]; }
+    finally { fs.closeSync(fd); }
+    oldRoot = /^cscope 15 (\S+) -q \d+ \d+$/.exec(header)?.[1];
+    if (!oldRoot || Buffer.byteLength(oldRoot) !== Buffer.byteLength(root)) return false;
+  } catch { return false; }
+  const referenceTime = closure.reduce((latest, file) => Math.max(latest, Math.floor(fs.statSync(path.join(root, file)).mtimeMs / 1000)), 0);
+  const changed = new Set(changedPaths);
+  const scratch = fs.mkdtempSync(path.join(path.dirname(database), '.seed-'));
+  try {
+    for (const file of closure) {
+      if (!changed.has(file)) continue;
+      const target = path.join(root, file);
+      const copy = path.join(scratch, 'source');
+      fs.copyFileSync(target, copy, fs.constants.COPYFILE_FICLONE);
+      fs.renameSync(copy, target);
+      fs.utimesSync(target, referenceTime + 1, referenceTime + 1);
+      if (Math.floor(fs.statSync(target).mtimeMs / 1000) <= referenceTime) throw new Error(`Cannot timestamp Cscope changed input: ${file}`);
+    }
+    fs.copyFileSync(seed, database, fs.constants.COPYFILE_FICLONE);
+    const fd = fs.openSync(database, 'r+');
+    try { fs.writeSync(fd, Buffer.from(header.replace(oldRoot, root)), 0, Buffer.byteLength(header), 0); }
+    finally { fs.closeSync(fd); }
+    fs.utimesSync(database, referenceTime, referenceTime);
+    if (Math.floor(fs.statSync(database).mtimeMs / 1000) !== referenceTime) throw new Error('Cannot timestamp Cscope seed');
+    return true;
+  } finally { fs.rmSync(scratch, { recursive: true, force: true }); }
+}
+
 /**
  * paths supplies primary C/C++ inputs. allowedFiles optionally lists all saved snapshot text.
  * files reports primary inputs, indexedFiles reports the actual native database file list.
  * Empty C/C++ inputs yield no artifacts. Snapshot contents must remain immutable during build.
  */
-export function buildCscope({ treeRoot, paths, allowedFiles, snapshotDir, tools }) {
+export async function buildCscope({ treeRoot, paths, allowedFiles, snapshotDir, tools, previousDir, changedPaths = [], signal }) {
   const { root, files } = snapshotFiles(treeRoot, paths);
   snapshotDir = path.resolve(snapshotDir);
   const nativeDir = path.join(snapshotDir, 'native');
@@ -268,7 +350,8 @@ export function buildCscope({ treeRoot, paths, allowedFiles, snapshotDir, tools 
     const list = path.join(scratch, 'files');
     fs.writeFileSync(list, Object.keys(mapping).map((file) => `"./${file}"`).join('\n') + '\n', 'utf8');
     const database = path.join(snapshotDir, ARTIFACTS[0]);
-    const response = run(tools?.cscope, ['-b', '-q', '-k', '-u', '-i', list, '-f', database], { cwd: buildRoot });
+    const reused = !aliases && tools?.cscope?.version === 'cscope: version 15.9' && seedCscope({ previousDir, database, root, closure, changedPaths });
+    const response = await runBuild(tools?.cscope, ['-b', '-q', '-k', reused ? '-U' : '-u', '-i', list, '-f', database], { cwd: buildRoot, signal });
     checkCscopeResponse(response);
     verifyArtifacts(snapshotDir);
     const indexed = databaseFiles(database, { normalizeHeader: true });
@@ -283,7 +366,7 @@ export function buildCscope({ treeRoot, paths, allowedFiles, snapshotDir, tools 
     // Opening with -q verifies the inverted indexes, including zero-exit diagnostics.
     const probe = run(tools?.cscope, ['-d', '-L', '-q', '-k', '-P', root, '-f', database, '-0', '__codeindex_index_probe__'], { cwd: scratch, query: true });
     checkCscopeResponse(probe);
-    return { files, indexedFiles: indexed.map((file) => mapping[file]), artifacts: [...ARTIFACTS], warnings: [...warnings(response.stderr), ...warnings(probe.stderr)] };
+    return { files, indexedFiles: indexed.map((file) => mapping[file]), artifacts: [...ARTIFACTS], buildMode: reused ? 'incremental' : 'full', warnings: [...warnings(response.stderr), ...warnings(probe.stderr)] };
   } catch (error) {
     for (const artifact of ARTIFACTS) fs.rmSync(path.join(snapshotDir, artifact), { force: true });
     throw error;

@@ -21,10 +21,10 @@ function fixture() {
   return root;
 }
 
-test('indexes symbols, containment and resolved call relations with immutable evidence', () => {
+test('indexes symbols, containment and resolved call relations with immutable evidence', async () => {
   const repo = fixture();
   const store = fs.mkdtempSync(path.join(os.tmpdir(), 'codeindex-store-'));
-  const built = indexRepository(repo, store);
+  const built = await indexRepository(repo, store);
   const index = loadIndex(store);
   assert.equal(built.manifest.status, 'published');
   assert.ok([...index.iterSymbols()].some((symbol) => symbol.name === 'Service'));
@@ -54,14 +54,14 @@ test('indexes symbols, containment and resolved call relations with immutable ev
   assert.equal(fileBatchCalls, 1);
 });
 
-test('update reuses unchanged parse results and publishes a new snapshot', () => {
+test('update reuses unchanged parse results and publishes a new snapshot', async () => {
   const repo = fixture();
   const store = fs.mkdtempSync(path.join(os.tmpdir(), 'codeindex-store-'));
-  const first = indexRepository(repo, store);
+  const first = await indexRepository(repo, store);
   fs.appendFileSync(path.join(repo, 'pkg', 'consumer.py'), '\n\ndef extra(value):\n    return value\n');
   execFileSync('git', ['-C', repo, 'add', '.']);
   execFileSync('git', ['-C', repo, 'commit', '-qm', 'update']);
-  const second = indexRepository(repo, store, { incremental: true });
+  const second = await indexRepository(repo, store, { incremental: true });
   assert.notEqual(first.manifest.snapshotId, second.manifest.snapshotId);
   assert.equal(second.stats.changedFiles, 1);
   assert.ok(second.stats.reusedFiles >= 2);
@@ -75,7 +75,7 @@ test('update reuses unchanged parse results and publishes a new snapshot', () =>
   };
   let unchanged;
   try {
-    unchanged = indexRepository(repo, store, { incremental: true });
+    unchanged = await indexRepository(repo, store, { incremental: true });
   } finally {
     fs.readFileSync = originalReadFileSync;
   }

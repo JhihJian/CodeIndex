@@ -77,7 +77,7 @@ if (process.argv.includes('--update')) {
   fs.writeFileSync(backupPath, original, { flag: 'wx' });
   try {
     fs.appendFileSync(file, '\n/* CodeIndex streaming incremental benchmark. */\n');
-    const result = indexRepository(repo, store, { onProgress: (event) => console.error(JSON.stringify(event)) });
+    const result = await indexRepository(repo, store, { onProgress: (event) => console.error(JSON.stringify(event)) });
     assert.equal(result.stats.changedFiles, 1);
     assert.equal(result.stats.reusedFiles, result.stats.files - 1);
     assert.notEqual(result.manifest.snapshotId, before.snapshotId);

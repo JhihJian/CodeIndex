@@ -18,11 +18,11 @@ try {
     const source = Array.from({ length: functionsPerFile }, (_, i) => `def function_${file}_${i}():\n    return ${i === 0 ? '0' : `function_${file}_${i - 1}()`}\n`).join('\n');
     fs.writeFileSync(path.join(repo, `file_${file}.py`), source);
   }
-  const full = indexRepository(repo, store, { incremental: false });
+  const full = await indexRepository(repo, store, { incremental: false });
   assert.equal(full.stats.symbols, files * (functionsPerFile + 1));
   assert.equal(full.stats.relations, files * (functionsPerFile - 1));
   fs.appendFileSync(path.join(repo, 'file_0.py'), '\ndef added():\n    return 42\n');
-  const update = indexRepository(repo, store);
+  const update = await indexRepository(repo, store);
   assert.equal(update.stats.changedFiles, 1);
   assert.equal(update.stats.reusedFiles, files - 1);
   assert.equal(update.stats.symbols, full.stats.symbols + 1);

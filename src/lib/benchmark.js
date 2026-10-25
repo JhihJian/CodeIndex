@@ -29,7 +29,7 @@ function expectedHit(result, question) {
   return (question.expectedPaths || []).some((expected) => paths.some((actual) => actual === expected || actual.includes(expected))) || (question.expectedSymbols || []).some((expected) => names.some((actual) => actual === expected || actual.endsWith(`.${expected}`) || actual.includes(expected)));
 }
 
-export function runBenchmark({ repoRoot, storeRoot, questionFile, outputFile, forceIndex = false }) {
+export async function runBenchmark({ repoRoot, storeRoot, questionFile, outputFile, forceIndex = false }) {
   const questions = readJson(questionFile, []);
   if (!questions.length) throw new Error(`问题集为空: ${questionFile}`);
   let index;
@@ -38,7 +38,7 @@ export function runBenchmark({ repoRoot, storeRoot, questionFile, outputFile, fo
   let indexResult = null;
   if (!index || index.manifest.repositoryPath !== fs.realpathSync(repoRoot)) {
     index?.close();
-    indexResult = indexRepository(repoRoot, storeRoot, { incremental: !forceIndex });
+    indexResult = await indexRepository(repoRoot, storeRoot, { incremental: !forceIndex });
     index = loadIndex(storeRoot);
   }
   try {

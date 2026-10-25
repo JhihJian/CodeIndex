@@ -15,11 +15,11 @@ function workspace(t) {
   return { root, repo, store: path.join(root, 'store') };
 }
 
-test('streamed updates reuse records without whole JSONL reads and match full rebuild identity', (t) => {
+test('streamed updates reuse records without whole JSONL reads and match full rebuild identity', async (t) => {
   const { repo, store, root } = workspace(t);
   fs.writeFileSync(path.join(repo, 'a.py'), 'def helper():\n    return 1\n');
   fs.writeFileSync(path.join(repo, 'b.py'), 'import a\ndef caller():\n    return a.helper()\n');
-  const first = indexRepository(repo, store);
+  const first = await indexRepository(repo, store);
   fs.appendFileSync(path.join(repo, 'b.py'), '\ndef extra():\n    return 2\n');
   const readFileSync = fs.readFileSync;
   fs.readFileSync = (file, ...args) => {
@@ -27,11 +27,11 @@ test('streamed updates reuse records without whole JSONL reads and match full re
     return readFileSync(file, ...args);
   };
   let updated;
-  try { updated = indexRepository(repo, store); }
+  try { updated = await indexRepository(repo, store); }
   finally { fs.readFileSync = readFileSync; }
   assert.equal(updated.stats.changedFiles, 1);
   assert.equal(updated.stats.reusedFiles, 1);
-  const full = indexRepository(repo, path.join(root, 'full'), { incremental: false });
+  const full = await indexRepository(repo, path.join(root, 'full'), { incremental: false });
   assert.equal(updated.manifest.snapshotId, full.manifest.snapshotId);
   assert.notEqual(first.manifest.snapshotId, full.manifest.snapshotId);
   const relationIds = (targetStore) => {
@@ -40,7 +40,7 @@ test('streamed updates reuse records without whole JSONL reads and match full re
     finally { db.close(); }
   };
   assert.deepEqual(relationIds(store), relationIds(path.join(root, 'full')));
-  assert.equal(indexRepository(repo, store).stats.noOp, true);
+  assert.equal((await indexRepository(repo, store)).stats.noOp, true);
   const index = loadIndex(store);
   t.after(() => index.close());
   assert.ok([...index.iterStoredRelations()].some((r) => r.type === 'imports' && r.targetId));
@@ -51,7 +51,7 @@ test('streamed updates reuse records without whole JSONL reads and match full re
   assert.ok(!index.db.prepare("SELECT name FROM sqlite_master WHERE name = 'relation_staging'").get());
 });
 
-test('parser consumers propagate storage failure exactly once', () => {
+test('parser consumers propagate storage failure exactly once', async () => {
   const sentinel = new Error('storage failed');
   for (const language of ['python', 'c']) {
     let calls = 0;
@@ -63,12 +63,12 @@ test('parser consumers propagate storage failure exactly once', () => {
   }
 });
 
-test('failed build preserves published snapshot and removes temporary files', (t) => {
+test('failed build preserves published snapshot and removes temporary files', async (t) => {
   const { repo, store } = workspace(t);
   fs.writeFileSync(path.join(repo, 'a.py'), 'def old(): pass');
-  const first = indexRepository(repo, store);
+  const first = await indexRepository(repo, store);
   fs.writeFileSync(path.join(repo, 'a.py'), 'def changed(): pass');
-  assert.throws(() => indexRepository(repo, store, {
+  await assert.rejects(() => indexRepository(repo, store, {
     onProgress(event) { if (event.stage === 'relations') throw new Error('injected failure'); },
   }), /injected failure/);
   const index = loadIndex(store);
@@ -78,16 +78,16 @@ test('failed build preserves published snapshot and removes temporary files', (t
   assert.ok(!fs.readdirSync(path.dirname(first.snapshotDir)).some((name) => name.startsWith('.build-')));
 });
 
-test('build configuration changes snapshot identity and invalidates no-op', (t) => {
+test('build configuration changes snapshot identity and invalidates no-op', async (t) => {
   const { repo, store } = workspace(t);
   fs.writeFileSync(path.join(repo, 'a.py'), 'def same(): pass');
-  const first = indexRepository(repo, store);
-  const second = indexRepository(repo, store, { maxFileBytes: 1024 });
+  const first = await indexRepository(repo, store);
+  const second = await indexRepository(repo, store, { maxFileBytes: 1024 });
   assert.notEqual(first.manifest.snapshotId, second.manifest.snapshotId);
   assert.equal(second.stats.changedFiles, 1);
 });
 
-test('JSONL streaming preserves UTF-8 crossing chunk boundary and final record', (t) => {
+test('JSONL streaming preserves UTF-8 crossing chunk boundary and final record', async (t) => {
   const { root } = workspace(t);
   const file = path.join(root, 'rows.jsonl');
   const rows = [{ text: 'a'.repeat(65523) + '中文😀' }, { text: 'tail' }];
@@ -95,15 +95,15 @@ test('JSONL streaming preserves UTF-8 crossing chunk boundary and final record',
   assert.deepEqual([...iterateJsonl(file)], rows);
 });
 
-test('navigation and imports are independent of incremental insertion order', (t) => {
+test('navigation and imports are independent of incremental insertion order', async (t) => {
   const { repo, store, root } = workspace(t);
   fs.mkdirSync(path.join(repo, 'pkg'));
   for (let i = 0; i < 14; i++) fs.writeFileSync(path.join(repo, 'pkg', `f${String(i).padStart(2, '0')}.py`), `def f${i}(): pass\n`);
   fs.writeFileSync(path.join(repo, 'pkg', 'caller.py'), 'from . import f00\n');
-  indexRepository(repo, store);
+  await indexRepository(repo, store);
   fs.appendFileSync(path.join(repo, 'pkg', 'f13.py'), 'def extra(): pass\n');
-  const incremental = indexRepository(repo, store);
-  const full = indexRepository(repo, path.join(root, 'full'), { incremental: false });
+  const incremental = await indexRepository(repo, store);
+  const full = await indexRepository(repo, path.join(root, 'full'), { incremental: false });
   const nav = (targetStore) => {
     const index = loadIndex(targetStore);
     try { return [...index.iterContainment()].map((node) => index.getNavigation(node.nodeId)).sort((a, b) => a.nodeId.localeCompare(b.nodeId)); }
@@ -117,15 +117,15 @@ test('navigation and imports are independent of incremental insertion order', (t
   assert.ok(relations.some((r) => r.type === 'imports' && r.targetId));
 });
 
-test('rebuilding restores a missing database under the same snapshot identity', (t) => {
+test('rebuilding restores a missing database under the same snapshot identity', async (t) => {
   const { repo, store } = workspace(t);
   fs.writeFileSync(path.join(repo, 'a.py'), 'def retained(): pass\n');
-  const first = indexRepository(repo, store);
+  const first = await indexRepository(repo, store);
   let current = first;
   for (const incremental of [false, true]) {
     fs.unlinkSync(path.join(current.snapshotDir, 'index.db'));
     assert.throws(() => loadIndex(store), /重新执行 index/);
-    const rebuilt = indexRepository(repo, store, { incremental });
+    const rebuilt = await indexRepository(repo, store, { incremental });
     current = rebuilt;
     assert.equal(rebuilt.manifest.snapshotId, first.manifest.snapshotId);
     assert.notEqual(rebuilt.stats.noOp, true);
@@ -135,10 +135,10 @@ test('rebuilding restores a missing database under the same snapshot identity', 
   }
 });
 
-test('C type usages do not create definition symbols', (t) => {
+test('C type usages do not create definition symbols', async (t) => {
   const { repo, store } = workspace(t);
   fs.writeFileSync(path.join(repo, 'x.c'), 'struct S { int n; }; struct S *a; struct S *b; int f(struct S *s) { return s->n; }');
-  indexRepository(repo, store);
+  await indexRepository(repo, store);
   const index = loadIndex(store);
   t.after(() => index.close());
   const symbols = [...index.iterSymbols()];

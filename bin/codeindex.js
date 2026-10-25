@@ -20,8 +20,8 @@ function parseArgs(argv) {
 
 function usage() {
   console.log(`CodeIndex commands:
-  index     --repo PATH --store PATH [--force] [--progress]
-  update    --repo PATH --store PATH [--progress]
+  index     --repo PATH --store PATH [--force] [--progress] [--workers 1..8]
+  update    --repo PATH --store PATH [--progress] [--workers 1..8]
   inspect   --store PATH [--repo-id ID]
   query     --store PATH --query TEXT [--metadata-only] [--llm --provider NAME --model NAME]
   export    --store PATH --output PATH [--repo-id ID]
@@ -40,7 +40,7 @@ try {
   const store = path.resolve(options.store || '.codeindex');
   if (options.command === 'index' || options.command === 'update') {
     if (!options.repo) throw new Error('index/update 需要 --repo');
-    const result = indexRepository(path.resolve(options.repo), store, { ctags: options.ctags, cscope: options.cscope, incremental: options.command === 'update' && !options.force, onProgress: options.progress ? (event) => console.error(JSON.stringify(event)) : undefined });
+    const result = await indexRepository(path.resolve(options.repo), store, { ctags: options.ctags, cscope: options.cscope, workers: options.workers, incremental: options.command === 'update' && !options.force, onProgress: options.progress ? (event) => console.error(JSON.stringify(event)) : undefined });
     jsonOrPrint({ repositoryId: result.manifest.repositoryId, snapshotId: result.manifest.snapshotId, status: result.manifest.status, stats: result.stats, store }, options.json);
   } else if (options.command === 'inspect') {
     const index = loadIndex(store, options.repoid || null, { cscope: options.cscope });
@@ -63,7 +63,7 @@ try {
   } else if (options.command === 'benchmark') {
     if (!options.repo || !options.questions) throw new Error('benchmark 需要 --repo 和 --questions');
     const output = options.output ? path.resolve(options.output) : null;
-    const report = runBenchmark({ repoRoot: path.resolve(options.repo), storeRoot: store, questionFile: path.resolve(options.questions), outputFile: output, forceIndex: Boolean(options.force) });
+    const report = await runBenchmark({ repoRoot: path.resolve(options.repo), storeRoot: store, questionFile: path.resolve(options.questions), outputFile: output, forceIndex: Boolean(options.force) });
     jsonOrPrint({ output, repository: report.repository, snapshotId: report.snapshotId, index: report.index, questions: report.questions, aggregate: report.aggregate, gate: report.gate }, true);
     if (!report.gate.recallAtEvidence || !report.gate.significantAdvantage) process.exitCode = 2;
   } else {

@@ -1,12 +1,12 @@
 # 原生索引运行说明
 
-CodeIndex 0.2 使用紧凑 SQLite 保存符号与轻量关系，并通过 Cscope 查询 C/C++ 交叉引用。全量构建的关键路径是扫描、保存源码、符号提取、索引构建、原生交叉引用和发布校验。
+CodeIndex 0.3 使用紧凑 SQLite 保存符号与轻量关系，并通过 Cscope 查询 C/C++ 交叉引用。扫描并冻结源码后，符号构建与 Cscope 并行执行，全部任务结束并通过校验后原子发布。
 
 ## 构建与发布
 
 `index` 总是完整构建。扫描器为纳入范围的文本文件计算摘要，构建器将内容保存到 `source/<sha256>`，并为原生工具生成 `tree/<仓库相对路径>`。`tree` 与已保存的 blob 使用硬链接，活跃工作区文件独立保存。复制时发现内容与扫描摘要不同，构建立即失败。
 
-Ctags 输出逐行写入 SQLite。Python AST 和 JS/TS 提取结果按批次消费。建库结束时批量建立 FTS 与 B-tree，随后生成并验证 Cscope 数据库、倒排索引及文件映射。发布前检查符号范围与外键。
+Ctags 按连续文件分片并行输出，结果按输入顺序逐行写入 SQLite。Python AST 按批次消费。JS/TS 每文件预计算行位置、括号范围和调用位置，大批输入由固定 worker 池解析，每个 worker 最多持有 64 文件或 4 MiB 源码的一批任务，单个大文件独占一批。worker 老生代上限为 256 MiB，完成结果按批消费，SQLite 保持单写入者。建库末尾建立 FTS 与 B-tree，并等待 Cscope 数据库、倒排索引和文件映射校验完成。发布前检查符号范围与外键。
 
 快照目录使用内容身份加独立的生成标识。`published.json` 通过原子替换切换目录，已有查询继续使用原目录。失败构建清理临时目录，保留原发布指针。内容、解析器版本、数据库格式、文件大小限制和工具版本共同参与快照身份。
 
@@ -14,7 +14,23 @@ Ctags 输出逐行写入 SQLite。Python AST 和 JS/TS 提取结果按批次消�
 
 `update` 比较文件摘要，克隆旧数据库，只删除和重提取变化、删除文件的记录。FTS 触发器维护增量索引，未变化文件复用旧 blob。公共符号 ID 由路径身份、名称、类型、作用域和位置组成，独立于 SQLite rowid。
 
-SQL 关系在查询时解析目标，因此删除或重命名目标后，旧的原始调用记录会按当前快照重新判定。Cscope 每次实际更新均重建整个 C/C++ 交叉引用索引。Linux 单文件更新中，该阶段约占 58 秒，是主要成本。
+SQL 关系在查询时解析目标，因此删除或重命名目标后，旧的原始调用记录会按当前快照重新判定。Cscope 15.9 在路径条件满足时复用旧交叉引用记录，仍需遍历旧库并重建全局倒排索引。
+
+复用仅复制旧 `cscope.out`，在副本中等字节长度替换 cwd。全部摘要变化路径都参与判断，包括 `.inc`、`.def` 等被 include 的文本。变化文件在新 staging tree 中先解除与 blob 的硬链接，再设置严格大于种子库的秒级 mtime，使用 `-U` 强制检查删除与 include 变化。旧快照、共享 blob 和工作树均不修改。使用文件名 alias、cwd 含空白、header 长度不等、种子格式不符或其他 Cscope 版本时全量构建。输入安全检查失败直接终止，构建失败保留旧发布版本。
+
+## 并行度与调用接口
+
+CLI `index` / `update` 支持 `--workers 1..8`，也可设置 `CODEINDEX_WORKERS`，默认取可用 CPU 数与 4 的较小值。小于 256 KiB 或仅一个 JS/TS 文件时直接串行解析。原生构建使用独立进程组，超时或构建取消会终止其后代，等待退出后清理 staging。
+
+JavaScript 的 `indexRepository()` 和 `runBenchmark()` 返回 Promise，调用方必须 `await`。`loadIndex()` 和查询仍为同步接口：
+
+```js
+const result = await indexRepository(repo, store, { workers: 4 });
+const index = loadIndex(store);
+try { /* 查询固定快照 */ } finally { index.close(); }
+```
+
+`stats.stages` 记录串行协调步骤的等待与处理时间，`native-cross-references` 是最后等待 Cscope 的耗时。`stats.nativeTaskMs` 记录与其他阶段重叠的原生任务时间，不能再次加到阶段总和。`nativeBuildMode` 为 `full`、`incremental` 或 `none`。worker 数量和老生代限制并非整棵进程树内存上限，严格资源预算应由 cgroup 设置 `MemoryMax` 和 `MemorySwapMax`。
 
 无变化快路径会核对构建配置、工具版本和必要产物。Git revision 与干净状态相同时可直接返回；其他情况扫描内容摘要再判断。此快路径沿用 Git 状态判断范围，Git 忽略文件的独立改动应使用 `index` 强制重新扫描。
 

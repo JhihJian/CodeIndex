@@ -14,11 +14,11 @@ function setup(t) {
   return { root, repo, store };
 }
 
-test('native updates delete stale facts, preserve readers and match a full rebuild', (t) => {
+test('native updates delete stale facts, preserve readers and match a full rebuild', async (t) => {
   const { root, repo, store } = setup(t);
   fs.writeFileSync(path.join(repo, 'a.c'), 'int helper(void) { return 1; }\nint run(void) { return helper(); }\n');
   fs.writeFileSync(path.join(repo, 'b.c'), 'int helper(void) { return 2; }\nint other(void) { return helper(); }\n');
-  indexRepository(repo, store);
+  await indexRepository(repo, store);
   const old = loadIndex(store);
   t.after(() => old.close());
   const other = old.findSymbols({ name: 'other' })[0];
@@ -26,31 +26,31 @@ test('native updates delete stale facts, preserve readers and match a full rebui
   assert.equal(old.getRelationsForSource(other.symbolId)[0].target_id, helper.symbolId);
   fs.renameSync(path.join(repo, 'b.c'), path.join(repo, 'renamed.c'));
   fs.writeFileSync(path.join(repo, 'a.c'), 'int newer(void) { return 3; }\n');
-  const updated = indexRepository(repo, store);
+  const updated = await indexRepository(repo, store);
   assert.equal(updated.stats.changedFiles, 2);
   assert.equal(updated.stats.removedFiles, 1);
   const current = loadIndex(store);
   t.after(() => current.close());
   assert.equal(current.findSymbols({ name: 'run' }).length, 0);
   assert.ok(queryIndex(old, 'who calls helper').evidence.some((e) => e.path === 'a.c' && e.source.includes('run')));
-  const full = indexRepository(repo, path.join(root, 'full'), { incremental: false });
+  const full = await indexRepository(repo, path.join(root, 'full'), { incremental: false });
   const rebuilt = loadIndex(path.join(root, 'full'));
   t.after(() => rebuilt.close());
   assert.equal(full.manifest.snapshotId, updated.manifest.snapshotId);
   assert.deepEqual([...current.iterSymbols()].map((s) => s.symbolId).sort(), [...rebuilt.iterSymbols()].map((s) => s.symbolId).sort());
   assert.equal(current.getFile('b.c'), null);
   fs.writeFileSync(path.join(repo, 'wrapper.c'), 'int __newer(void) { return 0; }\n');
-  indexRepository(repo, store);
+  await indexRepository(repo, store);
   const ranked = loadIndex(store);
   try { assert.equal(queryIndex(ranked, 'newer').target.name, 'newer'); }
   finally { ranked.close(); }
 });
 
-test('JS/TS imports ignore comments and strings and resolve incoming module references', (t) => {
+test('JS/TS imports ignore comments and strings and resolve incoming module references', async (t) => {
   const { repo, store } = setup(t);
   fs.writeFileSync(path.join(repo, 'target.ts'), 'export function target() { return 1; }\n');
   fs.writeFileSync(path.join(repo, 'entry.ts'), 'import { target } from "./target";\n// import "./fake";\nconst text = `import "./fake"`;\nexport { target } from "./target";\n');
-  indexRepository(repo, store);
+  await indexRepository(repo, store);
   const index = loadIndex(store);
   t.after(() => index.close());
   const relations = [...index.iterStoredRelations()];
@@ -60,10 +60,10 @@ test('JS/TS imports ignore comments and strings and resolve incoming module refe
   assert.equal(index.getRelationsForTarget(target.symbolId, ['imports']).length, 2);
 });
 
-test('UTF-8 clipped evidence matches byte ranges and metadata queries do not read blobs', (t) => {
+test('UTF-8 clipped evidence matches byte ranges and metadata queries do not read blobs', async (t) => {
   const { repo, store } = setup(t);
   fs.writeFileSync(path.join(repo, 'long.py'), 'def long_function():\n' + '    text = "中文😀"\n'.repeat(90) + '    return text\n');
-  const built = indexRepository(repo, store);
+  const built = await indexRepository(repo, store);
   const index = loadIndex(store);
   t.after(() => index.close());
   const result = queryIndex(index, 'long_function');
@@ -80,14 +80,14 @@ test('UTF-8 clipped evidence matches byte ranges and metadata queries do not rea
   finally { fs.readFileSync = read; }
 });
 
-test('missing native artifact rebuilds a generation and export states its audit scope', (t) => {
+test('missing native artifact rebuilds a generation and export states its audit scope', async (t) => {
   const { root, repo, store } = setup(t);
   fs.writeFileSync(path.join(repo, 'demo.h'), 'int callee(void);\n');
   fs.writeFileSync(path.join(repo, 'demo.c'), '/*\n#include "fake.h"\n*/\n#include "demo.h"\nint callee(void) { return 1; }\nint caller(void) { return callee(); }\n');
-  const first = indexRepository(repo, store);
+  const first = await indexRepository(repo, store);
   fs.unlinkSync(path.join(first.snapshotDir, 'native/cscope.out.in'));
   assert.throws(() => loadIndex(store), /重新执行 index/);
-  const second = indexRepository(repo, store);
+  const second = await indexRepository(repo, store);
   assert.equal(second.manifest.snapshotId, first.manifest.snapshotId);
   assert.notEqual(second.snapshotDir, first.snapshotDir);
   const index = loadIndex(store);

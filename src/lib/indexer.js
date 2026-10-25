@@ -2,7 +2,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { randomUUID } from 'node:crypto';
 import { cIncludes } from '../parsers/c-includes.js';
-import { parseEntriesBatched } from '../parsers/index.js';
+import { parseEntriesParallel } from '../parsers/parallel.js';
+import { workerCount } from './build-jobs.js';
 import { gitContext } from './git.js';
 import { hashBytes, hashText, stableJson } from './hash.js';
 import { PARSER_VERSION, scanRepository, sourceLayout, spanFrom, iterateJsonl, readJson, repositoryId, writeJsonAtomic, writeJsonl } from './fs.js';
@@ -70,9 +71,10 @@ function copyBlob(source, destination) {
   }
 }
 
-export function indexRepository(repoRoot, storeRoot, {
-  incremental = true, maxFileBytes = 5 * 1024 * 1024, onProgress = () => {}, ctags, cscope,
+export async function indexRepository(repoRoot, storeRoot, {
+  incremental = true, maxFileBytes = 5 * 1024 * 1024, onProgress = () => {}, ctags, cscope, workers,
 } = {}) {
+  workers = workerCount(workers);
   const started = Date.now();
   let stageStarted = started;
   const stages = {};
@@ -121,6 +123,8 @@ export function indexRepository(repoRoot, storeRoot, {
   const tree = path.join(temporary, 'tree');
   fs.mkdirSync(tree);
   fs.mkdirSync(path.join(temporary, 'source'));
+  const controller = new AbortController();
+  let nativeTask;
   let session;
   let published = false;
   let destination = temporary;
@@ -167,11 +171,19 @@ export function indexRepository(repoRoot, storeRoot, {
     }
     session.commit();
     progress('source-and-files');
+    const nativeStarted = Date.now();
+    nativeTask = buildCscope({ treeRoot: tree, paths: cFiles.map((entry) => entry.path),
+      allowedFiles: entries.map((entry) => entry.path), snapshotDir: temporary, tools,
+      previousDir: compatible ? previous.snapshotDir : null, changedPaths, signal: controller.signal,
+    }).then((value) => ({ value, durationMs: Date.now() - nativeStarted }), (error) => {
+      controller.abort();
+      return { error };
+    });
     const changedNative = changed.filter((entry) => nativeLanguage(entry.language));
     const diagnostics = [];
     if (changedNative.length) {
       const tagsFile = path.join(temporary, 'tags.jsonl');
-      const extracted = extractCTags({ treeRoot: tree, paths: changedNative.map((entry) => entry.path), outputPath: tagsFile, tools });
+      const extracted = await extractCTags({ treeRoot: tree, paths: changedNative.map((entry) => entry.path), outputPath: tagsFile, tools, workers, signal: controller.signal });
       diagnostics.push(...extracted.warnings);
       session.begin();
       let currentPath;
@@ -206,7 +218,7 @@ export function indexRepository(repoRoot, storeRoot, {
     const scripted = changed.filter((entry) => ['python', 'javascript', 'typescript'].includes(entry.language))
       .map((entry) => ({ ...entry, absolute: path.join(tree, entry.path) }));
     session.begin();
-    parseEntriesBatched(scripted, (parsed) => {
+    await parseEntriesParallel(scripted, (parsed) => {
       const info = fileInfo.get(parsed.path);
       if (!info) throw new Error(`unexpected-parser-result:${parsed.path}`);
       updateStatus.run(parsed.status, parsed.error || null, info.fileId);
@@ -233,15 +245,17 @@ export function indexRepository(repoRoot, storeRoot, {
         session.insertRelation({ fileId: info.fileId, sourceId, type: relation.type,
           ...targetFields(relation, info.entry, paths), startLine: Math.max(1, relation.line || 1), endColumn: null });
       }
-    });
+    }, { workers });
     session.commit();
     progress('parser-symbols');
     progress('relations');
     session.finalize();
     progress('indexes');
-    const native = buildCscope({ treeRoot: tree, paths: cFiles.map((entry) => entry.path), allowedFiles: entries.map((entry) => entry.path), snapshotDir: temporary, tools });
+    const nativeResult = await nativeTask;
+    if (nativeResult.error) throw nativeResult.error;
+    const native = nativeResult.value;
     diagnostics.push(...native.warnings);
-    progress('native-cross-references');
+    progress('native-cross-references', { taskDurationMs: nativeResult.durationMs, buildMode: native.buildMode || 'none' });
     const invalid = session.db.prepare(`SELECT count(*) AS n FROM symbols s JOIN files f ON f.id=s.file_id
       WHERE s.start_line<1 OR s.end_line<s.start_line OR s.end_line>f.line_count
         OR (s.start_byte IS NOT NULL AND (s.start_byte<0 OR s.end_byte<s.start_byte OR s.end_byte>f.bytes))`).get().n;
@@ -259,6 +273,7 @@ export function indexRepository(repoRoot, storeRoot, {
       parsedFiles: changed.filter((entry) => SUPPORTED.has(entry.language)).length,
       partialFiles, skipped: scan.skipped.length, nodes: counts.files + counts.symbols + directoryPaths.size,
       nativeFiles: native.files.length, nativeIndexedFiles: native.indexedFiles.length,
+      workers, nativeBuildMode: native.buildMode || 'none', nativeTaskMs: nativeResult.durationMs,
       relationsScope: 'stored-sql-relations; native calls and references queried from cscope', stages };
     session.close(); session = null;
     progress('validation');
@@ -280,6 +295,8 @@ export function indexRepository(repoRoot, storeRoot, {
     published = true;
     return { manifest, snapshotDir: destination, stats: { ...manifest.stats, buildMs: Date.now() - started } };
   } catch (error) {
+    controller.abort();
+    await nativeTask;
     try { session?.close(); } catch {}
     if (!published) fs.rmSync(destination, { recursive: true, force: true });
     throw error;

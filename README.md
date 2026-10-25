@@ -44,7 +44,7 @@ node bin/codeindex.js update --repo /path/to/repository --store /path/to/index -
 - **JavaScript/TypeScript**：保留轻量语法提取，支持已有声明、导入和调用行为。语法覆盖范围小于完整编译器。
 - **导航与搜索**：SQLite FTS5 检索名称、作用域、签名、文档和路径；目录、文件和符号导航按需读取。
 - **证据**：原生工具读取快照文件，查询读取同一快照的源码 blob。工作区修改或删除后，已发布快照仍可查询。Ctags 范围以行为粒度，返回片段的字节范围与实际内容一致。
-- **增量**：克隆旧数据库，只删除和重建变化文件的 SQL 事实，未变化文件复用源码。Cscope 交叉引用在每次实际更新时整体重建。
+- **增量**：克隆旧数据库，只删除和重建变化文件的 SQL 事实，未变化文件复用源码。Cscope 15.9 在已验证的路径条件下复用旧交叉引用记录，其余情况全量构建。
 
 关系属于语法交叉引用。同名目标只有在当前解析规则下唯一时才标记 `resolved`，其余保留 `unresolved`。宏展开、条件编译求值、函数指针和完整 C++ 重载消歧需要编译上下文。覆盖状态和查询截断会随结果返回。
 
@@ -63,7 +63,7 @@ node bin/codeindex.js update --repo /path/to/repository --store /path/to/index -
 
 默认快照包含 `manifest.json`、`index.db`、`source/`、`tree/` 和 `native/`。JSONL 由 `export` 显式生成，导出目录必须为空，其中的清单记录原快照位置。源码 blob 和查询数据库继续由原快照保存，审计导出需要与原快照一同留存。Cscope 原生边保持原生格式，SQL 关系 JSONL 覆盖已存储的 SQL 事实。
 
-旧版索引需要重新执行 `index`。新快照使用 `codeindex-index-0.3.0`，发布目录与内容身份分离，重建和增量均保留旧读者使用的目录。使用方法、文件边界及更新成本见 [原生索引运行说明](docs/native-index.md)。原始候选架构保留在 [架构设计](docs/codeindex-architecture.md)。
+旧版索引需要重新执行 `index`。新快照使用 `codeindex-index-0.3.0`，发布目录与内容身份分离，重建和增量均保留旧读者使用的目录。使用方法、并行度、异步 JavaScript API、文件边界及更新成本见 [原生索引运行说明](docs/native-index.md)。原始候选架构保留在 [架构设计](docs/codeindex-architecture.md)。
 
 ## 可选模型归纳
 

@@ -1,6 +1,6 @@
 {
   "name": "codeindex",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Snapshot-aware, structure-first code repository indexing and reasoning for large repositories.",
   "type": "module",
   "bin": {

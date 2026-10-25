@@ -51,14 +51,14 @@ function fixture(t, { spaces = false } = {}) {
   return { dir, repo, snapshotDir, treeRoot, paths: Object.keys(content), source };
 }
 
-test('only resolves requested tools and gives explicit missing dependency errors', (t) => {
+test('only resolves requested tools and gives explicit missing dependency errors', async (t) => {
   const dir = temp(t);
   assert.deepEqual(resolveNativeTools({ needsCtags: false, needsCscope: false }), { ctags: null, cscope: null });
   assert.throws(() => resolveNativeTools({ ctags: path.join(dir, 'missing'), needsCscope: false }), /Cannot resolve ctags.*executable not found/);
   assert.throws(() => resolveNativeTools({ cscope: path.join(dir, 'missing'), needsCtags: false }), /Cannot resolve cscope.*executable not found/);
 });
 
-test('prefers Universal Ctags, validates JSON, and respects explicit and environment options', (t) => {
+test('prefers Universal Ctags, validates JSON, and respects explicit and environment options', async (t) => {
   const dir = temp(t);
   const source = `console.log(process.argv.includes('--list-features') ? 'json supports json' : 'Universal Ctags 6.1');`;
   const universal = fakeTool(dir, 'ctags-universal', source);
@@ -76,7 +76,7 @@ test('prefers Universal Ctags, validates JSON, and respects explicit and environ
   assert.throws(() => resolveNativeTools({ ctags: noJson, needsCscope: false }), /JSON support is required/);
 });
 
-test('Cscope version identity does not contain its installation path', (t) => {
+test('Cscope version identity does not contain its installation path', async (t) => {
   const dir = temp(t);
   const source = `console.error(process.argv[1] + ': version 15.9');`;
   const first = fakeTool(dir, 'cscope-first', source);
@@ -87,7 +87,7 @@ test('Cscope version identity does not contain its installation path', (t) => {
   assert.notEqual(resolve(second).path, resolve(first).path);
 });
 
-test('native command timeout and captured-output limits are enforced', (t) => {
+test('native command timeout and captured-output limits are enforced', async (t) => {
   const dir = temp(t);
   const hanging = fakeTool(dir, 'hanging', 'setInterval(() => {}, 1000);');
   environment(t, { CODEINDEX_NATIVE_TIMEOUT_MS: '100', CODEINDEX_NATIVE_MAX_OUTPUT_BYTES: '1024' });
@@ -96,12 +96,12 @@ test('native command timeout and captured-output limits are enforced', (t) => {
   assert.throws(() => resolveNativeTools({ cscope: verbose, needsCtags: false }), /ENOBUFS/);
 });
 
-test('Ctags emits C/C++ ranges, scopes, signatures and inheritance without source patterns', (t) => {
+test('Ctags emits C/C++ ranges, scopes, signatures and inheritance without source patterns', async (t) => {
   const tools = realTools(t);
   if (!tools) return;
   const f = fixture(t, { spaces: true });
   const outputPath = path.join(f.snapshotDir, 'tags.jsonl');
-  const output = extractCTags({ ...f, tools, outputPath });
+  const output = await extractCTags({ ...f, tools, outputPath });
   assert.deepEqual(output, { outputPath, warnings: [] });
   const tags = fs.readFileSync(outputPath, 'utf8').trim().split('\n').map(JSON.parse);
   assert.ok(tags.every((tag) => tag._type === 'tag' && !Object.hasOwn(tag, 'pattern')));
@@ -115,16 +115,16 @@ test('Ctags emits C/C++ ranges, scopes, signatures and inheritance without sourc
   assert.match(tags.find((tag) => tag.name === 'Child').inherits, /Base/);
   assert.ok(tags.some((tag) => tag.kind === 'prototype' && tag.path === 'demo.h'));
   // Reusing an output pathname must not trigger Ctags' refusal to overwrite JSONL.
-  extractCTags({ ...f, tools, outputPath });
+  await extractCTags({ ...f, tools, outputPath });
 });
 
 for (const spaces of [false, true]) {
-  test(`real Cscope survives snapshot move and live repository deletion${spaces ? ', including spaced paths' : ''}`, (t) => {
+  test(`real Cscope survives snapshot move and live repository deletion${spaces ? ', including spaced paths' : ''}`, async (t) => {
     const tools = realTools(t);
     if (!tools) return;
     const f = fixture(t, { spaces });
     const before = fs.readFileSync(path.join(f.treeRoot, f.source));
-    const built = buildCscope({ ...f, tools });
+    const built = await buildCscope({ ...f, tools });
     assert.deepEqual(built.files, f.paths.filter((file) => !file.endsWith('.py')));
     assert.deepEqual(built.warnings, []);
     for (const artifact of built.artifacts) assert.ok(fs.statSync(path.join(f.snapshotDir, artifact)).size > 0);
@@ -149,7 +149,7 @@ for (const spaces of [false, true]) {
   });
 }
 
-test('Cscope uses system PATH for internal env and sort, ignoring include environment', (t) => {
+test('Cscope uses system PATH for internal env and sort, ignoring include environment', async (t) => {
   const tools = realTools(t);
   if (!tools) return;
   const f = fixture(t);
@@ -157,37 +157,37 @@ test('Cscope uses system PATH for internal env and sort, ignoring include enviro
   fs.mkdirSync(bin);
   for (const name of ['env', 'sort']) fakeTool(bin, name, `console.error('poisoned command'); process.exit(99);`);
   environment(t, { PATH: bin, VPATH: f.repo, INCLUDEDIRS: f.repo, SOURCEDIRS: f.repo, INCDIR: f.repo });
-  buildCscope({ ...f, tools });
+  await buildCscope({ ...f, tools });
   assert.equal(queryCscope({ ...f, tools, name: 'target', mode: 'callers' }).rows.length, 2);
 });
 
-test('rejects unsupported filenames and snapshot escapes before spawning tools', (t) => {
+test('rejects unsupported filenames and snapshot escapes before spawning tools', async (t) => {
   const f = fixture(t);
   for (const file of ['bad\nname.c', 'bad\tname.c', 'bad"name.c', 'bad\\name.c', '../outside.c', '/tmp/absolute.c']) {
-    assert.throws(() => buildCscope({ ...f, paths: [file], tools: {} }), /filename|relative/);
+    await assert.rejects(() => buildCscope({ ...f, paths: [file], tools: {} }), /filename|relative/);
   }
   fs.symlinkSync(path.join(f.repo, 'demo.c'), path.join(f.treeRoot, 'escape.c'));
-  assert.throws(() => buildCscope({ ...f, paths: ['escape.c'], tools: {} }), /escapes snapshot/);
+  await assert.rejects(() => buildCscope({ ...f, paths: ['escape.c'], tools: {} }), /escapes snapshot/);
 });
 
-test('rejects external, symlinked and unlisted includes before native execution', (t) => {
+test('rejects external, symlinked and unlisted includes before native execution', async (t) => {
   const f = fixture(t);
   const file = path.join(f.treeRoot, 'demo.c');
   for (const include of [path.join(f.repo, 'demo.h'), '../../live/demo.h']) {
     fs.writeFileSync(file, `#include "${include}"\nint main(void) { return 0; }\n`);
-    assert.throws(() => buildCscope({ ...f, tools: {} }), /include|Include/);
+    await assert.rejects(() => buildCscope({ ...f, tools: {} }), /include|Include/);
   }
   fs.writeFileSync(file, `#include "${path.join(f.repo, 'demo.h')}\n`);
-  assert.throws(() => buildCscope({ ...f, tools: {} }), /Unsafe include/);
+  await assert.rejects(() => buildCscope({ ...f, tools: {} }), /Unsafe include/);
   fs.symlinkSync(path.join(f.repo, 'demo.h'), path.join(f.treeRoot, 'escape.h'));
   fs.writeFileSync(file, '#include "escape.h"\n');
-  assert.throws(() => buildCscope({ ...f, tools: {} }), /not an indexed snapshot file/);
+  await assert.rejects(() => buildCscope({ ...f, tools: {} }), /not an indexed snapshot file/);
   fs.writeFileSync(path.join(f.treeRoot, 'not-listed.h'), 'int unexpected;\n');
   fs.writeFileSync(file, '#include "not-listed.h"\n');
-  assert.throws(() => buildCscope({ ...f, tools: {} }), /not an indexed snapshot file/);
+  await assert.rejects(() => buildCscope({ ...f, tools: {} }), /not an indexed snapshot file/);
 });
 
-test('Cscope accepts missing parent/generated includes and resolves quoted includes from cwd', (t) => {
+test('Cscope accepts missing parent/generated includes and resolves quoted includes from cwd', async (t) => {
   const tools = realTools(t);
   if (!tools) return;
   const f = fixture(t);
@@ -195,17 +195,17 @@ test('Cscope accepts missing parent/generated includes and resolves quoted inclu
   fs.writeFileSync(path.join(f.treeRoot, 'sub/input.c'), '#include "../demo.h"\n#include "local.inc"\n#include "generated/missing.h"\n#include "../../missing.h"\nint sub_input;\n');
   fs.writeFileSync(path.join(f.treeRoot, 'sub/local.inc'), 'int source_relative_only;\n');
   const paths = [...f.paths, 'sub/input.c'];
-  const result = buildCscope({ ...f, paths, allowedFiles: [...paths, 'sub/local.inc'], tools });
+  const result = await buildCscope({ ...f, paths, allowedFiles: [...paths, 'sub/local.inc'], tools });
   assert.equal(result.files.length, 4);
   assert.equal(result.indexedFiles.length, 4);
   assert.deepEqual(queryCscope({ ...f, tools, name: 'source_relative_only', mode: 'references' }).rows, []);
   // A real cwd candidate outside the snapshot would be opened, even when the
   // source-relative interpretation of ../demo.h is safe.
   fs.writeFileSync(path.join(f.snapshotDir, 'demo.h'), 'int external;\n');
-  assert.throws(() => buildCscope({ ...f, paths, tools: {} }), /Unsafe include outside snapshot/);
+  await assert.rejects(() => buildCscope({ ...f, paths, tools: {} }), /Unsafe include outside snapshot/);
 });
 
-test('Cscope follows allowed saved non-C includes transitively and reports actual indexed files', (t) => {
+test('Cscope follows allowed saved non-C includes transitively and reports actual indexed files', async (t) => {
   const tools = realTools(t);
   if (!tools) return;
   const f = fixture(t);
@@ -214,38 +214,38 @@ test('Cscope follows allowed saved non-C includes transitively and reports actua
   fs.writeFileSync(path.join(f.treeRoot, 'generated/first.inc'), '#include "generated/second.def"\nint included_symbol;\n');
   fs.writeFileSync(path.join(f.treeRoot, 'generated/second.def'), '#include "generated/first.inc"\nint nested_symbol;\n');
   const allowedFiles = [...f.paths, 'generated/first.inc', 'generated/second.def'];
-  assert.throws(() => buildCscope({ ...f, tools: {} }), /not an indexed snapshot file/);
-  const built = buildCscope({ ...f, allowedFiles, tools });
+  await assert.rejects(() => buildCscope({ ...f, tools: {} }), /not an indexed snapshot file/);
+  const built = await buildCscope({ ...f, allowedFiles, tools });
   assert.equal(built.files.length, 3);
   assert.equal(built.indexedFiles.length, 5);
   assert.ok(built.indexedFiles.includes('generated/second.def'));
   assert.equal(queryCscope({ ...f, tools, name: 'nested_symbol', mode: 'references' }).rows[0].path, 'generated/second.def');
   fs.writeFileSync(path.join(f.treeRoot, 'generated/second.def'), `#include "${path.join(f.repo, 'demo.h')}"\n`);
-  assert.throws(() => buildCscope({ ...f, allowedFiles, tools: {} }), /Unsafe include outside snapshot/);
+  await assert.rejects(() => buildCscope({ ...f, allowedFiles, tools: {} }), /Unsafe include outside snapshot/);
   fs.writeFileSync(path.join(f.treeRoot, 'generated/second.def'), '#include "not-saved.inc"\n');
   fs.writeFileSync(path.join(f.treeRoot, 'not-saved.inc'), 'int not_saved;\n');
-  assert.throws(() => buildCscope({ ...f, allowedFiles, tools: {} }), /not an indexed snapshot file/);
+  await assert.rejects(() => buildCscope({ ...f, allowedFiles, tools: {} }), /not an indexed snapshot file/);
 });
 
-test('Cscope -k has no angle-include search directories', (t) => {
+test('Cscope -k has no angle-include search directories', async (t) => {
   const tools = realTools(t);
   if (!tools) return;
   const f = fixture(t);
   fs.writeFileSync(path.join(f.treeRoot, 'demo.c'), `#include <${path.join(f.repo, 'demo.h')}>\n#include <not-saved.inc>\nint primary_symbol;\n`);
   fs.writeFileSync(path.join(f.treeRoot, 'not-saved.inc'), 'int not_saved;\n');
-  const result = buildCscope({ ...f, tools });
+  const result = await buildCscope({ ...f, tools });
   assert.equal(result.indexedFiles.length, 3);
   assert.deepEqual(queryCscope({ ...f, tools, name: 'not_saved', mode: 'references' }).rows, []);
 });
 
-test('Cscope refuses filename aliases when extra include closure files would be lost', (t) => {
+test('Cscope refuses filename aliases when extra include closure files would be lost', async (t) => {
   const f = fixture(t, { spaces: true });
   fs.writeFileSync(path.join(f.treeRoot, f.source), '#include "generated.inc"\n');
   fs.writeFileSync(path.join(f.treeRoot, 'generated.inc'), 'int extra_symbol;\n');
-  assert.throws(() => buildCscope({ ...f, allowedFiles: [...f.paths, 'generated.inc'], tools: {} }), /filename aliases.*include files/);
+  await assert.rejects(() => buildCscope({ ...f, allowedFiles: [...f.paths, 'generated.inc'], tools: {} }), /filename aliases.*include files/);
 });
 
-test('fails on zero-exit Cscope inverted-index diagnostics and cleans artifacts', (t) => {
+test('fails on zero-exit Cscope inverted-index diagnostics and cleans artifacts', async (t) => {
   const f = fixture(t);
   const broken = fakeTool(f.dir, 'broken-cscope', `
     import fs from 'node:fs';
@@ -253,24 +253,24 @@ test('fails on zero-exit Cscope inverted-index diagnostics and cleans artifacts'
     for (const suffix of ['', '.in', '.po']) fs.writeFileSync(db + suffix, 'not a real database');
     console.error('cscope: cannot create inverted index; ignoring -q option');
   `);
-  assert.throws(() => buildCscope({ ...f, tools: { cscope: { path: broken } } }), /cannot create inverted index/);
+  await assert.rejects(() => buildCscope({ ...f, tools: { cscope: { path: broken } } }), /cannot create inverted index/);
   assert.deepEqual(fs.readdirSync(path.join(f.snapshotDir, 'native')), []);
 });
 
-test('fails on missing inverted files even when Cscope exits successfully', (t) => {
+test('fails on missing inverted files even when Cscope exits successfully', async (t) => {
   const f = fixture(t);
   const broken = fakeTool(f.dir, 'missing-index', `
     import fs from 'node:fs';
     fs.writeFileSync(process.argv[process.argv.indexOf('-f') + 1], 'database');
   `);
-  assert.throws(() => buildCscope({ ...f, tools: { cscope: { path: broken } } }), /Missing or empty Cscope/);
+  await assert.rejects(() => buildCscope({ ...f, tools: { cscope: { path: broken } } }), /Missing or empty Cscope/);
 });
 
-test('rejects corrupt inverted indexes and zero-exit query errors', (t) => {
+test('rejects corrupt inverted indexes and zero-exit query errors', async (t) => {
   const tools = realTools(t);
   if (!tools) return;
   const f = fixture(t);
-  buildCscope({ ...f, tools });
+  await buildCscope({ ...f, tools });
   const query = (selectedTools) => queryCscope({ ...f, tools: selectedTools, name: 'target', mode: 'callers' });
   const broken = fakeTool(f.dir, 'query-error', `console.error('cscope: cannot open inverted index');`);
   assert.throws(() => query({ cscope: { path: broken } }), /cannot open inverted index/);
@@ -278,7 +278,7 @@ test('rejects corrupt inverted indexes and zero-exit query errors', (t) => {
   assert.throws(() => query(tools), /failed/);
 });
 
-test('checks the actual native database file list before accepting artifacts', (t) => {
+test('checks the actual native database file list before accepting artifacts', async (t) => {
   const tools = realTools(t);
   if (!tools) return;
   const f = fixture(t);
@@ -295,14 +295,14 @@ test('checks the actual native database file list before accepting artifacts', (
     const trailer = bytes.subarray(offset).toString().replace('demo.c', 'evil.c');
     fs.writeFileSync(db, Buffer.concat([bytes.subarray(0, offset), Buffer.from(trailer)]));
   `);
-  assert.throws(() => buildCscope({ ...f, tools: { cscope: { path: wrapper } } }), /indexed unexpected files/);
+  await assert.rejects(() => buildCscope({ ...f, tools: { cscope: { path: wrapper } } }), /indexed unexpected files/);
 });
 
-test('empty inputs require no native dependencies and invalid query modes are rejected', (t) => {
+test('empty inputs require no native dependencies and invalid query modes are rejected', async (t) => {
   const f = fixture(t);
-  assert.deepEqual(buildCscope({ ...f, paths: ['ignored.py'], tools: {} }), { files: [], indexedFiles: [], artifacts: [], warnings: [] });
+  assert.deepEqual(await buildCscope({ ...f, paths: ['ignored.py'], tools: {} }), { files: [], indexedFiles: [], artifacts: [], warnings: [] });
   const outputPath = path.join(f.snapshotDir, 'empty.jsonl');
-  assert.deepEqual(extractCTags({ ...f, paths: [], outputPath, tools: {} }), { outputPath, warnings: [] });
+  assert.deepEqual(await extractCTags({ ...f, paths: [], outputPath, tools: {} }), { outputPath, warnings: [] });
   assert.equal(fs.readFileSync(outputPath, 'utf8'), '');
   assert.throws(() => queryCscope({ ...f, name: 'target', mode: 'unknown', tools: {} }), /Unsupported Cscope mode/);
 });
