@@ -30,6 +30,8 @@ environment.pop('NODE_OPTIONS', None)
 active_measurement = None
 for key in ['baseline_root', 'inputs', 'store_root', 'results']:
     setattr(a, key, getattr(a, key).resolve())
+if (a.results / 'environment.json').exists():
+    raise RuntimeError(f'Fresh results directory required: {a.results}')
 a.results.mkdir(parents=True, exist_ok=True)
 a.store_root.mkdir(parents=True, exist_ok=True)
 QUESTIONS = {'pageindex': 'questions-identifiers-pageindex.json', 'typescript': 'questions-identifiers-typescript.json', 'linux': 'questions-linux-c.json'}
@@ -87,6 +89,10 @@ def verify_inputs(source, inventory):
         actual = hashlib.sha256((source / item['path']).read_bytes()).hexdigest()
         if actual != item['digest']:
             raise RuntimeError(f'Input changed: {source}/{item["path"]}')
+    expected = {item['path'] for item in inventory}
+    tracked = set(subprocess.check_output(['git', '-C', str(source), 'ls-files', '-z']).decode().rstrip('\0').split('\0'))
+    if tracked != expected:
+        raise RuntimeError(f'Tracked file set changed: {source}')
     if git(source, 'status', '--porcelain'):
         raise RuntimeError(f'Dirty fixed input: {source}')
 
@@ -96,7 +102,9 @@ def query(corpus, store, suffix, questions):
         raise RuntimeError(f'Query misses: {corpus}-{suffix}')
     return result
 
-save(a.results / 'environment.json', {'baselineRevision': git(a.baseline_root, 'rev-parse', 'HEAD'),
+baseline_environment = json.loads((a.baseline_root / 'benchmarks/results/competitors/environment.json').read_text())
+save(a.results / 'environment.json', {'baselineRevision': baseline_environment['codeindexRevision'],
+    'baselineArtifactCheckout': git(a.baseline_root, 'rev-parse', 'HEAD'),
     'optimizedRevision': git(ROOT, 'rev-parse', 'HEAD'), 'optimizedDirty': git(ROOT, 'status', '--porcelain'),
     'workers': a.workers, 'memoryMaxBytes': 12 * 1024 ** 3, 'swapMaxBytes': 0,
     'nodeHeap': 'automatic; NODE_OPTIONS cleared', 'workerOldGenerationMiB': 256,
