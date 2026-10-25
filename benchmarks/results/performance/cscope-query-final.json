@@ -1,0 +1,22 @@
+{
+  "command": [
+    "python3",
+    "/tmp/query-cscope-final.py"
+  ],
+  "cwd": "/data/dev/CodeIndex-worktrees/feature/index-performance",
+  "systemdUnit": "codeindex-benchmark-1694505.scope",
+  "systemdResult": "success",
+  "status": "success",
+  "exitCode": 0,
+  "wallSeconds": 0.68,
+  "wallSecondsIncludingSupervisor": 0.7671617039013654,
+  "timeLimitSeconds": 300,
+  "memoryLimitGiB": 12,
+  "gnuTimeMaxRssKiB": 82164,
+  "sampledProcessTreeRssSumBytes": 72265728,
+  "workloadSampled": true,
+  "cgroupMemoryPeakBytes": 83148800,
+  "sampleIntervalSeconds": 0.25,
+  "leftoverProcessIdsTerminated": [],
+  "memoryNotes": "RSS sum can double-count shared pages; cgroup memory includes page cache; GNU time max RSS is not simultaneous tree total"
+}

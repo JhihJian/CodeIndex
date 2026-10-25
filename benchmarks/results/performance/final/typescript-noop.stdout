@@ -1,0 +1,28 @@
+{
+  "repositoryId": "repo-c64febb3edcae7801f84",
+  "snapshotId": "snapshot:repo-c64febb3edcae7801f84:eb0bd3aa6ae9335c1a082894",
+  "status": "partial",
+  "stats": {
+    "files": 67863,
+    "symbols": 190793,
+    "relations": 242818,
+    "sourceBytes": 215644618,
+    "changedFiles": 0,
+    "removedFiles": 0,
+    "reusedFiles": 67863,
+    "parsedFiles": 26766,
+    "partialFiles": 41097,
+    "skipped": 1,
+    "nodes": 259372,
+    "nativeFiles": 0,
+    "nativeIndexedFiles": 0,
+    "workers": 4,
+    "nativeBuildMode": "none",
+    "nativeTaskMs": 38,
+    "relationsScope": "stored-sql-relations; native calls and references queried from cscope",
+    "stages": {},
+    "buildMs": 120,
+    "noOp": true
+  },
+  "store": "/data/dev/CodeIndex/.data/performance-v3/typescript"
+}

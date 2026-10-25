@@ -1,0 +1,22 @@
+{
+  "command": [
+    "/tmp/codeindex-node22/node-v22.16.0-linux-x64/bin/node",
+    "--test"
+  ],
+  "cwd": "/data/dev/CodeIndex-worktrees/feature/index-performance",
+  "systemdUnit": "codeindex-benchmark-1611692.scope",
+  "systemdResult": "success",
+  "status": "success",
+  "exitCode": 0,
+  "wallSeconds": 1.41,
+  "wallSecondsIncludingSupervisor": 1.7750300569459796,
+  "timeLimitSeconds": 120,
+  "memoryLimitGiB": 12,
+  "gnuTimeMaxRssKiB": 178668,
+  "sampledProcessTreeRssSumBytes": 519278592,
+  "workloadSampled": true,
+  "cgroupMemoryPeakBytes": 354553856,
+  "sampleIntervalSeconds": 0.25,
+  "leftoverProcessIdsTerminated": [],
+  "memoryNotes": "RSS sum can double-count shared pages; cgroup memory includes page cache; GNU time max RSS is not simultaneous tree total"
+}

@@ -1,0 +1,15 @@
+{
+  "baselineRevision": "7904b7d3deb3288cec1257da6e34133d7b9df8ad",
+  "optimizedRevision": "f992703c5c8be45d62af97bb2124cc5fbda878d2",
+  "optimizedDirty": "?? benchmarks/results/performance/",
+  "workers": 4,
+  "memoryMaxBytes": 12884901888,
+  "swapMaxBytes": 0,
+  "nodeHeap": "automatic; NODE_OPTIONS cleared",
+  "workerOldGenerationMiB": 256,
+  "cache": "Pre-read source and Git objects; new output; no parser cache reuse",
+  "serial": true,
+  "host": "jhihjian-MACO",
+  "node": "v24.13.1",
+  "startedAt": "2026-10-25T11:38:23+0800"
+}

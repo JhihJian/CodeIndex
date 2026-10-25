@@ -1,0 +1,482 @@
+{
+  "baselineRevision": "9222f7efca28db10c90f06becd5799196d433e27",
+  "memoryLimitGiB": 12,
+  "swapLimitBytes": 0,
+  "repetitionsPerConfiguration": 1,
+  "rows": [
+    {
+      "corpus": "pageindex",
+      "resultsDirectory": "benchmarks/results/performance/final",
+      "implementationRevision": "b42ddc49d9284afc4d62f514df97e0bf68aa6a92",
+      "baselineBuild": {
+        "wallSeconds": 1.54,
+        "gnuTimeMaxRssKiB": 119164,
+        "sampledProcessTreeRssSumBytes": 156868608,
+        "cgroupMemoryPeakBytes": 106074112,
+        "systemdUnit": null
+      },
+      "build": {
+        "wallSeconds": 1.53,
+        "gnuTimeMaxRssKiB": 113944,
+        "sampledProcessTreeRssSumBytes": 148312064,
+        "cgroupMemoryPeakBytes": 103874560,
+        "systemdUnit": "codeindex-benchmark-1613409.scope"
+      },
+      "buildReductionPercent": 0.6493506493506551,
+      "baselineCpuSeconds": 1.65,
+      "cpuSeconds": 1.64,
+      "baselineNoop": {
+        "wallSeconds": 0.07,
+        "gnuTimeMaxRssKiB": 53668,
+        "sampledProcessTreeRssSumBytes": 327680,
+        "cgroupMemoryPeakBytes": null,
+        "systemdUnit": "codeindex-benchmark-1436917.scope"
+      },
+      "noop": {
+        "wallSeconds": 0.07,
+        "gnuTimeMaxRssKiB": 53236,
+        "sampledProcessTreeRssSumBytes": null,
+        "cgroupMemoryPeakBytes": null,
+        "systemdUnit": "codeindex-benchmark-1613540.scope"
+      },
+      "baselineUpdate": {
+        "wallSeconds": 0.22,
+        "gnuTimeMaxRssKiB": 82400,
+        "sampledProcessTreeRssSumBytes": 303104,
+        "cgroupMemoryPeakBytes": null,
+        "systemdUnit": "codeindex-benchmark-1437165.scope"
+      },
+      "update": {
+        "wallSeconds": 0.22,
+        "gnuTimeMaxRssKiB": 82948,
+        "sampledProcessTreeRssSumBytes": null,
+        "cgroupMemoryPeakBytes": null,
+        "systemdUnit": "codeindex-benchmark-1613587.scope"
+      },
+      "buildStats": {
+        "files": 155,
+        "symbols": 2668,
+        "relations": 17651,
+        "sourceBytes": 5268104,
+        "changedFiles": 155,
+        "removedFiles": 0,
+        "reusedFiles": 0,
+        "parsedFiles": 112,
+        "partialFiles": 43,
+        "skipped": 1,
+        "nodes": 2854,
+        "nativeFiles": 0,
+        "nativeIndexedFiles": 0,
+        "workers": 4,
+        "nativeBuildMode": "none",
+        "nativeTaskMs": 1339,
+        "relationsScope": "stored-sql-relations; native calls and references queried from cscope",
+        "stages": {
+          "scan": 102,
+          "source-and-files": 27,
+          "native-symbols": 0,
+          "parser-symbols": 1342,
+          "relations": 1,
+          "indexes": 17,
+          "native-cross-references": 0,
+          "validation": 3
+        },
+        "buildMs": 1492
+      },
+      "updateStats": {
+        "files": 155,
+        "symbols": 2669,
+        "relations": 17651,
+        "sourceBytes": 5268169,
+        "changedFiles": 1,
+        "removedFiles": 0,
+        "reusedFiles": 154,
+        "parsedFiles": 1,
+        "partialFiles": 43,
+        "skipped": 1,
+        "nodes": 2855,
+        "nativeFiles": 0,
+        "nativeIndexedFiles": 0,
+        "workers": 4,
+        "nativeBuildMode": "none",
+        "nativeTaskMs": 60,
+        "relationsScope": "stored-sql-relations; native calls and references queried from cscope",
+        "stages": {
+          "scan": 106,
+          "source-and-files": 11,
+          "native-symbols": 1,
+          "parser-symbols": 60,
+          "relations": 0,
+          "indexes": 0,
+          "native-cross-references": 0,
+          "validation": 3
+        },
+        "buildMs": 182
+      },
+      "storage": {
+        "bytes": 9562883,
+        "scope": "Published snapshot, hard links counted once",
+        "sqliteBytes": 4292608
+      },
+      "queryHits": 6,
+      "queryCases": 6,
+      "queryMedianMs": 0.3342264999999962,
+      "baselineQueryMedianMs": 0.3328662499999986,
+      "evidenceChecked": 28,
+      "fullEquivalence": {
+        "files": 155,
+        "symbols": 2668,
+        "relations": 17651,
+        "factsSha256": "dea21d0d9db680b45d63237c9704e0d9b1f3a2465a94ec748f577c2a661eab7a",
+        "sourceBlobsChecked": 155,
+        "nativeBodySha256": null,
+        "equivalent": true,
+        "scope": "Every file: symbol fields and parent identities, stored relations and source identities, source/blob digests; entire Cscope body after the cwd header"
+      },
+      "updateEquivalence": {
+        "files": 155,
+        "symbols": 2669,
+        "relations": 17651,
+        "factsSha256": "91d17c2ef1b68f2b8d720ca6c01ae081cf200914774ae2f0011dd23ebda8aea4",
+        "sourceBlobsChecked": 155,
+        "nativeBodySha256": null,
+        "equivalent": true,
+        "scope": "Every file: symbol fields and parent identities, stored relations and source identities, source/blob digests; entire Cscope body after the cwd header",
+        "corpus": "pageindex",
+        "snapshotId": "snapshot:repo-bd9cf8796bf4f90863e3:9cb4b770998c200d612c21b3",
+        "baselineSnapshot": "/data/dev/CodeIndex/.data/competitors/codeindex/pageindex/repo-bd9cf8796bf4f90863e3/snapshots/snapshot:repo-bd9cf8796bf4f90863e3:9cb4b770998c200d612c21b3-22de4a86",
+        "optimizedSnapshot": "/data/dev/CodeIndex/.data/performance-v3/pageindex/repo-bd9cf8796bf4f90863e3/snapshots/snapshot:repo-bd9cf8796bf4f90863e3:9cb4b770998c200d612c21b3-8ea4e299",
+        "changedFile": "pageindex/tree_optimize.py",
+        "changedFileDigest": "dbb44c4f72faa96e25c2009a0c8c1f3148801bd25de03e45b6d61b426550f1ae"
+      },
+      "restored": true
+    },
+    {
+      "corpus": "typescript",
+      "resultsDirectory": "benchmarks/results/performance/final",
+      "implementationRevision": "b42ddc49d9284afc4d62f514df97e0bf68aa6a92",
+      "baselineBuild": {
+        "wallSeconds": 148.37,
+        "gnuTimeMaxRssKiB": 708456,
+        "sampledProcessTreeRssSumBytes": 707624960,
+        "cgroupMemoryPeakBytes": 1427734528,
+        "systemdUnit": null
+      },
+      "build": {
+        "wallSeconds": 10.68,
+        "gnuTimeMaxRssKiB": 857852,
+        "sampledProcessTreeRssSumBytes": 870109184,
+        "cgroupMemoryPeakBytes": 1515798528,
+        "systemdUnit": "codeindex-benchmark-1614030.scope"
+      },
+      "buildReductionPercent": 92.80177933544516,
+      "baselineCpuSeconds": 150.15,
+      "cpuSeconds": 14.32,
+      "baselineNoop": {
+        "wallSeconds": 0.16,
+        "gnuTimeMaxRssKiB": 53540,
+        "sampledProcessTreeRssSumBytes": 540672,
+        "cgroupMemoryPeakBytes": null,
+        "systemdUnit": "codeindex-benchmark-1438062.scope"
+      },
+      "noop": {
+        "wallSeconds": 0.15,
+        "gnuTimeMaxRssKiB": 53268,
+        "sampledProcessTreeRssSumBytes": null,
+        "cgroupMemoryPeakBytes": null,
+        "systemdUnit": "codeindex-benchmark-1615008.scope"
+      },
+      "baselineUpdate": {
+        "wallSeconds": 5.63,
+        "gnuTimeMaxRssKiB": 351284,
+        "sampledProcessTreeRssSumBytes": 360402944,
+        "cgroupMemoryPeakBytes": 731267072,
+        "systemdUnit": "codeindex-benchmark-1438459.scope"
+      },
+      "update": {
+        "wallSeconds": 5.05,
+        "gnuTimeMaxRssKiB": 374580,
+        "sampledProcessTreeRssSumBytes": 386232320,
+        "cgroupMemoryPeakBytes": 593858560,
+        "systemdUnit": "codeindex-benchmark-1615136.scope"
+      },
+      "buildStats": {
+        "files": 67863,
+        "symbols": 190793,
+        "relations": 242818,
+        "sourceBytes": 215644618,
+        "changedFiles": 67863,
+        "removedFiles": 0,
+        "reusedFiles": 0,
+        "parsedFiles": 26766,
+        "partialFiles": 41097,
+        "skipped": 1,
+        "nodes": 259372,
+        "nativeFiles": 0,
+        "nativeIndexedFiles": 0,
+        "workers": 4,
+        "nativeBuildMode": "none",
+        "nativeTaskMs": 38,
+        "relationsScope": "stored-sql-relations; native calls and references queried from cscope",
+        "stages": {
+          "scan": 2127,
+          "source-and-files": 4455,
+          "native-symbols": 12,
+          "parser-symbols": 2983,
+          "relations": 0,
+          "indexes": 793,
+          "native-cross-references": 0,
+          "validation": 224
+        },
+        "buildMs": 10595
+      },
+      "updateStats": {
+        "files": 67863,
+        "symbols": 190794,
+        "relations": 242818,
+        "sourceBytes": 215644695,
+        "changedFiles": 1,
+        "removedFiles": 0,
+        "reusedFiles": 67862,
+        "parsedFiles": 1,
+        "partialFiles": 41097,
+        "skipped": 1,
+        "nodes": 259373,
+        "nativeFiles": 0,
+        "nativeIndexedFiles": 0,
+        "workers": 4,
+        "nativeBuildMode": "none",
+        "nativeTaskMs": 45,
+        "relationsScope": "stored-sql-relations; native calls and references queried from cscope",
+        "stages": {
+          "scan": 2543,
+          "source-and-files": 2182,
+          "native-symbols": 5,
+          "parser-symbols": 42,
+          "relations": 0,
+          "indexes": 1,
+          "native-cross-references": 0,
+          "validation": 227
+        },
+        "buildMs": 5001
+      },
+      "storage": {
+        "bytes": 396810124,
+        "scope": "Published snapshot, hard links counted once",
+        "sqliteBytes": 186179584
+      },
+      "queryHits": 4,
+      "queryCases": 4,
+      "queryMedianMs": 1.0814645000000027,
+      "baselineQueryMedianMs": 1.0772689999999976,
+      "evidenceChecked": 33,
+      "fullEquivalence": {
+        "files": 67863,
+        "symbols": 190793,
+        "relations": 242818,
+        "factsSha256": "65d44be0f5c0c11cb296f35c7159c8fe254d4faadf1ad4f9e969e0e06bcd340e",
+        "sourceBlobsChecked": 65299,
+        "nativeBodySha256": null,
+        "equivalent": true,
+        "scope": "Every file: symbol fields and parent identities, stored relations and source identities, source/blob digests; entire Cscope body after the cwd header"
+      },
+      "updateEquivalence": {
+        "files": 67863,
+        "symbols": 190794,
+        "relations": 242818,
+        "factsSha256": "e2321cd3e8f179d0c1e01a6777955bdce582e4aac072fa6b87e3caad8a0cea63",
+        "sourceBlobsChecked": 65299,
+        "nativeBodySha256": null,
+        "equivalent": true,
+        "scope": "Every file: symbol fields and parent identities, stored relations and source identities, source/blob digests; entire Cscope body after the cwd header",
+        "corpus": "typescript",
+        "snapshotId": "snapshot:repo-c64febb3edcae7801f84:722e84b8e23188b37539d1a6",
+        "baselineSnapshot": "/data/dev/CodeIndex/.data/competitors/codeindex/typescript/repo-c64febb3edcae7801f84/snapshots/snapshot:repo-c64febb3edcae7801f84:722e84b8e23188b37539d1a6-a9d04606",
+        "optimizedSnapshot": "/data/dev/CodeIndex/.data/performance-v3/typescript/repo-c64febb3edcae7801f84/snapshots/snapshot:repo-c64febb3edcae7801f84:722e84b8e23188b37539d1a6-01578e59",
+        "changedFile": "packages/typescript/src/api/async/api.ts",
+        "changedFileDigest": "120c89aa9a36ebf87ecbadb2e91cafd4ba34b1dd7e27ee7f9f20f8f3408bd1bf"
+      },
+      "restored": true
+    },
+    {
+      "corpus": "linux",
+      "resultsDirectory": "benchmarks/results/performance/final-linux",
+      "implementationRevision": "413a915c8f051067d4d78c682eadba7343c4a89d",
+      "baselineBuild": {
+        "wallSeconds": 135.88,
+        "gnuTimeMaxRssKiB": 3844904,
+        "sampledProcessTreeRssSumBytes": 4416897024,
+        "cgroupMemoryPeakBytes": 9353273344,
+        "systemdUnit": null
+      },
+      "build": {
+        "wallSeconds": 78.74,
+        "gnuTimeMaxRssKiB": 2534564,
+        "sampledProcessTreeRssSumBytes": 3059433472,
+        "cgroupMemoryPeakBytes": 4919582720,
+        "systemdUnit": "codeindex-benchmark-1685536.scope"
+      },
+      "buildReductionPercent": 42.05181042095967,
+      "baselineCpuSeconds": 151.93,
+      "cpuSeconds": 156.46,
+      "baselineNoop": {
+        "wallSeconds": 0.25,
+        "gnuTimeMaxRssKiB": 53776,
+        "sampledProcessTreeRssSumBytes": 57442304,
+        "cgroupMemoryPeakBytes": 61161472,
+        "systemdUnit": "codeindex-benchmark-1441024.scope"
+      },
+      "noop": {
+        "wallSeconds": 0.21,
+        "gnuTimeMaxRssKiB": 53376,
+        "sampledProcessTreeRssSumBytes": null,
+        "cgroupMemoryPeakBytes": null,
+        "systemdUnit": "codeindex-benchmark-1689570.scope"
+      },
+      "baselineUpdate": {
+        "wallSeconds": 74.93,
+        "gnuTimeMaxRssKiB": 2534564,
+        "sampledProcessTreeRssSumBytes": 3007315968,
+        "cgroupMemoryPeakBytes": 6082539520,
+        "systemdUnit": "codeindex-benchmark-1441617.scope"
+      },
+      "update": {
+        "wallSeconds": 74.26,
+        "gnuTimeMaxRssKiB": 2534436,
+        "sampledProcessTreeRssSumBytes": 2986156032,
+        "cgroupMemoryPeakBytes": 7156711424,
+        "systemdUnit": "codeindex-benchmark-1689709.scope"
+      },
+      "buildStats": {
+        "files": 86363,
+        "symbols": 6190587,
+        "relations": 403090,
+        "sourceBytes": 1212793499,
+        "changedFiles": 86363,
+        "removedFiles": 0,
+        "reusedFiles": 0,
+        "parsedFiles": 60006,
+        "partialFiles": 26358,
+        "skipped": 1,
+        "nodes": 6282688,
+        "nativeFiles": 59746,
+        "nativeIndexedFiles": 59746,
+        "workers": 4,
+        "nativeBuildMode": "full",
+        "nativeTaskMs": 58516,
+        "relationsScope": "stored-sql-relations; native calls and references queried from cscope",
+        "stages": {
+          "scan": 6907,
+          "source-and-files": 11536,
+          "native-symbols": 35502,
+          "parser-symbols": 1677,
+          "relations": 0,
+          "indexes": 14915,
+          "native-cross-references": 6432,
+          "validation": 1712
+        },
+        "buildMs": 78681
+      },
+      "updateStats": {
+        "files": 86363,
+        "symbols": 6190588,
+        "relations": 403090,
+        "sourceBytes": 1212793575,
+        "changedFiles": 1,
+        "removedFiles": 0,
+        "reusedFiles": 86362,
+        "parsedFiles": 1,
+        "partialFiles": 26358,
+        "skipped": 1,
+        "nodes": 6282689,
+        "nativeFiles": 59746,
+        "nativeIndexedFiles": 59746,
+        "workers": 4,
+        "nativeBuildMode": "incremental",
+        "nativeTaskMs": 61225,
+        "relationsScope": "stored-sql-relations; native calls and references queried from cscope",
+        "stages": {
+          "scan": 8060,
+          "source-and-files": 3303,
+          "native-symbols": 18253,
+          "parser-symbols": 1,
+          "relations": 0,
+          "indexes": 0,
+          "native-cross-references": 42971,
+          "validation": 1603
+        },
+        "buildMs": 74192
+      },
+      "storage": {
+        "bytes": 4713852890,
+        "scope": "Published snapshot, hard links counted once",
+        "sqliteBytes": 1433788416
+      },
+      "queryHits": 4,
+      "queryCases": 4,
+      "queryMedianMs": 1.6585672499999937,
+      "baselineQueryMedianMs": 1.6450459999999953,
+      "evidenceChecked": 9,
+      "fullEquivalence": {
+        "files": 86363,
+        "symbols": 6190587,
+        "relations": 403090,
+        "factsSha256": "8a84cabda45ae5114f689f1711e4aac749a3c6191f3154ec1ced35f42ec9d8ff",
+        "sourceBlobsChecked": 85809,
+        "nativeBodySha256": "d6182555c1bfd2313bd7c1dbad4c0c50cb5b9880457f5e487ce0b26edfcb4b87",
+        "equivalent": true,
+        "scope": "Every file: symbol fields and parent identities, stored relations and source identities, source/blob digests; entire Cscope body after the cwd header"
+      },
+      "updateEquivalence": {
+        "files": 86363,
+        "symbols": 6190588,
+        "relations": 403090,
+        "factsSha256": "a99cc1c7a1117143a580eb909300a4310b17f96aa4441e8e31fedfe4e6574ca7",
+        "sourceBlobsChecked": 85809,
+        "nativeBodySha256": "ce067a30b61f39d9b21268015f4f76ae09ba019fb7aec91cfcd7bea64c76c1f1",
+        "equivalent": true,
+        "scope": "Every file: symbol fields and parent identities, stored relations and source identities, source/blob digests; entire Cscope body after the cwd header",
+        "corpus": "linux",
+        "snapshotId": "snapshot:repo-cc85df8a7b9b3118a52b:a7cbbe6d6900f2666cbc329e",
+        "baselineSnapshot": "/data/dev/CodeIndex/.data/competitors/codeindex/linux/repo-cc85df8a7b9b3118a52b/snapshots/snapshot:repo-cc85df8a7b9b3118a52b:a7cbbe6d6900f2666cbc329e-ca2aff7a",
+        "optimizedSnapshot": "/data/dev/CodeIndex/.data/performance-v5/linux/repo-cc85df8a7b9b3118a52b/snapshots/snapshot:repo-cc85df8a7b9b3118a52b:a7cbbe6d6900f2666cbc329e-7b513e8b",
+        "changedFile": "fs/open.c",
+        "changedFileDigest": "159b575139c85e3683026d198766c7d425d7435dd5444e4957d63c633ce2ad8a"
+      },
+      "restored": true
+    }
+  ],
+  "typescriptSerial": {
+    "wallSeconds": 11.58,
+    "gnuTimeMaxRssKiB": 567348,
+    "sampledProcessTreeRssSumBytes": 575991808,
+    "cgroupMemoryPeakBytes": 1284501504,
+    "systemdUnit": "codeindex-benchmark-1642889.scope"
+  },
+  "node24": {
+    "wallSeconds": 1.5,
+    "gnuTimeMaxRssKiB": 189508,
+    "sampledProcessTreeRssSumBytes": 524972032,
+    "cgroupMemoryPeakBytes": 267485184,
+    "systemdUnit": "codeindex-benchmark-1683270.scope"
+  },
+  "node22": {
+    "wallSeconds": 1.47,
+    "gnuTimeMaxRssKiB": 179992,
+    "sampledProcessTreeRssSumBytes": 504766464,
+    "cgroupMemoryPeakBytes": 244310016,
+    "systemdUnit": "codeindex-benchmark-1683262.scope"
+  },
+  "inputVerification": {
+    "wallSeconds": 16.53,
+    "gnuTimeMaxRssKiB": 376068,
+    "sampledProcessTreeRssSumBytes": 387645440,
+    "cgroupMemoryPeakBytes": 2565738496,
+    "systemdUnit": "codeindex-benchmark-1685161.scope"
+  },
+  "retainedFailedAudits": [
+    "update-equivalence-measurement.json",
+    "update-equivalence-linux-failed-v4-measurement.json"
+  ],
+  "failureResolution": "Cscope 15.9 macro tails and multiline source fragments reparse in 413a915; final Linux update passes strict full-body equivalence"
+}

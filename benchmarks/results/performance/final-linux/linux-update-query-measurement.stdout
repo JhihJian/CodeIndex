@@ -1,0 +1,193 @@
+{
+  "tool": "CodeIndex",
+  "loadMs": 1.8515219999999992,
+  "mode": "metadata",
+  "warmup": 1,
+  "repetitions": 20,
+  "rows": [
+    {
+      "query": "do_execveat_common",
+      "hitAt10": true,
+      "coldMs": 13.425343000000002,
+      "medianMs": 1.8328075000000013,
+      "evidenceMs": 3.4521569999999997,
+      "files": [
+        {
+          "path": "fs/exec.c",
+          "symbol": "do_execveat_common",
+          "lines": [
+            {
+              "line": 1876,
+              "source": "static int do_execveat_common(int fd, struct filename *filename,\n\t\t\t      struct user_arg_ptr argv,\n\t\t\t      struct user_arg_ptr envp,",
+              "digest": "98f1bd0885d273637457bd6709d393b8deefd2b009ac273f9fc3d26d8509ccb5"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": "tcp_v4_syn_recv_sock",
+      "hitAt10": true,
+      "coldMs": 12.952230999999998,
+      "medianMs": 3.1947369999999893,
+      "evidenceMs": 4.4550669999999855,
+      "files": [
+        {
+          "path": "net/ipv4/tcp_ipv4.c",
+          "symbol": "tcp_v4_syn_recv_sock",
+          "lines": [
+            {
+              "line": 1739,
+              "source": "struct sock *tcp_v4_syn_recv_sock(const struct sock *sk, struct sk_buff *skb,\n\t\t\t\t  struct request_sock *req,\n\t\t\t\t  struct dst_entry *dst,",
+              "digest": "116196ff5c093ed5c239fae1e5ca314b65fc8d3e3073f12f0706822725b52b27"
+            },
+            {
+              "line": 1856,
+              "source": "EXPORT_SYMBOL(tcp_v4_syn_recv_sock);",
+              "digest": "116196ff5c093ed5c239fae1e5ca314b65fc8d3e3073f12f0706822725b52b27"
+            }
+          ]
+        },
+        {
+          "path": "include/net/tcp.h",
+          "symbol": "tcp_v4_syn_recv_sock",
+          "lines": [
+            {
+              "line": 461,
+              "source": "struct sock *tcp_v4_syn_recv_sock(const struct sock *sk, struct sk_buff *skb,\n\t\t\t\t  struct request_sock *req,\n\t\t\t\t  struct dst_entry *dst,",
+              "digest": "cdf696125e9484f7a5579eb0fa0841acb92f39ba6cd2dab219670e837fcf1b8c"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": "vfs_open",
+      "hitAt10": true,
+      "coldMs": 4.642696999999998,
+      "medianMs": 1.5709645000000023,
+      "evidenceMs": 2.728338000000008,
+      "files": [
+        {
+          "path": "fs/open.c",
+          "symbol": "vfs_open",
+          "lines": [
+            {
+              "line": 1083,
+              "source": "int vfs_open(const struct path *path, struct file *file)\n{\n\tint ret;",
+              "digest": "159b575139c85e3683026d198766c7d425d7435dd5444e4957d63c633ce2ad8a"
+            }
+          ]
+        },
+        {
+          "path": "fs/internal.h",
+          "symbol": "vfs_open",
+          "lines": [
+            {
+              "line": 196,
+              "source": "extern int vfs_open(const struct path *, struct file *);",
+              "digest": "8647992564999de73e694fc54f10eb2d82dbfc95fdad1474951841db75b26ea9"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": "pick_next_task_fair",
+      "hitAt10": true,
+      "coldMs": 5.321251999999987,
+      "medianMs": 1.1719550000000112,
+      "evidenceMs": 3.9112930000000006,
+      "files": [
+        {
+          "path": "kernel/sched/fair.c",
+          "symbol": "pick_next_task_fair",
+          "lines": [
+            {
+              "line": 8879,
+              "source": "pick_next_task_fair(struct rq *rq, struct task_struct *prev, struct rq_flags *rf)\n{\n\tstruct sched_entity *se;",
+              "digest": "48c485811e4d20cca0204ea75a24da71777e42a66b6ce158f8ece09132635d7d"
+            },
+            {
+              "line": 8965,
+              "source": "static struct task_struct *__pick_next_task_fair(struct rq *rq, struct task_struct *prev)\n{\n\treturn pick_next_task_fair(rq, prev, NULL);",
+              "digest": "48c485811e4d20cca0204ea75a24da71777e42a66b6ce158f8ece09132635d7d"
+            }
+          ]
+        },
+        {
+          "path": "kernel/sched/sched.h",
+          "symbol": "pick_next_task_fair",
+          "lines": [
+            {
+              "line": 2577,
+              "source": "extern struct task_struct *pick_next_task_fair(struct rq *rq, struct task_struct *prev, struct rq_flags *rf);",
+              "digest": "a34153b995cc32242235e5ed42fca15f2fe0ac6b03fbdc060120c5f87e615e68"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": "codeindex_benchmark_update_probe_20261025",
+      "hitAt10": true,
+      "coldMs": 6.081559999999996,
+      "medianMs": 0.9323835000000003,
+      "evidenceMs": 1.0934279999999603,
+      "files": [
+        {
+          "path": "fs/open.c",
+          "symbol": "codeindex_benchmark_update_probe_20261025",
+          "lines": [
+            {
+              "line": 1658,
+              "source": "static int codeindex_benchmark_update_probe_20261025(void) { return 42; }",
+              "digest": "159b575139c85e3683026d198766c7d425d7435dd5444e4957d63c633ce2ad8a"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "snapshotId": "snapshot:repo-cc85df8a7b9b3118a52b:a7cbbe6d6900f2666cbc329e",
+  "snapshotDir": "/data/dev/CodeIndex/.data/performance-v5/linux/repo-cc85df8a7b9b3118a52b/snapshots/snapshot:repo-cc85df8a7b9b3118a52b:a7cbbe6d6900f2666cbc329e-7b513e8b",
+  "counts": {
+    "files": 86363,
+    "symbols": 6190588,
+    "relations": 403090,
+    "sourceBytes": 1212793575,
+    "changedFiles": 1,
+    "removedFiles": 0,
+    "reusedFiles": 86362,
+    "parsedFiles": 1,
+    "partialFiles": 26358,
+    "skipped": 1,
+    "nodes": 6282689,
+    "nativeFiles": 59746,
+    "nativeIndexedFiles": 59746,
+    "workers": 4,
+    "nativeBuildMode": "incremental",
+    "nativeTaskMs": 61225,
+    "relationsScope": "stored-sql-relations; native calls and references queried from cscope",
+    "stages": {
+      "scan": 8060,
+      "source-and-files": 3303,
+      "native-symbols": 18253,
+      "parser-symbols": 1,
+      "relations": 0,
+      "indexes": 0,
+      "native-cross-references": 42971,
+      "validation": 1603
+    },
+    "buildMs": 74191
+  },
+  "coverage": {
+    "sourceFiles": 86363,
+    "parsedFiles": 60005,
+    "unsupportedFiles": 26357,
+    "partialFiles": 26358,
+    "skippedFiles": 1,
+    "nativeCalls": true,
+    "semantics": "syntax-level symbols and cross-references; no compiler-level overload or pointer resolution"
+  }
+}

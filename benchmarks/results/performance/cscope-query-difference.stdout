@@ -1,0 +1,77 @@
+[
+  {
+    "symbol": "field_name",
+    "old": 710,
+    "new": 710,
+    "added": [
+      "drivers/gpu/drm/amd/display/dc/bios/bios_parser_helper.c <global> 55 ATOM_ ## field_name ## _SHIFT, ATOM_ ## field_name",
+      "drivers/gpu/drm/amd/display/dc/clk_mgr/dce100/dce_clk_mgr.c <global> 51 clk_mgr->clk_mgr_shift->field_name, clk_mgr->clk_mgr_mask->field_name",
+      "drivers/gpu/drm/amd/display/dc/clk_mgr/dce60/dce60_clk_mgr.c <global> 51 clk_mgr->clk_mgr_shift->field_name, clk_mgr->clk_mgr_mask->field_name",
+      "drivers/gpu/drm/amd/display/dc/clk_mgr/dcn20/dcn20_clk_mgr.c <global> 44 clk_mgr->clk_mgr_shift->field_name, clk_mgr->clk_mgr_mask->field_name",
+      "drivers/gpu/drm/amd/display/dc/clk_mgr/dcn201/dcn201_clk_mgr.c <global> 58 clk_mgr->clk_mgr_shift->field_name, clk_mgr->clk_mgr_mask->field_name",
+      "drivers/gpu/drm/amd/display/dc/clk_mgr/dcn30/dcn30_clk_mgr.c <global> 49 clk_mgr->clk_mgr_shift->field_name, clk_mgr->clk_mgr_mask->field_name",
+      "drivers/gpu/drm/amd/display/dc/clk_mgr/dcn32/dcn32_clk_mgr.c <global> 86 clk_mgr->clk_mgr_shift->field_name, clk_mgr->clk_mgr_mask->field_name",
+      "drivers/gpu/drm/amd/display/dc/clk_mgr/dcn401/dcn401_clk_mgr.c <global> 44 clk_mgr->clk_mgr_shift->field_name, clk_mgr->clk_mgr_mask->field_name",
+      "drivers/gpu/drm/amd/display/dc/dccg/dcn20/dcn20_dccg.c <global> 40 dccg_dcn->dccg_shift->field_name, dccg_dcn->dccg_mask->field_name",
+      "drivers/gpu/drm/amd/display/dc/dccg/dcn201/dcn201_dccg.c <global> 39 dccg_dcn->dccg_shift->field_name, dccg_dcn->dccg_mask->field_name",
+      "drivers/gpu/drm/amd/display/dc/dccg/dcn21/dcn21_dccg.c <global> 39 dccg_dcn->dccg_shift->field_name, dccg_dcn->dccg_mask->field_name",
+      "drivers/gpu/drm/amd/display/dc/dccg/dcn30/dcn30_dccg.c <global> 38 dccg_dcn->dccg_shift->field_name, dccg_dcn->dccg_mask->field_name",
+      "drivers/gpu/drm/amd/display/dc/dccg/dcn301/dcn301_dccg.c <global> 38 dccg_dcn->dccg_shift->field_name, dccg_dcn->dccg_mask->field_name",
+      "drivers/gpu/drm/amd/display/dc/dccg/dcn31/dcn31_dccg.c <global> 39 dccg_dcn->dccg_shift->field_name, dccg_dcn->dccg_mask->field_name",
+      "drivers/gpu/drm/amd/display/dc/dccg/dcn314/dcn314_dccg.c <global> 41 dccg_dcn->dccg_shift->field_name, dccg_dcn->dccg_mask->field_name",
+      "drivers/gpu/drm/amd/display/dc/dccg/dcn32/dcn32_dccg.c <global> 38 dccg_dcn->dccg_shift->field_name, dccg_dcn->dccg_mask->field_name",
+      "drivers/gpu/drm/amd/display/dc/dccg/dcn35/dcn35_dccg.c <global> 38 dccg_dcn->dccg_shift->field_name, dccg_dcn->dccg_mask->field_name",
+      "drivers/gpu/drm/amd/display/dc/dccg/dcn401/dcn401_dccg.c <global> 48 dccg_dcn->dccg_shift->field_name, dccg_dcn->dccg_mask->field_name",
+      "drivers/gpu/drm/amd/display/dc/dce/dce_abm.c <global> 45 abm_dce->abm_shift->field_name, abm_dce->abm_mask->field_name",
+      "drivers/gpu/drm/amd/display/dc/dce/dce_audio.c <global> 44 aud->shifts->field_name, aud->masks->field_name"
+    ],
+    "removed": [
+      "drivers/gpu/drm/amd/display/dc/bios/bios_parser_helper.c FN 55 ATOM_ ## field_name ## _SHIFT, ATOM_ ## field_name",
+      "drivers/gpu/drm/amd/display/dc/clk_mgr/dce100/dce_clk_mgr.c FN 51 clk_mgr->clk_mgr_shift->field_name, clk_mgr->clk_mgr_mask->field_name",
+      "drivers/gpu/drm/amd/display/dc/clk_mgr/dce60/dce60_clk_mgr.c FN 51 clk_mgr->clk_mgr_shift->field_name, clk_mgr->clk_mgr_mask->field_name",
+      "drivers/gpu/drm/amd/display/dc/clk_mgr/dcn20/dcn20_clk_mgr.c FN 44 clk_mgr->clk_mgr_shift->field_name, clk_mgr->clk_mgr_mask->field_name",
+      "drivers/gpu/drm/amd/display/dc/clk_mgr/dcn201/dcn201_clk_mgr.c FN 58 clk_mgr->clk_mgr_shift->field_name, clk_mgr->clk_mgr_mask->field_name",
+      "drivers/gpu/drm/amd/display/dc/clk_mgr/dcn30/dcn30_clk_mgr.c FN 49 clk_mgr->clk_mgr_shift->field_name, clk_mgr->clk_mgr_mask->field_name",
+      "drivers/gpu/drm/amd/display/dc/clk_mgr/dcn32/dcn32_clk_mgr.c FN 86 clk_mgr->clk_mgr_shift->field_name, clk_mgr->clk_mgr_mask->field_name",
+      "drivers/gpu/drm/amd/display/dc/clk_mgr/dcn401/dcn401_clk_mgr.c FN 44 clk_mgr->clk_mgr_shift->field_name, clk_mgr->clk_mgr_mask->field_name",
+      "drivers/gpu/drm/amd/display/dc/dccg/dcn20/dcn20_dccg.c FN 40 dccg_dcn->dccg_shift->field_name, dccg_dcn->dccg_mask->field_name",
+      "drivers/gpu/drm/amd/display/dc/dccg/dcn201/dcn201_dccg.c FN 39 dccg_dcn->dccg_shift->field_name, dccg_dcn->dccg_mask->field_name",
+      "drivers/gpu/drm/amd/display/dc/dccg/dcn21/dcn21_dccg.c FN 39 dccg_dcn->dccg_shift->field_name, dccg_dcn->dccg_mask->field_name",
+      "drivers/gpu/drm/amd/display/dc/dccg/dcn30/dcn30_dccg.c FN 38 dccg_dcn->dccg_shift->field_name, dccg_dcn->dccg_mask->field_name",
+      "drivers/gpu/drm/amd/display/dc/dccg/dcn301/dcn301_dccg.c FN 38 dccg_dcn->dccg_shift->field_name, dccg_dcn->dccg_mask->field_name",
+      "drivers/gpu/drm/amd/display/dc/dccg/dcn31/dcn31_dccg.c FN 39 dccg_dcn->dccg_shift->field_name, dccg_dcn->dccg_mask->field_name",
+      "drivers/gpu/drm/amd/display/dc/dccg/dcn314/dcn314_dccg.c FN 41 dccg_dcn->dccg_shift->field_name, dccg_dcn->dccg_mask->field_name",
+      "drivers/gpu/drm/amd/display/dc/dccg/dcn32/dcn32_dccg.c FN 38 dccg_dcn->dccg_shift->field_name, dccg_dcn->dccg_mask->field_name",
+      "drivers/gpu/drm/amd/display/dc/dccg/dcn35/dcn35_dccg.c FN 38 dccg_dcn->dccg_shift->field_name, dccg_dcn->dccg_mask->field_name",
+      "drivers/gpu/drm/amd/display/dc/dccg/dcn401/dcn401_dccg.c FN 48 dccg_dcn->dccg_shift->field_name, dccg_dcn->dccg_mask->field_name",
+      "drivers/gpu/drm/amd/display/dc/dce/dce_abm.c FN 45 abm_dce->abm_shift->field_name, abm_dce->abm_mask->field_name",
+      "drivers/gpu/drm/amd/display/dc/dce/dce_audio.c FN 44 aud->shifts->field_name, aud->masks->field_name"
+    ]
+  },
+  {
+    "symbol": "ctx",
+    "old": 98378,
+    "new": 98378,
+    "added": [
+      "drivers/gpu/drm/amd/display/dc/hwss/dce110/dce110_hwseq.c <global> 89 struct dc_context *ctx = dc->ctx",
+      "drivers/infiniband/hw/hfi1/chip.c <global> 1220 #define OVR_LBL(ctx) C_RCV_HDR_OVF_ ## ctx",
+      "tools/lib/bpf/bpf_tracing.h <global> 300 #define PT_REGS_SYSCALL_REGS(ctx) ctx",
+      "tools/lib/bpf/bpf_tracing.h <global> 404 #define PT_REGS_SYSCALL_REGS(ctx) ctx",
+      "tools/lib/bpf/bpf_tracing.h <global> 437 #define PT_REGS_SYSCALL_REGS(ctx) ctx"
+    ],
+    "removed": [
+      "drivers/gpu/drm/amd/display/dc/hwss/dce110/dce110_hwseq.c DC_LOGGER_INIT 89 struct dc_context *ctx = dc->ctx",
+      "drivers/infiniband/hw/hfi1/chip.c OVR_LBL 1220 #define OVR_LBL(ctx) C_RCV_HDR_OVF_ ## ctx",
+      "tools/lib/bpf/bpf_tracing.h PT_REGS_SYSCALL_REGS 300 #define PT_REGS_SYSCALL_REGS(ctx) ctx",
+      "tools/lib/bpf/bpf_tracing.h PT_REGS_SYSCALL_REGS 404 #define PT_REGS_SYSCALL_REGS(ctx) ctx",
+      "tools/lib/bpf/bpf_tracing.h PT_REGS_SYSCALL_REGS 437 #define PT_REGS_SYSCALL_REGS(ctx) ctx"
+    ]
+  },
+  {
+    "symbol": "codeindex_benchmark_update_probe_20261025",
+    "old": 1,
+    "new": 1,
+    "added": [],
+    "removed": []
+  }
+]

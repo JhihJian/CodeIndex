@@ -1,0 +1,30 @@
+{
+  "command": [
+    "node",
+    "/data/dev/CodeIndex-worktrees/feature/index-performance/bin/codeindex.js",
+    "update",
+    "--repo",
+    "/data/dev/CodeIndex/.data/competitors/inputs/linux",
+    "--store",
+    "/data/dev/CodeIndex/.data/performance-v5/linux",
+    "--workers",
+    "4",
+    "--progress"
+  ],
+  "cwd": "/data/dev/CodeIndex-worktrees/feature/index-performance",
+  "systemdUnit": "codeindex-benchmark-1689709.scope",
+  "systemdResult": "success",
+  "status": "success",
+  "exitCode": 0,
+  "wallSeconds": 74.26,
+  "wallSecondsIncludingSupervisor": 74.51982115814462,
+  "timeLimitSeconds": 300,
+  "memoryLimitGiB": 12,
+  "gnuTimeMaxRssKiB": 2534436,
+  "sampledProcessTreeRssSumBytes": 2986156032,
+  "workloadSampled": true,
+  "cgroupMemoryPeakBytes": 7156711424,
+  "sampleIntervalSeconds": 0.25,
+  "leftoverProcessIdsTerminated": [],
+  "memoryNotes": "RSS sum can double-count shared pages; cgroup memory includes page cache; GNU time max RSS is not simultaneous tree total"
+}

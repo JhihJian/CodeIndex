@@ -1,8 +1,10 @@
 # 基准结果
 
+0.3 的解析复用、并行构建和安全更新结果见 [性能迭代实测](index-performance.md)。同输入下 TypeScript 全量 10.68 秒，Linux 全量 78.74 秒，全部被测命令及后代限制为 12 GiB、禁 swap。
+
 四种工具在 PageIndex、TypeScript、Linux 固定输入上的全量建库、查询、覆盖和更新结果见 [索引工具实测对比](index-tool-comparison.md)，复现脚本见 [competitors](competitors/README.md)。
 
-当前正式后端的 Linux 全量、增量、查询与资源验证见 [linux-native.md](linux-native.md)，PageIndex 回归见 [pageindex-native.json](results/pageindex-native.json)。下文保留早期版本的测量数据，各结果按对应后端与产物范围解释。
+0.2 原生后端的 Linux 全量、增量、查询与资源验证见 [linux-native.md](linux-native.md)，PageIndex 回归见 [pageindex-native.json](results/pageindex-native.json)。下文保留早期版本的测量数据，各结果按对应后端与产物范围解释。
 
 基准使用 CodeIndex 的确定性查询与 `rg` 全仓库扫描对比。`CodeIndex` 的查询时间不含首次加载或索引构建，源码上下文统计包含返回给后续模型的证据片段。完整 JSON 报告保存在当前目录。
 

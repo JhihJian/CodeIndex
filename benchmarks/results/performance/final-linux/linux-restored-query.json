@@ -1,0 +1,181 @@
+{
+  "tool": "CodeIndex",
+  "loadMs": 2.0626349999999967,
+  "mode": "metadata",
+  "warmup": 1,
+  "repetitions": 20,
+  "rows": [
+    {
+      "query": "do_execveat_common",
+      "hitAt10": true,
+      "coldMs": 9.781158000000001,
+      "medianMs": 1.732099999999999,
+      "evidenceMs": 2.938358000000008,
+      "files": [
+        {
+          "path": "fs/exec.c",
+          "symbol": "do_execveat_common",
+          "lines": [
+            {
+              "line": 1876,
+              "source": "static int do_execveat_common(int fd, struct filename *filename,\n\t\t\t      struct user_arg_ptr argv,\n\t\t\t      struct user_arg_ptr envp,",
+              "digest": "98f1bd0885d273637457bd6709d393b8deefd2b009ac273f9fc3d26d8509ccb5"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": "tcp_v4_syn_recv_sock",
+      "hitAt10": true,
+      "coldMs": 11.526111999999998,
+      "medianMs": 3.1534605000000013,
+      "evidenceMs": 3.7633570000000134,
+      "files": [
+        {
+          "path": "net/ipv4/tcp_ipv4.c",
+          "symbol": "tcp_v4_syn_recv_sock",
+          "lines": [
+            {
+              "line": 1739,
+              "source": "struct sock *tcp_v4_syn_recv_sock(const struct sock *sk, struct sk_buff *skb,\n\t\t\t\t  struct request_sock *req,\n\t\t\t\t  struct dst_entry *dst,",
+              "digest": "116196ff5c093ed5c239fae1e5ca314b65fc8d3e3073f12f0706822725b52b27"
+            },
+            {
+              "line": 1856,
+              "source": "EXPORT_SYMBOL(tcp_v4_syn_recv_sock);",
+              "digest": "116196ff5c093ed5c239fae1e5ca314b65fc8d3e3073f12f0706822725b52b27"
+            }
+          ]
+        },
+        {
+          "path": "include/net/tcp.h",
+          "symbol": "tcp_v4_syn_recv_sock",
+          "lines": [
+            {
+              "line": 461,
+              "source": "struct sock *tcp_v4_syn_recv_sock(const struct sock *sk, struct sk_buff *skb,\n\t\t\t\t  struct request_sock *req,\n\t\t\t\t  struct dst_entry *dst,",
+              "digest": "cdf696125e9484f7a5579eb0fa0841acb92f39ba6cd2dab219670e837fcf1b8c"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": "vfs_open",
+      "hitAt10": true,
+      "coldMs": 4.754545000000007,
+      "medianMs": 1.551688999999996,
+      "evidenceMs": 2.6237619999999993,
+      "files": [
+        {
+          "path": "fs/open.c",
+          "symbol": "vfs_open",
+          "lines": [
+            {
+              "line": 1083,
+              "source": "int vfs_open(const struct path *path, struct file *file)\n{\n\tint ret;",
+              "digest": "587769343f2fc32552fb8593138c72f47110de8b7933f921a0bf9b627282b59a"
+            }
+          ]
+        },
+        {
+          "path": "fs/internal.h",
+          "symbol": "vfs_open",
+          "lines": [
+            {
+              "line": 196,
+              "source": "extern int vfs_open(const struct path *, struct file *);",
+              "digest": "8647992564999de73e694fc54f10eb2d82dbfc95fdad1474951841db75b26ea9"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": "pick_next_task_fair",
+      "hitAt10": true,
+      "coldMs": 4.984033000000011,
+      "medianMs": 1.1513819999999981,
+      "evidenceMs": 3.706019999999995,
+      "files": [
+        {
+          "path": "kernel/sched/fair.c",
+          "symbol": "pick_next_task_fair",
+          "lines": [
+            {
+              "line": 8879,
+              "source": "pick_next_task_fair(struct rq *rq, struct task_struct *prev, struct rq_flags *rf)\n{\n\tstruct sched_entity *se;",
+              "digest": "48c485811e4d20cca0204ea75a24da71777e42a66b6ce158f8ece09132635d7d"
+            },
+            {
+              "line": 8965,
+              "source": "static struct task_struct *__pick_next_task_fair(struct rq *rq, struct task_struct *prev)\n{\n\treturn pick_next_task_fair(rq, prev, NULL);",
+              "digest": "48c485811e4d20cca0204ea75a24da71777e42a66b6ce158f8ece09132635d7d"
+            }
+          ]
+        },
+        {
+          "path": "kernel/sched/sched.h",
+          "symbol": "pick_next_task_fair",
+          "lines": [
+            {
+              "line": 2577,
+              "source": "extern struct task_struct *pick_next_task_fair(struct rq *rq, struct task_struct *prev, struct rq_flags *rf);",
+              "digest": "a34153b995cc32242235e5ed42fca15f2fe0ac6b03fbdc060120c5f87e615e68"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": "codeindex_benchmark_update_probe_20261025",
+      "hitAt10": false,
+      "coldMs": 0.6551019999999994,
+      "medianMs": 0.07872200000001328,
+      "evidenceMs": 0.08714200000000005,
+      "files": []
+    }
+  ],
+  "snapshotId": "snapshot:repo-cc85df8a7b9b3118a52b:a8b6aab760ad45a485996561",
+  "snapshotDir": "/data/dev/CodeIndex/.data/performance-v5/linux/repo-cc85df8a7b9b3118a52b/snapshots/snapshot:repo-cc85df8a7b9b3118a52b:a8b6aab760ad45a485996561-b7ede6a2",
+  "counts": {
+    "files": 86363,
+    "symbols": 6190587,
+    "relations": 403090,
+    "sourceBytes": 1212793499,
+    "changedFiles": 86363,
+    "removedFiles": 0,
+    "reusedFiles": 0,
+    "parsedFiles": 60006,
+    "partialFiles": 26358,
+    "skipped": 1,
+    "nodes": 6282688,
+    "nativeFiles": 59746,
+    "nativeIndexedFiles": 59746,
+    "workers": 4,
+    "nativeBuildMode": "full",
+    "nativeTaskMs": 58516,
+    "relationsScope": "stored-sql-relations; native calls and references queried from cscope",
+    "stages": {
+      "scan": 6907,
+      "source-and-files": 11536,
+      "native-symbols": 35502,
+      "parser-symbols": 1677,
+      "relations": 0,
+      "indexes": 14915,
+      "native-cross-references": 6432,
+      "validation": 1712
+    },
+    "buildMs": 78681
+  },
+  "coverage": {
+    "sourceFiles": 86363,
+    "parsedFiles": 60005,
+    "unsupportedFiles": 26357,
+    "partialFiles": 26358,
+    "skippedFiles": 1,
+    "nativeCalls": true,
+    "semantics": "syntax-level symbols and cross-references; no compiler-level overload or pointer resolution"
+  }
+}

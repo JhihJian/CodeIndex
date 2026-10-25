@@ -1,0 +1,44 @@
+[
+  {
+    "query": "do_execveat_common",
+    "expectedPaths": [
+      "fs/exec.c"
+    ],
+    "expectedSymbols": [
+      "do_execveat_common"
+    ]
+  },
+  {
+    "query": "tcp_v4_syn_recv_sock",
+    "expectedPaths": [
+      "net/ipv4/tcp_ipv4.c"
+    ],
+    "expectedSymbols": [
+      "tcp_v4_syn_recv_sock"
+    ]
+  },
+  {
+    "query": "vfs_open",
+    "expectedPaths": [
+      "fs/open.c"
+    ],
+    "expectedSymbols": [
+      "vfs_open"
+    ]
+  },
+  {
+    "query": "pick_next_task_fair",
+    "expectedPaths": [
+      "kernel/sched/fair.c"
+    ],
+    "expectedSymbols": [
+      "pick_next_task_fair"
+    ]
+  },
+  {
+    "query": "codeindex_benchmark_update_probe_20261025",
+    "expectedPaths": [
+      "fs/open.c"
+    ]
+  }
+]

@@ -1,0 +1,219 @@
+{
+  "old": "/data/dev/CodeIndex/.data/competitors/codeindex/linux/repo-cc85df8a7b9b3118a52b/snapshots/snapshot:repo-cc85df8a7b9b3118a52b:a7cbbe6d6900f2666cbc329e-ca2aff7a/native/cscope.out",
+  "new": "/data/dev/CodeIndex/.data/performance-v4/linux/repo-cc85df8a7b9b3118a52b/snapshots/snapshot:repo-cc85df8a7b9b3118a52b:a7cbbe6d6900f2666cbc329e-b6bcee73/native/cscope.out",
+  "oldGroups": 59748,
+  "newGroups": 59748,
+  "diff": [
+    "arch/alpha/include/asm/xor.h",
+    "tools/testing/selftests/bpf/verifier/precise.c",
+    "tools/bpf/bpftool/gen.c",
+    "drivers/soundwire/qcom.c",
+    "header",
+    "tools/testing/selftests/bpf/progs/uninit_stack.c",
+    "drivers/gpu/drm/amd/amdgpu/amdgpu_vpe.c"
+  ]
+}
+GROUP arch/alpha/include/asm/xor.h ('4b36ebaecbe2ea53c5959509dba27a713a6e467c1e8fc0fe6a09b4b9b559a11b', 237351, 15200) ('081613c86bb6beae7560789ff7219af1dc539ed49fc14d1147d30c71878fd516', 237344, 15184)
+--- 
+
++++ 
+
+@@ -207,5 +207,5 @@
+
+ b'.align 3 \\n\\'
+ b'.ent xor_alpha_2 \\n\\'
+-b'_alpha_2: \\n\\'
++b'_\xaepha_2: \\n\\'
+ b'.prologue 0 \\n\\'
+ b' $16, 6, $16 \\n\\'
+@@ -262,5 +262,5 @@
+
+ b'.align 3 \\n\\'
+ b'.ent xor_alpha_3 \\n\\'
+-b'_alpha_3: \\n\\'
++b'_\xaepha_3: \\n\\'
+ b'.prologue 0 \\n\\'
+ b' $16, 6, $16 \\n\\'
+@@ -340,5 +340,5 @@
+
+ b'.align 3 \\n\\'
+ b'.ent xor_alpha_4 \\n\\'
+-b'_alpha_4: \\n\\'
++b'_\xaepha_4: \\n\\'
+ b'.prologue 0 \\n\\'
+ b' $16, 6, $16 \\n\\'
+@@ -437,5 +437,5 @@
+
+ b'.align 3 \\n\\'
+ b'.ent xor_alpha_5 \\n\\'
+-b'_alpha_5: \\n\\'
++b'_\xaepha_5: \\n\\'
+ b'.prologue 0 \\n\\'
+ b' $16, 6, $16 \\n\\'
+@@ -555,5 +555,5 @@
+
+ b'.align 3 \\n\\'
+ b'.ent xor_alpha_prefetch_2 \\n\\'
+-b'_alpha_prefetch_2: \\n\\'
++b'_\xaepha_\xb4e\xe3tch_2: \\n\\'
+ b'.prologue 0 \\n\\'
+ b' $16, 6, $16 \\n\\'
+@@ -624,5 +624,5 @@
+
+ b'.align 3 \\n\\'
+ b'.ent xor_alpha_prefetch_3 \\n\\'
+-b'_alpha_prefetch_3: \\n\\'
++b'_\xaepha_\xb4e\xe3tch_3: \\n\\'
+ b'.prologue 0 \\n\\'
+ b' $16, 6, $16 \\n\\'
+@@ -722,5 +722,5 @@
+
+GROUP tools/testing/selftests/bpf/verifier/precise.c ('5b7734fdd8ea9922e4aef94149ad276cdcc1bfe7ae16aa769bbb8e2b58f60ab6', 835468824, 8657) ('2ce5e45100a90999230d4b46a6645770adc7cc8c9716262b35e34c825b9ae6ad', 835468760, 8454)
+--- 
+
++++ 
+
+@@ -650,12 +650,12 @@
+
+ b'\tg\x94r\xa1r'
+ b' = "mark_precise: frame0:\x86ast_idx 5 first_idx 5\\'
+-b'_precise: frame0:\x85arent state\x84egs=r4 stack=:\\'
+-b'_precise: frame0:\x86ast_idx 4 first_idx 2\\'
+-b'_precise: frame0:\x84egs=r4 stack= before 4\\'
+-b'_precise: frame0:\x84egs=r4 stack= before 3\\'
+-b'_precise: frame0:\x86ast_idx 5 first_idx 5\\'
+-b'_precise: frame0:\x85arent state\x84egs=r0 stack=:\\'
+-b'_precise: frame0:\x86ast_idx 4 first_idx 2\\'
+-b'_precise: frame0:\x84egs=r0 stack= before 4\\'
++b'_\xb4eci\xa3: \xe4ame0:\x85\xac\x92\x88\xa1\xa9\x90\xbbgs\xf44 \xa1ack=:\\'
++b'_\xb4eci\xa3: \xe4ame0:\x86a\xa1_idx 4 f\x9c\xa1_idx 2\\'
++b'_\xb4eci\xa3: \xe4ame0:\x84egs\xf44 \xa1ack\xf0bef\xdc\x904\\'
++b'_\xb4eci\xa3: \xe4ame0:\x84egs\xf44 \xa1ack\xf0bef\xdc\x903\\'
++b'_\xb4eci\xa3: \xe4ame0:\x86a\xa1_idx 5 f\x9c\xa1_idx 5\\'
++b'_\xb4eci\xa3: \xe4ame0:\x85\xac\x92\x88\xa1\xa9\x90\xbbgs\xf40 \xa1ack=:\\'
++b'_\xb4eci\xa3: \xe4ame0:\x86a\xa1_idx 4 f\x9c\xa1_idx 2\\'
++b'_\xb4eci\xa3: \xe4ame0:\x84egs\xf40 \xa1ack\xf0bef\xdc\x904\\'
+ b'5: R0=-1 R4=0",'
+ b''
+@@ -763,19 +763,19 @@
+
+ b'\tg\x94r\xa1r'
+ b' = "mark_precise: frame0:\x86ast_idx 7 first_idx 7\\'
+-b'_precise: frame0:\x85arent state\x84egs=r4 stack=:\\'
+-b'_precise: frame0:\x86ast_idx 6 first_idx 4\\'
+-b'_precise: frame0:\x84egs=r4 stack= before 6: (b7)\x840 = -1\\'
+-b'_precise: frame0:\x84egs=r4 stack= before 5: (79)\x844 = *(u64 *)(r10 -8)\\'
+-b'_precise: frame0:\x84egs= stack=-8 before 4: (7b) *(u64 *)(r3 -8) =\x840\\'
+-b'_precise: frame0:\x85arent state\x84egs=r0 stack=:\\'
+-b'_precise: frame0:\x86ast_idx 3 first_idx 3\\'
+-b'_precise: frame0:\x84egs=r0 stack= before 3: (55) if\x843 != 0x7b goto\x85c+0\\'
+-b'_precise: frame0:\x84egs=r0 stack= before 2: (bf)\x843 =\x8410\\'
+-b'_precise: frame0:\x84egs=r0 stack= before 1: (57)\x840 &= 255\\'
+-b'_precise: frame0:\x85arent state\x84egs=r0 stack=:\\'
+-b'_precise: frame0:\x86ast_idx 0 first_idx 0\\'
+-b'_precise: frame0:\x84egs=r0 stack= before 0: (85) call bpf_get_prandom_u32#7\\'
+-b'_precise: frame0:\x86ast_idx 7 first_idx 7\\'
+-b'_precise: frame0:\x85arent state\x84egs= stack=:",'
++b'_\xb4eci\xa3: \xe4ame0:\x85\xac\x92\x88\xa1\xa9\x90\xbbgs\xf44 \xa1ack=:\\'
++b'_\xb4eci\xa3: \xe4ame0:\x86a\xa1_idx 6 f\x9c\xa1_idx 4\\'
++b'_\xb4eci\xa3: \xe4ame0:\x84egs\xf44 \xa1ack\xf0bef\xdc\x906: (b7\xe8r0 \xf0-1\\'
++b'_\xb4eci\xa3: \xe4ame0:\x84egs\xf44 \xa1ack\xf0bef\xdc\x905: (79\xe8r4 \xf0*(u64 *)\xd410 -8)\\'
+GROUP tools/bpf/bpftool/gen.c ('c90929d600e5e401c2920c98ad5e0cdb1db61486c5da3c7d056e56a140b3fedf', 817585652, 53678) ('500871c0cdb37a9a3b14af49e65e83f95258a50bab76d4660dd98796244d6c92', 817585612, 53655)
+--- 
+
++++ 
+
+@@ -2560,5 +2560,5 @@
+
+ b'("\\'
+ b'\\n\\'
+-b'_free(skel); \\n\\'
++b'_\xe4\x93(sk\x96); \\n\\'
+ b'} \\n\\'
+ b'",'
+@@ -4731,5 +4731,5 @@
+
+ b'%1$s__detach(struct %1$s *obj) \\n\\'
+ b'{ \\n\\'
+-b'_object__detach_skeleton(obj->skeleton); \\n\\'
++b'_obje\xf9__d\x91ach_sk\x96\x91\xda(obj->sk\x96\x91\xda); \\n\\'
+ b'} \\n\\'
+ b'",'
+@@ -4798,5 +4798,5 @@
+
+ b' 0; \\n\\'
+ b': \\n\\'
+-b'_object__destroy_skeleton(s); \\n\\'
++b'_obje\xf9__de\xa1roy_sk\x96\x91\xda(s); \\n\\'
+ b'\x83rr; \\n\\'
+ b'} \\n\\'
+@@ -5563,5 +5563,5 @@
+
+ b'; \\n\\'
+ b' (skel->subskel) \\n\\'
+-b'_object__destroy_subskeleton(skel->subskel);\\n\\'
++b'_obje\xf9__de\xa1roy_subsk\x96\x91\xda(sk\x96->subsk\x96);\\n\\'
+ b'(skel); \\n\\'
+ b'} \\n\\'
+GROUP drivers/soundwire/qcom.c ('48d7eba2e759902f0f424a97ec509fa0e6f67901501fce2d7caed0520f56e9a6', 616804837, 51379) ('acde8828c0c1c4d40f931a7182d34a5c6bdb10ef0a261ab77a9d0bdaefa431a5', 616804798, 51378)
+--- 
+
++++ 
+
+@@ -2432,5 +2432,5 @@
+
+ b'dev'
+ b', "failed\x81o\x84ead fifo:\x84eg: 0x%x,\x84cmd_id: 0x%x,\\'
+-b'_num: 0x%x, cmd_data: 0x%x\\n",'
++b'_num: 0x%x, cmd_d\xa9a: 0x%x\\n",'
+ b''
+ b'526 '
+GROUP header ('e16887ecb10cedc68f63ff18f397141391cdd0c8fe1234a0c59e76070b93ff53', 0, 144) ('fc96a0fad23b71ff855bac73d43aaeb870abd423c9c3d137d3ed75bb61c36500', 0, 137)
+--- 
+
++++ 
+
+@@ -1 +1 @@
+
+-b'cscope 15 /data/dev/CodeIndex/.data/competitors/codeindex/linux/repo-cc85df8a7b9b3118a52b/snapshots/.build-YXiNoU/tree -q 0003930843 0842749025'
++b'cscope 15 /data/dev/CodeIndex/.data/performance-v4/linux/repo-cc85df8a7b9b3118a52b/snapshots/.build-xLpK6J/tree -q 0003930773 0842748758'
+GROUP tools/testing/selftests/bpf/progs/uninit_stack.c ('0669a9e77ee594e888ad3502f310ce75b1c14dd60a45043d91404ec67b0a0203', 834021614, 1657) ('552054c7daae94d13252b84999b4b4476664f8d89d660c22a20a129cdd5a761f', 834021551, 1656)
+--- 
+
++++ 
+
+@@ -82,5 +82,5 @@
+
+ b'1 +=\x840; \\'
+ b'2 = *(u8*)(r1 + 0); \\'
+-b'_%=:\x840 = 0; \\'
++b'_%=:\x840 \xf00; \\'
+ b'; \\'
+ b'"'
+GROUP drivers/gpu/drm/amd/amdgpu/amdgpu_vpe.c ('b18a7d96ffc06b9a2112c7d37e998ba5e9d676269ff7aa1079c0a97cb87be993', 121626601, 24501) ('670b55c1130ed087c55a76a2674b20537ed6edbc48d378692ecbce45972bb09b', 121626578, 24485)
+--- 
+
++++ 
+
+@@ -3192,7 +3192,7 @@
+
+ b'dev'
+ b', "Using doorbell, \\'
+-b'_offs == 0x%08x, \\'
+-b'_32_bits(ring->wptr) << 2 == 0x%08x, \\'
+-b'_32_bits(ring->wptr) << 2 == 0x%08x\\n",'
++b'_off\xa0=\xf00x%08x, \\'
++b'_32_b\x99s\xd4\x9ag->w\xb1r\xe8<< 2 =\xf00x%08x, \\'
++b'_32_b\x99s\xd4\x9ag->w\xb1r\xe8<< 2 =\xf00x%08x\\n",'
+ b''
+ b'718 '
+@@ -3275,6 +3275,6 @@
+
+ b'dev'
+ b', "Not using doorbell, \\'
+-b'_QUEUE0_RB_WPTR == 0x%08x, \\'
+-b'_QUEUE0_RB_WPTR_HI == 0x%08x\\n",'
++b'_QUEUE0_RB_WPTR =\xf00x%08x, \\'
++b'_QUEUE0_RB_WPTR_HI =\xf00x%08x\\n",'
+ b''
+ b'732 '

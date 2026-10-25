@@ -1,0 +1,66 @@
+(node:1683278) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ native C/C++ symbols, calls, macros, includes and inheritance survive source removal (62.453593ms)
+(node:1683279) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ UTF-8 行偏移提供 metadata evidence，精确 parser span 可覆盖默认值 (8.403596ms)
+✔ 增量 clone 不污染旧 DB，删除维护 FTS，完整与增量构建 ID 一致 (12.755769ms)
+✔ FTS update triggers 更新名称、scope、signature、doc 和文件路径 (6.065807ms)
+✔ 同文件 scope 和 enclosing range 找 parent，不把同名歧义声明为唯一 (4.937194ms)
+✔ 拒绝未 finalize 的快照及错误行偏移 (2.589087ms)
+(node:1683280) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ indexes symbols, containment and resolved call relations with immutable evidence (120.043831ms)
+✔ update reuses unchanged parse results and publishes a new snapshot (205.58929ms)
+✔ only resolves requested tools and gives explicit missing dependency errors (2.180234ms)
+✔ prefers Universal Ctags, validates JSON, and respects explicit and environment options (323.06875ms)
+✔ Cscope version identity does not contain its installation path (91.847588ms)
+✔ native command timeout and captured-output limits are enforced (120.229637ms)
+✔ Ctags emits C/C++ ranges, scopes, signatures and inheritance without source patterns (23.126071ms)
+✔ real Cscope survives snapshot move and live repository deletion (40.658093ms)
+✔ real Cscope survives snapshot move and live repository deletion, including spaced paths (38.834995ms)
+✔ Cscope uses system PATH for internal env and sort, ignoring include environment (21.271062ms)
+✔ rejects unsupported filenames and snapshot escapes before spawning tools (1.452108ms)
+✔ rejects external, symlinked and unlisted includes before native execution (2.194531ms)
+✔ Cscope accepts missing parent/generated includes and resolves quoted includes from cwd (20.800786ms)
+✔ Cscope follows allowed saved non-C includes transitively and reports actual indexed files (23.156427ms)
+✔ Cscope -k has no angle-include search directories (21.293103ms)
+✔ Cscope refuses filename aliases when extra include closure files would be lost (1.437539ms)
+✔ fails on zero-exit Cscope inverted-index diagnostics and cleans artifacts (23.489448ms)
+✔ fails on missing inverted files even when Cscope exits successfully (21.198537ms)
+✔ rejects corrupt inverted indexes and zero-exit query errors (40.969794ms)
+✔ checks the actual native database file list before accepting artifacts (38.095767ms)
+✔ empty inputs require no native dependencies and invalid query modes are rejected (1.246613ms)
+(node:1683287) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ bounded parser workers preserve UTF-8 spans, docs and all serial records; consumer failure stops the pool (280.597317ms)
+✔ Ctags shards preserve all serial tags and input order without concatenating temporary output (56.543986ms)
+✔ Cscope successive same-second updates, deletes and transitive non-C includes match full builds without changing old snapshots (382.92433ms)
+✔ unchanged macro tails and multiline strings retain their references across incremental rebuilds (266.916915ms)
+✔ Cscope alias reordering falls back to a full build (80.082636ms)
+✔ native timeout kills the process group, including a sort-like descendant (204.324712ms)
+✔ failure after starting native work drains children before deleting staging and preserves publication (87.360684ms)
+(node:1683298) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ native updates delete stale facts, preserve readers and match a full rebuild (178.775616ms)
+✔ JS/TS imports ignore comments and strings and resolve incoming module references (13.444413ms)
+✔ UTF-8 clipped evidence matches byte ranges and metadata queries do not read blobs (47.667069ms)
+✔ missing native artifact rebuilds a generation and export states its audit scope (74.534785ms)
+(node:1683304) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ streamed updates reuse records without whole JSONL reads and match full rebuild identity (131.419607ms)
+✔ parser consumers propagate storage failure exactly once (25.6522ms)
+✔ failed build preserves published snapshot and removes temporary files (81.072972ms)
+✔ build configuration changes snapshot identity and invalidates no-op (71.605474ms)
+✔ JSONL streaming preserves UTF-8 crossing chunk boundary and final record (1.479869ms)
+✔ navigation and imports are independent of incremental insertion order (106.371343ms)
+✔ rebuilding restores a missing database under the same snapshot identity (91.041586ms)
+✔ C type usages do not create definition symbols (32.095802ms)
+ℹ tests 46
+ℹ suites 0
+ℹ pass 46
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1481.223891

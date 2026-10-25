@@ -1,0 +1,23 @@
+[
+  {
+    "symbol": "field_name",
+    "old": 710,
+    "new": 710,
+    "added": [],
+    "removed": []
+  },
+  {
+    "symbol": "ctx",
+    "old": 98378,
+    "new": 98378,
+    "added": [],
+    "removed": []
+  },
+  {
+    "symbol": "codeindex_benchmark_update_probe_20261025",
+    "old": 1,
+    "new": 1,
+    "added": [],
+    "removed": []
+  }
+]

@@ -1,0 +1,547 @@
+{
+  "old": "/data/dev/CodeIndex/.data/competitors/codeindex/linux/repo-cc85df8a7b9b3118a52b/snapshots/snapshot:repo-cc85df8a7b9b3118a52b:a7cbbe6d6900f2666cbc329e-ca2aff7a/native/cscope.out",
+  "new": "/data/dev/CodeIndex/.data/performance-v3/linux/repo-cc85df8a7b9b3118a52b/snapshots/snapshot:repo-cc85df8a7b9b3118a52b:a7cbbe6d6900f2666cbc329e-c6bc73b9/native/cscope.out",
+  "oldGroups": 59748,
+  "newGroups": 59748,
+  "diff": [
+    "drivers/gpu/drm/amd/display/dc/hubp/dcn31/dcn31_hubp.c",
+    "tools/lib/bpf/bpf_tracing.h",
+    "drivers/gpu/drm/amd/display/dc/hwss/dcn32/dcn32_hwseq.c",
+    "drivers/s390/char/keyboard.c",
+    "drivers/gpu/drm/amd/display/dc/dwb/dcn30/dcn30_dwb.c",
+    "drivers/clk/bcm/clk-kona.h",
+    "drivers/gpu/drm/amd/display/dc/mpc/dcn401/dcn401_mpc.c",
+    "drivers/gpu/drm/amd/display/dc/clk_mgr/dcn314/dcn314_smu.c",
+    "arch/alpha/boot/misc.c",
+    "include/uapi/linux/kvm.h",
+    "drivers/gpu/drm/amd/display/dc/gpio/dcn10/hw_factory_dcn10.c",
+    "fs/bcachefs/opts.c",
+    "drivers/gpu/drm/amd/display/dc/dcn201/dcn201_link_encoder.c",
+    "arch/x86/include/asm/percpu.h",
+    "drivers/gpu/drm/amd/display/dc/dpp/dcn10/dcn10_dpp_dscl.c",
+    "drivers/gpu/drm/amd/display/dc/gpio/hw_generic.c",
+    "drivers/gpu/drm/amd/display/dc/dce/dce_aux.c",
+    "drivers/net/wireless/mediatek/mt76/usb_trace.h",
+    "arch/alpha/kernel/core_polaris.c",
+    "drivers/usb/musb/da8xx.c",
+    "arch/x86/entry/entry_fred.c",
+    "drivers/gpu/drm/amd/display/dc/hubp/dcn32/dcn32_hubp.c",
+    "include/trace/stages/stage1_struct_define.h",
+    "fs/ext2/ext2.h",
+    "tools/perf/util/include/linux/linkage.h",
+    "fs/ufs/ufs.h",
+    "arch/alpha/kernel/smp.c",
+    "arch/alpha/kernel/smc37c93x.c",
+    "drivers/gpu/drm/amd/display/dc/dio/dcn20/dcn20_link_encoder.c",
+    "drivers/acpi/acpica/acmacros.h",
+    "include/xen/arm/interface.h",
+    "arch/x86/events/perf_event.h",
+    "drivers/gpu/drm/amd/display/dc/dce/dce_audio.c",
+    "include/linux/init.h",
+    "drivers/net/wireless/mediatek/mt76/mt7615/mcu.c",
+    "arch/xtensa/include/asm/thread_info.h",
+    "drivers/gpu/drm/amd/display/dc/gpio/dcn401/hw_factory_dcn401.c",
+    "drivers/gpu/drm/amd/display/dc/dwb/dcn30/dcn30_dwb_cm.c",
+    "drivers/gpu/drm/amd/display/dc/optc/dcn20/dcn20_optc.c",
+    "drivers/gpu/drm/amd/display/dc/resource/dce80/dce80_resource.c",
+    "drivers/dma/dw/regs.h",
+    "tools/testing/selftests/kselftest_harness.h",
+    "net/netfilter/nf_internals.h",
+    "drivers/gpu/drm/amd/display/dc/dcn31/dcn31_apg.c",
+    "kernel/trace/bpf_trace.c",
+    "drivers/gpu/drm/amd/display/dc/gpio/dcn21/hw_translate_dcn21.c",
+    "arch/arm/include/asm/unified.h",
+    "include/uapi/linux/soundcard.h",
+    "drivers/gpu/drm/amd/amdgpu/amdgpu_ras.h",
+    "arch/parisc/math-emu/cnv_float.h",
+    "arch/x86/include/asm/perf_event_p4.h",
+    "arch/parisc/include/asm/assembly.h",
+    "drivers/gpu/drm/amd/display/dc/dpp/dcn30/dcn30_dpp_cm.c",
+    "drivers/perf/arm_cspmu/arm_cspmu.c",
+    "drivers/gpu/drm/amd/display/dc/dce/dce_transform.c",
+    "arch/loongarch/include/asm/perf_event.h",
+    "tools/testing/selftests/bpf/progs/uninit_stack.c",
+    "fs/ext4/namei.c",
+    "tools/bpf/bpftool/gen.c",
+    "drivers/gpu/drm/amd/display/dc/resource/dcn301/dcn301_resource.c",
+    "include/linux/kconfig.h",
+    "drivers/net/ethernet/jme.h",
+    "drivers/net/ethernet/cavium/liquidio/octeon_config.h",
+    "drivers/gpu/drm/amd/display/dc/dcn10/dcn10_dwb.c",
+    "drivers/pinctrl/aspeed/pinmux-aspeed.h",
+    "tools/include/tools/config.h",
+    "drivers/gpu/drm/amd/display/dc/gpio/dcn30/hw_translate_dcn30.c",
+    "drivers/gpu/drm/amd/display/dc/dccg/dcn301/dcn301_dccg.c",
+    "drivers/gpu/drm/amd/display/dc/dccg/dcn401/dcn401_dccg.c",
+    "arch/alpha/kernel/core_marvel.c",
+    "tools/testing/selftests/kvm/aarch64/page_fault_test.c",
+    "drivers/gpu/drm/amd/display/dmub/src/dmub_dcn351.c",
+    "drivers/scsi/aha1542.h",
+    "arch/powerpc/boot/ppc_asm.h",
+    "drivers/acpi/acpica/acdebug.h",
+    "kernel/trace/trace.h",
+    "drivers/firmware/psci/psci.c",
+    "drivers/gpu/drm/amd/display/dc/clk_mgr/dce100/dce_clk_mgr.c",
+    "drivers/net/wireless/mediatek/mt76/mt7615/mt7615_trace.h",
+    "drivers/gpu/drm/amd/display/dc/gpio/dcn21/hw_factory_dcn21.c",
+    "drivers/gpu/drm/amd/display/dc/dccg/dcn21/dcn21_dccg.c",
+    "drivers/gpu/drm/amd/display/dc/hubbub/dcn21/dcn21_hubbub.c",
+    "drivers/gpu/drm/amd/display/dc/gpio/dcn10/hw_translate_dcn10.c",
+    "include/net/netfilter/nf_conntrack_helper.h",
+    "drivers/gpu/drm/amd/display/dc/resource/dcn314/dcn314_resource.c",
+    "include/soc/mscc/ocelot.h",
+    "lib/stackinit_kunit.c",
+    "drivers/net/ethernet/mellanox/mlx5/core/diag/fs_tracepoint.c",
+    "drivers/gpu/drm/amd/display/dmub/src/dmub_dcn303.c",
+    "arch/arm64/include/asm/sysreg.h",
+    "drivers/gpu/drm/amd/display/dc/dio/dcn20/dcn20_stream_encoder.c",
+    "arch/alpha/kernel/core_wildfire.c",
+    "include/uapi/rdma/ib_user_ioctl_verbs.h",
+    "drivers/staging/greybus/spilib.c",
+    "tools/testing/shared/linux/percpu.h",
+    "kernel/trace/trace_preemptirq.c",
+    "arch/parisc/include/asm/unistd.h",
+    "tools/power/cpupower/utils/helpers/helpers.h",
+    "drivers/gpu/drm/amd/display/dc/mpc/dcn30/dcn30_mpc.c",
+    "drivers/gpu/drm/amd/display/dc/hubbub/dcn31/dcn31_hubbub.c",
+    "arch/s390/include/asm/alternative.h",
+    "header",
+    "drivers/gpu/drm/amd/display/dc/dsc/dcn401/dcn401_dsc.c",
+    "tools/include/uapi/linux/kvm.h",
+    "drivers/gpu/drm/amd/display/dc/hubbub/dcn32/dcn32_hubbub.c",
+    "include/linux/bpf-cgroup.h",
+    "drivers/gpu/drm/amd/display/dc/clk_mgr/dcn35/dcn35_smu.c",
+    "drivers/gpu/drm/amd/display/dc/dcn20/dcn20_vmid.c",
+    "arch/alpha/kernel/core_cia.c",
+    "arch/x86/include/asm/efi.h",
+    "net/dsa/tag.h",
+    "drivers/gpu/drm/amd/display/dc/irq/dcn31/irq_service_dcn31.c",
+    "drivers/usb/c67x00/c67x00-hcd.h",
+    "drivers/gpu/drm/amd/display/dc/dccg/dcn314/dcn314_dccg.c",
+    "drivers/gpu/drm/amd/display/dmub/src/dmub_dcn302.c",
+    "drivers/gpu/drm/amd/display/dc/dce/dce_abm.c",
+    "kernel/trace/trace_export.c",
+    "drivers/gpu/drm/amd/display/dc/mpc/dcn10/dcn10_mpc.c",
+    "tools/lib/perf/include/internal/rc_check.h",
+    "arch/arm/include/asm/glue.h",
+    "drivers/gpu/drm/amd/display/dc/mmhubbub/dcn20/dcn20_mmhubbub.c",
+    "drivers/pinctrl/renesas/sh_pfc.h",
+    "sound/pci/azt3328.h",
+    "arch/x86/um/signal.c",
+    "drivers/gpu/drm/amd/display/dmub/src/dmub_dcn301.c",
+    "drivers/net/ethernet/mellanox/mlx5/core/en_stats.h",
+    "drivers/infiniband/hw/hfi1/chip.c",
+    "drivers/gpu/drm/amd/display/dc/dpp/dcn10/dcn10_dpp_cm.c",
+    "arch/x86/platform/efi/runtime-map.c",
+    "include/rdma/ib_verbs.h",
+    "drivers/gpu/drm/amd/display/dc/dpp/dcn20/dcn20_dpp.c",
+    "drivers/gpu/drm/amd/display/dc/hwss/dcn30/dcn30_hwseq.c",
+    "drivers/gpu/drm/amd/display/dc/optc/dcn31/dcn31_optc.c",
+    "drivers/gpu/drm/amd/display/dc/dcn201/dcn201_mpc.c",
+    "drivers/gpu/drm/amd/display/dc/dce/dce_panel_cntl.c",
+    "drivers/infiniband/hw/hfi1/sdma.c",
+    "drivers/gpu/drm/amd/display/dc/gpio/dcn30/hw_factory_dcn30.c",
+    "drivers/gpu/drm/amd/display/dc/hwss/dcn301/dcn301_hwseq.c",
+    "drivers/gpu/drm/amd/display/dc/resource/dcn302/dcn302_resource.c",
+    "include/uapi/rdma/rvt-abi.h",
+    "drivers/gpu/drm/amd/display/dc/dce60/dce60_resource.c",
+    "tools/perf/scripts/perl/Perf-Trace-Util/Context.c",
+    "drivers/gpu/drm/amd/display/dc/gpio/dcn32/hw_translate_dcn32.c",
+    "drivers/perf/arm_spe_pmu.c",
+    "arch/alpha/kernel/core_titan.c",
+    "drivers/gpu/drm/amd/display/dc/dio/dcn10/dcn10_stream_encoder.c",
+    "arch/sparc/include/asm/ttable.h",
+    "drivers/gpu/drm/amd/display/dc/irq/dcn314/irq_service_dcn314.c",
+    "drivers/gpu/drm/amd/display/dc/gpio/dce120/hw_translate_dce120.c",
+    "include/uapi/sound/asound.h",
+    "drivers/gpu/drm/amd/display/dc/hubp/dcn201/dcn201_hubp.c",
+    "drivers/gpu/drm/amd/display/dc/gpio/dcn32/hw_factory_dcn32.c",
+    "drivers/gpu/drm/amd/display/dc/optc/dcn10/dcn10_optc.c",
+    "drivers/gpu/drm/amd/display/dc/gpio/dce120/hw_factory_dce120.c",
+    "tools/include/linux/kconfig.h",
+    "arch/arc/include/asm/linkage.h",
+    "drivers/gpu/drm/amd/display/dc/dcn201/dcn201_opp.c",
+    "kernel/trace/trace_probe.h",
+    "drivers/net/ethernet/sfc/siena/bitfield.h",
+    "drivers/net/ethernet/sis/sis190.c",
+    "drivers/firmware/efi/libstub/efistub.h",
+    "drivers/gpu/drm/amd/display/dc/dcn10/dcn10_cm_common.c",
+    "drivers/gpu/drm/amd/display/dc/dcn31/dcn31_afmt.c",
+    "arch/x86/kvm/mmu/paging_tmpl.h",
+    "include/trace/trace_events.h",
+    "drivers/gpu/drm/amd/display/dc/hwss/dcn201/dcn201_hwseq.c",
+    "drivers/gpu/drm/amd/amdgpu/amdgpu_vpe.c",
+    "arch/powerpc/xmon/ansidecl.h",
+    "drivers/gpu/drm/amd/display/dc/hpo/dcn31/dcn31_hpo_dp_link_encoder.c",
+    "arch/x86/events/intel/p4.c",
+    "drivers/dma/txx9dmac.h",
+    "drivers/gpu/drm/amd/display/dc/hubp/dcn20/dcn20_hubp.c",
+    "drivers/gpu/drm/amd/display/dc/hpo/dcn31/dcn31_hpo_dp_stream_encoder.c",
+    "drivers/gpu/drm/amd/display/dc/dio/dcn10/dcn10_link_encoder.c",
+    "drivers/gpu/drm/amd/display/dc/dccg/dcn35/dcn35_dccg.c",
+    "drivers/video/fbdev/matrox/matroxfb_base.c",
+    "drivers/gpu/drm/amd/display/dc/irq/dcn20/irq_service_dcn20.c",
+    "arch/powerpc/include/asm/perf_event_server.h",
+    "drivers/gpu/drm/amd/display/dc/dccg/dcn20/dcn20_dccg.c",
+    "drivers/gpu/drm/amd/display/dc/irq/dcn302/irq_service_dcn302.c",
+    "include/rdma/uverbs_named_ioctl.h",
+    "drivers/gpu/drm/amd/display/dc/hwss/dcn302/dcn302_hwseq.c",
+    "arch/arm/include/asm/domain.h",
+    "fs/bcachefs/extents.c",
+    "tools/testing/selftests/powerpc/stringloops/asm/ppc_asm.h",
+    "arch/loongarch/lib/xor_simd.c",
+    "drivers/gpu/drm/amd/display/dc/hubbub/dcn10/dcn10_hubbub.c",
+    "drivers/gpu/drm/amd/display/dc/dio/dcn401/dcn401_dio_stream_encoder.c",
+    "drivers/gpu/drm/amd/display/dc/dce/dce_panel_cntl.h",
+    "kernel/bpf/core.c",
+    "drivers/gpu/drm/amd/display/dc/dccg/dcn201/dcn201_dccg.c",
+    "include/linux/export-internal.h",
+    "net/sched/em_meta.c",
+    "drivers/perf/arm-cci.c",
+    "arch/x86/include/asm/xen/interface.h",
+    "drivers/gpu/drm/amd/display/dc/resource/dcn201/dcn201_resource.c",
+    "lib/zstd/common/error_private.h",
+    "drivers/gpu/drm/amd/display/dc/dpp/dcn20/dcn20_dpp_cm.c",
+    "drivers/net/wireless/mediatek/mt7601u/trace.h",
+    "arch/arm/include/asm/opcodes.h",
+    "drivers/gpu/drm/amd/display/dc/hwss/dce110/dce110_hwseq.c",
+    "drivers/gpu/drm/amd/display/dc/dcn30/dcn30_cm_common.c",
+    "drivers/gpu/drm/amd/display/dc/resource/dcn20/dcn20_resource.c",
+    "drivers/gpu/drm/amd/display/dc/dio/dcn32/dcn32_dio_link_encoder.c",
+    "arch/nios2/boot/compressed/misc.c",
+    "arch/arm64/kernel/process.c",
+    "include/uapi/linux/v4l2-mediabus.h",
+    "drivers/gpu/drm/amd/display/dc/dcn30/dcn30_mmhubbub.c",
+    "drivers/gpu/drm/amd/display/dmub/src/dmub_reg.h",
+    "drivers/gpu/drm/amd/display/dmub/src/dmub_dcn401.c",
+    "arch/um/include/shared/init.h",
+    "drivers/video/fbdev/sm712.h",
+    "drivers/gpu/drm/amd/display/dc/resource/dce112/dce112_resource.c",
+    "fs/debugfs/file.c",
+    "drivers/gpu/drm/amd/display/dc/resource/dcn351/dcn351_resource.c",
+    "drivers/gpu/drm/amd/display/dc/dpp/dcn35/dcn35_dpp.c",
+    "drivers/gpu/drm/amd/display/dc/dce/dce_opp.c",
+    "drivers/gpu/drm/amd/display/dc/dsc/dcn20/dcn20_dsc.c",
+    "drivers/gpu/drm/amd/display/dc/dce/dce_clk_mgr.c",
+    "drivers/gpu/drm/amd/display/dc/dpp/dcn201/dcn201_dpp.c",
+    "include/linux/perf_event.h",
+    "drivers/gpu/drm/amd/display/dc/dce/dce_stream_encoder.c",
+    "include/linux/seqlock_types.h",
+    "drivers/gpu/drm/amd/display/dmub/src/dmub_dcn30.c",
+    "drivers/gpu/drm/nouveau/nvkm/engine/gr/nv10.c",
+    "drivers/gpu/drm/amd/display/dc/hwss/dcn31/dcn31_hwseq.c",
+    "arch/mips/include/asm/asm.h",
+    "arch/parisc/math-emu/sgl_float.h",
+    "include/trace/trace_custom_events.h",
+    "drivers/mailbox/bcm-pdc-mailbox.c",
+    "drivers/net/ethernet/tehuti/tehuti.h",
+    "drivers/gpu/drm/amd/display/dc/optc/dcn314/dcn314_optc.c",
+    "drivers/gpu/drm/amd/display/dc/hwss/dcn303/dcn303_hwseq.c",
+    "drivers/gpu/drm/amd/display/dc/dcn21/dcn21_link_encoder.c",
+    "drivers/gpu/drm/amd/display/dc/dcn30/dcn30_vpg.c",
+    "drivers/gpu/drm/amd/display/dc/dio/dcn301/dcn301_dio_link_encoder.c",
+    "drivers/gpu/drm/amd/display/dc/dce/dce_dmcu.c",
+    "arch/alpha/kernel/core_tsunami.c",
+    "drivers/gpu/drm/amd/display/dc/dce/dmub_abm_lcd.c",
+    "arch/arm64/include/asm/lse.h",
+    "drivers/gpu/drm/amd/display/dc/dio/dcn31/dcn31_dio_link_encoder.c",
+    "drivers/gpu/drm/amd/amdgpu/soc15.h",
+    "drivers/gpu/drm/amd/display/dc/optc/dcn201/dcn201_optc.c",
+    "drivers/gpu/drm/amd/display/dmub/src/dmub_dcn32.c",
+    "drivers/gpu/drm/amd/display/dc/dcn301/dcn301_panel_cntl.c",
+    "drivers/mmc/host/sdhci-pci.h",
+    "arch/x86/platform/efi/efi.c",
+    "drivers/gpu/drm/amd/display/dc/dio/dcn321/dcn321_dio_link_encoder.c",
+    "drivers/gpu/drm/amd/display/dc/hubbub/dcn35/dcn35_hubbub.c",
+    "arch/alpha/include/asm/xor.h",
+    "include/trace/stages/stage3_trace_output.h",
+    "drivers/gpu/drm/amd/display/dc/resource/dcn316/dcn316_resource.c",
+    "drivers/soundwire/qcom.c",
+    "fs/btrfs/btrfs_inode.h",
+    "drivers/gpu/drm/amd/display/dc/dio/dcn314/dcn314_dio_stream_encoder.c",
+    "drivers/net/ethernet/intel/ice/ice_common.c",
+    "arch/s390/include/asm/sections.h",
+    "drivers/gpu/drm/amd/display/dc/dcn10/dcn10_ipp.c",
+    "drivers/gpu/drm/amd/display/dc/dio/dcn30/dcn30_dio_stream_encoder.c",
+    "kernel/sched/sched.h",
+    "drivers/gpu/drm/amd/display/dc/hwss/dcn35/dcn35_hwseq.c",
+    "drivers/gpu/drm/amd/display/dc/gpio/dcn315/hw_translate_dcn315.c",
+    "drivers/gpu/drm/amd/display/dc/resource/dcn321/dcn321_resource.c",
+    "arch/powerpc/include/asm/ehv_pic.h",
+    "tools/testing/selftests/powerpc/copyloops/asm/ppc_asm.h",
+    "tools/testing/selftests/bpf/verifier/precise.c",
+    "drivers/cdx/controller/bitfield.h",
+    "include/uapi/linux/mmc/ioctl.h",
+    "drivers/gpu/drm/amd/display/dc/hwss/dcn10/dcn10_hwseq.c",
+    "drivers/gpu/drm/amd/display/dc/dpp/dcn401/dcn401_dpp_dscl.c",
+    "drivers/gpu/drm/amd/display/dc/optc/dcn401/dcn401_optc.c",
+    "arch/alpha/kernel/core_mcpcia.c",
+    "drivers/gpu/drm/amd/display/dc/dio/dcn35/dcn35_dio_link_encoder.c",
+    "drivers/gpu/drm/amd/display/dc/dccg/dcn31/dcn31_dccg.c",
+    "drivers/gpu/drm/amd/display/dc/mpc/dcn20/dcn20_mpc.c",
+    "arch/alpha/kernel/smc37c669.c",
+    "drivers/input/input-leds.c",
+    "drivers/gpu/drm/amd/pm/swsmu/inc/smu_types.h",
+    "drivers/gpu/drm/amd/display/dc/clk_mgr/dce112/dce112_clk_mgr.c",
+    "drivers/gpu/drm/amd/display/dc/hubp/dcn401/dcn401_hubp.c",
+    "include/trace/stages/stage6_event_callback.h",
+    "drivers/gpu/drm/amd/display/dc/dpp/dcn30/dcn30_dpp.c",
+    "drivers/gpu/drm/amd/display/dc/clk_mgr/dcn201/dcn201_clk_mgr.c",
+    "drivers/gpu/drm/amd/display/dc/gpio/dcn20/hw_factory_dcn20.c",
+    "drivers/gpu/drm/amd/display/dc/dcn30/dcn30_afmt.c",
+    "drivers/gpu/drm/amd/display/dc/hubbub/dcn301/dcn301_hubbub.c",
+    "drivers/gpu/drm/amd/display/dc/pg/dcn35/dcn35_pg_cntl.c",
+    "drivers/gpu/drm/amd/display/dmub/src/dmub_dcn315.c",
+    "drivers/gpu/drm/amd/display/dc/optc/dcn35/dcn35_optc.c",
+    "drivers/gpu/drm/amd/display/dc/hubp/dcn30/dcn30_hubp.c",
+    "drivers/gpu/drm/amd/display/dc/opp/dcn10/dcn10_opp.c",
+    "drivers/media/i2c/s5k5baf.c",
+    "drivers/gpu/drm/amd/display/dc/gpio/dcn20/hw_translate_dcn20.c",
+    "drivers/infiniband/hw/hfi1/trace.c",
+    "drivers/gpu/drm/amd/display/dc/clk_mgr/dcn401/dcn401_clk_mgr.c",
+    "arch/arm/include/asm/assembler.h",
+    "drivers/gpu/drm/amd/display/dc/dcn20/dcn20_dwb_scl.c",
+    "include/linux/tracepoint.h",
+    "drivers/gpu/drm/amd/display/dc/resource/dcn30/dcn30_resource.c",
+    "drivers/staging/rtl8723bs/hal/odm_interface.h",
+    "drivers/gpu/drm/amd/display/dc/hubbub/dcn201/dcn201_hubbub.c",
+    "drivers/net/phy/bcm-phy-lib.h",
+    "scripts/kconfig/lxdialog/dialog.h",
+    "drivers/net/ethernet/sfc/falcon/bitfield.h",
+    "drivers/gpu/drm/amd/display/dc/irq/dcn32/irq_service_dcn32.c",
+    "include/linux/cache.h",
+    "drivers/gpu/drm/amd/display/dc/dpp/dcn401/dcn401_dpp_cm.c",
+    "drivers/gpu/drm/amd/display/dc/clk_mgr/dcn30/dcn30_clk_mgr.c",
+    "drivers/gpu/drm/amd/display/dc/dio/dcn32/dcn32_dio_stream_encoder.c",
+    "drivers/gpu/drm/amd/display/dc/hwss/dcn20/dcn20_hwseq.c",
+    "drivers/devfreq/event/rockchip-dfi.c",
+    "drivers/gpu/drm/amd/display/dc/dml/dcn30/dcn30_fpu.c",
+    "drivers/gpu/drm/amd/display/dc/mmhubbub/dcn32/dcn32_mmhubbub.c",
+    "drivers/gpu/drm/amd/display/dc/dccg/dcn30/dcn30_dccg.c",
+    "drivers/gpu/drm/amd/display/dc/dpp/dcn401/dcn401_dpp.c",
+    "arch/x86/tools/relocs.c",
+    "arch/x86/include/asm/msr.h",
+    "drivers/gpu/drm/amd/display/dc/hubbub/dcn20/dcn20_hubbub.c",
+    "include/acpi/acoutput.h",
+    "drivers/net/wireless/mediatek/mt76/mt7996/mcu.c",
+    "drivers/net/ethernet/sfc/bitfield.h",
+    "drivers/gpu/drm/amd/display/dc/resource/dce100/dce100_resource.c",
+    "arch/powerpc/perf/req-gen/perf.h",
+    "drivers/gpu/drm/amd/display/dc/dio/dcn30/dcn30_dio_link_encoder.c",
+    "drivers/gpu/drm/amd/display/dc/hwss/dcn21/dcn21_hwseq.c",
+    "drivers/net/wireless/broadcom/brcm80211/include/defs.h",
+    "drivers/gpu/drm/amd/display/dc/dcn20/dcn20_dwb.c",
+    "drivers/gpu/drm/amd/display/dc/opp/dcn35/dcn35_opp.c",
+    "drivers/gpu/drm/amd/display/dc/dpp/dcn10/dcn10_dpp.c",
+    "arch/powerpc/include/asm/barrier.h",
+    "drivers/infiniband/hw/hfi1/pio.c",
+    "include/linux/arm_ffa.h",
+    "arch/arm64/kvm/arm.c",
+    "drivers/gpu/drm/amd/display/dc/mpc/dcn32/dcn32_mpc.c",
+    "drivers/gpu/drm/amd/display/dmub/src/dmub_dcn31.c",
+    "drivers/gpu/drm/amd/display/dc/optc/dcn32/dcn32_optc.c",
+    "drivers/gpu/drm/amd/display/dmub/src/dmub_dcn21.c",
+    "drivers/gpu/drm/amd/display/dc/dccg/dcn32/dcn32_dccg.c",
+    "include/linux/nodemask.h",
+    "drivers/gpu/drm/amd/display/dc/resource/dcn32/dcn32_resource.c",
+    "drivers/net/wireless/mediatek/mt76/mt7915/mcu.c",
+    "arch/arc/include/asm/perf_event.h",
+    "arch/microblaze/include/asm/entry.h",
+    "drivers/gpu/drm/amd/display/dc/clk_mgr/dce60/dce60_clk_mgr.c",
+    "drivers/gpu/drm/amd/display/dc/dio/dcn35/dcn35_dio_stream_encoder.c",
+    "drivers/hwmon/gl518sm.c",
+    "drivers/gpu/drm/amd/display/dc/resource/dcn21/dcn21_resource.c",
+    "drivers/gpu/drm/amd/display/dmub/src/dmub_dcn316.c",
+    "net/ipv4/route.c",
+    "drivers/gpu/drm/amd/display/dc/hpo/dcn32/dcn32_hpo_dp_link_encoder.c",
+    "drivers/gpu/drm/amd/display/dc/opp/dcn20/dcn20_opp.c",
+    "kernel/bpf/syscall.c",
+    "drivers/gpu/drm/amd/display/dc/resource/dcn35/dcn35_resource.c",
+    "tools/testing/selftests/rseq/compiler.h",
+    "drivers/net/wireless/mediatek/mt76/trace.h",
+    "tools/lib/bpf/bpf_helpers.h",
+    "drivers/gpu/drm/amd/display/dc/clk_mgr/dce110/dce110_clk_mgr.c",
+    "drivers/gpu/drm/amd/display/dc/gpio/dcn401/hw_translate_dcn401.c",
+    "drivers/gpu/drm/amd/display/dc/clk_mgr/dcn32/dcn32_clk_mgr.c",
+    "drivers/gpu/drm/amd/display/dc/hwss/dcn401/dcn401_hwseq.c",
+    "drivers/gpu/drm/amd/display/dc/irq/dcn30/irq_service_dcn30.c",
+    "drivers/gpu/drm/amd/display/dc/resource/dcn303/dcn303_resource.c",
+    "arch/x86/include/asm/alternative.h",
+    "drivers/gpu/drm/amd/display/dc/dcn31/dcn31_vpg.c",
+    "arch/alpha/kernel/core_irongate.c",
+    "drivers/gpu/drm/amd/display/dc/gpio/dcn315/hw_factory_dcn315.c",
+    "arch/powerpc/include/asm/ppc_asm.h",
+    "arch/s390/include/asm/perf_event.h",
+    "drivers/gpu/drm/amd/display/dmub/src/dmub_dcn35.c",
+    "arch/mips/include/asm/asm-eva.h",
+    "include/linux/sysfs.h",
+    "arch/x86/include/asm/xen/interface_64.h",
+    "drivers/gpu/drm/amd/display/dc/hwss/dce120/dce120_hwseq.c",
+    "drivers/net/fddi/skfp/h/skfbi.h",
+    "net/mac80211/trace.h",
+    "drivers/gpu/drm/amd/display/dc/dio/dcn401/dcn401_dio_link_encoder.c",
+    "drivers/gpu/drm/amd/display/dc/dce/dce_clock_source.c",
+    "drivers/gpu/drm/amd/display/dc/irq/dcn201/irq_service_dcn201.c",
+    "drivers/gpu/drm/amd/display/dc/irq/dcn401/irq_service_dcn401.c",
+    "drivers/gpu/drm/amd/display/dc/irq/dcn303/irq_service_dcn303.c",
+    "include/acpi/platform/aclinux.h",
+    "drivers/gpu/drm/amd/display/dc/resource/dcn315/dcn315_resource.c",
+    "arch/powerpc/sysdev/mpic.c",
+    "drivers/gpu/drm/amd/display/dc/hubp/dcn10/dcn10_hubp.c",
+    "drivers/net/fddi/skfp/h/cmtdef.h",
+    "include/sound/soc.h",
+    "drivers/gpu/drm/amd/display/dc/bios/bios_parser_helper.c",
+    "drivers/gpu/drm/amd/display/dc/resource/dcn401/dcn401_resource.c",
+    "arch/riscv/include/asm/perf_event.h",
+    "tools/perf/trace/beauty/include/uapi/sound/asound.h",
+    "fs/bcachefs/fifo.h",
+    "drivers/gpu/drm/amd/display/dc/irq/dcn315/irq_service_dcn315.c",
+    "drivers/gpu/drm/amd/display/dc/hwss/dce/dce_hwseq.c",
+    "drivers/gpu/drm/amd/display/dc/hwss/dcn314/dcn314_hwseq.c",
+    "drivers/gpu/drm/amd/display/dc/resource/dce110/dce110_resource.c",
+    "include/linux/genl_magic_struct.h",
+    "drivers/gpu/drm/amd/display/dc/gpio/hw_hpd.c",
+    "drivers/gpu/drm/amd/display/dc/dce/dce_mem_input.c",
+    "include/acpi/platform/acenv.h",
+    "drivers/gpu/drm/amd/display/dc/hubbub/dcn30/dcn30_hubbub.c",
+    "arch/x86/include/asm/rmwcc.h",
+    "drivers/gpu/drm/amd/display/dc/clk_mgr/dcn20/dcn20_clk_mgr.c",
+    "drivers/gpu/drm/amd/display/dc/gpio/hw_ddc.c",
+    "include/linux/linkage.h",
+    "drivers/infiniband/hw/hns/hns_roce_common.h",
+    "drivers/gpu/drm/amd/display/dmub/src/dmub_dcn314.c",
+    "drivers/gpu/drm/amd/display/dc/hubp/dcn21/dcn21_hubp.c",
+    "drivers/gpu/drm/amd/display/dc/optc/dcn301/dcn301_optc.c",
+    "arch/mips/boot/tools/relocs.c",
+    "drivers/gpu/drm/amd/display/dc/dce/dce_ipp.c",
+    "drivers/gpu/drm/amd/display/dc/irq/dcn21/irq_service_dcn21.c",
+    "drivers/gpu/drm/amd/display/dc/resource/dcn31/dcn31_resource.c",
+    "drivers/gpu/drm/amd/display/dc/optc/dcn30/dcn30_optc.c",
+    "arch/s390/tools/relocs.c",
+    "drivers/gpu/drm/amd/display/dc/hubbub/dcn401/dcn401_hubbub.c",
+    "arch/mips/vdso/genvdso.c",
+    "arch/alpha/kernel/core_t2.c",
+    "drivers/gpu/drm/amd/display/dmub/src/dmub_dcn20.c",
+    "drivers/gpu/drm/amd/display/dc/dce/dce_i2c_hw.c"
+  ]
+}
+GROUP drivers/gpu/drm/amd/display/dc/hubp/dcn31/dcn31_hubp.c ('9572b288024067fc118343f0712887795f25db73c751b9b31d12e5d6ce6cac6a', 141504620, 3191) ('2b49d73c1cc84b0e498de3c65b35512b1b852937f6704cd3a6639de7430a311b', 141504139, 3189)
+--- 
+
++++ 
+
+@@ -73,5 +73,5 @@
+
+ b'->'
+ b'\t)'
+-b'field_name'
++b'f\x9bld_\xc7me'
+ b''
+ b'42 \x1e'
+GROUP tools/lib/bpf/bpf_tracing.h ('fd61d4ed6a5d2d762e261b4a633f2f26101a3d50ddd1e2ac19a2cb9132fad117', 818795123, 34120) ('d41b3e4466d34cd0442d48b671fc2542f2a6f6a531f6f2ef52d9b98aa8b98469', 818794247, 34117)
+--- 
+
++++ 
+
+@@ -1559,5 +1559,5 @@
+
+ b'\xe8'
+ b'\t)'
+-b'ctx'
++b'\xf9x'
+ b''
+ b'301 \x01'
+@@ -2151,5 +2151,5 @@
+
+ b'\xe8'
+ b'\t)'
+-b'ctx'
++b'\xf9x'
+ b''
+ b'405 \x01'
+@@ -2337,5 +2337,5 @@
+
+ b'\xe8'
+ b'\t)'
+-b'ctx'
++b'\xf9x'
+ b''
+ b'438 \x01'
+GROUP drivers/gpu/drm/amd/display/dc/hwss/dcn32/dcn32_hwseq.c ('c60a3ecb09c9a0bbef15aab92c59cea146e48822bc9384d137b5be7efe65efb2', 142122974, 53278) ('fd80ca95674f28bc2cb51c944d788a7593f15843ff1835d185dd7baa3fe8ece2', 142122460, 53276)
+--- 
+
++++ 
+
+@@ -185,5 +185,5 @@
+
+ b'->'
+ b'\t)'
+-b'field_name'
++b'f\x9bld_\xc7me'
+ b''
+ b'69 \x1e'
+GROUP drivers/s390/char/keyboard.c ('17055b67b08f0e6080d26ec4e90ed269a7da3192d9eac041d387d2311756e8f7', 587565532, 11613) ('0eb73be221aa36e907bc7625cc3c642cd29dbb02818c1ab0a3b224898f1ccab3', 587564808, 11612)
+--- 
+
++++ 
+
+@@ -65,5 +65,5 @@
+
+ b', k_ign\xdce, k_ign\xdce, '
+ b'\t)'
+-b'k_ignore'
++b'k_ign\xdce'
+ b''
+ b'31 \x1b\x1e('
+GROUP drivers/gpu/drm/amd/display/dc/dwb/dcn30/dcn30_dwb.c ('30677ecd78b72c442cad0a4d64f431665dc788ff4a63222c5383b6ca0979cf14', 140578898, 7037) ('3830bdbba639baf910d0392532aeda0c9f935abc80e7a45e84ffab1afd9b8a88', 140578515, 7035)
+--- 
+
++++ 
+
+@@ -69,5 +69,5 @@
+
+ b'->'
+ b'\t)'
+-b'field_name'
++b'f\x9bld_\xc7me'
+ b''
+ b'43 \x01'
+GROUP drivers/clk/bcm/clk-kona.h ('4ef8391476e46926ac81114c5b3f835bd871af2c979e118339e8c416764c916c', 77653315, 8452) ('46043b907472932cacd07284e6cb6cd14199694003414d2582002bd25de5edd6', 77653157, 8451)
+--- 
+
++++ 
+
+@@ -89,5 +89,5 @@
+
+ b' ## '
+ b'\t)'
+-b'flag'
++b'\xe6ag'
+ b''
+ b'33 \x01'
+GROUP drivers/gpu/drm/amd/display/dc/mpc/dcn401/dcn401_mpc.c ('9a15321de3e606734f112844b1ad4c7dba94700839c77a82e6ef19d4164ffd85', 143570635, 19995) ('84066d516ab60272f65e19c22b931e5b33743b8b28958d52af468d01bba00bf6', 143570092, 19993)
+--- 
+
++++ 
+
+@@ -77,5 +77,5 @@
+
+ b'->'
+ b'\t)'
+-b'field_name'
++b'f\x9bld_\xc7me'
+ b''
+ b'43 \x18\x1e'
+GROUP drivers/gpu/drm/amd/display/dc/clk_mgr/dcn314/dcn314_smu.c ('1e99933a447dc657ada46ee508a15b164a093ea49d0a6371379a64518995dd5d', 131348212, 8831) ('c6492332d511b5b44ead544556e1d7a4c29d30cad95e5ae656933bc2b64d4699', 131347999, 8830)
+--- 
+
++++ 
+
+@@ -77,5 +77,5 @@
+
+ b' ## '
+ b'\t)'
+-b'seg'
++b'\xa3g'
+ b''
+ b'51 \x01'

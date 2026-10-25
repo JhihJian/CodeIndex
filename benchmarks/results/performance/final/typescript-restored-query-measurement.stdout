@@ -1,0 +1,378 @@
+{
+  "tool": "CodeIndex",
+  "loadMs": 1.1090809999999998,
+  "mode": "metadata",
+  "warmup": 1,
+  "repetitions": 20,
+  "rows": [
+    {
+      "query": "LanguageService",
+      "hitAt10": true,
+      "coldMs": 7.626681000000001,
+      "medianMs": 0.948501499999999,
+      "evidenceMs": 4.210071999999997,
+      "files": [
+        {
+          "path": "packages/typescript/src/api/async/api.ts",
+          "symbol": "packages.typescript.src.api.async.api.LanguageService",
+          "lines": [
+            {
+              "line": 1588,
+              "source": "export class LanguageService {\r\n    private snapshotId: number;\r\n    private project: Project;\r",
+              "digest": "186235acab4509b79823b0b72e6c2547a1aa988345e265ffaa9a1ddd842eab90"
+            }
+          ]
+        },
+        {
+          "path": "packages/typescript/src/api/sync/api.ts",
+          "symbol": "packages.typescript.src.api.sync.api.LanguageService",
+          "lines": [
+            {
+              "line": 2619,
+              "source": "export class LanguageService {\r\n    private snapshotId: number;\r\n    private project: Project;\r",
+              "digest": "93eabe28632a9b36e1ca6c089045fdb4912e62b1bd5742b742014709cd8759b8"
+            }
+          ]
+        },
+        {
+          "path": "packages/typescript/src/api/async/types.ts",
+          "symbol": "packages.typescript.src.api.async.types.CompletionOptions",
+          "lines": [
+            {
+              "line": 388,
+              "source": "export interface CompletionOptions {\r\n    triggerCharacter?: string | undefined;\r\n    /** Include a `symbol` property on each completion entry. Only populated for symbol-based completions (not keywords or literals). */\r",
+              "digest": "b7609d12107694069b0761c8ed287b806f2f1670cc5e33e806f0b087fdeb0d36"
+            },
+            {
+              "line": 408,
+              "source": "export interface CompletionInfo {\r\n    readonly isIncomplete: boolean;\r\n    readonly entries: readonly CompletionEntry[];\r",
+              "digest": "b7609d12107694069b0761c8ed287b806f2f1670cc5e33e806f0b087fdeb0d36"
+            },
+            {
+              "line": 395,
+              "source": "export interface CompletionEntry {\r\n    readonly name: string;\r\n    readonly kind?: CompletionItemKind | undefined;\r",
+              "digest": "b7609d12107694069b0761c8ed287b806f2f1670cc5e33e806f0b087fdeb0d36"
+            }
+          ]
+        },
+        {
+          "path": "packages/typescript/src/api/sync/types.ts",
+          "symbol": "packages.typescript.src.api.sync.types.CompletionOptions",
+          "lines": [
+            {
+              "line": 527,
+              "source": "export interface CompletionOptions {\r\n    triggerCharacter?: string | undefined;\r\n    /** Include a `symbol` property on each completion entry. Only populated for symbol-based completions (not keywords or literals). */\r",
+              "digest": "6fc10f6b1a761e1c00d2e835770b578bfebff1d952258a276bc0ab2420cbfff5"
+            },
+            {
+              "line": 547,
+              "source": "export interface CompletionInfo {\r\n    readonly isIncomplete: boolean;\r\n    readonly entries: readonly CompletionEntry[];\r",
+              "digest": "6fc10f6b1a761e1c00d2e835770b578bfebff1d952258a276bc0ab2420cbfff5"
+            },
+            {
+              "line": 534,
+              "source": "export interface CompletionEntry {\r\n    readonly name: string;\r\n    readonly kind?: CompletionItemKind | undefined;\r",
+              "digest": "6fc10f6b1a761e1c00d2e835770b578bfebff1d952258a276bc0ab2420cbfff5"
+            }
+          ]
+        },
+        {
+          "path": "tsc/internal/ls/languageservice.go",
+          "symbol": "tsc.internal.ls.languageservice",
+          "lines": [
+            {
+              "line": 1,
+              "source": "package ls\n\nimport (",
+              "digest": "ed9d7aadbfae7ddb859c38c8a4e506e4304b05909f0bc1a77cfca2ebe1212834"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": "BuildOrchestrator",
+      "hitAt10": true,
+      "coldMs": 0.7957459999999941,
+      "medianMs": 0.7092090000000049,
+      "evidenceMs": 1.5755219999999923,
+      "files": [
+        {
+          "path": "packages/typescript/src/api/async/api.ts",
+          "symbol": "packages.typescript.src.api.async.api.BuildOrchestrator",
+          "lines": [
+            {
+              "line": 2183,
+              "source": "export class BuildOrchestrator {\r\n    private client: Client;\r\n    private id: number;\r",
+              "digest": "186235acab4509b79823b0b72e6c2547a1aa988345e265ffaa9a1ddd842eab90"
+            },
+            {
+              "line": 2163,
+              "source": "export interface BuildOrchestratorOptions {\r\n    cwd?: string | undefined;\r\n    dry?: boolean;\r",
+              "digest": "186235acab4509b79823b0b72e6c2547a1aa988345e265ffaa9a1ddd842eab90"
+            }
+          ]
+        },
+        {
+          "path": "packages/typescript/src/api/sync/api.ts",
+          "symbol": "packages.typescript.src.api.sync.api.BuildOrchestrator",
+          "lines": [
+            {
+              "line": 3938,
+              "source": "export class BuildOrchestrator {\r\n    private client: Client;\r\n    private id: number;\r",
+              "digest": "93eabe28632a9b36e1ca6c089045fdb4912e62b1bd5742b742014709cd8759b8"
+            },
+            {
+              "line": 3918,
+              "source": "export interface BuildOrchestratorOptions {\r\n    cwd?: string | undefined;\r\n    dry?: boolean;\r",
+              "digest": "93eabe28632a9b36e1ca6c089045fdb4912e62b1bd5742b742014709cd8759b8"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": "Client",
+      "hitAt10": true,
+      "coldMs": 1.7820169999999962,
+      "medianMs": 1.4409255000000059,
+      "evidenceMs": 1.9917390000000097,
+      "files": [
+        {
+          "path": "packages/typescript/src/api/async/client.ts",
+          "symbol": "packages.typescript.src.api.async.client.Client",
+          "lines": [
+            {
+              "line": 54,
+              "source": "export class Client {\r\n    private socket: Socket | undefined;\r\n    private process: ChildProcess | undefined;\r",
+              "digest": "f22ae3a407d29eb8b82bc6cc9dd877bb9bf4e10cb0ba593323d881647b2b2d16"
+            }
+          ]
+        },
+        {
+          "path": "packages/typescript/src/api/sync/client.ts",
+          "symbol": "packages.typescript.src.api.sync.client.Client",
+          "lines": [
+            {
+              "line": 32,
+              "source": "export class Client {\r\n    private channel: SyncRpcChannel;\r\n    private encoder = new TextEncoder();\r",
+              "digest": "3dd6d69e4b0761d753b1351da46a61ffe83a4bd775b871620f32ce375dd423dc"
+            }
+          ]
+        },
+        {
+          "path": "packages/vscode-typescript/src/client.ts",
+          "symbol": "packages.vscode-typescript.src.client.Client",
+          "lines": [
+            {
+              "line": 64,
+              "source": "export class Client implements vscode.Disposable {\r\n    private outputChannel: vscode.LogOutputChannel;\r\n    private telemetryReporter: tr.TelemetryReporter;\r",
+              "digest": "36d288e269daafc7842ad52f63e376b4f15618867d55b695e10b11b4d8d04dec"
+            }
+          ]
+        },
+        {
+          "path": "tsc/testdata/baselines/reference/compiler/declarationEmitExportValueSymbolWithTsIgnore.js",
+          "symbol": "tsc.testdata.baselines.reference.compiler.declarationEmitExportValueSymbolWithTsIgnore.Client",
+          "lines": [
+            {
+              "line": 41,
+              "source": "export declare class Client extends Client_base {\r\n    doSomething(): string;\r\n}\r",
+              "digest": "574f26cac71c5cb8b5a0b6f6d788ab8563cb31d66e26387aed71de9dd7fb1d6b"
+            },
+            {
+              "line": 18,
+              "source": "export class Client extends createService<string>() {\n    doSomething(): string {\n        return \"hello\";",
+              "digest": "574f26cac71c5cb8b5a0b6f6d788ab8563cb31d66e26387aed71de9dd7fb1d6b"
+            },
+            {
+              "line": 29,
+              "source": "export class Client extends createService() {\r\n    doSomething() {\r\n        return \"hello\";\r",
+              "digest": "574f26cac71c5cb8b5a0b6f6d788ab8563cb31d66e26387aed71de9dd7fb1d6b"
+            }
+          ]
+        },
+        {
+          "path": "tsc/testdata/baselines/reference/conformance/dependentDestructuredVariables.js",
+          "symbol": "tsc.testdata.baselines.reference.conformance.dependentDestructuredVariables.Client",
+          "lines": [
+            {
+              "line": 399,
+              "source": "declare class Client {\n    public on<K extends keyof ClientEvents>(event: K, listener: (...args: ClientEvents[K]) => void): void;\n}",
+              "digest": "9a513b34e19681ce31e72280fb7e3c911a474e77a48415380bb4f4e8d8c511c6"
+            },
+            {
+              "line": 970,
+              "source": "declare class Client {\r\n    on<K extends keyof ClientEvents>(event: K, listener: (...args: ClientEvents[K]) => void): void;\r\n}\r",
+              "digest": "9a513b34e19681ce31e72280fb7e3c911a474e77a48415380bb4f4e8d8c511c6"
+            }
+          ]
+        },
+        {
+          "path": "tsc/testdata/tests/cases/compiler/declarationEmitExportValueSymbolWithTsIgnore.ts",
+          "symbol": "tsc.testdata.tests.cases.compiler.declarationEmitExportValueSymbolWithTsIgnore.Client",
+          "lines": [
+            {
+              "line": 20,
+              "source": "export class Client extends createService<string>() {\n    doSomething(): string {\n        return \"hello\";",
+              "digest": "93ca07c421b86ad32949c110728e6980f1c369b2bd67669a6d8808e91c6801ff"
+            }
+          ]
+        },
+        {
+          "path": "tsc/testdata/tests/cases/conformance/controlFlow/dependentDestructuredVariables.ts",
+          "symbol": "tsc.testdata.tests.cases.conformance.controlFlow.dependentDestructuredVariables.Client",
+          "lines": [
+            {
+              "line": 401,
+              "source": "declare class Client {\r\n    public on<K extends keyof ClientEvents>(event: K, listener: (...args: ClientEvents[K]) => void): void;\r\n}\r",
+              "digest": "320e00d531f1aafc19ad0f1ce015599590552df5b29a65da68c31ee03183117d"
+            }
+          ]
+        },
+        {
+          "path": "tsc/internal/bundled/libs/lib.webworker.d.ts",
+          "symbol": "tsc.internal.bundled.libs.lib.webworker.d.Client",
+          "lines": []
+        },
+        {
+          "path": "tsc/testdata/baselines/reference/compiler/circularConstructorWithReturn.js",
+          "symbol": "tsc.testdata.baselines.reference.compiler.circularConstructorWithReturn.Client",
+          "lines": []
+        }
+      ]
+    },
+    {
+      "query": "Snapshot",
+      "hitAt10": true,
+      "coldMs": 1.3350429999999989,
+      "medianMs": 1.2262044999999944,
+      "evidenceMs": 2.6287690000000055,
+      "files": [
+        {
+          "path": "packages/typescript/src/api/async/api.ts",
+          "symbol": "packages.typescript.src.api.async.api.Snapshot",
+          "lines": [
+            {
+              "line": 1047,
+              "source": "export class Snapshot {\r\n    readonly id: number;\r\n    readonly operation: SnapshotOperation;\r",
+              "digest": "186235acab4509b79823b0b72e6c2547a1aa988345e265ffaa9a1ddd842eab90"
+            },
+            {
+              "line": 1229,
+              "source": "class SnapshotObjectRegistry {\r\n    private readonly symbols: Map<number, Symbol> = new Map();\r\n    private readonly nodeHandles: Map<string, NodeHandle> = new Map();\r",
+              "digest": "186235acab4509b79823b0b72e6c2547a1aa988345e265ffaa9a1ddd842eab90"
+            }
+          ]
+        },
+        {
+          "path": "packages/typescript/src/api/sync/api.ts",
+          "symbol": "packages.typescript.src.api.sync.api.Snapshot",
+          "lines": [
+            {
+              "line": 1675,
+              "source": "export class Snapshot {\r\n    readonly id: number;\r\n    readonly operation: SnapshotOperation;\r",
+              "digest": "93eabe28632a9b36e1ca6c089045fdb4912e62b1bd5742b742014709cd8759b8"
+            },
+            {
+              "line": 1961,
+              "source": "class SnapshotObjectRegistry {\r\n    private readonly symbols: Map<number, Symbol> = new Map();\r\n    private readonly nodeHandles: Map<string, NodeHandle> = new Map();\r",
+              "digest": "93eabe28632a9b36e1ca6c089045fdb4912e62b1bd5742b742014709cd8759b8"
+            },
+            {
+              "line": 1748,
+              "source": "        function update(params: CreateSnapshotParams): Snapshot;\r\n        function update(params: CreateSnapshotParams): Snapshot {\r\n            owner.ensureNotDisposed();\r",
+              "digest": "93eabe28632a9b36e1ca6c089045fdb4912e62b1bd5742b742014709cd8759b8"
+            }
+          ]
+        },
+        {
+          "path": "tsc/testdata/baselines/reference/compiler/deeplyNestedCheck.js",
+          "symbol": "tsc.testdata.baselines.reference.compiler.deeplyNestedCheck.Snapshot",
+          "lines": [
+            {
+              "line": 10,
+              "source": "interface Snapshot<T> extends DataSnapshot {\n  child<U extends Extract<keyof T, string>>(path: U): Snapshot<T[U]>;\n}",
+              "digest": "b4fb4fc7e871da9762a6e7fc7bc6d60e70b1647ca1a0e44900ecd16201855825"
+            }
+          ]
+        },
+        {
+          "path": "tsc/testdata/tests/cases/compiler/deeplyNestedCheck.ts",
+          "symbol": "tsc.testdata.tests.cases.compiler.deeplyNestedCheck.Snapshot",
+          "lines": [
+            {
+              "line": 8,
+              "source": "interface Snapshot<T> extends DataSnapshot {\n  child<U extends Extract<keyof T, string>>(path: U): Snapshot<T[U]>;\n}",
+              "digest": "511eb1807705405f3f5ec1e5cd9f488ebcd09624ed08253f0732e7296c65e01c"
+            }
+          ]
+        },
+        {
+          "path": "packages/typescript/src/api/sourceFileCache.ts",
+          "symbol": "packages.typescript.src.api.sourceFileCache.snapshotRefKey",
+          "lines": [
+            {
+              "line": 12,
+              "source": "function snapshotRefKey(snapshotId: number, projectId: ProjectId): string {\r\n    return `snapshot:${snapshotId}:${projectId}`;\r\n}\r",
+              "digest": "acad2db9a36a8f23e78824dc413a7c7e1a171b29f5474f055ea9a227f62c8865"
+            },
+            {
+              "line": 72,
+              "source": "export class SourceFileCache<TSymbol> {\r\n    /** Map from path to all cached versions of that file */\r\n    private cache: Map<PathKey, CachedSourceFile<TSymbol>[]> = new Map();\r",
+              "digest": "acad2db9a36a8f23e78824dc413a7c7e1a171b29f5474f055ea9a227f62c8865"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": "codeindex_benchmark_update_probe_20261025",
+      "hitAt10": false,
+      "coldMs": 0.14666399999998703,
+      "medianMs": 0.06672000000000367,
+      "evidenceMs": 0.07690399999998476,
+      "files": []
+    }
+  ],
+  "snapshotId": "snapshot:repo-c64febb3edcae7801f84:eb0bd3aa6ae9335c1a082894",
+  "snapshotDir": "/data/dev/CodeIndex/.data/performance-v3/typescript/repo-c64febb3edcae7801f84/snapshots/snapshot:repo-c64febb3edcae7801f84:eb0bd3aa6ae9335c1a082894-42fbe2db",
+  "counts": {
+    "files": 67863,
+    "symbols": 190793,
+    "relations": 242818,
+    "sourceBytes": 215644618,
+    "changedFiles": 67863,
+    "removedFiles": 0,
+    "reusedFiles": 0,
+    "parsedFiles": 26766,
+    "partialFiles": 41097,
+    "skipped": 1,
+    "nodes": 259372,
+    "nativeFiles": 0,
+    "nativeIndexedFiles": 0,
+    "workers": 4,
+    "nativeBuildMode": "none",
+    "nativeTaskMs": 38,
+    "relationsScope": "stored-sql-relations; native calls and references queried from cscope",
+    "stages": {
+      "scan": 2127,
+      "source-and-files": 4455,
+      "native-symbols": 12,
+      "parser-symbols": 2983,
+      "relations": 0,
+      "indexes": 793,
+      "native-cross-references": 0,
+      "validation": 224
+    },
+    "buildMs": 10594
+  },
+  "coverage": {
+    "sourceFiles": 67863,
+    "parsedFiles": 26766,
+    "unsupportedFiles": 41097,
+    "partialFiles": 41097,
+    "skippedFiles": 1,
+    "nativeCalls": false,
+    "semantics": "syntax-level symbols and cross-references; no compiler-level overload or pointer resolution"
+  }
+}

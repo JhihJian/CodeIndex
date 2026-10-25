@@ -1,0 +1,122 @@
+{
+  "tool": "CodeIndex",
+  "corpus": "linux",
+  "rows": [
+    {
+      "path": "fs/open.c",
+      "caller": "vfs_open",
+      "callee": "fsnotify_open",
+      "callLine": 1095,
+      "hit": true,
+      "elapsedMs": 41.284212999999994,
+      "totalCalls": 2,
+      "matches": [
+        {
+          "relation_id": "relation:342a4012943b29f668c7dd6ae9928c7d",
+          "source_id": "symbol:WyJmaWxlOjk0NDVkYTNkMTJlYzFjM2Y1OTgzN2I3MyIsInZmc19vcGVuIiwiZnVuY3Rpb24iLCIiLDEwODMsMF0",
+          "target_id": "symbol:WyJmaWxlOjE5ZWRhMWUyZWFkMGZmODJkNDBhZDZiNyIsImZzbm90aWZ5X29wZW4iLCJmdW5jdGlvbiIsIiIsMzk0LDBd",
+          "target_name": "fsnotify_open",
+          "type": "calls",
+          "status": "resolved",
+          "confidence": 0.6,
+          "origin": "cscope",
+          "path": "fs/open.c",
+          "start_line": 1095,
+          "end_line": 1095,
+          "start_column": 0,
+          "end_column": null,
+          "start_byte": 26674,
+          "end_byte": 26696,
+          "blob_digest": "587769343f2fc32552fb8593138c72f47110de8b7933f921a0bf9b627282b59a"
+        }
+      ]
+    },
+    {
+      "path": "fs/open.c",
+      "caller": "vfs_open",
+      "callee": "do_dentry_open",
+      "callLine": 1088,
+      "hit": true,
+      "elapsedMs": 1.0874549999999914,
+      "totalCalls": 2,
+      "matches": [
+        {
+          "relation_id": "relation:5ca40a7696fd6b5ddadd2a56a6f6bde3",
+          "source_id": "symbol:WyJmaWxlOjk0NDVkYTNkMTJlYzFjM2Y1OTgzN2I3MyIsInZmc19vcGVuIiwiZnVuY3Rpb24iLCIiLDEwODMsMF0",
+          "target_id": "symbol:WyJmaWxlOjk0NDVkYTNkMTJlYzFjM2Y1OTgzN2I3MyIsImRvX2RlbnRyeV9vcGVuIiwiZnVuY3Rpb24iLCIiLDkwNywwXQ",
+          "target_name": "do_dentry_open",
+          "type": "calls",
+          "status": "resolved",
+          "confidence": 0.6,
+          "origin": "cscope",
+          "path": "fs/open.c",
+          "start_line": 1088,
+          "end_line": 1088,
+          "start_column": 0,
+          "end_column": null,
+          "start_byte": 26476,
+          "end_byte": 26510,
+          "blob_digest": "587769343f2fc32552fb8593138c72f47110de8b7933f921a0bf9b627282b59a"
+        }
+      ]
+    },
+    {
+      "path": "fs/exec.c",
+      "caller": "do_execveat_common",
+      "callee": "alloc_bprm",
+      "callLine": 1903,
+      "hit": true,
+      "elapsedMs": 40.442285999999996,
+      "totalCalls": 19,
+      "matches": [
+        {
+          "relation_id": "relation:640d4a8b495639a136a8c8881a33ad73",
+          "source_id": "symbol:WyJmaWxlOmZmNjA2MGRhMjgxYmQ5ZWYzZjI0ZTE3YiIsImRvX2V4ZWN2ZWF0X2NvbW1vbiIsImZ1bmN0aW9uIiwiIiwxODc2LDBd",
+          "target_id": "symbol:WyJmaWxlOmZmNjA2MGRhMjgxYmQ5ZWYzZjI0ZTE3YiIsImFsbG9jX2Jwcm0iLCJmdW5jdGlvbiIsIiIsMTUwMywwXQ",
+          "target_name": "alloc_bprm",
+          "type": "calls",
+          "status": "resolved",
+          "confidence": 0.6,
+          "origin": "cscope",
+          "path": "fs/exec.c",
+          "start_line": 1903,
+          "end_line": 1903,
+          "start_column": 0,
+          "end_column": null,
+          "start_byte": 46573,
+          "end_byte": 46613,
+          "blob_digest": "98f1bd0885d273637457bd6709d393b8deefd2b009ac273f9fc3d26d8509ccb5"
+        }
+      ]
+    },
+    {
+      "path": "fs/exec.c",
+      "caller": "do_execveat_common",
+      "callee": "bprm_execve",
+      "callLine": 1952,
+      "hit": true,
+      "elapsedMs": 6.059603999999993,
+      "totalCalls": 19,
+      "matches": [
+        {
+          "relation_id": "relation:659b77fa3a57f36dae8ef22dd726a838",
+          "source_id": "symbol:WyJmaWxlOmZmNjA2MGRhMjgxYmQ5ZWYzZjI0ZTE3YiIsImRvX2V4ZWN2ZWF0X2NvbW1vbiIsImZ1bmN0aW9uIiwiIiwxODc2LDBd",
+          "target_id": "symbol:WyJmaWxlOmZmNjA2MGRhMjgxYmQ5ZWYzZjI0ZTE3YiIsImJwcm1fZXhlY3ZlIiwiZnVuY3Rpb24iLCIiLDE4MjEsMF0",
+          "target_name": "bprm_execve",
+          "type": "calls",
+          "status": "resolved",
+          "confidence": 0.6,
+          "origin": "cscope",
+          "path": "fs/exec.c",
+          "start_line": 1952,
+          "end_line": 1952,
+          "start_column": 0,
+          "end_column": null,
+          "start_byte": 47695,
+          "end_byte": 47723,
+          "blob_digest": "98f1bd0885d273637457bd6709d393b8deefd2b009ac273f9fc3d26d8509ccb5"
+        }
+      ]
+    }
+  ]
+}

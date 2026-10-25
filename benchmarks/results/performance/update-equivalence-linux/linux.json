@@ -1,0 +1,16 @@
+{
+  "files": 86363,
+  "symbols": 6190588,
+  "relations": 403090,
+  "factsSha256": "a99cc1c7a1117143a580eb909300a4310b17f96aa4441e8e31fedfe4e6574ca7",
+  "sourceBlobsChecked": 85809,
+  "nativeBodySha256": "ce067a30b61f39d9b21268015f4f76ae09ba019fb7aec91cfcd7bea64c76c1f1",
+  "equivalent": true,
+  "scope": "Every file: symbol fields and parent identities, stored relations and source identities, source/blob digests; entire Cscope body after the cwd header",
+  "corpus": "linux",
+  "snapshotId": "snapshot:repo-cc85df8a7b9b3118a52b:a7cbbe6d6900f2666cbc329e",
+  "baselineSnapshot": "/data/dev/CodeIndex/.data/competitors/codeindex/linux/repo-cc85df8a7b9b3118a52b/snapshots/snapshot:repo-cc85df8a7b9b3118a52b:a7cbbe6d6900f2666cbc329e-ca2aff7a",
+  "optimizedSnapshot": "/data/dev/CodeIndex/.data/performance-v5/linux/repo-cc85df8a7b9b3118a52b/snapshots/snapshot:repo-cc85df8a7b9b3118a52b:a7cbbe6d6900f2666cbc329e-7b513e8b",
+  "changedFile": "fs/open.c",
+  "changedFileDigest": "159b575139c85e3683026d198766c7d425d7435dd5444e4957d63c633ce2ad8a"
+}

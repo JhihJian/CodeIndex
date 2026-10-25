@@ -1,0 +1,236 @@
+{
+  "tool": "CodeIndex",
+  "loadMs": 1.368278,
+  "mode": "metadata",
+  "warmup": 1,
+  "repetitions": 20,
+  "rows": [
+    {
+      "query": "DocStore",
+      "hitAt10": true,
+      "coldMs": 8.168941000000004,
+      "medianMs": 1.1458185000000007,
+      "evidenceMs": 1.863941000000004,
+      "files": [
+        {
+          "path": "pageindex/local_store.py",
+          "symbol": "pageindex.local_store.DocStore",
+          "lines": [
+            {
+              "line": 73,
+              "source": "class DocStore:\n    def __init__(self, storage_dir: str):\n        self._root = Path(storage_dir).expanduser()",
+              "digest": "693d937daffb264acf05262b2657688f038f88d13e290f387625f244896df57f"
+            },
+            {
+              "line": 74,
+              "source": "def __init__(self, storage_dir: str):\n        self._root = Path(storage_dir).expanduser()\n        self._docs = self._root / \"docs\"",
+              "digest": "693d937daffb264acf05262b2657688f038f88d13e290f387625f244896df57f"
+            },
+            {
+              "line": 85,
+              "source": "def _read_manifest(self) -> dict:\n        data = _read_json(self._manifest)\n        docs = data.get(\"docs\") if isinstance(data, dict) else None",
+              "digest": "693d937daffb264acf05262b2657688f038f88d13e290f387625f244896df57f"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": "tree_cost",
+      "hitAt10": true,
+      "coldMs": 0.4289589999999919,
+      "medianMs": 0.31667949999999934,
+      "evidenceMs": 0.7518599999999935,
+      "files": [
+        {
+          "path": "pageindex/tree_optimize.py",
+          "symbol": "pageindex.tree_optimize.tree_cost",
+          "lines": [
+            {
+              "line": 292,
+              "source": "def tree_cost(node, routing=ROUTING_COST):\n    \"\"\"Worst-case search cost of the subtree as it currently stands.\"\"\"\n    if is_frontier(node):",
+              "digest": "f1c35c1319ffeeb1781362bbabe93b45835e936157208ad3877c69ac17aca0f8"
+            },
+            {
+              "line": 319,
+              "source": "def tree_cost_via_frontier(node, routing=ROUTING_COST):\n    entries = frontier_costs(node)\n    return max(d * routing + s for d, s, _ in entries) if entries else 0",
+              "digest": "f1c35c1319ffeeb1781362bbabe93b45835e936157208ad3877c69ac17aca0f8"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": "get_document_structure",
+      "hitAt10": true,
+      "coldMs": 0.587102999999999,
+      "medianMs": 0.4330515000000048,
+      "evidenceMs": 1.6178719999999913,
+      "files": [
+        {
+          "path": "pageindex/client.py",
+          "symbol": "pageindex.client.PageIndexClient.get_document_structure",
+          "lines": [
+            {
+              "line": 1004,
+              "source": "def get_document_structure(self, doc_id: str) -> list[dict[str, Any]]:\n        \"\"\"\n        Get the document's tree structure without text — summaries included.",
+              "digest": "342a7f1afb4549cd978b6d3545eeb772ae8743c737d9ade5f28d1cbe2f081d52"
+            }
+          ]
+        },
+        {
+          "path": "pageindex/agent_tools.py",
+          "symbol": "pageindex.agent_tools._get_document_structure",
+          "lines": [
+            {
+              "line": 910,
+              "source": "def _get_document_structure(client, doc_name: str,\n                            folder_id: Optional[str] = None, part: int = 1,\n                            wait_for_completion: bool = False,",
+              "digest": "40934fb6210c7404936788bdf1ff30ad77f7ddfa318bc4798697eca54bfb9643"
+            }
+          ]
+        },
+        {
+          "path": "tests/test_client.py",
+          "symbol": "tests.test_client.test_get_document_structure",
+          "lines": [
+            {
+              "line": 575,
+              "source": "def test_get_document_structure(local_client, indexed_doc):\n    result = local_client.get_document_structure(indexed_doc)\n    assert isinstance(result, list)",
+              "digest": "5982fc610f6ae38b76145d18f461752d8f2c43bede6751d3071060c743d1b64a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": "build_tree_from_nodes",
+      "hitAt10": true,
+      "coldMs": 0.40325099999999736,
+      "medianMs": 0.22920650000000364,
+      "evidenceMs": 0.3822010000000091,
+      "files": [
+        {
+          "path": "pageindex/page_index_md.py",
+          "symbol": "pageindex.page_index_md.build_tree_from_nodes",
+          "lines": [
+            {
+              "line": 192,
+              "source": "def build_tree_from_nodes(node_list):\n    if not node_list:\n        return []",
+              "digest": "62c8d3acfb51476e7dc1226f4346fec201a31cb64c47fe922593c06b4dc30b27"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": "PageIndexClient",
+      "hitAt10": true,
+      "coldMs": 1.5709849999999932,
+      "medianMs": 1.518292499999994,
+      "evidenceMs": 2.094079000000008,
+      "files": [
+        {
+          "path": "pageindex/client.py",
+          "symbol": "pageindex.client.PageIndexClient",
+          "lines": [
+            {
+              "line": 316,
+              "source": "class PageIndexClient:\n    \"\"\"\n    Python SDK client for PageIndex.",
+              "digest": "342a7f1afb4549cd978b6d3545eeb772ae8743c737d9ade5f28d1cbe2f081d52"
+            },
+            {
+              "line": 701,
+              "source": "@property\n    def _local_chat(self) -> bool:\n        # Derived, never stored: own-model chat is exactly \"a chat model",
+              "digest": "342a7f1afb4549cd978b6d3545eeb772ae8743c737d9ade5f28d1cbe2f081d52"
+            },
+            {
+              "line": 748,
+              "source": "@chat_model.setter\n    def chat_model(self, value):\n        # Any assignment is a choice; only the untouched stock default",
+              "digest": "342a7f1afb4549cd978b6d3545eeb772ae8743c737d9ade5f28d1cbe2f081d52"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": "extract_toc",
+      "hitAt10": true,
+      "coldMs": 0.45762199999998643,
+      "medianMs": 0.2892739999999918,
+      "evidenceMs": 0.6647979999999905,
+      "files": [
+        {
+          "path": "pageindex/flash/main.py",
+          "symbol": "pageindex.flash.main.extract_toc",
+          "lines": [
+            {
+              "line": 124,
+              "source": "def extract_toc(\n    doc_handle: Union[str, Path, BytesIO],\n    workers: Optional[int] = None,",
+              "digest": "ef1ad957b6abfc0eaeabf1e6fd842537f33c489ffc78ff47c13c1da42a012dae"
+            }
+          ]
+        },
+        {
+          "path": "pageindex/page_index_classic.py",
+          "symbol": "pageindex.page_index_classic.extract_toc_content",
+          "lines": [
+            {
+              "line": 238,
+              "source": "def extract_toc_content(content, model=None):\n    prompt = f\"\"\"\n    Your job is to extract the full table of contents from the given text, replace ... with :",
+              "digest": "bd07e4423408e718e9e26c20613615b8168fdc0e44bbc2bbda3278e1d4349698"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": "codeindex_benchmark_update_probe_20261025",
+      "hitAt10": false,
+      "coldMs": 0.18466400000002636,
+      "medianMs": 0.0715734999999853,
+      "evidenceMs": 0.10986500000001342,
+      "files": []
+    }
+  ],
+  "snapshotId": "snapshot:repo-bd9cf8796bf4f90863e3:462beda886ce8d2443893f26",
+  "snapshotDir": "/data/dev/CodeIndex/.data/performance-v2/pageindex/repo-bd9cf8796bf4f90863e3/snapshots/snapshot:repo-bd9cf8796bf4f90863e3:462beda886ce8d2443893f26-30969a58",
+  "counts": {
+    "files": 155,
+    "symbols": 2668,
+    "relations": 17651,
+    "sourceBytes": 5268104,
+    "changedFiles": 155,
+    "removedFiles": 0,
+    "reusedFiles": 0,
+    "parsedFiles": 112,
+    "partialFiles": 43,
+    "skipped": 1,
+    "nodes": 2854,
+    "nativeFiles": 0,
+    "nativeIndexedFiles": 0,
+    "workers": 4,
+    "nativeBuildMode": "none",
+    "nativeTaskMs": 1536,
+    "relationsScope": "stored-sql-relations; native calls and references queried from cscope",
+    "stages": {
+      "scan": 119,
+      "source-and-files": 29,
+      "native-symbols": 0,
+      "parser-symbols": 1538,
+      "relations": 1,
+      "indexes": 20,
+      "native-cross-references": 0,
+      "validation": 3
+    },
+    "buildMs": 1710
+  },
+  "coverage": {
+    "sourceFiles": 155,
+    "parsedFiles": 112,
+    "unsupportedFiles": 43,
+    "partialFiles": 43,
+    "skippedFiles": 1,
+    "nativeCalls": false,
+    "semantics": "syntax-level symbols and cross-references; no compiler-level overload or pointer resolution"
+  }
+}

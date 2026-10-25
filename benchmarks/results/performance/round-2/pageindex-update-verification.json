@@ -1,0 +1,10 @@
+{
+  "completed": true,
+  "restored": true,
+  "file": "pageindex/tree_optimize.py",
+  "originalRevision": "fdd0c3ee9eca068717d30c54f3211a4e770ba7b4",
+  "pointer": "/data/dev/CodeIndex/.data/performance-v2/pageindex/repo-bd9cf8796bf4f90863e3/published.json",
+  "originalPointer": "{\n  \"repositoryId\": \"repo-bd9cf8796bf4f90863e3\",\n  \"snapshotId\": \"snapshot:repo-bd9cf8796bf4f90863e3:462beda886ce8d2443893f26\",\n  \"directory\": \"snapshot:repo-bd9cf8796bf4f90863e3:462beda886ce8d2443893f26-30969a58\",\n  \"publishedAt\": \"2026-10-25T03:38:25.357Z\"\n}",
+  "originalFileDigest": "f1c35c1319ffeeb1781362bbabe93b45835e936157208ad3877c69ac17aca0f8",
+  "updatedFileDigest": "dbb44c4f72faa96e25c2009a0c8c1f3148801bd25de03e45b6d61b426550f1ae"
+}

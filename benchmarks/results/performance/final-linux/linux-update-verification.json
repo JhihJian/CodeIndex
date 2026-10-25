@@ -1,0 +1,10 @@
+{
+  "completed": true,
+  "restored": true,
+  "file": "fs/open.c",
+  "originalRevision": "6e6422c5a68bce90a14242fa5e24a1544d3840d3",
+  "pointer": "/data/dev/CodeIndex/.data/performance-v5/linux/repo-cc85df8a7b9b3118a52b/published.json",
+  "originalPointer": "{\n  \"repositoryId\": \"repo-cc85df8a7b9b3118a52b\",\n  \"snapshotId\": \"snapshot:repo-cc85df8a7b9b3118a52b:a8b6aab760ad45a485996561\",\n  \"directory\": \"snapshot:repo-cc85df8a7b9b3118a52b:a8b6aab760ad45a485996561-b7ede6a2\",\n  \"publishedAt\": \"2026-10-25T04:22:39.109Z\"\n}",
+  "originalFileDigest": "587769343f2fc32552fb8593138c72f47110de8b7933f921a0bf9b627282b59a",
+  "updatedFileDigest": "159b575139c85e3683026d198766c7d425d7435dd5444e4957d63c633ce2ad8a"
+}

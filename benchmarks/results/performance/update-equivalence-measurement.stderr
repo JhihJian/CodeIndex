@@ -1,0 +1,40 @@
+(node:1644353) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:1644361) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:1644772) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: native cross-reference body differs
++ actual - expected
+
++ 'eb5e22a48236ea9c75a3b59410522d46b4eface3ef44eeccd346c31c8825ba96'
+- 'ce067a30b61f39d9b21268015f4f76ae09ba019fb7aec91cfcd7bea64c76c1f1'
+
+    at file:///data/dev/CodeIndex-worktrees/feature/index-performance/benchmarks/performance/equivalence.mjs:71:10
+    at ModuleJob.run (node:internal/modules/esm/module_job:430:25)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:661:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5) {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: 'eb5e22a48236ea9c75a3b59410522d46b4eface3ef44eeccd346c31c8825ba96',
+  expected: 'ce067a30b61f39d9b21268015f4f76ae09ba019fb7aec91cfcd7bea64c76c1f1',
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.13.1
+Traceback (most recent call last):
+  File "/data/dev/CodeIndex-worktrees/feature/index-performance/benchmarks/performance/audit-updates.py", line 48, in <module>
+    result = subprocess.check_output(['node', '--max-old-space-size=2048',
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 466, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['node', '--max-old-space-size=2048', '/data/dev/CodeIndex-worktrees/feature/index-performance/benchmarks/performance/equivalence.mjs', '/data/dev/CodeIndex/.data/competitors/codeindex/linux/repo-cc85df8a7b9b3118a52b/snapshots/snapshot:repo-cc85df8a7b9b3118a52b:a7cbbe6d6900f2666cbc329e-ca2aff7a', '/data/dev/CodeIndex/.data/performance-v3/linux/repo-cc85df8a7b9b3118a52b/snapshots/snapshot:repo-cc85df8a7b9b3118a52b:a7cbbe6d6900f2666cbc329e-c6bc73b9', '/tmp/codeindex-update-equivalence-hkpi0q5z/linux.json']' returned non-zero exit status 1.

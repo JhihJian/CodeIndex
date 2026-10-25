@@ -1,0 +1,36 @@
+{
+  "repositoryId": "repo-bd9cf8796bf4f90863e3",
+  "snapshotId": "snapshot:repo-bd9cf8796bf4f90863e3:462beda886ce8d2443893f26",
+  "status": "partial",
+  "stats": {
+    "files": 155,
+    "symbols": 2668,
+    "relations": 17651,
+    "sourceBytes": 5268104,
+    "changedFiles": 155,
+    "removedFiles": 0,
+    "reusedFiles": 0,
+    "parsedFiles": 112,
+    "partialFiles": 43,
+    "skipped": 1,
+    "nodes": 2854,
+    "nativeFiles": 0,
+    "nativeIndexedFiles": 0,
+    "workers": 4,
+    "nativeBuildMode": "none",
+    "nativeTaskMs": 1339,
+    "relationsScope": "stored-sql-relations; native calls and references queried from cscope",
+    "stages": {
+      "scan": 102,
+      "source-and-files": 27,
+      "native-symbols": 0,
+      "parser-symbols": 1342,
+      "relations": 1,
+      "indexes": 17,
+      "native-cross-references": 0,
+      "validation": 3
+    },
+    "buildMs": 1492
+  },
+  "store": "/data/dev/CodeIndex/.data/performance-v3/pageindex"
+}

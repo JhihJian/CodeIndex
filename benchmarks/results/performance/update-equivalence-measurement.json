@@ -1,0 +1,32 @@
+{
+  "command": [
+    "python3",
+    "benchmarks/performance/audit-updates.py",
+    "--baseline-stores",
+    "/data/dev/CodeIndex/.data/competitors/codeindex",
+    "--optimized-stores",
+    "/data/dev/CodeIndex/.data/performance-v3",
+    "--inputs",
+    "/data/dev/CodeIndex/.data/competitors/inputs",
+    "--run-results",
+    "benchmarks/results/performance/final",
+    "--results",
+    "benchmarks/results/performance/update-equivalence"
+  ],
+  "cwd": "/data/dev/CodeIndex-worktrees/feature/index-performance",
+  "systemdUnit": "codeindex-benchmark-1644350.scope",
+  "systemdResult": "success",
+  "status": "failed",
+  "exitCode": 1,
+  "wallSeconds": 87.03,
+  "wallSecondsIncludingSupervisor": 87.30146841704845,
+  "timeLimitSeconds": 600,
+  "memoryLimitGiB": 12,
+  "gnuTimeMaxRssKiB": 1006020,
+  "sampledProcessTreeRssSumBytes": 1105637376,
+  "workloadSampled": true,
+  "cgroupMemoryPeakBytes": 5825802240,
+  "sampleIntervalSeconds": 0.25,
+  "leftoverProcessIdsTerminated": [],
+  "memoryNotes": "RSS sum can double-count shared pages; cgroup memory includes page cache; GNU time max RSS is not simultaneous tree total"
+}

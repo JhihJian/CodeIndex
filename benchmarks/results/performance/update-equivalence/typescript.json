@@ -1,0 +1,16 @@
+{
+  "files": 67863,
+  "symbols": 190794,
+  "relations": 242818,
+  "factsSha256": "e2321cd3e8f179d0c1e01a6777955bdce582e4aac072fa6b87e3caad8a0cea63",
+  "sourceBlobsChecked": 65299,
+  "nativeBodySha256": null,
+  "equivalent": true,
+  "scope": "Every file: symbol fields and parent identities, stored relations and source identities, source/blob digests; entire Cscope body after the cwd header",
+  "corpus": "typescript",
+  "snapshotId": "snapshot:repo-c64febb3edcae7801f84:722e84b8e23188b37539d1a6",
+  "baselineSnapshot": "/data/dev/CodeIndex/.data/competitors/codeindex/typescript/repo-c64febb3edcae7801f84/snapshots/snapshot:repo-c64febb3edcae7801f84:722e84b8e23188b37539d1a6-a9d04606",
+  "optimizedSnapshot": "/data/dev/CodeIndex/.data/performance-v3/typescript/repo-c64febb3edcae7801f84/snapshots/snapshot:repo-c64febb3edcae7801f84:722e84b8e23188b37539d1a6-01578e59",
+  "changedFile": "packages/typescript/src/api/async/api.ts",
+  "changedFileDigest": "120c89aa9a36ebf87ecbadb2e91cafd4ba34b1dd7e27ee7f9f20f8f3408bd1bf"
+}

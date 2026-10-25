@@ -1,0 +1,36 @@
+{
+  "repositoryId": "repo-cc85df8a7b9b3118a52b",
+  "snapshotId": "snapshot:repo-cc85df8a7b9b3118a52b:a8b6aab760ad45a485996561",
+  "status": "partial",
+  "stats": {
+    "files": 86363,
+    "symbols": 6190587,
+    "relations": 403090,
+    "sourceBytes": 1212793499,
+    "changedFiles": 86363,
+    "removedFiles": 0,
+    "reusedFiles": 0,
+    "parsedFiles": 60006,
+    "partialFiles": 26358,
+    "skipped": 1,
+    "nodes": 6282688,
+    "nativeFiles": 59746,
+    "nativeIndexedFiles": 59746,
+    "workers": 4,
+    "nativeBuildMode": "full",
+    "nativeTaskMs": 57792,
+    "relationsScope": "stored-sql-relations; native calls and references queried from cscope",
+    "stages": {
+      "scan": 7428,
+      "source-and-files": 11721,
+      "native-symbols": 35163,
+      "parser-symbols": 1583,
+      "relations": 0,
+      "indexes": 14556,
+      "native-cross-references": 6491,
+      "validation": 1655
+    },
+    "buildMs": 78597
+  },
+  "store": "/data/dev/CodeIndex/.data/performance-v3/linux"
+}

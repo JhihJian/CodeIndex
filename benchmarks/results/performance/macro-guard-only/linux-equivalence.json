@@ -1,0 +1,26 @@
+{
+  "command": [
+    "node",
+    "--max-old-space-size=2048",
+    "/data/dev/CodeIndex-worktrees/feature/index-performance/benchmarks/performance/equivalence.mjs",
+    "/data/dev/CodeIndex/.data/competitors/codeindex/linux",
+    "/data/dev/CodeIndex/.data/performance-v4/linux",
+    "/data/dev/CodeIndex/.data/competitors/inputs/linux.files.json"
+  ],
+  "cwd": "/data/dev/CodeIndex-worktrees/feature/index-performance",
+  "systemdUnit": "codeindex-benchmark-1669497.scope",
+  "systemdResult": "success",
+  "status": "success",
+  "exitCode": 0,
+  "wallSeconds": 62.27,
+  "wallSecondsIncludingSupervisor": 62.42604304221459,
+  "timeLimitSeconds": 1800,
+  "memoryLimitGiB": 12,
+  "gnuTimeMaxRssKiB": 1007116,
+  "sampledProcessTreeRssSumBytes": 1012629504,
+  "workloadSampled": true,
+  "cgroupMemoryPeakBytes": 3616690176,
+  "sampleIntervalSeconds": 0.25,
+  "leftoverProcessIdsTerminated": [],
+  "memoryNotes": "RSS sum can double-count shared pages; cgroup memory includes page cache; GNU time max RSS is not simultaneous tree total"
+}

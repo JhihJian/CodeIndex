@@ -1,0 +1,10 @@
+(node:1588699) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+{"stage":"scan","durationMs":8134,"elapsedMs":8134,"rssMiB":328,"files":86363,"changedFiles":86363}
+{"stage":"source-and-files","durationMs":13516,"elapsedMs":21650,"rssMiB":431}
+{"stage":"native-symbols","durationMs":42042,"elapsedMs":63692,"rssMiB":433}
+{"stage":"parser-symbols","durationMs":1894,"elapsedMs":65586,"rssMiB":444}
+{"stage":"relations","durationMs":0,"elapsedMs":65586,"rssMiB":444}
+{"stage":"indexes","durationMs":16810,"elapsedMs":82396,"rssMiB":460}
+{"stage":"native-cross-references","durationMs":6456,"elapsedMs":88852,"rssMiB":447,"taskDurationMs":67201,"buildMode":"full"}
+{"stage":"validation","durationMs":1612,"elapsedMs":90464,"rssMiB":449}

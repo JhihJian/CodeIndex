@@ -1,0 +1,22 @@
+{
+  "inputFiles": 67863,
+  "indexedInputFiles": 67863,
+  "missingFiles": [],
+  "digestMismatches": [],
+  "evidenceChecked": 33,
+  "checks": [
+    "snapshot identity",
+    "blob sha256",
+    "inventory digest",
+    "UTF-8 byte slice equals returned source"
+  ],
+  "coverage": {
+    "sourceFiles": 67863,
+    "parsedFiles": 26766,
+    "unsupportedFiles": 41097,
+    "partialFiles": 41097,
+    "skippedFiles": 1,
+    "nativeCalls": false,
+    "semantics": "syntax-level symbols and cross-references; no compiler-level overload or pointer resolution"
+  }
+}

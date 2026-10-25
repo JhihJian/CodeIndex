@@ -1,0 +1,16 @@
+{
+  "files": 155,
+  "symbols": 2669,
+  "relations": 17651,
+  "factsSha256": "91d17c2ef1b68f2b8d720ca6c01ae081cf200914774ae2f0011dd23ebda8aea4",
+  "sourceBlobsChecked": 155,
+  "nativeBodySha256": null,
+  "equivalent": true,
+  "scope": "Every file: symbol fields and parent identities, stored relations and source identities, source/blob digests; entire Cscope body after the cwd header",
+  "corpus": "pageindex",
+  "snapshotId": "snapshot:repo-bd9cf8796bf4f90863e3:9cb4b770998c200d612c21b3",
+  "baselineSnapshot": "/data/dev/CodeIndex/.data/competitors/codeindex/pageindex/repo-bd9cf8796bf4f90863e3/snapshots/snapshot:repo-bd9cf8796bf4f90863e3:9cb4b770998c200d612c21b3-22de4a86",
+  "optimizedSnapshot": "/data/dev/CodeIndex/.data/performance-v3/pageindex/repo-bd9cf8796bf4f90863e3/snapshots/snapshot:repo-bd9cf8796bf4f90863e3:9cb4b770998c200d612c21b3-8ea4e299",
+  "changedFile": "pageindex/tree_optimize.py",
+  "changedFileDigest": "dbb44c4f72faa96e25c2009a0c8c1f3148801bd25de03e45b6d61b426550f1ae"
+}

@@ -2,7 +2,7 @@
 
 CodeIndex 为代码仓库建立不可变的结构索引，回答“代码在哪里”“谁调用这个函数”“它调用了什么”等问题。查询先检索元数据，再读取少量源码证据，每条证据绑定快照、路径、行号、字节范围和内容摘要。
 
-正式后端采用 **Universal Ctags + Cscope + 紧凑 SQLite**。在 Linux v6.12 的 86,363 个文件上，全量命令从启动到校验、发布用时 **135.03 秒**。测量条件和能力范围见 [Linux 正式验证](benchmarks/linux-native.md)。
+正式后端采用 **Universal Ctags + Cscope + 紧凑 SQLite**。0.3 在固定 TypeScript 输入上全量建库 **10.68 秒**，Linux v6.12 的 86,363 个文件全量建库 **78.74 秒**，包含校验与发布。整棵被测进程树限制为 12 GiB、禁 swap，测量与正确性证据见 [性能迭代实测](benchmarks/index-performance.md)。
 
 ## 安装
 
@@ -90,6 +90,7 @@ node bin/codeindex.js benchmark \
 
 以下报告保留各自版本和测量口径：
 
+- [0.3 性能迭代与内存受限实测](benchmarks/index-performance.md)
 - [OpenGrok、Zoekt、CodeGraphContext 固定输入实测](benchmarks/index-tool-comparison.md)
 - [Linux 正式原生后端](benchmarks/linux-native.md)
 - [三分钟方案原型，116.84 秒](benchmarks/linux-fast-alternatives.md)
