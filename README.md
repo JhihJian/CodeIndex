@@ -65,6 +65,21 @@ node bin/codeindex.js update --repo /path/to/repository --store /path/to/index -
 
 旧版索引需要重新执行 `index`。新快照使用 `codeindex-index-0.4.0` / `codeindex-compact-2`，发布目录与内容身份分离，重建和增量均保留旧读者使用的目录。使用方法、并行度、异步 JavaScript API、文件边界及更新成本见 [原生索引运行说明](docs/native-index.md)。原始候选架构保留在 [架构设计](docs/codeindex-architecture.md)。
 
+## 接入代码助手
+
+[CodeIndex Skill](skills/codeindex/SKILL.md) 约定索引准备、符号/正文/关系查询、快照与工作区核验，以及使用问题的 issue 反馈。代码助手通过现有 CLI 获取 JSON 证据。先用于跨文件定位和影响分析，以实际任务正确性、耗时、上下文量及索引成本评价效果。
+
+在长期保留、持续更新的 CodeIndex 默认分支工作目录根部执行以下命令，将 Skill 链接到 Pi 的用户技能目录：
+
+```bash
+mkdir -p "$HOME/.pi/agent/skills"
+ln -s "$PWD/skills/codeindex" "$HOME/.pi/agent/skills/codeindex"
+```
+
+目标已存在时先检查其来源，保留已有自定义内容。符号链接跟随所指向工作目录中的文件，请使用稳定路径，勿指向会清理的临时 worktree。Pi 中执行 `/reload`，然后可用 `/skill:codeindex 定位目标仓库中的调用链` 显式调用，也可由场景描述自动触发。其他支持 Agent Skills 的助手可加载同一目录；独立复制 Skill 时需另行指定 CodeIndex 安装位置。
+
+使用中发现 CodeIndex 问题时，Skill 会要求委派可用 subagent 到本项目 issue 查重并记录复现证据。
+
 ## 可选模型归纳
 
 ```bash
