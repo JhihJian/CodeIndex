@@ -51,6 +51,17 @@ test('正文覆盖函数体、未支持文件和解析失败文件，证据定�
   } finally { fs.readFileSync = read; }
 });
 
+test('精确名称查询保留被大量全文候选挤出的声明', async t => {
+  const { repo, store } = workspace(t);
+  fs.writeFileSync(path.join(repo, 'target.ts'), `/** ${'long documentation '.repeat(10000)} */\nexport class Target {}`);
+  fs.writeFileSync(path.join(repo, 'references.ts'), Array.from({ length: 200 }, (_, i) => `/** Target */ function noise${i}() { return 1; }`).join('\n'));
+  await indexRepository(repo, store);
+  const index = loadIndex(store); t.after(() => index.close());
+  const result = queryIndex(index, 'Target', { searchMode: 'symbol' });
+  assert.equal(result.candidates[0].path, 'target.ts');
+  assert.equal(result.evidence[0].source, 'export class Target {}');
+});
+
 test('正文增删改名与全量一致，旧读者仍看到旧正文', async t => {
   const { root, repo, store } = workspace(t);
   fs.writeFileSync(path.join(repo, 'old.md'), 'old exclusive phrase');

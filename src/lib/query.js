@@ -123,7 +123,9 @@ function contentEvidence(index, candidate, query, maxLines, cache) {
 
 function candidateNodes(index, query) {
   const terms = cleanQuery(query);
-  const rows = index.searchNodes(terms.join(' '), 128);
+  const literal = String(query).trim();
+  const exactName = /^[\p{L}_$][\p{L}\p{N}_$]*$/u.test(literal) ? literal : null;
+  const rows = index.searchNodes(terms.join(' '), 128, { exactName });
   const rankedRows = rows.map((row) => ({
     row,
     score: scoreText(`${row.name} ${row.qualified_name} ${row.signature} ${row.doc} ${row.summary} ${row.path}`, terms)

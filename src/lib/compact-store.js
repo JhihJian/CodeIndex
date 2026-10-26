@@ -303,6 +303,9 @@ export function openCompactStore(snapshotDir, manifest = {}) {
       s.name,s.kind,s.scope,s.start_line,s.start_column,s.qualified_name,s.signature,s.doc,f.path,f.language,
       bm25(search_fts) AS rank FROM search_fts JOIN symbols s ON s.id=search_fts.rowid
       JOIN files f ON f.id=s.file_id WHERE search_fts MATCH ? ORDER BY rank LIMIT ?`);
+  const exactSearch = db.prepare(`SELECT s.id, f.public_id AS file_public_id,
+    s.name,s.kind,s.scope,s.start_line,s.start_column,s.qualified_name,s.signature,s.doc,f.path,f.language,
+    -1000000 AS rank FROM symbols s JOIN files f ON f.id=s.file_id WHERE s.name=? ORDER BY f.path,s.start_line LIMIT ?`);
   const searchFiles = db.prepare(`SELECT f.public_id, f.path, bm25(files_fts) AS rank
     FROM files_fts JOIN files f ON f.id=files_fts.rowid WHERE files_fts MATCH ? ORDER BY rank LIMIT ?`);
 
@@ -376,12 +379,14 @@ export function openCompactStore(snapshotDir, manifest = {}) {
 
   const index = {
     storeRoot: path.dirname(path.dirname(path.dirname(snapshotDir))), snapshotDir, manifest, db, databasePath,
-    searchNodes(query, limit = 24) {
+    searchNodes(query, limit = 24, { exactName = null } = {}) {
       limit = Math.max(0, Math.trunc(limit));
       const terms = [...new Set(String(query).split(/[^\p{L}\p{N}_$]+/u).filter(Boolean))];
       if (!terms.length || !limit) return [];
       const ftsQuery = terms.map((term) => `"${term.replaceAll('"', '""')}"*`).join(' OR ');
-      const symbols = search.all(ftsQuery, limit).map((row) => ({
+      const matches = new Map(search.all(ftsQuery, limit).map(row => [row.id, row]));
+      if (exactName) for (const row of exactSearch.all(exactName, limit)) matches.set(row.id, row);
+      const symbols = [...matches.values()].map((row) => ({
         node_id: publicSymbolId(row), node_type: 'symbol', symbol_kind: row.kind, name: row.name,
         qualified_name: qualifiedName(row),
         signature: row.signature, doc: row.doc, summary: '', path: row.path,
