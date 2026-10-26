@@ -1,4 +1,5 @@
 import ts from 'typescript';
+import { lineOffsets } from '../lib/fs.js';
 
 function scriptKind(path) {
   const extension = path.slice(path.lastIndexOf('.')).toLowerCase();
@@ -36,9 +37,15 @@ function expressionName(node) {
 export function parseJavaScript({ path, source }) {
   // One syntax tree per call. No Program, checker, parent links or AST nodes escape in the result.
   const tree = ts.createSourceFile(path, source, ts.ScriptTarget.Latest, false, scriptKind(path));
+  const lines = lineOffsets(source);
   const location = (offset) => {
-    const { line, character } = tree.getLineAndCharacterOfPosition(offset);
-    return { line: line + 1, column: character };
+    // Public evidence counts LF lines, including when the language treats CR or Unicode separators as newlines.
+    let low = 0, high = lines.length;
+    while (low < high) {
+      const middle = (low + high) >>> 1;
+      if (lines[middle] <= offset) low = middle + 1; else high = middle;
+    }
+    return { line: low, column: offset - lines[low - 1] };
   };
   if (tree.parseDiagnostics.length) {
     const error = tree.parseDiagnostics.slice(0, 20).map((diagnostic) => {

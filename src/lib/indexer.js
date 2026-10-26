@@ -100,14 +100,17 @@ export async function indexRepository(repoRoot, storeRoot, {
   const previous = incremental ? publishedSnapshot(store, repoId) : null;
   const git = gitContext(repo);
   const baseConfig = { schema: INDEX_SCHEMA, sqliteSchema: COMPACT_SCHEMA_VERSION, parserVersion: PARSER_VERSION, maxFileBytes, typescript: ts.version };
-  let pythonRuntime = previous?.manifest.buildConfig?.python ? resolvePythonRuntime(python) : null;
-  let tools = resolveNativeTools({ ctags, cscope, needsCtags: Boolean(previous?.manifest.native?.files), needsCscope: Boolean(previous?.manifest.native?.files) });
+  const sameGit = git.revision && git.revision === previous?.manifest.git?.revision && !git.dirty && !previous.manifest.git?.dirty;
+  const sameBase = previous && Object.entries(baseConfig).every(([key, value]) => previous.manifest.buildConfig?.[key] === value);
+  const checkFastPath = Boolean(sameGit && sameBase && artifactsPresent(previous));
+  let pythonRuntime = checkFastPath && previous.manifest.buildConfig.python ? resolvePythonRuntime(python) : null;
+  let tools = resolveNativeTools({ ctags, cscope, needsCtags: Boolean(checkFastPath && previous.manifest.native?.files), needsCscope: Boolean(checkFastPath && previous.manifest.native?.files) });
   let config = { ...baseConfig, tools: toolVersions(tools), python: pythonRuntime };
   let compatible = artifactsPresent(previous) && stableJson(previous.manifest.buildConfig) === stableJson(config);
   const noOp = () => ({ manifest: previous.manifest, snapshotDir: previous.snapshotDir,
     stats: { ...previous.manifest.stats, changedFiles: 0, removedFiles: 0, reusedFiles: previous.manifest.stats.files,
       buildMs: Date.now() - started, noOp: true, stages: {} } });
-  if (compatible && git.revision && git.revision === previous.manifest.git?.revision && !git.dirty && !previous.manifest.git?.dirty) return noOp();
+  if (compatible && checkFastPath) return noOp();
   const scan = scanRepository(repo, { maxFileBytes, retainSource: false, excludedRoots: [store] });
   const entries = scan.files;
   const cFiles = entries.filter((entry) => nativeLanguage(entry.language));

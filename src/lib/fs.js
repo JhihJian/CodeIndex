@@ -3,7 +3,7 @@ import path from 'node:path';
 import { StringDecoder } from 'node:string_decoder';
 import { hashBytes, hashText, shortHash } from './hash.js';
 
-export const PARSER_VERSION = 'codeindex-parser-0.4.0';
+export const PARSER_VERSION = 'codeindex-parser-0.4.1';
 export const DEFAULT_IGNORES = new Set([
   '.git', '.hg', '.svn', 'node_modules', '.venv', 'venv', '__pycache__',
   'dist', 'build', 'coverage', '.next', '.turbo', '.cache', 'target',

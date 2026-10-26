@@ -49,6 +49,9 @@ for (const [name, response, message] of [
   ['invalid symbol span', `records[1].symbols = [{ key: 'bad', name: 'bad', kind: 'function',
     span: { startLine: 0, endLine: 1, startColumn: 0, endColumn: 1 } }];
     console.log(JSON.stringify(records));`, /invalid symbol/],
+  ['out-of-file symbol line', `records[1].symbols = [{ key: 'bad', name: 'bad', kind: 'function', span: { startLine: 999, endLine: 999, startColumn: 0, endColumn: 1 } }]; console.log(JSON.stringify(records));`, /invalid symbol/],
+  ['out-of-file symbol column', `records[1].symbols = [{ key: 'bad', name: 'bad', kind: 'function', span: { startLine: 1, endLine: 1, startColumn: 999, endColumn: 1000 } }]; console.log(JSON.stringify(records));`, /invalid symbol/],
+  ['out-of-file relation line', `records[1].relations = [{ sourceKey: 'module:second.py', type: 'calls', targetName: 'target', line: 999 }]; console.log(JSON.stringify(records));`, /invalid relation/],
   ['invalid relation line', `records[1].relations = [{ sourceKey: 'module:second.py', type: 'calls', targetName: 'target', line: 0 }];
     console.log(JSON.stringify(records));`, /invalid relation/],
 ]) {
@@ -76,13 +79,13 @@ test('a malformed Python batch does not emit its valid prefix to the result call
   assert.equal(fake.invocations().length, 1);
 });
 
-test('valid Python responses retain path identity even when returned out of order', async (t) => {
+test('valid Python responses are consumed in input order even when returned out of order', async (t) => {
   const { root } = workspace(t);
   const fake = fakePython(root, `${readBatch}\nconsole.log(JSON.stringify(records.reverse()));`);
   const emitted = [];
   await parseEntriesBatched(entries, record => emitted.push(record), { pythonRuntime: fake.runtime });
   assert.deepEqual(emitted.map(record => [record.path, record.status]), [
-    ['second.py', 'complete'], ['first.py', 'complete'],
+    ['first.py', 'complete'], ['second.py', 'complete'],
   ]);
   assert.equal(fake.invocations().length, 1);
 });

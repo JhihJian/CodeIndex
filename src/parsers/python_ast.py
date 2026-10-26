@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 import ast
 import json
+import re
+from bisect import bisect_right
 import sys
 
 
@@ -63,15 +65,23 @@ class SourceLayout:
     """Encode and split once. AST columns are UTF-8 bytes, JS columns UTF-16 units."""
     def __init__(self, source):
         # splitlines() also splits Unicode separators that Python does not treat as newlines.
-        self.lines = source.encode('utf-8').split(b'\n')
+        self.data = source.encode('utf-8')
+        self.starts = [0] + [match.end() for match in re.finditer(rb'\r\n|\r|\n', self.data)]
+        self.lines = re.split(rb'\r\n|\r|\n', self.data)
+        self.lf_starts = [0] + [match.end() for match in re.finditer(b'\n', self.data)]
         self.columns = {}
 
-    def column(self, line, byte_column):
+    def location(self, line, byte_column):
         key = (line, byte_column)
         if key not in self.columns:
-            prefix = self.lines[line - 1][:byte_column]
-            self.columns[key] = len(prefix.decode('utf-8').encode('utf-16-le')) // 2
+            offset = self.starts[line - 1] + byte_column
+            lf_line = bisect_right(self.lf_starts, offset)
+            prefix = self.data[self.lf_starts[lf_line - 1]:offset]
+            self.columns[key] = {'line': lf_line, 'column': len(prefix.decode('utf-8').encode('utf-16-le')) // 2}
         return self.columns[key]
+
+    def column(self, line, byte_column):
+        return self.location(line, byte_column)['column']
 
     def span(self, node):
         start = node.lineno
@@ -82,12 +92,10 @@ class SourceLayout:
             start = node.decorator_list[0].lineno
             while start > 1 and self.lines[start - 1][column:column + 1] != b'@':
                 start -= 1
-        return {
-            'startLine': start,
-            'endLine': node.end_lineno,
-            'startColumn': self.column(start, column),
-            'endColumn': self.column(node.end_lineno, node.end_col_offset),
-        }
+        first = self.location(start, column)
+        last = self.location(node.end_lineno, node.end_col_offset)
+        return {'startLine': first['line'], 'endLine': last['line'],
+                'startColumn': first['column'], 'endColumn': last['column']}
 
 
 def first_doc(node):
@@ -114,8 +122,7 @@ class Extractor(ast.NodeVisitor):
 
     def relation(self, node, kind, target, source_key=None, **fields):
         self.relations.append({'sourceKey': source_key or self.scope[0], 'type': kind,
-                               'targetName': target, 'line': node.lineno,
-                               'column': self.layout.column(node.lineno, node.col_offset), **fields})
+                               'targetName': target, **self.layout.location(node.lineno, node.col_offset), **fields})
 
     def visit_scope(self, node, scope):
         previous = self.scope
@@ -189,7 +196,7 @@ def parse_file(item):
     module_key = f'module:{path}'
     symbols = [{'key': module_key, 'parentKey': f'file:{path}', 'kind': 'module',
                 'name': module_name.rsplit('.', 1)[-1], 'qualifiedName': module_name,
-                'signature': module_name, 'span': {'startLine': 1, 'endLine': len(layout.lines),
+                'signature': module_name, 'span': {'startLine': 1, 'endLine': len(layout.lf_starts),
                                                   'startColumn': 0, 'endColumn': 0}, 'doc': first_doc(tree)}]
     relations = []
     Extractor(path, module_name, layout, symbols, relations).visit(tree)

@@ -21,27 +21,36 @@ export function* parserBatches(entries) {
 
 export function validateRecords(entries, records) {
   if (!Array.isArray(records) || records.length !== entries.length) throw new Error('parser-protocol: result count differs');
-  const expected = new Set(entries.map(entry => entry.path));
+  const inputs = new Map(entries.map(entry => [entry.path, entry]));
+  const expected = new Set(inputs.keys());
   if (expected.size !== entries.length) throw new Error('parser-protocol: duplicate input path');
   for (const record of records) {
     if (!record || !expected.delete(record.path) || !['complete', 'partial', 'unsupported'].includes(record.status)
       || !Array.isArray(record.symbols) || !Array.isArray(record.relations)) throw new Error('parser-protocol: invalid or duplicate result');
     const keys = new Set();
+    const entry = inputs.get(record.path);
+    const lines = record.symbols.length || record.relations.length
+      ? (entry.source ?? fs.readFileSync(entry.absolute, 'utf8')).split('\n') : [];
+    const validPosition = (line, column) => Number.isInteger(line) && line >= 1 && line <= lines.length
+      && Number.isInteger(column) && column >= 0 && column <= lines[line - 1].length;
     for (const symbol of record.symbols) {
       const span = symbol.span;
       if (typeof symbol.key !== 'string' || keys.has(symbol.key) || typeof symbol.name !== 'string' || !symbol.name
         || typeof symbol.kind !== 'string' || !span || !Number.isInteger(span.startLine) || span.startLine < 1
         || !Number.isInteger(span.endLine) || span.endLine < span.startLine
         || !Number.isInteger(span.startColumn) || span.startColumn < 0
-        || !Number.isInteger(span.endColumn) || span.endColumn < 0) throw new Error('parser-protocol: invalid symbol');
+        || !Number.isInteger(span.endColumn) || span.endColumn < 0
+        || !validPosition(span.startLine, span.startColumn) || !validPosition(span.endLine, span.endColumn)
+        || (span.startLine === span.endLine && span.endColumn !== 0 && span.endColumn < span.startColumn)) throw new Error('parser-protocol: invalid symbol');
       keys.add(symbol.key);
     }
     for (const relation of record.relations) {
       if (typeof relation.sourceKey !== 'string' || typeof relation.type !== 'string' || typeof relation.targetName !== 'string'
-        || !Number.isInteger(relation.line) || relation.line < 1) throw new Error('parser-protocol: invalid relation');
+        || !keys.has(relation.sourceKey) || !validPosition(relation.line, relation.column ?? 0)) throw new Error('parser-protocol: invalid relation');
     }
   }
-  return records;
+  const byPath = new Map(records.map(record => [record.path, record]));
+  return entries.map(entry => byPath.get(entry.path));
 }
 
 export function pythonJobContext(runtime, signal) {
@@ -93,8 +102,7 @@ export async function parseEntriesBatched(entries, onResult, { pythonRuntime, si
       if (!SCRIPT_LANGUAGES.has(entry.language)) return { path: entry.path, status: 'unsupported', error: `unsupported-language:${entry.language}`, symbols: [], relations: [] };
       return parseJavaScript({ ...entry, source: entry.source ?? fs.readFileSync(entry.absolute, 'utf8') });
     });
-    validateRecords(batch, records);
-    for (const record of records) { signal?.throwIfAborted(); onResult(record); }
+    for (const record of validateRecords(batch, records)) { signal?.throwIfAborted(); onResult(record); }
   }
 }
 
