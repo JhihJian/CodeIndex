@@ -7,36 +7,58 @@ export function workerCount(value = process.env.CODEINDEX_WORKERS ?? Math.min(4,
   return count;
 }
 
-// Each native job owns a process group, including Cscope's sort subprocess.
-// Cancellation resolves only after the child has closed its streams.
-export function runProcess(command, args, { cwd, env, timeout, maxBuffer, signal }) {
-  if (signal?.aborted) return Promise.reject(new Error('Native build cancelled'));
+export class ProcessError extends Error {
+  constructor(command, kind, message, details = {}) {
+    super(`${command} failed: ${message}`, details.cause ? { cause: details.cause } : undefined);
+    this.name = 'ProcessError';
+    this.kind = kind;
+    Object.assign(this, details);
+  }
+}
+
+// Cancellation joins the process group before callers can remove staging data.
+export function runProcess(command, args, {
+  cwd, env = process.env, timeout = 180000, maxBuffer = 32 * 1024 * 1024, signal, input,
+} = {}) {
+  if (signal?.aborted) return Promise.reject(new ProcessError(command, 'aborted', 'Build cancelled'));
   return new Promise((resolve, reject) => {
-    const child = spawn(command, args, { cwd, env, detached: true, stdio: ['ignore', 'pipe', 'pipe'] });
+    const child = spawn(command, args, { cwd, env, detached: true, stdio: [input === undefined ? 'ignore' : 'pipe', 'pipe', 'pipe'] });
     const output = { stdout: [], stderr: [] };
     let bytes = 0;
     let failure;
     const stop = (error) => {
       failure ||= error;
       if (child.pid) {
-        try { process.kill(-child.pid, 'SIGKILL'); } catch (cause) { if (cause.code !== 'ESRCH') failure = cause; }
+        try { process.kill(-child.pid, 'SIGKILL'); }
+        catch (cause) { if (cause.code !== 'ESRCH') failure = new ProcessError(command, 'kill', cause.message, { cause }); }
       }
     };
-    const abort = () => stop(new Error('Native build cancelled'));
-    const timer = setTimeout(() => stop(new Error(`Native build timed out after ${timeout}ms`)), timeout);
+    const abort = () => stop(new ProcessError(command, 'aborted', 'Build cancelled'));
+    const timer = setTimeout(() => stop(new ProcessError(command, 'timeout', `Build timed out after ${timeout}ms`)), timeout);
     signal?.addEventListener('abort', abort, { once: true });
+    if (signal?.aborted) abort();
     for (const name of ['stdout', 'stderr']) child[name].on('data', (chunk) => {
       bytes += chunk.length;
-      if (bytes > maxBuffer) stop(new Error(`Native output exceeds ${maxBuffer} bytes`));
+      if (bytes > maxBuffer) stop(new ProcessError(command, 'output-limit', `Process output exceeds ${maxBuffer} bytes`));
       else output[name].push(chunk);
     });
-    child.on('error', (error) => { failure ||= error; });
-    child.on('close', (code, killedBy) => {
+    child.on('error', (cause) => { failure ||= new ProcessError(command, 'spawn', cause.message, { cause, code: cause.code }); });
+    if (input !== undefined) {
+      child.stdin.on('error', (cause) => {
+        // An early failed exit also closes stdin; preserve its actual exit/signal.
+        if (cause.code !== 'EPIPE') stop(new ProcessError(command, 'stdin', cause.message, { cause }));
+      });
+      child.stdin.end(input);
+    }
+    child.on('close', (exitCode, killedBy) => {
       clearTimeout(timer);
       signal?.removeEventListener('abort', abort);
       const result = Object.fromEntries(Object.entries(output).map(([name, chunks]) => [name, Buffer.concat(chunks).toString('utf8')]));
-      if (failure || code !== 0) reject(new Error(`${command} failed: ${failure?.message || `exit ${code}, signal ${killedBy}`}\n${result.stderr}`));
-      else resolve(result);
+      if (failure || exitCode !== 0) {
+        const error = failure || new ProcessError(command, 'exit', `exit ${exitCode}, signal ${killedBy}\n${result.stderr}`);
+        Object.assign(error, result, { exitCode, signal: killedBy });
+        reject(error);
+      } else resolve(result);
     });
   });
 }

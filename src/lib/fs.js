@@ -3,7 +3,7 @@ import path from 'node:path';
 import { StringDecoder } from 'node:string_decoder';
 import { hashBytes, hashText, shortHash } from './hash.js';
 
-export const PARSER_VERSION = 'codeindex-parser-0.3.1';
+export const PARSER_VERSION = 'codeindex-parser-0.4.0';
 export const DEFAULT_IGNORES = new Set([
   '.git', '.hg', '.svn', 'node_modules', '.venv', 'venv', '__pycache__',
   'dist', 'build', 'coverage', '.next', '.turbo', '.cache', 'target',
@@ -132,11 +132,7 @@ export function scanRepository(repoRoot, { maxFileBytes = 5 * 1024 * 1024, ignor
   const files = [];
   const skipped = [];
   function walk(directory) {
-    let entries;
-    try { entries = fs.readdirSync(directory, { withFileTypes: true }); } catch (error) {
-      skipped.push({ path: path.relative(root, directory) || '.', reason: `read-error:${error.code || error.message}` });
-      return;
-    }
+    const entries = fs.readdirSync(directory, { withFileTypes: true });
     entries.sort((a, b) => a.name.localeCompare(b.name));
     for (const entry of entries) {
       const absolute = path.join(directory, entry.name);
@@ -151,20 +147,12 @@ export function scanRepository(repoRoot, { maxFileBytes = 5 * 1024 * 1024, ignor
       }
       if (entry.isDirectory()) { walk(absolute); continue; }
       if (!entry.isFile()) { skipped.push({ path: relative, reason: 'non-file' }); continue; }
-      let stat;
-      try { stat = fs.statSync(absolute); } catch (error) {
-        skipped.push({ path: relative, reason: `stat-error:${error.code || error.message}` });
-        continue;
-      }
+      const stat = fs.statSync(absolute);
       if (stat.size > maxFileBytes) {
         skipped.push({ path: relative, bytes: stat.size, reason: 'too-large' });
         continue;
       }
-      let content;
-      try { content = fs.readFileSync(absolute); } catch (error) {
-        skipped.push({ path: relative, reason: `read-error:${error.code || error.message}` });
-        continue;
-      }
+      const content = fs.readFileSync(absolute);
       const source = decodeText(content);
       if (source === null) { skipped.push({ path: relative, bytes: content.length, reason: 'binary' }); continue; }
       let lineCount = content.length ? 1 : 0;

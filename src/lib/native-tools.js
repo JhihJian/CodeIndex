@@ -119,46 +119,140 @@ function warnings(stderr) {
   return stderr.split('\n').filter((line) => line.trim() && !line.includes('Notice: No options will be read'));
 }
 
-/** paths is an iterable of normalized repository-relative strings. Output is streamed by Ctags to disk. */
+/**
+ * Bounded, ordered Ctags batches. Only input SIGSEGVs confirmed against a healthy
+ * scratch-only C probe become failedFiles; all other failures reject the build.
+ * A single deadline and retry budget cover every batch, split and health probe.
+ */
 export async function extractCTags({ treeRoot, paths, outputPath, tools, workers = 1, signal }) {
+  const deadline = performance.now() + positiveSetting('CODEINDEX_NATIVE_TIMEOUT_MS', 180000);
   const { root, files } = snapshotFiles(treeRoot, paths);
   outputPath = path.resolve(outputPath);
   if (inside(root, outputPath)) throw new Error('Ctags output must be outside the read-only snapshot tree');
   fs.mkdirSync(path.dirname(outputPath), { recursive: true });
   if (!files.length) {
     fs.writeFileSync(outputPath, '', 'utf8');
-    return { outputPaths: [outputPath], warnings: [] };
+    return { outputPaths: [outputPath], warnings: [], failedFiles: [] };
   }
+  const count = workerCount(workers);
+  const maxBuffer = positiveSetting('CODEINDEX_NATIVE_MAX_OUTPUT_BYTES', 32 * 1024 * 1024);
+  if (!tools?.ctags?.path) throw new Error('Native tool is not resolved');
   const scratch = fs.mkdtempSync(path.join(path.dirname(outputPath), '.ctags-'));
   const controller = new AbortController();
   const abort = () => controller.abort();
   signal?.addEventListener('abort', abort, { once: true });
   if (signal?.aborted) controller.abort();
+  let attempt = 0;
+  let retries = 0;
+  let healthProbe;
+  const remaining = () => {
+    if (controller.signal.aborted) throw Object.assign(new Error('Native build cancelled'), { kind: 'aborted' });
+    const milliseconds = Math.floor(deadline - performance.now());
+    if (milliseconds <= 0) throw Object.assign(new Error('Ctags total time budget exhausted'), { kind: 'timeout' });
+    return milliseconds;
+  };
+  const invoke = async (inputs, cwd, retry = false) => {
+    remaining();
+    if (retry && ++retries > 128) throw new Error('Ctags isolation retry limit exceeded (128 extra attempts)');
+    const id = attempt++;
+    const list = path.join(scratch, `files-${id}`);
+    const output = path.join(scratch, `tags-${id}.jsonl`);
+    fs.writeFileSync(list, inputs.map((file) => file.startsWith('-') ? `./${file}` : file).join('\n') + '\n', 'utf8');
+    try {
+      const response = await runProcess(tools.ctags.path, [
+        '--options=NONE', '--output-format=json', '--languages=C,C++', '--sort=no',
+        '--fields=+neKStiaZ', '--fields=-P', '--extras=-p', '--kinds-C=+p', '--kinds-C++=+p',
+        '-L', list, '-f', output,
+      ], { cwd, signal: controller.signal, env: nativeEnv(), timeout: remaining(), maxBuffer });
+      remaining();
+      // Missing/unreadable output is an I/O failure, never an isolatable input.
+      fs.accessSync(output, fs.constants.R_OK);
+      return { output, warnings: warnings(response.stderr) };
+    } catch (error) {
+      // Ctags can flush complete tags and a truncated record before crashing.
+      // Never publish any part of a failed invocation, even its complete tags.
+      fs.rmSync(output, { force: true });
+      throw error;
+    }
+  };
+  const confirmHealthy = () => {
+    healthProbe ??= (async () => {
+      const name = 'codeindex_ctags_probe';
+      fs.writeFileSync(path.join(scratch, 'probe.c'), `int ${name}(void) { return 0; }\n`, 'utf8');
+      const result = await invoke(['probe.c'], scratch, true);
+      const tags = fs.readFileSync(result.output, 'utf8').split('\n').filter((line) => line.trim()).map(JSON.parse);
+      if (!tags.some((tag) => tag._type === 'tag' && tag.name === name && tag.kind === 'function')) {
+        throw new Error('Ctags health probe did not emit the known C function');
+      }
+    })();
+    return healthProbe;
+  };
+  const isolate = async (inputs, retry = false) => {
+    let result;
+    try { result = await invoke(inputs, root, retry); }
+    catch (error) {
+      if (error.kind !== 'exit' || error.signal !== 'SIGSEGV') throw error;
+      remaining();
+      if (inputs.length > 1) {
+        const middle = Math.ceil(inputs.length / 2);
+        const left = await isolate(inputs.slice(0, middle), true);
+        const right = await isolate(inputs.slice(middle), true);
+        return [...left, ...right];
+      }
+      await confirmHealthy();
+      remaining();
+      return [{ failedFile: { path: inputs[0], error: error.message, signal: error.signal } }];
+    }
+    return [result];
+  };
   try {
-    const count = Math.min(workerCount(workers), Math.ceil(files.length / 128));
-    const size = Math.ceil(files.length / count);
-    const shards = Array.from({ length: count }, (_, index) => ({
-      list: path.join(scratch, `files-${index}`), output: path.join(scratch, `tags-${index}.jsonl`),
-      files: files.slice(index * size, (index + 1) * size),
-    }));
-    for (const shard of shards) fs.writeFileSync(shard.list, shard.files.map((file) => file.startsWith('-') ? `./${file}` : file).join('\n') + '\n', 'utf8');
+    const batches = [];
+    let batch = [];
+    let bytes = 0;
+    for (const file of files) {
+      remaining();
+      const size = fs.statSync(path.join(root, file)).size;
+      if (batch.length && (batch.length >= 256 || bytes + size > 8 * 1024 * 1024)) {
+        batches.push(batch);
+        batch = [];
+        bytes = 0;
+      }
+      batch.push(file);
+      bytes += size;
+    }
+    if (batch.length) batches.push(batch);
+    const results = new Array(batches.length);
+    let next = 0;
     let failure;
-    const responses = await Promise.all(shards.map(async (shard) => {
+    // Each worker traverses its split tree sequentially, so retries cannot
+    // multiply concurrency. Catch inside workers and join all before cleanup.
+    await Promise.all(Array.from({ length: Math.min(count, batches.length) }, async () => {
       try {
-        return await runBuild(tools?.ctags, [
-          '--options=NONE', '--output-format=json', '--languages=C,C++', '--sort=no',
-          '--fields=+neKStiaZ', '--fields=-P', '--extras=-p', '--kinds-C=+p', '--kinds-C++=+p',
-          '-L', shard.list, '-f', shard.output,
-        ], { cwd: root, signal: controller.signal });
-      } catch (error) { failure ||= error; controller.abort(); return null; }
+        while (next < batches.length) {
+          remaining();
+          const index = next++;
+          results[index] = await isolate(batches[index]);
+        }
+      } catch (error) { failure ||= error; controller.abort(); }
     }));
     if (failure) throw failure;
-    const outputPaths = shards.map((shard, index) => {
+    remaining();
+    const ordered = results.flat();
+    const successful = ordered.filter((result) => result.output);
+    const outputPaths = successful.map((result, index) => {
       const output = index ? `${outputPath}.${index}` : outputPath;
-      fs.renameSync(shard.output, output);
+      fs.renameSync(result.output, output);
       return output;
     });
-    return { outputPaths, warnings: responses.flatMap((response) => warnings(response.stderr)) };
+    if (!outputPaths.length) {
+      fs.writeFileSync(outputPath, '', 'utf8');
+      outputPaths.push(outputPath);
+    }
+    return {
+      outputPaths,
+      warnings: ordered.flatMap((result) => result.warnings || [`Ctags skipped ${result.failedFile.path}: ${result.failedFile.error}`]),
+      failedFiles: ordered.filter((result) => result.failedFile).map((result) => result.failedFile),
+    };
   } finally {
     signal?.removeEventListener('abort', abort);
     fs.rmSync(scratch, { recursive: true, force: true });

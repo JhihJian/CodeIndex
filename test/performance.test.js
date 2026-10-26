@@ -31,7 +31,7 @@ function inventory(root, prefix = '') {
 test('bounded parser workers preserve UTF-8 spans, docs and all serial records; consumer failure stops the pool', async () => {
   const entries = Array.from({ length: 130 }, (_, file) => ({ path: `f${file}.ts`, language: 'typescript', source:
     Array.from({ length: 80 }, (_, i) => `// 中文😀 ${i}\nexport function f${i}() { return helper${i}(); }\n`).join('') }));
-  const expected = parseEntries(entries);
+  const expected = await parseEntries(entries);
   const actual = new Map();
   await parseEntriesParallel(entries, (record) => actual.set(record.path, record), { workers: 4 });
   assert.deepEqual(actual, expected);

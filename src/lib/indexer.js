@@ -1,6 +1,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { randomUUID } from 'node:crypto';
+import ts from 'typescript';
+import { resolvePythonRuntime } from '../parsers/python-runtime.js';
 import { cIncludes } from '../parsers/c-includes.js';
 import { parseEntriesParallel } from '../parsers/parallel.js';
 import { workerCount } from './build-jobs.js';
@@ -11,7 +13,7 @@ import { COMPACT_SCHEMA_VERSION, createCompactStore, openCompactStore } from './
 import { resolveNativeTools, extractCTags, buildCscope } from './native-tools.js';
 import { attachRelations } from './relations.js';
 
-const INDEX_SCHEMA = 'codeindex-index-0.3.0';
+const INDEX_SCHEMA = 'codeindex-index-0.4.0';
 const SUPPORTED = new Set(['c', 'cpp', 'python', 'javascript', 'typescript']);
 const nativeLanguage = (language) => language === 'c' || language === 'cpp';
 const moduleName = (file) => file.replace(/\.[^.]+$/, '').replaceAll('/', '.').replace(/\.__init__$/, '');
@@ -79,7 +81,7 @@ function* iterateTagShards(files) {
 }
 
 export async function indexRepository(repoRoot, storeRoot, {
-  incremental = true, maxFileBytes = 5 * 1024 * 1024, onProgress = () => {}, ctags, cscope, workers,
+  incremental = true, maxFileBytes = 5 * 1024 * 1024, onProgress = () => {}, ctags, cscope, python, workers,
 } = {}) {
   workers = workerCount(workers);
   const started = Date.now();
@@ -97,9 +99,10 @@ export async function indexRepository(repoRoot, storeRoot, {
   const repoId = repositoryId(repo);
   const previous = incremental ? publishedSnapshot(store, repoId) : null;
   const git = gitContext(repo);
-  const baseConfig = { schema: INDEX_SCHEMA, sqliteSchema: COMPACT_SCHEMA_VERSION, parserVersion: PARSER_VERSION, maxFileBytes };
+  const baseConfig = { schema: INDEX_SCHEMA, sqliteSchema: COMPACT_SCHEMA_VERSION, parserVersion: PARSER_VERSION, maxFileBytes, typescript: ts.version };
+  let pythonRuntime = previous?.manifest.buildConfig?.python ? resolvePythonRuntime(python) : null;
   let tools = resolveNativeTools({ ctags, cscope, needsCtags: Boolean(previous?.manifest.native?.files), needsCscope: Boolean(previous?.manifest.native?.files) });
-  let config = { ...baseConfig, tools: toolVersions(tools) };
+  let config = { ...baseConfig, tools: toolVersions(tools), python: pythonRuntime };
   let compatible = artifactsPresent(previous) && stableJson(previous.manifest.buildConfig) === stableJson(config);
   const noOp = () => ({ manifest: previous.manifest, snapshotDir: previous.snapshotDir,
     stats: { ...previous.manifest.stats, changedFiles: 0, removedFiles: 0, reusedFiles: previous.manifest.stats.files,
@@ -109,7 +112,8 @@ export async function indexRepository(repoRoot, storeRoot, {
   const entries = scan.files;
   const cFiles = entries.filter((entry) => nativeLanguage(entry.language));
   tools = resolveNativeTools({ ctags, cscope, needsCtags: cFiles.length > 0, needsCscope: cFiles.length > 0 });
-  config = { ...baseConfig, tools: toolVersions(tools) };
+  pythonRuntime = entries.some(entry => entry.language === 'python') ? (pythonRuntime || resolvePythonRuntime(python)) : null;
+  config = { ...baseConfig, tools: toolVersions(tools), python: pythonRuntime };
   compatible = artifactsPresent(previous) && stableJson(previous.manifest.buildConfig) === stableJson(config);
   const contentDigest = hashText(stableJson(entries.map(({ path, digest, language }) => ({ path, digest, language }))));
   if (compatible && contentDigest === previous.manifest.contentDigest) return noOp();
@@ -193,6 +197,8 @@ export async function indexRepository(repoRoot, storeRoot, {
       const extracted = await extractCTags({ treeRoot: tree, paths: changedNative.map((entry) => entry.path), outputPath: tagsFile, tools, workers, signal: controller.signal });
       diagnostics.push(...extracted.warnings);
       session.begin();
+      const failedStatus = session.db.prepare('UPDATE files SET parse_status=?,parse_error=? WHERE path=?');
+      for (const failure of extracted.failedFiles) failedStatus.run('partial', `ctags-parser-crash:${failure.signal}`, failure.path);
       let currentPath;
       let seen = new Set();
       for (const tag of iterateTagShards(extracted.outputPaths)) {
@@ -240,9 +246,11 @@ export async function indexRepository(repoRoot, storeRoot, {
         }
         const scope = symbol.qualifiedName?.slice(0, -(symbol.name.length + 1)) || '';
         const span = spanFrom(source, symbol.span.startLine, symbol.span.endLine, symbol.span.startColumn, symbol.span.endColumn, layout);
+        const parentId = keys.get(aliases.get(symbol.parentKey) || symbol.parentKey);
+        if (!parentId) throw new Error(`missing-symbol-parent:${parsed.path}:${symbol.key}`);
         const id = session.insertSymbol({ fileId: info.fileId, kind: symbol.kind, name: symbol.name,
           scope, key: symbol.key, qualifiedName: symbol.qualifiedName, signature: symbol.signature, doc: symbol.doc,
-          parentId: keys.get(aliases.get(symbol.parentKey) || symbol.parentKey) || info.moduleId, sourceSpan: span });
+          parentId, sourceSpan: span });
         keys.set(symbol.key, id);
       }
       for (const relation of parsed.relations || []) {
@@ -251,7 +259,7 @@ export async function indexRepository(repoRoot, storeRoot, {
         session.insertRelation({ fileId: info.fileId, sourceId, type: relation.type,
           ...targetFields(relation, info.entry, paths), startLine: Math.max(1, relation.line || 1), endColumn: null });
       }
-    }, { workers, signal: controller.signal });
+    }, { workers, signal: controller.signal, pythonRuntime });
     session.commit();
     progress('parser-symbols');
     progress('relations');

@@ -55,7 +55,7 @@ test('parser consumers propagate storage failure exactly once', async () => {
   const sentinel = new Error('storage failed');
   for (const language of ['python', 'c']) {
     let calls = 0;
-    assert.throws(() => parseEntriesBatched([{ path: `x.${language}`, language, source: language === 'c' ? 'int x() {}' : 'def x(): pass' }], () => {
+    await assert.rejects(() => parseEntriesBatched([{ path: `x.${language}`, language, source: language === 'c' ? 'int x() {}' : 'def x(): pass' }], () => {
       calls += 1;
       throw sentinel;
     }), (error) => error === sentinel);
