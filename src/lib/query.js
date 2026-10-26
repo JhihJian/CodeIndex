@@ -70,8 +70,7 @@ function relationFromRow(row, snapshotId) {
   };
 }
 
-function evidence(index, symbol, file, sourceCache, maxLines = 60) {
-  if (!file) return null;
+function cachedSource(index, file, sourceCache) {
   let cached = sourceCache.get(file.digest);
   if (!cached) {
     const buffer = fs.readFileSync(path.join(index.snapshotDir, 'source', file.digest));
@@ -82,7 +81,12 @@ function evidence(index, symbol, file, sourceCache, maxLines = 60) {
     cached = { buffer, offsets };
     sourceCache.set(file.digest, cached);
   }
-  const { buffer, offsets } = cached;
+  return cached;
+}
+
+function evidence(index, symbol, file, sourceCache, maxLines = 60) {
+  if (!file) return null;
+  const { buffer, offsets } = cachedSource(index, file, sourceCache);
   const span = symbol.sourceSpan;
   const first = Math.max(1, span.startLine);
   const last = Math.min(span.endLine, first + maxLines - 1, offsets.length);
@@ -93,6 +97,28 @@ function evidence(index, symbol, file, sourceCache, maxLines = 60) {
   return { snapshotId: index.manifest.snapshotId, path: symbol.path, symbolId: symbol.symbolId,
     symbol: symbol.qualifiedName, startLine: first, endLine: first + source.split('\n').length - 1,
     startByte, endByte, blobDigest: file.digest, source, kind: 'source' };
+}
+
+function contentEvidence(index, candidate, query, maxLines, cache) {
+  const file = index.getFile(candidate.fileId);
+  const match = index.contentMatch(candidate.fileId, query);
+  if (!file || !match) throw new Error(`content-match-missing:${candidate.path}`);
+  const { buffer, offsets } = cachedSource(index, file, cache);
+  const lineAt = byte => {
+    let low = 0, high = offsets.length;
+    while (low < high) {
+      const middle = (low + high) >>> 1;
+      if (offsets[middle] <= byte) low = middle + 1; else high = middle;
+    }
+    return low;
+  };
+  const first = lineAt(match.startByte), matchedLast = lineAt(match.endByte - 1);
+  const last = Math.min(offsets.length, first + maxLines - 1, matchedLast + 2);
+  const startByte = offsets[first - 1], endByte = last < offsets.length ? offsets[last] - 1 : buffer.length;
+  return { snapshotId: index.manifest.snapshotId, path: file.path, fileId: file.fileId,
+    startLine: first, endLine: last, startByte, endByte, blobDigest: file.digest,
+    source: buffer.subarray(startByte, endByte).toString('utf8'), kind: 'content',
+    match: { ...match, startLine: first, endLine: matchedLast }, truncated: endByte < match.endByte };
 }
 
 function candidateNodes(index, query) {
@@ -137,23 +163,39 @@ export function getEvidence(index, symbols, { maxLines = 60 } = {}) {
   return symbols.map((symbol) => evidence(index, symbol, filesById.get(symbol.fileId), sourceCache, maxLines)).filter(Boolean);
 }
 
-export function queryIndex(index, query, { maxEvidence = 6, maxLines = 60, includeSource = true } = {}) {
+export function queryIndex(index, query, { maxEvidence = 6, maxLines = 60, includeSource = true, searchMode = 'auto' } = {}) {
+  if (!['auto', 'symbol', 'content'].includes(searchMode)) throw new Error('searchMode must be auto, symbol or content');
+  if (!Number.isSafeInteger(maxEvidence) || maxEvidence < 0 || !Number.isSafeInteger(maxLines) || maxLines < 1) throw new Error('Invalid evidence budget');
   index.beginQuery?.();
-  const mode = relationMode(query);
-  const ranked = candidateNodes(index, query);
+  const mode = searchMode === 'content' ? null : relationMode(query);
+  const symbolRanked = searchMode === 'content' ? [] : candidateNodes(index, query);
+  const content = searchMode === 'symbol' || mode ? [] : index.searchContent(query);
+  const exact = symbolRanked.some(candidate => candidate.kind === 'symbol'
+    && [candidate.item.name, candidate.item.qualifiedName].some(name => name.toLowerCase() === String(query).trim().toLowerCase()));
+  const contentRanked = content.map(item => ({ kind: 'content', score: -item.rank, item }));
+  const contentFirst = !exact && !mode;
+  const ranked = contentFirst ? [...contentRanked, ...symbolRanked] : [...symbolRanked, ...contentRanked];
   const target = ranked.find((candidate) => candidate.kind === 'symbol')?.item || null;
   const related = mode ? relationResults(index, mode, target) : [];
   const symbols = [target, ...related.map((item) => item.peer), ...ranked.filter((item) => item.kind === 'symbol').map((item) => item.item)].filter(Boolean);
   const unique = [...new Map(symbols.map((symbol) => [symbol.symbolId, symbol])).values()];
-  const evidenceItems = includeSource ? getEvidence(index, unique.slice(0, maxEvidence), { maxLines }) : [];
-  const candidateRows = ranked.map((candidate) => candidate.kind === 'symbol' ? ({ type: 'symbol', score: candidate.score, symbolId: candidate.item.symbolId, name: candidate.item.qualifiedName, path: candidate.item.path, startLine: candidate.item.sourceSpan.startLine }) : ({ type: candidate.kind, score: candidate.score, path: candidate.item.path, title: candidate.item.title }));
+  const evidenceItems = [];
+  if (includeSource) {
+    const selectedContent = content.slice(0, contentFirst ? maxEvidence : Math.max(0, maxEvidence - unique.length));
+    const selectedSymbols = unique.slice(0, maxEvidence - selectedContent.length);
+    const cache = new Map();
+    const contentItems = selectedContent.map(item => contentEvidence(index, item, query, maxLines, cache));
+    const symbolItems = getEvidence(index, selectedSymbols, { maxLines });
+    evidenceItems.push(...(contentFirst ? [...contentItems, ...symbolItems] : [...symbolItems, ...contentItems]));
+  }
+  const candidateRows = ranked.map((candidate) => candidate.kind === 'symbol' ? ({ type: 'symbol', score: candidate.score, symbolId: candidate.item.symbolId, name: candidate.item.qualifiedName, path: candidate.item.path, startLine: candidate.item.sourceSpan.startLine }) : ({ type: candidate.kind, score: candidate.score, path: candidate.item.path, title: candidate.item.title, ...(candidate.kind === 'content' ? { fileId: candidate.item.fileId, blobDigest: candidate.item.digest } : {}) }));
   const relationRows = related.map(({ relation, peer }) => ({ relationId: relation.relationId, type: relation.type, status: relation.status, confidence: relation.confidence, sourceSpan: relation.sourceSpan, targetName: relation.targetName, peer: peer ? { symbolId: peer.symbolId, name: peer.qualifiedName, path: peer.path, line: peer.sourceSpan.startLine } : null }));
   const contextBytes = evidenceItems.reduce((sum, item) => sum + Buffer.byteLength(item.source, 'utf8'), 0);
   const indexedSourceBytes = index.manifest.stats?.sourceBytes || index.manifest.totalSourceBytes || 0;
   const answer = mode && target ? `${mode} query selected ${target.qualifiedName} and found ${relationRows.length} ${mode} relation(s).` : `Selected ${evidenceItems.length} source evidence item(s) from ${ranked.length} ranked candidates.`;
   return {
     query, snapshotId: index.manifest.snapshotId, repositoryId: index.manifest.repositoryId, status: index.manifest.status,
-    answer, mode, target: target ? { symbolId: target.symbolId, name: target.qualifiedName, path: target.path, line: target.sourceSpan.startLine } : null,
+    answer, mode, searchMode, target: target ? { symbolId: target.symbolId, name: target.qualifiedName, path: target.path, line: target.sourceSpan.startLine } : null,
     candidates: candidateRows, relations: relationRows, evidence: evidenceItems,
     coverage: index.manifest.coverage, uncertainties: [...(index.manifest.status === 'partial' ? ['索引存在未解析或不支持的文件，空结果不能证明代码中不存在目标。'] : []), ...(index.queryNotices?.() || []), ...(mode && index.manifest.native?.files ? ['C/C++ 关系是语法交叉引用，未进行编译配置、重载及函数指针消歧。'] : [])],
     metrics: { candidateCount: ranked.length, evidenceCount: evidenceItems.length, contextBytes, indexedSourceBytes, contextReduction: contextBytes ? indexedSourceBytes / contextBytes : null },

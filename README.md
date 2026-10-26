@@ -9,7 +9,7 @@ CodeIndex 为代码仓库建立不可变的结构索引，回答“代码在哪�
 环境要求：
 
 - Node.js 22.16+（22.x）或 24+，需要内置 SQLite 的 FTS5 和逐行迭代接口。
-- Python 3，用于 Python AST。
+- CPython 3.14+，用于 Python AST。默认查找 `python3.14`，可通过 `CODEINDEX_PYTHON` 或 `index/update --python PATH` 指定。
 - C/C++ 仓库需要支持 JSON 的 Universal Ctags，以及带倒排索引的 Cscope。本次验证版本为 Universal Ctags 5.9、Cscope 15.9。
 - 可选 `rg` 用于 benchmark 对照，可选 Pi CLI 用于模型归纳。
 
@@ -35,14 +35,14 @@ node bin/codeindex.js query --store /path/to/index --query "what does vfs_open c
 node bin/codeindex.js update --repo /path/to/repository --store /path/to/index --progress
 ```
 
-`--json` 输出结构化结果，`--metadata-only` 返回候选和关系元数据，跳过源码内容读取。多个仓库共用 store 时，查询和导出使用 `--repo-id ID` 选择仓库。
+`--json` 输出结构化结果，`--metadata-only` 返回候选和关系元数据，跳过源码内容读取。`--mode content` 按 unicode61 分词后的短语检索正文，`--mode symbol` 只检索符号元数据和路径。默认 `auto` 优先精确符号，其余查询优先正文命中。关系问句继续走符号查询。正文检索忽略大小写和部分音调，标点分隔词项，支持跨行短语，不提供任意子串或正则匹配。多个仓库共用 store 时，查询和导出使用 `--repo-id ID` 选择仓库。
 
 ## 能力与数据
 
 - **C/C++**：Ctags 提取函数、声明、类型、宏、字段和作用域。Cscope 提供调用者、被调用者和引用查询，include 与继承事实保存在 SQLite。
-- **Python**：保留 AST 解析、类与函数结构、导入、调用和继承事实。
-- **JavaScript/TypeScript**：保留轻量语法提取，支持已有声明、导入和调用行为。语法覆盖范围小于完整编译器。
-- **导航与搜索**：SQLite FTS5 检索名称、作用域、签名、文档和路径；目录、文件和符号导航按需读取。
+- **Python**：CPython AST 提取类、函数、类型别名、导入、调用和继承，缓存每文件行布局，有界并行处理批次。
+- **JavaScript/TypeScript**：使用 TypeScript 5.9.3 的语法 AST，支持泛型、箭头函数、嵌套声明、JSX/TSX 和模板插值。关系保持语法级语义。
+- **导航与搜索**：SQLite FTS5 分别索引符号元数据、路径和完整正文。所有纳入的文本均可检索，包括未支持语言和解析失败文件。
 - **证据**：原生工具读取快照文件，查询读取同一快照的源码 blob。工作区修改或删除后，已发布快照仍可查询。Ctags 范围以行为粒度，返回片段的字节范围与实际内容一致。
 - **增量**：克隆旧数据库，只删除和重建变化文件的 SQL 事实，未变化文件复用源码。Cscope 15.9 在已验证的路径条件下复用旧交叉引用记录，其余情况全量构建。
 
@@ -63,7 +63,7 @@ node bin/codeindex.js update --repo /path/to/repository --store /path/to/index -
 
 默认快照包含 `manifest.json`、`index.db`、`source/`、`tree/` 和 `native/`。JSONL 由 `export` 显式生成，导出目录必须为空，其中的清单记录原快照位置。源码 blob 和查询数据库继续由原快照保存，审计导出需要与原快照一同留存。Cscope 原生边保持原生格式，SQL 关系 JSONL 覆盖已存储的 SQL 事实。
 
-旧版索引需要重新执行 `index`。新快照使用 `codeindex-index-0.3.0`，发布目录与内容身份分离，重建和增量均保留旧读者使用的目录。使用方法、并行度、异步 JavaScript API、文件边界及更新成本见 [原生索引运行说明](docs/native-index.md)。原始候选架构保留在 [架构设计](docs/codeindex-architecture.md)。
+旧版索引需要重新执行 `index`。新快照使用 `codeindex-index-0.4.0` / `codeindex-compact-2`，发布目录与内容身份分离，重建和增量均保留旧读者使用的目录。使用方法、并行度、异步 JavaScript API、文件边界及更新成本见 [原生索引运行说明](docs/native-index.md)。原始候选架构保留在 [架构设计](docs/codeindex-architecture.md)。
 
 ## 可选模型归纳
 

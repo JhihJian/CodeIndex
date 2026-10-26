@@ -1,9 +1,9 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { createHash } from 'node:crypto';
+import { createHash, randomUUID } from 'node:crypto';
 import { DatabaseSync } from 'node:sqlite';
 
-export const COMPACT_SCHEMA_VERSION = 'codeindex-compact-1';
+export const COMPACT_SCHEMA_VERSION = 'codeindex-compact-2';
 
 /**
  * Builder records (camelCase; fileId/parentId/sourceId below are INTERNAL integers):
@@ -42,6 +42,8 @@ const SYMBOL_FROM = 'symbols s JOIN files f ON f.id=s.file_id';
 const RELATION_COLUMNS = `r.*, f.public_id AS file_public_id, f.path,
   f.digest AS blob_digest, f.bytes AS file_bytes, f.line_count, f.line_offsets`;
 const RELATION_FROM = 'relations r JOIN files f ON f.id=r.file_id';
+
+function contentPhrase(query) { return `"${String(query).replaceAll('"', '""')}"`; }
 
 function publicFileId(filePath) {
   return `file:${createHash('sha256').update(filePath).digest('hex').slice(0, 24)}`;
@@ -101,6 +103,10 @@ function createSchema(db) {
     );
     CREATE VIRTUAL TABLE search_fts USING fts5(name, scope, signature, doc,
       content='symbols', content_rowid='id', tokenize='unicode61');
+    CREATE VIRTUAL TABLE source_fts USING fts5(body, tokenize='unicode61');
+    CREATE TRIGGER source_fts_delete AFTER DELETE ON files BEGIN
+      DELETE FROM source_fts WHERE rowid=old.id;
+    END;
     CREATE VIRTUAL TABLE files_fts USING fts5(path,
       content='files', content_rowid='id', tokenize='unicode61');
   `);
@@ -196,6 +202,7 @@ export function createCompactStore(snapshotDir, { previousDatabase = null } = {}
     const relationInsert = db.prepare(`INSERT INTO relations(relation_id,file_id,source_id,type,
       target_name,target_normalized,target_leaf,target_module_path,
       start_line,end_line,start_column,end_column,start_byte,end_byte) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)`);
+    const bodyInsert = db.prepare('INSERT INTO source_fts(rowid,body) VALUES(?,?)');
     const fileDelete = db.prepare('DELETE FROM files WHERE path=?');
     let finalized = false;
     return {
@@ -209,9 +216,12 @@ export function createCompactStore(snapshotDir, { previousDatabase = null } = {}
           || offsets.readUInt32LE(0) !== 0 || offsets.readUInt32LE(offsets.length - 4) !== record.bytes) {
           throw new Error(`无效的行偏移：${record.path}`);
         }
-        return Number(fileInsert.run(record.publicId ?? publicFileId(record.path), record.path,
+        if (typeof record.body !== 'string' || Buffer.byteLength(record.body) !== record.bytes) throw new Error(`无效的正文：${record.path}`);
+        const id = Number(fileInsert.run(record.publicId ?? publicFileId(record.path), record.path,
           record.language, record.bytes, record.digest, lineCount, record.parseStatus ?? 'parsed',
           record.parseError ?? null, offsets).lastInsertRowid);
+        bodyInsert.run(id, record.body);
+        return id;
       },
       insertSymbol(record) {
         return Number(symbolInsert.run(record.fileId, record.kind, record.name, record.scope ?? '',
@@ -236,6 +246,9 @@ export function createCompactStore(snapshotDir, { previousDatabase = null } = {}
             db.exec("INSERT INTO search_fts(search_fts) VALUES('rebuild'); INSERT INTO files_fts(files_fts) VALUES('rebuild');");
             createFtsTriggers(db);
           }
+          if (db.prepare(`SELECT 1 FROM files f LEFT JOIN source_fts s ON s.rowid=f.id WHERE s.rowid IS NULL
+            UNION ALL SELECT 1 FROM source_fts s LEFT JOIN files f ON f.id=s.rowid WHERE f.id IS NULL LIMIT 1`).get()) throw new Error('正文索引覆盖不完整');
+          db.exec("INSERT INTO source_fts(source_fts) VALUES('integrity-check')");
           db.prepare("INSERT OR REPLACE INTO meta VALUES('finalized','1')").run();
           db.exec('COMMIT');
           finalized = true;
@@ -380,6 +393,30 @@ export function openCompactStore(snapshotDir, manifest = {}) {
         rank: row.rank, score: -row.rank,
       }));
       return [...symbols, ...files].sort((a, b) => a.rank - b.rank).slice(0, limit);
+    },
+    searchContent(query, limit = 12) {
+      if (!/[\p{L}\p{N}]/u.test(query) || limit <= 0) return [];
+      return db.prepare(`SELECT f.public_id AS fileId,f.path,f.digest,bm25(source_fts) AS rank
+        FROM source_fts JOIN files f ON f.id=source_fts.rowid
+        WHERE source_fts MATCH ? ORDER BY rank,f.path LIMIT ?`).all(contentPhrase(query), limit);
+    },
+    contentMatch(fileId, query) {
+      const file = fileByPublic.get(fileId);
+      if (!file) return null;
+      // Markers are chosen per read and checked against the original body.
+      const marker = `codeindex-${randomUUID()}`;
+      const begin = `${marker}<`, end = `${marker}>`;
+      const row = db.prepare(`SELECT highlight(source_fts,0,?,?) AS marked,
+        instr(body,?) AS collision FROM source_fts WHERE rowid=? AND source_fts MATCH ?`)
+        .get(begin, end, marker, BigInt(file.id), contentPhrase(query));
+      if (!row) return null;
+      if (row.collision) return index.contentMatch(fileId, query);
+      const start = row.marked.indexOf(begin), finish = row.marked.indexOf(end);
+      if (start < 0 || finish < start) throw new Error('正文命中位置缺失');
+      const original = row.marked.replaceAll(begin, '').replaceAll(end, '');
+      if (createHash('sha256').update(original).digest('hex') !== file.digest) throw new Error(`content-digest:${file.path}`);
+      return { startByte: Buffer.byteLength(row.marked.slice(0, start)),
+        endByte: Buffer.byteLength(row.marked.slice(0, start)) + Buffer.byteLength(row.marked.slice(start + begin.length, finish)) };
     },
     getInternalSymbol: internalSymbol,
     getSymbol(id) { return toSymbol(internalSymbol(id)); },

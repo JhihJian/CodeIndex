@@ -162,7 +162,7 @@ export async function indexRepository(repoRoot, storeRoot, {
       if (!altered) continue;
       content ||= fs.readFileSync(blob);
       const { offsets, lineCount } = offsetsFor(content);
-      const fileId = session.insertFile({ ...entry, lineCount, lineOffsets: offsets,
+      const fileId = session.insertFile({ ...entry, body: content.toString('utf8'), lineCount, lineOffsets: offsets,
         parseStatus: SUPPORTED.has(entry.language) ? 'complete' : 'unsupported',
         parseError: SUPPORTED.has(entry.language) ? null : `unsupported-language:${entry.language}` });
       const moduleId = session.insertSymbol({ fileId, kind: 'module', name: path.posix.basename(entry.path),

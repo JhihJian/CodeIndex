@@ -19,7 +19,7 @@ function fileRecord(filePath, source, language = 'c') {
   offsets.push(bytes.length);
   const lineOffsets = Buffer.alloc(offsets.length * 4);
   offsets.forEach((offset, i) => lineOffsets.writeUInt32LE(offset, i * 4));
-  return { path: filePath, language, bytes: bytes.length,
+  return { path: filePath, body: source, language, bytes: bytes.length,
     digest: createHash('sha256').update(bytes).digest('hex'),
     lineCount: offsets.length - 1, lineOffsets };
 }

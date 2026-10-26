@@ -1,14 +1,16 @@
 # 原生索引运行说明
 
-CodeIndex 0.3 使用紧凑 SQLite 保存符号与轻量关系，并通过 Cscope 查询 C/C++ 交叉引用。扫描并冻结源码后，符号构建与 Cscope 并行执行，全部任务结束并通过校验后原子发布。
+CodeIndex 0.4 使用紧凑 SQLite 保存完整正文、符号与轻量关系，并通过 Cscope 查询 C/C++ 交叉引用。扫描并冻结源码后，符号构建与 Cscope 并行执行，全部任务结束并通过校验后原子发布。
 
 ## 构建与发布
 
 `index` 总是完整构建。扫描器为纳入范围的文本文件计算摘要，构建器将内容保存到 `source/<sha256>`，并为原生工具生成 `tree/<仓库相对路径>`。`tree` 与已保存的 blob 使用硬链接，活跃工作区文件独立保存。复制时发现内容与扫描摘要不同，构建立即失败。
 
-Ctags 按连续文件分片并行输出，结果按输入顺序逐行写入 SQLite。Python AST 按批次消费。JS/TS 每文件预计算行位置、括号范围和调用位置，大批输入由固定 worker 池解析，每个 worker 最多持有 64 文件或 4 MiB 源码的一批任务，单个大文件独占一批。worker 请求的老生代上限为 256 MiB，Node 全局 `--max-old-space-size` / `NODE_OPTIONS` 可覆盖此设置；严格内存预算仍由 cgroup 执行。完成结果按批消费，SQLite 保持单写入者。建库末尾建立 FTS 与 B-tree，并等待 Cscope 数据库、倒排索引和文件映射校验完成。发布前检查符号范围与外键。
+Ctags 每批最多 256 文件或 8 MiB，大文件独占，结果按输入顺序逐行写入 SQLite。Python 使用 CPython 3.14+，每文件缓存行布局，由异步子进程解析。JS/TS 使用锁定的 TypeScript 5.9.3 语法 AST。两类脚本分别以最多 64 文件或 4 MiB 为一批，大文件独占，Python 池结束后才启动 JS/TS 池。JS/TS worker 请求的老生代上限为 256 MiB，Node 全局 `--max-old-space-size` / `NODE_OPTIONS` 可覆盖此设置；严格内存预算仍由 cgroup 执行。完成结果按稳定批次顺序消费，SQLite 保持单写入者。正文在冻结源码阶段写入独立 FTS5 表，构建末尾检查正文覆盖与 FTS 完整性，建立符号与路径 FTS、B-tree，并等待 Cscope 数据库、倒排索引和文件映射校验完成。发布前检查符号范围与外键。
 
-快照目录使用内容身份加独立的生成标识。`published.json` 通过原子替换切换目录，已有查询继续使用原目录。失败构建清理临时目录，保留原发布指针。内容、解析器版本、数据库格式、文件大小限制和工具版本共同参与快照身份。
+语法错误按文件标记 `partial`。Ctags 与 Python 子进程只有明确的 SIGSEGV 才拆分失败批次，丢弃失败输出，单文件崩溃还须通过已知正常输入探针，额外尝试最多 128 次且共享总时间预算。Ctags 失败文件保留源码和 Cscope 输入。启动、普通非零退出、内存、超时、取消、协议损坏和存储错误会终止构建。目录或文件读取失败同样终止，避免增量将读失败当成删除。
+
+快照目录使用内容身份加独立的生成标识。`published.json` 通过原子替换切换目录，已有查询继续使用原目录。失败构建清理临时目录，保留原发布指针。内容、解析器版本、数据库格式、文件大小限制、TypeScript 版本、Python 可执行路径与版本和原生工具版本共同参与快照身份。
 
 ## 更新成本
 
@@ -20,7 +22,7 @@ SQL 关系在查询时解析目标，因此删除或重命名目标后，旧的�
 
 ## 并行度与调用接口
 
-CLI `index` / `update` 支持 `--workers 1..8`，也可设置 `CODEINDEX_WORKERS`，默认取可用 CPU 数与 4 的较小值。该参数分别限制 JS/TS 池和 Ctags 分片，Cscope 是另一个独立任务。小于 256 KiB 或仅一个 JS/TS 文件时直接串行解析。原生构建使用独立进程组，超时或构建取消会终止其后代，等待退出后清理 staging。
+CLI `index` / `update` 支持 `--workers 1..8`，也可设置 `CODEINDEX_WORKERS`，默认取可用 CPU 数与 4 的较小值。该参数分别限制 Python 批次、JS/TS 池和 Ctags 分片，Cscope 是另一个独立任务。小于 256 KiB 或仅一个 JS/TS 文件时直接串行解析。原生构建使用独立进程组，超时或构建取消会终止其后代，等待退出后清理 staging。
 
 JavaScript 的 `indexRepository()` 和 `runBenchmark()` 返回 Promise，调用方必须 `await`。`loadIndex()` 和查询仍为同步接口：
 
@@ -36,20 +38,21 @@ try { /* 查询固定快照 */ } finally { index.close(); }
 
 ## 查询与证据
 
-FTS 限定候选数量，随后加载候选符号的详细元数据。父节点按作用域和包含范围查找，目录导航按路径索引读取，构建阶段省去全库导航摘要物化。
+FTS 限定候选数量，随后加载候选符号的详细元数据。正文使用独立的文件级 FTS5，覆盖所有纳入文本，随增删改名更新。CLI `--mode auto|symbol|content` 对应 `queryIndex` 的 `searchMode`。正文模式将整条查询转成 unicode61 短语，支持跨行、忽略大小写和部分音调，不支持任意子串或正则。默认模式优先精确符号，其余查询优先正文候选，两个通道分别排序。父节点按作用域和包含范围查找，目录导航按路径索引读取，构建阶段省去全库导航摘要物化。
 
 C/C++ 调用与引用通过 Cscope 按需查询。Python/JS/TS 调用、导入、继承和 C include 等事实从 SQL 读取。目标解析优先考虑当前文件与作用域，并限定相应语言组，歧义目标保留 `unresolved`。关系查询默认最多返回 256 条，原生截断及超过 4,096 条 SQL 目标候选会给出提示。
 
-`--metadata-only` 读取查询数据库和必要的原生交叉引用产物。源码证据阶段按需读取 blob，验证 SHA-256，再按预算裁剪。输出 `startByte/endByte` 对应实际返回的 UTF-8 内容，默认最多 60 行。Ctags 位置以源码行为粒度；Python/JS 的范围使用各自解析器提供的信息。
+`--metadata-only` 读取查询数据库和必要的原生交叉引用产物。源码证据阶段按需读取 blob，验证 SHA-256，再按预算裁剪。输出 `startByte/endByte` 对应实际返回的 UTF-8 内容，默认最多 60 行。正文证据通过 FTS 实际高亮位置定位，`match` 保存完整匹配范围，超出行预算时 `truncated=true`。Ctags 位置以源码行为粒度；Python/JS/TS 解析器统一提供 UTF-16 列，由构建器转换为 UTF-8 字节。
 
 `stats.relations` 只统计 SQL 关系。`native.files` 是 C/C++ 主要输入数，`native.indexedFiles` 是 Cscope 实际文件数。Cscope 允许沿已保存文件白名单内的 include 扩展；统计交叉引用范围时应使用实际文件数。
 
 ## 原生工具边界
 
 - 构建需要 Universal Ctags 的 JSON 输出与 Cscope 倒排索引能力。查询原生关系只需要 Cscope。
+- Python 默认使用 `python3.14`，`CODEINDEX_PYTHON` 或 `--python PATH` 可指定运行时，启动时验证版本与语法能力。`CODEINDEX_PARSER_TIMEOUT_MS` 设置 Python 池共享预算，默认 180 秒。
 - `CODEINDEX_CTAGS` / `CODEINDEX_CSCOPE` 或命令行路径用于选择工具。
 - 原生子进程固定使用 `/usr/bin:/bin` 和 `LC_ALL=C`，以确保 Cscope 内部 `env/sort` 行为稳定。
-- 默认原生构建单次超时 180 秒、查询 10 秒，可通过 `CODEINDEX_NATIVE_TIMEOUT_MS` 调整；捕获输出默认上限 32 MiB，可通过 `CODEINDEX_NATIVE_MAX_OUTPUT_BYTES` 调整。
+- 默认原生构建预算 180 秒，Ctags 拆分重试共享这段预算；查询默认 10 秒，可通过 `CODEINDEX_NATIVE_TIMEOUT_MS` 调整；捕获输出默认上限 32 MiB，可通过 `CODEINDEX_NATIVE_MAX_OUTPUT_BYTES` 调整。
 - Cscope 退出码为零后仍会核验倒排文件、数据库文件清单和诊断。损坏产物会阻止发布或查询。
 - 文件名包含空白时使用临时别名视图。控制字符、双引号和反斜杠路径被拒绝；空白文件名与额外 include 闭包同时出现时会报错。
 - 实际存在的快照外 include 会被拒绝；缺失的 generated header 保持缺失，不会补读工作区内容。
