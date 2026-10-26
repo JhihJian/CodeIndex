@@ -1,0 +1,24 @@
+{
+  "productCommit": "dec7a4164fa027b8f5dd4ff2435055dd2048e450",
+  "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+  "machine": "x86_64",
+  "versions": {
+    "node24": "v24.13.1",
+    "node22": "v22.23.2",
+    "python": "Python 3.14.2",
+    "ctags": "Universal Ctags 5.9.0, Copyright (C) 2015 Universal Ctags Team\nUniversal Ctags is derived from Exuberant Ctags.\nExuberant Ctags 5.8, Copyright (C) 1996-2009 Darren Hiebert\n  Compiled: Sep  3 2021, 18:12:18\n  URL: https://ctags.io/\n  Optional compiled features: +wildcards, +regex, +gnulib_regex, +iconv, +option-directory, +xpath, +json, +interactive, +sandbox, +yaml, +packcc, +optscript",
+    "cscope": "/home/jhihjian/.local/bin/cscope: version 15.9"
+  },
+  "executableSha256": {
+    "/home/jhihjian/.local/share/codeindex/native-tools/ctags-universal": "40f96d35ec2b5ff4b4a873dddd2f42c01ff66a1adc4bc45ed0bb6264fae20b6e",
+    "/home/jhihjian/.local/share/codeindex/native-tools/cscope": "65134b72c1cb940f4721fd77b5d538c1bda21fbfc5a9f9b96d7f2fed7bdaf5cf",
+    "/home/jhihjian/.local/share/uv/python/cpython-3.14.2-linux-x86_64-gnu/bin/python3.14": "30b65e133b64bfa6cfcd8a700b34b68a0e0297124597cda5233c9df2e52d7999"
+  },
+  "inputManifestSha256": {
+    "cpython": "4bca3b698615607aa62f785c31f11fc66490d5df018f1e75a6b5304b1905870f",
+    "vscode": "97c4393ee3460be083a61bc10e7e0e6d063cdc7dedfc2eac5cc148dc7adcfaa8",
+    "llvm": "2bdfd2e3a44201be89f2f6e8786fceb148aacade13604e557c137fe374b228ee"
+  },
+  "memoryLimitGiB": 12,
+  "swapAllowed": false
+}

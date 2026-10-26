@@ -1,0 +1,57 @@
+{"command": ["/usr/bin/env", "PATH=/home/jhihjian/.npm/_npx/52027bd8fc0022aa/node_modules/node/bin:/home/jhihjian/.pi/agent/bin:/opt/gradle-8.12/bin:/opt/gradle-8.12/bin:/home/jhihjian/bin:/home/jhihjian/.bun/bin:/home/jhihjian/.bun/bin:/home/jhihjian/.bun/bin:/home/jhihjian/.local/bin:/home/jhihjian/bin:/opt/gradle-8.12/bin:/home/jhihjian/.local/share/pnpm:/opt/gradle-8.12/bin:/home/jhihjian/.nvm/versions/node/v24.13.1/bin:/home/jhihjian/bin:/home/jhihjian/.bun/bin:/home/jhihjian/.bun/bin:/home/jhihjian/.cargo/bin:/home/jhihjian/.bun/bin:/home/jhihjian/.local/bin:/opt/gradle-8.12/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/data/app/bin:/usr/local/go/bin:/home/jhihjian/go/bin:/opt/android-sdk/cmdline-tools/latest/bin:/opt/android-sdk/platform-tools:/opt/android-sdk/build-tools/35.0.0:/data/app/bin:/usr/local/go/bin:/home/jhihjian/go/bin:/opt/android-sdk/cmdline-tools/latest/bin:/opt/android-sdk/platform-tools:/opt/android-sdk/build-tools/35.0.0", "/home/jhihjian/.npm/_npx/52027bd8fc0022aa/node_modules/node/bin/node", "--test"], "cwd": "/data/dev/CodeIndex-worktrees/feature/parser-reliability", "systemdUnit": "codeindex-benchmark-2973881.scope", "systemdResult": "success", "status": "success", "exitCode": 0, "wallSeconds": 91.94, "wallSecondsIncludingSupervisor": 92.21439556893893, "timeLimitSeconds": 600, "memoryLimitGiB": 12, "gnuTimeMaxRssKiB": 473388, "sampledProcessTreeRssSumBytes": 1451659264, "workloadSampled": true, "cgroupMemoryPeakBytes": 960749568, "sampleIntervalSeconds": 0.25, "leftoverProcessIdsTerminated": [], "memoryNotes": "RSS sum can double-count shared pages; cgroup memory includes page cache; GNU time max RSS is not simultaneous tree total"}
+10:48:43 cpython-noop
+cpython-noop success 0.36
+10:48:43 cpython-update
+cpython-update success 2.75
+10:48:46 cpython-update-probe-measurement
+cpython-update-probe-measurement success 0.29
+10:48:47 cpython-update-audit-measurement
+cpython-update-audit-measurement success 0.55
+10:48:48 cpython-update-relations-measurement
+cpython-update-relations-measurement success 0.3
+10:48:48 cpython-oracle-build
+cpython-oracle-build success 11.77
+10:49:00 cpython-equivalence-measurement
+cpython-equivalence-measurement success 6.21
+10:49:07 cpython-restored-probe-measurement
+cpython-restored-probe-measurement success 0.28
+10:49:07 vscode-noop
+vscode-noop success 0.39
+10:49:08 vscode-update
+vscode-update success 2.67
+10:49:11 vscode-update-probe-measurement
+vscode-update-probe-measurement success 0.27
+10:49:11 vscode-update-audit-measurement
+vscode-update-audit-measurement success 0.58
+10:49:12 vscode-update-relations-measurement
+vscode-update-relations-measurement success 0.27
+10:49:13 vscode-oracle-build
+vscode-oracle-build success 12.15
+10:49:25 vscode-equivalence-measurement
+vscode-equivalence-measurement success 8.62
+10:49:35 vscode-restored-probe-measurement
+vscode-restored-probe-measurement success 0.27
+10:49:39 llvm-noop
+llvm-noop success 0.62
+10:49:41 llvm-update
+llvm-update success 79.64
+10:51:01 llvm-update-probe-measurement
+llvm-update-probe-measurement success 0.34
+10:51:01 llvm-update-audit-measurement
+llvm-update-audit-measurement success 14.23
+10:51:16 llvm-update-relations-measurement
+llvm-update-relations-measurement success 0.41
+10:51:16 llvm-oracle-build
+llvm-oracle-build success 116.33
+10:53:13 llvm-equivalence-measurement
+llvm-equivalence-measurement failed 119.4
+10:55:22 llvm-restored-probe-measurement
+llvm-restored-probe-measurement success 0.3
+Traceback (most recent call last):
+  File "/data/dev/CodeIndex-worktrees/feature/parser-reliability/benchmarks/reliability/run-updates.py", line 82, in <module>
+    assert all(not old['hit'] or new['hit'] for old, new in zip(old_relations, relations['rows']))
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/dev/CodeIndex-worktrees/feature/parser-reliability/benchmarks/reliability/run-updates.py", line 21, in checked
+    assert result is not None, name
+           ^^^^^^^^^^^^^^^^^^
+AssertionError: llvm-equivalence

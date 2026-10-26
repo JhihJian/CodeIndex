@@ -1,0 +1,120 @@
+{
+  "tool": "CodeIndex",
+  "corpus": "vscode",
+  "rows": [
+    {
+      "caller": "disposeIfDisposable",
+      "callee": "isDisposable",
+      "path": "src/vs/base/common/lifecycle.ts",
+      "callLine": 354,
+      "hit": true,
+      "elapsedMs": 5.460009999999983,
+      "totalCalls": 2,
+      "matches": [
+        {
+          "id": 574068,
+          "relation_id": "relation:WyJzeW1ib2w6V3lKbWFXeGxPbUZrTXpFNU1XTmhOMk5tT1dFd1pXWmpPV0V6TVdJMlpTSXNJbVJwYzNCdmMyVkpaa1JwYzNCdmMyRmliR1VpTENKbWRXNWpkR2x2YmlJc0luTnlZeTUyY3k1aVlYTmxMbU52YlcxdmJpNXNhV1psWTNsamJHVWlMRE0xTWl3d1hRIiwiY2FsbHMiLCJpc0Rpc3Bvc2FibGUiLDM1NCwwLDM1NCxudWxsXQ",
+          "file_id": 8072,
+          "source_id": "symbol:WyJmaWxlOmFkMzE5MWNhN2NmOWEwZWZjOWEzMWI2ZSIsImRpc3Bvc2VJZkRpc3Bvc2FibGUiLCJmdW5jdGlvbiIsInNyYy52cy5iYXNlLmNvbW1vbi5saWZlY3ljbGUiLDM1MiwwXQ",
+          "type": "calls",
+          "target_name": "isDisposable",
+          "target_normalized": "isDisposable",
+          "target_leaf": "isDisposable",
+          "target_module_path": "",
+          "start_line": 354,
+          "end_line": 354,
+          "start_column": 0,
+          "end_column": null,
+          "start_byte": 11437,
+          "end_byte": 11461,
+          "file_public_id": "file:ad3191ca7cf9a0efc9a31b6e",
+          "path": "src/vs/base/common/lifecycle.ts",
+          "blob_digest": "b3a6d95573810fea6150288f56c661e93e5069b37cf9774d295be8926c7600ef",
+          "file_bytes": 23371,
+          "line_count": 866,
+          "source_internal_id": 227813,
+          "target_id": "symbol:WyJmaWxlOmFkMzE5MWNhN2NmOWEwZWZjOWEzMWI2ZSIsImlzRGlzcG9zYWJsZSIsImZ1bmN0aW9uIiwic3JjLnZzLmJhc2UuY29tbW9uLmxpZmVjeWNsZSIsMzEzLDBd",
+          "status": "resolved",
+          "confidence": 0.8,
+          "origin": "parser"
+        }
+      ]
+    },
+    {
+      "caller": "combinedDisposable",
+      "callee": "toDisposable",
+      "path": "src/vs/base/common/lifecycle.ts",
+      "callLine": 365,
+      "hit": true,
+      "elapsedMs": 2.8921210000000315,
+      "totalCalls": 2,
+      "matches": [
+        {
+          "id": 574070,
+          "relation_id": "relation:WyJzeW1ib2w6V3lKbWFXeGxPbUZrTXpFNU1XTmhOMk5tT1dFd1pXWmpPV0V6TVdJMlpTSXNJbU52YldKcGJtVmtSR2x6Y0c5ellXSnNaU0lzSW1aMWJtTjBhVzl1SWl3aWMzSmpMblp6TG1KaGMyVXVZMjl0Ylc5dUxteHBabVZqZVdOc1pTSXNNelkwTERCZCIsImNhbGxzIiwidG9EaXNwb3NhYmxlIiwzNjUsMCwzNjUsbnVsbF0",
+          "file_id": 8072,
+          "source_id": "symbol:WyJmaWxlOmFkMzE5MWNhN2NmOWEwZWZjOWEzMWI2ZSIsImNvbWJpbmVkRGlzcG9zYWJsZSIsImZ1bmN0aW9uIiwic3JjLnZzLmJhc2UuY29tbW9uLmxpZmVjeWNsZSIsMzY0LDBd",
+          "type": "calls",
+          "target_name": "toDisposable",
+          "target_normalized": "toDisposable",
+          "target_leaf": "toDisposable",
+          "target_module_path": "",
+          "start_line": 365,
+          "end_line": 365,
+          "start_column": 0,
+          "end_column": null,
+          "start_byte": 11662,
+          "end_byte": 11719,
+          "file_public_id": "file:ad3191ca7cf9a0efc9a31b6e",
+          "path": "src/vs/base/common/lifecycle.ts",
+          "blob_digest": "b3a6d95573810fea6150288f56c661e93e5069b37cf9774d295be8926c7600ef",
+          "file_bytes": 23371,
+          "line_count": 866,
+          "source_internal_id": 227814,
+          "target_id": "symbol:WyJmaWxlOmFkMzE5MWNhN2NmOWEwZWZjOWEzMWI2ZSIsInRvRGlzcG9zYWJsZSIsImZ1bmN0aW9uIiwic3JjLnZzLmJhc2UuY29tbW9uLmxpZmVjeWNsZSIsMzk4LDBd",
+          "status": "resolved",
+          "confidence": 0.8,
+          "origin": "parser"
+        }
+      ]
+    },
+    {
+      "caller": "combinedDisposable",
+      "callee": "setParentOfDisposables",
+      "path": "src/vs/base/common/lifecycle.ts",
+      "callLine": 366,
+      "hit": true,
+      "elapsedMs": 0.8010080000000244,
+      "totalCalls": 2,
+      "matches": [
+        {
+          "id": 574072,
+          "relation_id": "relation:WyJzeW1ib2w6V3lKbWFXeGxPbUZrTXpFNU1XTmhOMk5tT1dFd1pXWmpPV0V6TVdJMlpTSXNJbU52YldKcGJtVmtSR2x6Y0c5ellXSnNaU0lzSW1aMWJtTjBhVzl1SWl3aWMzSmpMblp6TG1KaGMyVXVZMjl0Ylc5dUxteHBabVZqZVdOc1pTSXNNelkwTERCZCIsImNhbGxzIiwic2V0UGFyZW50T2ZEaXNwb3NhYmxlcyIsMzY2LDAsMzY2LG51bGxd",
+          "file_id": 8072,
+          "source_id": "symbol:WyJmaWxlOmFkMzE5MWNhN2NmOWEwZWZjOWEzMWI2ZSIsImNvbWJpbmVkRGlzcG9zYWJsZSIsImZ1bmN0aW9uIiwic3JjLnZzLmJhc2UuY29tbW9uLmxpZmVjeWNsZSIsMzY0LDBd",
+          "type": "calls",
+          "target_name": "setParentOfDisposables",
+          "target_normalized": "setParentOfDisposables",
+          "target_leaf": "setParentOfDisposables",
+          "target_module_path": "",
+          "start_line": 366,
+          "end_line": 366,
+          "start_column": 0,
+          "end_column": null,
+          "start_byte": 11720,
+          "end_byte": 11765,
+          "file_public_id": "file:ad3191ca7cf9a0efc9a31b6e",
+          "path": "src/vs/base/common/lifecycle.ts",
+          "blob_digest": "b3a6d95573810fea6150288f56c661e93e5069b37cf9774d295be8926c7600ef",
+          "file_bytes": 23371,
+          "line_count": 866,
+          "source_internal_id": 227814,
+          "target_id": "symbol:WyJmaWxlOmFkMzE5MWNhN2NmOWEwZWZjOWEzMWI2ZSIsInNldFBhcmVudE9mRGlzcG9zYWJsZXMiLCJmdW5jdGlvbiIsInNyYy52cy5iYXNlLmNvbW1vbi5saWZlY3ljbGUiLDI3OCwwXQ",
+          "status": "resolved",
+          "confidence": 0.8,
+          "origin": "parser"
+        }
+      ]
+    }
+  ]
+}

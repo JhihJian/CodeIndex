@@ -1,0 +1,30 @@
+{
+  "command": [
+    "node",
+    "/data/dev/CodeIndex-worktrees/feature/parser-reliability/bin/codeindex.js",
+    "index",
+    "--repo",
+    "/data/dev/CodeIndex/.data/reliability/inputs/cpython",
+    "--store",
+    "/data/dev/CodeIndex/.data/reliability/indexes/codeindex/cpython",
+    "--workers",
+    "4",
+    "--progress"
+  ],
+  "cwd": "/data/dev/CodeIndex-worktrees/feature/parser-reliability",
+  "systemdUnit": "codeindex-benchmark-2960162.scope",
+  "systemdResult": "success",
+  "status": "success",
+  "exitCode": 0,
+  "wallSeconds": 11.47,
+  "wallSecondsIncludingSupervisor": 11.564085274934769,
+  "timeLimitSeconds": 1800,
+  "memoryLimitGiB": 12,
+  "gnuTimeMaxRssKiB": 493132,
+  "sampledProcessTreeRssSumBytes": 686718976,
+  "workloadSampled": true,
+  "cgroupMemoryPeakBytes": 952836096,
+  "sampleIntervalSeconds": 0.25,
+  "leftoverProcessIdsTerminated": [],
+  "memoryNotes": "RSS sum can double-count shared pages; cgroup memory includes page cache; GNU time max RSS is not simultaneous tree total"
+}

@@ -1,0 +1,850 @@
+{
+  "tool": "CodeIndex",
+  "loadMs": 2.1790229999999724,
+  "mode": "metadata",
+  "warmup": 1,
+  "repetitions": 20,
+  "rows": [
+    {
+      "query": "LLVMContext",
+      "hitAt10": true,
+      "coldMs": 19.503521999999975,
+      "medianMs": 7.557946000000015,
+      "evidenceMs": 12.93710900000002,
+      "files": [
+        {
+          "path": "clang/test/Analysis/cast-value-notes.cpp",
+          "symbol": "llvm::LLVMContext",
+          "lines": [
+            {
+              "line": 329,
+              "source": "class LLVMContext {\n  PointerUnion<LLVMContext> c;\n  void d() { c.getAs<int>(); }",
+              "digest": "d589cebaccff97b8f1e0a12ea4258423cd9338e934dc49d8683453d294df3135"
+            },
+            {
+              "line": 331,
+              "source": "  void d() { c.getAs<int>(); }",
+              "digest": "d589cebaccff97b8f1e0a12ea4258423cd9338e934dc49d8683453d294df3135"
+            }
+          ]
+        },
+        {
+          "path": "llvm/include/llvm/IR/LLVMContext.h",
+          "symbol": "llvm::LLVMContext",
+          "lines": [
+            {
+              "line": 68,
+              "source": "class LLVMContext {\npublic:\n  LLVMContextImpl *const pImpl;",
+              "digest": "2ffe41c0251b12f221b9abca013a8019b6353434cf3fcd217be1ca80684e9cb0"
+            },
+            {
+              "line": 72,
+              "source": "  LLVMContext(const LLVMContext &) = delete;",
+              "digest": "2ffe41c0251b12f221b9abca013a8019b6353434cf3fcd217be1ca80684e9cb0"
+            },
+            {
+              "line": 71,
+              "source": "  LLVM_ABI LLVMContext();",
+              "digest": "2ffe41c0251b12f221b9abca013a8019b6353434cf3fcd217be1ca80684e9cb0"
+            }
+          ]
+        },
+        {
+          "path": "llvm/lib/IR/LLVMContext.cpp",
+          "symbol": "LLVMContext::LLVMContext",
+          "lines": [
+            {
+              "line": 63,
+              "source": "LLVMContext::LLVMContext() : pImpl(new LLVMContextImpl(*this)) {\n  // Create the fixed metadata kinds. This is done in the same order as the\n  // MD_* enum values so that they correspond.",
+              "digest": "d045f26f07ec338847b738fdcb2493a1e5ffd33cba9fbdc40e2ff1865056f6d5"
+            }
+          ]
+        },
+        {
+          "path": "llvm/examples/OrcV2Examples/OrcV2CBindingsAddObjectFile/OrcV2CBindingsAddObjectFile.c",
+          "symbol": "createDemoModule",
+          "lines": [
+            {
+              "line": 25,
+              "source": "LLVMModuleRef createDemoModule(LLVMContextRef Ctx) {\n  // Create a new LLVM module.\n  LLVMModuleRef M = LLVMModuleCreateWithNameInContext(\"demo\", Ctx);",
+              "digest": "2072bb5c4c4558d20ef053012d4255d840acf2caeee01bee25f710ff1e46ce1f"
+            }
+          ]
+        },
+        {
+          "path": "llvm/lib/ExecutionEngine/Orc/OrcV2CBindings.cpp",
+          "symbol": "LLVMOrcCreateNewThreadSafeContextFromLLVMContext",
+          "lines": [
+            {
+              "line": 733,
+              "source": "LLVMOrcCreateNewThreadSafeContextFromLLVMContext(LLVMContextRef Ctx) {\n  return wrap(new ThreadSafeContext(std::unique_ptr<LLVMContext>(unwrap(Ctx))));\n}",
+              "digest": "6c37c9817d31689b4a41e118910deb490c40eb486e73f9d02cf34c36fc0c06b2"
+            }
+          ]
+        },
+        {
+          "path": "llvm/lib/IR/Core.cpp",
+          "symbol": "LLVMContextGetDiagnosticHandler",
+          "lines": [
+            {
+              "line": 115,
+              "source": "LLVMDiagnosticHandler LLVMContextGetDiagnosticHandler(LLVMContextRef C) {\n  return LLVM_EXTENSION reinterpret_cast<LLVMDiagnosticHandler>(\n      unwrap(C)->getDiagnosticHandlerCallBack());",
+              "digest": "7be081dc6fd2febf653de41594c42dd353514e07f48123cba5339c3142d01f00"
+            }
+          ]
+        },
+        {
+          "path": "llvm/unittests/ExecutionEngine/Orc/ThreadSafeModuleTest.cpp",
+          "lines": []
+        },
+        {
+          "path": "llvm/include/llvm/ExecutionEngine/Orc/ThreadSafeModule.h",
+          "lines": []
+        },
+        {
+          "path": "llvm/include/llvm/IR/Attributes.h",
+          "lines": []
+        },
+        {
+          "path": "clang/include/clang/CodeGen/CodeGenAction.h",
+          "lines": []
+        }
+      ]
+    },
+    {
+      "query": "DominatorTree",
+      "hitAt10": true,
+      "coldMs": 6.505997999999977,
+      "medianMs": 4.108006000000017,
+      "evidenceMs": 5.142209999999977,
+      "files": [
+        {
+          "path": "llvm/include/llvm/IR/Dominators.h",
+          "symbol": "llvm::DominatorTree::DominatorTree",
+          "lines": [
+            {
+              "line": 171,
+              "source": "  explicit DominatorTree(DominatorTree &DT, DomTreeBuilder::BBUpdates U) {\n    recalculate(*DT.Parent, U);\n  }",
+              "digest": "1ece5dbc41c3ce8187e153179248b7ef2e47f1ea7f9f23b60676db2b0e854329"
+            },
+            {
+              "line": 170,
+              "source": "  explicit DominatorTree(Function &F) { recalculate(F); }",
+              "digest": "1ece5dbc41c3ce8187e153179248b7ef2e47f1ea7f9f23b60676db2b0e854329"
+            },
+            {
+              "line": 165,
+              "source": "class DominatorTree : public DominatorTreeBase<BasicBlock, false> {\n public:\n  using Base = DominatorTreeBase<BasicBlock, false>;",
+              "digest": "1ece5dbc41c3ce8187e153179248b7ef2e47f1ea7f9f23b60676db2b0e854329"
+            }
+          ]
+        },
+        {
+          "path": "llvm/unittests/Analysis/DomTreeUpdaterTest.cpp",
+          "lines": []
+        },
+        {
+          "path": "llvm/examples/IRTransforms/SimplifyCFG.cpp",
+          "lines": []
+        },
+        {
+          "path": "llvm/lib/Analysis/DomPrinter.cpp",
+          "lines": []
+        },
+        {
+          "path": "llvm/unittests/IR/DominatorTreeTest.cpp",
+          "lines": []
+        },
+        {
+          "path": "llvm/include/llvm/Transforms/Utils/CodeMoverUtils.h",
+          "lines": []
+        },
+        {
+          "path": "llvm/include/llvm/Analysis/DomTreeUpdater.h",
+          "lines": []
+        },
+        {
+          "path": "llvm/lib/IR/Dominators.cpp",
+          "lines": []
+        },
+        {
+          "path": "llvm/include/llvm/Transforms/Utils/SimplifyIndVar.h",
+          "lines": []
+        },
+        {
+          "path": "llvm/unittests/IR/DominatorTreeBatchUpdatesTest.cpp",
+          "lines": []
+        }
+      ]
+    },
+    {
+      "query": "APInt",
+      "hitAt10": true,
+      "coldMs": 14.273274000000015,
+      "medianMs": 7.878181500000039,
+      "evidenceMs": 9.681569999999965,
+      "files": [
+        {
+          "path": "clang/test/SemaCXX/unused.cpp",
+          "symbol": "PR4103::APInt",
+          "lines": [
+            {
+              "line": 8,
+              "source": "  class APInt {\n    char foo; // expected-warning {{private field 'foo' is not used}}\n  };",
+              "digest": "5ebfb7234fdb4d2eaa4a21acf422ff3d3cdfd93afc274da496c4e14370fccf5b"
+            }
+          ]
+        },
+        {
+          "path": "llvm/include/llvm/ADT/APInt.h",
+          "symbol": "llvm::APInt::APInt",
+          "lines": [
+            {
+              "line": 184,
+              "source": "  APInt(APInt &&that) : BitWidth(that.BitWidth) {\n    memcpy(&U, &that.U, sizeof(U));\n    that.BitWidth = 0;",
+              "digest": "ff01df843419e4822c11070665ed5d27794bcb4741d0988cee95ec1e8109e6c8"
+            },
+            {
+              "line": 173,
+              "source": "  explicit APInt() { U.VAL = 0; }",
+              "digest": "ff01df843419e4822c11070665ed5d27794bcb4741d0988cee95ec1e8109e6c8"
+            },
+            {
+              "line": 176,
+              "source": "  APInt(const APInt &that) : BitWidth(that.BitWidth) {\n    if (isSingleWord())\n      U.VAL = that.U.VAL;",
+              "digest": "ff01df843419e4822c11070665ed5d27794bcb4741d0988cee95ec1e8109e6c8"
+            }
+          ]
+        },
+        {
+          "path": "llvm/lib/Support/APInt.cpp",
+          "symbol": "APInt::APInt",
+          "lines": [
+            {
+              "line": 107,
+              "source": "APInt::APInt(unsigned numBits, ArrayRef<uint64_t> bigVal) : BitWidth(numBits) {\n  initFromArray(bigVal);\n}",
+              "digest": "2b6eb949378db143c233b0562a14dfc6bd0f0718ce4228b6a2277ae50b58030f"
+            },
+            {
+              "line": 111,
+              "source": "APInt::APInt(unsigned numBits, unsigned numWords, const uint64_t bigVal[])\n    : BitWidth(numBits) {\n  initFromArray(ArrayRef(bigVal, numWords));",
+              "digest": "2b6eb949378db143c233b0562a14dfc6bd0f0718ce4228b6a2277ae50b58030f"
+            },
+            {
+              "line": 116,
+              "source": "APInt::APInt(unsigned numbits, StringRef Str, uint8_t radix)\n    : BitWidth(numbits) {\n  fromString(numbits, Str, radix);",
+              "digest": "2b6eb949378db143c233b0562a14dfc6bd0f0718ce4228b6a2277ae50b58030f"
+            }
+          ]
+        },
+        {
+          "path": "clang/lib/AST/ByteCode/FixedPoint.h",
+          "symbol": "clang::interp::APInt",
+          "lines": []
+        },
+        {
+          "path": "clang/lib/AST/ByteCode/Floating.h",
+          "symbol": "clang::interp::APInt",
+          "lines": []
+        },
+        {
+          "path": "llvm/unittests/IR/ConstantRangeTest.cpp",
+          "lines": []
+        },
+        {
+          "path": "llvm/unittests/ADT/APIntTest.cpp",
+          "lines": []
+        },
+        {
+          "path": "mlir/lib/Interfaces/Utils/InferIntRangeCommon.cpp",
+          "lines": []
+        },
+        {
+          "path": "llvm/unittests/IR/ConstantRangeListTest.cpp",
+          "lines": []
+        },
+        {
+          "path": "llvm/unittests/Support/KnownBitsTest.cpp",
+          "lines": []
+        }
+      ]
+    },
+    {
+      "query": "SmallVector",
+      "hitAt10": true,
+      "coldMs": 35.558456999999976,
+      "medianMs": 24.432064499999967,
+      "evidenceMs": 39.531428000000005,
+      "files": [
+        {
+          "path": "clang/test/Modules/Inputs/lsv-debuginfo/A/ADT.h",
+          "symbol": "llvm::SmallVector",
+          "lines": [
+            {
+              "line": 31,
+              "source": "class SmallVector : SmallVectorStorage<T, N> {};",
+              "digest": "d295880ca7dbf0a3604488729c95e95f4ac059b5ba26f92ed36194b5026bfdec"
+            }
+          ]
+        },
+        {
+          "path": "clang/test/Modules/Inputs/PR28332/b.h",
+          "symbol": "SmallVector",
+          "lines": [
+            {
+              "line": 2,
+              "source": "template <typename, int> class SmallVector : SmallVectorImpl {};",
+              "digest": "165f57403c87fd6faf62b3eb5116256cffce5509ca56ec95effeead41c7b2729"
+            }
+          ]
+        },
+        {
+          "path": "clang/test/SemaCXX/invalid-instantiated-field-decl.cpp",
+          "symbol": "SmallVector::SmallVector",
+          "lines": [
+            {
+              "line": 25,
+              "source": "  SmallVector() : SmallVectorImpl<T>(NumInlineEltsElts) {\n  }",
+              "digest": "af69ad2b172712b9c7e28121935a7885a7fcdf192b2251cf93e5b9a77db76cfb"
+            },
+            {
+              "line": 14,
+              "source": "class SmallVector : public SmallVectorImpl<T> {\n  typedef typename SmallVectorImpl<T>::U U; // expected-error {{no type named 'U' in 'SmallVectorImpl<CallSite>'}}\n  enum {",
+              "digest": "af69ad2b172712b9c7e28121935a7885a7fcdf192b2251cf93e5b9a77db76cfb"
+            }
+          ]
+        },
+        {
+          "path": "llvm/include/llvm/ADT/SmallVector.h",
+          "symbol": "llvm::SmallVector::SmallVector",
+          "lines": [
+            {
+              "line": 1247,
+              "source": "  SmallVector(SmallVector &&RHS) : SmallVectorImpl<T>(N) {\n    if (!RHS.empty())\n      SmallVectorImpl<T>::operator=(::std::move(RHS));",
+              "digest": "feb963dcca191d905b8a0a0e0154513bcd0a7bf287190bc80092814f8ed7f2fd"
+            },
+            {
+              "line": 1199,
+              "source": "  SmallVector() : SmallVectorImpl<T>(N) {}",
+              "digest": "feb963dcca191d905b8a0a0e0154513bcd0a7bf287190bc80092814f8ed7f2fd"
+            },
+            {
+              "line": 1237,
+              "source": "  SmallVector(const SmallVector &RHS) : SmallVectorImpl<T>(N) {\n    if (!RHS.empty())\n      SmallVectorImpl<T>::operator=(RHS);",
+              "digest": "feb963dcca191d905b8a0a0e0154513bcd0a7bf287190bc80092814f8ed7f2fd"
+            }
+          ]
+        },
+        {
+          "path": "mlir/lib/Dialect/Vector/Transforms/VectorUnroll.cpp",
+          "lines": []
+        },
+        {
+          "path": "mlir/lib/Dialect/XeGPU/Transforms/XeGPUUnroll.cpp",
+          "lines": []
+        },
+        {
+          "path": "mlir/lib/Dialect/Linalg/Transforms/TilingInterfaceImpl.cpp",
+          "lines": []
+        },
+        {
+          "path": "llvm/unittests/CodeGen/AllocationOrderTest.cpp",
+          "lines": []
+        },
+        {
+          "path": "mlir/lib/Dialect/Utils/IndexingUtils.cpp",
+          "lines": []
+        },
+        {
+          "path": "mlir/include/mlir/Dialect/Tosa/IR/TosaProfileCompliance.h",
+          "lines": []
+        }
+      ]
+    },
+    {
+      "query": "parseAssemblyString",
+      "hitAt10": true,
+      "coldMs": 2.3343190000000504,
+      "medianMs": 0.5113404999999602,
+      "evidenceMs": 4.735734000000093,
+      "files": [
+        {
+          "path": "llvm/lib/AsmParser/Parser.cpp",
+          "symbol": "llvm::parseAssemblyString",
+          "lines": [
+            {
+              "line": 136,
+              "source": "std::unique_ptr<Module> llvm::parseAssemblyString(StringRef AsmString,\n                                                  SMDiagnostic &Err,\n                                                  LLVMContext &Context,",
+              "digest": "f60db1cfc27d4ac792a4b89508402ee20cd5abd62523781e60f89c2c2b38ff67"
+            }
+          ]
+        },
+        {
+          "path": "llvm/include/llvm/AsmParser/Parser.h",
+          "symbol": "llvm::parseAssemblyString",
+          "lines": [
+            {
+              "line": 64,
+              "source": "parseAssemblyString(StringRef AsmString, SMDiagnostic &Err,\n                    LLVMContext &Context, SlotMapping *Slots = nullptr);",
+              "digest": "e3255b014f1a9cfc57a97899dc3f60542037e3d1be77585ad447fa92193441b9"
+            }
+          ]
+        },
+        {
+          "path": "llvm/unittests/Target/DirectX/PointerTypeAnalysisTests.cpp",
+          "lines": [
+            {
+              "line": 42,
+              "source": "  auto M = parseAssemblyString(Assembly, Error, Context);\n  ASSERT_TRUE(M) << \"Bad assembly?\";\n",
+              "digest": "04522669cf61595a73561d7a8483dc1f95dd63b31b30d46783eca9bbfe77bb33"
+            }
+          ]
+        },
+        {
+          "path": "llvm/unittests/Transforms/Utils/CodeExtractorTest.cpp",
+          "lines": [
+            {
+              "line": 45,
+              "source": "  std::unique_ptr<Module> M(parseAssemblyString(R\"invalid(\n    define i32 @foo(i32 %x, i32 %y, i32 %z) {\n    header:",
+              "digest": "fa2164f29ef1d4211fa3fac65ffa088edae60f5b50adb086675678949e02057b"
+            }
+          ]
+        },
+        {
+          "path": "llvm/unittests/IR/ModuleTest.cpp",
+          "lines": [
+            {
+              "line": 128,
+              "source": "  std::unique_ptr<Module> M = parseAssemblyString(IRString, Err, Context);\n  auto *PS = ProfileSummary::getFromMD(M->getProfileSummary(/*IsCS*/ false));\n  EXPECT_NE(nullptr, PS);",
+              "digest": "7d9c05307cd988f6ae096edbd2bdfa41be67ac4a5b149eabc4c8bc9ad400ada3"
+            }
+          ]
+        },
+        {
+          "path": "llvm/unittests/AsmParser/AsmParserTest.cpp",
+          "lines": [
+            {
+              "line": 29,
+              "source": "  auto Mod = parseAssemblyString(Source, Error, Ctx);\n\n  EXPECT_TRUE(Mod != nullptr);",
+              "digest": "4d721a32a4a1468eb2254341509cf3c8be78546b77055dd3240fc40695e10366"
+            }
+          ]
+        },
+        {
+          "path": "llvm/unittests/IR/ValueTest.cpp",
+          "lines": [
+            {
+              "line": 41,
+              "source": "  std::unique_ptr<Module> M = parseAssemblyString(ModuleString, Err, C);\n\n  Function *F = M->getFunction(\"f\");",
+              "digest": "f8c0eb12b85c0463de21d15ae01d158d5dab79a6b13e496e4a25327c8e2cdc82"
+            }
+          ]
+        },
+        {
+          "path": "llvm/unittests/Transforms/IPO/MergeFunctionsTest.cpp",
+          "lines": [
+            {
+              "line": 26,
+              "source": "  std::unique_ptr<Module> M(parseAssemblyString(R\"invalid(\n        @.str = private unnamed_addr constant [10 x i8] c\"On f: %d\\0A\\00\", align 1\n        @.str.1 = private unnamed_addr constant [13 x i8] c\"On main: %d\\0A\\00\", align 1",
+              "digest": "35530f02898fae37861ef758ae39046ba0690c208105af56cbffd15236ca9402"
+            }
+          ]
+        },
+        {
+          "path": "llvm/unittests/Linker/LinkModulesTest.cpp",
+          "lines": [
+            {
+              "line": 193,
+              "source": "  std::unique_ptr<Module> M1 = parseAssemblyString(M1Str, Err, C);\n\n  const char *M2Str = \"%t = type {i32}\\n\"",
+              "digest": "655b365412a26f2bde2a87564a85f1941fce4b17b7f8f1e20bb8509243e50c5d"
+            }
+          ]
+        },
+        {
+          "path": "llvm/unittests/Analysis/AliasAnalysisTest.cpp",
+          "lines": [
+            {
+              "line": 234,
+              "source": "  std::unique_ptr<Module> M = parseAssemblyString(R\"(\n    define void @f(i8* noalias %a, i1 %c) {\n    entry:",
+              "digest": "1c36ef234cac53fac47aa5f17e5180fc87295c6452c1336b731b850755f53a63"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": "parseIRFile",
+      "hitAt10": true,
+      "coldMs": 0.9599329999998645,
+      "medianMs": 0.4522425000000112,
+      "evidenceMs": 2.6805649999998877,
+      "files": [
+        {
+          "path": "llvm/lib/IRReader/IRReader.cpp",
+          "symbol": "llvm::parseIRFile",
+          "lines": [
+            {
+              "line": 94,
+              "source": "std::unique_ptr<Module> llvm::parseIRFile(StringRef Filename, SMDiagnostic &Err,\n                                          LLVMContext &Context,\n                                          ParserCallbacks Callbacks) {",
+              "digest": "d21aa9e758fc08ff40ba21c1f10e921399a9c9b2bfeff338b750766997752a31"
+            },
+            {
+              "line": 94,
+              "source": "std::unique_ptr<Module> llvm::parseIRFile(StringRef Filename, SMDiagnostic &Err,\n                                          LLVMContext &Context,\n                                          ParserCallbacks Callbacks) {",
+              "digest": "d21aa9e758fc08ff40ba21c1f10e921399a9c9b2bfeff338b750766997752a31"
+            }
+          ]
+        },
+        {
+          "path": "llvm/include/llvm/IRReader/IRReader.h",
+          "symbol": "llvm::parseIRFile",
+          "lines": [
+            {
+              "line": 62,
+              "source": "LLVM_ABI std::unique_ptr<Module> parseIRFile(StringRef Filename,\n                                             SMDiagnostic &Err,\n                                             LLVMContext &Context,",
+              "digest": "a2647ce6e4ded8194fdd50391f53846b80a9baa378db3b722717a80fa828fe0f"
+            },
+            {
+              "line": 62,
+              "source": "LLVM_ABI std::unique_ptr<Module> parseIRFile(StringRef Filename,\n                                             SMDiagnostic &Err,\n                                             LLVMContext &Context,",
+              "digest": "a2647ce6e4ded8194fdd50391f53846b80a9baa378db3b722717a80fa828fe0f"
+            }
+          ]
+        },
+        {
+          "path": "llvm/examples/OrcV2Examples/ExampleModules.h",
+          "lines": [
+            {
+              "line": 61,
+              "source": "  if (auto M = parseIRFile(FileName, Err, *Ctx))\n    return orc::ThreadSafeModule(std::move(M), std::move(Ctx));\n",
+              "digest": "493dcd8d94db61596328228b8edd42fd4e973ea26ff7d9e186e4b06fcb3768b2"
+            }
+          ]
+        },
+        {
+          "path": "llvm/tools/llvm-cat/llvm-cat.cpp",
+          "lines": [
+            {
+              "line": 75,
+              "source": "      std::unique_ptr<Module> M = parseIRFile(InputFilename, Err, Context);\n      if (!M) {\n        Err.print(argv[0], errs());",
+              "digest": "c7a6843a1bdadeb8d527534536b7e08d77605d7f37b5a0a22f9b32fe96f5b3b4"
+            }
+          ]
+        },
+        {
+          "path": "llvm/tools/llvm-diff/llvm-diff.cpp",
+          "lines": [
+            {
+              "line": 36,
+              "source": "  std::unique_ptr<Module> M = parseIRFile(Name, Diag, Context);\n  if (!M)\n    Diag.print(\"llvm-diff\", errs());",
+              "digest": "9f79cda5610e9644fa18e9597da6a277bf5d0df8d8e605c521cc72c5976e6cd2"
+            }
+          ]
+        },
+        {
+          "path": "llvm/examples/OrcV2Examples/LLJITWithGDBRegistrationListener/LLJITWithGDBRegistrationListener.cpp",
+          "lines": [
+            {
+              "line": 88,
+              "source": "    std::unique_ptr<Module> M = parseIRFile(InputFile, Err, *Ctx);\n    if (!M) {\n      Err.print(argv[0], errs());",
+              "digest": "cde92e0c45196b5f4c8fdd7286ab91ad44ef9428e25877f924ab74c5e7f8edee"
+            }
+          ]
+        },
+        {
+          "path": "llvm/tools/llvm-split/llvm-split.cpp",
+          "lines": [
+            {
+              "line": 98,
+              "source": "  std::unique_ptr<Module> M = parseIRFile(InputFilename, Err, Context);\n\n  if (!M) {",
+              "digest": "ce668a16732c02403c2cac24aa8390fa57a78c708651a605a10b3e1e8061773d"
+            }
+          ]
+        },
+        {
+          "path": "llvm/tools/llvm-sim/llvm-sim.cpp",
+          "lines": [
+            {
+              "line": 116,
+              "source": "      parseIRFile(InputSourceFile, Err, CurrContext);\n\n  if (!ModuleToAnalyze) {",
+              "digest": "a31a8931552c6eec92b8d24a29dedf89c2b7191dbce86a2a3d964a1dcd826a92"
+            }
+          ]
+        },
+        {
+          "path": "llvm/examples/SpeculativeJIT/SpeculativeJIT.cpp",
+          "lines": []
+        },
+        {
+          "path": "llvm/tools/llvm-jitlistener/llvm-jitlistener.cpp",
+          "lines": []
+        }
+      ]
+    },
+    {
+      "query": "verifyModule",
+      "hitAt10": true,
+      "coldMs": 3.729257999999845,
+      "medianMs": 0.9997859999999719,
+      "evidenceMs": 5.434815999999955,
+      "files": [
+        {
+          "path": "clang/lib/CIR/CodeGen/CIRGenerator.cpp",
+          "symbol": "CIRGenerator::verifyModule",
+          "lines": [
+            {
+              "line": 70,
+              "source": "bool CIRGenerator::verifyModule() const { return cgm->verifyModule(); }",
+              "digest": "dafbcd1c3f29abcee4a02028f12a0eb7d2f00e441548a3a2697953aa348f90d6"
+            }
+          ]
+        },
+        {
+          "path": "clang/lib/CIR/CodeGen/CIRGenModule.cpp",
+          "symbol": "CIRGenModule::verifyModule",
+          "lines": [
+            {
+              "line": 1928,
+              "source": "bool CIRGenModule::verifyModule() const {\n  // Verify the module after we have finished constructing it, this will\n  // check the structural properties of the IR and invoke any specific",
+              "digest": "47e31e782d4ff537924627c8ff3f87910794ecd03a6126d45a928fd0f39d59eb"
+            }
+          ]
+        },
+        {
+          "path": "llvm/lib/IR/Verifier.cpp",
+          "symbol": "llvm::verifyModule",
+          "lines": [
+            {
+              "line": 7537,
+              "source": "bool llvm::verifyModule(const Module &M, raw_ostream *OS,\n                        bool *BrokenDebugInfo) {\n  // Don't use a raw_null_ostream.  Printing IR is expensive.",
+              "digest": "49aa9343c240b638d22199407328021208b522b90634fa173a1b7a1616387241"
+            }
+          ]
+        },
+        {
+          "path": "clang/include/clang/CIR/CIRGenerator.h",
+          "symbol": "cir::CIRGenerator::verifyModule",
+          "lines": [
+            {
+              "line": 88,
+              "source": "  bool verifyModule() const;",
+              "digest": "abe593e0861b1c8a69b5d202430f723debf3a45ea8ce1c206efd62e8ce8350ab"
+            }
+          ]
+        },
+        {
+          "path": "clang/lib/CIR/CodeGen/CIRGenModule.h",
+          "symbol": "clang::CIRGen::CIRGenModule::verifyModule",
+          "lines": [
+            {
+              "line": 241,
+              "source": "  bool verifyModule() const;",
+              "digest": "17fcb7cc75ac581aff4d8d3fb2600fdc0dca7125434fd19e6305da4536f0f979"
+            }
+          ]
+        },
+        {
+          "path": "llvm/include/llvm/IR/Verifier.h",
+          "symbol": "llvm::verifyModule",
+          "lines": [
+            {
+              "line": 101,
+              "source": "LLVM_ABI bool verifyModule(const Module &M, raw_ostream *OS = nullptr,\n                           bool *BrokenDebugInfo = nullptr);",
+              "digest": "82102df4edd7996bbbd9eb072fd230b274a08ba0a5f90cadad03243e4f3dece4"
+            }
+          ]
+        },
+        {
+          "path": "llvm/include/llvm/ExecutionEngine/ExecutionEngine.h",
+          "symbol": "llvm::ExecutionEngine::VerifyModules",
+          "lines": [
+            {
+              "line": 127,
+              "source": "  bool VerifyModules;",
+              "digest": "5e0e9648aee709e5ccc1ecc85e228f24e59e436b4b26c420d7e162929e5111cf"
+            },
+            {
+              "line": 549,
+              "source": "  bool VerifyModules;",
+              "digest": "5e0e9648aee709e5ccc1ecc85e228f24e59e436b4b26c420d7e162929e5111cf"
+            }
+          ]
+        },
+        {
+          "path": "llvm/unittests/FuzzMutate/StrategiesTest.cpp",
+          "lines": [
+            {
+              "line": 76,
+              "source": "  assert(M && !verifyModule(*M, &errs()));\n  return M;\n}",
+              "digest": "15641af5fd22e4240219dda98078d40cc268c910855f78c16db608ea6ce320dd"
+            }
+          ]
+        },
+        {
+          "path": "llvm/unittests/Bitcode/BitReaderTest.cpp",
+          "lines": [
+            {
+              "line": 80,
+              "source": "  EXPECT_FALSE(verifyModule(*M, &dbgs()));\n\n  Function *F = M->getFunction(\"f\");",
+              "digest": "bee571b57e44b39f49e635dc4e410f4e2929f0860f4a230f6ef371a1d92c3292"
+            }
+          ]
+        },
+        {
+          "path": "llvm/unittests/IR/VerifierTest.cpp",
+          "lines": []
+        }
+      ]
+    },
+    {
+      "query": "ExecuteCompilerInvocation",
+      "hitAt10": true,
+      "coldMs": 2.6749160000001666,
+      "medianMs": 0.7675294999999096,
+      "evidenceMs": 2.6175559999999223,
+      "files": [
+        {
+          "path": "clang/lib/FrontendTool/ExecuteCompilerInvocation.cpp",
+          "symbol": "clang::ExecuteCompilerInvocation",
+          "lines": [
+            {
+              "line": 209,
+              "source": "bool ExecuteCompilerInvocation(CompilerInstance *Clang) {\n  // Honor -help.\n  if (Clang->getFrontendOpts().ShowHelp) {",
+              "digest": "fce653bd2c4240b3f628dff3b7c8b2eb181174263073199af21f67feea5a1dde"
+            },
+            {
+              "line": 1,
+              "source": "//===--- ExecuteCompilerInvocation.cpp ------------------------------------===//\n//\n// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.",
+              "digest": "fce653bd2c4240b3f628dff3b7c8b2eb181174263073199af21f67feea5a1dde"
+            }
+          ]
+        },
+        {
+          "path": "flang/lib/FrontendTool/ExecuteCompilerInvocation.cpp",
+          "symbol": "Fortran::frontend::executeCompilerInvocation",
+          "lines": [
+            {
+              "line": 153,
+              "source": "bool executeCompilerInvocation(CompilerInstance *flang) {\n  // Honor -help.\n  if (flang->getFrontendOpts().showHelp) {",
+              "digest": "615ae8f7fc1fe331b2d3745f7472a3c53fe7ea4c14178d5bee18d58324195141"
+            },
+            {
+              "line": 1,
+              "source": "//===--- ExecuteCompilerInvocation.cpp ------------------------------------===//\n//\n// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.",
+              "digest": "615ae8f7fc1fe331b2d3745f7472a3c53fe7ea4c14178d5bee18d58324195141"
+            }
+          ]
+        },
+        {
+          "path": "clang/include/clang/FrontendTool/Utils.h",
+          "symbol": "clang::ExecuteCompilerInvocation",
+          "lines": [
+            {
+              "line": 34,
+              "source": "bool ExecuteCompilerInvocation(CompilerInstance *Clang);",
+              "digest": "46935a7939cfb813af6813ab88dcbed835d032f2c1fd362926fdb5f1464aa9a2"
+            },
+            {
+              "line": 30,
+              "source": "/// ExecuteCompilerInvocation - Execute the given actions described by the\n/// compiler invocation object in the given compiler instance.\n///",
+              "digest": "46935a7939cfb813af6813ab88dcbed835d032f2c1fd362926fdb5f1464aa9a2"
+            }
+          ]
+        },
+        {
+          "path": "flang/include/flang/FrontendTool/Utils.h",
+          "symbol": "Fortran::frontend::executeCompilerInvocation",
+          "lines": [
+            {
+              "line": 29,
+              "source": "bool executeCompilerInvocation(CompilerInstance *flang);",
+              "digest": "31a379ce7f2b85c752084b12fc51477008cea889ad0651f9e9d4bbf269754607"
+            },
+            {
+              "line": 25,
+              "source": "/// ExecuteCompilerInvocation - Execute the given actions described by the\n/// compiler invocation object in the given compiler instance.\n///",
+              "digest": "31a379ce7f2b85c752084b12fc51477008cea889ad0651f9e9d4bbf269754607"
+            }
+          ]
+        },
+        {
+          "path": "flang/unittests/Frontend/FrontendActionTest.cpp",
+          "lines": [
+            {
+              "line": 109,
+              "source": "  bool success = executeCompilerInvocation(&compInst);\n\n  // Validate the expected output.",
+              "digest": "8045ef9a56bbb9609c84181a22e85947505e6bba1b9b15cafa7112db7f774448"
+            }
+          ]
+        },
+        {
+          "path": "clang/unittests/Frontend/OutputStreamTest.cpp",
+          "lines": [
+            {
+              "line": 43,
+              "source": "  bool Success = ExecuteCompilerInvocation(&Compiler);\n  EXPECT_TRUE(Success);\n  EXPECT_TRUE(!IRBuffer.empty());",
+              "digest": "4c78dde1a7e29b7f67584aff28635e8249fda3220d5318ec8d3b3ef33a8ac39f"
+            }
+          ]
+        },
+        {
+          "path": "flang/lib/FrontendTool/CMakeLists.txt",
+          "lines": []
+        },
+        {
+          "path": "llvm/utils/gn/secondary/clang/lib/FrontendTool/BUILD.gn",
+          "lines": []
+        },
+        {
+          "path": "clang/lib/FrontendTool/CMakeLists.txt",
+          "lines": []
+        },
+        {
+          "path": "flang/tools/flang-driver/fc1_main.cpp",
+          "lines": []
+        }
+      ]
+    }
+  ],
+  "snapshotId": "snapshot:repo-dace37fdb8f76f660b30:740f069a4aa8667b7d918450",
+  "snapshotDir": "/data/dev/CodeIndex/.data/reliability/repeat-2/codeindex/llvm/repo-dace37fdb8f76f660b30/snapshots/snapshot:repo-dace37fdb8f76f660b30:740f069a4aa8667b7d918450-79be5621",
+  "counts": {
+    "files": 158039,
+    "symbols": 1679206,
+    "relations": 416030,
+    "sourceBytes": 1689076171,
+    "changedFiles": 158039,
+    "removedFiles": 0,
+    "reusedFiles": 0,
+    "parsedFiles": 65070,
+    "partialFiles": 92973,
+    "skipped": 1,
+    "nodes": 1852164,
+    "nativeFiles": 62419,
+    "nativeIndexedFiles": 62419,
+    "workers": 4,
+    "nativeBuildMode": "full",
+    "nativeTaskMs": 66556,
+    "relationsScope": "stored-sql-relations; native calls and references queried from cscope",
+    "stages": {
+      "scan": 10637,
+      "source-and-files": 34665,
+      "native-symbols": 35644,
+      "parser-symbols": 3149,
+      "relations": 0,
+      "indexes": 27118,
+      "native-cross-references": 646,
+      "validation": 1207
+    },
+    "buildMs": 113066
+  },
+  "coverage": {
+    "sourceFiles": 158039,
+    "parsedFiles": 65066,
+    "unsupportedFiles": 92969,
+    "partialFiles": 92973,
+    "skippedFiles": 1,
+    "nativeCalls": true,
+    "semantics": "syntax-level symbols and cross-references; no compiler-level overload or pointer resolution"
+  }
+}

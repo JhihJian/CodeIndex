@@ -1,0 +1,135 @@
+{
+  "verified": true,
+  "historicalInputs": [
+    {
+      "verified": true,
+      "rows": [
+        {
+          "corpus": "cpython",
+          "checkedFiles": 5019,
+          "inputAndOriginalDigestsMatch": true,
+          "trackedFilesMatch": true,
+          "inputRevisionRestored": true,
+          "originalGitStateUnchanged": true
+        },
+        {
+          "corpus": "vscode",
+          "checkedFiles": 8071,
+          "inputAndOriginalDigestsMatch": true,
+          "trackedFilesMatch": true,
+          "inputRevisionRestored": true,
+          "originalGitStateUnchanged": true
+        },
+        {
+          "corpus": "llvm",
+          "checkedFiles": 158039,
+          "inputAndOriginalDigestsMatch": true,
+          "trackedFilesMatch": true,
+          "inputRevisionRestored": true,
+          "originalGitStateUnchanged": true
+        }
+      ]
+    },
+    {
+      "verified": true,
+      "rows": [
+        {
+          "corpus": "pageindex",
+          "checkedFiles": 155,
+          "inputAndOriginalDigestsMatch": true,
+          "trackedFilesMatch": true,
+          "inputRevisionRestored": true,
+          "originalGitStateUnchanged": true
+        },
+        {
+          "corpus": "typescript",
+          "checkedFiles": 67863,
+          "inputAndOriginalDigestsMatch": true,
+          "trackedFilesMatch": true,
+          "inputRevisionRestored": true,
+          "originalGitStateUnchanged": true
+        },
+        {
+          "corpus": "linux",
+          "checkedFiles": 86363,
+          "inputAndOriginalDigestsMatch": true,
+          "trackedFilesMatch": true,
+          "inputRevisionRestored": true,
+          "originalGitStateUnchanged": true
+        }
+      ]
+    }
+  ],
+  "newInputs": [
+    {
+      "corpus": "cpython",
+      "restored": true,
+      "independentInode": true,
+      "mtimeRestored": true,
+      "pointerSha256": "47b94b3d7dadb58054f8558b2565bfa76fb389898b34256c58bde04a8dec6cfa"
+    },
+    {
+      "corpus": "vscode",
+      "restored": true,
+      "independentInode": true,
+      "mtimeRestored": true,
+      "pointerSha256": "f2c375bb8dbd59e06172504b65d022d5b1e60b21fabf43fa52c2528e4ef6c9ed"
+    },
+    {
+      "corpus": "llvm",
+      "restored": true,
+      "independentInode": true,
+      "mtimeRestored": true,
+      "pointerSha256": "c0eafb2ea97db0348c15811e050a4be8dee5062a0eecdcdd1fa961e42fc6610f"
+    }
+  ],
+  "historicalResultsUnchanged": true,
+  "productionPointerUnchanged": true,
+  "productSourcesMatchMeasuredCommit": true,
+  "pageindex": {
+    "bodyFilesVerified": 155,
+    "evidenceChecked": 29,
+    "rows": [
+      {
+        "query": "DocStore",
+        "hit": true,
+        "mode": "symbol"
+      },
+      {
+        "query": "tree_cost",
+        "hit": true,
+        "mode": "symbol"
+      },
+      {
+        "query": "get_document_structure",
+        "hit": true,
+        "mode": "symbol"
+      },
+      {
+        "query": "build_tree_from_nodes",
+        "hit": true,
+        "mode": "symbol"
+      },
+      {
+        "query": "PageIndexClient",
+        "hit": true,
+        "mode": "symbol"
+      },
+      {
+        "query": "extract_toc",
+        "hit": true,
+        "mode": "symbol"
+      },
+      {
+        "query": "Are you frustrated with vector database retrieval accuracy",
+        "hit": true,
+        "mode": "content"
+      }
+    ],
+    "stats": {
+      "files": 155,
+      "symbols": 2686,
+      "relations": 19056
+    }
+  }
+}

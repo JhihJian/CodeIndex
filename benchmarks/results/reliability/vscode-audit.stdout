@@ -1,0 +1,2036 @@
+{
+  "corpus": "vscode",
+  "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+  "config": {
+    "schema": "codeindex-index-0.4.0",
+    "sqliteSchema": "codeindex-compact-2",
+    "parserVersion": "codeindex-parser-0.4.1",
+    "maxFileBytes": 5242880,
+    "typescript": "5.9.3",
+    "tools": {
+      "ctags": "Universal Ctags 5.9.0, Copyright (C) 2015 Universal Ctags Team",
+      "cscope": "cscope: version 15.9"
+    },
+    "python": {
+      "path": "/home/jhihjian/.local/share/uv/python/cpython-3.14.2-linux-x86_64-gnu/bin/python3.14",
+      "version": "3.14.2",
+      "implementation": "CPython"
+    }
+  },
+  "coverage": {
+    "sourceFiles": 8071,
+    "parsedFiles": 5982,
+    "unsupportedFiles": 2083,
+    "partialFiles": 2089,
+    "skippedFiles": 1,
+    "nativeCalls": true,
+    "semantics": "syntax-level symbols and cross-references; no compiler-level overload or pointer resolution"
+  },
+  "stats": {
+    "files": 8071,
+    "symbols": 227748,
+    "relations": 573977
+  },
+  "bodyFilesVerified": 8071,
+  "evidenceChecked": 78,
+  "status": [
+    {
+      "language": "c",
+      "parse_status": "complete",
+      "files": 1
+    },
+    {
+      "language": "cpp",
+      "parse_status": "complete",
+      "files": 6
+    },
+    {
+      "language": "css",
+      "parse_status": "unsupported",
+      "files": 282
+    },
+    {
+      "language": "go",
+      "parse_status": "unsupported",
+      "files": 2
+    },
+    {
+      "language": "java",
+      "parse_status": "unsupported",
+      "files": 1
+    },
+    {
+      "language": "javascript",
+      "parse_status": "complete",
+      "files": 151
+    },
+    {
+      "language": "javascript",
+      "parse_status": "partial",
+      "files": 4
+    },
+    {
+      "language": "json",
+      "parse_status": "unsupported",
+      "files": 905
+    },
+    {
+      "language": "markdown",
+      "parse_status": "unsupported",
+      "files": 93
+    },
+    {
+      "language": "python",
+      "parse_status": "partial",
+      "files": 2
+    },
+    {
+      "language": "ruby",
+      "parse_status": "unsupported",
+      "files": 1
+    },
+    {
+      "language": "rust",
+      "parse_status": "unsupported",
+      "files": 71
+    },
+    {
+      "language": "scss",
+      "parse_status": "unsupported",
+      "files": 4
+    },
+    {
+      "language": "shell",
+      "parse_status": "unsupported",
+      "files": 48
+    },
+    {
+      "language": "toml",
+      "parse_status": "unsupported",
+      "files": 3
+    },
+    {
+      "language": "typescript",
+      "parse_status": "complete",
+      "files": 5824
+    },
+    {
+      "language": "unknown",
+      "parse_status": "unsupported",
+      "files": 648
+    },
+    {
+      "language": "yaml",
+      "parse_status": "unsupported",
+      "files": 25
+    }
+  ],
+  "failures": [
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-fixtures/test-freeze-56377.py",
+      "parse_error": "SyntaxError:unexpected character after line continuation character:4"
+    },
+    {
+      "path": "extensions/vscode-colorize-tests/test/colorize-fixtures/test.py",
+      "parse_error": "SyntaxError:Missing parentheses in call to 'print'. Did you mean print(...)?:47"
+    },
+    {
+      "path": "src/vs/platform/files/test/node/fixtures/resolver/examples/employee.js",
+      "parse_error": "TS1109:src/vs/platform/files/test/node/fixtures/resolver/examples/employee.js:23:6: Expression expected."
+    },
+    {
+      "path": "src/vs/platform/files/test/node/fixtures/resolver/other/deep/employee.js",
+      "parse_error": "TS1109:src/vs/platform/files/test/node/fixtures/resolver/other/deep/employee.js:23:6: Expression expected."
+    },
+    {
+      "path": "src/vs/platform/files/test/node/fixtures/service/deep/employee.js",
+      "parse_error": "TS1109:src/vs/platform/files/test/node/fixtures/service/deep/employee.js:23:6: Expression expected."
+    },
+    {
+      "path": "src/vs/workbench/services/search/test/node/fixtures/examples/employee.js",
+      "parse_error": "TS1109:src/vs/workbench/services/search/test/node/fixtures/examples/employee.js:23:6: Expression expected."
+    }
+  ],
+  "rows": [
+    {
+      "mode": "symbol",
+      "query": "DisposableStore",
+      "metadataMs": 69.92939899999999,
+      "hitAt10": true,
+      "expectedEvidence": true,
+      "candidates": [
+        {
+          "type": "symbol",
+          "score": 19.5,
+          "symbolId": "symbol:WyJmaWxlOjdjNTMyODVlOTY4ZDg1MTYzMWJlMDgxYiIsIkRpc3Bvc2FibGVTdG9yZSIsImNsYXNzIiwiZXh0ZW5zaW9ucy5naXRodWIuc3JjLnV0aWwiLDksMF0",
+          "name": "extensions.github.src.util.DisposableStore",
+          "path": "extensions/github/src/util.ts",
+          "startLine": 9
+        },
+        {
+          "type": "symbol",
+          "score": 19.5,
+          "symbolId": "symbol:WyJmaWxlOjJiYTE2ODYwMzUzMWFkMTA3ODFhMjU1YiIsIkRpc3Bvc2FibGVTdG9yZSIsImNsYXNzIiwiZXh0ZW5zaW9ucy50eXBlc2NyaXB0LWxhbmd1YWdlLWZlYXR1cmVzLnNyYy51dGlscy5kaXNwb3NlIiw1OCwwXQ",
+          "name": "extensions.typescript-language-features.src.utils.dispose.DisposableStore",
+          "path": "extensions/typescript-language-features/src/utils/dispose.ts",
+          "startLine": 58
+        },
+        {
+          "type": "symbol",
+          "score": 19.5,
+          "symbolId": "symbol:WyJmaWxlOmFkMzE5MWNhN2NmOWEwZWZjOWEzMWI2ZSIsIkRpc3Bvc2FibGVTdG9yZSIsImNsYXNzIiwic3JjLnZzLmJhc2UuY29tbW9uLmxpZmVjeWNsZSIsNDA5LDBd",
+          "name": "src.vs.base.common.lifecycle.DisposableStore",
+          "path": "src/vs/base/common/lifecycle.ts",
+          "startLine": 409
+        },
+        {
+          "type": "symbol",
+          "score": 19,
+          "symbolId": "symbol:WyJmaWxlOjBhZGY0NGU0Y2FlMjBkYzU4NDRlNTdkNiIsIkRpc3Bvc2FibGVTdG9yZSIsInR5cGUiLCJleHRlbnNpb25zLm5vdGVib29rLXJlbmRlcmVycy5zcmMuaW5kZXgiLDE2NSwwXQ",
+          "name": "extensions.notebook-renderers.src.index.DisposableStore",
+          "path": "extensions/notebook-renderers/src/index.ts",
+          "startLine": 165
+        },
+        {
+          "type": "symbol",
+          "score": 19,
+          "symbolId": "symbol:WyJmaWxlOjAxNzI2YzdmYTQwMTZiOTNkNzk3MzczMSIsImRpc3Bvc2FibGVTdG9yZSIsImZpZWxkIiwic3JjLnZzLndvcmtiZW5jaC5hcGkuYnJvd3Nlci5tYWluVGhyZWFkQ29tbWVudHMuQ29tbWVudFRocmVhZFdpdGhEaXNwb3NhYmxlIiwyMzUsMV0",
+          "name": "src.vs.workbench.api.browser.mainThreadComments.CommentThreadWithDisposable.disposableStore",
+          "path": "src/vs/workbench/api/browser/mainThreadComments.ts",
+          "startLine": 235
+        },
+        {
+          "type": "symbol",
+          "score": 19,
+          "symbolId": "symbol:WyJmaWxlOmI5YzAzNzQxZDRmNTBiMjAzYjk4OTIxNyIsImRpc3Bvc2FibGVTdG9yZSIsImZpZWxkIiwic3JjLnZzLndvcmtiZW5jaC5hcGkuY29tbW9uLmV4dEhvc3RUcmVlVmlld3MuVHJlZU5vZGUiLDMwNywxXQ",
+          "name": "src.vs.workbench.api.common.extHostTreeViews.TreeNode.disposableStore",
+          "path": "src/vs/workbench/api/common/extHostTreeViews.ts",
+          "startLine": 307
+        },
+        {
+          "type": "symbol",
+          "score": 19,
+          "symbolId": "symbol:WyJmaWxlOjQ1NzUxMmExZTc2MjhjNGZmOGEzM2I4ZiIsImRpc3Bvc2FibGVTdG9yZSIsImZpZWxkIiwic3JjLnZzLndvcmtiZW5jaC5jb250cmliLmV4dGVuc2lvbnMuYnJvd3Nlci5leHRlbnNpb25zVmlld2VyLkV4dGVuc2lvbnNHcmlkVmlldyIsMTY1LDFd",
+          "name": "src.vs.workbench.contrib.extensions.browser.extensionsViewer.ExtensionsGridView.disposableStore",
+          "path": "src/vs/workbench/contrib/extensions/browser/extensionsViewer.ts",
+          "startLine": 165
+        },
+        {
+          "type": "symbol",
+          "score": 19,
+          "symbolId": "symbol:WyJmaWxlOjI3MDI3NjUwYWU4MjRlNGE4NmY0ZDE0NSIsImRpc3Bvc2FibGVTdG9yZSIsImZpZWxkIiwic3JjLnZzLndvcmtiZW5jaC5jb250cmliLm1lcmdlRWRpdG9yLmJyb3dzZXIubWVyZ2VNYXJrZXJzLm1lcmdlTWFya2Vyc0NvbnRyb2xsZXIuTWVyZ2VNYXJrZXJzQ29udHJvbGxlciIsMjIsMV0",
+          "name": "src.vs.workbench.contrib.mergeEditor.browser.mergeMarkers.mergeMarkersController.MergeMarkersController.disposableStore",
+          "path": "src/vs/workbench/contrib/mergeEditor/browser/mergeMarkers/mergeMarkersController.ts",
+          "startLine": 22
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjEzMTQzMzAyYzQ3Njg4ZDljMjg0ZTRiMiIsInNldEdpdEh1YkNvbnRleHQiLCJmdW5jdGlvbiIsImV4dGVuc2lvbnMuZ2l0aHViLnNyYy5leHRlbnNpb24iLDc2LDBd",
+          "name": "extensions.github.src.extension.setGitHubContext",
+          "path": "extensions/github/src/extension.ts",
+          "startLine": 76
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjdjNTMyODVlOTY4ZDg1MTYzMWJlMDgxYiIsImRpc3Bvc2UiLCJtZXRob2QiLCJleHRlbnNpb25zLmdpdGh1Yi5zcmMudXRpbC5EaXNwb3NhYmxlU3RvcmUiLDE3LDFd",
+          "name": "extensions.github.src.util.DisposableStore.dispose",
+          "path": "extensions/github/src/util.ts",
+          "startLine": 17
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjdjNTMyODVlOTY4ZDg1MTYzMWJlMDgxYiIsImFkZCIsIm1ldGhvZCIsImV4dGVuc2lvbnMuZ2l0aHViLnNyYy51dGlsLkRpc3Bvc2FibGVTdG9yZSIsMTMsMV0",
+          "name": "extensions.github.src.util.DisposableStore.add",
+          "path": "extensions/github/src/util.ts",
+          "startLine": 13
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjQzYTMwZThhZWE1YzI0N2I1NTA0MTJiZSIsImtlZXBVcGRhdGVkIiwibWV0aG9kIiwic3JjLnZzLmJhc2UuYnJvd3Nlci5kb20uT2JzZXJ2ZXJOb2RlIiwyNDgxLDFd",
+          "name": "src.vs.base.browser.dom.ObserverNode.keepUpdated",
+          "path": "src/vs/base/browser/dom.ts",
+          "startLine": 2481
+        }
+      ],
+      "evidence": [
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "extensions/github/src/util.ts",
+          "symbolId": "symbol:WyJmaWxlOjdjNTMyODVlOTY4ZDg1MTYzMWJlMDgxYiIsIkRpc3Bvc2FibGVTdG9yZSIsImNsYXNzIiwiZXh0ZW5zaW9ucy5naXRodWIuc3JjLnV0aWwiLDksMF0",
+          "symbol": "extensions.github.src.util.DisposableStore",
+          "startLine": 9,
+          "endLine": 24,
+          "startByte": 435,
+          "endByte": 733,
+          "blobDigest": "2ae7dfe0b2b64d19791dc9b6310d68afd9dc26f79a045b12fe562e4b322b6872",
+          "source": "export class DisposableStore {\n\n\tprivate disposables = new Set<vscode.Disposable>();\n\n\tadd(disposable: vscode.Disposable): void {\n\t\tthis.disposables.add(disposable);\n\t}\n\n\tdispose(): void {\n\t\tfor (const disposable of this.disposables) {\n\t\t\tdisposable.dispose();\n\t\t}\n\n\t\tthis.disposables.clear();\n\t}\n}",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "extensions/typescript-language-features/src/utils/dispose.ts",
+          "symbolId": "symbol:WyJmaWxlOjJiYTE2ODYwMzUzMWFkMTA3ODFhMjU1YiIsIkRpc3Bvc2FibGVTdG9yZSIsImNsYXNzIiwiZXh0ZW5zaW9ucy50eXBlc2NyaXB0LWxhbmd1YWdlLWZlYXR1cmVzLnNyYy51dGlscy5kaXNwb3NlIiw1OCwwXQ",
+          "symbol": "extensions.typescript-language-features.src.utils.dispose.DisposableStore",
+          "startLine": 58,
+          "endLine": 65,
+          "startByte": 1317,
+          "endByte": 1479,
+          "blobDigest": "181b13edc5d4d14934fe84953c8b9b09bac7b7df84b09ac23c3f5f2557bff378",
+          "source": "export class DisposableStore extends Disposable {\n\n\tpublic add<T extends IDisposable>(disposable: T): T {\n\t\tthis._register(disposable);\n\n\t\treturn disposable;\n\t}\n}",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "src/vs/base/common/lifecycle.ts",
+          "symbolId": "symbol:WyJmaWxlOmFkMzE5MWNhN2NmOWEwZWZjOWEzMWI2ZSIsIkRpc3Bvc2FibGVTdG9yZSIsImNsYXNzIiwic3JjLnZzLmJhc2UuY29tbW9uLmxpZmVjeWNsZSIsNDA5LDBd",
+          "symbol": "src.vs.base.common.lifecycle.DisposableStore",
+          "startLine": 409,
+          "endLine": 468,
+          "startByte": 12851,
+          "endByte": 14104,
+          "blobDigest": "7ac563cbec7e6f38b603cb9471fe466aadedcc2d70ac85020c4146e47a2584ce",
+          "source": "export class DisposableStore implements IDisposable {\n\n\tstatic DISABLE_DISPOSED_WARNING = false;\n\n\tprivate readonly _toDispose = new Set<IDisposable>();\n\tprivate _isDisposed = false;\n\n\tconstructor() {\n\t\ttrackDisposable(this);\n\t}\n\n\t/**\n\t * Dispose of all registered disposables and mark this object as disposed.\n\t *\n\t * Any future disposables added to this object will be disposed of on `add`.\n\t */\n\tpublic dispose(): void {\n\t\tif (this._isDisposed) {\n\t\t\treturn;\n\t\t}\n\n\t\tmarkAsDisposed(this);\n\t\tthis._isDisposed = true;\n\t\tthis.clear();\n\t}\n\n\t/**\n\t * @return `true` if this object has been disposed of.\n\t */\n\tpublic get isDisposed(): boolean {\n\t\treturn this._isDisposed;\n\t}\n\n\t/**\n\t * Dispose of all registered disposables but do not mark this object as disposed.\n\t */\n\tpublic clear(): void {\n\t\tif (this._toDispose.size === 0) {\n\t\t\treturn;\n\t\t}\n\n\t\ttry {\n\t\t\tdispose(this._toDispose);\n\t\t} finally {\n\t\t\tthis._toDispose.clear();\n\t\t}\n\t}\n\n\t/**\n\t * Add a new {@link IDisposable disposable} to the collection.\n\t */\n\tpublic add<T extends IDisposable>(o: T): T {\n\t\tif (!o || o === Disposable.None) {\n\t\t\treturn o;\n\t\t}\n\t\tif ((o as unknown as DisposableStore) === this) {\n\t\t\tthrow new Error('Cannot register a disposable on itself!');\n\t\t}\n\n\t\tsetParentOfDisposable(o, this);",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "extensions/notebook-renderers/src/index.ts",
+          "symbolId": "symbol:WyJmaWxlOjBhZGY0NGU0Y2FlMjBkYzU4NDRlNTdkNiIsIkRpc3Bvc2FibGVTdG9yZSIsInR5cGUiLCJleHRlbnNpb25zLm5vdGVib29rLXJlbmRlcmVycy5zcmMuaW5kZXgiLDE2NSwwXQ",
+          "symbol": "extensions.notebook-renderers.src.index.DisposableStore",
+          "startLine": 165,
+          "endLine": 165,
+          "startByte": 5403,
+          "endByte": 5467,
+          "blobDigest": "da4f12c179cc8cf20a86b13acb916ba5e8b525bac0cb56e9aea6bbd6b256ad44",
+          "source": "type DisposableStore = ReturnType<typeof createDisposableStore>;",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "src/vs/workbench/api/browser/mainThreadComments.ts",
+          "symbolId": "symbol:WyJmaWxlOjAxNzI2YzdmYTQwMTZiOTNkNzk3MzczMSIsImRpc3Bvc2FibGVTdG9yZSIsImZpZWxkIiwic3JjLnZzLndvcmtiZW5jaC5hcGkuYnJvd3Nlci5tYWluVGhyZWFkQ29tbWVudHMuQ29tbWVudFRocmVhZFdpdGhEaXNwb3NhYmxlIiwyMzUsMV0",
+          "symbol": "src.vs.workbench.api.browser.mainThreadComments.CommentThreadWithDisposable.disposableStore",
+          "startLine": 235,
+          "endLine": 235,
+          "startByte": 9414,
+          "endByte": 9487,
+          "blobDigest": "148e2dc901b5475e3577aa824bf0ce45dd2f0e2cdd5679321296c226ada41a44",
+          "source": "public readonly disposableStore: DisposableStore = new DisposableStore();",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "src/vs/workbench/api/common/extHostTreeViews.ts",
+          "symbolId": "symbol:WyJmaWxlOmI5YzAzNzQxZDRmNTBiMjAzYjk4OTIxNyIsImRpc3Bvc2FibGVTdG9yZSIsImZpZWxkIiwic3JjLnZzLndvcmtiZW5jaC5hcGkuY29tbW9uLmV4dEhvc3RUcmVlVmlld3MuVHJlZU5vZGUiLDMwNywxXQ",
+          "symbol": "src.vs.workbench.api.common.extHostTreeViews.TreeNode.disposableStore",
+          "startLine": 307,
+          "endLine": 307,
+          "startByte": 12740,
+          "endByte": 12773,
+          "blobDigest": "5fe881b6bac4424a5c80320bba9e777f0dcbfefb0c3dedffaae95c827fa4259b",
+          "source": "disposableStore: DisposableStore;",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "src/vs/workbench/contrib/extensions/browser/extensionsViewer.ts",
+          "symbolId": "symbol:WyJmaWxlOjQ1NzUxMmExZTc2MjhjNGZmOGEzM2I4ZiIsImRpc3Bvc2FibGVTdG9yZSIsImZpZWxkIiwic3JjLnZzLndvcmtiZW5jaC5jb250cmliLmV4dGVuc2lvbnMuYnJvd3Nlci5leHRlbnNpb25zVmlld2VyLkV4dGVuc2lvbnNHcmlkVmlldyIsMTY1LDFd",
+          "symbol": "src.vs.workbench.contrib.extensions.browser.extensionsViewer.ExtensionsGridView.disposableStore",
+          "startLine": 165,
+          "endLine": 165,
+          "startByte": 8973,
+          "endByte": 9023,
+          "blobDigest": "f973a98cd5c26dd2179de5fbe6162bc006fdd24b266814dea3457dc2dcddfef9",
+          "source": "private readonly disposableStore: DisposableStore;",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "src/vs/workbench/contrib/mergeEditor/browser/mergeMarkers/mergeMarkersController.ts",
+          "symbolId": "symbol:WyJmaWxlOjI3MDI3NjUwYWU4MjRlNGE4NmY0ZDE0NSIsImRpc3Bvc2FibGVTdG9yZSIsImZpZWxkIiwic3JjLnZzLndvcmtiZW5jaC5jb250cmliLm1lcmdlRWRpdG9yLmJyb3dzZXIubWVyZ2VNYXJrZXJzLm1lcmdlTWFya2Vyc0NvbnRyb2xsZXIuTWVyZ2VNYXJrZXJzQ29udHJvbGxlciIsMjIsMV0",
+          "symbol": "src.vs.workbench.contrib.mergeEditor.browser.mergeMarkers.mergeMarkersController.MergeMarkersController.disposableStore",
+          "startLine": 22,
+          "endLine": 22,
+          "startByte": 1070,
+          "endByte": 1127,
+          "blobDigest": "254dbc052d86e3d1c0d9daee7f4b58308b50815f89648fc868fda1361bcdf084",
+          "source": "private readonly disposableStore = new DisposableStore();",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "extensions/github/src/extension.ts",
+          "symbolId": "symbol:WyJmaWxlOjEzMTQzMzAyYzQ3Njg4ZDljMjg0ZTRiMiIsInNldEdpdEh1YkNvbnRleHQiLCJmdW5jdGlvbiIsImV4dGVuc2lvbnMuZ2l0aHViLnNyYy5leHRlbnNpb24iLDc2LDBd",
+          "symbol": "extensions.github.src.extension.setGitHubContext",
+          "startLine": 76,
+          "endLine": 89,
+          "startByte": 3158,
+          "endByte": 3674,
+          "blobDigest": "226b1774eaff74af8041cf72fb6fae337cad4089dc4ca3cf23c63d3457ed3336",
+          "source": "function setGitHubContext(gitAPI: API, disposables: DisposableStore) {\n\tif (gitAPI.repositories.find(repo => repositoryHasGitHubRemote(repo))) {\n\t\tcommands.executeCommand('setContext', 'github.hasGitHubRepo', true);\n\t} else {\n\t\tconst openRepoDisposable = gitAPI.onDidOpenRepository(async e => {\n\t\t\tawait e.status();\n\t\t\tif (repositoryHasGitHubRemote(e)) {\n\t\t\t\tcommands.executeCommand('setContext', 'github.hasGitHubRepo', true);\n\t\t\t\topenRepoDisposable.dispose();\n\t\t\t}\n\t\t});\n\t\tdisposables.add(openRepoDisposable);\n\t}\n}",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "extensions/github/src/util.ts",
+          "symbolId": "symbol:WyJmaWxlOjdjNTMyODVlOTY4ZDg1MTYzMWJlMDgxYiIsImRpc3Bvc2UiLCJtZXRob2QiLCJleHRlbnNpb25zLmdpdGh1Yi5zcmMudXRpbC5EaXNwb3NhYmxlU3RvcmUiLDE3LDFd",
+          "symbol": "extensions.github.src.util.DisposableStore.dispose",
+          "startLine": 17,
+          "endLine": 23,
+          "startByte": 606,
+          "endByte": 731,
+          "blobDigest": "2ae7dfe0b2b64d19791dc9b6310d68afd9dc26f79a045b12fe562e4b322b6872",
+          "source": "dispose(): void {\n\t\tfor (const disposable of this.disposables) {\n\t\t\tdisposable.dispose();\n\t\t}\n\n\t\tthis.disposables.clear();\n\t}",
+          "kind": "source"
+        }
+      ]
+    },
+    {
+      "mode": "symbol",
+      "query": "MutableDisposable",
+      "metadataMs": 7.796496000000047,
+      "hitAt10": true,
+      "expectedEvidence": true,
+      "candidates": [
+        {
+          "type": "symbol",
+          "score": 19.5,
+          "symbolId": "symbol:WyJmaWxlOmFkMzE5MWNhN2NmOWEwZWZjOWEzMWI2ZSIsIk11dGFibGVEaXNwb3NhYmxlIiwiY2xhc3MiLCJzcmMudnMuYmFzZS5jb21tb24ubGlmZWN5Y2xlIiw1NTksMF0",
+          "name": "src.vs.base.common.lifecycle.MutableDisposable",
+          "path": "src/vs/base/common/lifecycle.ts",
+          "startLine": 559
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOmFkMzE5MWNhN2NmOWEwZWZjOWEzMWI2ZSIsImNvbnN0cnVjdG9yIiwibWV0aG9kIiwic3JjLnZzLmJhc2UuY29tbW9uLmxpZmVjeWNsZS5NdXRhYmxlRGlzcG9zYWJsZSIsNTYzLDFd",
+          "name": "src.vs.base.common.lifecycle.MutableDisposable.constructor",
+          "path": "src/vs/base/common/lifecycle.ts",
+          "startLine": 563
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOmFkMzE5MWNhN2NmOWEwZWZjOWEzMWI2ZSIsImRpc3Bvc2UiLCJtZXRob2QiLCJzcmMudnMuYmFzZS5jb21tb24ubGlmZWN5Y2xlLk11dGFibGVEaXNwb3NhYmxlIiw1OTAsMV0",
+          "name": "src.vs.base.common.lifecycle.MutableDisposable.dispose",
+          "path": "src/vs/base/common/lifecycle.ts",
+          "startLine": 590
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOmFkMzE5MWNhN2NmOWEwZWZjOWEzMWI2ZSIsInZhbHVlIiwibWV0aG9kIiwic3JjLnZzLmJhc2UuY29tbW9uLmxpZmVjeWNsZS5NdXRhYmxlRGlzcG9zYWJsZSIsNTY3LDFd",
+          "name": "src.vs.base.common.lifecycle.MutableDisposable.value",
+          "path": "src/vs/base/common/lifecycle.ts",
+          "startLine": 567
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOmFkMzE5MWNhN2NmOWEwZWZjOWEzMWI2ZSIsInZhbHVlIiwibWV0aG9kIiwic3JjLnZzLmJhc2UuY29tbW9uLmxpZmVjeWNsZS5NdXRhYmxlRGlzcG9zYWJsZSIsNTcxLDFd",
+          "name": "src.vs.base.common.lifecycle.MutableDisposable.value",
+          "path": "src/vs/base/common/lifecycle.ts",
+          "startLine": 571
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOmFkMzE5MWNhN2NmOWEwZWZjOWEzMWI2ZSIsImNsZWFyIiwibWV0aG9kIiwic3JjLnZzLmJhc2UuY29tbW9uLmxpZmVjeWNsZS5NdXRhYmxlRGlzcG9zYWJsZSIsNTg2LDFd",
+          "name": "src.vs.base.common.lifecycle.MutableDisposable.clear",
+          "path": "src/vs/base/common/lifecycle.ts",
+          "startLine": 586
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOmFkMzE5MWNhN2NmOWEwZWZjOWEzMWI2ZSIsImNsZWFyQW5kTGVhayIsIm1ldGhvZCIsInNyYy52cy5iYXNlLmNvbW1vbi5saWZlY3ljbGUuTXV0YWJsZURpc3Bvc2FibGUiLDYwMSwxXQ",
+          "name": "src.vs.base.common.lifecycle.MutableDisposable.clearAndLeak",
+          "path": "src/vs/base/common/lifecycle.ts",
+          "startLine": 601
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOmFkMzE5MWNhN2NmOWEwZWZjOWEzMWI2ZSIsIk1hbmRhdG9yeU11dGFibGVEaXNwb3NhYmxlIiwiY2xhc3MiLCJzcmMudnMuYmFzZS5jb21tb24ubGlmZWN5Y2xlIiw2MTUsMF0",
+          "name": "src.vs.base.common.lifecycle.MandatoryMutableDisposable",
+          "path": "src/vs/base/common/lifecycle.ts",
+          "startLine": 615
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOmM3NTYzMTE1Y2JlZTY0M2Q1MjExZWRhZCIsInVwZGF0ZUVsZW1lbnQiLCJtZXRob2QiLCJzcmMudnMud29ya2JlbmNoLmJyb3dzZXIucGFydHMuZWRpdG9yLmVkaXRvclN0YXR1cy5FZGl0b3JTdGF0dXMiLDYxMCwxXQ",
+          "name": "src.vs.workbench.browser.parts.editor.editorStatus.EditorStatus.updateElement",
+          "path": "src/vs/workbench/browser/parts/editor/editorStatus.ts",
+          "startLine": 610
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:WyJmaWxlOjNmOWY2OWU5YzhmMzIwOWYzNzI3MTNiNSIsImFkZGl0aW9uYWxUb2dnbGVzRGlzcG9zYWJsZXMiLCJmaWVsZCIsInNyYy52cy5iYXNlLmJyb3dzZXIudWkuZmluZGlucHV0LmZpbmRJbnB1dC5GaW5kSW5wdXQiLDU1LDFd",
+          "name": "src.vs.base.browser.ui.findinput.findInput.FindInput.additionalTogglesDisposables",
+          "path": "src/vs/base/browser/ui/findinput/findInput.ts",
+          "startLine": 55
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:WyJmaWxlOjg1MzBmZmJiYjg4OTJkNDU0NzZmMTdmNyIsImhvdmVyIiwiZmllbGQiLCJzcmMudnMuYmFzZS5icm93c2VyLnVpLmlucHV0Ym94LmlucHV0Qm94LklucHV0Qm94IiwxMTcsMV0",
+          "name": "src.vs.base.browser.ui.inputbox.inputBox.InputBox.hover",
+          "path": "src/vs/base/browser/ui/inputbox/inputBox.ts",
+          "startLine": 117
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:WyJmaWxlOmFkMzE5MWNhN2NmOWEwZWZjOWEzMWI2ZSIsIl9pc0Rpc3Bvc2VkIiwiZmllbGQiLCJzcmMudnMuYmFzZS5jb21tb24ubGlmZWN5Y2xlLk11dGFibGVEaXNwb3NhYmxlIiw1NjEsMV0",
+          "name": "src.vs.base.common.lifecycle.MutableDisposable._isDisposed",
+          "path": "src/vs/base/common/lifecycle.ts",
+          "startLine": 561
+        }
+      ],
+      "evidence": [
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "src/vs/base/common/lifecycle.ts",
+          "symbolId": "symbol:WyJmaWxlOmFkMzE5MWNhN2NmOWEwZWZjOWEzMWI2ZSIsIk11dGFibGVEaXNwb3NhYmxlIiwiY2xhc3MiLCJzcmMudnMuYmFzZS5jb21tb24ubGlmZWN5Y2xlIiw1NTksMF0",
+          "symbol": "src.vs.base.common.lifecycle.MutableDisposable",
+          "startLine": 559,
+          "endLine": 609,
+          "startByte": 16487,
+          "endByte": 17487,
+          "blobDigest": "7ac563cbec7e6f38b603cb9471fe466aadedcc2d70ac85020c4146e47a2584ce",
+          "source": "export class MutableDisposable<T extends IDisposable> implements IDisposable {\n\tprivate _value?: T;\n\tprivate _isDisposed = false;\n\n\tconstructor() {\n\t\ttrackDisposable(this);\n\t}\n\n\tget value(): T | undefined {\n\t\treturn this._isDisposed ? undefined : this._value;\n\t}\n\n\tset value(value: T | undefined) {\n\t\tif (this._isDisposed || value === this._value) {\n\t\t\treturn;\n\t\t}\n\n\t\tthis._value?.dispose();\n\t\tif (value) {\n\t\t\tsetParentOfDisposable(value, this);\n\t\t}\n\t\tthis._value = value;\n\t}\n\n\t/**\n\t * Resets the stored value and disposed of the previously stored value.\n\t */\n\tclear(): void {\n\t\tthis.value = undefined;\n\t}\n\n\tdispose(): void {\n\t\tthis._isDisposed = true;\n\t\tmarkAsDisposed(this);\n\t\tthis._value?.dispose();\n\t\tthis._value = undefined;\n\t}\n\n\t/**\n\t * Clears the value, but does not dispose it.\n\t * The old value is returned.\n\t*/\n\tclearAndLeak(): T | undefined {\n\t\tconst oldValue = this._value;\n\t\tthis._value = undefined;\n\t\tif (oldValue) {\n\t\t\tsetParentOfDisposable(oldValue, null);\n\t\t}\n\t\treturn oldValue;\n\t}\n}",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "src/vs/base/common/lifecycle.ts",
+          "symbolId": "symbol:WyJmaWxlOmFkMzE5MWNhN2NmOWEwZWZjOWEzMWI2ZSIsImNvbnN0cnVjdG9yIiwibWV0aG9kIiwic3JjLnZzLmJhc2UuY29tbW9uLmxpZmVjeWNsZS5NdXRhYmxlRGlzcG9zYWJsZSIsNTYzLDFd",
+          "symbol": "src.vs.base.common.lifecycle.MutableDisposable.constructor",
+          "startLine": 563,
+          "endLine": 565,
+          "startByte": 16619,
+          "endByte": 16662,
+          "blobDigest": "7ac563cbec7e6f38b603cb9471fe466aadedcc2d70ac85020c4146e47a2584ce",
+          "source": "constructor() {\n\t\ttrackDisposable(this);\n\t}",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "src/vs/base/common/lifecycle.ts",
+          "symbolId": "symbol:WyJmaWxlOmFkMzE5MWNhN2NmOWEwZWZjOWEzMWI2ZSIsImRpc3Bvc2UiLCJtZXRob2QiLCJzcmMudnMuYmFzZS5jb21tb24ubGlmZWN5Y2xlLk11dGFibGVEaXNwb3NhYmxlIiw1OTAsMV0",
+          "symbol": "src.vs.base.common.lifecycle.MutableDisposable.dispose",
+          "startLine": 590,
+          "endLine": 595,
+          "startByte": 17095,
+          "endByte": 17219,
+          "blobDigest": "7ac563cbec7e6f38b603cb9471fe466aadedcc2d70ac85020c4146e47a2584ce",
+          "source": "dispose(): void {\n\t\tthis._isDisposed = true;\n\t\tmarkAsDisposed(this);\n\t\tthis._value?.dispose();\n\t\tthis._value = undefined;\n\t}",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "src/vs/base/common/lifecycle.ts",
+          "symbolId": "symbol:WyJmaWxlOmFkMzE5MWNhN2NmOWEwZWZjOWEzMWI2ZSIsInZhbHVlIiwibWV0aG9kIiwic3JjLnZzLmJhc2UuY29tbW9uLmxpZmVjeWNsZS5NdXRhYmxlRGlzcG9zYWJsZSIsNTY3LDFd",
+          "symbol": "src.vs.base.common.lifecycle.MutableDisposable.value",
+          "startLine": 567,
+          "endLine": 569,
+          "startByte": 16665,
+          "endByte": 16749,
+          "blobDigest": "7ac563cbec7e6f38b603cb9471fe466aadedcc2d70ac85020c4146e47a2584ce",
+          "source": "get value(): T | undefined {\n\t\treturn this._isDisposed ? undefined : this._value;\n\t}",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "src/vs/base/common/lifecycle.ts",
+          "symbolId": "symbol:WyJmaWxlOmFkMzE5MWNhN2NmOWEwZWZjOWEzMWI2ZSIsInZhbHVlIiwibWV0aG9kIiwic3JjLnZzLmJhc2UuY29tbW9uLmxpZmVjeWNsZS5NdXRhYmxlRGlzcG9zYWJsZSIsNTcxLDFd",
+          "symbol": "src.vs.base.common.lifecycle.MutableDisposable.value",
+          "startLine": 571,
+          "endLine": 581,
+          "startByte": 16752,
+          "endByte": 16962,
+          "blobDigest": "7ac563cbec7e6f38b603cb9471fe466aadedcc2d70ac85020c4146e47a2584ce",
+          "source": "set value(value: T | undefined) {\n\t\tif (this._isDisposed || value === this._value) {\n\t\t\treturn;\n\t\t}\n\n\t\tthis._value?.dispose();\n\t\tif (value) {\n\t\t\tsetParentOfDisposable(value, this);\n\t\t}\n\t\tthis._value = value;\n\t}",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "src/vs/base/common/lifecycle.ts",
+          "symbolId": "symbol:WyJmaWxlOmFkMzE5MWNhN2NmOWEwZWZjOWEzMWI2ZSIsImNsZWFyIiwibWV0aG9kIiwic3JjLnZzLmJhc2UuY29tbW9uLmxpZmVjeWNsZS5NdXRhYmxlRGlzcG9zYWJsZSIsNTg2LDFd",
+          "symbol": "src.vs.base.common.lifecycle.MutableDisposable.clear",
+          "startLine": 586,
+          "endLine": 588,
+          "startByte": 17048,
+          "endByte": 17092,
+          "blobDigest": "7ac563cbec7e6f38b603cb9471fe466aadedcc2d70ac85020c4146e47a2584ce",
+          "source": "clear(): void {\n\t\tthis.value = undefined;\n\t}",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "src/vs/base/common/lifecycle.ts",
+          "symbolId": "symbol:WyJmaWxlOmFkMzE5MWNhN2NmOWEwZWZjOWEzMWI2ZSIsImNsZWFyQW5kTGVhayIsIm1ldGhvZCIsInNyYy52cy5iYXNlLmNvbW1vbi5saWZlY3ljbGUuTXV0YWJsZURpc3Bvc2FibGUiLDYwMSwxXQ",
+          "symbol": "src.vs.base.common.lifecycle.MutableDisposable.clearAndLeak",
+          "startLine": 601,
+          "endLine": 608,
+          "startByte": 17309,
+          "endByte": 17485,
+          "blobDigest": "7ac563cbec7e6f38b603cb9471fe466aadedcc2d70ac85020c4146e47a2584ce",
+          "source": "clearAndLeak(): T | undefined {\n\t\tconst oldValue = this._value;\n\t\tthis._value = undefined;\n\t\tif (oldValue) {\n\t\t\tsetParentOfDisposable(oldValue, null);\n\t\t}\n\t\treturn oldValue;\n\t}",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "src/vs/base/common/lifecycle.ts",
+          "symbolId": "symbol:WyJmaWxlOmFkMzE5MWNhN2NmOWEwZWZjOWEzMWI2ZSIsIk1hbmRhdG9yeU11dGFibGVEaXNwb3NhYmxlIiwiY2xhc3MiLCJzcmMudnMuYmFzZS5jb21tb24ubGlmZWN5Y2xlIiw2MTUsMF0",
+          "symbol": "src.vs.base.common.lifecycle.MandatoryMutableDisposable",
+          "startLine": 615,
+          "endLine": 638,
+          "startByte": 17649,
+          "endByte": 18173,
+          "blobDigest": "7ac563cbec7e6f38b603cb9471fe466aadedcc2d70ac85020c4146e47a2584ce",
+          "source": "export class MandatoryMutableDisposable<T extends IDisposable> implements IDisposable {\n\tprivate readonly _disposable = new MutableDisposable<T>();\n\tprivate _isDisposed = false;\n\n\tconstructor(initialValue: T) {\n\t\tthis._disposable.value = initialValue;\n\t}\n\n\tget value(): T {\n\t\treturn this._disposable.value!;\n\t}\n\n\tset value(value: T) {\n\t\tif (this._isDisposed || value === this._disposable.value) {\n\t\t\treturn;\n\t\t}\n\t\tthis._disposable.value = value;\n\t}\n\n\tdispose() {\n\t\tthis._isDisposed = true;\n\t\tthis._disposable.dispose();\n\t}\n}",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "src/vs/workbench/browser/parts/editor/editorStatus.ts",
+          "symbolId": "symbol:WyJmaWxlOmM3NTYzMTE1Y2JlZTY0M2Q1MjExZWRhZCIsInVwZGF0ZUVsZW1lbnQiLCJtZXRob2QiLCJzcmMudnMud29ya2JlbmNoLmJyb3dzZXIucGFydHMuZWRpdG9yLmVkaXRvclN0YXR1cy5FZGl0b3JTdGF0dXMiLDYxMCwxXQ",
+          "symbol": "src.vs.workbench.browser.parts.editor.editorStatus.EditorStatus.updateElement",
+          "startLine": 610,
+          "endLine": 616,
+          "startByte": 24729,
+          "endByte": 25047,
+          "blobDigest": "980859a167aa169eab641ce853404393db823ab1c7b4b01c479aa199e2724b76",
+          "source": "private updateElement(element: MutableDisposable<IStatusbarEntryAccessor>, props: IStatusbarEntry, id: string, alignment: StatusbarAlignment, priority: number) {\n\t\tif (!element.value) {\n\t\t\telement.value = this.statusbarService.addEntry(props, id, alignment, priority);\n\t\t} else {\n\t\t\telement.value.update(props);\n\t\t}\n\t}",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "src/vs/base/browser/ui/findinput/findInput.ts",
+          "symbolId": "symbol:WyJmaWxlOjNmOWY2OWU5YzhmMzIwOWYzNzI3MTNiNSIsImFkZGl0aW9uYWxUb2dnbGVzRGlzcG9zYWJsZXMiLCJmaWVsZCIsInNyYy52cy5iYXNlLmJyb3dzZXIudWkuZmluZGlucHV0LmZpbmRJbnB1dC5GaW5kSW5wdXQiLDU1LDFd",
+          "symbol": "src.vs.base.browser.ui.findinput.findInput.FindInput.additionalTogglesDisposables",
+          "startLine": 55,
+          "endLine": 55,
+          "startByte": 2321,
+          "endByte": 2445,
+          "blobDigest": "b7c47c6db785f29294e361c63980baa4a4917392ad48a3f7c07dacc451e431d6",
+          "source": "private readonly additionalTogglesDisposables: MutableDisposable<DisposableStore> = this._register(new MutableDisposable());",
+          "kind": "source"
+        }
+      ]
+    },
+    {
+      "mode": "symbol",
+      "query": "CancellationTokenSource",
+      "metadataMs": 15.193278000000078,
+      "hitAt10": true,
+      "expectedEvidence": true,
+      "candidates": [
+        {
+          "type": "symbol",
+          "score": 19.5,
+          "symbolId": "symbol:WyJmaWxlOmYxZGE4ZmVkOThlM2NhNmNhMzYzMGU1YiIsIkNhbmNlbGxhdGlvblRva2VuU291cmNlIiwiY2xhc3MiLCJzcmMudnMuYmFzZS5jb21tb24uY2FuY2VsbGF0aW9uIiw5NywwXQ",
+          "name": "src.vs.base.common.cancellation.CancellationTokenSource",
+          "path": "src/vs/base/common/cancellation.ts",
+          "startLine": 97
+        },
+        {
+          "type": "symbol",
+          "score": 19.5,
+          "symbolId": "symbol:WyJmaWxlOjBkZmE3ZGI1NzllZmFjZTgyNTBhZmZiNyIsIkNhbmNlbGxhdGlvblRva2VuU291cmNlIiwiY2xhc3MiLCJzcmMudnMubW9uYWNvLmQubW9uYWNvIiw4NiwxXQ",
+          "name": "src.vs.monaco.d.monaco.CancellationTokenSource",
+          "path": "src/vs/monaco.d.ts",
+          "startLine": 86
+        },
+        {
+          "type": "symbol",
+          "score": 19.5,
+          "symbolId": "symbol:WyJmaWxlOjBhNzVhZWQxOWMxMTg2MDNlYjk2MzMyYiIsIkNhbmNlbGxhdGlvblRva2VuU291cmNlIiwiY2xhc3MiLCJzcmMudnNjb2RlLWR0cy52c2NvZGUuZC52c2NvZGUiLDE2NzUsMV0",
+          "name": "src.vscode-dts.vscode.d.vscode.CancellationTokenSource",
+          "path": "src/vscode-dts/vscode.d.ts",
+          "startLine": 1675
+        },
+        {
+          "type": "symbol",
+          "score": 19,
+          "symbolId": "symbol:WyJmaWxlOjAxZmIwMzVkMWNkYTYwNDc5YTc5ZmYyYSIsImNhbmNlbGxhdGlvblRva2VuU291cmNlIiwiZmllbGQiLCJzcmMudnMud29ya2JlbmNoLmNvbnRyaWIubm90ZWJvb2suYnJvd3Nlci5jb250cmliLm5vdGVib29rVmFyaWFibGVzLm5vdGVib29rVmFyaWFibGVzRGF0YVNvdXJjZS5Ob3RlYm9va1ZhcmlhYmxlRGF0YVNvdXJjZSIsNDAsMV0",
+          "name": "src.vs.workbench.contrib.notebook.browser.contrib.notebookVariables.notebookVariablesDataSource.NotebookVariableDataSource.cancellationTokenSource",
+          "path": "src/vs/workbench/contrib/notebook/browser/contrib/notebookVariables/notebookVariablesDataSource.ts",
+          "startLine": 40
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjE3NTFmODE2YzViYzEwZDcwZjk1YjUxYSIsImNvbnN0cnVjdG9yIiwibWV0aG9kIiwic3JjLnZzLmJhc2UuY29tbW9uLmFzeW5jLkNhbmNlbGFibGVBc3luY0l0ZXJhYmxlUHJvZHVjZXIiLDI0NzEsMV0",
+          "name": "src.vs.base.common.async.CancelableAsyncIterableProducer.constructor",
+          "path": "src/vs/base/common/async.ts",
+          "startLine": 2471
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOmYxZGE4ZmVkOThlM2NhNmNhMzYzMGU1YiIsImNhbmNlbCIsIm1ldGhvZCIsInNyYy52cy5iYXNlLmNvbW1vbi5jYW5jZWxsYXRpb24uQ2FuY2VsbGF0aW9uVG9rZW5Tb3VyY2UiLDExNSwxXQ",
+          "name": "src.vs.base.common.cancellation.CancellationTokenSource.cancel",
+          "path": "src/vs/base/common/cancellation.ts",
+          "startLine": 115
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOmYxZGE4ZmVkOThlM2NhNmNhMzYzMGU1YiIsImNvbnN0cnVjdG9yIiwibWV0aG9kIiwic3JjLnZzLmJhc2UuY29tbW9uLmNhbmNlbGxhdGlvbi5DYW5jZWxsYXRpb25Ub2tlblNvdXJjZSIsMTAyLDFd",
+          "name": "src.vs.base.common.cancellation.CancellationTokenSource.constructor",
+          "path": "src/vs/base/common/cancellation.ts",
+          "startLine": 102
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOmYxZGE4ZmVkOThlM2NhNmNhMzYzMGU1YiIsInRva2VuIiwibWV0aG9kIiwic3JjLnZzLmJhc2UuY29tbW9uLmNhbmNlbGxhdGlvbi5DYW5jZWxsYXRpb25Ub2tlblNvdXJjZSIsMTA2LDFd",
+          "name": "src.vs.base.common.cancellation.CancellationTokenSource.token",
+          "path": "src/vs/base/common/cancellation.ts",
+          "startLine": 106
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOmYxZGE4ZmVkOThlM2NhNmNhMzYzMGU1YiIsImRpc3Bvc2UiLCJtZXRob2QiLCJzcmMudnMuYmFzZS5jb21tb24uY2FuY2VsbGF0aW9uLkNhbmNlbGxhdGlvblRva2VuU291cmNlIiwxMjgsMV0",
+          "name": "src.vs.base.common.cancellation.CancellationTokenSource.dispose",
+          "path": "src/vs/base/common/cancellation.ts",
+          "startLine": 128
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjMwZGM4Y2ZjZTk4NmQ2ZWU3YzRiODhjZiIsIkRpc3Bvc2FibGVDYW5jZWxsYXRpb25Ub2tlblNvdXJjZSIsImNsYXNzIiwic3JjLnZzLmVkaXRvci5icm93c2VyLndpZGdldC5kaWZmRWRpdG9yLnV0aWxzIiwzNzgsMF0",
+          "name": "src.vs.editor.browser.widget.diffEditor.utils.DisposableCancellationTokenSource",
+          "path": "src/vs/editor/browser/widget/diffEditor/utils.ts",
+          "startLine": 378
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjY5MmVmNzBhZTI5MjJkZDEwZDQ1NmRkOCIsIlRleHRNb2RlbENhbmNlbGxhdGlvblRva2VuU291cmNlIiwiY2xhc3MiLCJzcmMudnMuZWRpdG9yLmNvbnRyaWIuZWRpdG9yU3RhdGUuYnJvd3Nlci5lZGl0b3JTdGF0ZSIsMTMxLDBd",
+          "name": "src.vs.editor.contrib.editorState.browser.editorState.TextModelCancellationTokenSource",
+          "path": "src/vs/editor/contrib/editorState/browser/editorState.ts",
+          "startLine": 131
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjczZWQ1YTc0Mzk0YmI5ZWY1YWVhNTU3MyIsIkVkaXRvcktleWJpbmRpbmdDYW5jZWxsYXRpb25Ub2tlblNvdXJjZSIsImNsYXNzIiwic3JjLnZzLmVkaXRvci5jb250cmliLmVkaXRvclN0YXRlLmJyb3dzZXIua2V5YmluZGluZ0NhbmNlbGxhdGlvbiIsNzUsMF0",
+          "name": "src.vs.editor.contrib.editorState.browser.keybindingCancellation.EditorKeybindingCancellationTokenSource",
+          "path": "src/vs/editor/contrib/editorState/browser/keybindingCancellation.ts",
+          "startLine": 75
+        }
+      ],
+      "evidence": [
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "src/vs/base/common/cancellation.ts",
+          "symbolId": "symbol:WyJmaWxlOmYxZGE4ZmVkOThlM2NhNmNhMzYzMGU1YiIsIkNhbmNlbGxhdGlvblRva2VuU291cmNlIiwiY2xhc3MiLCJzcmMudnMuYmFzZS5jb21tb24uY2FuY2VsbGF0aW9uIiw5NywwXQ",
+          "symbol": "src.vs.base.common.cancellation.CancellationTokenSource",
+          "startLine": 97,
+          "endLine": 142,
+          "startByte": 2706,
+          "endByte": 3849,
+          "blobDigest": "c8da8418c76cf8a3ca7509494a28cb9586f8a5ade75f81f4474ceecd089c699e",
+          "source": "export class CancellationTokenSource {\n\n\tprivate _token?: CancellationToken = undefined;\n\tprivate _parentListener?: IDisposable = undefined;\n\n\tconstructor(parent?: CancellationToken) {\n\t\tthis._parentListener = parent && parent.onCancellationRequested(this.cancel, this);\n\t}\n\n\tget token(): CancellationToken {\n\t\tif (!this._token) {\n\t\t\t// be lazy and create the token only when\n\t\t\t// actually needed\n\t\t\tthis._token = new MutableToken();\n\t\t}\n\t\treturn this._token;\n\t}\n\n\tcancel(): void {\n\t\tif (!this._token) {\n\t\t\t// save an object by returning the default\n\t\t\t// cancelled token when cancellation happens\n\t\t\t// before someone asks for the token\n\t\t\tthis._token = CancellationToken.Cancelled;\n\n\t\t} else if (this._token instanceof MutableToken) {\n\t\t\t// actually cancel\n\t\t\tthis._token.cancel();\n\t\t}\n\t}\n\n\tdispose(cancel: boolean = false): void {\n\t\tif (cancel) {\n\t\t\tthis.cancel();\n\t\t}\n\t\tthis._parentListener?.dispose();\n\t\tif (!this._token) {\n\t\t\t// ensure to initialize with an empty token if we had none\n\t\t\tthis._token = CancellationToken.None;\n\n\t\t} else if (this._token instanceof MutableToken) {\n\t\t\t// actually dispose\n\t\t\tthis._token.dispose();\n\t\t}\n\t}\n}",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "src/vs/monaco.d.ts",
+          "symbolId": "symbol:WyJmaWxlOjBkZmE3ZGI1NzllZmFjZTgyNTBhZmZiNyIsIkNhbmNlbGxhdGlvblRva2VuU291cmNlIiwiY2xhc3MiLCJzcmMudnMubW9uYWNvLmQubW9uYWNvIiw4NiwxXQ",
+          "symbol": "src.vs.monaco.d.monaco.CancellationTokenSource",
+          "startLine": 86,
+          "endLine": 91,
+          "startByte": 2326,
+          "endByte": 2497,
+          "blobDigest": "3c9a0d1dbd0deca0927cd1bc45773bc1b7cff3e66c060f0d0dae6843ebffb9f6",
+          "source": "export class CancellationTokenSource {\n\t\tconstructor(parent?: CancellationToken);\n\t\tget token(): CancellationToken;\n\t\tcancel(): void;\n\t\tdispose(cancel?: boolean): void;\n\t}",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "src/vscode-dts/vscode.d.ts",
+          "symbolId": "symbol:WyJmaWxlOjBhNzVhZWQxOWMxMTg2MDNlYjk2MzMyYiIsIkNhbmNlbGxhdGlvblRva2VuU291cmNlIiwiY2xhc3MiLCJzcmMudnNjb2RlLWR0cy52c2NvZGUuZC52c2NvZGUiLDE2NzUsMV0",
+          "symbol": "src.vscode-dts.vscode.d.vscode.CancellationTokenSource",
+          "startLine": 1675,
+          "endLine": 1691,
+          "startByte": 53699,
+          "endByte": 53967,
+          "blobDigest": "58a555fc1e70f9c881159c59a18ae35fbbcc9a96123d63c321580f111ea13c29",
+          "source": "export class CancellationTokenSource {\n\n\t\t/**\n\t\t * The cancellation token of this source.\n\t\t */\n\t\ttoken: CancellationToken;\n\n\t\t/**\n\t\t * Signal cancellation on the token.\n\t\t */\n\t\tcancel(): void;\n\n\t\t/**\n\t\t * Dispose object and free resources.\n\t\t */\n\t\tdispose(): void;\n\t}",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "src/vs/workbench/contrib/notebook/browser/contrib/notebookVariables/notebookVariablesDataSource.ts",
+          "symbolId": "symbol:WyJmaWxlOjAxZmIwMzVkMWNkYTYwNDc5YTc5ZmYyYSIsImNhbmNlbGxhdGlvblRva2VuU291cmNlIiwiZmllbGQiLCJzcmMudnMud29ya2JlbmNoLmNvbnRyaWIubm90ZWJvb2suYnJvd3Nlci5jb250cmliLm5vdGVib29rVmFyaWFibGVzLm5vdGVib29rVmFyaWFibGVzRGF0YVNvdXJjZS5Ob3RlYm9va1ZhcmlhYmxlRGF0YVNvdXJjZSIsNDAsMV0",
+          "symbol": "src.vs.workbench.contrib.notebook.browser.contrib.notebookVariables.notebookVariablesDataSource.NotebookVariableDataSource.cancellationTokenSource",
+          "startLine": 40,
+          "endLine": 40,
+          "startByte": 1512,
+          "endByte": 1569,
+          "blobDigest": "169facd4fbe48a85b8fd10faa696e29a05cf6d53dbe9f7d8850dce3f27eaa055",
+          "source": "private cancellationTokenSource: CancellationTokenSource;",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "src/vs/base/common/async.ts",
+          "symbolId": "symbol:WyJmaWxlOjE3NTFmODE2YzViYzEwZDcwZjk1YjUxYSIsImNvbnN0cnVjdG9yIiwibWV0aG9kIiwic3JjLnZzLmJhc2UuY29tbW9uLmFzeW5jLkNhbmNlbGFibGVBc3luY0l0ZXJhYmxlUHJvZHVjZXIiLDI0NzEsMV0",
+          "symbol": "src.vs.base.common.async.CancelableAsyncIterableProducer.constructor",
+          "startLine": 2471,
+          "endLine": 2476,
+          "startByte": 66509,
+          "endByte": 66638,
+          "blobDigest": "e496ee61e3054743947b3436296a2ee21dde1bdc960c8b935702b948267f0b4e",
+          "source": "constructor(\n\t\tprivate readonly _source: CancellationTokenSource,\n\t\texecutor: AsyncIterableExecutor<T>\n\t) {\n\t\tsuper(executor);\n\t}",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "src/vs/base/common/cancellation.ts",
+          "symbolId": "symbol:WyJmaWxlOmYxZGE4ZmVkOThlM2NhNmNhMzYzMGU1YiIsImNhbmNlbCIsIm1ldGhvZCIsInNyYy52cy5iYXNlLmNvbW1vbi5jYW5jZWxsYXRpb24uQ2FuY2VsbGF0aW9uVG9rZW5Tb3VyY2UiLDExNSwxXQ",
+          "symbol": "src.vs.base.common.cancellation.CancellationTokenSource.cancel",
+          "startLine": 115,
+          "endLine": 126,
+          "startByte": 3172,
+          "endByte": 3497,
+          "blobDigest": "c8da8418c76cf8a3ca7509494a28cb9586f8a5ade75f81f4474ceecd089c699e",
+          "source": "cancel(): void {\n\t\tif (!this._token) {\n\t\t\t// save an object by returning the default\n\t\t\t// cancelled token when cancellation happens\n\t\t\t// before someone asks for the token\n\t\t\tthis._token = CancellationToken.Cancelled;\n\n\t\t} else if (this._token instanceof MutableToken) {\n\t\t\t// actually cancel\n\t\t\tthis._token.cancel();\n\t\t}\n\t}",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "src/vs/base/common/cancellation.ts",
+          "symbolId": "symbol:WyJmaWxlOmYxZGE4ZmVkOThlM2NhNmNhMzYzMGU1YiIsImNvbnN0cnVjdG9yIiwibWV0aG9kIiwic3JjLnZzLmJhc2UuY29tbW9uLmNhbmNlbGxhdGlvbi5DYW5jZWxsYXRpb25Ub2tlblNvdXJjZSIsMTAyLDFd",
+          "symbol": "src.vs.base.common.cancellation.CancellationTokenSource.constructor",
+          "startLine": 102,
+          "endLine": 104,
+          "startByte": 2849,
+          "endByte": 2979,
+          "blobDigest": "c8da8418c76cf8a3ca7509494a28cb9586f8a5ade75f81f4474ceecd089c699e",
+          "source": "constructor(parent?: CancellationToken) {\n\t\tthis._parentListener = parent && parent.onCancellationRequested(this.cancel, this);\n\t}",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "src/vs/base/common/cancellation.ts",
+          "symbolId": "symbol:WyJmaWxlOmYxZGE4ZmVkOThlM2NhNmNhMzYzMGU1YiIsInRva2VuIiwibWV0aG9kIiwic3JjLnZzLmJhc2UuY29tbW9uLmNhbmNlbGxhdGlvbi5DYW5jZWxsYXRpb25Ub2tlblNvdXJjZSIsMTA2LDFd",
+          "symbol": "src.vs.base.common.cancellation.CancellationTokenSource.token",
+          "startLine": 106,
+          "endLine": 113,
+          "startByte": 2982,
+          "endByte": 3169,
+          "blobDigest": "c8da8418c76cf8a3ca7509494a28cb9586f8a5ade75f81f4474ceecd089c699e",
+          "source": "get token(): CancellationToken {\n\t\tif (!this._token) {\n\t\t\t// be lazy and create the token only when\n\t\t\t// actually needed\n\t\t\tthis._token = new MutableToken();\n\t\t}\n\t\treturn this._token;\n\t}",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "src/vs/base/common/cancellation.ts",
+          "symbolId": "symbol:WyJmaWxlOmYxZGE4ZmVkOThlM2NhNmNhMzYzMGU1YiIsImRpc3Bvc2UiLCJtZXRob2QiLCJzcmMudnMuYmFzZS5jb21tb24uY2FuY2VsbGF0aW9uLkNhbmNlbGxhdGlvblRva2VuU291cmNlIiwxMjgsMV0",
+          "symbol": "src.vs.base.common.cancellation.CancellationTokenSource.dispose",
+          "startLine": 128,
+          "endLine": 141,
+          "startByte": 3500,
+          "endByte": 3847,
+          "blobDigest": "c8da8418c76cf8a3ca7509494a28cb9586f8a5ade75f81f4474ceecd089c699e",
+          "source": "dispose(cancel: boolean = false): void {\n\t\tif (cancel) {\n\t\t\tthis.cancel();\n\t\t}\n\t\tthis._parentListener?.dispose();\n\t\tif (!this._token) {\n\t\t\t// ensure to initialize with an empty token if we had none\n\t\t\tthis._token = CancellationToken.None;\n\n\t\t} else if (this._token instanceof MutableToken) {\n\t\t\t// actually dispose\n\t\t\tthis._token.dispose();\n\t\t}\n\t}",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "src/vs/editor/browser/widget/diffEditor/utils.ts",
+          "symbolId": "symbol:WyJmaWxlOjMwZGM4Y2ZjZTk4NmQ2ZWU3YzRiODhjZiIsIkRpc3Bvc2FibGVDYW5jZWxsYXRpb25Ub2tlblNvdXJjZSIsImNsYXNzIiwic3JjLnZzLmVkaXRvci5icm93c2VyLndpZGdldC5kaWZmRWRpdG9yLnV0aWxzIiwzNzgsMF0",
+          "symbol": "src.vs.editor.browser.widget.diffEditor.utils.DisposableCancellationTokenSource",
+          "startLine": 378,
+          "endLine": 382,
+          "startByte": 11660,
+          "endByte": 11797,
+          "blobDigest": "595f040a432afa0f3a18d9ff291237449a1ef9650c88dcd04f42a80e33c64808",
+          "source": "export class DisposableCancellationTokenSource extends CancellationTokenSource {\n\tpublic override dispose() {\n\t\tsuper.dispose(true);\n\t}\n}",
+          "kind": "source"
+        }
+      ]
+    },
+    {
+      "mode": "symbol",
+      "query": "Emitter",
+      "metadataMs": 30.59410200000002,
+      "hitAt10": true,
+      "expectedEvidence": true,
+      "candidates": [
+        {
+          "type": "symbol",
+          "score": 19.5,
+          "symbolId": "symbol:WyJmaWxlOmVlMzJlNDFmYjFlOWU1ZDIwYTk3NDQ4OSIsIkVtaXR0ZXIiLCJjbGFzcyIsInNyYy52cy5iYXNlLmNvbW1vbi5ldmVudCIsOTk1LDBd",
+          "name": "src.vs.base.common.event.Emitter",
+          "path": "src/vs/base/common/event.ts",
+          "startLine": 995
+        },
+        {
+          "type": "symbol",
+          "score": 19.5,
+          "symbolId": "symbol:WyJmaWxlOjBkZmE3ZGI1NzllZmFjZTgyNTBhZmZiNyIsIkVtaXR0ZXIiLCJjbGFzcyIsInNyYy52cy5tb25hY28uZC5tb25hY28iLDY2LDFd",
+          "name": "src.vs.monaco.d.monaco.Emitter",
+          "path": "src/vs/monaco.d.ts",
+          "startLine": 66
+        },
+        {
+          "type": "symbol",
+          "score": 19,
+          "symbolId": "symbol:WyJmaWxlOjYyMWQwZWNmNmMyMDYwYTVmMTM2Yzc2ZCIsImVtaXR0ZXIiLCJmaWVsZCIsImV4dGVuc2lvbnMuZ2l0LnNyYy5yZXBvc2l0b3J5LkRvdEdpdFdhdGNoZXIiLDQ1MCwxXQ",
+          "name": "extensions.git.src.repository.DotGitWatcher.emitter",
+          "path": "extensions/git/src/repository.ts",
+          "startLine": 450
+        },
+        {
+          "type": "symbol",
+          "score": 19,
+          "symbolId": "symbol:WyJmaWxlOmQwNDFhMjI1YjMwNGM0MDMwMjk3ZWVlOCIsImVtaXR0ZXIiLCJmaWVsZCIsInNyYy52cy5iYXNlLmJyb3dzZXIuZXZlbnQuRG9tRW1pdHRlciIsMzAsMV0",
+          "name": "src.vs.base.browser.event.DomEmitter.emitter",
+          "path": "src/vs/base/browser/event.ts",
+          "startLine": 30
+        },
+        {
+          "type": "symbol",
+          "score": 19,
+          "symbolId": "symbol:WyJmaWxlOmVlMzJlNDFmYjFlOWU1ZDIwYTk3NDQ4OSIsImVtaXR0ZXIiLCJmaWVsZCIsInNyYy52cy5iYXNlLmNvbW1vbi5ldmVudC5FdmVudC5FbWl0dGVyT2JzZXJ2ZXIiLDY1MSwyXQ",
+          "name": "src.vs.base.common.event.Event.EmitterObserver.emitter",
+          "path": "src/vs/base/common/event.ts",
+          "startLine": 651
+        },
+        {
+          "type": "symbol",
+          "score": 19,
+          "symbolId": "symbol:WyJmaWxlOmVlMzJlNDFmYjFlOWU1ZDIwYTk3NDQ4OSIsImVtaXR0ZXIiLCJmaWVsZCIsInNyYy52cy5iYXNlLmNvbW1vbi5ldmVudC5FdmVudE11bHRpcGxleGVyIiwxNDg0LDFd",
+          "name": "src.vs.base.common.event.EventMultiplexer.emitter",
+          "path": "src/vs/base/common/event.ts",
+          "startLine": 1484
+        },
+        {
+          "type": "symbol",
+          "score": 19,
+          "symbolId": "symbol:WyJmaWxlOmVlMzJlNDFmYjFlOWU1ZDIwYTk3NDQ4OSIsImVtaXR0ZXIiLCJmaWVsZCIsInNyYy52cy5iYXNlLmNvbW1vbi5ldmVudC5SZWxheSIsMTY5NCwxXQ",
+          "name": "src.vs.base.common.event.Relay.emitter",
+          "path": "src/vs/base/common/event.ts",
+          "startLine": 1694
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjQzYTMwZThhZWE1YzI0N2I1NTA0MTJiZSIsIk1vZGlmaWVyS2V5RW1pdHRlciIsImNsYXNzIiwic3JjLnZzLmJhc2UuYnJvd3Nlci5kb20iLDE2OTksMF0",
+          "name": "src.vs.base.browser.dom.ModifierKeyEmitter",
+          "path": "src/vs/base/browser/dom.ts",
+          "startLine": 1699
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjE3NTFmODE2YzViYzEwZDcwZjk1YjUxYSIsIjxhcnJvd0AyMTU4OjU1PiIsImZ1bmN0aW9uIiwic3JjLnZzLmJhc2UuY29tbW9uLmFzeW5jLmNyZWF0ZUNhbmNlbGFibGVBc3luY0l0ZXJhYmxlUHJvZHVjZXIiLDIxNTgsNTVd",
+          "name": "src.vs.base.common.async.createCancelableAsyncIterableProducer.<arrow@2158:55>",
+          "path": "src/vs/base/common/async.ts",
+          "startLine": 2158
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjE3NTFmODE2YzViYzEwZDcwZjk1YjUxYSIsIjxhcnJvd0AyMTk4OjQ4PiIsImZ1bmN0aW9uIiwic3JjLnZzLmJhc2UuY29tbW9uLmFzeW5jLkFzeW5jSXRlcmFibGVTb3VyY2UuY29uc3RydWN0b3IiLDIxOTgsNDhd",
+          "name": "src.vs.base.common.async.AsyncIterableSource.constructor.<arrow@2198:48>",
+          "path": "src/vs/base/common/async.ts",
+          "startLine": 2198
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjE3NTFmODE2YzViYzEwZDcwZjk1YjUxYSIsIjxhcnJvd0AxOTY2OjM2PiIsImZ1bmN0aW9uIiwic3JjLnZzLmJhc2UuY29tbW9uLmFzeW5jLkFzeW5jSXRlcmFibGVPYmplY3QuZnJvbVByb21pc2UiLDE5NjYsMzZd",
+          "name": "src.vs.base.common.async.AsyncIterableObject.fromPromise.<arrow@1966:36>",
+          "path": "src/vs/base/common/async.ts",
+          "startLine": 1966
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjE3NTFmODE2YzViYzEwZDcwZjk1YjUxYSIsIjxhcnJvd0AxOTcyOjM2PiIsImZ1bmN0aW9uIiwic3JjLnZzLmJhc2UuY29tbW9uLmFzeW5jLkFzeW5jSXRlcmFibGVPYmplY3QuZnJvbVByb21pc2VzUmVzb2x2ZU9yZGVyIiwxOTcyLDM2XQ",
+          "name": "src.vs.base.common.async.AsyncIterableObject.fromPromisesResolveOrder.<arrow@1972:36>",
+          "path": "src/vs/base/common/async.ts",
+          "startLine": 1972
+        }
+      ],
+      "evidence": [
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "src/vs/base/common/event.ts",
+          "symbolId": "symbol:WyJmaWxlOmVlMzJlNDFmYjFlOWU1ZDIwYTk3NDQ4OSIsIkVtaXR0ZXIiLCJjbGFzcyIsInNyYy52cy5iYXNlLmNvbW1vbi5ldmVudCIsOTk1LDBd",
+          "symbol": "src.vs.base.common.event.Emitter",
+          "startLine": 995,
+          "endLine": 1054,
+          "startByte": 33137,
+          "endByte": 35968,
+          "blobDigest": "c58bebdc0099f9f4078e2497f8a5a71580b4c21437881437257114ca0739af84",
+          "source": "export class Emitter<T> {\n\n\tprivate readonly _options?: EmitterOptions;\n\tprivate readonly _leakageMon?: LeakageMonitor;\n\tprivate readonly _perfMon?: EventProfiling;\n\tprivate _disposed?: true;\n\tprivate _event?: Event<T>;\n\n\t/**\n\t * A listener, or list of listeners. A single listener is the most common\n\t * for event emitters (#185789), so we optimize that special case to avoid\n\t * wrapping it in an array (just like Node.js itself.)\n\t *\n\t * A list of listeners never 'downgrades' back to a plain function if\n\t * listeners are removed, for two reasons:\n\t *\n\t *  1. That's complicated (especially with the deliveryQueue)\n\t *  2. A listener with >1 listener is likely to have >1 listener again at\n\t *     some point, and swapping between arrays and functions may[citation needed]\n\t *     introduce unnecessary work and garbage.\n\t *\n\t * The array listeners can be 'sparse', to avoid reallocating the array\n\t * whenever any listener is added or removed. If more than `1 / compactionThreshold`\n\t * of the array is empty, only then is it resized.\n\t */\n\tprotected _listeners?: ListenerOrListeners<T>;\n\n\t/**\n\t * Always to be defined if _listeners is an array. It's no longer a true\n\t * queue, but holds the dispatching 'state'. If `fire()` is called on an\n\t * emitter, any work left in the _deliveryQueue is finished first.\n\t */\n\tprivate _deliveryQueue?: EventDeliveryQueuePrivate;\n\tprotected _size = 0;\n\n\tconstructor(options?: EmitterOptions) {\n\t\tthis._options = options;\n\t\tthis._leakageMon = (_globalLeakWarningThreshold > 0 || this._options?.leakWarningThreshold)\n\t\t\t? new LeakageMonitor(options?.onListenerError ?? onUnexpectedError, this._options?.leakWarningThreshold ?? _globalLeakWarningThreshold) :\n\t\t\tundefined;\n\t\tthis._perfMon = this._options?._profName ? new EventProfiling(this._options._profName) : undefined;\n\t\tthis._deliveryQueue = this._options?.deliveryQueue as EventDeliveryQueuePrivate | undefined;\n\t}\n\n\tdispose() {\n\t\tif (!this._disposed) {\n\t\t\tthis._disposed = true;\n\n\t\t\t// It is bad to have listeners at the time of disposing an emitter, it is worst to have listeners keep the emitter\n\t\t\t// alive via the reference that's embedded in their disposables. Therefore we loop over all remaining listeners and\n\t\t\t// unset their subscriptions/disposables. Looping and blaming remaining listeners is done on next tick because the\n\t\t\t// the following programming pattern is very popular:\n\t\t\t//\n\t\t\t// const someModel = this._disposables.add(new ModelObject()); // (1) create and register model\n\t\t\t// this._disposables.add(someModel.onDidChange(() => { ... }); // (2) subscribe and register model-event listener\n\t\t\t// ...later...\n\t\t\t// this._disposables.dispose(); disposes (1) then (2): don't warn after (1) but after the \"overall dispose\" is done\n\n\t\t\tif (this._deliveryQueue?.current === this) {\n\t\t\t\tthis._deliveryQueue.reset();",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "src/vs/monaco.d.ts",
+          "symbolId": "symbol:WyJmaWxlOjBkZmE3ZGI1NzllZmFjZTgyNTBhZmZiNyIsIkVtaXR0ZXIiLCJjbGFzcyIsInNyYy52cy5tb25hY28uZC5tb25hY28iLDY2LDFd",
+          "symbol": "src.vs.monaco.d.monaco.Emitter",
+          "startLine": 66,
+          "endLine": 71,
+          "startByte": 2055,
+          "endByte": 2172,
+          "blobDigest": "3c9a0d1dbd0deca0927cd1bc45773bc1b7cff3e66c060f0d0dae6843ebffb9f6",
+          "source": "export class Emitter<T> {\n\t\tconstructor();\n\t\treadonly event: IEvent<T>;\n\t\tfire(event: T): void;\n\t\tdispose(): void;\n\t}",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "extensions/git/src/repository.ts",
+          "symbolId": "symbol:WyJmaWxlOjYyMWQwZWNmNmMyMDYwYTVmMTM2Yzc2ZCIsImVtaXR0ZXIiLCJmaWVsZCIsImV4dGVuc2lvbnMuZ2l0LnNyYy5yZXBvc2l0b3J5LkRvdEdpdFdhdGNoZXIiLDQ1MCwxXQ",
+          "symbol": "extensions.git.src.repository.DotGitWatcher.emitter",
+          "startLine": 450,
+          "endLine": 450,
+          "startByte": 16349,
+          "endByte": 16391,
+          "blobDigest": "b99b44c4e846df4d1a487a593a108a1bbe5818072f2e6b80af31480227c1c381",
+          "source": "private emitter = new EventEmitter<Uri>();",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "src/vs/base/browser/event.ts",
+          "symbolId": "symbol:WyJmaWxlOmQwNDFhMjI1YjMwNGM0MDMwMjk3ZWVlOCIsImVtaXR0ZXIiLCJmaWVsZCIsInNyYy52cy5iYXNlLmJyb3dzZXIuZXZlbnQuRG9tRW1pdHRlciIsMzAsMV0",
+          "symbol": "src.vs.base.browser.event.DomEmitter.emitter",
+          "startLine": 30,
+          "endLine": 30,
+          "startByte": 1316,
+          "endByte": 1366,
+          "blobDigest": "e4cdde1517f01fcc5561eddb36f2a2de4a48c4b61f481ae6536cee3f398ed775",
+          "source": "private readonly emitter: Emitter<DOMEventMap[K]>;",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "src/vs/base/common/event.ts",
+          "symbolId": "symbol:WyJmaWxlOmVlMzJlNDFmYjFlOWU1ZDIwYTk3NDQ4OSIsImVtaXR0ZXIiLCJmaWVsZCIsInNyYy52cy5iYXNlLmNvbW1vbi5ldmVudC5FdmVudC5FbWl0dGVyT2JzZXJ2ZXIiLDY1MSwyXQ",
+          "symbol": "src.vs.base.common.event.Event.EmitterObserver.emitter",
+          "startLine": 651,
+          "endLine": 651,
+          "startByte": 24587,
+          "endByte": 24616,
+          "blobDigest": "c58bebdc0099f9f4078e2497f8a5a71580b4c21437881437257114ca0739af84",
+          "source": "readonly emitter: Emitter<T>;",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "src/vs/base/common/event.ts",
+          "symbolId": "symbol:WyJmaWxlOmVlMzJlNDFmYjFlOWU1ZDIwYTk3NDQ4OSIsImVtaXR0ZXIiLCJmaWVsZCIsInNyYy52cy5iYXNlLmNvbW1vbi5ldmVudC5FdmVudE11bHRpcGxleGVyIiwxNDg0LDFd",
+          "symbol": "src.vs.base.common.event.EventMultiplexer.emitter",
+          "startLine": 1484,
+          "endLine": 1484,
+          "startByte": 47274,
+          "endByte": 47311,
+          "blobDigest": "c58bebdc0099f9f4078e2497f8a5a71580b4c21437881437257114ca0739af84",
+          "source": "private readonly emitter: Emitter<T>;",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "src/vs/base/common/event.ts",
+          "symbolId": "symbol:WyJmaWxlOmVlMzJlNDFmYjFlOWU1ZDIwYTk3NDQ4OSIsImVtaXR0ZXIiLCJmaWVsZCIsInNyYy52cy5iYXNlLmNvbW1vbi5ldmVudC5SZWxheSIsMTY5NCwxXQ",
+          "symbol": "src.vs.base.common.event.Relay.emitter",
+          "startLine": 1694,
+          "endLine": 1703,
+          "startByte": 52916,
+          "endByte": 53211,
+          "blobDigest": "c58bebdc0099f9f4078e2497f8a5a71580b4c21437881437257114ca0739af84",
+          "source": "private readonly emitter = new Emitter<T>({\n\t\tonDidAddFirstListener: () => {\n\t\t\tthis.listening = true;\n\t\t\tthis.inputEventListener = this.inputEvent(this.emitter.fire, this.emitter);\n\t\t},\n\t\tonDidRemoveLastListener: () => {\n\t\t\tthis.listening = false;\n\t\t\tthis.inputEventListener.dispose();\n\t\t}\n\t});",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "src/vs/base/browser/dom.ts",
+          "symbolId": "symbol:WyJmaWxlOjQzYTMwZThhZWE1YzI0N2I1NTA0MTJiZSIsIk1vZGlmaWVyS2V5RW1pdHRlciIsImNsYXNzIiwic3JjLnZzLmJhc2UuYnJvd3Nlci5kb20iLDE2OTksMF0",
+          "symbol": "src.vs.base.browser.dom.ModifierKeyEmitter",
+          "startLine": 1699,
+          "endLine": 1758,
+          "startByte": 57085,
+          "endByte": 59019,
+          "blobDigest": "88f31ed060bc09698004eee27ef6b4580e2c290e64d21b6385c0211f3ae4d5a7",
+          "source": "export class ModifierKeyEmitter extends event.Emitter<IModifierKeyStatus> {\n\n\tprivate readonly _subscriptions = new DisposableStore();\n\tprivate _keyStatus: IModifierKeyStatus;\n\tprivate static instance: ModifierKeyEmitter | undefined;\n\n\tprivate constructor() {\n\t\tsuper();\n\n\t\tthis._keyStatus = {\n\t\t\taltKey: false,\n\t\t\tshiftKey: false,\n\t\t\tctrlKey: false,\n\t\t\tmetaKey: false\n\t\t};\n\n\t\tthis._subscriptions.add(event.Event.runAndSubscribe(onDidRegisterWindow, ({ window, disposables }) => this.registerListeners(window, disposables), { window: mainWindow, disposables: this._subscriptions }));\n\t}\n\n\tprivate registerListeners(window: Window, disposables: DisposableStore): void {\n\t\tdisposables.add(addDisposableListener(window, 'keydown', e => {\n\t\t\tif (e.defaultPrevented) {\n\t\t\t\treturn;\n\t\t\t}\n\n\t\t\tconst event = new StandardKeyboardEvent(e);\n\t\t\t// If Alt-key keydown event is repeated, ignore it #112347\n\t\t\t// Only known to be necessary for Alt-Key at the moment #115810\n\t\t\tif (event.keyCode === KeyCode.Alt && e.repeat) {\n\t\t\t\treturn;\n\t\t\t}\n\n\t\t\tif (e.altKey && !this._keyStatus.altKey) {\n\t\t\t\tthis._keyStatus.lastKeyPressed = 'alt';\n\t\t\t} else if (e.ctrlKey && !this._keyStatus.ctrlKey) {\n\t\t\t\tthis._keyStatus.lastKeyPressed = 'ctrl';\n\t\t\t} else if (e.metaKey && !this._keyStatus.metaKey) {\n\t\t\t\tthis._keyStatus.lastKeyPressed = 'meta';\n\t\t\t} else if (e.shiftKey && !this._keyStatus.shiftKey) {\n\t\t\t\tthis._keyStatus.lastKeyPressed = 'shift';\n\t\t\t} else if (event.keyCode !== KeyCode.Alt) {\n\t\t\t\tthis._keyStatus.lastKeyPressed = undefined;\n\t\t\t} else {\n\t\t\t\treturn;\n\t\t\t}\n\n\t\t\tthis._keyStatus.altKey = e.altKey;\n\t\t\tthis._keyStatus.ctrlKey = e.ctrlKey;\n\t\t\tthis._keyStatus.metaKey = e.metaKey;\n\t\t\tthis._keyStatus.shiftKey = e.shiftKey;\n\n\t\t\tif (this._keyStatus.lastKeyPressed) {\n\t\t\t\tthis._keyStatus.event = e;\n\t\t\t\tthis.fire(this._keyStatus);\n\t\t\t}\n\t\t}, true));\n\n\t\tdisposables.add(addDisposableListener(window, 'keyup', e => {\n\t\t\tif (e.defaultPrevented) {\n\t\t\t\treturn;",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "src/vs/base/common/async.ts",
+          "symbolId": "symbol:WyJmaWxlOjE3NTFmODE2YzViYzEwZDcwZjk1YjUxYSIsIjxhcnJvd0AyMTU4OjU1PiIsImZ1bmN0aW9uIiwic3JjLnZzLmJhc2UuY29tbW9uLmFzeW5jLmNyZWF0ZUNhbmNlbGFibGVBc3luY0l0ZXJhYmxlUHJvZHVjZXIiLDIxNTgsNTVd",
+          "symbol": "src.vs.base.common.async.createCancelableAsyncIterableProducer.<arrow@2158:55>",
+          "startLine": 2158,
+          "endLine": 2179,
+          "startByte": 57633,
+          "endByte": 58149,
+          "blobDigest": "e496ee61e3054743947b3436296a2ee21dde1bdc960c8b935702b948267f0b4e",
+          "source": "async (emitter) => {\n\t\tconst subscription = source.token.onCancellationRequested(() => {\n\t\t\tsubscription.dispose();\n\t\t\tsource.dispose();\n\t\t\temitter.reject(new CancellationError());\n\t\t});\n\t\ttry {\n\t\t\tfor await (const item of innerIterable) {\n\t\t\t\tif (source.token.isCancellationRequested) {\n\t\t\t\t\t// canceled in the meantime\n\t\t\t\t\treturn;\n\t\t\t\t}\n\t\t\t\temitter.emitOne(item);\n\t\t\t}\n\t\t\tsubscription.dispose();\n\t\t\tsource.dispose();\n\t\t} catch (err) {\n\t\t\tsubscription.dispose();\n\t\t\tsource.dispose();\n\t\t\temitter.reject(err);\n\t\t}\n\t}",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "src/vs/base/common/async.ts",
+          "symbolId": "symbol:WyJmaWxlOjE3NTFmODE2YzViYzEwZDcwZjk1YjUxYSIsIjxhcnJvd0AyMTk4OjQ4PiIsImZ1bmN0aW9uIiwic3JjLnZzLmJhc2UuY29tbW9uLmFzeW5jLkFzeW5jSXRlcmFibGVTb3VyY2UuY29uc3RydWN0b3IiLDIxOTgsNDhd",
+          "symbol": "src.vs.base.common.async.AsyncIterableSource.constructor.<arrow@2198:48>",
+          "startLine": 2198,
+          "endLine": 2211,
+          "startByte": 58799,
+          "endByte": 59154,
+          "blobDigest": "e496ee61e3054743947b3436296a2ee21dde1bdc960c8b935702b948267f0b4e",
+          "source": "emitter => {\n\n\t\t\tif (earlyError) {\n\t\t\t\temitter.reject(earlyError);\n\t\t\t\treturn;\n\t\t\t}\n\t\t\tif (earlyItems) {\n\t\t\t\temitter.emitMany(earlyItems);\n\t\t\t}\n\t\t\tthis._errorFn = (error: Error) => emitter.reject(error);\n\t\t\tthis._emitOneFn = (item: T) => emitter.emitOne(item);\n\t\t\tthis._emitManyFn = (items: T[]) => emitter.emitMany(items);\n\t\t\treturn this._deferred.p;\n\t\t}",
+          "kind": "source"
+        }
+      ]
+    },
+    {
+      "mode": "symbol",
+      "query": "URI",
+      "metadataMs": 239.84133099999997,
+      "hitAt10": true,
+      "expectedEvidence": true,
+      "candidates": [
+        {
+          "type": "symbol",
+          "score": 19.5,
+          "symbolId": "symbol:WyJmaWxlOmI3YzE2ZTQ2YWVmYmY2MTgyZjhiZTAzYiIsInVyaSIsIm1ldGhvZCIsImV4dGVuc2lvbnMuZ2l0LnNyYy5hcGkuYXBpMS5BcGlDaGFuZ2UiLDMyLDFd",
+          "name": "extensions.git.src.api.api1.ApiChange.uri",
+          "path": "extensions/git/src/api/api1.ts",
+          "startLine": 32
+        },
+        {
+          "type": "symbol",
+          "score": 19.5,
+          "symbolId": "symbol:WyJmaWxlOmM2ODdkZmQwMjI2MzBhZDdhZTYwYTEzNiIsIlVSSSIsImNsYXNzIiwic3JjLnZzLmJhc2UuY29tbW9uLnVyaSIsOTgsMF0",
+          "name": "src.vs.base.common.uri.URI",
+          "path": "src/vs/base/common/uri.ts",
+          "startLine": 98
+        },
+        {
+          "type": "symbol",
+          "score": 19.5,
+          "symbolId": "symbol:WyJmaWxlOmM2ODdkZmQwMjI2MzBhZDdhZTYwYTEzNiIsIlVyaSIsImNsYXNzIiwic3JjLnZzLmJhc2UuY29tbW9uLnVyaSIsNDUxLDBd",
+          "name": "src.vs.base.common.uri.Uri",
+          "path": "src/vs/base/common/uri.ts",
+          "startLine": 451
+        },
+        {
+          "type": "symbol",
+          "score": 19,
+          "symbolId": "symbol:WyJmaWxlOmNkNTNiZTA5OWM3MTg0NmFjYjRkODc1ZSIsInVyaSIsImZpZWxkIiwiZXh0ZW5zaW9ucy5naXQuc3JjLmZpbGVTeXN0ZW1Qcm92aWRlci5DYWNoZVJvdyIsMTQsMV0",
+          "name": "extensions.git.src.fileSystemProvider.CacheRow.uri",
+          "path": "extensions/git/src/fileSystemProvider.ts",
+          "startLine": 14
+        },
+        {
+          "type": "symbol",
+          "score": 19,
+          "symbolId": "symbol:WyJmaWxlOjhlYjIxNzQyN2U1ZWQyNDlhYjhhYTA0YSIsInVyaSIsImZpZWxkIiwiZXh0ZW5zaW9ucy5naXQuc3JjLm1vZGVsLk1vZGVsQ2hhbmdlRXZlbnQiLDUxLDFd",
+          "name": "extensions.git.src.model.ModelChangeEvent.uri",
+          "path": "extensions/git/src/model.ts",
+          "startLine": 51
+        },
+        {
+          "type": "symbol",
+          "score": 19,
+          "symbolId": "symbol:WyJmaWxlOjhlYjIxNzQyN2U1ZWQyNDlhYjhhYTA0YSIsInVyaSIsImZpZWxkIiwiZXh0ZW5zaW9ucy5naXQuc3JjLm1vZGVsLk9yaWdpbmFsUmVzb3VyY2VDaGFuZ2VFdmVudCIsNTYsMV0",
+          "name": "extensions.git.src.model.OriginalResourceChangeEvent.uri",
+          "path": "extensions/git/src/model.ts",
+          "startLine": 56
+        },
+        {
+          "type": "symbol",
+          "score": 19,
+          "symbolId": "symbol:WyJmaWxlOjc4NDdmMDIzZjY5OGU5MWU0ODU2MmNhOSIsInVyaSIsImZpZWxkIiwiZXh0ZW5zaW9ucy5naXRodWIuc3JjLmxpbmtzLklGaWxlUG9zaXRpb24iLDMyLDFd",
+          "name": "extensions.github.src.links.IFilePosition.uri",
+          "path": "extensions/github/src/links.ts",
+          "startLine": 32
+        },
+        {
+          "type": "symbol",
+          "score": 19,
+          "symbolId": "symbol:WyJmaWxlOjc4NDdmMDIzZjY5OGU5MWU0ODU2MmNhOSIsInVyaSIsImZpZWxkIiwiZXh0ZW5zaW9ucy5naXRodWIuc3JjLmxpbmtzLklOb3RlYm9va1Bvc2l0aW9uIiwzOCwxXQ",
+          "name": "extensions.github.src.links.INotebookPosition.uri",
+          "path": "extensions/github/src/links.ts",
+          "startLine": 38
+        },
+        {
+          "type": "symbol",
+          "score": 19,
+          "symbolId": "symbol:WyJmaWxlOjc4NDdmMDIzZjY5OGU5MWU0ODU2MmNhOSIsInVyaSIsImZpZWxkIiwiZXh0ZW5zaW9ucy5naXRodWIuc3JjLmxpbmtzLkVkaXRvckxpbmVOdW1iZXJDb250ZXh0Iiw0NCwxXQ",
+          "name": "extensions.github.src.links.EditorLineNumberContext.uri",
+          "path": "extensions/github/src/links.ts",
+          "startLine": 44
+        },
+        {
+          "type": "symbol",
+          "score": 19,
+          "symbolId": "symbol:WyJmaWxlOjI0ZTVhZjNjY2ExMTUwOTk2ZGRkMTcwMiIsInVyaSIsImZpZWxkIiwiZXh0ZW5zaW9ucy5qc29uLWxhbmd1YWdlLWZlYXR1cmVzLmNsaWVudC5zcmMubGFuZ3VhZ2VTdGF0dXMuU2hvd1NjaGVtYXNJdGVtIiwxOSwxXQ",
+          "name": "extensions.json-language-features.client.src.languageStatus.ShowSchemasItem.uri",
+          "path": "extensions/json-language-features/client/src/languageStatus.ts",
+          "startLine": 19
+        },
+        {
+          "type": "symbol",
+          "score": 19,
+          "symbolId": "symbol:WyJmaWxlOjY2M2ZiNDc5YmEwYjhjNGNlZmQ1ZjNhMCIsInVyaSIsImZpZWxkIiwic3JjLnZzLmJhc2UuY29tbW9uLmNvbnNvbGUuSVN0YWNrRnJhbWUiLDE5LDFd",
+          "name": "src.vs.base.common.console.IStackFrame.uri",
+          "path": "src/vs/base/common/console.ts",
+          "startLine": 19
+        },
+        {
+          "type": "symbol",
+          "score": 19,
+          "symbolId": "symbol:WyJmaWxlOjA0YjU2YmRkZmQ4YzQzOWY3MzExYTIzOCIsInVyaSIsImZpZWxkIiwic3JjLnZzLmJhc2UuY29tbW9uLmRhdGFUcmFuc2Zlci5JRGF0YVRyYW5zZmVyRmlsZSIsMTQsMV0",
+          "name": "src.vs.base.common.dataTransfer.IDataTransferFile.uri",
+          "path": "src/vs/base/common/dataTransfer.ts",
+          "startLine": 14
+        }
+      ],
+      "evidence": [
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "extensions/git/src/api/api1.ts",
+          "symbolId": "symbol:WyJmaWxlOmI3YzE2ZTQ2YWVmYmY2MTgyZjhiZTAzYiIsInVyaSIsIm1ldGhvZCIsImV4dGVuc2lvbnMuZ2l0LnNyYy5hcGkuYXBpMS5BcGlDaGFuZ2UiLDMyLDFd",
+          "symbol": "extensions.git.src.api.api1.ApiChange.uri",
+          "startLine": 32,
+          "endLine": 32,
+          "startByte": 1816,
+          "endByte": 1869,
+          "blobDigest": "99fb40fb63577db2a5507b053b939262daf09c4c767244e5f95f30090c388c21",
+          "source": "get uri(): Uri { return this.#resource.resourceUri; }",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "src/vs/base/common/uri.ts",
+          "symbolId": "symbol:WyJmaWxlOmM2ODdkZmQwMjI2MzBhZDdhZTYwYTEzNiIsIlVSSSIsImNsYXNzIiwic3JjLnZzLmJhc2UuY29tbW9uLnVyaSIsOTgsMF0",
+          "symbol": "src.vs.base.common.uri.URI",
+          "startLine": 98,
+          "endLine": 157,
+          "startByte": 3636,
+          "endByte": 5371,
+          "blobDigest": "91bf39a5b8401917eaffe6142b90a704efa91b5e6d83c32d8b7aafd5479a0dc3",
+          "source": "export class URI implements UriComponents {\n\n\tstatic isUri(thing: unknown): thing is URI {\n\t\tif (thing instanceof URI) {\n\t\t\treturn true;\n\t\t}\n\t\tif (!thing || typeof thing !== 'object') {\n\t\t\treturn false;\n\t\t}\n\t\treturn typeof (<URI>thing).authority === 'string'\n\t\t\t&& typeof (<URI>thing).fragment === 'string'\n\t\t\t&& typeof (<URI>thing).path === 'string'\n\t\t\t&& typeof (<URI>thing).query === 'string'\n\t\t\t&& typeof (<URI>thing).scheme === 'string'\n\t\t\t&& typeof (<URI>thing).fsPath === 'string'\n\t\t\t&& typeof (<URI>thing).with === 'function'\n\t\t\t&& typeof (<URI>thing).toString === 'function';\n\t}\n\n\t/**\n\t * scheme is the 'http' part of 'http://www.example.com/some/path?query#fragment'.\n\t * The part before the first colon.\n\t */\n\treadonly scheme: string;\n\n\t/**\n\t * authority is the 'www.example.com' part of 'http://www.example.com/some/path?query#fragment'.\n\t * The part between the first double slashes and the next slash.\n\t */\n\treadonly authority: string;\n\n\t/**\n\t * path is the '/some/path' part of 'http://www.example.com/some/path?query#fragment'.\n\t */\n\treadonly path: string;\n\n\t/**\n\t * query is the 'query' part of 'http://www.example.com/some/path?query#fragment'.\n\t */\n\treadonly query: string;\n\n\t/**\n\t * fragment is the 'fragment' part of 'http://www.example.com/some/path?query#fragment'.\n\t */\n\treadonly fragment: string;\n\n\t/**\n\t * @internal\n\t */\n\tprotected constructor(scheme: string, authority?: string, path?: string, query?: string, fragment?: string, _strict?: boolean);\n\n\t/**\n\t * @internal\n\t */\n\tprotected constructor(components: UriComponents);\n\n\t/**\n\t * @internal\n\t */\n\tprotected constructor(schemeOrData: string | UriComponents, authority?: string, path?: string, query?: string, fragment?: string, _strict: boolean = false) {",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "src/vs/base/common/uri.ts",
+          "symbolId": "symbol:WyJmaWxlOmM2ODdkZmQwMjI2MzBhZDdhZTYwYTEzNiIsIlVyaSIsImNsYXNzIiwic3JjLnZzLmJhc2UuY29tbW9uLnVyaSIsNDUxLDBd",
+          "symbol": "src.vs.base.common.uri.Uri",
+          "startLine": 451,
+          "endLine": 510,
+          "startByte": 14614,
+          "endByte": 15931,
+          "blobDigest": "91bf39a5b8401917eaffe6142b90a704efa91b5e6d83c32d8b7aafd5479a0dc3",
+          "source": "class Uri extends URI {\n\n\t_formatted: string | null = null;\n\t_fsPath: string | null = null;\n\n\toverride get fsPath(): string {\n\t\tif (!this._fsPath) {\n\t\t\tthis._fsPath = uriToFsPath(this, false);\n\t\t}\n\t\treturn this._fsPath;\n\t}\n\n\toverride toString(skipEncoding: boolean = false): string {\n\t\tif (!skipEncoding) {\n\t\t\tif (!this._formatted) {\n\t\t\t\tthis._formatted = _asFormatted(this, false);\n\t\t\t}\n\t\t\treturn this._formatted;\n\t\t} else {\n\t\t\t// we don't cache that\n\t\t\treturn _asFormatted(this, true);\n\t\t}\n\t}\n\n\toverride toJSON(): UriComponents {\n\t\t// eslint-disable-next-line local/code-no-dangerous-type-assertions\n\t\tconst res = <UriState>{\n\t\t\t$mid: MarshalledId.Uri\n\t\t};\n\t\t// cached state\n\t\tif (this._fsPath) {\n\t\t\tres.fsPath = this._fsPath;\n\t\t\tres._sep = _pathSepMarker;\n\t\t}\n\t\tif (this._formatted) {\n\t\t\tres.external = this._formatted;\n\t\t}\n\t\t//--- uri components\n\t\tif (this.path) {\n\t\t\tres.path = this.path;\n\t\t}\n\t\t// TODO\n\t\t// this isn't correct and can violate the UriComponents contract but\n\t\t// this is part of the vscode.Uri API and we shouldn't change how that\n\t\t// works anymore\n\t\tif (this.scheme) {\n\t\t\tres.scheme = this.scheme;\n\t\t}\n\t\tif (this.authority) {\n\t\t\tres.authority = this.authority;\n\t\t}\n\t\tif (this.query) {\n\t\t\tres.query = this.query;\n\t\t}\n\t\tif (this.fragment) {\n\t\t\tres.fragment = this.fragment;\n\t\t}\n\t\treturn res;\n\t}\n}",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "extensions/git/src/fileSystemProvider.ts",
+          "symbolId": "symbol:WyJmaWxlOmNkNTNiZTA5OWM3MTg0NmFjYjRkODc1ZSIsInVyaSIsImZpZWxkIiwiZXh0ZW5zaW9ucy5naXQuc3JjLmZpbGVTeXN0ZW1Qcm92aWRlci5DYWNoZVJvdyIsMTQsMV0",
+          "symbol": "extensions.git.src.fileSystemProvider.CacheRow.uri",
+          "startLine": 14,
+          "endLine": 14,
+          "startByte": 883,
+          "endByte": 892,
+          "blobDigest": "ae02a0bfc3366f5f2bc6d7058e6fc8f9d81e4328985f0c1ddd7e2209e8a9226f",
+          "source": "uri: Uri;",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "extensions/git/src/model.ts",
+          "symbolId": "symbol:WyJmaWxlOjhlYjIxNzQyN2U1ZWQyNDlhYjhhYTA0YSIsInVyaSIsImZpZWxkIiwiZXh0ZW5zaW9ucy5naXQuc3JjLm1vZGVsLk1vZGVsQ2hhbmdlRXZlbnQiLDUxLDFd",
+          "symbol": "extensions.git.src.model.ModelChangeEvent.uri",
+          "startLine": 51,
+          "endLine": 51,
+          "startByte": 2402,
+          "endByte": 2411,
+          "blobDigest": "f8605be39a4c26f881c79191eef065fae42b7006301a22a152293953fa9d1a84",
+          "source": "uri: Uri;",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "extensions/git/src/model.ts",
+          "symbolId": "symbol:WyJmaWxlOjhlYjIxNzQyN2U1ZWQyNDlhYjhhYTA0YSIsInVyaSIsImZpZWxkIiwiZXh0ZW5zaW9ucy5naXQuc3JjLm1vZGVsLk9yaWdpbmFsUmVzb3VyY2VDaGFuZ2VFdmVudCIsNTYsMV0",
+          "symbol": "extensions.git.src.model.OriginalResourceChangeEvent.uri",
+          "startLine": 56,
+          "endLine": 56,
+          "startByte": 2488,
+          "endByte": 2497,
+          "blobDigest": "f8605be39a4c26f881c79191eef065fae42b7006301a22a152293953fa9d1a84",
+          "source": "uri: Uri;",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "extensions/github/src/links.ts",
+          "symbolId": "symbol:WyJmaWxlOjc4NDdmMDIzZjY5OGU5MWU0ODU2MmNhOSIsInVyaSIsImZpZWxkIiwiZXh0ZW5zaW9ucy5naXRodWIuc3JjLmxpbmtzLklGaWxlUG9zaXRpb24iLDMyLDFd",
+          "symbol": "extensions.github.src.links.IFilePosition.uri",
+          "startLine": 32,
+          "endLine": 32,
+          "startByte": 1181,
+          "endByte": 1197,
+          "blobDigest": "bbbe9e68d8a1addd6f31fc7183260162a5ada083a8daa602ed87f24ecfa455a9",
+          "source": "uri: vscode.Uri;",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "extensions/github/src/links.ts",
+          "symbolId": "symbol:WyJmaWxlOjc4NDdmMDIzZjY5OGU5MWU0ODU2MmNhOSIsInVyaSIsImZpZWxkIiwiZXh0ZW5zaW9ucy5naXRodWIuc3JjLmxpbmtzLklOb3RlYm9va1Bvc2l0aW9uIiwzOCwxXQ",
+          "symbol": "extensions.github.src.links.INotebookPosition.uri",
+          "startLine": 38,
+          "endLine": 38,
+          "startByte": 1292,
+          "endByte": 1308,
+          "blobDigest": "bbbe9e68d8a1addd6f31fc7183260162a5ada083a8daa602ed87f24ecfa455a9",
+          "source": "uri: vscode.Uri;",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "extensions/github/src/links.ts",
+          "symbolId": "symbol:WyJmaWxlOjc4NDdmMDIzZjY5OGU5MWU0ODU2MmNhOSIsInVyaSIsImZpZWxkIiwiZXh0ZW5zaW9ucy5naXRodWIuc3JjLmxpbmtzLkVkaXRvckxpbmVOdW1iZXJDb250ZXh0Iiw0NCwxXQ",
+          "symbol": "extensions.github.src.links.EditorLineNumberContext.uri",
+          "startLine": 44,
+          "endLine": 44,
+          "startByte": 1403,
+          "endByte": 1419,
+          "blobDigest": "bbbe9e68d8a1addd6f31fc7183260162a5ada083a8daa602ed87f24ecfa455a9",
+          "source": "uri: vscode.Uri;",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "extensions/json-language-features/client/src/languageStatus.ts",
+          "symbolId": "symbol:WyJmaWxlOjI0ZTVhZjNjY2ExMTUwOTk2ZGRkMTcwMiIsInVyaSIsImZpZWxkIiwiZXh0ZW5zaW9ucy5qc29uLWxhbmd1YWdlLWZlYXR1cmVzLmNsaWVudC5zcmMubGFuZ3VhZ2VTdGF0dXMuU2hvd1NjaGVtYXNJdGVtIiwxOSwxXQ",
+          "symbol": "extensions.json-language-features.client.src.languageStatus.ShowSchemasItem.uri",
+          "startLine": 19,
+          "endLine": 19,
+          "startByte": 772,
+          "endByte": 782,
+          "blobDigest": "c8f220714d4f14f4d49c63d9179b9edc3a125f05ba68da3731ac9bbbcf03332e",
+          "source": "uri?: Uri;",
+          "kind": "source"
+        }
+      ]
+    },
+    {
+      "mode": "symbol",
+      "query": "Delayer",
+      "metadataMs": 7.742122999999992,
+      "hitAt10": true,
+      "expectedEvidence": true,
+      "candidates": [
+        {
+          "type": "symbol",
+          "score": 19.5,
+          "symbolId": "symbol:WyJmaWxlOjdlZjRmYjAzNzkwNWIwZmZlMTZmZTcyMyIsIkRlbGF5ZXIiLCJjbGFzcyIsImV4dGVuc2lvbnMuaXB5bmIuc3JjLmhlbHBlciIsODYsMF0",
+          "name": "extensions.ipynb.src.helper.Delayer",
+          "path": "extensions/ipynb/src/helper.ts",
+          "startLine": 86
+        },
+        {
+          "type": "symbol",
+          "score": 19.5,
+          "symbolId": "symbol:WyJmaWxlOjc5ZjI4Mjg5NTVkYzE5MmNmZTAyMGZjNSIsIkRlbGF5ZXIiLCJjbGFzcyIsImV4dGVuc2lvbnMubWFya2Rvd24tbGFuZ3VhZ2UtZmVhdHVyZXMuc3JjLnV0aWwuYXN5bmMiLDEwLDBd",
+          "name": "extensions.markdown-language-features.src.util.async.Delayer",
+          "path": "extensions/markdown-language-features/src/util/async.ts",
+          "startLine": 10
+        },
+        {
+          "type": "symbol",
+          "score": 19.5,
+          "symbolId": "symbol:WyJmaWxlOmYwOGI0MzVkM2I2MTkwMDYyNTQzZDhkZSIsIkRlbGF5ZXIiLCJjbGFzcyIsImV4dGVuc2lvbnMubWVyZ2UtY29uZmxpY3Quc3JjLmRlbGF5ZXIiLDEwLDBd",
+          "name": "extensions.merge-conflict.src.delayer.Delayer",
+          "path": "extensions/merge-conflict/src/delayer.ts",
+          "startLine": 10
+        },
+        {
+          "type": "symbol",
+          "score": 19.5,
+          "symbolId": "symbol:WyJmaWxlOmE3Mjc0MzJjZTMxZjIzMWVhMTlhNWMwNyIsIkRlbGF5ZXIiLCJjbGFzcyIsImV4dGVuc2lvbnMucGhwLWxhbmd1YWdlLWZlYXR1cmVzLnNyYy5mZWF0dXJlcy51dGlscy5hc3luYyIsMTAzLDBd",
+          "name": "extensions.php-language-features.src.features.utils.async.Delayer",
+          "path": "extensions/php-language-features/src/features/utils/async.ts",
+          "startLine": 103
+        },
+        {
+          "type": "symbol",
+          "score": 19.5,
+          "symbolId": "symbol:WyJmaWxlOmU2OGM5NTRlODdiZGM1NDY0MjU4ZTU5ZiIsIkRlbGF5ZXIiLCJjbGFzcyIsImV4dGVuc2lvbnMudHlwZXNjcmlwdC1sYW5ndWFnZS1mZWF0dXJlcy5zcmMudXRpbHMuYXN5bmMiLDEyLDBd",
+          "name": "extensions.typescript-language-features.src.utils.async.Delayer",
+          "path": "extensions/typescript-language-features/src/utils/async.ts",
+          "startLine": 12
+        },
+        {
+          "type": "symbol",
+          "score": 19.5,
+          "symbolId": "symbol:WyJmaWxlOjE3NTFmODE2YzViYzEwZDcwZjk1YjUxYSIsIkRlbGF5ZXIiLCJjbGFzcyIsInNyYy52cy5iYXNlLmNvbW1vbi5hc3luYyIsMzczLDBd",
+          "name": "src.vs.base.common.async.Delayer",
+          "path": "src/vs/base/common/async.ts",
+          "startLine": 373
+        },
+        {
+          "type": "symbol",
+          "score": 19,
+          "symbolId": "symbol:WyJmaWxlOjE3NTFmODE2YzViYzEwZDcwZjk1YjUxYSIsImRlbGF5ZXIiLCJmaWVsZCIsInNyYy52cy5iYXNlLmNvbW1vbi5hc3luYy5UaHJvdHRsZWREZWxheWVyIiw0NTMsMV0",
+          "name": "src.vs.base.common.async.ThrottledDelayer.delayer",
+          "path": "src/vs/base/common/async.ts",
+          "startLine": 453
+        },
+        {
+          "type": "symbol",
+          "score": 19,
+          "symbolId": "symbol:WyJmaWxlOmJjYzc5YTQ1NzEwMDk5OGEyNjkxMmFkYSIsImRlbGF5ZXIiLCJmaWVsZCIsInNyYy52cy53b3JrYmVuY2guY29udHJpYi5jaGF0LmNvbW1vbi5wcm9tcHRTeW50YXgubGFuZ3VhZ2VQcm92aWRlcnMucHJvbXB0VmFsaWRhdG9yLk1vZGVsVHJhY2tlciIsNDE0LDFd",
+          "name": "src.vs.workbench.contrib.chat.common.promptSyntax.languageProviders.promptValidator.ModelTracker.delayer",
+          "path": "src/vs/workbench/contrib/chat/common/promptSyntax/languageProviders/promptValidator.ts",
+          "startLine": 414
+        },
+        {
+          "type": "symbol",
+          "score": 19,
+          "symbolId": "symbol:WyJmaWxlOjJmMTkzMDUxZTE5ZTkyMmQ4NTc5ODY0YiIsImRlbGF5ZXIiLCJmaWVsZCIsInNyYy52cy53b3JrYmVuY2guY29udHJpYi5wcm9jZXNzRXhwbG9yZXIuYnJvd3Nlci5wcm9jZXNzRXhwbG9yZXJDb250cm9sLlByb2Nlc3NFeHBsb3JlckNvbnRyb2wiLDMzNywxXQ",
+          "name": "src.vs.workbench.contrib.processExplorer.browser.processExplorerControl.ProcessExplorerControl.delayer",
+          "path": "src/vs/workbench/contrib/processExplorer/browser/processExplorerControl.ts",
+          "startLine": 337
+        },
+        {
+          "type": "symbol",
+          "score": 19,
+          "symbolId": "symbol:WyJmaWxlOjk1ZTlkMmRlZmEzMDU3ODYwNmUxMTZlMiIsImRlbGF5ZXIiLCJmaWVsZCIsInNyYy52cy53b3JrYmVuY2guY29udHJpYi5zZWFyY2guYnJvd3Nlci5zeW1ib2xzUXVpY2tBY2Nlc3MuU3ltYm9sc1F1aWNrQWNjZXNzUHJvdmlkZXIiLDQ5LDFd",
+          "name": "src.vs.workbench.contrib.search.browser.symbolsQuickAccess.SymbolsQuickAccessProvider.delayer",
+          "path": "src/vs/workbench/contrib/search/browser/symbolsQuickAccess.ts",
+          "startLine": 49
+        },
+        {
+          "type": "symbol",
+          "score": 19,
+          "symbolId": "symbol:WyJmaWxlOjQ2ZTI5YmYyODkyMWE3MjNhYjcxNWY0OSIsImRlbGF5ZXIiLCJmaWVsZCIsInNyYy52cy53b3JrYmVuY2guc2VydmljZXMuZXh0ZW5zaW9uTWFuYWdlbWVudC5icm93c2VyLmV4dGVuc2lvbkVuYWJsZW1lbnRTZXJ2aWNlLkV4dGVuc2lvbkVuYWJsZW1lbnRTZXJ2aWNlIiw0OSwxXQ",
+          "name": "src.vs.workbench.services.extensionManagement.browser.extensionEnablementService.ExtensionEnablementService.delayer",
+          "path": "src/vs/workbench/services/extensionManagement/browser/extensionEnablementService.ts",
+          "startLine": 49
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjdlZjRmYjAzNzkwNWIwZmZlMTZmZTcyMyIsImRpc3Bvc2UiLCJtZXRob2QiLCJleHRlbnNpb25zLmlweW5iLnNyYy5oZWxwZXIuRGVsYXllciIsMTAyLDFd",
+          "name": "extensions.ipynb.src.helper.Delayer.dispose",
+          "path": "extensions/ipynb/src/helper.ts",
+          "startLine": 102
+        }
+      ],
+      "evidence": [
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "extensions/ipynb/src/helper.ts",
+          "symbolId": "symbol:WyJmaWxlOjdlZjRmYjAzNzkwNWIwZmZlMTZmZTcyMyIsIkRlbGF5ZXIiLCJjbGFzcyIsImV4dGVuc2lvbnMuaXB5bmIuc3JjLmhlbHBlciIsODYsMF0",
+          "symbol": "extensions.ipynb.src.helper.Delayer",
+          "startLine": 86,
+          "endLine": 140,
+          "startByte": 2302,
+          "endByte": 3613,
+          "blobDigest": "82ac26df6d65455fe61d7463692cbebf2942d6ecedbc43875fd7bfc531ec645e",
+          "source": "export class Delayer<T> {\n\n\tpublic defaultDelay: number;\n\tprivate _timeout: any; // Timer\n\tprivate _cancelTimeout: Promise<T | null> | null;\n\tprivate _onSuccess: ((value: T | PromiseLike<T> | undefined) => void) | null;\n\tprivate _task: ITask<T> | null;\n\n\tconstructor(defaultDelay: number) {\n\t\tthis.defaultDelay = defaultDelay;\n\t\tthis._timeout = null;\n\t\tthis._cancelTimeout = null;\n\t\tthis._onSuccess = null;\n\t\tthis._task = null;\n\t}\n\n\tdispose() {\n\t\tthis._doCancelTimeout();\n\t}\n\n\tpublic trigger(task: ITask<T>, delay: number = this.defaultDelay): Promise<T | null> {\n\t\tthis._task = task;\n\t\tif (delay >= 0) {\n\t\t\tthis._doCancelTimeout();\n\t\t}\n\n\t\tif (!this._cancelTimeout) {\n\t\t\tthis._cancelTimeout = new Promise<T | undefined>((resolve) => {\n\t\t\t\tthis._onSuccess = resolve;\n\t\t\t}).then(() => {\n\t\t\t\tthis._cancelTimeout = null;\n\t\t\t\tthis._onSuccess = null;\n\t\t\t\tconst result = this._task && this._task?.();\n\t\t\t\tthis._task = null;\n\t\t\t\treturn result;\n\t\t\t});\n\t\t}\n\n\t\tif (delay >= 0 || this._timeout === null) {\n\t\t\tthis._timeout = setTimeout(() => {\n\t\t\t\tthis._timeout = null;\n\t\t\t\tthis._onSuccess?.(undefined);\n\t\t\t}, delay >= 0 ? delay : this.defaultDelay);\n\t\t}\n\n\t\treturn this._cancelTimeout;\n\t}\n\n\tprivate _doCancelTimeout(): void {\n\t\tif (this._timeout !== null) {\n\t\t\tclearTimeout(this._timeout);\n\t\t\tthis._timeout = null;\n\t\t}\n\t}\n}",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "extensions/markdown-language-features/src/util/async.ts",
+          "symbolId": "symbol:WyJmaWxlOjc5ZjI4Mjg5NTVkYzE5MmNmZTAyMGZjNSIsIkRlbGF5ZXIiLCJjbGFzcyIsImV4dGVuc2lvbnMubWFya2Rvd24tbGFuZ3VhZ2UtZmVhdHVyZXMuc3JjLnV0aWwuYXN5bmMiLDEwLDBd",
+          "symbol": "extensions.markdown-language-features.src.util.async.Delayer",
+          "startLine": 10,
+          "endLine": 64,
+          "startByte": 392,
+          "endByte": 1697,
+          "blobDigest": "47546b0e15cb9353e280e2cf952101b17a862d08de675e02d3a86f0e98a37e64",
+          "source": "export class Delayer<T> {\n\n\tpublic defaultDelay: number;\n\tprivate _timeout: any; // Timer\n\tprivate _cancelTimeout: Promise<T | null> | null;\n\tprivate _onSuccess: ((value: T | PromiseLike<T> | undefined) => void) | null;\n\tprivate _task: ITask<T> | null;\n\n\tconstructor(defaultDelay: number) {\n\t\tthis.defaultDelay = defaultDelay;\n\t\tthis._timeout = null;\n\t\tthis._cancelTimeout = null;\n\t\tthis._onSuccess = null;\n\t\tthis._task = null;\n\t}\n\n\tdispose() {\n\t\tthis._doCancelTimeout();\n\t}\n\n\tpublic trigger(task: ITask<T>, delay: number = this.defaultDelay): Promise<T | null> {\n\t\tthis._task = task;\n\t\tif (delay >= 0) {\n\t\t\tthis._doCancelTimeout();\n\t\t}\n\n\t\tif (!this._cancelTimeout) {\n\t\t\tthis._cancelTimeout = new Promise<T | undefined>((resolve) => {\n\t\t\t\tthis._onSuccess = resolve;\n\t\t\t}).then(() => {\n\t\t\t\tthis._cancelTimeout = null;\n\t\t\t\tthis._onSuccess = null;\n\t\t\t\tconst result = this._task?.() ?? null;\n\t\t\t\tthis._task = null;\n\t\t\t\treturn result;\n\t\t\t});\n\t\t}\n\n\t\tif (delay >= 0 || this._timeout === null) {\n\t\t\tthis._timeout = setTimeout(() => {\n\t\t\t\tthis._timeout = null;\n\t\t\t\tthis._onSuccess?.(undefined);\n\t\t\t}, delay >= 0 ? delay : this.defaultDelay);\n\t\t}\n\n\t\treturn this._cancelTimeout;\n\t}\n\n\tprivate _doCancelTimeout(): void {\n\t\tif (this._timeout !== null) {\n\t\t\tclearTimeout(this._timeout);\n\t\t\tthis._timeout = null;\n\t\t}\n\t}\n}",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "extensions/merge-conflict/src/delayer.ts",
+          "symbolId": "symbol:WyJmaWxlOmYwOGI0MzVkM2I2MTkwMDYyNTQzZDhkZSIsIkRlbGF5ZXIiLCJjbGFzcyIsImV4dGVuc2lvbnMubWVyZ2UtY29uZmxpY3Quc3JjLmRlbGF5ZXIiLDEwLDBd",
+          "symbol": "extensions.merge-conflict.src.delayer.Delayer",
+          "startLine": 10,
+          "endLine": 69,
+          "startByte": 392,
+          "endByte": 1827,
+          "blobDigest": "a2aa55f49c8cefe2778ba0a203e2c2c1a9933104da7d0ebcf8aa09a89ffb99d5",
+          "source": "export class Delayer<T> {\n\n\tpublic defaultDelay: number;\n\tprivate timeout: any; // Timer\n\tprivate completionPromise: Promise<T> | null;\n\tprivate onSuccess: ((value: T | PromiseLike<T> | undefined) => void) | null;\n\tprivate task: ITask<T> | null;\n\n\tconstructor(defaultDelay: number) {\n\t\tthis.defaultDelay = defaultDelay;\n\t\tthis.timeout = null;\n\t\tthis.completionPromise = null;\n\t\tthis.onSuccess = null;\n\t\tthis.task = null;\n\t}\n\n\tpublic trigger(task: ITask<T>, delay: number = this.defaultDelay): Promise<T> {\n\t\tthis.task = task;\n\t\tif (delay >= 0) {\n\t\t\tthis.cancelTimeout();\n\t\t}\n\n\t\tif (!this.completionPromise) {\n\t\t\tthis.completionPromise = new Promise<T | undefined>((resolve) => {\n\t\t\t\tthis.onSuccess = resolve;\n\t\t\t}).then(() => {\n\t\t\t\tthis.completionPromise = null;\n\t\t\t\tthis.onSuccess = null;\n\t\t\t\tconst result = this.task!();\n\t\t\t\tthis.task = null;\n\t\t\t\treturn result;\n\t\t\t});\n\t\t}\n\n\t\tif (delay >= 0 || this.timeout === null) {\n\t\t\tthis.timeout = setTimeout(() => {\n\t\t\t\tthis.timeout = null;\n\t\t\t\tthis.onSuccess!(undefined);\n\t\t\t}, delay >= 0 ? delay : this.defaultDelay);\n\t\t}\n\n\t\treturn this.completionPromise;\n\t}\n\n\tpublic forceDelivery(): Promise<T> | null {\n\t\tif (!this.completionPromise) {\n\t\t\treturn null;\n\t\t}\n\t\tthis.cancelTimeout();\n\t\tconst result = this.completionPromise;\n\t\tthis.onSuccess!(undefined);\n\t\treturn result;\n\t}\n\n\tpublic isTriggered(): boolean {\n\t\treturn this.timeout !== null;\n\t}\n\n\tpublic cancel(): void {\n\t\tthis.cancelTimeout();",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "extensions/php-language-features/src/features/utils/async.ts",
+          "symbolId": "symbol:WyJmaWxlOmE3Mjc0MzJjZTMxZjIzMWVhMTlhNWMwNyIsIkRlbGF5ZXIiLCJjbGFzcyIsImV4dGVuc2lvbnMucGhwLWxhbmd1YWdlLWZlYXR1cmVzLnNyYy5mZWF0dXJlcy51dGlscy5hc3luYyIsMTAzLDBd",
+          "symbol": "extensions.php-language-features.src.features.utils.async.Delayer",
+          "startLine": 103,
+          "endLine": 162,
+          "startByte": 3378,
+          "endByte": 4698,
+          "blobDigest": "c26e87e3b65d311c1e9c91fc997007950230c86fd2e4a1306170caeaeb61e92f",
+          "source": "export class Delayer<T> {\n\n\tpublic defaultDelay: number;\n\tprivate timeout: NodeJS.Timer | null;\n\tprivate completionPromise: Promise<T> | null;\n\tprivate onResolve: ((value: T | PromiseLike<T> | undefined) => void) | null;\n\tprivate task: ITask<T> | null;\n\n\tconstructor(defaultDelay: number) {\n\t\tthis.defaultDelay = defaultDelay;\n\t\tthis.timeout = null;\n\t\tthis.completionPromise = null;\n\t\tthis.onResolve = null;\n\t\tthis.task = null;\n\t}\n\n\tpublic trigger(task: ITask<T>, delay: number = this.defaultDelay): Promise<T> {\n\t\tthis.task = task;\n\t\tthis.cancelTimeout();\n\n\t\tif (!this.completionPromise) {\n\t\t\tthis.completionPromise = new Promise<T | undefined>((resolve) => {\n\t\t\t\tthis.onResolve = resolve;\n\t\t\t}).then(() => {\n\t\t\t\tthis.completionPromise = null;\n\t\t\t\tthis.onResolve = null;\n\n\t\t\t\tconst result = this.task!();\n\t\t\t\tthis.task = null;\n\n\t\t\t\treturn result;\n\t\t\t});\n\t\t}\n\n\t\tthis.timeout = setTimeout(() => {\n\t\t\tthis.timeout = null;\n\t\t\tthis.onResolve!(undefined);\n\t\t}, delay);\n\n\t\treturn this.completionPromise;\n\t}\n\n\tpublic isTriggered(): boolean {\n\t\treturn this.timeout !== null;\n\t}\n\n\tpublic cancel(): void {\n\t\tthis.cancelTimeout();\n\n\t\tif (this.completionPromise) {\n\t\t\tthis.completionPromise = null;\n\t\t}\n\t}\n\n\tprivate cancelTimeout(): void {\n\t\tif (this.timeout !== null) {\n\t\t\tclearTimeout(this.timeout);\n\t\t\tthis.timeout = null;\n\t\t}\n\t}",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "extensions/typescript-language-features/src/utils/async.ts",
+          "symbolId": "symbol:WyJmaWxlOmU2OGM5NTRlODdiZGM1NDY0MjU4ZTU5ZiIsIkRlbGF5ZXIiLCJjbGFzcyIsImV4dGVuc2lvbnMudHlwZXNjcmlwdC1sYW5ndWFnZS1mZWF0dXJlcy5zcmMudXRpbHMuYXN5bmMiLDEyLDBd",
+          "symbol": "extensions.typescript-language-features.src.utils.async.Delayer",
+          "startLine": 12,
+          "endLine": 62,
+          "startByte": 430,
+          "endByte": 1687,
+          "blobDigest": "1ef03be945fa56bd29a3019684f8108a70c1090fde898fbc43e344be8020745f",
+          "source": "export class Delayer<T> {\n\n\tpublic defaultDelay: number;\n\tprivate timeout: any; // Timer\n\tprivate completionPromise: Promise<T | undefined> | null;\n\tprivate onSuccess: ((value: T | PromiseLike<T> | undefined) => void) | null;\n\tprivate task: ITask<T> | null;\n\n\tconstructor(defaultDelay: number) {\n\t\tthis.defaultDelay = defaultDelay;\n\t\tthis.timeout = null;\n\t\tthis.completionPromise = null;\n\t\tthis.onSuccess = null;\n\t\tthis.task = null;\n\t}\n\n\tpublic trigger(task: ITask<T>, delay: number = this.defaultDelay): Promise<T | undefined> {\n\t\tthis.task = task;\n\t\tif (delay >= 0) {\n\t\t\tthis.cancelTimeout();\n\t\t}\n\n\t\tif (!this.completionPromise) {\n\t\t\tthis.completionPromise = new Promise<T | undefined>((resolve) => {\n\t\t\t\tthis.onSuccess = resolve;\n\t\t\t}).then(() => {\n\t\t\t\tthis.completionPromise = null;\n\t\t\t\tthis.onSuccess = null;\n\t\t\t\tconst result = this.task?.();\n\t\t\t\tthis.task = null;\n\t\t\t\treturn result;\n\t\t\t});\n\t\t}\n\n\t\tif (delay >= 0 || this.timeout === null) {\n\t\t\tthis.timeout = setTimeout(() => {\n\t\t\t\tthis.timeout = null;\n\t\t\t\tthis.onSuccess?.(undefined);\n\t\t\t}, delay >= 0 ? delay : this.defaultDelay);\n\t\t}\n\n\t\treturn this.completionPromise;\n\t}\n\n\tprivate cancelTimeout(): void {\n\t\tif (this.timeout !== null) {\n\t\t\tclearTimeout(this.timeout);\n\t\t\tthis.timeout = null;\n\t\t}\n\t}\n}",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "src/vs/base/common/async.ts",
+          "symbolId": "symbol:WyJmaWxlOjE3NTFmODE2YzViYzEwZDcwZjk1YjUxYSIsIkRlbGF5ZXIiLCJjbGFzcyIsInNyYy52cy5iYXNlLmNvbW1vbi5hc3luYyIsMzczLDBd",
+          "symbol": "src.vs.base.common.async.Delayer",
+          "startLine": 373,
+          "endLine": 432,
+          "startByte": 11725,
+          "endByte": 13201,
+          "blobDigest": "e496ee61e3054743947b3436296a2ee21dde1bdc960c8b935702b948267f0b4e",
+          "source": "export class Delayer<T> implements IDisposable {\n\n\tprivate deferred: IScheduledLater | null;\n\tprivate completionPromise: Promise<any> | null;\n\tprivate doResolve: ((value?: any | Promise<any>) => void) | null;\n\tprivate doReject: ((err: unknown) => void) | null;\n\tprivate task: ITask<T | Promise<T>> | null;\n\n\tconstructor(public defaultDelay: number | typeof MicrotaskDelay) {\n\t\tthis.deferred = null;\n\t\tthis.completionPromise = null;\n\t\tthis.doResolve = null;\n\t\tthis.doReject = null;\n\t\tthis.task = null;\n\t}\n\n\ttrigger(task: ITask<T | Promise<T>>, delay = this.defaultDelay): Promise<T> {\n\t\tthis.task = task;\n\t\tthis.cancelTimeout();\n\n\t\tif (!this.completionPromise) {\n\t\t\tthis.completionPromise = new Promise((resolve, reject) => {\n\t\t\t\tthis.doResolve = resolve;\n\t\t\t\tthis.doReject = reject;\n\t\t\t}).then(() => {\n\t\t\t\tthis.completionPromise = null;\n\t\t\t\tthis.doResolve = null;\n\t\t\t\tif (this.task) {\n\t\t\t\t\tconst task = this.task;\n\t\t\t\t\tthis.task = null;\n\t\t\t\t\treturn task();\n\t\t\t\t}\n\t\t\t\treturn undefined;\n\t\t\t});\n\t\t}\n\n\t\tconst fn = () => {\n\t\t\tthis.deferred = null;\n\t\t\tthis.doResolve?.(null);\n\t\t};\n\n\t\tthis.deferred = delay === MicrotaskDelay ? microtaskDeferred(fn) : timeoutDeferred(delay, fn);\n\n\t\treturn this.completionPromise;\n\t}\n\n\tisTriggered(): boolean {\n\t\treturn !!this.deferred?.isTriggered();\n\t}\n\n\tcancel(): void {\n\t\tthis.cancelTimeout();\n\n\t\tif (this.completionPromise) {\n\t\t\tthis.doReject?.(new CancellationError());\n\t\t\tthis.completionPromise = null;\n\t\t}\n\t}\n\n\tprivate cancelTimeout(): void {",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "src/vs/base/common/async.ts",
+          "symbolId": "symbol:WyJmaWxlOjE3NTFmODE2YzViYzEwZDcwZjk1YjUxYSIsImRlbGF5ZXIiLCJmaWVsZCIsInNyYy52cy5iYXNlLmNvbW1vbi5hc3luYy5UaHJvdHRsZWREZWxheWVyIiw0NTMsMV0",
+          "symbol": "src.vs.base.common.async.ThrottledDelayer.delayer",
+          "startLine": 453,
+          "endLine": 453,
+          "startByte": 13823,
+          "endByte": 13860,
+          "blobDigest": "e496ee61e3054743947b3436296a2ee21dde1bdc960c8b935702b948267f0b4e",
+          "source": "private delayer: Delayer<Promise<T>>;",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "src/vs/workbench/contrib/chat/common/promptSyntax/languageProviders/promptValidator.ts",
+          "symbolId": "symbol:WyJmaWxlOmJjYzc5YTQ1NzEwMDk5OGEyNjkxMmFkYSIsImRlbGF5ZXIiLCJmaWVsZCIsInNyYy52cy53b3JrYmVuY2guY29udHJpYi5jaGF0LmNvbW1vbi5wcm9tcHRTeW50YXgubGFuZ3VhZ2VQcm92aWRlcnMucHJvbXB0VmFsaWRhdG9yLk1vZGVsVHJhY2tlciIsNDE0LDFd",
+          "symbol": "src.vs.workbench.contrib.chat.common.promptSyntax.languageProviders.promptValidator.ModelTracker.delayer",
+          "startLine": 414,
+          "endLine": 414,
+          "startByte": 19280,
+          "endByte": 19320,
+          "blobDigest": "92343d5c44a869d076cf2d2bd23e7e86de653fc9360a13a0e7a22bada98f01f1",
+          "source": "private readonly delayer: Delayer<void>;",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "src/vs/workbench/contrib/processExplorer/browser/processExplorerControl.ts",
+          "symbolId": "symbol:WyJmaWxlOjJmMTkzMDUxZTE5ZTkyMmQ4NTc5ODY0YiIsImRlbGF5ZXIiLCJmaWVsZCIsInNyYy52cy53b3JrYmVuY2guY29udHJpYi5wcm9jZXNzRXhwbG9yZXIuYnJvd3Nlci5wcm9jZXNzRXhwbG9yZXJDb250cm9sLlByb2Nlc3NFeHBsb3JlckNvbnRyb2wiLDMzNywxXQ",
+          "symbol": "src.vs.workbench.contrib.processExplorer.browser.processExplorerControl.ProcessExplorerControl.delayer",
+          "startLine": 337,
+          "endLine": 337,
+          "startByte": 11239,
+          "endByte": 11300,
+          "blobDigest": "8702fed1eb885c3c9a4007e7230118577cb3092b7a59bafff141f87f67d498b0",
+          "source": "private readonly delayer = this._register(new Delayer(1000));",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "src/vs/workbench/contrib/search/browser/symbolsQuickAccess.ts",
+          "symbolId": "symbol:WyJmaWxlOjk1ZTlkMmRlZmEzMDU3ODYwNmUxMTZlMiIsImRlbGF5ZXIiLCJmaWVsZCIsInNyYy52cy53b3JrYmVuY2guY29udHJpYi5zZWFyY2guYnJvd3Nlci5zeW1ib2xzUXVpY2tBY2Nlc3MuU3ltYm9sc1F1aWNrQWNjZXNzUHJvdmlkZXIiLDQ5LDFd",
+          "symbol": "src.vs.workbench.contrib.search.browser.symbolsQuickAccess.SymbolsQuickAccessProvider.delayer",
+          "startLine": 49,
+          "endLine": 49,
+          "startByte": 2777,
+          "endByte": 2904,
+          "blobDigest": "bfbe132ceb141898b68d603d0fee606de9b1300a8c67c95b91f9a5c5cd2d76a4",
+          "source": "private delayer = this._register(new ThrottledDelayer<ISymbolQuickPickItem[]>(SymbolsQuickAccessProvider.TYPING_SEARCH_DELAY));",
+          "kind": "source"
+        }
+      ]
+    },
+    {
+      "mode": "symbol",
+      "query": "RunOnceScheduler",
+      "metadataMs": 8.092413999999962,
+      "hitAt10": true,
+      "expectedEvidence": true,
+      "candidates": [
+        {
+          "type": "symbol",
+          "score": 19.5,
+          "symbolId": "symbol:WyJmaWxlOjE3NTFmODE2YzViYzEwZDcwZjk1YjUxYSIsIlJ1bk9uY2VTY2hlZHVsZXIiLCJjbGFzcyIsInNyYy52cy5iYXNlLmNvbW1vbi5hc3luYyIsMTA4NiwwXQ",
+          "name": "src.vs.base.common.async.RunOnceScheduler",
+          "path": "src/vs/base/common/async.ts",
+          "startLine": 1086
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjE3NTFmODE2YzViYzEwZDcwZjk1YjUxYSIsImRpc3Bvc2UiLCJtZXRob2QiLCJzcmMudnMuYmFzZS5jb21tb24uYXN5bmMuUnVuT25jZVNjaGVkdWxlciIsMTEwNCwxXQ",
+          "name": "src.vs.base.common.async.RunOnceScheduler.dispose",
+          "path": "src/vs/base/common/async.ts",
+          "startLine": 1104
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjE3NTFmODE2YzViYzEwZDcwZjk1YjUxYSIsImZsdXNoIiwibWV0aG9kIiwic3JjLnZzLmJhc2UuY29tbW9uLmFzeW5jLlJ1bk9uY2VTY2hlZHVsZXIiLDExNDIsMV0",
+          "name": "src.vs.base.common.async.RunOnceScheduler.flush",
+          "path": "src/vs/base/common/async.ts",
+          "startLine": 1142
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjE3NTFmODE2YzViYzEwZDcwZjk1YjUxYSIsIm9uVGltZW91dCIsIm1ldGhvZCIsInNyYy52cy5iYXNlLmNvbW1vbi5hc3luYy5SdW5PbmNlU2NoZWR1bGVyIiwxMTQ5LDFd",
+          "name": "src.vs.base.common.async.RunOnceScheduler.onTimeout",
+          "path": "src/vs/base/common/async.ts",
+          "startLine": 1149
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjE3NTFmODE2YzViYzEwZDcwZjk1YjUxYSIsImRlbGF5IiwibWV0aG9kIiwic3JjLnZzLmJhc2UuY29tbW9uLmFzeW5jLlJ1bk9uY2VTY2hlZHVsZXIiLDExMjcsMV0",
+          "name": "src.vs.base.common.async.RunOnceScheduler.delay",
+          "path": "src/vs/base/common/async.ts",
+          "startLine": 1127
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjE3NTFmODE2YzViYzEwZDcwZjk1YjUxYSIsImRvUnVuIiwibWV0aG9kIiwic3JjLnZzLmJhc2UuY29tbW9uLmFzeW5jLlJ1bk9uY2VTY2hlZHVsZXIiLDExNTYsMV0",
+          "name": "src.vs.base.common.async.RunOnceScheduler.doRun",
+          "path": "src/vs/base/common/async.ts",
+          "startLine": 1156
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjE3NTFmODE2YzViYzEwZDcwZjk1YjUxYSIsImRlbGF5IiwibWV0aG9kIiwic3JjLnZzLmJhc2UuY29tbW9uLmFzeW5jLlJ1bk9uY2VTY2hlZHVsZXIiLDExMzEsMV0",
+          "name": "src.vs.base.common.async.RunOnceScheduler.delay",
+          "path": "src/vs/base/common/async.ts",
+          "startLine": 1131
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjE3NTFmODE2YzViYzEwZDcwZjk1YjUxYSIsIlJ1bk9uY2VXb3JrZXIiLCJjbGFzcyIsInNyYy52cy5iYXNlLmNvbW1vbi5hc3luYyIsMTIzNCwwXQ",
+          "name": "src.vs.base.common.async.RunOnceWorker",
+          "path": "src/vs/base/common/async.ts",
+          "startLine": 1234
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjE3NTFmODE2YzViYzEwZDcwZjk1YjUxYSIsImlzU2NoZWR1bGVkIiwibWV0aG9kIiwic3JjLnZzLmJhc2UuY29tbW9uLmFzeW5jLlJ1bk9uY2VTY2hlZHVsZXIiLDExMzgsMV0",
+          "name": "src.vs.base.common.async.RunOnceScheduler.isScheduled",
+          "path": "src/vs/base/common/async.ts",
+          "startLine": 1138
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjE3NTFmODE2YzViYzEwZDcwZjk1YjUxYSIsImNvbnN0cnVjdG9yIiwibWV0aG9kIiwic3JjLnZzLmJhc2UuY29tbW9uLmFzeW5jLlJ1bk9uY2VTY2hlZHVsZXIiLDEwOTQsMV0",
+          "name": "src.vs.base.common.async.RunOnceScheduler.constructor",
+          "path": "src/vs/base/common/async.ts",
+          "startLine": 1094
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjE3NTFmODE2YzViYzEwZDcwZjk1YjUxYSIsImNhbmNlbCIsIm1ldGhvZCIsInNyYy52cy5iYXNlLmNvbW1vbi5hc3luYy5SdW5PbmNlU2NoZWR1bGVyIiwxMTEyLDFd",
+          "name": "src.vs.base.common.async.RunOnceScheduler.cancel",
+          "path": "src/vs/base/common/async.ts",
+          "startLine": 1112
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjE3NTFmODE2YzViYzEwZDcwZjk1YjUxYSIsInNjaGVkdWxlIiwibWV0aG9kIiwic3JjLnZzLmJhc2UuY29tbW9uLmFzeW5jLlJ1bk9uY2VTY2hlZHVsZXIiLDExMjIsMV0",
+          "name": "src.vs.base.common.async.RunOnceScheduler.schedule",
+          "path": "src/vs/base/common/async.ts",
+          "startLine": 1122
+        }
+      ],
+      "evidence": [
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "src/vs/base/common/async.ts",
+          "symbolId": "symbol:WyJmaWxlOjE3NTFmODE2YzViYzEwZDcwZjk1YjUxYSIsIlJ1bk9uY2VTY2hlZHVsZXIiLCJjbGFzcyIsInNyYy52cy5iYXNlLmNvbW1vbi5hc3luYyIsMTA4NiwwXQ",
+          "symbol": "src.vs.base.common.async.RunOnceScheduler",
+          "startLine": 1086,
+          "endLine": 1145,
+          "startByte": 29486,
+          "endByte": 30682,
+          "blobDigest": "e496ee61e3054743947b3436296a2ee21dde1bdc960c8b935702b948267f0b4e",
+          "source": "export class RunOnceScheduler implements IDisposable {\n\n\tprotected runner: ((...args: unknown[]) => void) | null;\n\n\tprivate timeoutToken: Timeout | undefined;\n\tprivate timeout: number;\n\tprivate timeoutHandler: () => void;\n\n\tconstructor(runner: (...args: any[]) => void, delay: number) {\n\t\tthis.timeoutToken = undefined;\n\t\tthis.runner = runner;\n\t\tthis.timeout = delay;\n\t\tthis.timeoutHandler = this.onTimeout.bind(this);\n\t}\n\n\t/**\n\t * Dispose RunOnceScheduler\n\t */\n\tdispose(): void {\n\t\tthis.cancel();\n\t\tthis.runner = null;\n\t}\n\n\t/**\n\t * Cancel current scheduled runner (if any).\n\t */\n\tcancel(): void {\n\t\tif (this.isScheduled()) {\n\t\t\tclearTimeout(this.timeoutToken);\n\t\t\tthis.timeoutToken = undefined;\n\t\t}\n\t}\n\n\t/**\n\t * Cancel previous runner (if any) & schedule a new runner.\n\t */\n\tschedule(delay = this.timeout): void {\n\t\tthis.cancel();\n\t\tthis.timeoutToken = setTimeout(this.timeoutHandler, delay);\n\t}\n\n\tget delay(): number {\n\t\treturn this.timeout;\n\t}\n\n\tset delay(value: number) {\n\t\tthis.timeout = value;\n\t}\n\n\t/**\n\t * Returns true if scheduled.\n\t */\n\tisScheduled(): boolean {\n\t\treturn this.timeoutToken !== undefined;\n\t}\n\n\tflush(): void {\n\t\tif (this.isScheduled()) {\n\t\t\tthis.cancel();\n\t\t\tthis.doRun();",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "src/vs/base/common/async.ts",
+          "symbolId": "symbol:WyJmaWxlOjE3NTFmODE2YzViYzEwZDcwZjk1YjUxYSIsImRpc3Bvc2UiLCJtZXRob2QiLCJzcmMudnMuYmFzZS5jb21tb24uYXN5bmMuUnVuT25jZVNjaGVkdWxlciIsMTEwNCwxXQ",
+          "symbol": "src.vs.base.common.async.RunOnceScheduler.dispose",
+          "startLine": 1104,
+          "endLine": 1107,
+          "startByte": 29949,
+          "endByte": 30008,
+          "blobDigest": "e496ee61e3054743947b3436296a2ee21dde1bdc960c8b935702b948267f0b4e",
+          "source": "dispose(): void {\n\t\tthis.cancel();\n\t\tthis.runner = null;\n\t}",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "src/vs/base/common/async.ts",
+          "symbolId": "symbol:WyJmaWxlOjE3NTFmODE2YzViYzEwZDcwZjk1YjUxYSIsImZsdXNoIiwibWV0aG9kIiwic3JjLnZzLmJhc2UuY29tbW9uLmFzeW5jLlJ1bk9uY2VTY2hlZHVsZXIiLDExNDIsMV0",
+          "symbol": "src.vs.base.common.async.RunOnceScheduler.flush",
+          "startLine": 1142,
+          "endLine": 1147,
+          "startByte": 30604,
+          "endByte": 30689,
+          "blobDigest": "e496ee61e3054743947b3436296a2ee21dde1bdc960c8b935702b948267f0b4e",
+          "source": "flush(): void {\n\t\tif (this.isScheduled()) {\n\t\t\tthis.cancel();\n\t\t\tthis.doRun();\n\t\t}\n\t}",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "src/vs/base/common/async.ts",
+          "symbolId": "symbol:WyJmaWxlOjE3NTFmODE2YzViYzEwZDcwZjk1YjUxYSIsIm9uVGltZW91dCIsIm1ldGhvZCIsInNyYy52cy5iYXNlLmNvbW1vbi5hc3luYy5SdW5PbmNlU2NoZWR1bGVyIiwxMTQ5LDFd",
+          "symbol": "src.vs.base.common.async.RunOnceScheduler.onTimeout",
+          "startLine": 1149,
+          "endLine": 1154,
+          "startByte": 30692,
+          "endByte": 30791,
+          "blobDigest": "e496ee61e3054743947b3436296a2ee21dde1bdc960c8b935702b948267f0b4e",
+          "source": "private onTimeout() {\n\t\tthis.timeoutToken = undefined;\n\t\tif (this.runner) {\n\t\t\tthis.doRun();\n\t\t}\n\t}",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "src/vs/base/common/async.ts",
+          "symbolId": "symbol:WyJmaWxlOjE3NTFmODE2YzViYzEwZDcwZjk1YjUxYSIsImRlbGF5IiwibWV0aG9kIiwic3JjLnZzLmJhc2UuY29tbW9uLmFzeW5jLlJ1bk9uY2VTY2hlZHVsZXIiLDExMjcsMV0",
+          "symbol": "src.vs.base.common.async.RunOnceScheduler.delay",
+          "startLine": 1127,
+          "endLine": 1129,
+          "startByte": 30385,
+          "endByte": 30432,
+          "blobDigest": "e496ee61e3054743947b3436296a2ee21dde1bdc960c8b935702b948267f0b4e",
+          "source": "get delay(): number {\n\t\treturn this.timeout;\n\t}",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "src/vs/base/common/async.ts",
+          "symbolId": "symbol:WyJmaWxlOjE3NTFmODE2YzViYzEwZDcwZjk1YjUxYSIsImRvUnVuIiwibWV0aG9kIiwic3JjLnZzLmJhc2UuY29tbW9uLmFzeW5jLlJ1bk9uY2VTY2hlZHVsZXIiLDExNTYsMV0",
+          "symbol": "src.vs.base.common.async.RunOnceScheduler.doRun",
+          "startLine": 1156,
+          "endLine": 1158,
+          "startByte": 30794,
+          "endByte": 30841,
+          "blobDigest": "e496ee61e3054743947b3436296a2ee21dde1bdc960c8b935702b948267f0b4e",
+          "source": "protected doRun(): void {\n\t\tthis.runner?.();\n\t}",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "src/vs/base/common/async.ts",
+          "symbolId": "symbol:WyJmaWxlOjE3NTFmODE2YzViYzEwZDcwZjk1YjUxYSIsImRlbGF5IiwibWV0aG9kIiwic3JjLnZzLmJhc2UuY29tbW9uLmFzeW5jLlJ1bk9uY2VTY2hlZHVsZXIiLDExMzEsMV0",
+          "symbol": "src.vs.base.common.async.RunOnceScheduler.delay",
+          "startLine": 1131,
+          "endLine": 1133,
+          "startByte": 30435,
+          "endByte": 30488,
+          "blobDigest": "e496ee61e3054743947b3436296a2ee21dde1bdc960c8b935702b948267f0b4e",
+          "source": "set delay(value: number) {\n\t\tthis.timeout = value;\n\t}",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "src/vs/base/common/async.ts",
+          "symbolId": "symbol:WyJmaWxlOjE3NTFmODE2YzViYzEwZDcwZjk1YjUxYSIsIlJ1bk9uY2VXb3JrZXIiLCJjbGFzcyIsInNyYy52cy5iYXNlLmNvbW1vbi5hc3luYyIsMTIzNCwwXQ",
+          "symbol": "src.vs.base.common.async.RunOnceWorker",
+          "startLine": 1234,
+          "endLine": 1262,
+          "startByte": 32695,
+          "endByte": 33161,
+          "blobDigest": "e496ee61e3054743947b3436296a2ee21dde1bdc960c8b935702b948267f0b4e",
+          "source": "export class RunOnceWorker<T> extends RunOnceScheduler {\n\n\tprivate units: T[] = [];\n\n\tconstructor(runner: (units: T[]) => void, timeout: number) {\n\t\tsuper(runner, timeout);\n\t}\n\n\twork(unit: T): void {\n\t\tthis.units.push(unit);\n\n\t\tif (!this.isScheduled()) {\n\t\t\tthis.schedule();\n\t\t}\n\t}\n\n\tprotected override doRun(): void {\n\t\tconst units = this.units;\n\t\tthis.units = [];\n\n\t\tthis.runner?.(units);\n\t}\n\n\toverride dispose(): void {\n\t\tthis.units = [];\n\n\t\tsuper.dispose();\n\t}\n}",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "src/vs/base/common/async.ts",
+          "symbolId": "symbol:WyJmaWxlOjE3NTFmODE2YzViYzEwZDcwZjk1YjUxYSIsImlzU2NoZWR1bGVkIiwibWV0aG9kIiwic3JjLnZzLmJhc2UuY29tbW9uLmFzeW5jLlJ1bk9uY2VTY2hlZHVsZXIiLDExMzgsMV0",
+          "symbol": "src.vs.base.common.async.RunOnceScheduler.isScheduled",
+          "startLine": 1138,
+          "endLine": 1140,
+          "startByte": 30532,
+          "endByte": 30601,
+          "blobDigest": "e496ee61e3054743947b3436296a2ee21dde1bdc960c8b935702b948267f0b4e",
+          "source": "isScheduled(): boolean {\n\t\treturn this.timeoutToken !== undefined;\n\t}",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "src/vs/base/common/async.ts",
+          "symbolId": "symbol:WyJmaWxlOjE3NTFmODE2YzViYzEwZDcwZjk1YjUxYSIsImNvbnN0cnVjdG9yIiwibWV0aG9kIiwic3JjLnZzLmJhc2UuY29tbW9uLmFzeW5jLlJ1bk9uY2VTY2hlZHVsZXIiLDEwOTQsMV0",
+          "symbol": "src.vs.base.common.async.RunOnceScheduler.constructor",
+          "startLine": 1094,
+          "endLine": 1099,
+          "startByte": 29710,
+          "endByte": 29907,
+          "blobDigest": "e496ee61e3054743947b3436296a2ee21dde1bdc960c8b935702b948267f0b4e",
+          "source": "constructor(runner: (...args: any[]) => void, delay: number) {\n\t\tthis.timeoutToken = undefined;\n\t\tthis.runner = runner;\n\t\tthis.timeout = delay;\n\t\tthis.timeoutHandler = this.onTimeout.bind(this);\n\t}",
+          "kind": "source"
+        }
+      ]
+    },
+    {
+      "mode": "symbol",
+      "query": "combinedDisposable",
+      "metadataMs": 1.567258000000038,
+      "hitAt10": true,
+      "expectedEvidence": true,
+      "candidates": [
+        {
+          "type": "symbol",
+          "score": 19.5,
+          "symbolId": "symbol:WyJmaWxlOjIzNTVmZTRmZTBiZDZjYmEwZTA5MzA3YSIsImNvbWJpbmVkRGlzcG9zYWJsZSIsImZ1bmN0aW9uIiwiZXh0ZW5zaW9ucy5naXQuc3JjLnV0aWwiLDM1LDBd",
+          "name": "extensions.git.src.util.combinedDisposable",
+          "path": "extensions/git/src/util.ts",
+          "startLine": 35
+        },
+        {
+          "type": "symbol",
+          "score": 19.5,
+          "symbolId": "symbol:WyJmaWxlOmFkMzE5MWNhN2NmOWEwZWZjOWEzMWI2ZSIsImNvbWJpbmVkRGlzcG9zYWJsZSIsImZ1bmN0aW9uIiwic3JjLnZzLmJhc2UuY29tbW9uLmxpZmVjeWNsZSIsMzY0LDBd",
+          "name": "src.vs.base.common.lifecycle.combinedDisposable",
+          "path": "src/vs/base/common/lifecycle.ts",
+          "startLine": 364
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjIzNTVmZTRmZTBiZDZjYmEwZTA5MzA3YSIsIjxhcnJvd0AzNjoyMT4iLCJmdW5jdGlvbiIsImV4dGVuc2lvbnMuZ2l0LnNyYy51dGlsLmNvbWJpbmVkRGlzcG9zYWJsZSIsMzYsMjFd",
+          "name": "extensions.git.src.util.combinedDisposable.<arrow@36:21>",
+          "path": "extensions/git/src/util.ts",
+          "startLine": 36
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOmFkMzE5MWNhN2NmOWEwZWZjOWEzMWI2ZSIsIjxhcnJvd0AzNjU6Mjk-IiwiZnVuY3Rpb24iLCJzcmMudnMuYmFzZS5jb21tb24ubGlmZWN5Y2xlLmNvbWJpbmVkRGlzcG9zYWJsZSIsMzY1LDI5XQ",
+          "name": "src.vs.base.common.lifecycle.combinedDisposable.<arrow@365:29>",
+          "path": "src/vs/base/common/lifecycle.ts",
+          "startLine": 365
+        }
+      ],
+      "evidence": [
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "extensions/git/src/util.ts",
+          "symbolId": "symbol:WyJmaWxlOjIzNTVmZTRmZTBiZDZjYmEwZTA5MzA3YSIsImNvbWJpbmVkRGlzcG9zYWJsZSIsImZ1bmN0aW9uIiwiZXh0ZW5zaW9ucy5naXQuc3JjLnV0aWwiLDM1LDBd",
+          "symbol": "extensions.git.src.util.combinedDisposable",
+          "startLine": 35,
+          "endLine": 37,
+          "startByte": 1344,
+          "endByte": 1473,
+          "blobDigest": "ca8970dfd639f76346ada7eaa09e4608582d5fc9bddca35ae2105700dfb23c89",
+          "source": "export function combinedDisposable(disposables: IDisposable[]): IDisposable {\n\treturn toDisposable(() => dispose(disposables));\n}",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "src/vs/base/common/lifecycle.ts",
+          "symbolId": "symbol:WyJmaWxlOmFkMzE5MWNhN2NmOWEwZWZjOWEzMWI2ZSIsImNvbWJpbmVkRGlzcG9zYWJsZSIsImZ1bmN0aW9uIiwic3JjLnZzLmJhc2UuY29tbW9uLmxpZmVjeWNsZSIsMzY0LDBd",
+          "symbol": "src.vs.base.common.lifecycle.combinedDisposable",
+          "startLine": 364,
+          "endLine": 368,
+          "startByte": 11581,
+          "endByte": 11783,
+          "blobDigest": "7ac563cbec7e6f38b603cb9471fe466aadedcc2d70ac85020c4146e47a2584ce",
+          "source": "export function combinedDisposable(...disposables: IDisposable[]): IDisposable {\n\tconst parent = toDisposable(() => dispose(disposables));\n\tsetParentOfDisposables(disposables, parent);\n\treturn parent;\n}",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "extensions/git/src/util.ts",
+          "symbolId": "symbol:WyJmaWxlOjIzNTVmZTRmZTBiZDZjYmEwZTA5MzA3YSIsIjxhcnJvd0AzNjoyMT4iLCJmdW5jdGlvbiIsImV4dGVuc2lvbnMuZ2l0LnNyYy51dGlsLmNvbWJpbmVkRGlzcG9zYWJsZSIsMzYsMjFd",
+          "symbol": "extensions.git.src.util.combinedDisposable.<arrow@36:21>",
+          "startLine": 36,
+          "endLine": 36,
+          "startByte": 1443,
+          "endByte": 1469,
+          "blobDigest": "ca8970dfd639f76346ada7eaa09e4608582d5fc9bddca35ae2105700dfb23c89",
+          "source": "() => dispose(disposables)",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "src/vs/base/common/lifecycle.ts",
+          "symbolId": "symbol:WyJmaWxlOmFkMzE5MWNhN2NmOWEwZWZjOWEzMWI2ZSIsIjxhcnJvd0AzNjU6Mjk-IiwiZnVuY3Rpb24iLCJzcmMudnMuYmFzZS5jb21tb24ubGlmZWN5Y2xlLmNvbWJpbmVkRGlzcG9zYWJsZSIsMzY1LDI5XQ",
+          "symbol": "src.vs.base.common.lifecycle.combinedDisposable.<arrow@365:29>",
+          "startLine": 365,
+          "endLine": 365,
+          "startByte": 11691,
+          "endByte": 11717,
+          "blobDigest": "7ac563cbec7e6f38b603cb9471fe466aadedcc2d70ac85020c4146e47a2584ce",
+          "source": "() => dispose(disposables)",
+          "kind": "source"
+        }
+      ]
+    },
+    {
+      "mode": "content",
+      "query": "Manages a collection of disposable values",
+      "metadataMs": 6.653938000000153,
+      "hitAt10": true,
+      "expectedEvidence": true,
+      "candidates": [
+        {
+          "type": "content",
+          "score": 5.757269671240575,
+          "path": "src/vs/base/common/lifecycle.ts",
+          "fileId": "file:ad3191ca7cf9a0efc9a31b6e",
+          "blobDigest": "7ac563cbec7e6f38b603cb9471fe466aadedcc2d70ac85020c4146e47a2584ce"
+        }
+      ],
+      "evidence": [
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "src/vs/base/common/lifecycle.ts",
+          "fileId": "file:ad3191ca7cf9a0efc9a31b6e",
+          "startLine": 403,
+          "endLine": 405,
+          "startByte": 12523,
+          "endByte": 12682,
+          "blobDigest": "7ac563cbec7e6f38b603cb9471fe466aadedcc2d70ac85020c4146e47a2584ce",
+          "source": " * Manages a collection of disposable values.\n *\n * This is the preferred way to manage multiple disposables. A `DisposableStore` is safer to work with than an",
+          "kind": "content",
+          "match": {
+            "startByte": 12526,
+            "endByte": 12567,
+            "startLine": 403,
+            "endLine": 403
+          },
+          "truncated": false
+        }
+      ]
+    },
+    {
+      "mode": "content",
+      "query": "Encountered errors while disposing of store",
+      "metadataMs": 2.8958439999998973,
+      "hitAt10": true,
+      "expectedEvidence": true,
+      "candidates": [
+        {
+          "type": "content",
+          "score": 12.195316465489103,
+          "path": "extensions/markdown-language-features/src/util/dispose.ts",
+          "fileId": "file:59f82f374040be6ac76f367c",
+          "blobDigest": "be78054b34ce5a138a7dc494e4573f12c71da2a521813fedda64e2aff0c3aea5"
+        },
+        {
+          "type": "content",
+          "score": 12.070164893099673,
+          "path": "extensions/typescript-language-features/src/utils/dispose.ts",
+          "fileId": "file:2ba168603531ad10781a255b",
+          "blobDigest": "181b13edc5d4d14934fe84953c8b9b09bac7b7df84b09ac23c3f5f2557bff378"
+        },
+        {
+          "type": "content",
+          "score": 5.189253140293786,
+          "path": "src/vs/base/common/lifecycle.ts",
+          "fileId": "file:ad3191ca7cf9a0efc9a31b6e",
+          "blobDigest": "7ac563cbec7e6f38b603cb9471fe466aadedcc2d70ac85020c4146e47a2584ce"
+        }
+      ],
+      "evidence": [
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "extensions/markdown-language-features/src/util/dispose.ts",
+          "fileId": "file:59f82f374040be6ac76f367c",
+          "startLine": 22,
+          "endLine": 24,
+          "startByte": 684,
+          "endByte": 771,
+          "blobDigest": "be78054b34ce5a138a7dc494e4573f12c71da2a521813fedda64e2aff0c3aea5",
+          "source": "\t\tthrow new AggregateError(errors, 'Encountered errors while disposing of store');\n\t}\n}",
+          "kind": "content",
+          "match": {
+            "startByte": 720,
+            "endByte": 763,
+            "startLine": 22,
+            "endLine": 22
+          },
+          "truncated": false
+        },
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "extensions/typescript-language-features/src/utils/dispose.ts",
+          "fileId": "file:2ba168603531ad10781a255b",
+          "startLine": 23,
+          "endLine": 25,
+          "startByte": 685,
+          "endByte": 772,
+          "blobDigest": "181b13edc5d4d14934fe84953c8b9b09bac7b7df84b09ac23c3f5f2557bff378",
+          "source": "\t\tthrow new AggregateError(errors, 'Encountered errors while disposing of store');\n\t}\n}",
+          "kind": "content",
+          "match": {
+            "startByte": 721,
+            "endByte": 764,
+            "startLine": 23,
+            "endLine": 23
+          },
+          "truncated": false
+        },
+        {
+          "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+          "path": "src/vs/base/common/lifecycle.ts",
+          "fileId": "file:ad3191ca7cf9a0efc9a31b6e",
+          "startLine": 342,
+          "endLine": 344,
+          "startByte": 11117,
+          "endByte": 11205,
+          "blobDigest": "7ac563cbec7e6f38b603cb9471fe466aadedcc2d70ac85020c4146e47a2584ce",
+          "source": "\t\t\tthrow new AggregateError(errors, 'Encountered errors while disposing of store');\n\t\t}\n",
+          "kind": "content",
+          "match": {
+            "startByte": 11154,
+            "endByte": 11197,
+            "startLine": 342,
+            "endLine": 342
+          },
+          "truncated": false
+        }
+      ]
+    }
+  ]
+}

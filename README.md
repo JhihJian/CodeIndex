@@ -2,7 +2,7 @@
 
 CodeIndex 为代码仓库建立不可变的结构索引，回答“代码在哪里”“谁调用这个函数”“它调用了什么”等问题。查询先检索元数据，再读取少量源码证据，每条证据绑定快照、路径、行号、字节范围和内容摘要。
 
-正式后端采用 **Universal Ctags + Cscope + 紧凑 SQLite**。0.3 在固定 TypeScript 输入上全量建库 **10.68 秒**，Linux v6.12 的 86,363 个文件全量建库 **78.74 秒**，包含校验与发布。整棵被测进程树限制为 12 GiB、禁 swap，测量与正确性证据见 [性能迭代实测](benchmarks/index-performance.md)。
+正式后端采用 **Universal Ctags + Cscope + 紧凑 SQLite**，JS/TS 使用 TypeScript AST，Python 使用 CPython 3.14+。0.4 在冻结 CPython、VS Code、LLVM 输入上完成全文索引，建库中位数分别为 **11.47、11.96、115.40 秒**。整棵被测进程树限制为 12 GiB、禁 swap，覆盖、查询能力和版本成本见 [0.4 验收报告](benchmarks/parser-reliability.md)。
 
 ## 安装
 
@@ -86,10 +86,11 @@ node bin/codeindex.js benchmark \
   --output benchmarks/results/pageindex-native.json
 ```
 
-当前正式版本验证包括 Linux C/Python 各 4 个问题、8 组 C 调用查询，以及 PageIndex 6 个自然语言问题。原始结果保存在 [benchmarks/results](benchmarks/results)。
+0.4 在 Node 24.13.1 和 22.23.2 各通过 122 项测试，并核验三个真实项目共 171,129 个文件的完整正文。符号文件命中、声明行证据及原生调用能力分别统计，结果见 [解析可靠性与正文检索验收](benchmarks/parser-reliability.md)。历史 Linux 与 PageIndex 结果保存在 [benchmarks/results](benchmarks/results)。
 
 以下报告保留各自版本和测量口径：
 
+- [0.4 解析可靠性、完整正文与增量等价验收](benchmarks/parser-reliability.md)
 - [0.3 性能迭代与内存受限实测](benchmarks/index-performance.md)
 - [CPython、VS Code、LLVM 新项目横向验证](benchmarks/heldout-comparison.md)
 - [OpenGrok、Zoekt、CodeGraphContext 固定输入实测](benchmarks/index-tool-comparison.md)

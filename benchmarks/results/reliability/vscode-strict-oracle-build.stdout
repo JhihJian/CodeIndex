@@ -1,0 +1,36 @@
+{
+  "repositoryId": "repo-ff10757cc0a66e40c305",
+  "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:c7b99075d91bbc09c0b92a14",
+  "status": "partial",
+  "stats": {
+    "files": 8071,
+    "symbols": 227750,
+    "relations": 573978,
+    "sourceBytes": 95990722,
+    "changedFiles": 8071,
+    "removedFiles": 0,
+    "reusedFiles": 0,
+    "parsedFiles": 5988,
+    "partialFiles": 2089,
+    "skipped": 1,
+    "nodes": 238161,
+    "nativeFiles": 7,
+    "nativeIndexedFiles": 7,
+    "workers": 4,
+    "nativeBuildMode": "full",
+    "nativeTaskMs": 43,
+    "relationsScope": "stored-sql-relations; native calls and references queried from cscope",
+    "stages": {
+      "scan": 1015,
+      "source-and-files": 1820,
+      "native-symbols": 47,
+      "parser-symbols": 7033,
+      "relations": 0,
+      "indexes": 1930,
+      "native-cross-references": 0,
+      "validation": 224
+    },
+    "buildMs": 12070
+  },
+  "store": "/data/dev/CodeIndex/.data/reliability/oracles/codeindex/vscode"
+}

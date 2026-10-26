@@ -1,0 +1,25 @@
+{
+  "command": [
+    "node",
+    "benchmarks/reliability/audit.mjs",
+    "/data/dev/CodeIndex/.data/reliability/indexes/codeindex/llvm",
+    "llvm",
+    "/data/dev/CodeIndex/.data/reliability/inputs/llvm.files.json"
+  ],
+  "cwd": "/data/dev/CodeIndex-worktrees/feature/parser-reliability",
+  "systemdUnit": "codeindex-benchmark-2971512.scope",
+  "systemdResult": "success",
+  "status": "success",
+  "exitCode": 0,
+  "wallSeconds": 15.94,
+  "wallSecondsIncludingSupervisor": 16.051867567934096,
+  "timeLimitSeconds": 1800,
+  "memoryLimitGiB": 12,
+  "gnuTimeMaxRssKiB": 318048,
+  "sampledProcessTreeRssSumBytes": 322826240,
+  "workloadSampled": true,
+  "cgroupMemoryPeakBytes": 2394558464,
+  "sampleIntervalSeconds": 0.25,
+  "leftoverProcessIdsTerminated": [],
+  "memoryNotes": "RSS sum can double-count shared pages; cgroup memory includes page cache; GNU time max RSS is not simultaneous tree total"
+}

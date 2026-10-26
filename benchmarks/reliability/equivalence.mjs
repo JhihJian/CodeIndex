@@ -1,0 +1,151 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import assert from 'node:assert/strict';
+import { createHash } from 'node:crypto';
+import { loadIndex } from '../../src/index.js';
+import { openCompactStore } from '../../src/lib/compact-store.js';
+
+const [baseline, optimized, inventoryFile] = process.argv.slice(2);
+function open(location) {
+  const manifest = path.join(location, 'manifest.json');
+  return fs.existsSync(manifest) ? openCompactStore(location, JSON.parse(fs.readFileSync(manifest, 'utf8'))) : loadIndex(location);
+}
+const before = open(baseline);
+const after = open(optimized);
+const inventory = JSON.parse(fs.readFileSync(inventoryFile, 'utf8'));
+function records(index, file) {
+  const { id } = index.db.prepare('SELECT id FROM files WHERE path=?').get(file);
+  const symbols = index.db.prepare(`SELECT s.kind,s.name,s.scope,s.symbol_key,s.qualified_name,s.signature,s.doc,
+    s.start_line,s.end_line,s.start_column,s.end_column,s.start_byte,s.end_byte,
+    p.name AS parent_name,p.kind AS parent_kind,p.scope AS parent_scope,p.start_line AS parent_line,p.start_column AS parent_column
+    FROM symbols s LEFT JOIN symbols p ON p.id=s.parent_id WHERE s.file_id=?
+    ORDER BY s.kind,s.name,s.scope,s.start_line,s.start_column,s.symbol_key`).all(id);
+  const relations = index.db.prepare(`SELECT r.relation_id,r.type,r.target_name,r.target_normalized,r.target_leaf,r.target_module_path,
+    r.start_line,r.end_line,r.start_column,r.end_column,r.start_byte,r.end_byte,
+    s.name AS source_name,s.kind AS source_kind,s.scope AS source_scope,s.start_line AS source_line,s.start_column AS source_column
+    FROM relations r JOIN symbols s ON s.id=r.source_id WHERE r.file_id=?
+    ORDER BY r.type,r.target_name,r.start_line,r.start_column,s.name,s.kind,s.scope,s.start_line,s.start_column`).all(id);
+  return { symbols, relations };
+}
+function nativeHash(directory) {
+  const file = path.join(directory, 'native/cscope.out');
+  if (!fs.existsSync(file)) return null;
+  const hash = createHash('sha256');
+  const fd = fs.openSync(file, 'r');
+  const buffer = Buffer.alloc(1024 * 1024);
+  let first = true;
+  try {
+    let bytes;
+    while ((bytes = fs.readSync(fd, buffer, 0, buffer.length, null))) {
+      const start = first ? buffer.indexOf(10) + 1 : 0;
+      assert.ok(!first || start > 0);
+      first = false;
+      hash.update(buffer.subarray(start, bytes));
+    }
+  } finally { fs.closeSync(fd); }
+  return hash.digest('hex');
+}
+function dictionaryHash(file) {
+  // Cscope 15.9 invlib.h on x86-64: PARAM is 7 longs, ENTRY is 16 bytes.
+  const hash = createHash('sha256');
+  const fd = fs.openSync(file, 'r');
+  const readAt = (size, offset) => { const bytes = Buffer.alloc(size); assert.equal(fs.readSync(fd, bytes, 0, size, offset), size); return bytes; };
+  try {
+    const param = readAt(56, 0);
+    hash.update(param);
+    const size = Number(param.readBigInt64LE(16));
+    const superStart = Number(param.readBigInt64LE(24));
+    const superSize = Number(param.readBigInt64LE(32));
+    const controlSize = Number(param.readBigInt64LE(40));
+    assert.ok(size > 0 && size <= 65536 && superSize > 0 && superSize <= 64 * 1024 * 1024);
+    const blocks = Number(readAt(8, superStart).readBigInt64LE());
+    assert.equal(superStart, controlSize + (blocks + 1) * size);
+    for (let number = 0; number < blocks; number++) {
+      const block = readAt(size, controlSize + number * size);
+      const entries = Number(block.readBigInt64LE());
+      assert.ok(entries >= 0 && 24 + entries * 16 <= size);
+      hash.update(block.subarray(0, 24));
+      for (let entry = 24; entry < 24 + entries * 16; entry += 16) {
+        const offset = block.readInt16LE(entry), length = block[entry + 2];
+        const posting = offset + Math.ceil(length / 8) * 8;
+        assert.ok(offset >= 0 && posting + 8 <= size);
+        hash.update(block.subarray(entry, entry + 4));
+        hash.update(block.subarray(entry + 8, entry + 16));
+        hash.update(block.subarray(offset, offset + length));
+        hash.update(block.subarray(posting, posting + 8));
+      }
+    }
+    hash.update(readAt(superSize, superStart));
+    return hash.digest('hex');
+  } finally { fs.closeSync(fd); }
+}
+function artifactHash(file, postings = false) {
+  const hash = createHash('sha256');
+  const fd = fs.openSync(file, 'r');
+  const buffer = Buffer.alloc(24 * 32768);
+  try {
+    let bytes;
+    while ((bytes = fs.readSync(fd, buffer, 0, buffer.length, null))) {
+      if (postings) {
+        // Cscope 15.9 x86-64 POSTING: two 64-bit offsets, 32-bit file/type, 4 padding bytes.
+        assert.equal(bytes % 24, 0);
+        for (let position = 20; position < bytes; position += 24) buffer.writeUInt32LE(0, position);
+      }
+      hash.update(buffer.subarray(0, bytes));
+    }
+  } finally { fs.closeSync(fd); }
+  return hash.digest('hex');
+}
+function headerBytes(directory) {
+  const fd = fs.openSync(path.join(directory, 'native/cscope.out'), 'r');
+  const buffer = Buffer.alloc(65536);
+  try { const bytes = fs.readSync(fd, buffer); const end = buffer.subarray(0, bytes).indexOf(10); assert.ok(end > 0); return end + 1; }
+  finally { fs.closeSync(fd); }
+}
+try {
+  // Bound SQLite caches; per-file records avoid retaining whole-repository facts.
+  for (const index of [before, after]) {
+    index.db.exec('PRAGMA cache_size=-32768; PRAGMA temp_store=FILE');
+    assert.equal(index.db.prepare('SELECT count(*) AS n FROM files').get().n, inventory.length);
+    assert.equal(index.db.prepare('SELECT count(*) AS n FROM source_fts').get().n, inventory.length);
+  }
+  const bodies = [before, after].map(index => index.db.prepare('SELECT f.public_id,f.digest,f.bytes,f.line_count,f.line_offsets,f.language,f.parse_status,f.parse_error,s.body FROM files f JOIN source_fts s ON s.rowid=f.id WHERE f.path=?'));
+  let symbols = 0, relations = 0;
+  const digest = createHash('sha256');
+  const blobs = new Set();
+  for (const item of inventory) {
+    const body = bodies.map(statement => statement.get(item.path));
+    assert.deepEqual(body[1], body[0], `file metadata/body differs: ${item.path}`);
+    assert.equal(body[0].digest, item.digest);
+    assert.equal(createHash('sha256').update(body[0].body).digest('hex'), item.digest, item.path);
+    const old = records(before, item.path);
+    const current = records(after, item.path);
+    assert.deepEqual(current, old, `facts differ: ${item.path}`);
+    symbols += current.symbols.length;
+    relations += current.relations.length;
+    digest.update(JSON.stringify([item.path, current]));
+    if (!blobs.has(item.digest)) {
+      const source = fs.readFileSync(path.join(after.snapshotDir, 'source', item.digest));
+      assert.equal(createHash('sha256').update(source).digest('hex'), item.digest, item.path);
+      blobs.add(item.digest);
+    }
+    const tree = fs.readFileSync(path.join(after.snapshotDir, 'tree', item.path));
+    assert.equal(createHash('sha256').update(tree).digest('hex'), item.digest, item.path);
+  }
+  const oldNative = nativeHash(before.snapshotDir);
+  const newNative = nativeHash(after.snapshotDir);
+  assert.equal(newNative, oldNative, 'native cross-reference body differs');
+  if (oldNative) assert.equal(headerBytes(before.snapshotDir), headerBytes(after.snapshotDir),
+    'Use oracle and incremental store paths of equal UTF-8 byte length for Cscope posting offsets');
+  const nativeArtifacts = {};
+  for (const name of ['cscope.paths.json', 'cscope.out.in', 'cscope.out.po']) {
+    const paths = [before, after].map(index => path.join(index.snapshotDir, 'native', name));
+    if (!oldNative) { assert.ok(paths.every(file => !fs.existsSync(file))); continue; }
+    const values = paths.map(file => name === 'cscope.out.in' ? dictionaryHash(file) : artifactHash(file, name === 'cscope.out.po'));
+    assert.equal(values[1], values[0], `native artifact differs: ${name}`);
+    nativeArtifacts[name] = values[0];
+  }
+  console.log(JSON.stringify({ files: inventory.length, symbols, relations, nativeArtifacts, factsSha256: digest.digest('hex'),
+    sourceBodiesChecked: inventory.length, sourceBlobsChecked: blobs.size, nativeBodySha256: newNative, equivalent: true,
+    scope: 'Every file: metadata, parse status, complete FTS body and digest, symbol fields and parent identities, stored relations, source/blob digests; entire Cscope body, path map, inverted dictionary and every posting (x86-64 ABI padding excluded)' }, null, 2));
+} finally { before.close(); after.close(); }

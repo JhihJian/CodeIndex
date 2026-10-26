@@ -1,0 +1,25 @@
+{
+  "command": [
+    "node",
+    "benchmarks/competitors/codeindex-relations.mjs",
+    "/data/dev/CodeIndex/.data/reliability/indexes/codeindex/cpython",
+    "cpython",
+    "benchmarks/heldout/relation-cases.json"
+  ],
+  "cwd": "/data/dev/CodeIndex-worktrees/feature/parser-reliability",
+  "systemdUnit": "codeindex-benchmark-2971456.scope",
+  "systemdResult": "success",
+  "status": "success",
+  "exitCode": 0,
+  "wallSeconds": 0.31,
+  "wallSecondsIncludingSupervisor": 0.5160011700354517,
+  "timeLimitSeconds": 300,
+  "memoryLimitGiB": 12,
+  "gnuTimeMaxRssKiB": 130752,
+  "sampledProcessTreeRssSumBytes": 130142208,
+  "workloadSampled": true,
+  "cgroupMemoryPeakBytes": 84213760,
+  "sampleIntervalSeconds": 0.25,
+  "leftoverProcessIdsTerminated": [],
+  "memoryNotes": "RSS sum can double-count shared pages; cgroup memory includes page cache; GNU time max RSS is not simultaneous tree total"
+}

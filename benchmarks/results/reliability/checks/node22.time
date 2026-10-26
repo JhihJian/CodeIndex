@@ -1,0 +1,23 @@
+	Command being timed: "env PATH=/home/jhihjian/.npm/_npx/52027bd8fc0022aa/node_modules/node/bin:/home/jhihjian/.pi/agent/bin:/opt/gradle-8.12/bin:/opt/gradle-8.12/bin:/home/jhihjian/bin:/home/jhihjian/.bun/bin:/home/jhihjian/.bun/bin:/home/jhihjian/.bun/bin:/home/jhihjian/.local/bin:/home/jhihjian/bin:/opt/gradle-8.12/bin:/home/jhihjian/.local/share/pnpm:/opt/gradle-8.12/bin:/home/jhihjian/.nvm/versions/node/v24.13.1/bin:/home/jhihjian/bin:/home/jhihjian/.bun/bin:/home/jhihjian/.bun/bin:/home/jhihjian/.cargo/bin:/home/jhihjian/.bun/bin:/home/jhihjian/.local/bin:/opt/gradle-8.12/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/data/app/bin:/usr/local/go/bin:/home/jhihjian/go/bin:/opt/android-sdk/cmdline-tools/latest/bin:/opt/android-sdk/platform-tools:/opt/android-sdk/build-tools/35.0.0:/data/app/bin:/usr/local/go/bin:/home/jhihjian/go/bin:/opt/android-sdk/cmdline-tools/latest/bin:/opt/android-sdk/platform-tools:/opt/android-sdk/build-tools/35.0.0 node --test"
+	User time (seconds): 0.00
+	System time (seconds): 0.00
+	Percent of CPU this job got: 100%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.00
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 1904
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 91
+	Voluntary context switches: 1
+	Involuntary context switches: 0
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 0
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

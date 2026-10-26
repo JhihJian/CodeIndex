@@ -1,0 +1,23 @@
+	Command being timed: "node /data/dev/CodeIndex-worktrees/feature/parser-reliability/bin/codeindex.js index --repo /data/dev/CodeIndex/.data/reliability/inputs/cpython --store /data/dev/CodeIndex/.data/reliability/indexes/codeindex/cpython --workers 4 --progress"
+	User time (seconds): 19.91
+	System time (seconds): 2.79
+	Percent of CPU this job got: 197%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:11.47
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 493132
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 21
+	Minor (reclaiming a frame) page faults: 812736
+	Voluntary context switches: 8746
+	Involuntary context switches: 833
+	Swaps: 0
+	File system inputs: 3712
+	File system outputs: 897712
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

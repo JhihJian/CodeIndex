@@ -1,0 +1,11 @@
+{
+  "files": 8071,
+  "symbols": 227750,
+  "relations": 573978,
+  "factsSha256": "74ffd6fd2691a805d3f250bd598a84d2677ef5a711bb2643faaa5cdcc212b5fe",
+  "sourceBodiesChecked": 8071,
+  "sourceBlobsChecked": 7755,
+  "nativeBodySha256": "a711f8e162d1df66546d4b7f6483b82dbac2e7a444434d0adfcd1e8292b20cae",
+  "equivalent": true,
+  "scope": "Every file: metadata, parse status, complete FTS body and digest, symbol fields and parent identities, stored relations, source/blob digests; entire Cscope body after the cwd header"
+}

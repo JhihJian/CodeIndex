@@ -1,0 +1,864 @@
+{
+  "tool": "CodeIndex",
+  "loadMs": 1.7625279999999748,
+  "mode": "metadata",
+  "warmup": 1,
+  "repetitions": 20,
+  "rows": [
+    {
+      "query": "DisposableStore",
+      "hitAt10": true,
+      "coldMs": 12.894364999999993,
+      "medianMs": 5.481735500000013,
+      "evidenceMs": 7.275051000000019,
+      "files": [
+        {
+          "path": "extensions/github/src/util.ts",
+          "symbol": "extensions.github.src.util.DisposableStore",
+          "lines": [
+            {
+              "line": 9,
+              "source": "export class DisposableStore {\n\n\tprivate disposables = new Set<vscode.Disposable>();",
+              "digest": "2ae7dfe0b2b64d19791dc9b6310d68afd9dc26f79a045b12fe562e4b322b6872"
+            },
+            {
+              "line": 17,
+              "source": "dispose(): void {\n\t\tfor (const disposable of this.disposables) {\n\t\t\tdisposable.dispose();",
+              "digest": "2ae7dfe0b2b64d19791dc9b6310d68afd9dc26f79a045b12fe562e4b322b6872"
+            }
+          ]
+        },
+        {
+          "path": "extensions/typescript-language-features/src/utils/dispose.ts",
+          "symbol": "extensions.typescript-language-features.src.utils.dispose.DisposableStore",
+          "lines": [
+            {
+              "line": 58,
+              "source": "export class DisposableStore extends Disposable {\n\n\tpublic add<T extends IDisposable>(disposable: T): T {",
+              "digest": "181b13edc5d4d14934fe84953c8b9b09bac7b7df84b09ac23c3f5f2557bff378"
+            }
+          ]
+        },
+        {
+          "path": "src/vs/base/common/lifecycle.ts",
+          "symbol": "src.vs.base.common.lifecycle.DisposableStore",
+          "lines": [
+            {
+              "line": 409,
+              "source": "export class DisposableStore implements IDisposable {\n\n\tstatic DISABLE_DISPOSED_WARNING = false;",
+              "digest": "7ac563cbec7e6f38b603cb9471fe466aadedcc2d70ac85020c4146e47a2584ce"
+            }
+          ]
+        },
+        {
+          "path": "extensions/notebook-renderers/src/index.ts",
+          "symbol": "extensions.notebook-renderers.src.index.DisposableStore",
+          "lines": [
+            {
+              "line": 165,
+              "source": "type DisposableStore = ReturnType<typeof createDisposableStore>;",
+              "digest": "da4f12c179cc8cf20a86b13acb916ba5e8b525bac0cb56e9aea6bbd6b256ad44"
+            }
+          ]
+        },
+        {
+          "path": "src/vs/workbench/api/browser/mainThreadComments.ts",
+          "symbol": "src.vs.workbench.api.browser.mainThreadComments.CommentThreadWithDisposable.disposableStore",
+          "lines": [
+            {
+              "line": 235,
+              "source": "public readonly disposableStore: DisposableStore = new DisposableStore();",
+              "digest": "148e2dc901b5475e3577aa824bf0ce45dd2f0e2cdd5679321296c226ada41a44"
+            }
+          ]
+        },
+        {
+          "path": "src/vs/workbench/api/common/extHostTreeViews.ts",
+          "symbol": "src.vs.workbench.api.common.extHostTreeViews.TreeNode.disposableStore",
+          "lines": [
+            {
+              "line": 307,
+              "source": "disposableStore: DisposableStore;",
+              "digest": "5fe881b6bac4424a5c80320bba9e777f0dcbfefb0c3dedffaae95c827fa4259b"
+            }
+          ]
+        },
+        {
+          "path": "src/vs/workbench/contrib/extensions/browser/extensionsViewer.ts",
+          "symbol": "src.vs.workbench.contrib.extensions.browser.extensionsViewer.ExtensionsGridView.disposableStore",
+          "lines": [
+            {
+              "line": 165,
+              "source": "private readonly disposableStore: DisposableStore;",
+              "digest": "f973a98cd5c26dd2179de5fbe6162bc006fdd24b266814dea3457dc2dcddfef9"
+            }
+          ]
+        },
+        {
+          "path": "src/vs/workbench/contrib/mergeEditor/browser/mergeMarkers/mergeMarkersController.ts",
+          "symbol": "src.vs.workbench.contrib.mergeEditor.browser.mergeMarkers.mergeMarkersController.MergeMarkersController.disposableStore",
+          "lines": [
+            {
+              "line": 22,
+              "source": "private readonly disposableStore = new DisposableStore();",
+              "digest": "254dbc052d86e3d1c0d9daee7f4b58308b50815f89648fc868fda1361bcdf084"
+            }
+          ]
+        },
+        {
+          "path": "extensions/github/src/extension.ts",
+          "symbol": "extensions.github.src.extension.setGitHubContext",
+          "lines": [
+            {
+              "line": 76,
+              "source": "function setGitHubContext(gitAPI: API, disposables: DisposableStore) {\n\tif (gitAPI.repositories.find(repo => repositoryHasGitHubRemote(repo))) {\n\t\tcommands.executeCommand('setContext', 'github.hasGitHubRepo', true);",
+              "digest": "226b1774eaff74af8041cf72fb6fae337cad4089dc4ca3cf23c63d3457ed3336"
+            }
+          ]
+        },
+        {
+          "path": "src/vs/base/browser/dom.ts",
+          "symbol": "src.vs.base.browser.dom.ObserverNode.keepUpdated",
+          "lines": []
+        }
+      ]
+    },
+    {
+      "query": "MutableDisposable",
+      "hitAt10": true,
+      "coldMs": 2.274294999999995,
+      "medianMs": 1.7192870000000084,
+      "evidenceMs": 2.44621699999999,
+      "files": [
+        {
+          "path": "src/vs/base/common/lifecycle.ts",
+          "symbol": "src.vs.base.common.lifecycle.MutableDisposable",
+          "lines": [
+            {
+              "line": 559,
+              "source": "export class MutableDisposable<T extends IDisposable> implements IDisposable {\n\tprivate _value?: T;\n\tprivate _isDisposed = false;",
+              "digest": "7ac563cbec7e6f38b603cb9471fe466aadedcc2d70ac85020c4146e47a2584ce"
+            },
+            {
+              "line": 563,
+              "source": "constructor() {\n\t\ttrackDisposable(this);\n\t}",
+              "digest": "7ac563cbec7e6f38b603cb9471fe466aadedcc2d70ac85020c4146e47a2584ce"
+            },
+            {
+              "line": 590,
+              "source": "dispose(): void {\n\t\tthis._isDisposed = true;\n\t\tmarkAsDisposed(this);",
+              "digest": "7ac563cbec7e6f38b603cb9471fe466aadedcc2d70ac85020c4146e47a2584ce"
+            }
+          ]
+        },
+        {
+          "path": "src/vs/workbench/browser/parts/editor/editorStatus.ts",
+          "symbol": "src.vs.workbench.browser.parts.editor.editorStatus.EditorStatus.updateElement",
+          "lines": [
+            {
+              "line": 610,
+              "source": "private updateElement(element: MutableDisposable<IStatusbarEntryAccessor>, props: IStatusbarEntry, id: string, alignment: StatusbarAlignment, priority: number) {\n\t\tif (!element.value) {\n\t\t\telement.value = this.statusbarService.addEntry(props, id, alignment, priority);",
+              "digest": "980859a167aa169eab641ce853404393db823ab1c7b4b01c479aa199e2724b76"
+            }
+          ]
+        },
+        {
+          "path": "src/vs/base/browser/ui/findinput/findInput.ts",
+          "symbol": "src.vs.base.browser.ui.findinput.findInput.FindInput.additionalTogglesDisposables",
+          "lines": [
+            {
+              "line": 55,
+              "source": "private readonly additionalTogglesDisposables: MutableDisposable<DisposableStore> = this._register(new MutableDisposable());",
+              "digest": "b7c47c6db785f29294e361c63980baa4a4917392ad48a3f7c07dacc451e431d6"
+            }
+          ]
+        },
+        {
+          "path": "src/vs/base/browser/ui/inputbox/inputBox.ts",
+          "symbol": "src.vs.base.browser.ui.inputbox.inputBox.InputBox.hover",
+          "lines": []
+        },
+        {
+          "path": ".eslint-plugin-local/code-no-potentially-unsafe-disposables.ts",
+          "lines": []
+        },
+        {
+          "path": "src/vs/workbench/contrib/terminalContrib/stickyScroll/browser/terminalStickyScrollContribution.ts",
+          "lines": []
+        },
+        {
+          "path": "src/vs/workbench/contrib/debug/common/debugAccessibilityAnnouncer.ts",
+          "lines": []
+        },
+        {
+          "path": "src/vs/workbench/contrib/terminal/browser/terminalResizeDebouncer.ts",
+          "lines": []
+        },
+        {
+          "path": "src/vs/workbench/contrib/terminalContrib/links/browser/terminalLink.ts",
+          "lines": []
+        },
+        {
+          "path": "src/vs/editor/contrib/colorPicker/browser/standaloneColorPicker/standaloneColorPickerWidget.ts",
+          "lines": []
+        }
+      ]
+    },
+    {
+      "query": "CancellationTokenSource",
+      "hitAt10": true,
+      "coldMs": 3.1281420000000253,
+      "medianMs": 2.2841285000000084,
+      "evidenceMs": 5.661603000000014,
+      "files": [
+        {
+          "path": "src/vs/base/common/cancellation.ts",
+          "symbol": "src.vs.base.common.cancellation.CancellationTokenSource",
+          "lines": [
+            {
+              "line": 97,
+              "source": "export class CancellationTokenSource {\n\n\tprivate _token?: CancellationToken = undefined;",
+              "digest": "c8da8418c76cf8a3ca7509494a28cb9586f8a5ade75f81f4474ceecd089c699e"
+            },
+            {
+              "line": 115,
+              "source": "cancel(): void {\n\t\tif (!this._token) {\n\t\t\t// save an object by returning the default",
+              "digest": "c8da8418c76cf8a3ca7509494a28cb9586f8a5ade75f81f4474ceecd089c699e"
+            },
+            {
+              "line": 102,
+              "source": "constructor(parent?: CancellationToken) {\n\t\tthis._parentListener = parent && parent.onCancellationRequested(this.cancel, this);\n\t}",
+              "digest": "c8da8418c76cf8a3ca7509494a28cb9586f8a5ade75f81f4474ceecd089c699e"
+            }
+          ]
+        },
+        {
+          "path": "src/vs/monaco.d.ts",
+          "symbol": "src.vs.monaco.d.monaco.CancellationTokenSource",
+          "lines": [
+            {
+              "line": 86,
+              "source": "export class CancellationTokenSource {\n\t\tconstructor(parent?: CancellationToken);\n\t\tget token(): CancellationToken;",
+              "digest": "3c9a0d1dbd0deca0927cd1bc45773bc1b7cff3e66c060f0d0dae6843ebffb9f6"
+            }
+          ]
+        },
+        {
+          "path": "src/vscode-dts/vscode.d.ts",
+          "symbol": "src.vscode-dts.vscode.d.vscode.CancellationTokenSource",
+          "lines": [
+            {
+              "line": 1675,
+              "source": "export class CancellationTokenSource {\n\n\t\t/**",
+              "digest": "58a555fc1e70f9c881159c59a18ae35fbbcc9a96123d63c321580f111ea13c29"
+            }
+          ]
+        },
+        {
+          "path": "src/vs/workbench/contrib/notebook/browser/contrib/notebookVariables/notebookVariablesDataSource.ts",
+          "symbol": "src.vs.workbench.contrib.notebook.browser.contrib.notebookVariables.notebookVariablesDataSource.NotebookVariableDataSource.cancellationTokenSource",
+          "lines": [
+            {
+              "line": 40,
+              "source": "private cancellationTokenSource: CancellationTokenSource;",
+              "digest": "169facd4fbe48a85b8fd10faa696e29a05cf6d53dbe9f7d8850dce3f27eaa055"
+            }
+          ]
+        },
+        {
+          "path": "src/vs/base/common/async.ts",
+          "symbol": "src.vs.base.common.async.CancelableAsyncIterableProducer.constructor",
+          "lines": [
+            {
+              "line": 2471,
+              "source": "constructor(\n\t\tprivate readonly _source: CancellationTokenSource,\n\t\texecutor: AsyncIterableExecutor<T>",
+              "digest": "e496ee61e3054743947b3436296a2ee21dde1bdc960c8b935702b948267f0b4e"
+            }
+          ]
+        },
+        {
+          "path": "src/vs/editor/browser/widget/diffEditor/utils.ts",
+          "symbol": "src.vs.editor.browser.widget.diffEditor.utils.DisposableCancellationTokenSource",
+          "lines": [
+            {
+              "line": 378,
+              "source": "export class DisposableCancellationTokenSource extends CancellationTokenSource {\n\tpublic override dispose() {\n\t\tsuper.dispose(true);",
+              "digest": "595f040a432afa0f3a18d9ff291237449a1ef9650c88dcd04f42a80e33c64808"
+            }
+          ]
+        },
+        {
+          "path": "src/vs/editor/contrib/editorState/browser/editorState.ts",
+          "symbol": "src.vs.editor.contrib.editorState.browser.editorState.TextModelCancellationTokenSource",
+          "lines": []
+        },
+        {
+          "path": "src/vs/editor/contrib/editorState/browser/keybindingCancellation.ts",
+          "symbol": "src.vs.editor.contrib.editorState.browser.keybindingCancellation.EditorKeybindingCancellationTokenSource",
+          "lines": []
+        },
+        {
+          "path": "src/vs/base/test/common/cancellation.test.ts",
+          "lines": []
+        },
+        {
+          "path": "src/vs/editor/browser/services/hoverService/updatableHoverWidget.ts",
+          "lines": []
+        }
+      ]
+    },
+    {
+      "query": "Emitter",
+      "hitAt10": true,
+      "coldMs": 5.921760000000006,
+      "medianMs": 4.613045999999997,
+      "evidenceMs": 6.196823999999992,
+      "files": [
+        {
+          "path": "src/vs/base/common/event.ts",
+          "symbol": "src.vs.base.common.event.Emitter",
+          "lines": [
+            {
+              "line": 995,
+              "source": "export class Emitter<T> {\n\n\tprivate readonly _options?: EmitterOptions;",
+              "digest": "c58bebdc0099f9f4078e2497f8a5a71580b4c21437881437257114ca0739af84"
+            },
+            {
+              "line": 651,
+              "source": "readonly emitter: Emitter<T>;",
+              "digest": "c58bebdc0099f9f4078e2497f8a5a71580b4c21437881437257114ca0739af84"
+            },
+            {
+              "line": 1484,
+              "source": "private readonly emitter: Emitter<T>;",
+              "digest": "c58bebdc0099f9f4078e2497f8a5a71580b4c21437881437257114ca0739af84"
+            }
+          ]
+        },
+        {
+          "path": "src/vs/monaco.d.ts",
+          "symbol": "src.vs.monaco.d.monaco.Emitter",
+          "lines": [
+            {
+              "line": 66,
+              "source": "export class Emitter<T> {\n\t\tconstructor();\n\t\treadonly event: IEvent<T>;",
+              "digest": "3c9a0d1dbd0deca0927cd1bc45773bc1b7cff3e66c060f0d0dae6843ebffb9f6"
+            }
+          ]
+        },
+        {
+          "path": "extensions/git/src/repository.ts",
+          "symbol": "extensions.git.src.repository.DotGitWatcher.emitter",
+          "lines": [
+            {
+              "line": 450,
+              "source": "private emitter = new EventEmitter<Uri>();",
+              "digest": "b99b44c4e846df4d1a487a593a108a1bbe5818072f2e6b80af31480227c1c381"
+            }
+          ]
+        },
+        {
+          "path": "src/vs/base/browser/event.ts",
+          "symbol": "src.vs.base.browser.event.DomEmitter.emitter",
+          "lines": [
+            {
+              "line": 30,
+              "source": "private readonly emitter: Emitter<DOMEventMap[K]>;",
+              "digest": "e4cdde1517f01fcc5561eddb36f2a2de4a48c4b61f481ae6536cee3f398ed775"
+            }
+          ]
+        },
+        {
+          "path": "src/vs/base/browser/dom.ts",
+          "symbol": "src.vs.base.browser.dom.ModifierKeyEmitter",
+          "lines": [
+            {
+              "line": 1699,
+              "source": "export class ModifierKeyEmitter extends event.Emitter<IModifierKeyStatus> {\n\n\tprivate readonly _subscriptions = new DisposableStore();",
+              "digest": "88f31ed060bc09698004eee27ef6b4580e2c290e64d21b6385c0211f3ae4d5a7"
+            }
+          ]
+        },
+        {
+          "path": "src/vs/base/common/async.ts",
+          "symbol": "src.vs.base.common.async.createCancelableAsyncIterableProducer.<arrow@2158:55>",
+          "lines": [
+            {
+              "line": 2158,
+              "source": "async (emitter) => {\n\t\tconst subscription = source.token.onCancellationRequested(() => {\n\t\t\tsubscription.dispose();",
+              "digest": "e496ee61e3054743947b3436296a2ee21dde1bdc960c8b935702b948267f0b4e"
+            },
+            {
+              "line": 2198,
+              "source": "emitter => {\n\n\t\t\tif (earlyError) {",
+              "digest": "e496ee61e3054743947b3436296a2ee21dde1bdc960c8b935702b948267f0b4e"
+            }
+          ]
+        },
+        {
+          "path": "src/vs/base/test/common/event.test.ts",
+          "lines": []
+        },
+        {
+          "path": "src/vs/workbench/contrib/chat/test/common/voiceChatService.test.ts",
+          "lines": []
+        },
+        {
+          "path": "src/vs/workbench/api/common/extHostNotebookRenderers.ts",
+          "lines": []
+        },
+        {
+          "path": "src/vs/workbench/contrib/terminal/browser/terminalProcessExtHostProxy.ts",
+          "lines": []
+        }
+      ]
+    },
+    {
+      "query": "URI",
+      "hitAt10": true,
+      "coldMs": 18.562479000000053,
+      "medianMs": 18.102784999999926,
+      "evidenceMs": 19.01657899999998,
+      "files": [
+        {
+          "path": "extensions/git/src/api/api1.ts",
+          "symbol": "extensions.git.src.api.api1.ApiChange.uri",
+          "lines": [
+            {
+              "line": 32,
+              "source": "get uri(): Uri { return this.#resource.resourceUri; }",
+              "digest": "99fb40fb63577db2a5507b053b939262daf09c4c767244e5f95f30090c388c21"
+            }
+          ]
+        },
+        {
+          "path": "src/vs/base/common/uri.ts",
+          "symbol": "src.vs.base.common.uri.URI",
+          "lines": [
+            {
+              "line": 98,
+              "source": "export class URI implements UriComponents {\n\n\tstatic isUri(thing: unknown): thing is URI {",
+              "digest": "91bf39a5b8401917eaffe6142b90a704efa91b5e6d83c32d8b7aafd5479a0dc3"
+            },
+            {
+              "line": 451,
+              "source": "class Uri extends URI {\n\n\t_formatted: string | null = null;",
+              "digest": "91bf39a5b8401917eaffe6142b90a704efa91b5e6d83c32d8b7aafd5479a0dc3"
+            }
+          ]
+        },
+        {
+          "path": "extensions/git/src/fileSystemProvider.ts",
+          "symbol": "extensions.git.src.fileSystemProvider.CacheRow.uri",
+          "lines": [
+            {
+              "line": 14,
+              "source": "uri: Uri;",
+              "digest": "ae02a0bfc3366f5f2bc6d7058e6fc8f9d81e4328985f0c1ddd7e2209e8a9226f"
+            }
+          ]
+        },
+        {
+          "path": "extensions/git/src/model.ts",
+          "symbol": "extensions.git.src.model.ModelChangeEvent.uri",
+          "lines": [
+            {
+              "line": 51,
+              "source": "uri: Uri;",
+              "digest": "f8605be39a4c26f881c79191eef065fae42b7006301a22a152293953fa9d1a84"
+            },
+            {
+              "line": 56,
+              "source": "uri: Uri;",
+              "digest": "f8605be39a4c26f881c79191eef065fae42b7006301a22a152293953fa9d1a84"
+            }
+          ]
+        },
+        {
+          "path": "extensions/github/src/links.ts",
+          "symbol": "extensions.github.src.links.IFilePosition.uri",
+          "lines": [
+            {
+              "line": 32,
+              "source": "uri: vscode.Uri;",
+              "digest": "bbbe9e68d8a1addd6f31fc7183260162a5ada083a8daa602ed87f24ecfa455a9"
+            },
+            {
+              "line": 38,
+              "source": "uri: vscode.Uri;",
+              "digest": "bbbe9e68d8a1addd6f31fc7183260162a5ada083a8daa602ed87f24ecfa455a9"
+            },
+            {
+              "line": 44,
+              "source": "uri: vscode.Uri;",
+              "digest": "bbbe9e68d8a1addd6f31fc7183260162a5ada083a8daa602ed87f24ecfa455a9"
+            }
+          ]
+        },
+        {
+          "path": "extensions/json-language-features/client/src/languageStatus.ts",
+          "symbol": "extensions.json-language-features.client.src.languageStatus.ShowSchemasItem.uri",
+          "lines": [
+            {
+              "line": 19,
+              "source": "uri?: Uri;",
+              "digest": "c8f220714d4f14f4d49c63d9179b9edc3a125f05ba68da3731ac9bbbcf03332e"
+            }
+          ]
+        },
+        {
+          "path": "src/vs/base/common/console.ts",
+          "symbol": "src.vs.base.common.console.IStackFrame.uri",
+          "lines": []
+        },
+        {
+          "path": "src/vs/base/common/dataTransfer.ts",
+          "symbol": "src.vs.base.common.dataTransfer.IDataTransferFile.uri",
+          "lines": []
+        },
+        {
+          "path": "src/vs/base/test/common/resources.test.ts",
+          "lines": []
+        },
+        {
+          "path": "src/vs/workbench/contrib/interactive/browser/interactiveHistoryService.ts",
+          "lines": []
+        }
+      ]
+    },
+    {
+      "query": "Delayer",
+      "hitAt10": true,
+      "coldMs": 2.4496730000000753,
+      "medianMs": 1.7330520000001002,
+      "evidenceMs": 2.223208999999997,
+      "files": [
+        {
+          "path": "extensions/ipynb/src/helper.ts",
+          "symbol": "extensions.ipynb.src.helper.Delayer",
+          "lines": [
+            {
+              "line": 86,
+              "source": "export class Delayer<T> {\n\n\tpublic defaultDelay: number;",
+              "digest": "82ac26df6d65455fe61d7463692cbebf2942d6ecedbc43875fd7bfc531ec645e"
+            }
+          ]
+        },
+        {
+          "path": "extensions/markdown-language-features/src/util/async.ts",
+          "symbol": "extensions.markdown-language-features.src.util.async.Delayer",
+          "lines": [
+            {
+              "line": 10,
+              "source": "export class Delayer<T> {\n\n\tpublic defaultDelay: number;",
+              "digest": "47546b0e15cb9353e280e2cf952101b17a862d08de675e02d3a86f0e98a37e64"
+            }
+          ]
+        },
+        {
+          "path": "extensions/merge-conflict/src/delayer.ts",
+          "symbol": "extensions.merge-conflict.src.delayer.Delayer",
+          "lines": [
+            {
+              "line": 10,
+              "source": "export class Delayer<T> {\n\n\tpublic defaultDelay: number;",
+              "digest": "a2aa55f49c8cefe2778ba0a203e2c2c1a9933104da7d0ebcf8aa09a89ffb99d5"
+            }
+          ]
+        },
+        {
+          "path": "extensions/php-language-features/src/features/utils/async.ts",
+          "symbol": "extensions.php-language-features.src.features.utils.async.Delayer",
+          "lines": [
+            {
+              "line": 103,
+              "source": "export class Delayer<T> {\n\n\tpublic defaultDelay: number;",
+              "digest": "c26e87e3b65d311c1e9c91fc997007950230c86fd2e4a1306170caeaeb61e92f"
+            }
+          ]
+        },
+        {
+          "path": "extensions/typescript-language-features/src/utils/async.ts",
+          "symbol": "extensions.typescript-language-features.src.utils.async.Delayer",
+          "lines": [
+            {
+              "line": 12,
+              "source": "export class Delayer<T> {\n\n\tpublic defaultDelay: number;",
+              "digest": "1ef03be945fa56bd29a3019684f8108a70c1090fde898fbc43e344be8020745f"
+            }
+          ]
+        },
+        {
+          "path": "src/vs/base/common/async.ts",
+          "symbol": "src.vs.base.common.async.Delayer",
+          "lines": [
+            {
+              "line": 373,
+              "source": "export class Delayer<T> implements IDisposable {\n\n\tprivate deferred: IScheduledLater | null;",
+              "digest": "e496ee61e3054743947b3436296a2ee21dde1bdc960c8b935702b948267f0b4e"
+            },
+            {
+              "line": 453,
+              "source": "private delayer: Delayer<Promise<T>>;",
+              "digest": "e496ee61e3054743947b3436296a2ee21dde1bdc960c8b935702b948267f0b4e"
+            }
+          ]
+        },
+        {
+          "path": "src/vs/workbench/contrib/chat/common/promptSyntax/languageProviders/promptValidator.ts",
+          "symbol": "src.vs.workbench.contrib.chat.common.promptSyntax.languageProviders.promptValidator.ModelTracker.delayer",
+          "lines": [
+            {
+              "line": 414,
+              "source": "private readonly delayer: Delayer<void>;",
+              "digest": "92343d5c44a869d076cf2d2bd23e7e86de653fc9360a13a0e7a22bada98f01f1"
+            }
+          ]
+        },
+        {
+          "path": "src/vs/workbench/contrib/processExplorer/browser/processExplorerControl.ts",
+          "symbol": "src.vs.workbench.contrib.processExplorer.browser.processExplorerControl.ProcessExplorerControl.delayer",
+          "lines": [
+            {
+              "line": 337,
+              "source": "private readonly delayer = this._register(new Delayer(1000));",
+              "digest": "8702fed1eb885c3c9a4007e7230118577cb3092b7a59bafff141f87f67d498b0"
+            }
+          ]
+        },
+        {
+          "path": "src/vs/workbench/contrib/search/browser/symbolsQuickAccess.ts",
+          "symbol": "src.vs.workbench.contrib.search.browser.symbolsQuickAccess.SymbolsQuickAccessProvider.delayer",
+          "lines": [
+            {
+              "line": 49,
+              "source": "private delayer = this._register(new ThrottledDelayer<ISymbolQuickPickItem[]>(SymbolsQuickAccessProvider.TYPING_SEARCH_DELAY));",
+              "digest": "bfbe132ceb141898b68d603d0fee606de9b1300a8c67c95b91f9a5c5cd2d76a4"
+            }
+          ]
+        },
+        {
+          "path": "src/vs/workbench/services/extensionManagement/browser/extensionEnablementService.ts",
+          "symbol": "src.vs.workbench.services.extensionManagement.browser.extensionEnablementService.ExtensionEnablementService.delayer",
+          "lines": []
+        }
+      ]
+    },
+    {
+      "query": "RunOnceScheduler",
+      "hitAt10": true,
+      "coldMs": 2.22247799999991,
+      "medianMs": 1.6404894999999442,
+      "evidenceMs": 1.858698000000004,
+      "files": [
+        {
+          "path": "src/vs/base/common/async.ts",
+          "symbol": "src.vs.base.common.async.RunOnceScheduler",
+          "lines": [
+            {
+              "line": 1086,
+              "source": "export class RunOnceScheduler implements IDisposable {\n\n\tprotected runner: ((...args: unknown[]) => void) | null;",
+              "digest": "e496ee61e3054743947b3436296a2ee21dde1bdc960c8b935702b948267f0b4e"
+            },
+            {
+              "line": 1104,
+              "source": "dispose(): void {\n\t\tthis.cancel();\n\t\tthis.runner = null;",
+              "digest": "e496ee61e3054743947b3436296a2ee21dde1bdc960c8b935702b948267f0b4e"
+            },
+            {
+              "line": 1142,
+              "source": "flush(): void {\n\t\tif (this.isScheduled()) {\n\t\t\tthis.cancel();",
+              "digest": "e496ee61e3054743947b3436296a2ee21dde1bdc960c8b935702b948267f0b4e"
+            }
+          ]
+        },
+        {
+          "path": "src/vs/workbench/contrib/notebook/browser/contrib/viewportWarmup/viewportWarmup.ts",
+          "lines": []
+        },
+        {
+          "path": "src/vs/platform/accessibilitySignal/browser/progressAccessibilitySignalScheduler.ts",
+          "lines": []
+        },
+        {
+          "path": "src/vs/platform/layout/browser/zIndexRegistry.ts",
+          "lines": []
+        },
+        {
+          "path": "src/vs/base/browser/ui/progressbar/progressbar.ts",
+          "lines": []
+        },
+        {
+          "path": "src/vs/code/electron-utility/sharedProcess/contrib/userDataProfilesCleaner.ts",
+          "lines": []
+        },
+        {
+          "path": "src/vs/workbench/contrib/notebook/browser/contrib/debug/notebookCellPausing.ts",
+          "lines": []
+        },
+        {
+          "path": "src/vs/workbench/contrib/performance/browser/inputLatencyContrib.ts",
+          "lines": []
+        },
+        {
+          "path": "src/vs/workbench/api/common/extHostMemento.ts",
+          "lines": []
+        },
+        {
+          "path": "src/vs/workbench/contrib/output/browser/outputLinkProvider.ts",
+          "lines": []
+        }
+      ]
+    },
+    {
+      "query": "combinedDisposable",
+      "hitAt10": true,
+      "coldMs": 0.7918620000000374,
+      "medianMs": 0.5647169999999733,
+      "evidenceMs": 2.218740999999909,
+      "files": [
+        {
+          "path": "extensions/git/src/util.ts",
+          "symbol": "extensions.git.src.util.combinedDisposable",
+          "lines": [
+            {
+              "line": 35,
+              "source": "export function combinedDisposable(disposables: IDisposable[]): IDisposable {\n\treturn toDisposable(() => dispose(disposables));\n}",
+              "digest": "ca8970dfd639f76346ada7eaa09e4608582d5fc9bddca35ae2105700dfb23c89"
+            },
+            {
+              "line": 36,
+              "source": "() => dispose(disposables)",
+              "digest": "ca8970dfd639f76346ada7eaa09e4608582d5fc9bddca35ae2105700dfb23c89"
+            }
+          ]
+        },
+        {
+          "path": "src/vs/base/common/lifecycle.ts",
+          "symbol": "src.vs.base.common.lifecycle.combinedDisposable",
+          "lines": [
+            {
+              "line": 364,
+              "source": "export function combinedDisposable(...disposables: IDisposable[]): IDisposable {\n\tconst parent = toDisposable(() => dispose(disposables));\n\tsetParentOfDisposables(disposables, parent);",
+              "digest": "7ac563cbec7e6f38b603cb9471fe466aadedcc2d70ac85020c4146e47a2584ce"
+            },
+            {
+              "line": 365,
+              "source": "() => dispose(disposables)",
+              "digest": "7ac563cbec7e6f38b603cb9471fe466aadedcc2d70ac85020c4146e47a2584ce"
+            }
+          ]
+        },
+        {
+          "path": "src/vs/workbench/browser/actions/widgetNavigationCommands.ts",
+          "lines": [
+            {
+              "line": 11,
+              "source": "import { combinedDisposable, toDisposable, IDisposable, Disposable } from '../../../base/common/lifecycle.js';\nimport { WorkbenchPhase, registerWorkbenchContribution2 } from '../../common/contributions.js';\nimport { ILogService } from '../../../platform/log/common/log.js';",
+              "digest": "b7d93cd6b8c482c6b5815a5a314be28a35cd9b81fef357d0d50462e3109fcfc0"
+            }
+          ]
+        },
+        {
+          "path": "src/vs/workbench/contrib/notebook/browser/view/cellParts/cellToolbarStickyScroll.ts",
+          "lines": [
+            {
+              "line": 6,
+              "source": "import { combinedDisposable, IDisposable } from '../../../../../../base/common/lifecycle.js';\nimport { clamp } from '../../../../../../base/common/numbers.js';\nimport { ICellViewModel, INotebookEditor } from '../../notebookBrowser.js';",
+              "digest": "766b214b63a182e5a2aceccf8e39441833fc8911ab253bfb2e0b59800b14e2dc"
+            }
+          ]
+        },
+        {
+          "path": "src/vs/workbench/contrib/chat/browser/chatContentParts/chatMarkdownAnchorService.ts",
+          "lines": [
+            {
+              "line": 7,
+              "source": "import { Disposable, IDisposable, combinedDisposable, toDisposable } from '../../../../../base/common/lifecycle.js';\nimport { createDecorator } from '../../../../../platform/instantiation/common/instantiation.js';\nimport { InlineAnchorWidget } from '../chatInlineAnchorWidget.js';",
+              "digest": "7195ab239ccc306786bdfbee187878cf53443cc371e7c6bc802c5ce00929c1d0"
+            }
+          ]
+        },
+        {
+          "path": "src/vs/platform/commands/test/common/commands.test.ts",
+          "lines": [
+            {
+              "line": 6,
+              "source": "import { combinedDisposable } from '../../../../base/common/lifecycle.js';\nimport { ensureNoDisposablesAreLeakedInTestSuite } from '../../../../base/test/common/utils.js';\nimport { CommandsRegistry } from '../../common/commands.js';",
+              "digest": "fec12f3a67985ce5efd69b79754dfcdd723390c2c0bbcdbc313bff64ee92bfa2"
+            }
+          ]
+        },
+        {
+          "path": "src/vs/editor/contrib/gotoSymbol/browser/symbolNavigation.ts",
+          "lines": [
+            {
+              "line": 8,
+              "source": "import { combinedDisposable, DisposableStore, dispose, IDisposable } from '../../../../base/common/lifecycle.js';\nimport { isEqual } from '../../../../base/common/resources.js';\nimport { ICodeEditor } from '../../../browser/editorBrowser.js';",
+              "digest": "302cdf3709a9d012b59f2be134d876777701a7890cbcbe02bd50fbd6f1f1d8d9"
+            }
+          ]
+        },
+        {
+          "path": "src/vs/workbench/contrib/terminalContrib/commandGuide/browser/terminal.commandGuide.contribution.ts",
+          "lines": [
+            {
+              "line": 8,
+              "source": "import { combinedDisposable, Disposable, MutableDisposable, toDisposable } from '../../../../../base/common/lifecycle.js';\nimport { localize } from '../../../../../nls.js';\nimport { IConfigurationService } from '../../../../../platform/configuration/common/configuration.js';",
+              "digest": "5c533bc8e8a5fb40abb5b8bb0854310d65ae5c7fe9e3777920b75cde094bb863"
+            }
+          ]
+        },
+        {
+          "path": "src/vs/editor/test/node/diffing/fixtures/issue-185779/legacy.expected.diff.json",
+          "lines": []
+        },
+        {
+          "path": "src/vs/platform/contextview/browser/contextMenuHandler.ts",
+          "lines": []
+        }
+      ]
+    }
+  ],
+  "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+  "snapshotDir": "/data/dev/CodeIndex/.data/reliability/indexes/codeindex/vscode/repo-ff10757cc0a66e40c305/snapshots/snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516-8d192849",
+  "counts": {
+    "files": 8071,
+    "symbols": 227748,
+    "relations": 573977,
+    "sourceBytes": 95990525,
+    "changedFiles": 8071,
+    "removedFiles": 0,
+    "reusedFiles": 0,
+    "parsedFiles": 5988,
+    "partialFiles": 2089,
+    "skipped": 1,
+    "nodes": 238159,
+    "nativeFiles": 7,
+    "nativeIndexedFiles": 7,
+    "workers": 4,
+    "nativeBuildMode": "full",
+    "nativeTaskMs": 43,
+    "relationsScope": "stored-sql-relations; native calls and references queried from cscope",
+    "stages": {
+      "scan": 794,
+      "source-and-files": 1774,
+      "native-symbols": 52,
+      "parser-symbols": 6892,
+      "relations": 0,
+      "indexes": 1865,
+      "native-cross-references": 0,
+      "validation": 228
+    },
+    "buildMs": 11606
+  },
+  "coverage": {
+    "sourceFiles": 8071,
+    "parsedFiles": 5982,
+    "unsupportedFiles": 2083,
+    "partialFiles": 2089,
+    "skippedFiles": 1,
+    "nativeCalls": true,
+    "semantics": "syntax-level symbols and cross-references; no compiler-level overload or pointer resolution"
+  }
+}

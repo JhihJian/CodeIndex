@@ -1,0 +1,23 @@
+{
+  "completed": false,
+  "restored": true,
+  "originalRevision": "6e6779437d2e2b870c12dae6d6fce9042faa2e1e",
+  "path": "llvm/lib/IR/LLVMContext.cpp",
+  "originalDigest": "d045f26f07ec338847b738fdcb2493a1e5ffd33cba9fbdc40e2ff1865056f6d5",
+  "originalMtimeNs": 1792906987603498136,
+  "recoveryDirectory": "/data/dev/CodeIndex/.data/reliability/update-backups/llvm",
+  "updatedRevision": "215193b6304fb3219865ec2ac24a3cf239937e4c",
+  "probe": {
+    "present": true,
+    "symbolVerified": true,
+    "bodyVerified": true,
+    "callVerified": true
+  },
+  "baselineQueriesAndRelationsPreserved": true,
+  "restoredProbe": {
+    "present": false,
+    "symbolVerified": true,
+    "bodyVerified": true,
+    "callVerified": false
+  }
+}

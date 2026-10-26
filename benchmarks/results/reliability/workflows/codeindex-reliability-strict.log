@@ -1,0 +1,13 @@
+10:59:55 cpython-strict-oracle-build
+cpython-strict-oracle-build success 12.19
+11:00:07 cpython-strict-equivalence-measurement
+cpython-strict-equivalence-measurement success 6.85
+11:00:15 vscode-strict-oracle-build
+vscode-strict-oracle-build success 12.46
+11:00:28 vscode-strict-equivalence-measurement
+vscode-strict-equivalence-measurement failed 9.59
+Traceback (most recent call last):
+  File "/data/dev/CodeIndex-worktrees/feature/parser-reliability/benchmarks/reliability/recheck-equivalence.py", line 34, in <module>
+    assert result and result['equivalent']
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

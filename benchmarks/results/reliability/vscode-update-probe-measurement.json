@@ -1,0 +1,26 @@
+{
+  "command": [
+    "node",
+    "/data/dev/CodeIndex-worktrees/feature/parser-reliability/benchmarks/reliability/update-check.mjs",
+    "/data/dev/CodeIndex/.data/reliability/indexes/codeindex/vscode",
+    "codeindex_reliability_probe",
+    "src/vs/base/common/lifecycle.ts",
+    "present"
+  ],
+  "cwd": "/data/dev/CodeIndex-worktrees/feature/parser-reliability",
+  "systemdUnit": "codeindex-benchmark-2979027.scope",
+  "systemdResult": "success",
+  "status": "success",
+  "exitCode": 0,
+  "wallSeconds": 0.27,
+  "wallSecondsIncludingSupervisor": 0.5161479278467596,
+  "timeLimitSeconds": 1800,
+  "memoryLimitGiB": 12,
+  "gnuTimeMaxRssKiB": 131236,
+  "sampledProcessTreeRssSumBytes": 128184320,
+  "workloadSampled": true,
+  "cgroupMemoryPeakBytes": 82120704,
+  "sampleIntervalSeconds": 0.25,
+  "leftoverProcessIdsTerminated": [],
+  "memoryNotes": "RSS sum can double-count shared pages; cgroup memory includes page cache; GNU time max RSS is not simultaneous tree total"
+}

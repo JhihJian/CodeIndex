@@ -1,5 +1,7 @@
 # 基准结果
 
+0.4 的 TypeScript AST、Python 3.14、Ctags 崩溃隔离、完整正文及增量等价结果见 [解析可靠性验收](parser-reliability.md)，运行器见 [reliability](reliability/README.md)。三项目建库中位数为 CPython 11.47 秒、VS Code 11.96 秒、LLVM 115.40 秒。报告区分文件命中、声明证据和调用能力。
+
 CPython、VS Code、LLVM 上的四工具重复测量、覆盖、证据及更新验证见 [新项目横向对比](heldout-comparison.md)，实验协议与运行器见 [heldout](heldout/README.md)。
 
 0.3 的解析复用、并行构建和安全更新结果见 [性能迭代实测](index-performance.md)。同输入下 TypeScript 全量 10.68 秒，Linux 全量 78.74 秒，全部被测命令及后代限制为 12 GiB、禁 swap。

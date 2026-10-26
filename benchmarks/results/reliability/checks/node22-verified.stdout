@@ -1,0 +1,770 @@
+TAP version 13
+# (node:2973890) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: native C/C++ symbols, calls, macros, includes and inheritance survive source removal
+ok 1 - native C/C++ symbols, calls, macros, includes and inheritance survive source removal
+  ---
+  duration_ms: 125.481399
+  type: 'test'
+  ...
+# (node:2973891) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: UTF-8 行偏移提供 metadata evidence，精确 parser span 可覆盖默认值
+ok 2 - UTF-8 行偏移提供 metadata evidence，精确 parser span 可覆盖默认值
+  ---
+  duration_ms: 21.04399
+  type: 'test'
+  ...
+# Subtest: 增量 clone 不污染旧 DB，删除维护 FTS，完整与增量构建 ID 一致
+ok 3 - 增量 clone 不污染旧 DB，删除维护 FTS，完整与增量构建 ID 一致
+  ---
+  duration_ms: 23.247384
+  type: 'test'
+  ...
+# Subtest: FTS update triggers 更新名称、scope、signature、doc 和文件路径
+ok 4 - FTS update triggers 更新名称、scope、signature、doc 和文件路径
+  ---
+  duration_ms: 9.339445
+  type: 'test'
+  ...
+# Subtest: 同文件 scope 和 enclosing range 找 parent，不把同名歧义声明为唯一
+ok 5 - 同文件 scope 和 enclosing range 找 parent，不把同名歧义声明为唯一
+  ---
+  duration_ms: 8.987552
+  type: 'test'
+  ...
+# Subtest: 拒绝未 finalize 的快照及错误行偏移
+ok 6 - 拒绝未 finalize 的快照及错误行偏移
+  ---
+  duration_ms: 3.833372
+  type: 'test'
+  ...
+# (node:2973892) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: 正文覆盖函数体、未支持文件和解析失败文件，证据定位实际 UTF-8 匹配
+ok 7 - 正文覆盖函数体、未支持文件和解析失败文件，证据定位实际 UTF-8 匹配
+  ---
+  duration_ms: 106.009629
+  type: 'test'
+  ...
+# Subtest: 精确名称查询保留被大量全文候选挤出的声明
+ok 8 - 精确名称查询保留被大量全文候选挤出的声明
+  ---
+  duration_ms: 107.834612
+  type: 'test'
+  ...
+# Subtest: 正文增删改名与全量一致，旧读者仍看到旧正文
+ok 9 - 正文增删改名与全量一致，旧读者仍看到旧正文
+  ---
+  duration_ms: 57.244396
+  type: 'test'
+  ...
+# Subtest: isolates input SIGSEGVs, discards entire failed output, preserves order and probes once outside sources
+ok 10 - isolates input SIGSEGVs, discards entire failed output, preserves order and probes once outside sources
+  ---
+  duration_ms: 6878.336481
+  type: 'test'
+  ...
+# Subtest: bounds batches by count, limits concurrency and publishes in input order
+ok 11 - bounds batches by count, limits concurrency and publishes in input order
+  ---
+  duration_ms: 224.063023
+  type: 'test'
+  ...
+# Subtest: bounds batches by bytes and runs an oversized file alone
+ok 12 - bounds batches by bytes and runs an oversized file alone
+  ---
+  duration_ms: 76.51024
+  type: 'test'
+  ...
+# Subtest: empty input reports no failed files without tools
+ok 13 - empty input reports no failed files without tools
+  ---
+  duration_ms: 1.105961
+  type: 'test'
+  ...
+# Subtest: propagates nonzero exit without splitting or partial status
+ok 14 - propagates nonzero exit without splitting or partial status
+  ---
+  duration_ms: 22.659886
+  type: 'test'
+  ...
+# Subtest: propagates other signal without splitting or partial status
+ok 15 - propagates other signal without splitting or partial status
+  ---
+  duration_ms: 22.444655
+  type: 'test'
+  ...
+# Subtest: propagates output limit without splitting or partial status
+ok 16 - propagates output limit without splitting or partial status
+  ---
+  duration_ms: 23.253128
+  type: 'test'
+  ...
+# Subtest: propagates missing executables, invalid settings and output I/O failures
+ok 17 - propagates missing executables, invalid settings and output I/O failures
+  ---
+  duration_ms: 23.653778
+  type: 'test'
+  ...
+# Subtest: a broken tool cannot classify all inputs as partial
+ok 18 - a broken tool cannot classify all inputs as partial
+  ---
+  duration_ms: 2208.526629
+  type: 'test'
+  ...
+# Subtest: a broken tool cannot classify all inputs as partial
+ok 19 - a broken tool cannot classify all inputs as partial
+  ---
+  duration_ms: 1134.695227
+  type: 'test'
+  ...
+# Subtest: all crashing inputs yield empty tags only when the known C probe works
+ok 20 - all crashing inputs yield empty tags only when the known C probe works
+  ---
+  duration_ms: 3334.250851
+  type: 'test'
+  ...
+# Subtest: retries share one total timeout budget
+ok 21 - retries share one total timeout budget
+  ---
+  duration_ms: 3008.628994
+  type: 'test'
+  ...
+# Subtest: isolation has a global cap of 128 additional attempts
+ok 22 - isolation has a global cap of 128 additional attempts
+  ---
+  duration_ms: 73329.954218
+  type: 'test'
+  ...
+# Subtest: cancellation waits for workers and descendants before removing scratch
+ok 23 - cancellation waits for workers and descendants before removing scratch
+  ---
+  duration_ms: 52.567808
+  type: 'test'
+  ...
+# Subtest: a failing worker cancels and joins its running peers before cleanup
+ok 24 - a failing worker cancels and joins its running peers before cleanup
+  ---
+  duration_ms: 248.339875
+  type: 'test'
+  ...
+# Subtest: a pre-aborted invocation does not launch Ctags
+ok 25 - a pre-aborted invocation does not launch Ctags
+  ---
+  duration_ms: 1.004438
+  type: 'test'
+  ...
+# Subtest: real Ctags isolates the original LLVM parser overflow sample when available
+ok 26 - real Ctags isolates the original LLVM parser overflow sample when available
+  ---
+  duration_ms: 1104.694902
+  type: 'test'
+  ...
+# (node:2973899) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: indexes symbols, containment and resolved call relations with immutable evidence
+ok 27 - indexes symbols, containment and resolved call relations with immutable evidence
+  ---
+  duration_ms: 211.672323
+  type: 'test'
+  ...
+# Subtest: update reuses unchanged parse results and publishes a new snapshot
+ok 28 - update reuses unchanged parse results and publishes a new snapshot
+  ---
+  duration_ms: 463.273783
+  type: 'test'
+  ...
+# Subtest: generic disposeIfDisposable calls isDisposable and preserves its signature and documentation
+ok 29 - generic disposeIfDisposable calls isDisposable and preserves its signature and documentation
+  ---
+  duration_ms: 9.031282
+  type: 'test'
+  ...
+# Subtest: generic arrows and bound function expressions are callable symbols with exact expression spans
+ok 30 - generic arrows and bound function expressions are callable symbols with exact expression spans
+  ---
+  duration_ms: 4.347753
+  type: 'test'
+  ...
+# Subtest: nested declarations and anonymous callbacks own their calls without leaking to outer scopes
+ok 31 - nested declarations and anonymous callbacks own their calls without leaking to outer scopes
+  ---
+  duration_ms: 2.335939
+  type: 'test'
+  ...
+# Subtest: class methods, overloads, constructors and accessors have distinct keys and real parents
+ok 32 - class methods, overloads, constructors and accessors have distinct keys and real parents
+  ---
+  duration_ms: 3.5049
+  type: 'test'
+  ...
+# Subtest: same-line overloads and nested class names never collide
+ok 33 - same-line overloads and nested class names never collide
+  ---
+  duration_ms: 0.798535
+  type: 'test'
+  ...
+# Subtest: interface, alias, enum and namespace declarations use AST syntax and do not invent type calls
+ok 34 - interface, alias, enum and namespace declarations use AST syntax and do not invent type calls
+  ---
+  duration_ms: 2.373375
+  type: 'test'
+  ...
+# Subtest: imports, reexports and dynamic imports ignore comments, ordinary strings and type-only queries
+ok 35 - imports, reexports and dynamic imports ignore comments, ordinary strings and type-only queries
+  ---
+  duration_ms: 1.858072
+  type: 'test'
+  ...
+# Subtest: TSX generic arrows and JSX expressions preserve executable callbacks
+ok 36 - TSX generic arrows and JSX expressions preserve executable callbacks
+  ---
+  duration_ms: 2.977125
+  type: 'test'
+  ...
+# Subtest: template interpolations and tagged templates contain calls while regex and text do not
+ok 37 - template interpolations and tagged templates contain calls while regex and text do not
+  ---
+  duration_ms: 1.776297
+  type: 'test'
+  ...
+# Subtest: UTF-16 columns and exclusive spans handle non-BMP names and same-line prefixes
+ok 38 - UTF-16 columns and exclusive spans handle non-BMP names and same-line prefixes
+  ---
+  duration_ms: 0.875802
+  type: 'test'
+  ...
+# Subtest: class evaluation calls stay outside method scopes and field initializers stay outside the enclosing function
+ok 39 - class evaluation calls stay outside method scopes and field initializers stay outside the enclosing function
+  ---
+  duration_ms: 0.923245
+  type: 'test'
+  ...
+# Subtest: new, optional, recursive and bracket calls are syntax relations
+ok 40 - new, optional, recursive and bracket calls are syntax relations
+  ---
+  duration_ms: 0.966432
+  type: 'test'
+  ...
+# Subtest: syntax diagnostics return explicit partial results while internal exceptions propagate
+ok 41 - syntax diagnostics return explicit partial results while internal exceptions propagate
+  ---
+  duration_ms: 1.000844
+  type: 'test'
+  ...
+# Subtest: empty files and JavaScript exports keep module and callable records
+ok 42 - empty files and JavaScript exports keep module and callable records
+  ---
+  duration_ms: 0.88035
+  type: 'test'
+  ...
+# Subtest: computed callbacks retain AST containment while their calls use the nearest execution scope
+ok 43 - computed callbacks retain AST containment while their calls use the nearest execution scope
+  ---
+  duration_ms: 0.369324
+  type: 'test'
+  ...
+# Subtest: successive files release AST ownership within a 256 MiB worker
+ok 44 - successive files release AST ownership within a 256 MiB worker
+  ---
+  duration_ms: 997.521949
+  type: 'test'
+  ...
+# Subtest: only resolves requested tools and gives explicit missing dependency errors
+ok 45 - only resolves requested tools and gives explicit missing dependency errors
+  ---
+  duration_ms: 4.600971
+  type: 'test'
+  ...
+# Subtest: prefers Universal Ctags, validates JSON, and respects explicit and environment options
+ok 46 - prefers Universal Ctags, validates JSON, and respects explicit and environment options
+  ---
+  duration_ms: 491.449296
+  type: 'test'
+  ...
+# Subtest: Cscope version identity does not contain its installation path
+ok 47 - Cscope version identity does not contain its installation path
+  ---
+  duration_ms: 175.362669
+  type: 'test'
+  ...
+# Subtest: native command timeout and captured-output limits are enforced
+ok 48 - native command timeout and captured-output limits are enforced
+  ---
+  duration_ms: 132.459924
+  type: 'test'
+  ...
+# Subtest: Ctags emits C/C++ ranges, scopes, signatures and inheritance without source patterns
+ok 49 - Ctags emits C/C++ ranges, scopes, signatures and inheritance without source patterns
+  ---
+  duration_ms: 38.298607
+  type: 'test'
+  ...
+# Subtest: real Cscope survives snapshot move and live repository deletion
+ok 50 - real Cscope survives snapshot move and live repository deletion
+  ---
+  duration_ms: 78.364417
+  type: 'test'
+  ...
+# Subtest: real Cscope survives snapshot move and live repository deletion, including spaced paths
+ok 51 - real Cscope survives snapshot move and live repository deletion, including spaced paths
+  ---
+  duration_ms: 82.285635
+  type: 'test'
+  ...
+# Subtest: Cscope uses system PATH for internal env and sort, ignoring include environment
+ok 52 - Cscope uses system PATH for internal env and sort, ignoring include environment
+  ---
+  duration_ms: 42.777313
+  type: 'test'
+  ...
+# Subtest: rejects unsupported filenames and snapshot escapes before spawning tools
+ok 53 - rejects unsupported filenames and snapshot escapes before spawning tools
+  ---
+  duration_ms: 2.976694
+  type: 'test'
+  ...
+# Subtest: rejects external, symlinked and unlisted includes before native execution
+ok 54 - rejects external, symlinked and unlisted includes before native execution
+  ---
+  duration_ms: 4.37951
+  type: 'test'
+  ...
+# Subtest: Cscope accepts missing parent/generated includes and resolves quoted includes from cwd
+ok 55 - Cscope accepts missing parent/generated includes and resolves quoted includes from cwd
+  ---
+  duration_ms: 49.015967
+  type: 'test'
+  ...
+# Subtest: Cscope follows allowed saved non-C includes transitively and reports actual indexed files
+ok 56 - Cscope follows allowed saved non-C includes transitively and reports actual indexed files
+  ---
+  duration_ms: 37.666953
+  type: 'test'
+  ...
+# Subtest: Cscope -k has no angle-include search directories
+ok 57 - Cscope -k has no angle-include search directories
+  ---
+  duration_ms: 29.963897
+  type: 'test'
+  ...
+# Subtest: Cscope refuses filename aliases when extra include closure files would be lost
+ok 58 - Cscope refuses filename aliases when extra include closure files would be lost
+  ---
+  duration_ms: 2.922929
+  type: 'test'
+  ...
+# Subtest: fails on zero-exit Cscope inverted-index diagnostics and cleans artifacts
+ok 59 - fails on zero-exit Cscope inverted-index diagnostics and cleans artifacts
+  ---
+  duration_ms: 35.083821
+  type: 'test'
+  ...
+# Subtest: fails on missing inverted files even when Cscope exits successfully
+ok 60 - fails on missing inverted files even when Cscope exits successfully
+  ---
+  duration_ms: 37.857725
+  type: 'test'
+  ...
+# Subtest: rejects corrupt inverted indexes and zero-exit query errors
+ok 61 - rejects corrupt inverted indexes and zero-exit query errors
+  ---
+  duration_ms: 61.73112
+  type: 'test'
+  ...
+# Subtest: checks the actual native database file list before accepting artifacts
+ok 62 - checks the actual native database file list before accepting artifacts
+  ---
+  duration_ms: 51.554276
+  type: 'test'
+  ...
+# Subtest: empty inputs require no native dependencies and invalid query modes are rejected
+ok 63 - empty inputs require no native dependencies and invalid query modes are rejected
+  ---
+  duration_ms: 2.106523
+  type: 'test'
+  ...
+# (node:2973922) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: JS AST preserves original byte coordinates with separator "\\r"
+ok 64 - JS AST preserves original byte coordinates with separator "\\r"
+  ---
+  duration_ms: 44.629034
+  type: 'test'
+  ...
+# Subtest: JS AST preserves original byte coordinates with separator " "
+ok 65 - JS AST preserves original byte coordinates with separator " "
+  ---
+  duration_ms: 19.38098
+  type: 'test'
+  ...
+# Subtest: JS AST preserves original byte coordinates with separator " "
+ok 66 - JS AST preserves original byte coordinates with separator " "
+  ---
+  duration_ms: 15.649628
+  type: 'test'
+  ...
+# Subtest: JS AST preserves original byte coordinates with separator "\\r\\n"
+ok 67 - JS AST preserves original byte coordinates with separator "\\r\\n"
+  ---
+  duration_ms: 22.972022
+  type: 'test'
+  ...
+# Subtest: Python universal newlines map back to original LF evidence lines
+ok 68 - Python universal newlines map back to original LF evidence lines
+  ---
+  duration_ms: 86.5891
+  type: 'test'
+  ...
+# Subtest: removing the last Python input does not require the former runtime
+ok 69 - removing the last Python input does not require the former runtime
+  ---
+  duration_ms: 98.897237
+  type: 'test'
+  ...
+# (node:2973928) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: Python protocol rejects missing result without isolation or partial results
+ok 70 - Python protocol rejects missing result without isolation or partial results
+  ---
+  duration_ms: 33.786503
+  type: 'test'
+  ...
+# Subtest: Python protocol rejects duplicate path with matching count without isolation or partial results
+ok 71 - Python protocol rejects duplicate path with matching count without isolation or partial results
+  ---
+  duration_ms: 30.051876
+  type: 'test'
+  ...
+# Subtest: Python protocol rejects unexpected path without isolation or partial results
+ok 72 - Python protocol rejects unexpected path without isolation or partial results
+  ---
+  duration_ms: 38.207165
+  type: 'test'
+  ...
+# Subtest: Python protocol rejects truncated JSON without isolation or partial results
+ok 73 - Python protocol rejects truncated JSON without isolation or partial results
+  ---
+  duration_ms: 30.65811
+  type: 'test'
+  ...
+# Subtest: Python protocol rejects non-array JSON without isolation or partial results
+ok 74 - Python protocol rejects non-array JSON without isolation or partial results
+  ---
+  duration_ms: 36.048952
+  type: 'test'
+  ...
+# Subtest: Python protocol rejects invalid status without isolation or partial results
+ok 75 - Python protocol rejects invalid status without isolation or partial results
+  ---
+  duration_ms: 40.997089
+  type: 'test'
+  ...
+# Subtest: Python protocol rejects missing symbols without isolation or partial results
+ok 76 - Python protocol rejects missing symbols without isolation or partial results
+  ---
+  duration_ms: 35.024847
+  type: 'test'
+  ...
+# Subtest: Python protocol rejects invalid symbol span without isolation or partial results
+ok 77 - Python protocol rejects invalid symbol span without isolation or partial results
+  ---
+  duration_ms: 41.966626
+  type: 'test'
+  ...
+# Subtest: Python protocol rejects out-of-file symbol line without isolation or partial results
+ok 78 - Python protocol rejects out-of-file symbol line without isolation or partial results
+  ---
+  duration_ms: 38.130731
+  type: 'test'
+  ...
+# Subtest: Python protocol rejects out-of-file symbol column without isolation or partial results
+ok 79 - Python protocol rejects out-of-file symbol column without isolation or partial results
+  ---
+  duration_ms: 42.795756
+  type: 'test'
+  ...
+# Subtest: Python protocol rejects out-of-file relation line without isolation or partial results
+ok 80 - Python protocol rejects out-of-file relation line without isolation or partial results
+  ---
+  duration_ms: 39.829851
+  type: 'test'
+  ...
+# Subtest: Python protocol rejects invalid relation line without isolation or partial results
+ok 81 - Python protocol rejects invalid relation line without isolation or partial results
+  ---
+  duration_ms: 37.347112
+  type: 'test'
+  ...
+# Subtest: a malformed Python batch does not emit its valid prefix to the result callback
+ok 82 - a malformed Python batch does not emit its valid prefix to the result callback
+  ---
+  duration_ms: 48.554188
+  type: 'test'
+  ...
+# Subtest: valid Python responses are consumed in input order even when returned out of order
+ok 83 - valid Python responses are consumed in input order even when returned out of order
+  ---
+  duration_ms: 63.433001
+  type: 'test'
+  ...
+# Subtest: Python ordinary nonzero exit despite valid stdout fails instead of producing partial records
+ok 84 - Python ordinary nonzero exit despite valid stdout fails instead of producing partial records
+  ---
+  duration_ms: 35.152834
+  type: 'test'
+  ...
+# Subtest: Python unexpected child exception fails instead of producing partial records
+ok 85 - Python unexpected child exception fails instead of producing partial records
+  ---
+  duration_ms: 32.580797
+  type: 'test'
+  ...
+# Traceback (most recent call last):
+#   File "<string>", line 3, in <module>
+#     assert sys.version_info >= (3,14), 'Python 3.14+ is required'
+#            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+# AssertionError: Python 3.14+ is required
+# Traceback (most recent call last):
+#   File "<string>", line 3, in <module>
+#     assert sys.version_info >= (3,14), 'Python 3.14+ is required'
+#            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+# AssertionError: Python 3.14+ is required
+# Subtest: Python spawn failures propagate instead of becoming partial records
+ok 86 - Python spawn failures propagate instead of becoming partial records
+  ---
+  duration_ms: 7.190711
+  type: 'test'
+  ...
+# Subtest: unreadable scanned py input fails instead of becoming unsupported
+ok 87 - unreadable scanned py input fails instead of becoming unsupported
+  ---
+  duration_ms: 2.156912
+  type: 'test'
+  ...
+# Subtest: unreadable scanned js input fails instead of becoming unsupported
+ok 88 - unreadable scanned js input fails instead of becoming unsupported
+  ---
+  duration_ms: 1.17363
+  type: 'test'
+  ...
+# Subtest: unreadable scanned ts input fails instead of becoming unsupported
+ok 89 - unreadable scanned ts input fails instead of becoming unsupported
+  ---
+  duration_ms: 1.132897
+  type: 'test'
+  ...
+# Subtest: source read failure during indexing leaves the published snapshot intact and removes staging
+ok 90 - source read failure during indexing leaves the published snapshot intact and removes staging
+  ---
+  duration_ms: 44.691325
+  type: 'test'
+  ...
+# Subtest: Python below 3.14 fails the real runtime probe before parsing or creating a snapshot
+ok 91 - Python below 3.14 fails the real runtime probe before parsing or creating a snapshot
+  ---
+  duration_ms: 209.002136
+  type: 'test'
+  ...
+# Subtest: generic disposeIfDisposable<T> retains its definition, body span and isDisposable call through indexing
+ok 92 - generic disposeIfDisposable<T> retains its definition, body span and isDisposable call through indexing
+  ---
+  duration_ms: 24.238962
+  type: 'test'
+  ...
+# (node:2973934) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: bounded parser workers preserve UTF-8 spans, docs and all serial records; consumer failure stops the pool
+ok 93 - bounded parser workers preserve UTF-8 spans, docs and all serial records; consumer failure stops the pool
+  ---
+  duration_ms: 1478.888583
+  type: 'test'
+  ...
+# Subtest: Ctags shards preserve all serial tags and input order without concatenating temporary output
+ok 94 - Ctags shards preserve all serial tags and input order without concatenating temporary output
+  ---
+  duration_ms: 88.757352
+  type: 'test'
+  ...
+# Subtest: Cscope successive same-second updates, deletes and transitive non-C includes match full builds without changing old snapshots
+ok 95 - Cscope successive same-second updates, deletes and transitive non-C includes match full builds without changing old snapshots
+  ---
+  duration_ms: 708.495252
+  type: 'test'
+  ...
+# Subtest: unchanged macro tails and multiline strings retain their references across incremental rebuilds
+ok 96 - unchanged macro tails and multiline strings retain their references across incremental rebuilds
+  ---
+  duration_ms: 482.2799
+  type: 'test'
+  ...
+# Subtest: Cscope alias reordering falls back to a full build
+ok 97 - Cscope alias reordering falls back to a full build
+  ---
+  duration_ms: 135.887693
+  type: 'test'
+  ...
+# Subtest: native timeout kills the process group, including a sort-like descendant
+ok 98 - native timeout kills the process group, including a sort-like descendant
+  ---
+  duration_ms: 208.424545
+  type: 'test'
+  ...
+# Subtest: failure after starting native work drains children before deleting staging and preserves publication
+ok 99 - failure after starting native work drains children before deleting staging and preserves publication
+  ---
+  duration_ms: 134.948108
+  type: 'test'
+  ...
+# (node:2973942) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: native updates delete stale facts, preserve readers and match a full rebuild
+ok 100 - native updates delete stale facts, preserve readers and match a full rebuild
+  ---
+  duration_ms: 281.827093
+  type: 'test'
+  ...
+# Subtest: JS/TS imports ignore comments and strings and resolve incoming module references
+ok 101 - JS/TS imports ignore comments and strings and resolve incoming module references
+  ---
+  duration_ms: 31.893809
+  type: 'test'
+  ...
+# Subtest: UTF-8 clipped evidence matches byte ranges and metadata queries do not read blobs
+ok 102 - UTF-8 clipped evidence matches byte ranges and metadata queries do not read blobs
+  ---
+  duration_ms: 78.993742
+  type: 'test'
+  ...
+# Subtest: missing native artifact rebuilds a generation and export states its audit scope
+ok 103 - missing native artifact rebuilds a generation and export states its audit scope
+  ---
+  duration_ms: 122.543604
+  type: 'test'
+  ...
+# Subtest: Python AST tests execute a real Python 3.14+ interpreter
+ok 104 - Python AST tests execute a real Python 3.14+ interpreter
+  ---
+  duration_ms: 123.188396
+  type: 'test'
+  ...
+# Subtest: one batch returns one result per input and isolates syntax failures
+ok 105 - one batch returns one result per input and isolates syntax failures
+  ---
+  duration_ms: 39.484148
+  type: 'test'
+  ...
+# Subtest: ValueError and RecursionError are isolated only at the ast.parse boundary
+ok 106 - ValueError and RecursionError are isolated only at the ast.parse boundary
+  ---
+  duration_ms: 82.972181
+  type: 'test'
+  ...
+# Subtest: unknown parser errors and extraction failures propagate without a success array
+ok 107 - unknown parser errors and extraction failures propagate without a success array
+  ---
+  duration_ms: 682.862892
+  type: 'test'
+  ...
+# Subtest: deep unparsing has a narrow fallback while signatures retain argument semantics
+ok 108 - deep unparsing has a narrow fallback while signatures retain argument semantics
+  ---
+  duration_ms: 125.426287
+  type: 'test'
+  ...
+# Subtest: Python 3.14 type parameters, lazy aliases, template strings and except syntax extract
+ok 109 - Python 3.14 type parameters, lazy aliases, template strings and except syntax extract
+  ---
+  duration_ms: 35.416409
+  type: 'test'
+  ...
+# Subtest: UTF-16 spans preserve emoji, CRLF, multiline decorators and Unicode separators
+ok 110 - UTF-16 spans preserve emoji, CRLF, multiline decorators and Unicode separators
+  ---
+  duration_ms: 33.073158
+  type: 'test'
+  ...
+# Subtest: relation columns use UTF-16 for inheritance and imports too
+ok 111 - relation columns use UTF-16 for inheritance and imports too
+  ---
+  duration_ms: 25.909654
+  type: 'test'
+  ...
+# Subtest: nested declarations follow lexical parents through all compound statements
+ok 112 - nested declarations follow lexical parents through all compound statements
+  ---
+  duration_ms: 36.236853
+  type: 'test'
+  ...
+# Subtest: nested imports retain their owning scope and relative import metadata
+ok 113 - nested imports retain their owning scope and relative import metadata
+  ---
+  duration_ms: 24.129509
+  type: 'test'
+  ...
+# Subtest: line layout and UTF-8 encoding are reused across thousands of symbols
+ok 114 - line layout and UTF-8 encoding are reused across thousands of symbols
+  ---
+  duration_ms: 94.650354
+  type: 'test'
+  ...
+# (node:2974212) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: streamed updates reuse records without whole JSONL reads and match full rebuild identity
+ok 115 - streamed updates reuse records without whole JSONL reads and match full rebuild identity
+  ---
+  duration_ms: 300.343191
+  type: 'test'
+  ...
+# Subtest: parser consumers propagate storage failure exactly once
+ok 116 - parser consumers propagate storage failure exactly once
+  ---
+  duration_ms: 54.56425
+  type: 'test'
+  ...
+# Subtest: failed build preserves published snapshot and removes temporary files
+ok 117 - failed build preserves published snapshot and removes temporary files
+  ---
+  duration_ms: 108.672653
+  type: 'test'
+  ...
+# Subtest: build configuration changes snapshot identity and invalidates no-op
+ok 118 - build configuration changes snapshot identity and invalidates no-op
+  ---
+  duration_ms: 112.95438
+  type: 'test'
+  ...
+# Subtest: JSONL streaming preserves UTF-8 crossing chunk boundary and final record
+ok 119 - JSONL streaming preserves UTF-8 crossing chunk boundary and final record
+  ---
+  duration_ms: 2.230292
+  type: 'test'
+  ...
+# Subtest: navigation and imports are independent of incremental insertion order
+ok 120 - navigation and imports are independent of incremental insertion order
+  ---
+  duration_ms: 188.491927
+  type: 'test'
+  ...
+# Subtest: rebuilding restores a missing database under the same snapshot identity
+ok 121 - rebuilding restores a missing database under the same snapshot identity
+  ---
+  duration_ms: 157.308668
+  type: 'test'
+  ...
+# Subtest: C type usages do not create definition symbols
+ok 122 - C type usages do not create definition symbols
+  ---
+  duration_ms: 40.678404
+  type: 'test'
+  ...
+1..122
+# tests 122
+# suites 0
+# pass 122
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 91865.03358

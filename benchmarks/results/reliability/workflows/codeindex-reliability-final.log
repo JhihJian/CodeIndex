@@ -1,0 +1,46 @@
+{"command": ["node", "--test"], "cwd": "/data/dev/CodeIndex-worktrees/feature/parser-reliability", "systemdUnit": "codeindex-benchmark-2956254.scope", "systemdResult": "success", "status": "success", "exitCode": 0, "wallSeconds": 91.53, "wallSecondsIncludingSupervisor": 91.7389790341258, "timeLimitSeconds": 600, "memoryLimitGiB": 12, "gnuTimeMaxRssKiB": 535464, "sampledProcessTreeRssSumBytes": 1524412416, "workloadSampled": true, "cgroupMemoryPeakBytes": 993820672, "sampleIntervalSeconds": 0.25, "leftoverProcessIdsTerminated": [], "memoryNotes": "RSS sum can double-count shared pages; cgroup memory includes page cache; GNU time max RSS is not simultaneous tree total"}
+{"command": ["env", "PATH=/home/jhihjian/.npm/_npx/52027bd8fc0022aa/node_modules/node/bin:/home/jhihjian/.pi/agent/bin:/opt/gradle-8.12/bin:/opt/gradle-8.12/bin:/home/jhihjian/bin:/home/jhihjian/.bun/bin:/home/jhihjian/.bun/bin:/home/jhihjian/.bun/bin:/home/jhihjian/.local/bin:/home/jhihjian/bin:/opt/gradle-8.12/bin:/home/jhihjian/.local/share/pnpm:/opt/gradle-8.12/bin:/home/jhihjian/.nvm/versions/node/v24.13.1/bin:/home/jhihjian/bin:/home/jhihjian/.bun/bin:/home/jhihjian/.bun/bin:/home/jhihjian/.cargo/bin:/home/jhihjian/.bun/bin:/home/jhihjian/.local/bin:/opt/gradle-8.12/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/data/app/bin:/usr/local/go/bin:/home/jhihjian/go/bin:/opt/android-sdk/cmdline-tools/latest/bin:/opt/android-sdk/platform-tools:/opt/android-sdk/build-tools/35.0.0:/data/app/bin:/usr/local/go/bin:/home/jhihjian/go/bin:/opt/android-sdk/cmdline-tools/latest/bin:/opt/android-sdk/platform-tools:/opt/android-sdk/build-tools/35.0.0", "node", "--test"], "cwd": "/data/dev/CodeIndex-worktrees/feature/parser-reliability", "systemdUnit": "codeindex-benchmark-2960149.scope", "systemdResult": "success", "status": "success", "exitCode": 0, "wallSeconds": 0.0, "wallSecondsIncludingSupervisor": 0.27640452911145985, "timeLimitSeconds": 600, "memoryLimitGiB": 12, "gnuTimeMaxRssKiB": 1904, "sampledProcessTreeRssSumBytes": null, "workloadSampled": false, "cgroupMemoryPeakBytes": null, "sampleIntervalSeconds": 0.25, "leftoverProcessIdsTerminated": [], "memoryNotes": "RSS sum can double-count shared pages; cgroup memory includes page cache; GNU time max RSS is not simultaneous tree total"}
+10:35:00 codeindex-cpython-build
+codeindex-cpython-build success 11.47
+10:35:12 codeindex-cpython-query-measurement
+codeindex-cpython-query-measurement success 0.49
+10:35:14 codeindex-vscode-build
+codeindex-vscode-build success 11.96
+10:35:26 codeindex-vscode-query-measurement
+codeindex-vscode-query-measurement success 1.11
+10:35:55 codeindex-llvm-build
+codeindex-llvm-build success 115.4
+10:38:04 codeindex-llvm-query-measurement
+codeindex-llvm-query-measurement success 1.44
+10:38:06 repeat2-codeindex-cpython-build
+repeat2-codeindex-cpython-build success 11.68
+10:38:18 repeat2-codeindex-cpython-query-measurement
+repeat2-codeindex-cpython-query-measurement success 0.52
+10:38:20 repeat2-codeindex-vscode-build
+repeat2-codeindex-vscode-build success 11.97
+10:38:33 repeat2-codeindex-vscode-query-measurement
+repeat2-codeindex-vscode-query-measurement success 1.09
+10:38:57 repeat2-codeindex-llvm-build
+repeat2-codeindex-llvm-build success 113.38
+10:41:02 repeat2-codeindex-llvm-query-measurement
+repeat2-codeindex-llvm-query-measurement success 1.39
+10:41:08 repeat3-codeindex-cpython-build
+repeat3-codeindex-cpython-build success 11.43
+10:41:20 repeat3-codeindex-cpython-query-measurement
+repeat3-codeindex-cpython-query-measurement success 0.52
+10:41:23 repeat3-codeindex-vscode-build
+repeat3-codeindex-vscode-build success 11.83
+10:41:35 repeat3-codeindex-vscode-query-measurement
+repeat3-codeindex-vscode-query-measurement success 1.1
+10:41:58 repeat3-codeindex-llvm-build
+repeat3-codeindex-llvm-build success 125.33
+10:44:12 repeat3-codeindex-llvm-query-measurement
+repeat3-codeindex-llvm-query-measurement success 1.45
+BUILDS_COMPLETE
+{"command": ["node", "benchmarks/reliability/audit.mjs", "/data/dev/CodeIndex/.data/reliability/indexes/codeindex/cpython", "cpython", "/data/dev/CodeIndex/.data/reliability/inputs/cpython.files.json"], "cwd": "/data/dev/CodeIndex-worktrees/feature/parser-reliability", "systemdUnit": "codeindex-benchmark-2971413.scope", "systemdResult": "success", "status": "success", "exitCode": 0, "wallSeconds": 0.97, "wallSecondsIncludingSupervisor": 1.0161705419886857, "timeLimitSeconds": 1800, "memoryLimitGiB": 12, "gnuTimeMaxRssKiB": 148076, "sampledProcessTreeRssSumBytes": 148041728, "workloadSampled": true, "cgroupMemoryPeakBytes": 200966144, "sampleIntervalSeconds": 0.25, "leftoverProcessIdsTerminated": [], "memoryNotes": "RSS sum can double-count shared pages; cgroup memory includes page cache; GNU time max RSS is not simultaneous tree total"}
+{"command": ["node", "benchmarks/competitors/codeindex-relations.mjs", "/data/dev/CodeIndex/.data/reliability/indexes/codeindex/cpython", "cpython", "benchmarks/heldout/relation-cases.json"], "cwd": "/data/dev/CodeIndex-worktrees/feature/parser-reliability", "systemdUnit": "codeindex-benchmark-2971456.scope", "systemdResult": "success", "status": "success", "exitCode": 0, "wallSeconds": 0.31, "wallSecondsIncludingSupervisor": 0.5160011700354517, "timeLimitSeconds": 300, "memoryLimitGiB": 12, "gnuTimeMaxRssKiB": 130752, "sampledProcessTreeRssSumBytes": 130142208, "workloadSampled": true, "cgroupMemoryPeakBytes": 84213760, "sampleIntervalSeconds": 0.25, "leftoverProcessIdsTerminated": [], "memoryNotes": "RSS sum can double-count shared pages; cgroup memory includes page cache; GNU time max RSS is not simultaneous tree total"}
+{"command": ["node", "benchmarks/reliability/audit.mjs", "/data/dev/CodeIndex/.data/reliability/indexes/codeindex/vscode", "vscode", "/data/dev/CodeIndex/.data/reliability/inputs/vscode.files.json"], "cwd": "/data/dev/CodeIndex-worktrees/feature/parser-reliability", "systemdUnit": "codeindex-benchmark-2971480.scope", "systemdResult": "success", "status": "success", "exitCode": 0, "wallSeconds": 1.29, "wallSecondsIncludingSupervisor": 1.5216513460036367, "timeLimitSeconds": 1800, "memoryLimitGiB": 12, "gnuTimeMaxRssKiB": 153060, "sampledProcessTreeRssSumBytes": 155672576, "workloadSampled": true, "cgroupMemoryPeakBytes": 285732864, "sampleIntervalSeconds": 0.25, "leftoverProcessIdsTerminated": [], "memoryNotes": "RSS sum can double-count shared pages; cgroup memory includes page cache; GNU time max RSS is not simultaneous tree total"}
+{"command": ["node", "benchmarks/competitors/codeindex-relations.mjs", "/data/dev/CodeIndex/.data/reliability/indexes/codeindex/vscode", "vscode", "benchmarks/heldout/relation-cases.json"], "cwd": "/data/dev/CodeIndex-worktrees/feature/parser-reliability", "systemdUnit": "codeindex-benchmark-2971497.scope", "systemdResult": "success", "status": "success", "exitCode": 0, "wallSeconds": 0.48, "wallSecondsIncludingSupervisor": 0.5152652999386191, "timeLimitSeconds": 300, "memoryLimitGiB": 12, "gnuTimeMaxRssKiB": 130832, "sampledProcessTreeRssSumBytes": 131084288, "workloadSampled": true, "cgroupMemoryPeakBytes": 86196224, "sampleIntervalSeconds": 0.25, "leftoverProcessIdsTerminated": [], "memoryNotes": "RSS sum can double-count shared pages; cgroup memory includes page cache; GNU time max RSS is not simultaneous tree total"}
+{"command": ["node", "benchmarks/reliability/audit.mjs", "/data/dev/CodeIndex/.data/reliability/indexes/codeindex/llvm", "llvm", "/data/dev/CodeIndex/.data/reliability/inputs/llvm.files.json"], "cwd": "/data/dev/CodeIndex-worktrees/feature/parser-reliability", "systemdUnit": "codeindex-benchmark-2971512.scope", "systemdResult": "success", "status": "success", "exitCode": 0, "wallSeconds": 15.94, "wallSecondsIncludingSupervisor": 16.051867567934096, "timeLimitSeconds": 1800, "memoryLimitGiB": 12, "gnuTimeMaxRssKiB": 318048, "sampledProcessTreeRssSumBytes": 322826240, "workloadSampled": true, "cgroupMemoryPeakBytes": 2394558464, "sampleIntervalSeconds": 0.25, "leftoverProcessIdsTerminated": [], "memoryNotes": "RSS sum can double-count shared pages; cgroup memory includes page cache; GNU time max RSS is not simultaneous tree total"}
+{"command": ["node", "benchmarks/competitors/codeindex-relations.mjs", "/data/dev/CodeIndex/.data/reliability/indexes/codeindex/llvm", "llvm", "benchmarks/heldout/relation-cases.json"], "cwd": "/data/dev/CodeIndex-worktrees/feature/parser-reliability", "systemdUnit": "codeindex-benchmark-2971757.scope", "systemdResult": "success", "status": "success", "exitCode": 0, "wallSeconds": 0.41, "wallSecondsIncludingSupervisor": 0.514906576834619, "timeLimitSeconds": 300, "memoryLimitGiB": 12, "gnuTimeMaxRssKiB": 159200, "sampledProcessTreeRssSumBytes": 125362176, "workloadSampled": true, "cgroupMemoryPeakBytes": 82157568, "sampleIntervalSeconds": 0.25, "leftoverProcessIdsTerminated": [], "memoryNotes": "RSS sum can double-count shared pages; cgroup memory includes page cache; GNU time max RSS is not simultaneous tree total"}
+FINAL_BUILDS_AND_AUDITS_COMPLETE

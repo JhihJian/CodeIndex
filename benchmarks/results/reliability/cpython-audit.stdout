@@ -1,0 +1,1901 @@
+{
+  "corpus": "cpython",
+  "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9adae9b967fdb7f58175ef5d",
+  "config": {
+    "schema": "codeindex-index-0.4.0",
+    "sqliteSchema": "codeindex-compact-2",
+    "parserVersion": "codeindex-parser-0.4.1",
+    "maxFileBytes": 5242880,
+    "typescript": "5.9.3",
+    "tools": {
+      "ctags": "Universal Ctags 5.9.0, Copyright (C) 2015 Universal Ctags Team",
+      "cscope": "cscope: version 15.9"
+    },
+    "python": {
+      "path": "/home/jhihjian/.local/share/uv/python/cpython-3.14.2-linux-x86_64-gnu/bin/python3.14",
+      "version": "3.14.2",
+      "implementation": "CPython"
+    }
+  },
+  "coverage": {
+    "sourceFiles": 5019,
+    "parsedFiles": 3187,
+    "unsupportedFiles": 1830,
+    "partialFiles": 1832,
+    "skippedFiles": 1,
+    "nativeCalls": true,
+    "semantics": "syntax-level symbols and cross-references; no compiler-level overload or pointer resolution"
+  },
+  "stats": {
+    "files": 5019,
+    "symbols": 153443,
+    "relations": 432657
+  },
+  "bodyFilesVerified": 5019,
+  "evidenceChecked": 73,
+  "status": [
+    {
+      "language": "c",
+      "parse_status": "complete",
+      "files": 1085
+    },
+    {
+      "language": "cpp",
+      "parse_status": "complete",
+      "files": 7
+    },
+    {
+      "language": "css",
+      "parse_status": "unsupported",
+      "files": 2
+    },
+    {
+      "language": "javascript",
+      "parse_status": "complete",
+      "files": 6
+    },
+    {
+      "language": "json",
+      "parse_status": "unsupported",
+      "files": 32
+    },
+    {
+      "language": "markdown",
+      "parse_status": "unsupported",
+      "files": 30
+    },
+    {
+      "language": "python",
+      "parse_status": "complete",
+      "files": 2087
+    },
+    {
+      "language": "python",
+      "parse_status": "partial",
+      "files": 2
+    },
+    {
+      "language": "shell",
+      "parse_status": "unsupported",
+      "files": 10
+    },
+    {
+      "language": "toml",
+      "parse_status": "unsupported",
+      "files": 72
+    },
+    {
+      "language": "typescript",
+      "parse_status": "complete",
+      "files": 2
+    },
+    {
+      "language": "unknown",
+      "parse_status": "unsupported",
+      "files": 1651
+    },
+    {
+      "language": "yaml",
+      "parse_status": "unsupported",
+      "files": 33
+    }
+  ],
+  "failures": [
+    {
+      "path": "Lib/test/tokenizedata/bad_coding2.py",
+      "parse_error": "SyntaxError:invalid non-printable character U+FEFF:1"
+    },
+    {
+      "path": "Lib/test/tokenizedata/badsyntax_3131.py",
+      "parse_error": "SyntaxError:invalid character '€' (U+20AC):2"
+    }
+  ],
+  "rows": [
+    {
+      "mode": "symbol",
+      "query": "SequenceMatcher",
+      "metadataMs": 10.142359000000056,
+      "hitAt10": true,
+      "expectedEvidence": true,
+      "candidates": [
+        {
+          "type": "symbol",
+          "score": 19.5,
+          "symbolId": "symbol:WyJmaWxlOjQ1MTdhODdjMGQxMjE1YzNhMThkMGE0ZCIsIlNlcXVlbmNlTWF0Y2hlciIsImNsYXNzIiwiTGliLmRpZmZsaWIiLDQ0LDBd",
+          "name": "Lib.difflib.SequenceMatcher",
+          "path": "Lib/difflib.py",
+          "startLine": 44
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjQ1MTdhODdjMGQxMjE1YzNhMThkMGE0ZCIsIl9faW5pdF9fIiwibWV0aG9kIiwiTGliLmRpZmZsaWIuU2VxdWVuY2VNYXRjaGVyIiwxMjAsNF0",
+          "name": "Lib.difflib.SequenceMatcher.__init__",
+          "path": "Lib/difflib.py",
+          "startLine": 120
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjQ1MTdhODdjMGQxMjE1YzNhMThkMGE0ZCIsIl9fY2hhaW5fYiIsIm1ldGhvZCIsIkxpYi5kaWZmbGliLlNlcXVlbmNlTWF0Y2hlciIsMjY2LDRd",
+          "name": "Lib.difflib.SequenceMatcher.__chain_b",
+          "path": "Lib/difflib.py",
+          "startLine": 266
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjQ1MTdhODdjMGQxMjE1YzNhMThkMGE0ZCIsInNldF9zZXExIiwibWV0aG9kIiwiTGliLmRpZmZsaWIuU2VxdWVuY2VNYXRjaGVyIiwxOTYsNF0",
+          "name": "Lib.difflib.SequenceMatcher.set_seq1",
+          "path": "Lib/difflib.py",
+          "startLine": 196
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjQ1MTdhODdjMGQxMjE1YzNhMThkMGE0ZCIsInNldF9zZXEyIiwibWV0aG9kIiwiTGliLmRpZmZsaWIuU2VxdWVuY2VNYXRjaGVyIiwyMjIsNF0",
+          "name": "Lib.difflib.SequenceMatcher.set_seq2",
+          "path": "Lib/difflib.py",
+          "startLine": 222
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjQ1MTdhODdjMGQxMjE1YzNhMThkMGE0ZCIsInF1aWNrX3JhdGlvIiwibWV0aG9kIiwiTGliLmRpZmZsaWIuU2VxdWVuY2VNYXRjaGVyIiw2MjIsNF0",
+          "name": "Lib.difflib.SequenceMatcher.quick_ratio",
+          "path": "Lib/difflib.py",
+          "startLine": 622
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjQ1MTdhODdjMGQxMjE1YzNhMThkMGE0ZCIsInNldF9zZXFzIiwibWV0aG9kIiwiTGliLmRpZmZsaWIuU2VxdWVuY2VNYXRjaGVyIiwxODQsNF0",
+          "name": "Lib.difflib.SequenceMatcher.set_seqs",
+          "path": "Lib/difflib.py",
+          "startLine": 184
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjQ1MTdhODdjMGQxMjE1YzNhMThkMGE0ZCIsImdldF9tYXRjaGluZ19ibG9ja3MiLCJtZXRob2QiLCJMaWIuZGlmZmxpYi5TZXF1ZW5jZU1hdGNoZXIiLDQyMSw0XQ",
+          "name": "Lib.difflib.SequenceMatcher.get_matching_blocks",
+          "path": "Lib/difflib.py",
+          "startLine": 421
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjQ1MTdhODdjMGQxMjE1YzNhMThkMGE0ZCIsInJhdGlvIiwibWV0aG9kIiwiTGliLmRpZmZsaWIuU2VxdWVuY2VNYXRjaGVyIiw1OTcsNF0",
+          "name": "Lib.difflib.SequenceMatcher.ratio",
+          "path": "Lib/difflib.py",
+          "startLine": 597
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjQ1MTdhODdjMGQxMjE1YzNhMThkMGE0ZCIsInJlYWxfcXVpY2tfcmF0aW8iLCJtZXRob2QiLCJMaWIuZGlmZmxpYi5TZXF1ZW5jZU1hdGNoZXIiLDY1MSw0XQ",
+          "name": "Lib.difflib.SequenceMatcher.real_quick_ratio",
+          "path": "Lib/difflib.py",
+          "startLine": 651
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjQ1MTdhODdjMGQxMjE1YzNhMThkMGE0ZCIsImdldF9vcGNvZGVzIiwibWV0aG9kIiwiTGliLmRpZmZsaWIuU2VxdWVuY2VNYXRjaGVyIiw0OTIsNF0",
+          "name": "Lib.difflib.SequenceMatcher.get_opcodes",
+          "path": "Lib/difflib.py",
+          "startLine": 492
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjQ1MTdhODdjMGQxMjE1YzNhMThkMGE0ZCIsImdldF9ncm91cGVkX29wY29kZXMiLCJtZXRob2QiLCJMaWIuZGlmZmxpYi5TZXF1ZW5jZU1hdGNoZXIiLDU0Nyw0XQ",
+          "name": "Lib.difflib.SequenceMatcher.get_grouped_opcodes",
+          "path": "Lib/difflib.py",
+          "startLine": 547
+        }
+      ],
+      "evidence": [
+        {
+          "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9adae9b967fdb7f58175ef5d",
+          "path": "Lib/difflib.py",
+          "symbolId": "symbol:WyJmaWxlOjQ1MTdhODdjMGQxMjE1YzNhMThkMGE0ZCIsIlNlcXVlbmNlTWF0Y2hlciIsImNsYXNzIiwiTGliLmRpZmZsaWIiLDQ0LDBd",
+          "symbol": "Lib.difflib.SequenceMatcher",
+          "startLine": 44,
+          "endLine": 103,
+          "startByte": 1356,
+          "endByte": 4109,
+          "blobDigest": "000f99f04cf8fd967753ed9929be6d5025e006437e0ef19b65e3303072538b74",
+          "source": "class SequenceMatcher:\n\n    \"\"\"\n    SequenceMatcher is a flexible class for comparing pairs of sequences of\n    any type, so long as the sequence elements are hashable.  The basic\n    algorithm predates, and is a little fancier than, an algorithm\n    published in the late 1980's by Ratcliff and Obershelp under the\n    hyperbolic name \"gestalt pattern matching\".  The basic idea is to find\n    the longest contiguous matching subsequence that contains no \"junk\"\n    elements (R-O doesn't address junk).  The same idea is then applied\n    recursively to the pieces of the sequences to the left and to the right\n    of the matching subsequence.  This does not yield minimal edit\n    sequences, but does tend to yield matches that \"look right\" to people.\n\n    SequenceMatcher tries to compute a \"human-friendly diff\" between two\n    sequences.  Unlike e.g. UNIX(tm) diff, the fundamental notion is the\n    longest *contiguous* & junk-free matching subsequence.  That's what\n    catches peoples' eyes.  The Windows(tm) windiff has another interesting\n    notion, pairing up elements that appear uniquely in each sequence.\n    That, and the method here, appear to yield more intuitive difference\n    reports than does diff.  This method appears to be the least vulnerable\n    to syncing up on blocks of \"junk lines\", though (like blank lines in\n    ordinary text files, or maybe \"<P>\" lines in HTML files).  That may be\n    because this is the only method of the 3 that has a *concept* of\n    \"junk\" <wink>.\n\n    Example, comparing two strings, and considering blanks to be \"junk\":\n\n    >>> s = SequenceMatcher(lambda x: x == \" \",\n    ...                     \"private Thread currentThread;\",\n    ...                     \"private volatile Thread currentThread;\")\n    >>>\n\n    .ratio() returns a float in [0, 1], measuring the \"similarity\" of the\n    sequences.  As a rule of thumb, a .ratio() value over 0.6 means the\n    sequences are close matches:\n\n    >>> print(round(s.ratio(), 2))\n    0.87\n    >>>\n\n    If you're only interested in where the sequences match,\n    .get_matching_blocks() is handy:\n\n    >>> for block in s.get_matching_blocks():\n    ...     print(\"a[%d] and b[%d] match for %d elements\" % block)\n    a[0] and b[0] match for 8 elements\n    a[8] and b[17] match for 21 elements\n    a[29] and b[38] match for 0 elements\n\n    Note that the last tuple returned by .get_matching_blocks() is always a\n    dummy, (len(a), len(b), 0), and this is the only case in which the last\n    tuple element (number of elements matched) is 0.\n\n    If you want to know how to change the first sequence into the second,\n    use .get_opcodes():\n\n    >>> for opcode in s.get_opcodes():\n    ...     print(\"%6s a[%d:%d] b[%d:%d]\" % opcode)\n     equal a[0:8] b[0:8]",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9adae9b967fdb7f58175ef5d",
+          "path": "Lib/difflib.py",
+          "symbolId": "symbol:WyJmaWxlOjQ1MTdhODdjMGQxMjE1YzNhMThkMGE0ZCIsIl9faW5pdF9fIiwibWV0aG9kIiwiTGliLmRpZmZsaWIuU2VxdWVuY2VNYXRjaGVyIiwxMjAsNF0",
+          "symbol": "Lib.difflib.SequenceMatcher.__init__",
+          "startLine": 120,
+          "endLine": 179,
+          "startByte": 4834,
+          "endByte": 7662,
+          "blobDigest": "000f99f04cf8fd967753ed9929be6d5025e006437e0ef19b65e3303072538b74",
+          "source": "def __init__(self, isjunk=None, a='', b='', autojunk=True):\n        \"\"\"Construct a SequenceMatcher.\n\n        Optional arg isjunk is None (the default), or a one-argument\n        function that takes a sequence element and returns true iff the\n        element is junk.  None is equivalent to passing \"lambda x: 0\", i.e.\n        no elements are considered to be junk.  For example, pass\n            lambda x: x in \" \\\\t\"\n        if you're comparing lines as sequences of characters, and don't\n        want to synch up on blanks or hard tabs.\n\n        Optional arg a is the first of two sequences to be compared.  By\n        default, an empty string.  The elements of a must be hashable.  See\n        also .set_seqs() and .set_seq1().\n\n        Optional arg b is the second of two sequences to be compared.  By\n        default, an empty string.  The elements of b must be hashable. See\n        also .set_seqs() and .set_seq2().\n\n        Optional arg autojunk should be set to False to disable the\n        \"automatic junk heuristic\" that treats popular elements as junk\n        (see module documentation for more information).\n        \"\"\"\n\n        # Members:\n        # a\n        #      first sequence\n        # b\n        #      second sequence; differences are computed as \"what do\n        #      we need to do to 'a' to change it into 'b'?\"\n        # b2j\n        #      for x in b, b2j[x] is a list of the indices (into b)\n        #      at which x appears; junk and popular elements do not appear\n        # fullbcount\n        #      for x in b, fullbcount[x] == the number of times x\n        #      appears in b; only materialized if really needed (used\n        #      only for computing quick_ratio())\n        # matching_blocks\n        #      a list of (i, j, k) triples, where a[i:i+k] == b[j:j+k];\n        #      ascending & non-overlapping in i and in j; terminated by\n        #      a dummy (len(a), len(b), 0) sentinel\n        # opcodes\n        #      a list of (tag, i1, i2, j1, j2) tuples, where tag is\n        #      one of\n        #          'replace'   a[i1:i2] should be replaced by b[j1:j2]\n        #          'delete'    a[i1:i2] should be deleted\n        #          'insert'    b[j1:j2] should be inserted\n        #          'equal'     a[i1:i2] == b[j1:j2]\n        # isjunk\n        #      a user-supplied function taking a sequence element and\n        #      returning true iff the element is \"junk\" -- this has\n        #      subtle but helpful effects on the algorithm, which I'll\n        #      get around to writing up someday <0.9 wink>.\n        #      DON'T USE!  Only __chain_b uses this.  Use \"in self.bjunk\".\n        # bjunk\n        #      the items in b for which isjunk is True.\n        # bpopular\n        #      nonjunk items in b treated as junk by the heuristic (if used).\n\n        self.isjunk = isjunk",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9adae9b967fdb7f58175ef5d",
+          "path": "Lib/difflib.py",
+          "symbolId": "symbol:WyJmaWxlOjQ1MTdhODdjMGQxMjE1YzNhMThkMGE0ZCIsIl9fY2hhaW5fYiIsIm1ldGhvZCIsIkxpYi5kaWZmbGliLlNlcXVlbmNlTWF0Y2hlciIsMjY2LDRd",
+          "symbol": "Lib.difflib.SequenceMatcher.__chain_b",
+          "startLine": 266,
+          "endLine": 303,
+          "startByte": 10524,
+          "endByte": 12039,
+          "blobDigest": "000f99f04cf8fd967753ed9929be6d5025e006437e0ef19b65e3303072538b74",
+          "source": "def __chain_b(self):\n        # Because isjunk is a user-defined (not C) function, and we test\n        # for junk a LOT, it's important to minimize the number of calls.\n        # Before the tricks described here, __chain_b was by far the most\n        # time-consuming routine in the whole module!  If anyone sees\n        # Jim Roskind, thank him again for profile.py -- I never would\n        # have guessed that.\n        # The first trick is to build b2j ignoring the possibility\n        # of junk.  I.e., we don't call isjunk at all yet.  Throwing\n        # out the junk later is much cheaper than building b2j \"right\"\n        # from the start.\n        b = self.b\n        self.b2j = b2j = {}\n\n        for i, elt in enumerate(b):\n            indices = b2j.setdefault(elt, [])\n            indices.append(i)\n\n        # Purge junk elements\n        self.bjunk = junk = set()\n        isjunk = self.isjunk\n        if isjunk:\n            for elt in b2j.keys():\n                if isjunk(elt):\n                    junk.add(elt)\n            for elt in junk: # separate loop avoids separate list of keys\n                del b2j[elt]\n\n        # Purge popular elements that are not junk\n        self.bpopular = popular = set()\n        n = len(b)\n        if self.autojunk and n >= 200:\n            ntest = n // 100 + 1\n            for elt, idxs in b2j.items():\n                if len(idxs) > ntest:\n                    popular.add(elt)\n            for elt in popular: # ditto; as fast for 1% deletion\n                del b2j[elt]",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9adae9b967fdb7f58175ef5d",
+          "path": "Lib/difflib.py",
+          "symbolId": "symbol:WyJmaWxlOjQ1MTdhODdjMGQxMjE1YzNhMThkMGE0ZCIsInNldF9zZXExIiwibWV0aG9kIiwiTGliLmRpZmZsaWIuU2VxdWVuY2VNYXRjaGVyIiwxOTYsNF0",
+          "symbol": "Lib.difflib.SequenceMatcher.set_seq1",
+          "startLine": 196,
+          "endLine": 220,
+          "startByte": 8012,
+          "endByte": 8752,
+          "blobDigest": "000f99f04cf8fd967753ed9929be6d5025e006437e0ef19b65e3303072538b74",
+          "source": "def set_seq1(self, a):\n        \"\"\"Set the first sequence to be compared.\n\n        The second sequence to be compared is not changed.\n\n        >>> s = SequenceMatcher(None, \"abcd\", \"bcde\")\n        >>> s.ratio()\n        0.75\n        >>> s.set_seq1(\"bcde\")\n        >>> s.ratio()\n        1.0\n        >>>\n\n        SequenceMatcher computes and caches detailed information about the\n        second sequence, so if you want to compare one sequence S against\n        many sequences, use .set_seq2(S) once and call .set_seq1(x)\n        repeatedly for each of the other sequences.\n\n        See also set_seqs() and set_seq2().\n        \"\"\"\n\n        if a is self.a:\n            return\n        self.a = a\n        self.matching_blocks = self.opcodes = None",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9adae9b967fdb7f58175ef5d",
+          "path": "Lib/difflib.py",
+          "symbolId": "symbol:WyJmaWxlOjQ1MTdhODdjMGQxMjE1YzNhMThkMGE0ZCIsInNldF9zZXEyIiwibWV0aG9kIiwiTGliLmRpZmZsaWIuU2VxdWVuY2VNYXRjaGVyIiwyMjIsNF0",
+          "symbol": "Lib.difflib.SequenceMatcher.set_seq2",
+          "startLine": 222,
+          "endLine": 248,
+          "startByte": 8758,
+          "endByte": 9554,
+          "blobDigest": "000f99f04cf8fd967753ed9929be6d5025e006437e0ef19b65e3303072538b74",
+          "source": "def set_seq2(self, b):\n        \"\"\"Set the second sequence to be compared.\n\n        The first sequence to be compared is not changed.\n\n        >>> s = SequenceMatcher(None, \"abcd\", \"bcde\")\n        >>> s.ratio()\n        0.75\n        >>> s.set_seq2(\"abcd\")\n        >>> s.ratio()\n        1.0\n        >>>\n\n        SequenceMatcher computes and caches detailed information about the\n        second sequence, so if you want to compare one sequence S against\n        many sequences, use .set_seq2(S) once and call .set_seq1(x)\n        repeatedly for each of the other sequences.\n\n        See also set_seqs() and set_seq1().\n        \"\"\"\n\n        if b is self.b:\n            return\n        self.b = b\n        self.matching_blocks = self.opcodes = None\n        self.fullbcount = None\n        self.__chain_b()",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9adae9b967fdb7f58175ef5d",
+          "path": "Lib/difflib.py",
+          "symbolId": "symbol:WyJmaWxlOjQ1MTdhODdjMGQxMjE1YzNhMThkMGE0ZCIsInF1aWNrX3JhdGlvIiwibWV0aG9kIiwiTGliLmRpZmZsaWIuU2VxdWVuY2VNYXRjaGVyIiw2MjIsNF0",
+          "symbol": "Lib.difflib.SequenceMatcher.quick_ratio",
+          "startLine": 622,
+          "endLine": 649,
+          "startByte": 25547,
+          "endByte": 26688,
+          "blobDigest": "000f99f04cf8fd967753ed9929be6d5025e006437e0ef19b65e3303072538b74",
+          "source": "def quick_ratio(self):\n        \"\"\"Return an upper bound on ratio() relatively quickly.\n\n        This isn't defined beyond that it is an upper bound on .ratio(), and\n        is faster to compute.\n        \"\"\"\n\n        # viewing a and b as multisets, set matches to the cardinality\n        # of their intersection; this counts the number of matches\n        # without regard to order, so is clearly an upper bound\n        if self.fullbcount is None:\n            self.fullbcount = fullbcount = {}\n            for elt in self.b:\n                fullbcount[elt] = fullbcount.get(elt, 0) + 1\n        fullbcount = self.fullbcount\n        # avail[x] is the number of times x appears in 'b' less the\n        # number of times we've seen it in 'a' so far ... kinda\n        avail = {}\n        availhas, matches = avail.__contains__, 0\n        for elt in self.a:\n            if availhas(elt):\n                numb = avail[elt]\n            else:\n                numb = fullbcount.get(elt, 0)\n            avail[elt] = numb - 1\n            if numb > 0:\n                matches = matches + 1\n        return _calculate_ratio(matches, len(self.a) + len(self.b))",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9adae9b967fdb7f58175ef5d",
+          "path": "Lib/difflib.py",
+          "symbolId": "symbol:WyJmaWxlOjQ1MTdhODdjMGQxMjE1YzNhMThkMGE0ZCIsInNldF9zZXFzIiwibWV0aG9kIiwiTGliLmRpZmZsaWIuU2VxdWVuY2VNYXRjaGVyIiwxODQsNF0",
+          "symbol": "Lib.difflib.SequenceMatcher.set_seqs",
+          "startLine": 184,
+          "endLine": 194,
+          "startByte": 7760,
+          "endByte": 8006,
+          "blobDigest": "000f99f04cf8fd967753ed9929be6d5025e006437e0ef19b65e3303072538b74",
+          "source": "def set_seqs(self, a, b):\n        \"\"\"Set the two sequences to be compared.\n\n        >>> s = SequenceMatcher()\n        >>> s.set_seqs(\"abcd\", \"bcde\")\n        >>> s.ratio()\n        0.75\n        \"\"\"\n\n        self.set_seq1(a)\n        self.set_seq2(b)",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9adae9b967fdb7f58175ef5d",
+          "path": "Lib/difflib.py",
+          "symbolId": "symbol:WyJmaWxlOjQ1MTdhODdjMGQxMjE1YzNhMThkMGE0ZCIsImdldF9tYXRjaGluZ19ibG9ja3MiLCJtZXRob2QiLCJMaWIuZGlmZmxpYi5TZXF1ZW5jZU1hdGNoZXIiLDQyMSw0XQ",
+          "symbol": "Lib.difflib.SequenceMatcher.get_matching_blocks",
+          "startLine": 421,
+          "endLine": 480,
+          "startByte": 17233,
+          "endByte": 20023,
+          "blobDigest": "000f99f04cf8fd967753ed9929be6d5025e006437e0ef19b65e3303072538b74",
+          "source": "def get_matching_blocks(self):\n        \"\"\"Return list of triples describing matching subsequences.\n\n        Each triple is of the form (i, j, n), and means that\n        a[i:i+n] == b[j:j+n].  The triples are monotonically increasing in\n        i and in j.  New in Python 2.5, it's also guaranteed that if\n        (i, j, n) and (i', j', n') are adjacent triples in the list, and\n        the second is not the last triple in the list, then i+n != i' or\n        j+n != j'.  IOW, adjacent triples never describe adjacent equal\n        blocks.\n\n        The last triple is a dummy, (len(a), len(b), 0), and is the only\n        triple with n==0.\n\n        >>> s = SequenceMatcher(None, \"abxcd\", \"abcd\")\n        >>> list(s.get_matching_blocks())\n        [Match(a=0, b=0, size=2), Match(a=3, b=2, size=2), Match(a=5, b=4, size=0)]\n        \"\"\"\n\n        if self.matching_blocks is not None:\n            return self.matching_blocks\n        la, lb = len(self.a), len(self.b)\n\n        # This is most naturally expressed as a recursive algorithm, but\n        # at least one user bumped into extreme use cases that exceeded\n        # the recursion limit on their box.  So, now we maintain a list\n        # ('queue`) of blocks we still need to look at, and append partial\n        # results to `matching_blocks` in a loop; the matches are sorted\n        # at the end.\n        queue = [(0, la, 0, lb)]\n        matching_blocks = []\n        while queue:\n            alo, ahi, blo, bhi = queue.pop()\n            i, j, k = x = self.find_longest_match(alo, ahi, blo, bhi)\n            # a[alo:i] vs b[blo:j] unknown\n            # a[i:i+k] same as b[j:j+k]\n            # a[i+k:ahi] vs b[j+k:bhi] unknown\n            if k:   # if k is 0, there was no matching block\n                matching_blocks.append(x)\n                if alo < i and blo < j:\n                    queue.append((alo, i, blo, j))\n                if i+k < ahi and j+k < bhi:\n                    queue.append((i+k, ahi, j+k, bhi))\n        matching_blocks.sort()\n\n        # It's possible that we have adjacent equal blocks in the\n        # matching_blocks list now.  Starting with 2.5, this code was added\n        # to collapse them.\n        i1 = j1 = k1 = 0\n        non_adjacent = []\n        for i2, j2, k2 in matching_blocks:\n            # Is this block adjacent to i1, j1, k1?\n            if i1 + k1 == i2 and j1 + k1 == j2:\n                # Yes, so collapse them -- this just increases the length of\n                # the first block by the length of the second, and the first\n                # block so lengthened remains the block to compare against.\n                k1 += k2\n            else:\n                # Not adjacent.  Remember the first block (k1==0 means it's\n                # the dummy we started with), and make the second block the",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9adae9b967fdb7f58175ef5d",
+          "path": "Lib/difflib.py",
+          "symbolId": "symbol:WyJmaWxlOjQ1MTdhODdjMGQxMjE1YzNhMThkMGE0ZCIsInJhdGlvIiwibWV0aG9kIiwiTGliLmRpZmZsaWIuU2VxdWVuY2VNYXRjaGVyIiw1OTcsNF0",
+          "symbol": "Lib.difflib.SequenceMatcher.ratio",
+          "startLine": 597,
+          "endLine": 620,
+          "startByte": 24644,
+          "endByte": 25541,
+          "blobDigest": "000f99f04cf8fd967753ed9929be6d5025e006437e0ef19b65e3303072538b74",
+          "source": "def ratio(self):\n        \"\"\"Return a measure of the sequences' similarity (float in [0,1]).\n\n        Where T is the total number of elements in both sequences, and\n        M is the number of matches, this is 2.0*M / T.\n        Note that this is 1 if the sequences are identical, and 0 if\n        they have nothing in common.\n\n        .ratio() is expensive to compute if you haven't already computed\n        .get_matching_blocks() or .get_opcodes(), in which case you may\n        want to try .quick_ratio() or .real_quick_ratio() first to get an\n        upper bound.\n\n        >>> s = SequenceMatcher(None, \"abcd\", \"bcde\")\n        >>> s.ratio()\n        0.75\n        >>> s.quick_ratio()\n        0.75\n        >>> s.real_quick_ratio()\n        1.0\n        \"\"\"\n\n        matches = sum(triple[-1] for triple in self.get_matching_blocks())\n        return _calculate_ratio(matches, len(self.a) + len(self.b))",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9adae9b967fdb7f58175ef5d",
+          "path": "Lib/difflib.py",
+          "symbolId": "symbol:WyJmaWxlOjQ1MTdhODdjMGQxMjE1YzNhMThkMGE0ZCIsInJlYWxfcXVpY2tfcmF0aW8iLCJtZXRob2QiLCJMaWIuZGlmZmxpYi5TZXF1ZW5jZU1hdGNoZXIiLDY1MSw0XQ",
+          "symbol": "Lib.difflib.SequenceMatcher.real_quick_ratio",
+          "startLine": 651,
+          "endLine": 661,
+          "startByte": 26694,
+          "endByte": 27131,
+          "blobDigest": "000f99f04cf8fd967753ed9929be6d5025e006437e0ef19b65e3303072538b74",
+          "source": "def real_quick_ratio(self):\n        \"\"\"Return an upper bound on ratio() very quickly.\n\n        This isn't defined beyond that it is an upper bound on .ratio(), and\n        is faster to compute than either .ratio() or .quick_ratio().\n        \"\"\"\n\n        la, lb = len(self.a), len(self.b)\n        # can't have more matches than the number of elements in the\n        # shorter sequence\n        return _calculate_ratio(min(la, lb), la + lb)",
+          "kind": "source"
+        }
+      ]
+    },
+    {
+      "mode": "symbol",
+      "query": "JSONDecoder",
+      "metadataMs": 2.058777999999961,
+      "hitAt10": true,
+      "expectedEvidence": true,
+      "candidates": [
+        {
+          "type": "symbol",
+          "score": 19.5,
+          "symbolId": "symbol:WyJmaWxlOjMzZWViNzJjZDJhNTY2OTMzNmVmODZjMyIsIkpTT05EZWNvZGVyIiwiY2xhc3MiLCJMaWIuanNvbi5kZWNvZGVyIiwyNjIsMF0",
+          "name": "Lib.json.decoder.JSONDecoder",
+          "path": "Lib/json/decoder.py",
+          "startLine": 262
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjMzZWViNzJjZDJhNTY2OTMzNmVmODZjMyIsImRlY29kZSIsIm1ldGhvZCIsIkxpYi5qc29uLmRlY29kZXIuSlNPTkRlY29kZXIiLDM0MCw0XQ",
+          "name": "Lib.json.decoder.JSONDecoder.decode",
+          "path": "Lib/json/decoder.py",
+          "startLine": 340
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjMzZWViNzJjZDJhNTY2OTMzNmVmODZjMyIsInJhd19kZWNvZGUiLCJtZXRob2QiLCJMaWIuanNvbi5kZWNvZGVyLkpTT05EZWNvZGVyIiwzNTEsNF0",
+          "name": "Lib.json.decoder.JSONDecoder.raw_decode",
+          "path": "Lib/json/decoder.py",
+          "startLine": 351
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjMzZWViNzJjZDJhNTY2OTMzNmVmODZjMyIsIl9faW5pdF9fIiwibWV0aG9kIiwiTGliLmpzb24uZGVjb2Rlci5KU09ORGVjb2RlciIsMjkyLDRd",
+          "name": "Lib.json.decoder.JSONDecoder.__init__",
+          "path": "Lib/json/decoder.py",
+          "startLine": 292
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:WyJmaWxlOjMzZWViNzJjZDJhNTY2OTMzNmVmODZjMyIsImRlY29kZXIiLCJtb2R1bGUiLCIiLDEsMF0",
+          "name": "Lib.json.decoder",
+          "path": "Lib/json/decoder.py",
+          "startLine": 1
+        }
+      ],
+      "evidence": [
+        {
+          "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9adae9b967fdb7f58175ef5d",
+          "path": "Lib/json/decoder.py",
+          "symbolId": "symbol:WyJmaWxlOjMzZWViNzJjZDJhNTY2OTMzNmVmODZjMyIsIkpTT05EZWNvZGVyIiwiY2xhc3MiLCJMaWIuanNvbi5kZWNvZGVyIiwyNjIsMF0",
+          "symbol": "Lib.json.decoder.JSONDecoder",
+          "startLine": 262,
+          "endLine": 321,
+          "startByte": 8502,
+          "endByte": 11179,
+          "blobDigest": "6d95679fccf178f2af9e9eead42f8efb084c58735951dc47fce89aec11d44955",
+          "source": "class JSONDecoder(object):\n    \"\"\"Simple JSON <https://json.org> decoder\n\n    Performs the following translations in decoding by default:\n\n    +---------------+-------------------+\n    | JSON          | Python            |\n    +===============+===================+\n    | object        | dict              |\n    +---------------+-------------------+\n    | array         | list              |\n    +---------------+-------------------+\n    | string        | str               |\n    +---------------+-------------------+\n    | number (int)  | int               |\n    +---------------+-------------------+\n    | number (real) | float             |\n    +---------------+-------------------+\n    | true          | True              |\n    +---------------+-------------------+\n    | false         | False             |\n    +---------------+-------------------+\n    | null          | None              |\n    +---------------+-------------------+\n\n    It also understands ``NaN``, ``Infinity``, and ``-Infinity`` as\n    their corresponding ``float`` values, which is outside the JSON spec.\n\n    \"\"\"\n\n    def __init__(self, *, object_hook=None, parse_float=None,\n            parse_int=None, parse_constant=None, strict=True,\n            object_pairs_hook=None):\n        \"\"\"``object_hook``, if specified, will be called with the result\n        of every JSON object decoded and its return value will be used in\n        place of the given ``dict``.  This can be used to provide custom\n        deserializations (e.g. to support JSON-RPC class hinting).\n\n        ``object_pairs_hook``, if specified will be called with the result of\n        every JSON object decoded with an ordered list of pairs.  The return\n        value of ``object_pairs_hook`` will be used instead of the ``dict``.\n        This feature can be used to implement custom decoders.\n        If ``object_hook`` is also defined, the ``object_pairs_hook`` takes\n        priority.\n\n        ``parse_float``, if specified, will be called with the string\n        of every JSON float to be decoded. By default this is equivalent to\n        float(num_str). This can be used to use another datatype or parser\n        for JSON floats (e.g. decimal.Decimal).\n\n        ``parse_int``, if specified, will be called with the string\n        of every JSON int to be decoded. By default this is equivalent to\n        int(num_str). This can be used to use another datatype or parser\n        for JSON integers (e.g. float).\n\n        ``parse_constant``, if specified, will be called with one of the\n        following strings: -Infinity, Infinity, NaN.\n        This can be used to raise an exception if invalid JSON numbers\n        are encountered.\n",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9adae9b967fdb7f58175ef5d",
+          "path": "Lib/json/decoder.py",
+          "symbolId": "symbol:WyJmaWxlOjMzZWViNzJjZDJhNTY2OTMzNmVmODZjMyIsImRlY29kZSIsIm1ldGhvZCIsIkxpYi5qc29uLmRlY29kZXIuSlNPTkRlY29kZXIiLDM0MCw0XQ",
+          "symbol": "Lib.json.decoder.JSONDecoder.decode",
+          "startLine": 340,
+          "endLine": 349,
+          "startByte": 11951,
+          "endByte": 12305,
+          "blobDigest": "6d95679fccf178f2af9e9eead42f8efb084c58735951dc47fce89aec11d44955",
+          "source": "def decode(self, s, _w=WHITESPACE.match):\n        \"\"\"Return the Python representation of ``s`` (a ``str`` instance\n        containing a JSON document).\n\n        \"\"\"\n        obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n        end = _w(s, end).end()\n        if end != len(s):\n            raise JSONDecodeError(\"Extra data\", s, end)\n        return obj",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9adae9b967fdb7f58175ef5d",
+          "path": "Lib/json/decoder.py",
+          "symbolId": "symbol:WyJmaWxlOjMzZWViNzJjZDJhNTY2OTMzNmVmODZjMyIsInJhd19kZWNvZGUiLCJtZXRob2QiLCJMaWIuanNvbi5kZWNvZGVyLkpTT05EZWNvZGVyIiwzNTEsNF0",
+          "symbol": "Lib.json.decoder.JSONDecoder.raw_decode",
+          "startLine": 351,
+          "endLine": 364,
+          "startByte": 12311,
+          "endByte": 12871,
+          "blobDigest": "6d95679fccf178f2af9e9eead42f8efb084c58735951dc47fce89aec11d44955",
+          "source": "def raw_decode(self, s, idx=0):\n        \"\"\"Decode a JSON document from ``s`` (a ``str`` beginning with\n        a JSON document) and return a 2-tuple of the Python\n        representation and the index in ``s`` where the document ended.\n\n        This can be used to decode a JSON document from a string that may\n        have extraneous data at the end.\n\n        \"\"\"\n        try:\n            obj, end = self.scan_once(s, idx)\n        except StopIteration as err:\n            raise JSONDecodeError(\"Expecting value\", s, err.value) from None\n        return obj, end",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9adae9b967fdb7f58175ef5d",
+          "path": "Lib/json/decoder.py",
+          "symbolId": "symbol:WyJmaWxlOjMzZWViNzJjZDJhNTY2OTMzNmVmODZjMyIsIl9faW5pdF9fIiwibWV0aG9kIiwiTGliLmpzb24uZGVjb2Rlci5KU09ORGVjb2RlciIsMjkyLDRd",
+          "symbol": "Lib.json.decoder.JSONDecoder.__init__",
+          "startLine": 292,
+          "endLine": 337,
+          "startByte": 9596,
+          "endByte": 11944,
+          "blobDigest": "6d95679fccf178f2af9e9eead42f8efb084c58735951dc47fce89aec11d44955",
+          "source": "def __init__(self, *, object_hook=None, parse_float=None,\n            parse_int=None, parse_constant=None, strict=True,\n            object_pairs_hook=None):\n        \"\"\"``object_hook``, if specified, will be called with the result\n        of every JSON object decoded and its return value will be used in\n        place of the given ``dict``.  This can be used to provide custom\n        deserializations (e.g. to support JSON-RPC class hinting).\n\n        ``object_pairs_hook``, if specified will be called with the result of\n        every JSON object decoded with an ordered list of pairs.  The return\n        value of ``object_pairs_hook`` will be used instead of the ``dict``.\n        This feature can be used to implement custom decoders.\n        If ``object_hook`` is also defined, the ``object_pairs_hook`` takes\n        priority.\n\n        ``parse_float``, if specified, will be called with the string\n        of every JSON float to be decoded. By default this is equivalent to\n        float(num_str). This can be used to use another datatype or parser\n        for JSON floats (e.g. decimal.Decimal).\n\n        ``parse_int``, if specified, will be called with the string\n        of every JSON int to be decoded. By default this is equivalent to\n        int(num_str). This can be used to use another datatype or parser\n        for JSON integers (e.g. float).\n\n        ``parse_constant``, if specified, will be called with one of the\n        following strings: -Infinity, Infinity, NaN.\n        This can be used to raise an exception if invalid JSON numbers\n        are encountered.\n\n        If ``strict`` is false (true is the default), then control\n        characters will be allowed inside strings.  Control characters in\n        this context are those with character codes in the 0-31 range,\n        including ``'\\\\t'`` (tab), ``'\\\\n'``, ``'\\\\r'`` and ``'\\\\0'``.\n        \"\"\"\n        self.object_hook = object_hook\n        self.parse_float = parse_float or float\n        self.parse_int = parse_int or int\n        self.parse_constant = parse_constant or _CONSTANTS.__getitem__\n        self.strict = strict\n        self.object_pairs_hook = object_pairs_hook\n        self.parse_object = JSONObject\n        self.parse_array = JSONArray\n        self.parse_string = scanstring\n        self.memo = {}\n        self.scan_once = scanner.make_scanner(self)",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9adae9b967fdb7f58175ef5d",
+          "path": "Lib/json/decoder.py",
+          "symbolId": "symbol:WyJmaWxlOjMzZWViNzJjZDJhNTY2OTMzNmVmODZjMyIsImRlY29kZXIiLCJtb2R1bGUiLCIiLDEsMF0",
+          "symbol": "Lib.json.decoder",
+          "startLine": 1,
+          "endLine": 60,
+          "startByte": 0,
+          "endByte": 1531,
+          "blobDigest": "6d95679fccf178f2af9e9eead42f8efb084c58735951dc47fce89aec11d44955",
+          "source": "\"\"\"Implementation of JSONDecoder\n\"\"\"\nimport re\n\nfrom json import scanner\ntry:\n    from _json import scanstring as c_scanstring\nexcept ImportError:\n    c_scanstring = None\n\n__all__ = ['JSONDecoder', 'JSONDecodeError']\n\nFLAGS = re.VERBOSE | re.MULTILINE | re.DOTALL\n\nNaN = float('nan')\nPosInf = float('inf')\nNegInf = float('-inf')\n\n\nclass JSONDecodeError(ValueError):\n    \"\"\"Subclass of ValueError with the following additional properties:\n\n    msg: The unformatted error message\n    doc: The JSON document being parsed\n    pos: The start index of doc where parsing failed\n    lineno: The line corresponding to pos\n    colno: The column corresponding to pos\n\n    \"\"\"\n    # Note that this exception is used from _json\n    def __init__(self, msg, doc, pos):\n        lineno = doc.count('\\n', 0, pos) + 1\n        colno = pos - doc.rfind('\\n', 0, pos)\n        errmsg = '%s: line %d column %d (char %d)' % (msg, lineno, colno, pos)\n        ValueError.__init__(self, errmsg)\n        self.msg = msg\n        self.doc = doc\n        self.pos = pos\n        self.lineno = lineno\n        self.colno = colno\n\n    def __reduce__(self):\n        return self.__class__, (self.msg, self.doc, self.pos)\n\n\n_CONSTANTS = {\n    '-Infinity': NegInf,\n    'Infinity': PosInf,\n    'NaN': NaN,\n}\n\n\nHEXDIGITS = re.compile(r'[0-9A-Fa-f]{4}', FLAGS)\nSTRINGCHUNK = re.compile(r'(.*?)([\"\\\\\\x00-\\x1f])', FLAGS)\nBACKSLASH = {\n    '\"': '\"', '\\\\': '\\\\', '/': '/',\n    'b': '\\b', 'f': '\\f', 'n': '\\n', 'r': '\\r', 't': '\\t',\n}\n\ndef _decode_uXXXX(s, pos, _m=HEXDIGITS.match):",
+          "kind": "source"
+        }
+      ]
+    },
+    {
+      "mode": "symbol",
+      "query": "ArgumentParser",
+      "metadataMs": 3.269702999999936,
+      "hitAt10": true,
+      "expectedEvidence": true,
+      "candidates": [
+        {
+          "type": "symbol",
+          "score": 19.5,
+          "symbolId": "symbol:WyJmaWxlOjIwNWVmMjRjOTM3NDQ2NWJmMzVjMzU5YSIsIkFyZ3VtZW50UGFyc2VyIiwiY2xhc3MiLCJMaWIuYXJncGFyc2UiLDE4NDAsMF0",
+          "name": "Lib.argparse.ArgumentParser",
+          "path": "Lib/argparse.py",
+          "startLine": 1840
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjIwNWVmMjRjOTM3NDQ2NWJmMzVjMzU5YSIsImlkZW50aXR5IiwiZnVuY3Rpb24iLCJMaWIuYXJncGFyc2UuQXJndW1lbnRQYXJzZXIuX19pbml0X18iLDE5MDYsOF0",
+          "name": "Lib.argparse.ArgumentParser.__init__.identity",
+          "path": "Lib/argparse.py",
+          "startLine": 1906
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjIwNWVmMjRjOTM3NDQ2NWJmMzVjMzU5YSIsIl93YXJuaW5nIiwibWV0aG9kIiwiTGliLmFyZ3BhcnNlLkFyZ3VtZW50UGFyc2VyIiwyNzczLDRd",
+          "name": "Lib.argparse.ArgumentParser._warning",
+          "path": "Lib/argparse.py",
+          "startLine": 2773
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjIwNWVmMjRjOTM3NDQ2NWJmMzVjMzU5YSIsIl9nZXRfa3dhcmdzIiwibWV0aG9kIiwiTGliLmFyZ3BhcnNlLkFyZ3VtZW50UGFyc2VyIiwxOTMxLDRd",
+          "name": "Lib.argparse.ArgumentParser._get_kwargs",
+          "path": "Lib/argparse.py",
+          "startLine": 1931
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjIwNWVmMjRjOTM3NDQ2NWJmMzVjMzU5YSIsImZvcm1hdF91c2FnZSIsIm1ldGhvZCIsIkxpYi5hcmdwYXJzZS5Bcmd1bWVudFBhcnNlciIsMjY5NSw0XQ",
+          "name": "Lib.argparse.ArgumentParser.format_usage",
+          "path": "Lib/argparse.py",
+          "startLine": 2695
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjIwNWVmMjRjOTM3NDQ2NWJmMzVjMzU5YSIsImZvcm1hdF9oZWxwIiwibWV0aG9kIiwiTGliLmFyZ3BhcnNlLkFyZ3VtZW50UGFyc2VyIiwyNzAxLDRd",
+          "name": "Lib.argparse.ArgumentParser.format_help",
+          "path": "Lib/argparse.py",
+          "startLine": 2701
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjIwNWVmMjRjOTM3NDQ2NWJmMzVjMzU5YSIsIl9nZXRfZm9ybWF0dGVyIiwibWV0aG9kIiwiTGliLmFyZ3BhcnNlLkFyZ3VtZW50UGFyc2VyIiwyNzI0LDRd",
+          "name": "Lib.argparse.ArgumentParser._get_formatter",
+          "path": "Lib/argparse.py",
+          "startLine": 2724
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjIwNWVmMjRjOTM3NDQ2NWJmMzVjMzU5YSIsImFkZF9zdWJwYXJzZXJzIiwibWV0aG9kIiwiTGliLmFyZ3BhcnNlLkFyZ3VtZW50UGFyc2VyIiwxOTQ2LDRd",
+          "name": "Lib.argparse.ArgumentParser.add_subparsers",
+          "path": "Lib/argparse.py",
+          "startLine": 1946
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjIwNWVmMjRjOTM3NDQ2NWJmMzVjMzU5YSIsIl9hZGRfYWN0aW9uIiwibWV0aG9kIiwiTGliLmFyZ3BhcnNlLkFyZ3VtZW50UGFyc2VyIiwxOTc5LDRd",
+          "name": "Lib.argparse.ArgumentParser._add_action",
+          "path": "Lib/argparse.py",
+          "startLine": 1979
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjIwNWVmMjRjOTM3NDQ2NWJmMzVjMzU5YSIsIl9nZXRfb3B0aW9uYWxfYWN0aW9ucyIsIm1ldGhvZCIsIkxpYi5hcmdwYXJzZS5Bcmd1bWVudFBhcnNlciIsMTk4Niw0XQ",
+          "name": "Lib.argparse.ArgumentParser._get_optional_actions",
+          "path": "Lib/argparse.py",
+          "startLine": 1986
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjIwNWVmMjRjOTM3NDQ2NWJmMzVjMzU5YSIsIl9nZXRfcG9zaXRpb25hbF9hY3Rpb25zIiwibWV0aG9kIiwiTGliLmFyZ3BhcnNlLkFyZ3VtZW50UGFyc2VyIiwxOTkxLDRd",
+          "name": "Lib.argparse.ArgumentParser._get_positional_actions",
+          "path": "Lib/argparse.py",
+          "startLine": 1991
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjIwNWVmMjRjOTM3NDQ2NWJmMzVjMzU5YSIsIl9wYXJzZV9vcHRpb25hbCIsIm1ldGhvZCIsIkxpYi5hcmdwYXJzZS5Bcmd1bWVudFBhcnNlciIsMjQyNyw0XQ",
+          "name": "Lib.argparse.ArgumentParser._parse_optional",
+          "path": "Lib/argparse.py",
+          "startLine": 2427
+        }
+      ],
+      "evidence": [
+        {
+          "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9adae9b967fdb7f58175ef5d",
+          "path": "Lib/argparse.py",
+          "symbolId": "symbol:WyJmaWxlOjIwNWVmMjRjOTM3NDQ2NWJmMzVjMzU5YSIsIkFyZ3VtZW50UGFyc2VyIiwiY2xhc3MiLCJMaWIuYXJncGFyc2UiLDE4NDAsMF0",
+          "symbol": "Lib.argparse.ArgumentParser",
+          "startLine": 1840,
+          "endLine": 1899,
+          "startByte": 66365,
+          "endByte": 68986,
+          "blobDigest": "c2cd895b117dbc4d55439773e3f11e57b833b1e20f05d311c4465b794b044898",
+          "source": "class ArgumentParser(_AttributeHolder, _ActionsContainer):\n    \"\"\"Object for parsing command line strings into Python objects.\n\n    Keyword Arguments:\n        - prog -- The name of the program (default:\n            ``os.path.basename(sys.argv[0])``)\n        - usage -- A usage message (default: auto-generated from arguments)\n        - description -- A description of what the program does\n        - epilog -- Text following the argument descriptions\n        - parents -- Parsers whose arguments should be copied into this one\n        - formatter_class -- HelpFormatter class for printing help messages\n        - prefix_chars -- Characters that prefix optional arguments\n        - fromfile_prefix_chars -- Characters that prefix files containing\n            additional arguments\n        - argument_default -- The default value for all arguments\n        - conflict_handler -- String indicating how to handle conflicts\n        - add_help -- Add a -h/-help option\n        - allow_abbrev -- Allow long options to be abbreviated unambiguously\n        - exit_on_error -- Determines whether or not ArgumentParser exits with\n            error info when an error occurs\n        - suggest_on_error - Enables suggestions for mistyped argument choices\n            and subparser names (default: ``False``)\n        - color - Allow color output in help messages (default: ``False``)\n    \"\"\"\n\n    def __init__(self,\n                 prog=None,\n                 usage=None,\n                 description=None,\n                 epilog=None,\n                 parents=[],\n                 formatter_class=HelpFormatter,\n                 prefix_chars='-',\n                 fromfile_prefix_chars=None,\n                 argument_default=None,\n                 conflict_handler='error',\n                 add_help=True,\n                 allow_abbrev=True,\n                 exit_on_error=True,\n                 *,\n                 suggest_on_error=False,\n                 color=True,\n                 ):\n        superinit = super(ArgumentParser, self).__init__\n        superinit(description=description,\n                  prefix_chars=prefix_chars,\n                  argument_default=argument_default,\n                  conflict_handler=conflict_handler)\n\n        self.prog = _prog_name(prog)\n        self.usage = usage\n        self.epilog = epilog\n        self.formatter_class = formatter_class\n        self.fromfile_prefix_chars = fromfile_prefix_chars\n        self.add_help = add_help\n        self.allow_abbrev = allow_abbrev\n        self.exit_on_error = exit_on_error\n        self.suggest_on_error = suggest_on_error\n        self.color = color\n",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9adae9b967fdb7f58175ef5d",
+          "path": "Lib/argparse.py",
+          "symbolId": "symbol:WyJmaWxlOjIwNWVmMjRjOTM3NDQ2NWJmMzVjMzU5YSIsImlkZW50aXR5IiwiZnVuY3Rpb24iLCJMaWIuYXJncGFyc2UuQXJndW1lbnRQYXJzZXIuX19pbml0X18iLDE5MDYsOF0",
+          "symbol": "Lib.argparse.ArgumentParser.__init__.identity",
+          "startLine": 1906,
+          "endLine": 1907,
+          "startByte": 69212,
+          "endByte": 69259,
+          "blobDigest": "c2cd895b117dbc4d55439773e3f11e57b833b1e20f05d311c4465b794b044898",
+          "source": "def identity(string):\n            return string",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9adae9b967fdb7f58175ef5d",
+          "path": "Lib/argparse.py",
+          "symbolId": "symbol:WyJmaWxlOjIwNWVmMjRjOTM3NDQ2NWJmMzVjMzU5YSIsIl93YXJuaW5nIiwibWV0aG9kIiwiTGliLmFyZ3BhcnNlLkFyZ3VtZW50UGFyc2VyIiwyNzczLDRd",
+          "symbol": "Lib.argparse.ArgumentParser._warning",
+          "startLine": 2773,
+          "endLine": 2775,
+          "startByte": 105653,
+          "endByte": 105823,
+          "blobDigest": "c2cd895b117dbc4d55439773e3f11e57b833b1e20f05d311c4465b794b044898",
+          "source": "def _warning(self, message):\n        args = {'prog': self.prog, 'message': message}\n        self._print_message(_('%(prog)s: warning: %(message)s\\n') % args, _sys.stderr)",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9adae9b967fdb7f58175ef5d",
+          "path": "Lib/argparse.py",
+          "symbolId": "symbol:WyJmaWxlOjIwNWVmMjRjOTM3NDQ2NWJmMzVjMzU5YSIsIl9nZXRfa3dhcmdzIiwibWV0aG9kIiwiTGliLmFyZ3BhcnNlLkFyZ3VtZW50UGFyc2VyIiwxOTMxLDRd",
+          "symbol": "Lib.argparse.ArgumentParser._get_kwargs",
+          "startLine": 1931,
+          "endLine": 1940,
+          "startByte": 70153,
+          "endByte": 70421,
+          "blobDigest": "c2cd895b117dbc4d55439773e3f11e57b833b1e20f05d311c4465b794b044898",
+          "source": "def _get_kwargs(self):\n        names = [\n            'prog',\n            'usage',\n            'description',\n            'formatter_class',\n            'conflict_handler',\n            'add_help',\n        ]\n        return [(name, getattr(self, name)) for name in names]",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9adae9b967fdb7f58175ef5d",
+          "path": "Lib/argparse.py",
+          "symbolId": "symbol:WyJmaWxlOjIwNWVmMjRjOTM3NDQ2NWJmMzVjMzU5YSIsImZvcm1hdF91c2FnZSIsIm1ldGhvZCIsIkxpYi5hcmdwYXJzZS5Bcmd1bWVudFBhcnNlciIsMjY5NSw0XQ",
+          "symbol": "Lib.argparse.ArgumentParser.format_usage",
+          "startLine": 2695,
+          "endLine": 2699,
+          "startByte": 103271,
+          "endByte": 103491,
+          "blobDigest": "c2cd895b117dbc4d55439773e3f11e57b833b1e20f05d311c4465b794b044898",
+          "source": "def format_usage(self):\n        formatter = self._get_formatter()\n        formatter.add_usage(self.usage, self._actions,\n                            self._mutually_exclusive_groups)\n        return formatter.format_help()",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9adae9b967fdb7f58175ef5d",
+          "path": "Lib/argparse.py",
+          "symbolId": "symbol:WyJmaWxlOjIwNWVmMjRjOTM3NDQ2NWJmMzVjMzU5YSIsImZvcm1hdF9oZWxwIiwibWV0aG9kIiwiTGliLmFyZ3BhcnNlLkFyZ3VtZW50UGFyc2VyIiwyNzAxLDRd",
+          "symbol": "Lib.argparse.ArgumentParser.format_help",
+          "startLine": 2701,
+          "endLine": 2722,
+          "startByte": 103497,
+          "endByte": 104224,
+          "blobDigest": "c2cd895b117dbc4d55439773e3f11e57b833b1e20f05d311c4465b794b044898",
+          "source": "def format_help(self):\n        formatter = self._get_formatter()\n\n        # usage\n        formatter.add_usage(self.usage, self._actions,\n                            self._mutually_exclusive_groups)\n\n        # description\n        formatter.add_text(self.description)\n\n        # positionals, optionals and user-defined groups\n        for action_group in self._action_groups:\n            formatter.start_section(action_group.title)\n            formatter.add_text(action_group.description)\n            formatter.add_arguments(action_group._group_actions)\n            formatter.end_section()\n\n        # epilog\n        formatter.add_text(self.epilog)\n\n        # determine help from format above\n        return formatter.format_help()",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9adae9b967fdb7f58175ef5d",
+          "path": "Lib/argparse.py",
+          "symbolId": "symbol:WyJmaWxlOjIwNWVmMjRjOTM3NDQ2NWJmMzVjMzU5YSIsIl9nZXRfZm9ybWF0dGVyIiwibWV0aG9kIiwiTGliLmFyZ3BhcnNlLkFyZ3VtZW50UGFyc2VyIiwyNzI0LDRd",
+          "symbol": "Lib.argparse.ArgumentParser._get_formatter",
+          "startLine": 2724,
+          "endLine": 2727,
+          "startByte": 104230,
+          "endByte": 104378,
+          "blobDigest": "c2cd895b117dbc4d55439773e3f11e57b833b1e20f05d311c4465b794b044898",
+          "source": "def _get_formatter(self):\n        formatter = self.formatter_class(prog=self.prog)\n        formatter._set_color(self.color)\n        return formatter",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9adae9b967fdb7f58175ef5d",
+          "path": "Lib/argparse.py",
+          "symbolId": "symbol:WyJmaWxlOjIwNWVmMjRjOTM3NDQ2NWJmMzVjMzU5YSIsImFkZF9zdWJwYXJzZXJzIiwibWV0aG9kIiwiTGliLmFyZ3BhcnNlLkFyZ3VtZW50UGFyc2VyIiwxOTQ2LDRd",
+          "symbol": "Lib.argparse.ArgumentParser.add_subparsers",
+          "startLine": 1946,
+          "endLine": 1977,
+          "startByte": 70551,
+          "endByte": 71960,
+          "blobDigest": "c2cd895b117dbc4d55439773e3f11e57b833b1e20f05d311c4465b794b044898",
+          "source": "def add_subparsers(self, **kwargs):\n        if self._subparsers is not None:\n            raise ValueError('cannot have multiple subparser arguments')\n\n        # add the parser class to the arguments if it's not present\n        kwargs.setdefault('parser_class', type(self))\n\n        if 'title' in kwargs or 'description' in kwargs:\n            title = kwargs.pop('title', _('subcommands'))\n            description = kwargs.pop('description', None)\n            self._subparsers = self.add_argument_group(title, description)\n        else:\n            self._subparsers = self._positionals\n\n        # prog defaults to the usage message of this parser, skipping\n        # optional arguments and with no \"usage:\" prefix\n        if kwargs.get('prog') is None:\n            formatter = self._get_formatter()\n            positionals = self._get_positional_actions()\n            groups = self._mutually_exclusive_groups\n            formatter.add_usage(None, positionals, groups, '')\n            kwargs['prog'] = formatter.format_help().strip()\n\n        # create the parsers action and add it to the positionals list\n        parsers_class = self._pop_action_class(kwargs, 'parsers')\n        action = parsers_class(option_strings=[], **kwargs)\n        action._color = self.color\n        self._check_help(action)\n        self._subparsers._add_action(action)\n\n        # return the created parsers action\n        return action",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9adae9b967fdb7f58175ef5d",
+          "path": "Lib/argparse.py",
+          "symbolId": "symbol:WyJmaWxlOjIwNWVmMjRjOTM3NDQ2NWJmMzVjMzU5YSIsIl9hZGRfYWN0aW9uIiwibWV0aG9kIiwiTGliLmFyZ3BhcnNlLkFyZ3VtZW50UGFyc2VyIiwxOTc5LDRd",
+          "symbol": "Lib.argparse.ArgumentParser._add_action",
+          "startLine": 1979,
+          "endLine": 1984,
+          "startByte": 71966,
+          "endByte": 72164,
+          "blobDigest": "c2cd895b117dbc4d55439773e3f11e57b833b1e20f05d311c4465b794b044898",
+          "source": "def _add_action(self, action):\n        if action.option_strings:\n            self._optionals._add_action(action)\n        else:\n            self._positionals._add_action(action)\n        return action",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9adae9b967fdb7f58175ef5d",
+          "path": "Lib/argparse.py",
+          "symbolId": "symbol:WyJmaWxlOjIwNWVmMjRjOTM3NDQ2NWJmMzVjMzU5YSIsIl9nZXRfb3B0aW9uYWxfYWN0aW9ucyIsIm1ldGhvZCIsIkxpYi5hcmdwYXJzZS5Bcmd1bWVudFBhcnNlciIsMTk4Niw0XQ",
+          "symbol": "Lib.argparse.ArgumentParser._get_optional_actions",
+          "startLine": 1986,
+          "endLine": 1989,
+          "startByte": 72170,
+          "endByte": 72311,
+          "blobDigest": "c2cd895b117dbc4d55439773e3f11e57b833b1e20f05d311c4465b794b044898",
+          "source": "def _get_optional_actions(self):\n        return [action\n                for action in self._actions\n                if action.option_strings]",
+          "kind": "source"
+        }
+      ]
+    },
+    {
+      "mode": "symbol",
+      "query": "heappush",
+      "metadataMs": 4.169485000000009,
+      "hitAt10": true,
+      "expectedEvidence": true,
+      "candidates": [
+        {
+          "type": "symbol",
+          "score": 19.5,
+          "symbolId": "symbol:WyJmaWxlOjM2MzBlZTYxNmFlYjNjNzIzNjcyNmIwZSIsImhlYXBwdXNoIiwiZnVuY3Rpb24iLCJMaWIuaGVhcHEiLDEzMiwwXQ",
+          "name": "Lib.heapq.heappush",
+          "path": "Lib/heapq.py",
+          "startLine": 132
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjIyYTZiY2IwM2U3ODMzNzgxNDlhM2U5NCIsIl9wdXQiLCJtZXRob2QiLCJMaWIuYXN5bmNpby5xdWV1ZXMuUHJpb3JpdHlRdWV1ZSIsMjkxLDRd",
+          "name": "Lib.asyncio.queues.PriorityQueue._put",
+          "path": "Lib/asyncio/queues.py",
+          "startLine": 291
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjM2MzBlZTYxNmFlYjNjNzIzNjcyNmIwZSIsImhlYXBwdXNoX21heCIsImZ1bmN0aW9uIiwiTGliLmhlYXBxIiwxOTgsMF0",
+          "name": "Lib.heapq.heappush_max",
+          "path": "Lib/heapq.py",
+          "startLine": 198
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjM2MzBlZTYxNmFlYjNjNzIzNjcyNmIwZSIsImhlYXBwdXNocG9wIiwiZnVuY3Rpb24iLCJMaWIuaGVhcHEiLDE2MywwXQ",
+          "name": "Lib.heapq.heappushpop",
+          "path": "Lib/heapq.py",
+          "startLine": 163
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjM2MzBlZTYxNmFlYjNjNzIzNjcyNmIwZSIsImhlYXBwdXNocG9wX21heCIsImZ1bmN0aW9uIiwiTGliLmhlYXBxIiwyMDMsMF0",
+          "name": "Lib.heapq.heappushpop_max",
+          "path": "Lib/heapq.py",
+          "startLine": 203
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjM2MzBlZTYxNmFlYjNjNzIzNjcyNmIwZSIsImhlYXByZXBsYWNlX21heCIsImZ1bmN0aW9uIiwiTGliLmhlYXBxIiwxOTEsMF0",
+          "name": "Lib.heapq.heapreplace_max",
+          "path": "Lib/heapq.py",
+          "startLine": 191
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjhhYjFhNTk2OTkxZDQ5YTU3ZTY1MWE5ZCIsImhlYXBwdXNoX2Z1bmMiLCJmdW5jdGlvbiIsIkxpYi50ZXN0LnRlc3RfZnJlZV90aHJlYWRpbmcudGVzdF9oZWFwcS5UZXN0SGVhcHEudGVzdF9yYWNpbmdfaGVhcHB1c2giLDQwLDhd",
+          "name": "Lib.test.test_free_threading.test_heapq.TestHeapq.test_racing_heappush.heappush_func",
+          "path": "Lib/test/test_free_threading/test_heapq.py",
+          "startLine": 40
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjhhYjFhNTk2OTkxZDQ5YTU3ZTY1MWE5ZCIsImhlYXBwdXNocG9wX2Z1bmMiLCJmdW5jdGlvbiIsIkxpYi50ZXN0LnRlc3RfZnJlZV90aHJlYWRpbmcudGVzdF9oZWFwcS5UZXN0SGVhcHEudGVzdF9yYWNpbmdfaGVhcHB1c2hwb3AiLDc2LDhd",
+          "name": "Lib.test.test_free_threading.test_heapq.TestHeapq.test_racing_heappushpop.heappushpop_func",
+          "path": "Lib/test/test_free_threading/test_heapq.py",
+          "startLine": 76
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjhhYjFhNTk2OTkxZDQ5YTU3ZTY1MWE5ZCIsImhlYXBwdXNoX21heF9mdW5jIiwiZnVuY3Rpb24iLCJMaWIudGVzdC50ZXN0X2ZyZWVfdGhyZWFkaW5nLnRlc3RfaGVhcHEuVGVzdEhlYXBxLnRlc3RfcmFjaW5nX2hlYXBwdXNoX21heCIsMTE3LDhd",
+          "name": "Lib.test.test_free_threading.test_heapq.TestHeapq.test_racing_heappush_max.heappush_max_func",
+          "path": "Lib/test/test_free_threading/test_heapq.py",
+          "startLine": 117
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjhhYjFhNTk2OTkxZDQ5YTU3ZTY1MWE5ZCIsImhlYXBwdXNocG9wX21heF9mdW5jIiwiZnVuY3Rpb24iLCJMaWIudGVzdC50ZXN0X2ZyZWVfdGhyZWFkaW5nLnRlc3RfaGVhcHEuVGVzdEhlYXBxLnRlc3RfcmFjaW5nX2hlYXBwdXNocG9wX21heCIsMTUzLDhd",
+          "name": "Lib.test.test_free_threading.test_heapq.TestHeapq.test_racing_heappushpop_max.heappushpop_max_func",
+          "path": "Lib/test/test_free_threading/test_heapq.py",
+          "startLine": 153
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjhhYjFhNTk2OTkxZDQ5YTU3ZTY1MWE5ZCIsInRlc3RfcmFjaW5nX2hlYXBwdXNoIiwibWV0aG9kIiwiTGliLnRlc3QudGVzdF9mcmVlX3RocmVhZGluZy50ZXN0X2hlYXBxLlRlc3RIZWFwcSIsMzcsNF0",
+          "name": "Lib.test.test_free_threading.test_heapq.TestHeapq.test_racing_heappush",
+          "path": "Lib/test/test_free_threading/test_heapq.py",
+          "startLine": 37
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjhhYjFhNTk2OTkxZDQ5YTU3ZTY1MWE5ZCIsInRlc3RfcmFjaW5nX2hlYXBwdXNocG9wIiwibWV0aG9kIiwiTGliLnRlc3QudGVzdF9mcmVlX3RocmVhZGluZy50ZXN0X2hlYXBxLlRlc3RIZWFwcSIsNzIsNF0",
+          "name": "Lib.test.test_free_threading.test_heapq.TestHeapq.test_racing_heappushpop",
+          "path": "Lib/test/test_free_threading/test_heapq.py",
+          "startLine": 72
+        }
+      ],
+      "evidence": [
+        {
+          "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9adae9b967fdb7f58175ef5d",
+          "path": "Lib/heapq.py",
+          "symbolId": "symbol:WyJmaWxlOjM2MzBlZTYxNmFlYjNjNzIzNjcyNmIwZSIsImhlYXBwdXNoIiwiZnVuY3Rpb24iLCJMaWIuaGVhcHEiLDEzMiwwXQ",
+          "symbol": "Lib.heapq.heappush",
+          "startLine": 132,
+          "endLine": 135,
+          "startByte": 6369,
+          "endByte": 6515,
+          "blobDigest": "8a1d516c404e991c04f6ca7c7532be4e2abb45518122fdac724a05f710a94697",
+          "source": "def heappush(heap, item):\n    \"\"\"Push item onto heap, maintaining the heap invariant.\"\"\"\n    heap.append(item)\n    _siftdown(heap, 0, len(heap)-1)",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9adae9b967fdb7f58175ef5d",
+          "path": "Lib/asyncio/queues.py",
+          "symbolId": "symbol:WyJmaWxlOjIyYTZiY2IwM2U3ODMzNzgxNDlhM2U5NCIsIl9wdXQiLCJtZXRob2QiLCJMaWIuYXN5bmNpby5xdWV1ZXMuUHJpb3JpdHlRdWV1ZSIsMjkxLDRd",
+          "symbol": "Lib.asyncio.queues.PriorityQueue._put",
+          "startLine": 291,
+          "endLine": 292,
+          "startByte": 9739,
+          "endByte": 9821,
+          "blobDigest": "48693f7c118584b0a896d3ad7c5fd6c1250104733075be071e6b19708b866d96",
+          "source": "def _put(self, item, heappush=heapq.heappush):\n        heappush(self._queue, item)",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9adae9b967fdb7f58175ef5d",
+          "path": "Lib/heapq.py",
+          "symbolId": "symbol:WyJmaWxlOjM2MzBlZTYxNmFlYjNjNzIzNjcyNmIwZSIsImhlYXBwdXNoX21heCIsImZ1bmN0aW9uIiwiTGliLmhlYXBxIiwxOTgsMF0",
+          "symbol": "Lib.heapq.heappush_max",
+          "startLine": 198,
+          "endLine": 201,
+          "startByte": 8696,
+          "endByte": 8828,
+          "blobDigest": "8a1d516c404e991c04f6ca7c7532be4e2abb45518122fdac724a05f710a94697",
+          "source": "def heappush_max(heap, item):\n    \"\"\"Maxheap version of a heappush.\"\"\"\n    heap.append(item)\n    _siftdown_max(heap, 0, len(heap)-1)",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9adae9b967fdb7f58175ef5d",
+          "path": "Lib/heapq.py",
+          "symbolId": "symbol:WyJmaWxlOjM2MzBlZTYxNmFlYjNjNzIzNjcyNmIwZSIsImhlYXBwdXNocG9wIiwiZnVuY3Rpb24iLCJMaWIuaGVhcHEiLDE2MywwXQ",
+          "symbol": "Lib.heapq.heappushpop",
+          "startLine": 163,
+          "endLine": 168,
+          "startByte": 7444,
+          "endByte": 7643,
+          "blobDigest": "8a1d516c404e991c04f6ca7c7532be4e2abb45518122fdac724a05f710a94697",
+          "source": "def heappushpop(heap, item):\n    \"\"\"Fast version of a heappush followed by a heappop.\"\"\"\n    if heap and heap[0] < item:\n        item, heap[0] = heap[0], item\n        _siftup(heap, 0)\n    return item",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9adae9b967fdb7f58175ef5d",
+          "path": "Lib/heapq.py",
+          "symbolId": "symbol:WyJmaWxlOjM2MzBlZTYxNmFlYjNjNzIzNjcyNmIwZSIsImhlYXBwdXNocG9wX21heCIsImZ1bmN0aW9uIiwiTGliLmhlYXBxIiwyMDMsMF0",
+          "symbol": "Lib.heapq.heappushpop_max",
+          "startLine": 203,
+          "endLine": 208,
+          "startByte": 8830,
+          "endByte": 9045,
+          "blobDigest": "8a1d516c404e991c04f6ca7c7532be4e2abb45518122fdac724a05f710a94697",
+          "source": "def heappushpop_max(heap, item):\n    \"\"\"Maxheap fast version of a heappush followed by a heappop.\"\"\"\n    if heap and item < heap[0]:\n        item, heap[0] = heap[0], item\n        _siftup_max(heap, 0)\n    return item",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9adae9b967fdb7f58175ef5d",
+          "path": "Lib/heapq.py",
+          "symbolId": "symbol:WyJmaWxlOjM2MzBlZTYxNmFlYjNjNzIzNjcyNmIwZSIsImhlYXByZXBsYWNlX21heCIsImZ1bmN0aW9uIiwiTGliLmhlYXBxIiwxOTEsMF0",
+          "symbol": "Lib.heapq.heapreplace_max",
+          "startLine": 191,
+          "endLine": 196,
+          "startByte": 8456,
+          "endByte": 8694,
+          "blobDigest": "8a1d516c404e991c04f6ca7c7532be4e2abb45518122fdac724a05f710a94697",
+          "source": "def heapreplace_max(heap, item):\n    \"\"\"Maxheap version of a heappop followed by a heappush.\"\"\"\n    returnitem = heap[0]    # raises appropriate IndexError if heap is empty\n    heap[0] = item\n    _siftup_max(heap, 0)\n    return returnitem",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9adae9b967fdb7f58175ef5d",
+          "path": "Lib/test/test_free_threading/test_heapq.py",
+          "symbolId": "symbol:WyJmaWxlOjhhYjFhNTk2OTkxZDQ5YTU3ZTY1MWE5ZCIsImhlYXBwdXNoX2Z1bmMiLCJmdW5jdGlvbiIsIkxpYi50ZXN0LnRlc3RfZnJlZV90aHJlYWRpbmcudGVzdF9oZWFwcS5UZXN0SGVhcHEudGVzdF9yYWNpbmdfaGVhcHB1c2giLDQwLDhd",
+          "symbol": "Lib.test.test_free_threading.test_heapq.TestHeapq.test_racing_heappush.heappush_func",
+          "startLine": 40,
+          "endLine": 42,
+          "startByte": 813,
+          "endByte": 935,
+          "blobDigest": "4aba5bea5f3bc18d567fa917d50b144b616505166f582d8417d64a6206af624b",
+          "source": "def heappush_func(heap):\n            for item in reversed(range(OBJECT_COUNT)):\n                heapq.heappush(heap, item)",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9adae9b967fdb7f58175ef5d",
+          "path": "Lib/test/test_free_threading/test_heapq.py",
+          "symbolId": "symbol:WyJmaWxlOjhhYjFhNTk2OTkxZDQ5YTU3ZTY1MWE5ZCIsImhlYXBwdXNocG9wX2Z1bmMiLCJmdW5jdGlvbiIsIkxpYi50ZXN0LnRlc3RfZnJlZV90aHJlYWRpbmcudGVzdF9oZWFwcS5UZXN0SGVhcHEudGVzdF9yYWNpbmdfaGVhcHB1c2hwb3AiLDc2LDhd",
+          "symbol": "Lib.test.test_free_threading.test_heapq.TestHeapq.test_racing_heappushpop.heappushpop_func",
+          "startLine": 76,
+          "endLine": 79,
+          "startByte": 2034,
+          "endByte": 2228,
+          "blobDigest": "4aba5bea5f3bc18d567fa917d50b144b616505166f582d8417d64a6206af624b",
+          "source": "def heappushpop_func(heap, pushpop_items):\n            for item in pushpop_items:\n                popped_item = heapq.heappushpop(heap, item)\n                self.assertTrue(popped_item <= item)",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9adae9b967fdb7f58175ef5d",
+          "path": "Lib/test/test_free_threading/test_heapq.py",
+          "symbolId": "symbol:WyJmaWxlOjhhYjFhNTk2OTkxZDQ5YTU3ZTY1MWE5ZCIsImhlYXBwdXNoX21heF9mdW5jIiwiZnVuY3Rpb24iLCJMaWIudGVzdC50ZXN0X2ZyZWVfdGhyZWFkaW5nLnRlc3RfaGVhcHEuVGVzdEhlYXBxLnRlc3RfcmFjaW5nX2hlYXBwdXNoX21heCIsMTE3LDhd",
+          "symbol": "Lib.test.test_free_threading.test_heapq.TestHeapq.test_racing_heappush_max.heappush_max_func",
+          "startLine": 117,
+          "endLine": 119,
+          "startByte": 3385,
+          "endByte": 3513,
+          "blobDigest": "4aba5bea5f3bc18d567fa917d50b144b616505166f582d8417d64a6206af624b",
+          "source": "def heappush_max_func(max_heap):\n            for item in range(OBJECT_COUNT):\n                heapq.heappush_max(max_heap, item)",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9adae9b967fdb7f58175ef5d",
+          "path": "Lib/test/test_free_threading/test_heapq.py",
+          "symbolId": "symbol:WyJmaWxlOjhhYjFhNTk2OTkxZDQ5YTU3ZTY1MWE5ZCIsImhlYXBwdXNocG9wX21heF9mdW5jIiwiZnVuY3Rpb24iLCJMaWIudGVzdC50ZXN0X2ZyZWVfdGhyZWFkaW5nLnRlc3RfaGVhcHEuVGVzdEhlYXBxLnRlc3RfcmFjaW5nX2hlYXBwdXNocG9wX21heCIsMTUzLDhd",
+          "symbol": "Lib.test.test_free_threading.test_heapq.TestHeapq.test_racing_heappushpop_max.heappushpop_max_func",
+          "startLine": 153,
+          "endLine": 156,
+          "startByte": 4673,
+          "endByte": 4883,
+          "blobDigest": "4aba5bea5f3bc18d567fa917d50b144b616505166f582d8417d64a6206af624b",
+          "source": "def heappushpop_max_func(max_heap, pushpop_items):\n            for item in pushpop_items:\n                popped_item = heapq.heappushpop_max(max_heap, item)\n                self.assertTrue(popped_item >= item)",
+          "kind": "source"
+        }
+      ]
+    },
+    {
+      "mode": "symbol",
+      "query": "Py_Initialize",
+      "metadataMs": 6.434195000000045,
+      "hitAt10": true,
+      "expectedEvidence": true,
+      "candidates": [
+        {
+          "type": "symbol",
+          "score": 19.5,
+          "symbolId": "symbol:WyJmaWxlOjY5MjIzZjViYjAxZjM1OWEyMzI0NmFmYiIsIlB5X0luaXRpYWxpemUiLCJmdW5jdGlvbiIsIiIsMTQ4MywwXQ",
+          "name": "Py_Initialize",
+          "path": "Python/pylifecycle.c",
+          "startLine": 1483
+        },
+        {
+          "type": "symbol",
+          "score": 19,
+          "symbolId": "symbol:WyJmaWxlOjA0Y2ViZGZiNjk1YjFhZDNhYTA0NmQ3NiIsIlB5X0luaXRpYWxpemUiLCJmdW5jdGlvbl9kZWNsYXJhdGlvbiIsIiIsMTIsMF0",
+          "name": "Py_Initialize",
+          "path": "Include/pylifecycle.h",
+          "startLine": 12
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjU3M2JlMjU1NjZlNDNmNWFkYzY2NTBhZCIsInRlc3RfaW5pdGlhbGl6ZV90d2ljZSIsIm1ldGhvZCIsIkxpYi50ZXN0LnRlc3RfZW1iZWQuRW1iZWRkaW5nVGVzdHMiLDMzNCw0XQ",
+          "name": "Lib.test.test_embed.EmbeddingTests.test_initialize_twice",
+          "path": "Lib/test/test_embed.py",
+          "startLine": 334
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjU3M2JlMjU1NjZlNDNmNWFkYzY2NTBhZCIsInRlc3RfaW5pdGlhbGl6ZV9weW1haW4iLCJtZXRob2QiLCJMaWIudGVzdC50ZXN0X2VtYmVkLkVtYmVkZGluZ1Rlc3RzIiwzNDMsNF0",
+          "name": "Lib.test.test_embed.EmbeddingTests.test_initialize_pymain",
+          "path": "Lib/test/test_embed.py",
+          "startLine": 343
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOmEwMWYzZGU0NjM1ZDY0YzA1ZjVjNmM4NSIsIl9QeV9pbml0aWFsaXplX2dlbmVyaWMiLCJmdW5jdGlvbiIsIiIsMjMzMSwwXQ",
+          "name": "_Py_initialize_generic",
+          "path": "Objects/typevarobject.c",
+          "startLine": 2331
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjY4YjRiNjdiNzI2NTUyMmE2ZjQ3MzkzZSIsIl90ZXN0ZW1iZWRfUHlfSW5pdGlhbGl6ZUZyb21Db25maWciLCJmdW5jdGlvbiIsIiIsODMsMF0",
+          "name": "_testembed_Py_InitializeFromConfig",
+          "path": "Programs/_testembed.c",
+          "startLine": 83
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjY4YjRiNjdiNzI2NTUyMmE2ZjQ3MzkzZSIsIl90ZXN0ZW1iZWRfUHlfSW5pdGlhbGl6ZSIsImZ1bmN0aW9uIiwiIiw5MSwwXQ",
+          "name": "_testembed_Py_Initialize",
+          "path": "Programs/_testembed.c",
+          "startLine": 91
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOmMyMjE4NjM2N2NiZTIwMjMzZTg0MzI2MSIsIl9QeV9Jbml0aWFsaXplUmVjdXJzaW9uTGltaXRzIiwiZnVuY3Rpb24iLCIiLDQyOSwwXQ",
+          "name": "_Py_InitializeRecursionLimits",
+          "path": "Python/ceval.c",
+          "startLine": 429
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOmJkZTMwYTlmMjI4M2FhZGVlYTU0ZDcwMyIsIlB5X0luaXRpYWxpemVGcm9tSW5pdENvbmZpZyIsImZ1bmN0aW9uIiwiIiw0MTc3LDBd",
+          "name": "Py_InitializeFromInitConfig",
+          "path": "Python/initconfig.c",
+          "startLine": 4177
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjY5MjIzZjViYjAxZjM1OWEyMzI0NmFmYiIsIlB5X0luaXRpYWxpemVGcm9tQ29uZmlnIiwiZnVuY3Rpb24iLCIiLDE0MjIsMF0",
+          "name": "Py_InitializeFromConfig",
+          "path": "Python/pylifecycle.c",
+          "startLine": 1422
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjY5MjIzZjViYjAxZjM1OWEyMzI0NmFmYiIsIlB5X0luaXRpYWxpemVFeCIsImZ1bmN0aW9uIiwiIiwxNDU1LDBd",
+          "name": "Py_InitializeEx",
+          "path": "Python/pylifecycle.c",
+          "startLine": 1455
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:WyJmaWxlOjM1YTY1MGIwYWY3NzUzYzJhZWU4YTJhNyIsIlB5X0luaXRpYWxpemVGcm9tSW5pdENvbmZpZyIsImZ1bmN0aW9uX2RlY2xhcmF0aW9uIiwiIiwzMjcsMF0",
+          "name": "Py_InitializeFromInitConfig",
+          "path": "Include/cpython/initconfig.h",
+          "startLine": 327
+        }
+      ],
+      "evidence": [
+        {
+          "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9adae9b967fdb7f58175ef5d",
+          "path": "Python/pylifecycle.c",
+          "symbolId": "symbol:WyJmaWxlOjY5MjIzZjViYjAxZjM1OWEyMzI0NmFmYiIsIlB5X0luaXRpYWxpemUiLCJmdW5jdGlvbiIsIiIsMTQ4MywwXQ",
+          "symbol": "Py_Initialize",
+          "startLine": 1483,
+          "endLine": 1486,
+          "startByte": 42521,
+          "endByte": 42568,
+          "blobDigest": "c6c1256d8f1d6edb692aaa1d07c2cd2273411c9f461b0a6a21566236fa3e7d7d",
+          "source": "Py_Initialize(void)\n{\n    Py_InitializeEx(1);\n}",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9adae9b967fdb7f58175ef5d",
+          "path": "Include/pylifecycle.h",
+          "symbolId": "symbol:WyJmaWxlOjA0Y2ViZGZiNjk1YjFhZDNhYTA0NmQ3NiIsIlB5X0luaXRpYWxpemUiLCJmdW5jdGlvbl9kZWNsYXJhdGlvbiIsIiIsMTIsMF0",
+          "symbol": "Py_Initialize",
+          "startLine": 12,
+          "endLine": 12,
+          "startByte": 205,
+          "endByte": 242,
+          "blobDigest": "2a05239b2e57efefe32fad328c5f567a4712db4ce8610c9d39ba0df25ce51cdb",
+          "source": "PyAPI_FUNC(void) Py_Initialize(void);",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9adae9b967fdb7f58175ef5d",
+          "path": "Lib/test/test_embed.py",
+          "symbolId": "symbol:WyJmaWxlOjU3M2JlMjU1NjZlNDNmNWFkYzY2NTBhZCIsInRlc3RfaW5pdGlhbGl6ZV90d2ljZSIsIm1ldGhvZCIsIkxpYi50ZXN0LnRlc3RfZW1iZWQuRW1iZWRkaW5nVGVzdHMiLDMzNCw0XQ",
+          "symbol": "Lib.test.test_embed.EmbeddingTests.test_initialize_twice",
+          "startLine": 334,
+          "endLine": 341,
+          "startByte": 12352,
+          "endByte": 12643,
+          "blobDigest": "60d3f4dcaf604738d96b52a54245e9dbc90331eae7f2e591383660163d7c547a",
+          "source": "def test_initialize_twice(self):\n        \"\"\"\n        bpo-33932: Calling Py_Initialize() twice should do nothing (and not\n        crash!).\n        \"\"\"\n        out, err = self.run_embedded_interpreter(\"test_initialize_twice\")\n        self.assertEqual(out, '')\n        self.assertEqual(err, '')",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9adae9b967fdb7f58175ef5d",
+          "path": "Lib/test/test_embed.py",
+          "symbolId": "symbol:WyJmaWxlOjU3M2JlMjU1NjZlNDNmNWFkYzY2NTBhZCIsInRlc3RfaW5pdGlhbGl6ZV9weW1haW4iLCJtZXRob2QiLCJMaWIudGVzdC50ZXN0X2VtYmVkLkVtYmVkZGluZ1Rlc3RzIiwzNDMsNF0",
+          "symbol": "Lib.test.test_embed.EmbeddingTests.test_initialize_pymain",
+          "startLine": 343,
+          "endLine": 349,
+          "startByte": 12649,
+          "endByte": 12986,
+          "blobDigest": "60d3f4dcaf604738d96b52a54245e9dbc90331eae7f2e591383660163d7c547a",
+          "source": "def test_initialize_pymain(self):\n        \"\"\"\n        bpo-34008: Calling Py_Main() after Py_Initialize() must not fail.\n        \"\"\"\n        out, err = self.run_embedded_interpreter(\"test_initialize_pymain\")\n        self.assertEqual(out.rstrip(), \"Py_Main() after Py_Initialize: sys.argv=['-c', 'arg2']\")\n        self.assertEqual(err, '')",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9adae9b967fdb7f58175ef5d",
+          "path": "Objects/typevarobject.c",
+          "symbolId": "symbol:WyJmaWxlOmEwMWYzZGU0NjM1ZDY0YzA1ZjVjNmM4NSIsIl9QeV9pbml0aWFsaXplX2dlbmVyaWMiLCJmdW5jdGlvbiIsIiIsMjMzMSwwXQ",
+          "symbol": "_Py_initialize_generic",
+          "startLine": 2331,
+          "endLine": 2351,
+          "startByte": 67840,
+          "endByte": 68407,
+          "blobDigest": "a72bf71c95355f4fc1508bd6bebcac38004006dd9a98729cfc00676b6fb4915f",
+          "source": "int _Py_initialize_generic(PyInterpreterState *interp)\n{\n#define MAKE_TYPE(name) \\\n    do { \\\n        PyTypeObject *name ## _type = (PyTypeObject *)PyType_FromSpec(&name ## _spec); \\\n        if (name ## _type == NULL) { \\\n            return -1; \\\n        } \\\n        interp->cached_objects.name ## _type = name ## _type; \\\n    } while(0)\n\n    MAKE_TYPE(generic);\n    MAKE_TYPE(typevar);\n    MAKE_TYPE(typevartuple);\n    MAKE_TYPE(paramspec);\n    MAKE_TYPE(paramspecargs);\n    MAKE_TYPE(paramspeckwargs);\n    MAKE_TYPE(constevaluator);\n#undef MAKE_TYPE\n    return 0;\n}",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9adae9b967fdb7f58175ef5d",
+          "path": "Programs/_testembed.c",
+          "symbolId": "symbol:WyJmaWxlOjY4YjRiNjdiNzI2NTUyMmE2ZjQ3MzkzZSIsIl90ZXN0ZW1iZWRfUHlfSW5pdGlhbGl6ZUZyb21Db25maWciLCJmdW5jdGlvbiIsIiIsODMsMF0",
+          "symbol": "_testembed_Py_InitializeFromConfig",
+          "startLine": 83,
+          "endLine": 89,
+          "startByte": 2199,
+          "endByte": 2392,
+          "blobDigest": "a2741810a8dd6f7c3b71e1d1fb8e266e1ec6879c7ec7c73a247f460abcc9d65b",
+          "source": "static void _testembed_Py_InitializeFromConfig(void)\n{\n    PyConfig config;\n    _PyConfig_InitCompatConfig(&config);\n    config_set_program_name(&config);\n    init_from_config_clear(&config);\n}",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9adae9b967fdb7f58175ef5d",
+          "path": "Programs/_testembed.c",
+          "symbolId": "symbol:WyJmaWxlOjY4YjRiNjdiNzI2NTUyMmE2ZjQ3MzkzZSIsIl90ZXN0ZW1iZWRfUHlfSW5pdGlhbGl6ZSIsImZ1bmN0aW9uIiwiIiw5MSwwXQ",
+          "symbol": "_testembed_Py_Initialize",
+          "startLine": 91,
+          "endLine": 95,
+          "startByte": 2394,
+          "endByte": 2496,
+          "blobDigest": "a2741810a8dd6f7c3b71e1d1fb8e266e1ec6879c7ec7c73a247f460abcc9d65b",
+          "source": "static void _testembed_Py_Initialize(void)\n{\n   Py_SetProgramName(PROGRAM_NAME);\n   Py_Initialize();\n}",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9adae9b967fdb7f58175ef5d",
+          "path": "Python/ceval.c",
+          "symbolId": "symbol:WyJmaWxlOmMyMjE4NjM2N2NiZTIwMjMzZTg0MzI2MSIsIl9QeV9Jbml0aWFsaXplUmVjdXJzaW9uTGltaXRzIiwiZnVuY3Rpb24iLCIiLDQyOSwwXQ",
+          "symbol": "_Py_InitializeRecursionLimits",
+          "startLine": 429,
+          "endLine": 475,
+          "startByte": 13303,
+          "endByte": 15422,
+          "blobDigest": "d78971f92339384e42cebb967e38dd18928efd3dbefa0c66a9200527cf23f3ea",
+          "source": "_Py_InitializeRecursionLimits(PyThreadState *tstate)\n{\n    _PyThreadStateImpl *_tstate = (_PyThreadStateImpl *)tstate;\n#ifdef WIN32\n    ULONG_PTR low, high;\n    GetCurrentThreadStackLimits(&low, &high);\n    _tstate->c_stack_top = (uintptr_t)high;\n    ULONG guarantee = 0;\n    SetThreadStackGuarantee(&guarantee);\n    _tstate->c_stack_hard_limit = ((uintptr_t)low) + guarantee + _PyOS_STACK_MARGIN_BYTES;\n    _tstate->c_stack_soft_limit = _tstate->c_stack_hard_limit + _PyOS_STACK_MARGIN_BYTES;\n#else\n    uintptr_t here_addr = _Py_get_machine_stack_pointer();\n/// XXX musl supports HAVE_PTHRED_GETATTR_NP, but the resulting stack size\n/// (on alpine at least) is much smaller than expected and imposes undue limits\n/// compared to the old stack size estimation.  (We assume musl is not glibc.)\n#  if defined(HAVE_PTHREAD_GETATTR_NP) && !defined(_AIX) && \\\n        !defined(__NetBSD__) && (defined(__GLIBC__) || !defined(__linux__))\n    size_t stack_size, guard_size;\n    void *stack_addr;\n    pthread_attr_t attr;\n    int err = pthread_getattr_np(pthread_self(), &attr);\n    if (err == 0) {\n        err = pthread_attr_getguardsize(&attr, &guard_size);\n        err |= pthread_attr_getstack(&attr, &stack_addr, &stack_size);\n        err |= pthread_attr_destroy(&attr);\n    }\n    if (err == 0) {\n        uintptr_t base = ((uintptr_t)stack_addr) + guard_size;\n        _tstate->c_stack_top = base + stack_size;\n#ifdef _Py_THREAD_SANITIZER\n        // Thread sanitizer crashes if we use a bit more than half the stack.\n        _tstate->c_stack_soft_limit = base + (stack_size / 2);\n#else\n        _tstate->c_stack_soft_limit = base + _PyOS_STACK_MARGIN_BYTES * 2;\n#endif\n        _tstate->c_stack_hard_limit = base + _PyOS_STACK_MARGIN_BYTES;\n        assert(_tstate->c_stack_soft_limit < here_addr);\n        assert(here_addr < _tstate->c_stack_top);\n        return;\n    }\n#  endif\n    _tstate->c_stack_top = _Py_SIZE_ROUND_UP(here_addr, 4096);\n    _tstate->c_stack_soft_limit = _tstate->c_stack_top - Py_C_STACK_SIZE;\n    _tstate->c_stack_hard_limit = _tstate->c_stack_top - (Py_C_STACK_SIZE + _PyOS_STACK_MARGIN_BYTES);\n#endif\n}",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9adae9b967fdb7f58175ef5d",
+          "path": "Python/initconfig.c",
+          "symbolId": "symbol:WyJmaWxlOmJkZTMwYTlmMjI4M2FhZGVlYTU0ZDcwMyIsIlB5X0luaXRpYWxpemVGcm9tSW5pdENvbmZpZyIsImZ1bmN0aW9uIiwiIiw0MTc3LDBd",
+          "symbol": "Py_InitializeFromInitConfig",
+          "startLine": 4177,
+          "endLine": 4202,
+          "startByte": 120136,
+          "endByte": 120813,
+          "blobDigest": "8da347ab922966eab679c0a0314701a0bed6df647b14eb3ecdef14ec298cd227",
+          "source": "Py_InitializeFromInitConfig(PyInitConfig *config)\n{\n    if (config->inittab_size >= 1) {\n        if (PyImport_ExtendInittab(config->inittab) < 0) {\n            config->status = _PyStatus_NO_MEMORY();\n            return -1;\n        }\n    }\n\n    _PyPreConfig_GetConfig(&config->preconfig, &config->config);\n\n    config->status = Py_PreInitializeFromArgs(\n        &config->preconfig,\n        config->config.argv.length,\n        config->config.argv.items);\n    if (_PyStatus_EXCEPTION(config->status)) {\n        return -1;\n    }\n\n    config->status = Py_InitializeFromConfig(&config->config);\n    if (_PyStatus_EXCEPTION(config->status)) {\n        return -1;\n    }\n\n    return 0;\n}",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9adae9b967fdb7f58175ef5d",
+          "path": "Python/pylifecycle.c",
+          "symbolId": "symbol:WyJmaWxlOjY5MjIzZjViYjAxZjM1OWEyMzI0NmFmYiIsIlB5X0luaXRpYWxpemVGcm9tQ29uZmlnIiwiZnVuY3Rpb24iLCIiLDE0MjIsMF0",
+          "symbol": "Py_InitializeFromConfig",
+          "startLine": 1422,
+          "endLine": 1451,
+          "startByte": 41162,
+          "endByte": 41879,
+          "blobDigest": "c6c1256d8f1d6edb692aaa1d07c2cd2273411c9f461b0a6a21566236fa3e7d7d",
+          "source": "Py_InitializeFromConfig(const PyConfig *config)\n{\n    if (config == NULL) {\n        return _PyStatus_ERR(\"initialization config is NULL\");\n    }\n\n    PyStatus status;\n\n    status = _PyRuntime_Initialize();\n    if (_PyStatus_EXCEPTION(status)) {\n        return status;\n    }\n    _PyRuntimeState *runtime = &_PyRuntime;\n\n    PyThreadState *tstate = NULL;\n    status = pyinit_core(runtime, config, &tstate);\n    if (_PyStatus_EXCEPTION(status)) {\n        return status;\n    }\n    config = _PyInterpreterState_GetConfig(tstate->interp);\n\n    if (config->_init_main) {\n        status = pyinit_main(tstate);\n        if (_PyStatus_EXCEPTION(status)) {\n            return status;\n        }\n    }\n\n    return _PyStatus_OK();\n}",
+          "kind": "source"
+        }
+      ]
+    },
+    {
+      "mode": "symbol",
+      "query": "PyErr_SetString",
+      "metadataMs": 2.5373280000000022,
+      "hitAt10": true,
+      "expectedEvidence": true,
+      "candidates": [
+        {
+          "type": "symbol",
+          "score": 19.5,
+          "symbolId": "symbol:WyJmaWxlOmMzN2M4MzZkMDUzNWI3OWQ4N2I4ZWIwNiIsIlB5RXJyX1NldFN0cmluZyIsImZ1bmN0aW9uIiwiIiwyOTQsMF0",
+          "name": "PyErr_SetString",
+          "path": "Python/errors.c",
+          "startLine": 294
+        },
+        {
+          "type": "symbol",
+          "score": 19,
+          "symbolId": "symbol:WyJmaWxlOmY0ZTViOWRlNGUxOGRlOGQ2ZjUxODk1YiIsIlB5RXJyX1NldFN0cmluZyIsImZ1bmN0aW9uX2RlY2xhcmF0aW9uIiwiIiwxMSwwXQ",
+          "name": "PyErr_SetString",
+          "path": "Include/pyerrors.h",
+          "startLine": 11
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjdjMjMwN2IyODc3MTIyMjRiZjZmNjE1MiIsInRlc3Rfc2V0X3N0cmluZyIsIm1ldGhvZCIsIkxpYi50ZXN0LnRlc3RfY2FwaS50ZXN0X2V4Y2VwdGlvbnMuVGVzdF9FcnJTZXRBbmRSZXN0b3JlIiwyNDEsNF0",
+          "name": "Lib.test.test_capi.test_exceptions.Test_ErrSetAndRestore.test_set_string",
+          "path": "Lib/test/test_capi/test_exceptions.py",
+          "startLine": 241
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOmMzN2M4MzZkMDUzNWI3OWQ4N2I4ZWIwNiIsIl9QeUVycl9TZXRTdHJpbmciLCJmdW5jdGlvbiIsIiIsMjgzLDBd",
+          "name": "_PyErr_SetString",
+          "path": "Python/errors.c",
+          "startLine": 283
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:WyJmaWxlOjM2OTY1MWMxZmE2ZDQ5Mjk4YWEyMzRlZSIsIl9QeUVycl9TZXRTdHJpbmciLCJmdW5jdGlvbl9kZWNsYXJhdGlvbiIsIiIsMTMwLDBd",
+          "name": "_PyErr_SetString",
+          "path": "Include/internal/pycore_pyerrors.h",
+          "startLine": 130
+        }
+      ],
+      "evidence": [
+        {
+          "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9adae9b967fdb7f58175ef5d",
+          "path": "Python/errors.c",
+          "symbolId": "symbol:WyJmaWxlOmMzN2M4MzZkMDUzNWI3OWQ4N2I4ZWIwNiIsIlB5RXJyX1NldFN0cmluZyIsImZ1bmN0aW9uIiwiIiwyOTQsMF0",
+          "symbol": "PyErr_SetString",
+          "startLine": 294,
+          "endLine": 298,
+          "startByte": 8707,
+          "endByte": 8866,
+          "blobDigest": "e54d738e9dca16b07d9efaeb08eed9fb6276a4af8a01640bad06680599450e49",
+          "source": "PyErr_SetString(PyObject *exception, const char *string)\n{\n    PyThreadState *tstate = _PyThreadState_GET();\n    _PyErr_SetString(tstate, exception, string);\n}",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9adae9b967fdb7f58175ef5d",
+          "path": "Include/pyerrors.h",
+          "symbolId": "symbol:WyJmaWxlOmY0ZTViOWRlNGUxOGRlOGQ2ZjUxODk1YiIsIlB5RXJyX1NldFN0cmluZyIsImZ1bmN0aW9uX2RlY2xhcmF0aW9uIiwiIiwxMSwwXQ",
+          "symbol": "PyErr_SetString",
+          "startLine": 11,
+          "endLine": 14,
+          "startByte": 213,
+          "endByte": 328,
+          "blobDigest": "d7947aded270de2b45a9cdfa2e3d523d46655f0d8edad3ce69d405e0d9f51d1f",
+          "source": "PyAPI_FUNC(void) PyErr_SetString(\n    PyObject *exception,\n    const char *string   /* decoded from utf-8 */\n    );",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9adae9b967fdb7f58175ef5d",
+          "path": "Lib/test/test_capi/test_exceptions.py",
+          "symbolId": "symbol:WyJmaWxlOjdjMjMwN2IyODc3MTIyMjRiZjZmNjE1MiIsInRlc3Rfc2V0X3N0cmluZyIsIm1ldGhvZCIsIkxpYi50ZXN0LnRlc3RfY2FwaS50ZXN0X2V4Y2VwdGlvbnMuVGVzdF9FcnJTZXRBbmRSZXN0b3JlIiwyNDEsNF0",
+          "symbol": "Lib.test.test_capi.test_exceptions.Test_ErrSetAndRestore.test_set_string",
+          "startLine": 241,
+          "endLine": 253,
+          "startByte": 8390,
+          "endByte": 9016,
+          "blobDigest": "c9a7d72c756dab76eb83de646e9b607156caa83ba78765e386c076df48169845",
+          "source": "def test_set_string(self):\n        \"\"\"Test PyErr_SetString()\"\"\"\n        setstring = _testcapi.err_setstring\n        with self.assertRaises(ZeroDivisionError) as e:\n            setstring(ZeroDivisionError, b'error')\n        self.assertEqual(e.exception.args, ('error',))\n        with self.assertRaises(ZeroDivisionError) as e:\n            setstring(ZeroDivisionError, 'помилка'.encode())\n        self.assertEqual(e.exception.args, ('помилка',))\n\n        with self.assertRaises(UnicodeDecodeError):\n            setstring(ZeroDivisionError, b'\\xff')\n        self.assertRaises(SystemError, setstring, list, b'error')",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9adae9b967fdb7f58175ef5d",
+          "path": "Python/errors.c",
+          "symbolId": "symbol:WyJmaWxlOmMzN2M4MzZkMDUzNWI3OWQ4N2I4ZWIwNiIsIl9QeUVycl9TZXRTdHJpbmciLCJmdW5jdGlvbiIsIiIsMjgzLDBd",
+          "symbol": "_PyErr_SetString",
+          "startLine": 283,
+          "endLine": 291,
+          "startByte": 8438,
+          "endByte": 8700,
+          "blobDigest": "e54d738e9dca16b07d9efaeb08eed9fb6276a4af8a01640bad06680599450e49",
+          "source": "_PyErr_SetString(PyThreadState *tstate, PyObject *exception,\n                 const char *string)\n{\n    PyObject *value = PyUnicode_FromString(string);\n    if (value != NULL) {\n        _PyErr_SetObject(tstate, exception, value);\n        Py_DECREF(value);\n    }\n}",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9adae9b967fdb7f58175ef5d",
+          "path": "Include/internal/pycore_pyerrors.h",
+          "symbolId": "symbol:WyJmaWxlOjM2OTY1MWMxZmE2ZDQ5Mjk4YWEyMzRlZSIsIl9QeUVycl9TZXRTdHJpbmciLCJmdW5jdGlvbl9kZWNsYXJhdGlvbiIsIiIsMTMwLDBd",
+          "symbol": "_PyErr_SetString",
+          "startLine": 130,
+          "endLine": 133,
+          "startByte": 3500,
+          "endByte": 3611,
+          "blobDigest": "6d110e715444e9e693c07ef0bb0dbf0ff5606763c669d5c1a587eac7428d3fdd",
+          "source": "PyAPI_FUNC(void) _PyErr_SetString(\n    PyThreadState *tstate,\n    PyObject *exception,\n    const char *string);",
+          "kind": "source"
+        }
+      ]
+    },
+    {
+      "mode": "symbol",
+      "query": "PyUnicode_FromString",
+      "metadataMs": 2.411781999999903,
+      "hitAt10": true,
+      "expectedEvidence": true,
+      "candidates": [
+        {
+          "type": "symbol",
+          "score": 19.5,
+          "symbolId": "symbol:WyJmaWxlOjM0Yzk2NmU3ODc2ZDZmOGJmODAxZGQ1MSIsIlB5VW5pY29kZV9Gcm9tU3RyaW5nIiwiZnVuY3Rpb24iLCIiLDIxNjksMF0",
+          "name": "PyUnicode_FromString",
+          "path": "Objects/unicodeobject.c",
+          "startLine": 2169
+        },
+        {
+          "type": "symbol",
+          "score": 19,
+          "symbolId": "symbol:WyJmaWxlOmMwZjk4NDFlMTc1MmI1YjhjZDI0NWZiNSIsIlB5VW5pY29kZV9Gcm9tU3RyaW5nIiwiZnVuY3Rpb25fZGVjbGFyYXRpb24iLCIiLDEyOSwwXQ",
+          "name": "PyUnicode_FromString",
+          "path": "Include/unicodeobject.h",
+          "startLine": 129
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjZjYWFkZjhlNjhhYzBlYTNkOGQyN2FiOSIsInRlc3RfZnJvbXN0cmluZ2FuZHNpemUiLCJtZXRob2QiLCJMaWIudGVzdC50ZXN0X2NhcGkudGVzdF91bmljb2RlLkNBUElUZXN0IiwyMDYsNF0",
+          "name": "Lib.test.test_capi.test_unicode.CAPITest.test_fromstringandsize",
+          "path": "Lib/test/test_capi/test_unicode.py",
+          "startLine": 206
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjZjYWFkZjhlNjhhYzBlYTNkOGQyN2FiOSIsInRlc3RfZnJvbXN0cmluZyIsIm1ldGhvZCIsIkxpYi50ZXN0LnRlc3RfY2FwaS50ZXN0X3VuaWNvZGUuQ0FQSVRlc3QiLDIzMSw0XQ",
+          "name": "Lib.test.test_capi.test_unicode.CAPITest.test_fromstring",
+          "path": "Lib/test/test_capi/test_unicode.py",
+          "startLine": 231
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjM0Yzk2NmU3ODc2ZDZmOGJmODAxZGQ1MSIsIlB5VW5pY29kZV9Gcm9tU3RyaW5nQW5kU2l6ZSIsImZ1bmN0aW9uIiwiIiwyMTUwLDBd",
+          "name": "PyUnicode_FromStringAndSize",
+          "path": "Objects/unicodeobject.c",
+          "startLine": 2150
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:WyJmaWxlOmMwZjk4NDFlMTc1MmI1YjhjZDI0NWZiNSIsIlB5VW5pY29kZV9Gcm9tU3RyaW5nQW5kU2l6ZSIsImZ1bmN0aW9uX2RlY2xhcmF0aW9uIiwiIiwxMjIsMF0",
+          "name": "PyUnicode_FromStringAndSize",
+          "path": "Include/unicodeobject.h",
+          "startLine": 122
+        }
+      ],
+      "evidence": [
+        {
+          "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9adae9b967fdb7f58175ef5d",
+          "path": "Objects/unicodeobject.c",
+          "symbolId": "symbol:WyJmaWxlOjM0Yzk2NmU3ODc2ZDZmOGJmODAxZGQ1MSIsIlB5VW5pY29kZV9Gcm9tU3RyaW5nIiwiZnVuY3Rpb24iLCIiLDIxNjksMF0",
+          "symbol": "PyUnicode_FromString",
+          "startLine": 2169,
+          "endLine": 2177,
+          "startByte": 66049,
+          "endByte": 66315,
+          "blobDigest": "cf6885efb5011a036d4741372cec22ef3945fb11abe01d8079917714a33addd0",
+          "source": "PyUnicode_FromString(const char *u)\n{\n    size_t size = strlen(u);\n    if (size > PY_SSIZE_T_MAX) {\n        PyErr_SetString(PyExc_OverflowError, \"input too long\");\n        return NULL;\n    }\n    return PyUnicode_DecodeUTF8Stateful(u, (Py_ssize_t)size, NULL, NULL);\n}",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9adae9b967fdb7f58175ef5d",
+          "path": "Include/unicodeobject.h",
+          "symbolId": "symbol:WyJmaWxlOmMwZjk4NDFlMTc1MmI1YjhjZDI0NWZiNSIsIlB5VW5pY29kZV9Gcm9tU3RyaW5nIiwiZnVuY3Rpb25fZGVjbGFyYXRpb24iLCIiLDEyOSwwXQ",
+          "symbol": "PyUnicode_FromString",
+          "startLine": 129,
+          "endLine": 131,
+          "startByte": 4486,
+          "endByte": 4594,
+          "blobDigest": "63cdbaf2e99744b3825b8809dc3d55b14071015d394293c462edf274b6d27fb6",
+          "source": "PyAPI_FUNC(PyObject*) PyUnicode_FromString(\n    const char *u              /* UTF-8 encoded string */\n    );",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9adae9b967fdb7f58175ef5d",
+          "path": "Lib/test/test_capi/test_unicode.py",
+          "symbolId": "symbol:WyJmaWxlOjZjYWFkZjhlNjhhYzBlYTNkOGQyN2FiOSIsInRlc3RfZnJvbXN0cmluZ2FuZHNpemUiLCJtZXRob2QiLCJMaWIudGVzdC50ZXN0X2NhcGkudGVzdF91bmljb2RlLkNBUElUZXN0IiwyMDYsNF0",
+          "symbol": "Lib.test.test_capi.test_unicode.CAPITest.test_fromstringandsize",
+          "startLine": 206,
+          "endLine": 229,
+          "startByte": 8568,
+          "endByte": 10057,
+          "blobDigest": "cacf5d80a684096a6d97ec468e259bc460ffac3b904dde4606f857e96a34ebb7",
+          "source": "@support.cpython_only\n    @unittest.skipIf(_testlimitedcapi is None, 'need _testlimitedcapi module')\n    def test_fromstringandsize(self):\n        \"\"\"Test PyUnicode_FromStringAndSize()\"\"\"\n        from _testlimitedcapi import unicode_fromstringandsize as fromstringandsize\n\n        self.assertEqual(fromstringandsize(b'abc'), 'abc')\n        self.assertEqual(fromstringandsize(b'abc', 2), 'ab')\n        self.assertEqual(fromstringandsize(b'abc\\0def'), 'abc\\0def')\n        self.assertEqual(fromstringandsize(b'\\xc2\\xa1\\xc2\\xa2'), '\\xa1\\xa2')\n        self.assertEqual(fromstringandsize(b'\\xe4\\xbd\\xa0'), '\\u4f60')\n        self.assertEqual(fromstringandsize(b'\\xf0\\x9f\\x98\\x80'), '\\U0001f600')\n        self.assertRaises(UnicodeDecodeError, fromstringandsize, b'\\xc2\\xa1', 1)\n        self.assertRaises(UnicodeDecodeError, fromstringandsize, b'\\xa1', 1)\n        self.assertEqual(fromstringandsize(b'', 0), '')\n        self.assertEqual(fromstringandsize(NULL, 0), '')\n\n        self.assertRaises(MemoryError, fromstringandsize, b'abc', PY_SSIZE_T_MAX)\n        self.assertRaises(SystemError, fromstringandsize, b'abc', -1)\n        self.assertRaises(SystemError, fromstringandsize, b'abc', PY_SSIZE_T_MIN)\n        self.assertRaises(SystemError, fromstringandsize, NULL, -1)\n        self.assertRaises(SystemError, fromstringandsize, NULL, PY_SSIZE_T_MIN)\n        self.assertRaises(SystemError, fromstringandsize, NULL, 3)\n        self.assertRaises(SystemError, fromstringandsize, NULL, PY_SSIZE_T_MAX)",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9adae9b967fdb7f58175ef5d",
+          "path": "Lib/test/test_capi/test_unicode.py",
+          "symbolId": "symbol:WyJmaWxlOjZjYWFkZjhlNjhhYzBlYTNkOGQyN2FiOSIsInRlc3RfZnJvbXN0cmluZyIsIm1ldGhvZCIsIkxpYi50ZXN0LnRlc3RfY2FwaS50ZXN0X3VuaWNvZGUuQ0FQSVRlc3QiLDIzMSw0XQ",
+          "symbol": "Lib.test.test_capi.test_unicode.CAPITest.test_fromstring",
+          "startLine": 231,
+          "endLine": 243,
+          "startByte": 10063,
+          "endByte": 10745,
+          "blobDigest": "cacf5d80a684096a6d97ec468e259bc460ffac3b904dde4606f857e96a34ebb7",
+          "source": "@support.cpython_only\n    @unittest.skipIf(_testlimitedcapi is None, 'need _testlimitedcapi module')\n    def test_fromstring(self):\n        \"\"\"Test PyUnicode_FromString()\"\"\"\n        from _testlimitedcapi import unicode_fromstring as fromstring\n\n        self.assertEqual(fromstring(b'abc'), 'abc')\n        self.assertEqual(fromstring(b'\\xc2\\xa1\\xc2\\xa2'), '\\xa1\\xa2')\n        self.assertEqual(fromstring(b'\\xe4\\xbd\\xa0'), '\\u4f60')\n        self.assertEqual(fromstring(b'\\xf0\\x9f\\x98\\x80'), '\\U0001f600')\n        self.assertRaises(UnicodeDecodeError, fromstring, b'\\xc2')\n        self.assertRaises(UnicodeDecodeError, fromstring, b'\\xa1')\n        self.assertEqual(fromstring(b''), '')",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9adae9b967fdb7f58175ef5d",
+          "path": "Objects/unicodeobject.c",
+          "symbolId": "symbol:WyJmaWxlOjM0Yzk2NmU3ODc2ZDZmOGJmODAxZGQ1MSIsIlB5VW5pY29kZV9Gcm9tU3RyaW5nQW5kU2l6ZSIsImZ1bmN0aW9uIiwiIiwyMTUwLDBd",
+          "symbol": "PyUnicode_FromStringAndSize",
+          "startLine": 2150,
+          "endLine": 2166,
+          "startByte": 65493,
+          "endByte": 66036,
+          "blobDigest": "cf6885efb5011a036d4741372cec22ef3945fb11abe01d8079917714a33addd0",
+          "source": "PyUnicode_FromStringAndSize(const char *u, Py_ssize_t size)\n{\n    if (size < 0) {\n        PyErr_SetString(PyExc_SystemError,\n                        \"Negative size passed to PyUnicode_FromStringAndSize\");\n        return NULL;\n    }\n    if (u != NULL) {\n        return PyUnicode_DecodeUTF8Stateful(u, size, NULL, NULL);\n    }\n    if (size > 0) {\n        PyErr_SetString(PyExc_SystemError,\n            \"NULL string with positive size with NULL passed to PyUnicode_FromStringAndSize\");\n        return NULL;\n    }\n    return unicode_get_empty();\n}",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9adae9b967fdb7f58175ef5d",
+          "path": "Include/unicodeobject.h",
+          "symbolId": "symbol:WyJmaWxlOmMwZjk4NDFlMTc1MmI1YjhjZDI0NWZiNSIsIlB5VW5pY29kZV9Gcm9tU3RyaW5nQW5kU2l6ZSIsImZ1bmN0aW9uX2RlY2xhcmF0aW9uIiwiIiwxMjIsMF0",
+          "symbol": "PyUnicode_FromStringAndSize",
+          "startLine": 122,
+          "endLine": 125,
+          "startByte": 4180,
+          "endByte": 4347,
+          "blobDigest": "63cdbaf2e99744b3825b8809dc3d55b14071015d394293c462edf274b6d27fb6",
+          "source": "PyAPI_FUNC(PyObject*) PyUnicode_FromStringAndSize(\n    const char *u,             /* UTF-8 encoded string */\n    Py_ssize_t size            /* size of buffer */\n    );",
+          "kind": "source"
+        }
+      ]
+    },
+    {
+      "mode": "symbol",
+      "query": "PyLong_FromLong",
+      "metadataMs": 1.584214999999972,
+      "hitAt10": true,
+      "expectedEvidence": true,
+      "candidates": [
+        {
+          "type": "symbol",
+          "score": 19.5,
+          "symbolId": "symbol:WyJmaWxlOjFhNmU3MGUyYmVlZWNhZDg4ODQwYzY3MiIsIlB5TG9uZ19Gcm9tTG9uZyIsImZ1bmN0aW9uIiwiIiwzNzMsMF0",
+          "name": "PyLong_FromLong",
+          "path": "Objects/longobject.c",
+          "startLine": 373
+        },
+        {
+          "type": "symbol",
+          "score": 19,
+          "symbolId": "symbol:WyJmaWxlOmE1YTIyNjM2YzhlOWQzODAwNDQ1ZDdiYSIsIlB5TG9uZ19Gcm9tTG9uZyIsImZ1bmN0aW9uX2RlY2xhcmF0aW9uIiwiIiwxNiwwXQ",
+          "name": "PyLong_FromLong",
+          "path": "Include/longobject.h",
+          "startLine": 16
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjFhNmU3MGUyYmVlZWNhZDg4ODQwYzY3MiIsIlB5TG9uZ19Gcm9tTG9uZ0xvbmciLCJmdW5jdGlvbiIsIiIsMTQ4MiwwXQ",
+          "name": "PyLong_FromLongLong",
+          "path": "Objects/longobject.c",
+          "startLine": 1482
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:WyJmaWxlOmE1YTIyNjM2YzhlOWQzODAwNDQ1ZDdiYSIsIlB5TG9uZ19Gcm9tTG9uZ0xvbmciLCJmdW5jdGlvbl9kZWNsYXJhdGlvbiIsIiIsMTU0LDBd",
+          "name": "PyLong_FromLongLong",
+          "path": "Include/longobject.h",
+          "startLine": 154
+        }
+      ],
+      "evidence": [
+        {
+          "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9adae9b967fdb7f58175ef5d",
+          "path": "Objects/longobject.c",
+          "symbolId": "symbol:WyJmaWxlOjFhNmU3MGUyYmVlZWNhZDg4ODQwYzY3MiIsIlB5TG9uZ19Gcm9tTG9uZyIsImZ1bmN0aW9uIiwiIiwzNzMsMF0",
+          "symbol": "PyLong_FromLong",
+          "startLine": 373,
+          "endLine": 376,
+          "startByte": 13376,
+          "endByte": 13454,
+          "blobDigest": "35e8ae447cd4993c57c943472526b8977b0af11088782cedbdd2e8e5d846218d",
+          "source": "PyLong_FromLong(long ival)\n{\n    PYLONG_FROM_INT(unsigned long, long, ival);\n}",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9adae9b967fdb7f58175ef5d",
+          "path": "Include/longobject.h",
+          "symbolId": "symbol:WyJmaWxlOmE1YTIyNjM2YzhlOWQzODAwNDQ1ZDdiYSIsIlB5TG9uZ19Gcm9tTG9uZyIsImZ1bmN0aW9uX2RlY2xhcmF0aW9uIiwiIiwxNiwwXQ",
+          "symbol": "PyLong_FromLong",
+          "startLine": 16,
+          "endLine": 16,
+          "startByte": 344,
+          "endByte": 389,
+          "blobDigest": "3bdead460eb2015c6de27b92bc4df74199fc5b92a5347851dfa4d4a0ba38c087",
+          "source": "PyAPI_FUNC(PyObject *) PyLong_FromLong(long);",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9adae9b967fdb7f58175ef5d",
+          "path": "Objects/longobject.c",
+          "symbolId": "symbol:WyJmaWxlOjFhNmU3MGUyYmVlZWNhZDg4ODQwYzY3MiIsIlB5TG9uZ19Gcm9tTG9uZ0xvbmciLCJmdW5jdGlvbiIsIiIsMTQ4MiwwXQ",
+          "symbol": "PyLong_FromLongLong",
+          "startLine": 1482,
+          "endLine": 1485,
+          "startByte": 45782,
+          "endByte": 45879,
+          "blobDigest": "35e8ae447cd4993c57c943472526b8977b0af11088782cedbdd2e8e5d846218d",
+          "source": "PyLong_FromLongLong(long long ival)\n{\n    PYLONG_FROM_INT(unsigned long long, long long, ival);\n}",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9adae9b967fdb7f58175ef5d",
+          "path": "Include/longobject.h",
+          "symbolId": "symbol:WyJmaWxlOmE1YTIyNjM2YzhlOWQzODAwNDQ1ZDdiYSIsIlB5TG9uZ19Gcm9tTG9uZ0xvbmciLCJmdW5jdGlvbl9kZWNsYXJhdGlvbiIsIiIsMTU0LDBd",
+          "symbol": "PyLong_FromLongLong",
+          "startLine": 154,
+          "endLine": 154,
+          "startByte": 6051,
+          "endByte": 6105,
+          "blobDigest": "3bdead460eb2015c6de27b92bc4df74199fc5b92a5347851dfa4d4a0ba38c087",
+          "source": "PyAPI_FUNC(PyObject *) PyLong_FromLongLong(long long);",
+          "kind": "source"
+        }
+      ]
+    },
+    {
+      "mode": "content",
+      "query": "Heaps are arrays for which",
+      "metadataMs": 8.034657000000038,
+      "hitAt10": true,
+      "expectedEvidence": true,
+      "candidates": [
+        {
+          "type": "content",
+          "score": 9.202614705903645,
+          "path": "Lib/heapq.py",
+          "fileId": "file:3630ee616aeb3c7236726b0e",
+          "blobDigest": "8a1d516c404e991c04f6ca7c7532be4e2abb45518122fdac724a05f710a94697"
+        },
+        {
+          "type": "content",
+          "score": 9.073481694656904,
+          "path": "Modules/_heapqmodule.c",
+          "fileId": "file:034663931c4f60e79a35df8d",
+          "blobDigest": "e28abbac38c38b9af23130a02da42bc6ff131368361e35d524e2cf04e31852c1"
+        },
+        {
+          "type": "content",
+          "score": 7.368494999202843,
+          "path": "Doc/library/heapq.rst",
+          "fileId": "file:a0bb70b8622ff9d353712cf9",
+          "blobDigest": "676347c86a675a3f9071e92276e823c496e763176dccd563a5e051dd09044225"
+        }
+      ],
+      "evidence": [
+        {
+          "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9adae9b967fdb7f58175ef5d",
+          "path": "Lib/heapq.py",
+          "fileId": "file:3630ee616aeb3c7236726b0e",
+          "startLine": 3,
+          "endLine": 5,
+          "startByte": 50,
+          "endByte": 250,
+          "blobDigest": "8a1d516c404e991c04f6ca7c7532be4e2abb45518122fdac724a05f710a94697",
+          "source": "Heaps are arrays for which a[k] <= a[2*k+1] and a[k] <= a[2*k+2] for\nall k, counting elements from 0.  For the sake of comparison,\nnon-existing elements are considered to be infinite.  The interesting",
+          "kind": "content",
+          "match": {
+            "startByte": 50,
+            "endByte": 76,
+            "startLine": 3,
+            "endLine": 3
+          },
+          "truncated": false
+        },
+        {
+          "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9adae9b967fdb7f58175ef5d",
+          "path": "Modules/_heapqmodule.c",
+          "fileId": "file:034663931c4f60e79a35df8d",
+          "startLine": 656,
+          "endLine": 658,
+          "startByte": 18424,
+          "endByte": 18633,
+          "blobDigest": "e28abbac38c38b9af23130a02da42bc6ff131368361e35d524e2cf04e31852c1",
+          "source": "Heaps are arrays for which a[k] <= a[2*k+1] and a[k] <= a[2*k+2] for\\n\\\nall k, counting elements from 0.  For the sake of comparison,\\n\\\nnon-existing elements are considered to be infinite.  The interesting\\n\\",
+          "kind": "content",
+          "match": {
+            "startByte": 18424,
+            "endByte": 18450,
+            "startLine": 656,
+            "endLine": 656
+          },
+          "truncated": false
+        },
+        {
+          "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9adae9b967fdb7f58175ef5d",
+          "path": "Doc/library/heapq.rst",
+          "fileId": "file:a0bb70b8622ff9d353712cf9",
+          "startLine": 309,
+          "endLine": 311,
+          "startByte": 11318,
+          "endByte": 11550,
+          "blobDigest": "676347c86a675a3f9071e92276e823c496e763176dccd563a5e051dd09044225",
+          "source": "Heaps are arrays for which ``a[k] <= a[2*k+1]`` and ``a[k] <= a[2*k+2]`` for all\n*k*, counting elements from 0.  For the sake of comparison, non-existing\nelements are considered to be infinite.  The interesting property of a heap is",
+          "kind": "content",
+          "match": {
+            "startByte": 11318,
+            "endByte": 11344,
+            "startLine": 309,
+            "endLine": 309
+          },
+          "truncated": false
+        }
+      ]
+    },
+    {
+      "mode": "content",
+      "query": "Exception ignored in",
+      "metadataMs": 5.00191099999995,
+      "hitAt10": true,
+      "expectedEvidence": true,
+      "candidates": [
+        {
+          "type": "content",
+          "score": 9.084395771603768,
+          "path": "Lib/test/_test_atexit.py",
+          "fileId": "file:14b91ba64d46c936efd347c5",
+          "blobDigest": "dbb3cc518f56adad833136147eeaa685d5e0a6925e506ed4af27146faf6edc76"
+        },
+        {
+          "type": "content",
+          "score": 8.812153525498335,
+          "path": "Lib/test/test_capi/test_watchers.py",
+          "fileId": "file:f13cecf74c62d3b381dfd239",
+          "blobDigest": "c1131cf413265461111654cf348ee9e56927a1ac04e8229c6c5713446be9bbec"
+        },
+        {
+          "type": "content",
+          "score": 7.810037437781417,
+          "path": "Lib/test/signalinterproctester.py",
+          "fileId": "file:093cd6b67e0fbd016bf73971",
+          "blobDigest": "20d6fcba7f7dd598f68caba1558cef0b02e62c886e556da34e0c50ed07938bae"
+        },
+        {
+          "type": "content",
+          "score": 6.971428965772264,
+          "path": "Modules/_curses_panel.c",
+          "fileId": "file:23094b5d60e96c7e35b72a31",
+          "blobDigest": "5f1abefa046b738de4d4c4b5b931277746edbdb49bd7cb6c1291a1b45683382f"
+        },
+        {
+          "type": "content",
+          "score": 6.939941399109703,
+          "path": "Python/errors.c",
+          "fileId": "file:c37c836d0535b79d87b8eb06",
+          "blobDigest": "e54d738e9dca16b07d9efaeb08eed9fb6276a4af8a01640bad06680599450e49"
+        },
+        {
+          "type": "content",
+          "score": 6.700382245802294,
+          "path": "Doc/library/devmode.rst",
+          "fileId": "file:10669df79a150b642d16f374",
+          "blobDigest": "0f84cfa3341e20805279f3c759136621031c3abdbf0a6ff7bdbaf1f462aeed3f"
+        },
+        {
+          "type": "content",
+          "score": 6.682442137733252,
+          "path": "Modules/atexitmodule.c",
+          "fileId": "file:9879f5d0bb589f701ff1ed80",
+          "blobDigest": "6d7bc213a24f8b22bf03296a86767e416177dcc5a675304ba769563569b307e0"
+        },
+        {
+          "type": "content",
+          "score": 5.980365232726324,
+          "path": "Lib/test/test_thread.py",
+          "fileId": "file:91ab9cb92a60851792b63f50",
+          "blobDigest": "7576606448623d9090a609403e31ecd1005bb7f008c4f97ba2cf4fe8ae0b66fd"
+        },
+        {
+          "type": "content",
+          "score": 5.437879980191871,
+          "path": "Python/pythonrun.c",
+          "fileId": "file:2ecd9b536bc387479d824dc4",
+          "blobDigest": "7cc08aaf740dc8c17a126f0492af2605abc4753d9bfa9a1a1c354de4f584cde0"
+        },
+        {
+          "type": "content",
+          "score": 5.368937772863578,
+          "path": "Python/gc_free_threading.c",
+          "fileId": "file:4722ae850a2da3e12f50815c",
+          "blobDigest": "413d7e0793e1cda2be061d6d6496f69a82d0dd3894d739ae7e18a6e3ff4d4238"
+        },
+        {
+          "type": "content",
+          "score": 5.281540891954252,
+          "path": "Python/ceval.c",
+          "fileId": "file:c22186367cbe20233e843261",
+          "blobDigest": "d78971f92339384e42cebb967e38dd18928efd3dbefa0c66a9200527cf23f3ea"
+        },
+        {
+          "type": "content",
+          "score": 4.770238417398944,
+          "path": "Python/gc.c",
+          "fileId": "file:a848a0ef178aa113a092e724",
+          "blobDigest": "17b3fc084345efb23aa1a00e9dcb15ad41749125c564799a8181e1b49dbbf140"
+        }
+      ],
+      "evidence": [
+        {
+          "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9adae9b967fdb7f58175ef5d",
+          "path": "Lib/test/_test_atexit.py",
+          "fileId": "file:14b91ba64d46c936efd347c5",
+          "startLine": 24,
+          "endLine": 26,
+          "startByte": 586,
+          "endByte": 788,
+          "blobDigest": "dbb3cc518f56adad833136147eeaa685d5e0a6925e506ed4af27146faf6edc76",
+          "source": "                    f'Exception ignored in atexit callback {func!r}')\n            self.assertEqual(cm.unraisable.exc_type, exc_type)\n            self.assertEqual(type(cm.unraisable.exc_value), exc_type)",
+          "kind": "content",
+          "match": {
+            "startByte": 608,
+            "endByte": 628,
+            "startLine": 24,
+            "endLine": 24
+          },
+          "truncated": false
+        },
+        {
+          "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9adae9b967fdb7f58175ef5d",
+          "path": "Lib/test/test_capi/test_watchers.py",
+          "fileId": "file:f13cecf74c62d3b381dfd239",
+          "startLine": 133,
+          "endLine": 135,
+          "startByte": 3742,
+          "endByte": 3900,
+          "blobDigest": "c1131cf413265461111654cf348ee9e56927a1ac04e8229c6c5713446be9bbec",
+          "source": "                    \"Exception ignored in \"\n                    \"PyDict_EVENT_ADDED watcher callback for <dict at \",\n                    cm.unraisable.err_msg",
+          "kind": "content",
+          "match": {
+            "startByte": 3763,
+            "endByte": 3783,
+            "startLine": 133,
+            "endLine": 133
+          },
+          "truncated": false
+        },
+        {
+          "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9adae9b967fdb7f58175ef5d",
+          "path": "Lib/test/signalinterproctester.py",
+          "fileId": "file:093cd6b67e0fbd016bf73971",
+          "startLine": 66,
+          "endLine": 68,
+          "startByte": 2250,
+          "endByte": 2361,
+          "blobDigest": "20d6fcba7f7dd598f68caba1558cef0b02e62c886e556da34e0c50ed07938bae",
+          "source": "        # as \"Exception ignored in: <function Popen.__del__ at ...>\".\n        child = None\n        gc.collect()",
+          "kind": "content",
+          "match": {
+            "startByte": 2264,
+            "endByte": 2284,
+            "startLine": 66,
+            "endLine": 66
+          },
+          "truncated": false
+        },
+        {
+          "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9adae9b967fdb7f58175ef5d",
+          "path": "Modules/_curses_panel.c",
+          "fileId": "file:23094b5d60e96c7e35b72a31",
+          "startLine": 331,
+          "endLine": 333,
+          "startByte": 8883,
+          "endByte": 9026,
+          "blobDigest": "5f1abefa046b738de4d4c4b5b931277746edbdb49bd7cb6c1291a1b45683382f",
+          "source": "        PyErr_FormatUnraisable(\"Exception ignored in PyCursesPanel_Dealloc()\");\n    }\n    if (del_panel(po->pan) == ERR && !PyErr_Occurred()) {",
+          "kind": "content",
+          "match": {
+            "startByte": 8915,
+            "endByte": 8935,
+            "startLine": 331,
+            "endLine": 331
+          },
+          "truncated": false
+        },
+        {
+          "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9adae9b967fdb7f58175ef5d",
+          "path": "Python/errors.c",
+          "fileId": "file:c37c836d0535b79d87b8eb06",
+          "startLine": 1464,
+          "endLine": 1466,
+          "startByte": 40544,
+          "endByte": 40658,
+          "blobDigest": "e54d738e9dca16b07d9efaeb08eed9fb6276a4af8a01640bad06680599450e49",
+          "source": "            if (PyFile_WriteString(\"Exception ignored in: \", file) < 0) {\n                return -1;\n            }",
+          "kind": "content",
+          "match": {
+            "startByte": 40580,
+            "endByte": 40600,
+            "startLine": 1464,
+            "endLine": 1464
+          },
+          "truncated": false
+        },
+        {
+          "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9adae9b967fdb7f58175ef5d",
+          "path": "Doc/library/devmode.rst",
+          "fileId": "file:10669df79a150b642d16f374",
+          "startLine": 207,
+          "endLine": 209,
+          "startByte": 6844,
+          "endByte": 7016,
+          "blobDigest": "0f84cfa3341e20805279f3c759136621031c3abdbf0a6ff7bdbaf1f462aeed3f",
+          "source": "    Exception ignored in: <_io.TextIOWrapper name='script.py' mode='r' encoding='UTF-8'>\n    Traceback (most recent call last):\n      File \"script.py\", line 10, in <module>",
+          "kind": "content",
+          "match": {
+            "startByte": 6848,
+            "endByte": 6868,
+            "startLine": 207,
+            "endLine": 207
+          },
+          "truncated": false
+        },
+        {
+          "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9adae9b967fdb7f58175ef5d",
+          "path": "Modules/atexitmodule.c",
+          "fileId": "file:9879f5d0bb589f701ff1ed80",
+          "startLine": 133,
+          "endLine": 135,
+          "startByte": 3846,
+          "endByte": 3936,
+          "blobDigest": "6d7bc213a24f8b22bf03296a86767e416177dcc5a675304ba769563569b307e0",
+          "source": "                \"Exception ignored in atexit callback %R\", func);\n        }\n        else {",
+          "kind": "content",
+          "match": {
+            "startByte": 3863,
+            "endByte": 3883,
+            "startLine": 133,
+            "endLine": 133
+          },
+          "truncated": false
+        },
+        {
+          "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9adae9b967fdb7f58175ef5d",
+          "path": "Lib/test/test_thread.py",
+          "fileId": "file:91ab9cb92a60851792b63f50",
+          "startLine": 160,
+          "endLine": 162,
+          "startByte": 5250,
+          "endByte": 5393,
+          "blobDigest": "7576606448623d9090a609403e31ecd1005bb7f008c4f97ba2cf4fe8ae0b66fd",
+          "source": "                             f\"Exception ignored in thread started by {task!r}\")\n            self.assertIsNotNone(cm.unraisable.exc_traceback)\n",
+          "kind": "content",
+          "match": {
+            "startByte": 5281,
+            "endByte": 5301,
+            "startLine": 160,
+            "endLine": 160
+          },
+          "truncated": false
+        },
+        {
+          "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9adae9b967fdb7f58175ef5d",
+          "path": "Python/pythonrun.c",
+          "fileId": "file:2ecd9b536bc387479d824dc4",
+          "startLine": 734,
+          "endLine": 736,
+          "startByte": 21010,
+          "endByte": 21098,
+          "blobDigest": "7cc08aaf740dc8c17a126f0492af2605abc4753d9bfa9a1a1c354de4f584cde0",
+          "source": "        PyErr_FormatUnraisable(\"Exception ignored in audit hook\");\n    }\n    if (hook) {",
+          "kind": "content",
+          "match": {
+            "startByte": 21042,
+            "endByte": 21062,
+            "startLine": 734,
+            "endLine": 734
+          },
+          "truncated": false
+        },
+        {
+          "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9adae9b967fdb7f58175ef5d",
+          "path": "Python/gc_free_threading.c",
+          "fileId": "file:4722ae850a2da3e12f50815c",
+          "startLine": 1677,
+          "endLine": 1679,
+          "startByte": 52284,
+          "endByte": 52449,
+          "blobDigest": "413d7e0793e1cda2be061d6d6496f69a82d0dd3894d739ae7e18a6e3ff4d4238",
+          "source": "                    PyErr_FormatUnraisable(\"Exception ignored in tp_clear of %s\",\n                                           Py_TYPE(op)->tp_name);\n                }",
+          "kind": "content",
+          "match": {
+            "startByte": 52328,
+            "endByte": 52348,
+            "startLine": 1677,
+            "endLine": 1677
+          },
+          "truncated": false
+        }
+      ]
+    }
+  ]
+}

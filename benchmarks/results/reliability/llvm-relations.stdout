@@ -1,0 +1,46 @@
+{
+  "tool": "CodeIndex",
+  "corpus": "llvm",
+  "rows": [
+    {
+      "caller": "parseAssemblyFile",
+      "callee": "parseAssembly",
+      "path": "llvm/lib/AsmParser/Parser.cpp",
+      "callLine": 71,
+      "hit": false,
+      "elapsedMs": 47.001086999999984,
+      "totalCalls": 0,
+      "matches": []
+    },
+    {
+      "caller": "parseAssemblyString",
+      "callee": "parseAssembly",
+      "path": "llvm/lib/AsmParser/Parser.cpp",
+      "callLine": 141,
+      "hit": false,
+      "elapsedMs": 30.866894000000002,
+      "totalCalls": 0,
+      "matches": []
+    },
+    {
+      "caller": "getLazyIRFileModule",
+      "callee": "getLazyIRModule",
+      "path": "llvm/lib/IRReader/IRReader.cpp",
+      "callLine": 65,
+      "hit": false,
+      "elapsedMs": 33.521825000000035,
+      "totalCalls": 0,
+      "matches": []
+    },
+    {
+      "caller": "parseIRFile",
+      "callee": "parseIR",
+      "path": "llvm/lib/IRReader/IRReader.cpp",
+      "callLine": 105,
+      "hit": false,
+      "elapsedMs": 28.05962900000003,
+      "totalCalls": 0,
+      "matches": []
+    }
+  ]
+}

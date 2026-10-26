@@ -1,0 +1,4 @@
+
+> codeindex@0.4.0 check
+> find src bin -name '*.js' -print0 | xargs -0 -n1 node --check && "${CODEINDEX_PYTHON:-python3.14}" -I -m py_compile src/parsers/python_ast.py
+

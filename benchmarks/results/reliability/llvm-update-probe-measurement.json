@@ -1,0 +1,26 @@
+{
+  "command": [
+    "node",
+    "/data/dev/CodeIndex-worktrees/feature/parser-reliability/benchmarks/reliability/update-check.mjs",
+    "/data/dev/CodeIndex/.data/reliability/indexes/codeindex/llvm",
+    "codeindex_reliability_probe",
+    "llvm/lib/IR/LLVMContext.cpp",
+    "present"
+  ],
+  "cwd": "/data/dev/CodeIndex-worktrees/feature/parser-reliability",
+  "systemdUnit": "codeindex-benchmark-2981041.scope",
+  "systemdResult": "success",
+  "status": "success",
+  "exitCode": 0,
+  "wallSeconds": 0.34,
+  "wallSecondsIncludingSupervisor": 0.5153241420630366,
+  "timeLimitSeconds": 1800,
+  "memoryLimitGiB": 12,
+  "gnuTimeMaxRssKiB": 138952,
+  "sampledProcessTreeRssSumBytes": 126443520,
+  "workloadSampled": true,
+  "cgroupMemoryPeakBytes": 81170432,
+  "sampleIntervalSeconds": 0.25,
+  "leftoverProcessIdsTerminated": [],
+  "memoryNotes": "RSS sum can double-count shared pages; cgroup memory includes page cache; GNU time max RSS is not simultaneous tree total"
+}

@@ -1,0 +1,24 @@
+Command exited with non-zero status 1
+	Command being timed: "node /data/dev/CodeIndex-worktrees/feature/parser-reliability/benchmarks/reliability/equivalence.mjs /data/dev/CodeIndex/.data/reliability/oracles/codeindex/vscode /data/dev/CodeIndex/.data/reliability/indexes/codeindex/vscode/repo-ff10757cc0a66e40c305/snapshots/snapshot:repo-ff10757cc0a66e40c305:c7b99075d91bbc09c0b92a14-9e417301 /data/dev/CodeIndex/.data/reliability/updated-inventories/vscode.json"
+	User time (seconds): 7.88
+	System time (seconds): 1.34
+	Percent of CPU this job got: 96%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:09.59
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 442672
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 179401
+	Voluntary context switches: 16735
+	Involuntary context switches: 316
+	Swaps: 0
+	File system inputs: 792184
+	File system outputs: 8
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 1

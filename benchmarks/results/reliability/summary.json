@@ -1,0 +1,458 @@
+{
+  "productCommit": "dec7a41",
+  "memoryLimitGiB": 12,
+  "swapAllowed": false,
+  "rows": [
+    {
+      "corpus": "cpython",
+      "files": 5019,
+      "buildSeconds": [
+        11.47,
+        11.68,
+        11.43
+      ],
+      "medianBuildSeconds": 11.47,
+      "cpuSeconds": [
+        22.7,
+        22.9,
+        22.34
+      ],
+      "medianCpuSeconds": 22.7,
+      "gnuMaxRssMiB": [
+        481.57421875,
+        502.12109375,
+        483.61328125
+      ],
+      "sampledTreeRssGiB": [
+        0.639556884765625,
+        0.6390762329101562,
+        0.6252861022949219
+      ],
+      "cgroupPeakGiB": [
+        0.8873977661132812,
+        0.8732719421386719,
+        0.8914375305175781
+      ],
+      "storageBytes": 410726465,
+      "stats": {
+        "files": 5019,
+        "symbols": 153443,
+        "relations": 432657
+      },
+      "parseStatus": [
+        {
+          "language": "c",
+          "parse_status": "complete",
+          "files": 1085
+        },
+        {
+          "language": "cpp",
+          "parse_status": "complete",
+          "files": 7
+        },
+        {
+          "language": "css",
+          "parse_status": "unsupported",
+          "files": 2
+        },
+        {
+          "language": "javascript",
+          "parse_status": "complete",
+          "files": 6
+        },
+        {
+          "language": "json",
+          "parse_status": "unsupported",
+          "files": 32
+        },
+        {
+          "language": "markdown",
+          "parse_status": "unsupported",
+          "files": 30
+        },
+        {
+          "language": "python",
+          "parse_status": "complete",
+          "files": 2087
+        },
+        {
+          "language": "python",
+          "parse_status": "partial",
+          "files": 2
+        },
+        {
+          "language": "shell",
+          "parse_status": "unsupported",
+          "files": 10
+        },
+        {
+          "language": "toml",
+          "parse_status": "unsupported",
+          "files": 72
+        },
+        {
+          "language": "typescript",
+          "parse_status": "complete",
+          "files": 2
+        },
+        {
+          "language": "unknown",
+          "parse_status": "unsupported",
+          "files": 1651
+        },
+        {
+          "language": "yaml",
+          "parse_status": "unsupported",
+          "files": 33
+        }
+      ],
+      "symbolFileHits": 8,
+      "symbolDeclarationEvidence": 8,
+      "contentHits": 2,
+      "callHits": 4,
+      "bodyFilesVerified": 5019,
+      "evidenceChecked": 73,
+      "medianLoadMs": 1.8239910000000066,
+      "medianHotMetadataMs": 1.1115267499999817,
+      "medianFirstMetadataMs": 1.642471999999998,
+      "medianEvidenceMs": 3.022040000000004,
+      "noopSeconds": 0.36,
+      "updateSeconds": 2.75,
+      "oracleSeconds": 12.19,
+      "equivalenceSeconds": 6.85,
+      "equivalence": {
+        "files": 5019,
+        "symbols": 153445,
+        "relations": 432657,
+        "nativeArtifacts": {
+          "cscope.paths.json": "b0877292e3dea4aa7a83ef968a8b590c8d8e4e4b08e7ed832972a7ac9b0a0f62",
+          "cscope.out.in": "f1ae9afd3dcb2e8017387599fb9697c4a804dc802324f939820898e41e0fd9b1",
+          "cscope.out.po": "a951e24193027f80a9c14ffc6669998a500e402f4ad5387cc392ba48cca881d7"
+        },
+        "factsSha256": "ef0aa71d66b8bcfa21a3b53e2f0703c260afd6d2f8912141a431d5345c0a170b",
+        "sourceBodiesChecked": 5019,
+        "sourceBlobsChecked": 4878,
+        "nativeBodySha256": "44efe6c0b23204070afef7cbcd5fcabae493bf596a5eb273b7bf699ea12ede48",
+        "equivalent": true,
+        "scope": "Every file: metadata, parse status, complete FTS body and digest, symbol fields and parent identities, stored relations, source/blob digests; entire Cscope body, path map, inverted dictionary and every posting (x86-64 ABI padding excluded)"
+      },
+      "restored": true
+    },
+    {
+      "corpus": "vscode",
+      "files": 8071,
+      "buildSeconds": [
+        11.96,
+        11.97,
+        11.83
+      ],
+      "medianBuildSeconds": 11.96,
+      "cpuSeconds": [
+        25.090000000000003,
+        25.26,
+        25.08
+      ],
+      "medianCpuSeconds": 25.090000000000003,
+      "gnuMaxRssMiB": [
+        1336.875,
+        1333.13671875,
+        1328.2421875
+      ],
+      "sampledTreeRssGiB": [
+        1.3051872253417969,
+        1.292572021484375,
+        1.2888374328613281
+      ],
+      "cgroupPeakGiB": [
+        1.72998046875,
+        1.7307281494140625,
+        1.7217979431152344
+      ],
+      "storageBytes": 459557550,
+      "stats": {
+        "files": 8071,
+        "symbols": 227748,
+        "relations": 573977
+      },
+      "parseStatus": [
+        {
+          "language": "c",
+          "parse_status": "complete",
+          "files": 1
+        },
+        {
+          "language": "cpp",
+          "parse_status": "complete",
+          "files": 6
+        },
+        {
+          "language": "css",
+          "parse_status": "unsupported",
+          "files": 282
+        },
+        {
+          "language": "go",
+          "parse_status": "unsupported",
+          "files": 2
+        },
+        {
+          "language": "java",
+          "parse_status": "unsupported",
+          "files": 1
+        },
+        {
+          "language": "javascript",
+          "parse_status": "complete",
+          "files": 151
+        },
+        {
+          "language": "javascript",
+          "parse_status": "partial",
+          "files": 4
+        },
+        {
+          "language": "json",
+          "parse_status": "unsupported",
+          "files": 905
+        },
+        {
+          "language": "markdown",
+          "parse_status": "unsupported",
+          "files": 93
+        },
+        {
+          "language": "python",
+          "parse_status": "partial",
+          "files": 2
+        },
+        {
+          "language": "ruby",
+          "parse_status": "unsupported",
+          "files": 1
+        },
+        {
+          "language": "rust",
+          "parse_status": "unsupported",
+          "files": 71
+        },
+        {
+          "language": "scss",
+          "parse_status": "unsupported",
+          "files": 4
+        },
+        {
+          "language": "shell",
+          "parse_status": "unsupported",
+          "files": 48
+        },
+        {
+          "language": "toml",
+          "parse_status": "unsupported",
+          "files": 3
+        },
+        {
+          "language": "typescript",
+          "parse_status": "complete",
+          "files": 5824
+        },
+        {
+          "language": "unknown",
+          "parse_status": "unsupported",
+          "files": 648
+        },
+        {
+          "language": "yaml",
+          "parse_status": "unsupported",
+          "files": 25
+        }
+      ],
+      "symbolFileHits": 8,
+      "symbolDeclarationEvidence": 8,
+      "contentHits": 2,
+      "callHits": 3,
+      "bodyFilesVerified": 8071,
+      "evidenceChecked": 78,
+      "medianLoadMs": 1.7625279999999748,
+      "medianHotMetadataMs": 2.0945392500000253,
+      "medianFirstMetadataMs": 2.674117000000024,
+      "medianEvidenceMs": 3.706775499999992,
+      "noopSeconds": 0.39,
+      "updateSeconds": 2.67,
+      "oracleSeconds": 12.46,
+      "equivalenceSeconds": 9.71,
+      "equivalence": {
+        "files": 8071,
+        "symbols": 227750,
+        "relations": 573978,
+        "nativeArtifacts": {
+          "cscope.paths.json": "ef3785e1b9e42d8425b865f61a32fedfb834b61b00d563a11b51927f0d866632",
+          "cscope.out.in": "e3c1fb6d8e517e3eaa1e3f349eca5a5a0f534348ec2e7efa3726e3932702755f",
+          "cscope.out.po": "153572b8a041e518794277a190181a57c65ab9a3a1cf35b13bd8fa8b5dab7c31"
+        },
+        "factsSha256": "74ffd6fd2691a805d3f250bd598a84d2677ef5a711bb2643faaa5cdcc212b5fe",
+        "sourceBodiesChecked": 8071,
+        "sourceBlobsChecked": 7755,
+        "nativeBodySha256": "a711f8e162d1df66546d4b7f6483b82dbac2e7a444434d0adfcd1e8292b20cae",
+        "equivalent": true,
+        "scope": "Every file: metadata, parse status, complete FTS body and digest, symbol fields and parent identities, stored relations, source/blob digests; entire Cscope body, path map, inverted dictionary and every posting (x86-64 ABI padding excluded)"
+      },
+      "restored": true
+    },
+    {
+      "corpus": "llvm",
+      "files": 158039,
+      "buildSeconds": [
+        115.4,
+        113.38,
+        125.33
+      ],
+      "medianBuildSeconds": 115.4,
+      "cpuSeconds": [
+        148.02,
+        148.37,
+        152.62
+      ],
+      "medianCpuSeconds": 148.37,
+      "gnuMaxRssMiB": [
+        2474.91015625,
+        2474.91015625,
+        2475.03515625
+      ],
+      "sampledTreeRssGiB": [
+        3.0230979919433594,
+        2.9854660034179688,
+        3.0258026123046875
+      ],
+      "cgroupPeakGiB": [
+        3.9549179077148438,
+        3.6366653442382812,
+        3.5451698303222656
+      ],
+      "storageBytes": 5368460954,
+      "stats": {
+        "files": 158039,
+        "symbols": 1679206,
+        "relations": 416030
+      },
+      "parseStatus": [
+        {
+          "language": "c",
+          "parse_status": "complete",
+          "files": 27565
+        },
+        {
+          "language": "c",
+          "parse_status": "partial",
+          "files": 1
+        },
+        {
+          "language": "cpp",
+          "parse_status": "complete",
+          "files": 34853
+        },
+        {
+          "language": "css",
+          "parse_status": "unsupported",
+          "files": 27
+        },
+        {
+          "language": "javascript",
+          "parse_status": "complete",
+          "files": 23
+        },
+        {
+          "language": "json",
+          "parse_status": "unsupported",
+          "files": 140
+        },
+        {
+          "language": "markdown",
+          "parse_status": "unsupported",
+          "files": 283
+        },
+        {
+          "language": "python",
+          "parse_status": "complete",
+          "files": 2604
+        },
+        {
+          "language": "python",
+          "parse_status": "partial",
+          "files": 3
+        },
+        {
+          "language": "rust",
+          "parse_status": "unsupported",
+          "files": 1
+        },
+        {
+          "language": "shell",
+          "parse_status": "unsupported",
+          "files": 100
+        },
+        {
+          "language": "toml",
+          "parse_status": "unsupported",
+          "files": 4
+        },
+        {
+          "language": "typescript",
+          "parse_status": "complete",
+          "files": 21
+        },
+        {
+          "language": "unknown",
+          "parse_status": "unsupported",
+          "files": 91096
+        },
+        {
+          "language": "yaml",
+          "parse_status": "unsupported",
+          "files": 1318
+        }
+      ],
+      "symbolFileHits": 8,
+      "symbolDeclarationEvidence": 7,
+      "contentHits": 2,
+      "callHits": 0,
+      "bodyFilesVerified": 158039,
+      "evidenceChecked": 64,
+      "medianLoadMs": 2.461078999999984,
+      "medianHotMetadataMs": 2.5583382500000624,
+      "medianFirstMetadataMs": 5.95420900000002,
+      "medianEvidenceMs": 5.253785499999992,
+      "noopSeconds": 0.62,
+      "updateSeconds": 79.64,
+      "oracleSeconds": 123.52,
+      "equivalenceSeconds": 98.5,
+      "equivalence": {
+        "files": 158039,
+        "symbols": 1679208,
+        "relations": 416030,
+        "nativeArtifacts": {
+          "cscope.paths.json": "5607b346de298fbcbf4acf56cca910aee8dc71965f8550569bca60b887e9cccc",
+          "cscope.out.in": "e665b150f221d955b993ad1e51a8b0c08ea69786047fe3914c5d68d3f1bd3690",
+          "cscope.out.po": "4daf599ab64f16e34c0e0c500def1fd641b62c3f606e39d3e6cb86697e1af853"
+        },
+        "factsSha256": "3d06b64ff6caea8c2ec4a387ade51e23196f0bb418f450597daab3c191feedea",
+        "sourceBodiesChecked": 158039,
+        "sourceBlobsChecked": 152946,
+        "nativeBodySha256": "9e1164484b96b6fd84695e484c8ea78c3ffd3359e90279de01624e8838e5f961",
+        "equivalent": true,
+        "scope": "Every file: metadata, parse status, complete FTS body and digest, symbol fields and parent identities, stored relations, source/blob digests; entire Cscope body, path map, inverted dictionary and every posting (x86-64 ABI padding excluded)"
+      },
+      "restored": true
+    }
+  ],
+  "tests": {
+    "node24.13.1": 122,
+    "node22.23.2": 122
+  },
+  "invalidOrSupersededRecords": {
+    "checks/node22": "PATH resolved env to a shell setup script; no tests ran",
+    "llvm-equivalence-measurement": "Unbounded Buffer assertion exhausted V8 while formatting native posting differences; replaced by streaming SHA-256, equal-length Cscope cwd headers and exclusion of ABI padding",
+    "cpython-equivalence": "Superseded by strict equivalence including file layouts and native indexes",
+    "vscode-strict-equivalence-measurement": "Raw dictionary bytes include padding and unused block space; superseded by all defined dictionary fields and postings",
+    "vscode-equivalence": "Superseded by strict equivalence including file layouts and native indexes"
+  }
+}

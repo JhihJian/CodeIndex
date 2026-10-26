@@ -1,0 +1,34 @@
+{
+  "completed": true,
+  "restored": true,
+  "originalRevision": "673fe4d2229c9921e3a24972682e3db8cf482a95",
+  "path": "Python/pylifecycle.c",
+  "originalDigest": "c6c1256d8f1d6edb692aaa1d07c2cd2273411c9f461b0a6a21566236fa3e7d7d",
+  "originalMtimeNs": 1792905857052386562,
+  "recoveryDirectory": "/data/dev/CodeIndex/.data/reliability/update-backups/cpython",
+  "updatedRevision": "a27a644e75c180148205b3f1120ce3870a25c499",
+  "probe": {
+    "present": true,
+    "symbolVerified": true,
+    "bodyVerified": true,
+    "callVerified": true
+  },
+  "baselineQueriesAndRelationsPreserved": true,
+  "equivalence": {
+    "files": 5019,
+    "symbols": 153445,
+    "relations": 432657,
+    "factsSha256": "ef0aa71d66b8bcfa21a3b53e2f0703c260afd6d2f8912141a431d5345c0a170b",
+    "sourceBodiesChecked": 5019,
+    "sourceBlobsChecked": 4878,
+    "nativeBodySha256": "44efe6c0b23204070afef7cbcd5fcabae493bf596a5eb273b7bf699ea12ede48",
+    "equivalent": true,
+    "scope": "Every file: metadata, parse status, complete FTS body and digest, symbol fields and parent identities, stored relations, source/blob digests; entire Cscope body after the cwd header"
+  },
+  "restoredProbe": {
+    "present": false,
+    "symbolVerified": true,
+    "bodyVerified": true,
+    "callVerified": false
+  }
+}

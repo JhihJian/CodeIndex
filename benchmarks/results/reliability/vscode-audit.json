@@ -1,0 +1,25 @@
+{
+  "command": [
+    "node",
+    "benchmarks/reliability/audit.mjs",
+    "/data/dev/CodeIndex/.data/reliability/indexes/codeindex/vscode",
+    "vscode",
+    "/data/dev/CodeIndex/.data/reliability/inputs/vscode.files.json"
+  ],
+  "cwd": "/data/dev/CodeIndex-worktrees/feature/parser-reliability",
+  "systemdUnit": "codeindex-benchmark-2971480.scope",
+  "systemdResult": "success",
+  "status": "success",
+  "exitCode": 0,
+  "wallSeconds": 1.29,
+  "wallSecondsIncludingSupervisor": 1.5216513460036367,
+  "timeLimitSeconds": 1800,
+  "memoryLimitGiB": 12,
+  "gnuTimeMaxRssKiB": 153060,
+  "sampledProcessTreeRssSumBytes": 155672576,
+  "workloadSampled": true,
+  "cgroupMemoryPeakBytes": 285732864,
+  "sampleIntervalSeconds": 0.25,
+  "leftoverProcessIdsTerminated": [],
+  "memoryNotes": "RSS sum can double-count shared pages; cgroup memory includes page cache; GNU time max RSS is not simultaneous tree total"
+}

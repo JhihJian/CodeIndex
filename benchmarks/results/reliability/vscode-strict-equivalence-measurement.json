@@ -1,0 +1,25 @@
+{
+  "command": [
+    "node",
+    "/data/dev/CodeIndex-worktrees/feature/parser-reliability/benchmarks/reliability/equivalence.mjs",
+    "/data/dev/CodeIndex/.data/reliability/oracles/codeindex/vscode",
+    "/data/dev/CodeIndex/.data/reliability/indexes/codeindex/vscode/repo-ff10757cc0a66e40c305/snapshots/snapshot:repo-ff10757cc0a66e40c305:c7b99075d91bbc09c0b92a14-9e417301",
+    "/data/dev/CodeIndex/.data/reliability/updated-inventories/vscode.json"
+  ],
+  "cwd": "/data/dev/CodeIndex-worktrees/feature/parser-reliability",
+  "systemdUnit": "codeindex-benchmark-2997626.scope",
+  "systemdResult": "success",
+  "status": "failed",
+  "exitCode": 1,
+  "wallSeconds": 9.59,
+  "wallSecondsIncludingSupervisor": 9.78631516895257,
+  "timeLimitSeconds": 1800,
+  "memoryLimitGiB": 12,
+  "gnuTimeMaxRssKiB": 442672,
+  "sampledProcessTreeRssSumBytes": 455970816,
+  "workloadSampled": true,
+  "cgroupMemoryPeakBytes": 816328704,
+  "sampleIntervalSeconds": 0.25,
+  "leftoverProcessIdsTerminated": [],
+  "memoryNotes": "RSS sum can double-count shared pages; cgroup memory includes page cache; GNU time max RSS is not simultaneous tree total"
+}

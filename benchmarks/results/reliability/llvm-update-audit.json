@@ -1,0 +1,1693 @@
+{
+  "corpus": "llvm",
+  "snapshotId": "snapshot:repo-dace37fdb8f76f660b30:c0dd98ec866ca2ac9826d0b1",
+  "config": {
+    "schema": "codeindex-index-0.4.0",
+    "sqliteSchema": "codeindex-compact-2",
+    "parserVersion": "codeindex-parser-0.4.1",
+    "maxFileBytes": 5242880,
+    "typescript": "5.9.3",
+    "tools": {
+      "ctags": "Universal Ctags 5.9.0, Copyright (C) 2015 Universal Ctags Team",
+      "cscope": "cscope: version 15.9"
+    },
+    "python": {
+      "path": "/home/jhihjian/.local/share/uv/python/cpython-3.14.2-linux-x86_64-gnu/bin/python3.14",
+      "version": "3.14.2",
+      "implementation": "CPython"
+    }
+  },
+  "coverage": {
+    "sourceFiles": 158039,
+    "parsedFiles": 65066,
+    "unsupportedFiles": 92969,
+    "partialFiles": 92973,
+    "skippedFiles": 1,
+    "nativeCalls": true,
+    "semantics": "syntax-level symbols and cross-references; no compiler-level overload or pointer resolution"
+  },
+  "stats": {
+    "files": 158039,
+    "symbols": 1679208,
+    "relations": 416030
+  },
+  "bodyFilesVerified": 158039,
+  "evidenceChecked": 64,
+  "status": [
+    {
+      "language": "c",
+      "parse_status": "complete",
+      "files": 27565
+    },
+    {
+      "language": "c",
+      "parse_status": "partial",
+      "files": 1
+    },
+    {
+      "language": "cpp",
+      "parse_status": "complete",
+      "files": 34853
+    },
+    {
+      "language": "css",
+      "parse_status": "unsupported",
+      "files": 27
+    },
+    {
+      "language": "javascript",
+      "parse_status": "complete",
+      "files": 23
+    },
+    {
+      "language": "json",
+      "parse_status": "unsupported",
+      "files": 140
+    },
+    {
+      "language": "markdown",
+      "parse_status": "unsupported",
+      "files": 283
+    },
+    {
+      "language": "python",
+      "parse_status": "complete",
+      "files": 2604
+    },
+    {
+      "language": "python",
+      "parse_status": "partial",
+      "files": 3
+    },
+    {
+      "language": "rust",
+      "parse_status": "unsupported",
+      "files": 1
+    },
+    {
+      "language": "shell",
+      "parse_status": "unsupported",
+      "files": 100
+    },
+    {
+      "language": "toml",
+      "parse_status": "unsupported",
+      "files": 4
+    },
+    {
+      "language": "typescript",
+      "parse_status": "complete",
+      "files": 21
+    },
+    {
+      "language": "unknown",
+      "parse_status": "unsupported",
+      "files": 91096
+    },
+    {
+      "language": "yaml",
+      "parse_status": "unsupported",
+      "files": 1318
+    }
+  ],
+  "failures": [
+    {
+      "path": "clang/test/Parser/parser_overflow.c",
+      "parse_error": "ctags-parser-crash:SIGSEGV"
+    },
+    {
+      "path": "polly/lib/External/isl/imath/tools/findthreshold.py",
+      "parse_error": "SyntaxError:Missing parentheses in call to 'print'. Did you mean print(...)?:89"
+    },
+    {
+      "path": "polly/utils/jscop2cloog.py",
+      "parse_error": "SyntaxError:Missing parentheses in call to 'print'. Did you mean print(...)?:53"
+    },
+    {
+      "path": "polly/utils/pyscop/jscop2iscc.py",
+      "parse_error": "SyntaxError:Missing parentheses in call to 'print'. Did you mean print(...)?:12"
+    }
+  ],
+  "rows": [
+    {
+      "mode": "symbol",
+      "query": "LLVMContext",
+      "metadataMs": 66.67408699999942,
+      "hitAt10": true,
+      "expectedEvidence": true,
+      "candidates": [
+        {
+          "type": "symbol",
+          "score": 19.5,
+          "symbolId": "symbol:WyJmaWxlOmVmODQ4MjYwMjRkNjg4NGY1MjcxNmE4ZCIsIkxMVk1Db250ZXh0IiwiY2xhc3MiLCJsbHZtIiwzMjksMF0",
+          "name": "llvm::LLVMContext",
+          "path": "clang/test/Analysis/cast-value-notes.cpp",
+          "startLine": 329
+        },
+        {
+          "type": "symbol",
+          "score": 19.5,
+          "symbolId": "symbol:WyJmaWxlOmQwMTAzZDkwOGU2MzA2Y2MzMjg5ZGRhMSIsIkxMVk1Db250ZXh0IiwiY2xhc3MiLCJsbHZtIiw2OCwwXQ",
+          "name": "llvm::LLVMContext",
+          "path": "llvm/include/llvm/IR/LLVMContext.h",
+          "startLine": 68
+        },
+        {
+          "type": "symbol",
+          "score": 19.5,
+          "symbolId": "symbol:WyJmaWxlOjFiMTFhNTI1ZDllOTMwYTJmNDdiY2NhZiIsIkxMVk1Db250ZXh0IiwiZnVuY3Rpb24iLCJMTFZNQ29udGV4dCIsNjMsMF0",
+          "name": "LLVMContext::LLVMContext",
+          "path": "llvm/lib/IR/LLVMContext.cpp",
+          "startLine": 63
+        },
+        {
+          "type": "symbol",
+          "score": 19,
+          "symbolId": "symbol:WyJmaWxlOmQwMTAzZDkwOGU2MzA2Y2MzMjg5ZGRhMSIsIkxMVk1Db250ZXh0IiwiZnVuY3Rpb25fZGVjbGFyYXRpb24iLCJsbHZtOjpMTFZNQ29udGV4dCIsNzIsMF0",
+          "name": "llvm::LLVMContext::LLVMContext",
+          "path": "llvm/include/llvm/IR/LLVMContext.h",
+          "startLine": 72
+        },
+        {
+          "type": "symbol",
+          "score": 19,
+          "symbolId": "symbol:WyJmaWxlOmQwMTAzZDkwOGU2MzA2Y2MzMjg5ZGRhMSIsIkxMVk1Db250ZXh0IiwiZnVuY3Rpb25fZGVjbGFyYXRpb24iLCJsbHZtOjpMTFZNQ29udGV4dCIsNzEsMF0",
+          "name": "llvm::LLVMContext::LLVMContext",
+          "path": "llvm/include/llvm/IR/LLVMContext.h",
+          "startLine": 71
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOmVmODQ4MjYwMjRkNjg4NGY1MjcxNmE4ZCIsImQiLCJmdW5jdGlvbiIsImxsdm06OkxMVk1Db250ZXh0IiwzMzEsMF0",
+          "name": "llvm::LLVMContext::d",
+          "path": "clang/test/Analysis/cast-value-notes.cpp",
+          "startLine": 331
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjUwZjE1N2VhNjExNWExODMxMTUzMmQ3OSIsImNyZWF0ZURlbW9Nb2R1bGUiLCJmdW5jdGlvbiIsIiIsMjUsMF0",
+          "name": "createDemoModule",
+          "path": "llvm/examples/OrcV2Examples/OrcV2CBindingsAddObjectFile/OrcV2CBindingsAddObjectFile.c",
+          "startLine": 25
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOmQwMTAzZDkwOGU2MzA2Y2MzMjg5ZGRhMSIsIkRFRklORV9TSU1QTEVfQ09OVkVSU0lPTl9GVU5DVElPTlMiLCJmdW5jdGlvbiIsImxsdm0iLDM2NSwwXQ",
+          "name": "llvm::DEFINE_SIMPLE_CONVERSION_FUNCTIONS",
+          "path": "llvm/include/llvm/IR/LLVMContext.h",
+          "startLine": 365
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOmQxMjkyNjRhYTdmMmE5NDliNTJjMzk0OSIsIkxMVk1PcmNDcmVhdGVOZXdUaHJlYWRTYWZlQ29udGV4dEZyb21MTFZNQ29udGV4dCIsImZ1bmN0aW9uIiwiIiw3MzMsMF0",
+          "name": "LLVMOrcCreateNewThreadSafeContextFromLLVMContext",
+          "path": "llvm/lib/ExecutionEngine/Orc/OrcV2CBindings.cpp",
+          "startLine": 733
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjM4ZjRmMDNlYTY2OWE1YWZmYTNkYzIzMSIsIkxMVk1Db250ZXh0R2V0RGlhZ25vc3RpY0hhbmRsZXIiLCJmdW5jdGlvbiIsIiIsMTE1LDBd",
+          "name": "LLVMContextGetDiagnosticHandler",
+          "path": "llvm/lib/IR/Core.cpp",
+          "startLine": 115
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjM4ZjRmMDNlYTY2OWE1YWZmYTNkYzIzMSIsIkxMVk1Db250ZXh0R2V0RGlhZ25vc3RpY0NvbnRleHQiLCJmdW5jdGlvbiIsIiIsMTIwLDBd",
+          "name": "LLVMContextGetDiagnosticContext",
+          "path": "llvm/lib/IR/Core.cpp",
+          "startLine": 120
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOjM4ZjRmMDNlYTY2OWE1YWZmYTNkYzIzMSIsIkxMVk1Db250ZXh0U2hvdWxkRGlzY2FyZFZhbHVlTmFtZXMiLCJmdW5jdGlvbiIsIiIsMTMxLDBd",
+          "name": "LLVMContextShouldDiscardValueNames",
+          "path": "llvm/lib/IR/Core.cpp",
+          "startLine": 131
+        }
+      ],
+      "evidence": [
+        {
+          "snapshotId": "snapshot:repo-dace37fdb8f76f660b30:c0dd98ec866ca2ac9826d0b1",
+          "path": "clang/test/Analysis/cast-value-notes.cpp",
+          "symbolId": "symbol:WyJmaWxlOmVmODQ4MjYwMjRkNjg4NGY1MjcxNmE4ZCIsIkxMVk1Db250ZXh0IiwiY2xhc3MiLCJsbHZtIiwzMjksMF0",
+          "symbol": "llvm::LLVMContext",
+          "startLine": 329,
+          "endLine": 332,
+          "startByte": 12043,
+          "endByte": 12127,
+          "blobDigest": "d589cebaccff97b8f1e0a12ea4258423cd9338e934dc49d8683453d294df3135",
+          "source": "class LLVMContext {\n  PointerUnion<LLVMContext> c;\n  void d() { c.getAs<int>(); }\n};",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-dace37fdb8f76f660b30:c0dd98ec866ca2ac9826d0b1",
+          "path": "llvm/include/llvm/IR/LLVMContext.h",
+          "symbolId": "symbol:WyJmaWxlOmQwMTAzZDkwOGU2MzA2Y2MzMjg5ZGRhMSIsIkxMVk1Db250ZXh0IiwiY2xhc3MiLCJsbHZtIiw2OCwwXQ",
+          "symbol": "llvm::LLVMContext",
+          "startLine": 68,
+          "endLine": 127,
+          "startByte": 2112,
+          "endByte": 4833,
+          "blobDigest": "2ffe41c0251b12f221b9abca013a8019b6353434cf3fcd217be1ca80684e9cb0",
+          "source": "class LLVMContext {\npublic:\n  LLVMContextImpl *const pImpl;\n  LLVM_ABI LLVMContext();\n  LLVMContext(const LLVMContext &) = delete;\n  LLVMContext &operator=(const LLVMContext &) = delete;\n  LLVM_ABI ~LLVMContext();\n\n  // Pinned metadata names, which always have the same value.  This is a\n  // compile-time performance optimization, not a correctness optimization.\n  enum : unsigned {\n#define LLVM_FIXED_MD_KIND(EnumID, Name, Value) EnumID = Value,\n#include \"llvm/IR/FixedMetadataKinds.def\"\n#undef LLVM_FIXED_MD_KIND\n  };\n\n  /// Known operand bundle tag IDs, which always have the same value.  All\n  /// operand bundle tags that LLVM has special knowledge of are listed here.\n  /// Additionally, this scheme allows LLVM to efficiently check for specific\n  /// operand bundle tags without comparing strings. Keep this in sync with\n  /// LLVMContext::LLVMContext().\n  enum : unsigned {\n    OB_deopt = 0,                  // \"deopt\"\n    OB_funclet = 1,                // \"funclet\"\n    OB_gc_transition = 2,          // \"gc-transition\"\n    OB_cfguardtarget = 3,          // \"cfguardtarget\"\n    OB_preallocated = 4,           // \"preallocated\"\n    OB_gc_live = 5,                // \"gc-live\"\n    OB_clang_arc_attachedcall = 6, // \"clang.arc.attachedcall\"\n    OB_ptrauth = 7,                // \"ptrauth\"\n    OB_kcfi = 8,                   // \"kcfi\"\n    OB_convergencectrl = 9,        // \"convergencectrl\"\n  };\n\n  /// getMDKindID - Return a unique non-zero ID for the specified metadata kind.\n  /// This ID is uniqued across modules in the current LLVMContext.\n  LLVM_ABI unsigned getMDKindID(StringRef Name) const;\n\n  /// getMDKindNames - Populate client supplied SmallVector with the name for\n  /// custom metadata IDs registered in this LLVMContext.\n  LLVM_ABI void getMDKindNames(SmallVectorImpl<StringRef> &Result) const;\n\n  /// getOperandBundleTags - Populate client supplied SmallVector with the\n  /// bundle tags registered in this LLVMContext.  The bundle tags are ordered\n  /// by increasing bundle IDs.\n  /// \\see LLVMContext::getOperandBundleTagID\n  LLVM_ABI void getOperandBundleTags(SmallVectorImpl<StringRef> &Result) const;\n\n  /// getOrInsertBundleTag - Returns the Tag to use for an operand bundle of\n  /// name TagName.\n  LLVM_ABI StringMapEntry<uint32_t> *\n  getOrInsertBundleTag(StringRef TagName) const;\n\n  /// getOperandBundleTagID - Maps a bundle tag to an integer ID.  Every bundle\n  /// tag registered with an LLVMContext has an unique ID.\n  LLVM_ABI uint32_t getOperandBundleTagID(StringRef Tag) const;\n\n  /// getOrInsertSyncScopeID - Maps synchronization scope name to\n  /// synchronization scope ID.  Every synchronization scope registered with\n  /// LLVMContext has unique ID except pre-defined ones.",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-dace37fdb8f76f660b30:c0dd98ec866ca2ac9826d0b1",
+          "path": "llvm/lib/IR/LLVMContext.cpp",
+          "symbolId": "symbol:WyJmaWxlOjFiMTFhNTI1ZDllOTMwYTJmNDdiY2NhZiIsIkxMVk1Db250ZXh0IiwiZnVuY3Rpb24iLCJMTFZNQ29udGV4dCIsNjMsMF0",
+          "symbol": "LLVMContext::LLVMContext",
+          "startLine": 63,
+          "endLine": 96,
+          "startByte": 1900,
+          "endByte": 3165,
+          "blobDigest": "ac74f7038ebbf9581572d21c1ff3abab11edc12e0e85e52bcb08389720264a5c",
+          "source": "LLVMContext::LLVMContext() : pImpl(new LLVMContextImpl(*this)) {\n  // Create the fixed metadata kinds. This is done in the same order as the\n  // MD_* enum values so that they correspond.\n  std::pair<unsigned, StringRef> MDKinds[] = {\n#define LLVM_FIXED_MD_KIND(EnumID, Name, Value) {EnumID, Name},\n#include \"llvm/IR/FixedMetadataKinds.def\"\n#undef LLVM_FIXED_MD_KIND\n  };\n\n  for (auto &MDKind : MDKinds) {\n    unsigned ID = getMDKindID(MDKind.second);\n    assert(ID == MDKind.first && \"metadata kind id drifted\");\n    (void)ID;\n  }\n\n  for (unsigned BundleTagID = LLVMContext::OB_deopt;\n       BundleTagID <= LLVMContext::OB_convergencectrl; ++BundleTagID) {\n    [[maybe_unused]] const auto *Entry =\n        pImpl->getOrInsertBundleTag(knownBundleName(BundleTagID));\n    assert(Entry->second == BundleTagID && \"operand bundle id drifted!\");\n  }\n\n  SyncScope::ID SingleThreadSSID =\n      pImpl->getOrInsertSyncScopeID(\"singlethread\");\n  assert(SingleThreadSSID == SyncScope::SingleThread &&\n         \"singlethread synchronization scope ID drifted!\");\n  (void)SingleThreadSSID;\n\n  SyncScope::ID SystemSSID =\n      pImpl->getOrInsertSyncScopeID(\"\");\n  assert(SystemSSID == SyncScope::System &&\n         \"system synchronization scope ID drifted!\");\n  (void)SystemSSID;\n}",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-dace37fdb8f76f660b30:c0dd98ec866ca2ac9826d0b1",
+          "path": "llvm/include/llvm/IR/LLVMContext.h",
+          "symbolId": "symbol:WyJmaWxlOmQwMTAzZDkwOGU2MzA2Y2MzMjg5ZGRhMSIsIkxMVk1Db250ZXh0IiwiZnVuY3Rpb25fZGVjbGFyYXRpb24iLCJsbHZtOjpMTFZNQ29udGV4dCIsNzIsMF0",
+          "symbol": "llvm::LLVMContext::LLVMContext",
+          "startLine": 72,
+          "endLine": 72,
+          "startByte": 2198,
+          "endByte": 2242,
+          "blobDigest": "2ffe41c0251b12f221b9abca013a8019b6353434cf3fcd217be1ca80684e9cb0",
+          "source": "  LLVMContext(const LLVMContext &) = delete;",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-dace37fdb8f76f660b30:c0dd98ec866ca2ac9826d0b1",
+          "path": "llvm/include/llvm/IR/LLVMContext.h",
+          "symbolId": "symbol:WyJmaWxlOmQwMTAzZDkwOGU2MzA2Y2MzMjg5ZGRhMSIsIkxMVk1Db250ZXh0IiwiZnVuY3Rpb25fZGVjbGFyYXRpb24iLCJsbHZtOjpMTFZNQ29udGV4dCIsNzEsMF0",
+          "symbol": "llvm::LLVMContext::LLVMContext",
+          "startLine": 71,
+          "endLine": 71,
+          "startByte": 2172,
+          "endByte": 2197,
+          "blobDigest": "2ffe41c0251b12f221b9abca013a8019b6353434cf3fcd217be1ca80684e9cb0",
+          "source": "  LLVM_ABI LLVMContext();",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-dace37fdb8f76f660b30:c0dd98ec866ca2ac9826d0b1",
+          "path": "clang/test/Analysis/cast-value-notes.cpp",
+          "symbolId": "symbol:WyJmaWxlOmVmODQ4MjYwMjRkNjg4NGY1MjcxNmE4ZCIsImQiLCJmdW5jdGlvbiIsImxsdm06OkxMVk1Db250ZXh0IiwzMzEsMF0",
+          "symbol": "llvm::LLVMContext::d",
+          "startLine": 331,
+          "endLine": 331,
+          "startByte": 12094,
+          "endByte": 12124,
+          "blobDigest": "d589cebaccff97b8f1e0a12ea4258423cd9338e934dc49d8683453d294df3135",
+          "source": "  void d() { c.getAs<int>(); }",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-dace37fdb8f76f660b30:c0dd98ec866ca2ac9826d0b1",
+          "path": "llvm/examples/OrcV2Examples/OrcV2CBindingsAddObjectFile/OrcV2CBindingsAddObjectFile.c",
+          "symbolId": "symbol:WyJmaWxlOjUwZjE1N2VhNjExNWExODMxMTUzMmQ3OSIsImNyZWF0ZURlbW9Nb2R1bGUiLCJmdW5jdGlvbiIsIiIsMjUsMF0",
+          "symbol": "createDemoModule",
+          "startLine": 25,
+          "endLine": 56,
+          "startByte": 728,
+          "endByte": 1902,
+          "blobDigest": "2072bb5c4c4558d20ef053012d4255d840acf2caeee01bee25f710ff1e46ce1f",
+          "source": "LLVMModuleRef createDemoModule(LLVMContextRef Ctx) {\n  // Create a new LLVM module.\n  LLVMModuleRef M = LLVMModuleCreateWithNameInContext(\"demo\", Ctx);\n\n  // Add a \"sum\" function\":\n  //  - Create the function type and function instance.\n  LLVMTypeRef ParamTypes[] = {LLVMInt32Type(), LLVMInt32Type()};\n  LLVMTypeRef SumFunctionType =\n      LLVMFunctionType(LLVMInt32Type(), ParamTypes, 2, 0);\n  LLVMValueRef SumFunction = LLVMAddFunction(M, \"sum\", SumFunctionType);\n\n  //  - Add a basic block to the function.\n  LLVMBasicBlockRef EntryBB = LLVMAppendBasicBlock(SumFunction, \"entry\");\n\n  //  - Add an IR builder and point it at the end of the basic block.\n  LLVMBuilderRef Builder = LLVMCreateBuilder();\n  LLVMPositionBuilderAtEnd(Builder, EntryBB);\n\n  //  - Get the two function arguments and use them co construct an \"add\"\n  //    instruction.\n  LLVMValueRef SumArg0 = LLVMGetParam(SumFunction, 0);\n  LLVMValueRef SumArg1 = LLVMGetParam(SumFunction, 1);\n  LLVMValueRef Result = LLVMBuildAdd(Builder, SumArg0, SumArg1, \"result\");\n\n  //  - Build the return instruction.\n  LLVMBuildRet(Builder, Result);\n\n  //  - Free the builder.\n  LLVMDisposeBuilder(Builder);\n\n  return M;\n}",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-dace37fdb8f76f660b30:c0dd98ec866ca2ac9826d0b1",
+          "path": "llvm/include/llvm/IR/LLVMContext.h",
+          "symbolId": "symbol:WyJmaWxlOmQwMTAzZDkwOGU2MzA2Y2MzMjg5ZGRhMSIsIkRFRklORV9TSU1QTEVfQ09OVkVSU0lPTl9GVU5DVElPTlMiLCJmdW5jdGlvbiIsImxsdm0iLDM2NSwwXQ",
+          "symbol": "llvm::DEFINE_SIMPLE_CONVERSION_FUNCTIONS",
+          "startLine": 365,
+          "endLine": 371,
+          "startByte": 16140,
+          "endByte": 16351,
+          "blobDigest": "2ffe41c0251b12f221b9abca013a8019b6353434cf3fcd217be1ca80684e9cb0",
+          "source": "DEFINE_SIMPLE_CONVERSION_FUNCTIONS(LLVMContext, LLVMContextRef)\n\n/* Specialized opaque context conversions.\n */\ninline LLVMContext **unwrap(LLVMContextRef* Tys) {\n  return reinterpret_cast<LLVMContext**>(Tys);\n}",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-dace37fdb8f76f660b30:c0dd98ec866ca2ac9826d0b1",
+          "path": "llvm/lib/ExecutionEngine/Orc/OrcV2CBindings.cpp",
+          "symbolId": "symbol:WyJmaWxlOmQxMjkyNjRhYTdmMmE5NDliNTJjMzk0OSIsIkxMVk1PcmNDcmVhdGVOZXdUaHJlYWRTYWZlQ29udGV4dEZyb21MTFZNQ29udGV4dCIsImZ1bmN0aW9uIiwiIiw3MzMsMF0",
+          "symbol": "LLVMOrcCreateNewThreadSafeContextFromLLVMContext",
+          "startLine": 733,
+          "endLine": 735,
+          "startByte": 25791,
+          "endByte": 25944,
+          "blobDigest": "6c37c9817d31689b4a41e118910deb490c40eb486e73f9d02cf34c36fc0c06b2",
+          "source": "LLVMOrcCreateNewThreadSafeContextFromLLVMContext(LLVMContextRef Ctx) {\n  return wrap(new ThreadSafeContext(std::unique_ptr<LLVMContext>(unwrap(Ctx))));\n}",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-dace37fdb8f76f660b30:c0dd98ec866ca2ac9826d0b1",
+          "path": "llvm/lib/IR/Core.cpp",
+          "symbolId": "symbol:WyJmaWxlOjM4ZjRmMDNlYTY2OWE1YWZmYTNkYzIzMSIsIkxMVk1Db250ZXh0R2V0RGlhZ25vc3RpY0hhbmRsZXIiLCJmdW5jdGlvbiIsIiIsMTE1LDBd",
+          "symbol": "LLVMContextGetDiagnosticHandler",
+          "startLine": 115,
+          "endLine": 118,
+          "startByte": 3534,
+          "endByte": 3724,
+          "blobDigest": "7be081dc6fd2febf653de41594c42dd353514e07f48123cba5339c3142d01f00",
+          "source": "LLVMDiagnosticHandler LLVMContextGetDiagnosticHandler(LLVMContextRef C) {\n  return LLVM_EXTENSION reinterpret_cast<LLVMDiagnosticHandler>(\n      unwrap(C)->getDiagnosticHandlerCallBack());\n}",
+          "kind": "source"
+        }
+      ]
+    },
+    {
+      "mode": "symbol",
+      "query": "DominatorTree",
+      "metadataMs": 12.804665999999997,
+      "hitAt10": true,
+      "expectedEvidence": true,
+      "candidates": [
+        {
+          "type": "symbol",
+          "score": 19.5,
+          "symbolId": "symbol:WyJmaWxlOmY4MTA2YzAxZGIyOTkxNTYxZWEzZWViMiIsIkRvbWluYXRvclRyZWUiLCJmdW5jdGlvbiIsImxsdm06OkRvbWluYXRvclRyZWUiLDE3MSwwXQ",
+          "name": "llvm::DominatorTree::DominatorTree",
+          "path": "llvm/include/llvm/IR/Dominators.h",
+          "startLine": 171
+        },
+        {
+          "type": "symbol",
+          "score": 19.5,
+          "symbolId": "symbol:WyJmaWxlOmY4MTA2YzAxZGIyOTkxNTYxZWEzZWViMiIsIkRvbWluYXRvclRyZWUiLCJmdW5jdGlvbiIsImxsdm06OkRvbWluYXRvclRyZWUiLDE3MCwwXQ",
+          "name": "llvm::DominatorTree::DominatorTree",
+          "path": "llvm/include/llvm/IR/Dominators.h",
+          "startLine": 170
+        },
+        {
+          "type": "symbol",
+          "score": 19.5,
+          "symbolId": "symbol:WyJmaWxlOmY4MTA2YzAxZGIyOTkxNTYxZWEzZWViMiIsIkRvbWluYXRvclRyZWUiLCJjbGFzcyIsImxsdm0iLDE2NSwwXQ",
+          "name": "llvm::DominatorTree",
+          "path": "llvm/include/llvm/IR/Dominators.h",
+          "startLine": 165
+        },
+        {
+          "type": "symbol",
+          "score": 19,
+          "symbolId": "symbol:WyJmaWxlOmY4MTA2YzAxZGIyOTkxNTYxZWEzZWViMiIsIkRvbWluYXRvclRyZWUiLCJmdW5jdGlvbl9kZWNsYXJhdGlvbiIsImxsdm06OkRvbWluYXRvclRyZWUiLDE2OSwwXQ",
+          "name": "llvm::DominatorTree::DominatorTree",
+          "path": "llvm/include/llvm/IR/Dominators.h",
+          "startLine": 169
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOmY4MTA2YzAxZGIyOTkxNTYxZWEzZWViMiIsIkRvbWluYXRvclRyZWVBbmFseXNpcyIsImNsYXNzIiwibGx2bSIsMjg0LDBd",
+          "name": "llvm::DominatorTreeAnalysis",
+          "path": "llvm/include/llvm/IR/Dominators.h",
+          "startLine": 284
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOmY4MTA2YzAxZGIyOTkxNTYxZWEzZWViMiIsIkRvbWluYXRvclRyZWVQcmludGVyUGFzcyIsImNsYXNzIiwibGx2bSIsMjk3LDBd",
+          "name": "llvm::DominatorTreePrinterPass",
+          "path": "llvm/include/llvm/IR/Dominators.h",
+          "startLine": 297
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOmY4MTA2YzAxZGIyOTkxNTYxZWEzZWViMiIsIkRvbWluYXRvclRyZWVXcmFwcGVyUGFzcyIsImNsYXNzIiwibGx2bSIsMzIyLDBd",
+          "name": "llvm::DominatorTreeWrapperPass",
+          "path": "llvm/include/llvm/IR/Dominators.h",
+          "startLine": 322
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOmY4MTA2YzAxZGIyOTkxNTYxZWEzZWViMiIsImlzUmVxdWlyZWQiLCJmdW5jdGlvbiIsImxsdm06OkRvbWluYXRvclRyZWVQcmludGVyUGFzcyIsMzA2LDBd",
+          "name": "llvm::DominatorTreePrinterPass::isRequired",
+          "path": "llvm/include/llvm/IR/Dominators.h",
+          "startLine": 306
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOmY4MTA2YzAxZGIyOTkxNTYxZWEzZWViMiIsImlzUmVxdWlyZWQiLCJmdW5jdGlvbiIsImxsdm06OkRvbWluYXRvclRyZWVWZXJpZmllclBhc3MiLDMxMiwwXQ",
+          "name": "llvm::DominatorTreeVerifierPass::isRequired",
+          "path": "llvm/include/llvm/IR/Dominators.h",
+          "startLine": 312
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOmY4MTA2YzAxZGIyOTkxNTYxZWEzZWViMiIsImdldERvbVRyZWUiLCJmdW5jdGlvbiIsImxsdm06OkRvbWluYXRvclRyZWVXcmFwcGVyUGFzcyIsMzMwLDBd",
+          "name": "llvm::DominatorTreeWrapperPass::getDomTree",
+          "path": "llvm/include/llvm/IR/Dominators.h",
+          "startLine": 330
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOmY4MTA2YzAxZGIyOTkxNTYxZWEzZWViMiIsInJlbGVhc2VNZW1vcnkiLCJmdW5jdGlvbiIsImxsdm06OkRvbWluYXRvclRyZWVXcmFwcGVyUGFzcyIsMzQxLDBd",
+          "name": "llvm::DominatorTreeWrapperPass::releaseMemory",
+          "path": "llvm/include/llvm/IR/Dominators.h",
+          "startLine": 341
+        },
+        {
+          "type": "symbol",
+          "score": 4.5,
+          "symbolId": "symbol:WyJmaWxlOmY4MTA2YzAxZGIyOTkxNTYxZWEzZWViMiIsImdldERvbVRyZWUiLCJmdW5jdGlvbiIsImxsdm06OkRvbWluYXRvclRyZWVXcmFwcGVyUGFzcyIsMzMxLDBd",
+          "name": "llvm::DominatorTreeWrapperPass::getDomTree",
+          "path": "llvm/include/llvm/IR/Dominators.h",
+          "startLine": 331
+        }
+      ],
+      "evidence": [
+        {
+          "snapshotId": "snapshot:repo-dace37fdb8f76f660b30:c0dd98ec866ca2ac9826d0b1",
+          "path": "llvm/include/llvm/IR/Dominators.h",
+          "symbolId": "symbol:WyJmaWxlOmY4MTA2YzAxZGIyOTkxNTYxZWEzZWViMiIsIkRvbWluYXRvclRyZWUiLCJmdW5jdGlvbiIsImxsdm06OkRvbWluYXRvclRyZWUiLDE3MSwwXQ",
+          "symbol": "llvm::DominatorTree::DominatorTree",
+          "startLine": 171,
+          "endLine": 173,
+          "startByte": 6165,
+          "endByte": 6275,
+          "blobDigest": "1ece5dbc41c3ce8187e153179248b7ef2e47f1ea7f9f23b60676db2b0e854329",
+          "source": "  explicit DominatorTree(DominatorTree &DT, DomTreeBuilder::BBUpdates U) {\n    recalculate(*DT.Parent, U);\n  }",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-dace37fdb8f76f660b30:c0dd98ec866ca2ac9826d0b1",
+          "path": "llvm/include/llvm/IR/Dominators.h",
+          "symbolId": "symbol:WyJmaWxlOmY4MTA2YzAxZGIyOTkxNTYxZWEzZWViMiIsIkRvbWluYXRvclRyZWUiLCJmdW5jdGlvbiIsImxsdm06OkRvbWluYXRvclRyZWUiLDE3MCwwXQ",
+          "symbol": "llvm::DominatorTree::DominatorTree",
+          "startLine": 170,
+          "endLine": 170,
+          "startByte": 6107,
+          "endByte": 6164,
+          "blobDigest": "1ece5dbc41c3ce8187e153179248b7ef2e47f1ea7f9f23b60676db2b0e854329",
+          "source": "  explicit DominatorTree(Function &F) { recalculate(F); }",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-dace37fdb8f76f660b30:c0dd98ec866ca2ac9826d0b1",
+          "path": "llvm/include/llvm/IR/Dominators.h",
+          "symbolId": "symbol:WyJmaWxlOmY4MTA2YzAxZGIyOTkxNTYxZWEzZWViMiIsIkRvbWluYXRvclRyZWUiLCJjbGFzcyIsImxsdm0iLDE2NSwwXQ",
+          "symbol": "llvm::DominatorTree",
+          "startLine": 165,
+          "endLine": 224,
+          "startByte": 5947,
+          "endByte": 8521,
+          "blobDigest": "1ece5dbc41c3ce8187e153179248b7ef2e47f1ea7f9f23b60676db2b0e854329",
+          "source": "class DominatorTree : public DominatorTreeBase<BasicBlock, false> {\n public:\n  using Base = DominatorTreeBase<BasicBlock, false>;\n\n  DominatorTree() = default;\n  explicit DominatorTree(Function &F) { recalculate(F); }\n  explicit DominatorTree(DominatorTree &DT, DomTreeBuilder::BBUpdates U) {\n    recalculate(*DT.Parent, U);\n  }\n\n  /// Handle invalidation explicitly.\n  LLVM_ABI bool invalidate(Function &F, const PreservedAnalyses &PA,\n                           FunctionAnalysisManager::Invalidator &);\n\n  // Ensure base-class overloads are visible.\n  using Base::dominates;\n\n  /// Return true if the (end of the) basic block BB dominates the use U.\n  LLVM_ABI bool dominates(const BasicBlock *BB, const Use &U) const;\n\n  /// Return true if value Def dominates use U, in the sense that Def is\n  /// available at U, and could be substituted as the used value without\n  /// violating the SSA dominance requirement.\n  ///\n  /// In particular, it is worth noting that:\n  ///  * Non-instruction Defs dominate everything.\n  ///  * Def does not dominate a use in Def itself (outside of degenerate cases\n  ///    like unreachable code or trivial phi cycles).\n  ///  * Invoke Defs only dominate uses in their default destination.\n  LLVM_ABI bool dominates(const Value *Def, const Use &U) const;\n\n  /// Return true if value Def dominates all possible uses inside instruction\n  /// User. Same comments as for the Use-based API apply.\n  LLVM_ABI bool dominates(const Value *Def, const Instruction *User) const;\n  bool dominates(const Value *Def, BasicBlock::iterator User) const {\n    return dominates(Def, &*User);\n  }\n\n  /// Returns true if Def would dominate a use in any instruction in BB.\n  /// If Def is an instruction in BB, then Def does not dominate BB.\n  ///\n  /// Does not accept Value to avoid ambiguity with dominance checks between\n  /// two basic blocks.\n  LLVM_ABI bool dominates(const Instruction *Def, const BasicBlock *BB) const;\n\n  /// Return true if an edge dominates a use.\n  ///\n  /// If BBE is not a unique edge between start and end of the edge, it can\n  /// never dominate the use.\n  LLVM_ABI bool dominates(const BasicBlockEdge &BBE, const Use &U) const;\n  LLVM_ABI bool dominates(const BasicBlockEdge &BBE,\n                          const BasicBlock *BB) const;\n  /// Returns true if edge \\p BBE1 dominates edge \\p BBE2.\n  LLVM_ABI bool dominates(const BasicBlockEdge &BBE1,\n                          const BasicBlockEdge &BBE2) const;\n\n  // Ensure base class overloads are visible.\n  using Base::isReachableFromEntry;\n\n  /// Provide an overload for a Use.",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-dace37fdb8f76f660b30:c0dd98ec866ca2ac9826d0b1",
+          "path": "llvm/include/llvm/IR/Dominators.h",
+          "symbolId": "symbol:WyJmaWxlOmY4MTA2YzAxZGIyOTkxNTYxZWEzZWViMiIsIkRvbWluYXRvclRyZWUiLCJmdW5jdGlvbl9kZWNsYXJhdGlvbiIsImxsdm06OkRvbWluYXRvclRyZWUiLDE2OSwwXQ",
+          "symbol": "llvm::DominatorTree::DominatorTree",
+          "startLine": 169,
+          "endLine": 169,
+          "startByte": 6078,
+          "endByte": 6106,
+          "blobDigest": "1ece5dbc41c3ce8187e153179248b7ef2e47f1ea7f9f23b60676db2b0e854329",
+          "source": "  DominatorTree() = default;",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-dace37fdb8f76f660b30:c0dd98ec866ca2ac9826d0b1",
+          "path": "llvm/include/llvm/IR/Dominators.h",
+          "symbolId": "symbol:WyJmaWxlOmY4MTA2YzAxZGIyOTkxNTYxZWEzZWViMiIsIkRvbWluYXRvclRyZWVBbmFseXNpcyIsImNsYXNzIiwibGx2bSIsMjg0LDBd",
+          "symbol": "llvm::DominatorTreeAnalysis",
+          "startLine": 284,
+          "endLine": 294,
+          "startByte": 10626,
+          "endByte": 11037,
+          "blobDigest": "1ece5dbc41c3ce8187e153179248b7ef2e47f1ea7f9f23b60676db2b0e854329",
+          "source": "class DominatorTreeAnalysis : public AnalysisInfoMixin<DominatorTreeAnalysis> {\n  friend AnalysisInfoMixin<DominatorTreeAnalysis>;\n  LLVM_ABI static AnalysisKey Key;\n\npublic:\n  /// Provide the result typedef for this analysis pass.\n  using Result = DominatorTree;\n\n  /// Run the analysis pass over a function and produce a dominator tree.\n  LLVM_ABI DominatorTree run(Function &F, FunctionAnalysisManager &);\n};",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-dace37fdb8f76f660b30:c0dd98ec866ca2ac9826d0b1",
+          "path": "llvm/include/llvm/IR/Dominators.h",
+          "symbolId": "symbol:WyJmaWxlOmY4MTA2YzAxZGIyOTkxNTYxZWEzZWViMiIsIkRvbWluYXRvclRyZWVQcmludGVyUGFzcyIsImNsYXNzIiwibGx2bSIsMjk3LDBd",
+          "symbol": "llvm::DominatorTreePrinterPass",
+          "startLine": 297,
+          "endLine": 307,
+          "startByte": 11082,
+          "endByte": 11383,
+          "blobDigest": "1ece5dbc41c3ce8187e153179248b7ef2e47f1ea7f9f23b60676db2b0e854329",
+          "source": "class DominatorTreePrinterPass\n    : public PassInfoMixin<DominatorTreePrinterPass> {\n  raw_ostream &OS;\n\npublic:\n  LLVM_ABI explicit DominatorTreePrinterPass(raw_ostream &OS);\n\n  LLVM_ABI PreservedAnalyses run(Function &F, FunctionAnalysisManager &AM);\n\n  static bool isRequired() { return true; }\n};",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-dace37fdb8f76f660b30:c0dd98ec866ca2ac9826d0b1",
+          "path": "llvm/include/llvm/IR/Dominators.h",
+          "symbolId": "symbol:WyJmaWxlOmY4MTA2YzAxZGIyOTkxNTYxZWEzZWViMiIsIkRvbWluYXRvclRyZWVXcmFwcGVyUGFzcyIsImNsYXNzIiwibGx2bSIsMzIyLDBd",
+          "symbol": "llvm::DominatorTreeWrapperPass",
+          "startLine": 322,
+          "endLine": 344,
+          "startByte": 11925,
+          "endByte": 12472,
+          "blobDigest": "1ece5dbc41c3ce8187e153179248b7ef2e47f1ea7f9f23b60676db2b0e854329",
+          "source": "class LLVM_ABI DominatorTreeWrapperPass : public FunctionPass {\n  DominatorTree DT;\n\npublic:\n  static char ID;\n\n  DominatorTreeWrapperPass();\n\n  DominatorTree &getDomTree() { return DT; }\n  const DominatorTree &getDomTree() const { return DT; }\n\n  bool runOnFunction(Function &F) override;\n\n  void verifyAnalysis() const override;\n\n  void getAnalysisUsage(AnalysisUsage &AU) const override {\n    AU.setPreservesAll();\n  }\n\n  void releaseMemory() override { DT.reset(); }\n\n  void print(raw_ostream &OS, const Module *M = nullptr) const override;\n};",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-dace37fdb8f76f660b30:c0dd98ec866ca2ac9826d0b1",
+          "path": "llvm/include/llvm/IR/Dominators.h",
+          "symbolId": "symbol:WyJmaWxlOmY4MTA2YzAxZGIyOTkxNTYxZWEzZWViMiIsImlzUmVxdWlyZWQiLCJmdW5jdGlvbiIsImxsdm06OkRvbWluYXRvclRyZWVQcmludGVyUGFzcyIsMzA2LDBd",
+          "symbol": "llvm::DominatorTreePrinterPass::isRequired",
+          "startLine": 306,
+          "endLine": 306,
+          "startByte": 11337,
+          "endByte": 11380,
+          "blobDigest": "1ece5dbc41c3ce8187e153179248b7ef2e47f1ea7f9f23b60676db2b0e854329",
+          "source": "  static bool isRequired() { return true; }",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-dace37fdb8f76f660b30:c0dd98ec866ca2ac9826d0b1",
+          "path": "llvm/include/llvm/IR/Dominators.h",
+          "symbolId": "symbol:WyJmaWxlOmY4MTA2YzAxZGIyOTkxNTYxZWEzZWViMiIsImlzUmVxdWlyZWQiLCJmdW5jdGlvbiIsImxsdm06OkRvbWluYXRvclRyZWVWZXJpZmllclBhc3MiLDMxMiwwXQ",
+          "symbol": "llvm::DominatorTreeVerifierPass::isRequired",
+          "startLine": 312,
+          "endLine": 312,
+          "startByte": 11583,
+          "endByte": 11626,
+          "blobDigest": "1ece5dbc41c3ce8187e153179248b7ef2e47f1ea7f9f23b60676db2b0e854329",
+          "source": "  static bool isRequired() { return true; }",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-dace37fdb8f76f660b30:c0dd98ec866ca2ac9826d0b1",
+          "path": "llvm/include/llvm/IR/Dominators.h",
+          "symbolId": "symbol:WyJmaWxlOmY4MTA2YzAxZGIyOTkxNTYxZWEzZWViMiIsImdldERvbVRyZWUiLCJmdW5jdGlvbiIsImxsdm06OkRvbWluYXRvclRyZWVXcmFwcGVyUGFzcyIsMzMwLDBd",
+          "symbol": "llvm::DominatorTreeWrapperPass::getDomTree",
+          "startLine": 330,
+          "endLine": 330,
+          "startByte": 12068,
+          "endByte": 12112,
+          "blobDigest": "1ece5dbc41c3ce8187e153179248b7ef2e47f1ea7f9f23b60676db2b0e854329",
+          "source": "  DominatorTree &getDomTree() { return DT; }",
+          "kind": "source"
+        }
+      ]
+    },
+    {
+      "mode": "symbol",
+      "query": "APInt",
+      "metadataMs": 27.275274999999965,
+      "hitAt10": true,
+      "expectedEvidence": true,
+      "candidates": [
+        {
+          "type": "symbol",
+          "score": 19.5,
+          "symbolId": "symbol:WyJmaWxlOjAwMGNlNGRiN2FkZGRhZWUyZTJhZDFjNiIsIkFQSW50IiwiY2xhc3MiLCJQUjQxMDMiLDgsMF0",
+          "name": "PR4103::APInt",
+          "path": "clang/test/SemaCXX/unused.cpp",
+          "startLine": 8
+        },
+        {
+          "type": "symbol",
+          "score": 19.5,
+          "symbolId": "symbol:WyJmaWxlOjAwY2ZiZGRiNDgwMjFhNTBmMjQxOTQwNCIsIkFQSW50IiwiZnVuY3Rpb24iLCJsbHZtOjpBUEludCIsMTg0LDBd",
+          "name": "llvm::APInt::APInt",
+          "path": "llvm/include/llvm/ADT/APInt.h",
+          "startLine": 184
+        },
+        {
+          "type": "symbol",
+          "score": 19.5,
+          "symbolId": "symbol:WyJmaWxlOjAwY2ZiZGRiNDgwMjFhNTBmMjQxOTQwNCIsIkFQSW50IiwiZnVuY3Rpb24iLCJsbHZtOjpBUEludCIsMTczLDBd",
+          "name": "llvm::APInt::APInt",
+          "path": "llvm/include/llvm/ADT/APInt.h",
+          "startLine": 173
+        },
+        {
+          "type": "symbol",
+          "score": 19.5,
+          "symbolId": "symbol:WyJmaWxlOjAwY2ZiZGRiNDgwMjFhNTBmMjQxOTQwNCIsIkFQSW50IiwiZnVuY3Rpb24iLCJsbHZtOjpBUEludCIsMTc2LDBd",
+          "name": "llvm::APInt::APInt",
+          "path": "llvm/include/llvm/ADT/APInt.h",
+          "startLine": 176
+        },
+        {
+          "type": "symbol",
+          "score": 19.5,
+          "symbolId": "symbol:WyJmaWxlOjAwY2ZiZGRiNDgwMjFhNTBmMjQxOTQwNCIsIkFQSW50IiwiY2xhc3MiLCJsbHZtIiw3OCwwXQ",
+          "name": "llvm::APInt",
+          "path": "llvm/include/llvm/ADT/APInt.h",
+          "startLine": 78
+        },
+        {
+          "type": "symbol",
+          "score": 19.5,
+          "symbolId": "symbol:WyJmaWxlOjAwY2ZiZGRiNDgwMjFhNTBmMjQxOTQwNCIsIkFQSW50IiwiZnVuY3Rpb24iLCJsbHZtOjpBUEludCIsMTExLDBd",
+          "name": "llvm::APInt::APInt",
+          "path": "llvm/include/llvm/ADT/APInt.h",
+          "startLine": 111
+        },
+        {
+          "type": "symbol",
+          "score": 19.5,
+          "symbolId": "symbol:WyJmaWxlOjAwY2ZiZGRiNDgwMjFhNTBmMjQxOTQwNCIsIkFQSW50IiwiZnVuY3Rpb24iLCJsbHZtOjpBUEludCIsMTk1MywwXQ",
+          "name": "llvm::APInt::APInt",
+          "path": "llvm/include/llvm/ADT/APInt.h",
+          "startLine": 1953
+        },
+        {
+          "type": "symbol",
+          "score": 19.5,
+          "symbolId": "symbol:WyJmaWxlOjVjMTk3NjM2ODk2YmIyNGU4ODM5YjQyMSIsIkFQSW50IiwiZnVuY3Rpb24iLCJBUEludCIsMTA3LDBd",
+          "name": "APInt::APInt",
+          "path": "llvm/lib/Support/APInt.cpp",
+          "startLine": 107
+        },
+        {
+          "type": "symbol",
+          "score": 19.5,
+          "symbolId": "symbol:WyJmaWxlOjVjMTk3NjM2ODk2YmIyNGU4ODM5YjQyMSIsIkFQSW50IiwiZnVuY3Rpb24iLCJBUEludCIsMTExLDBd",
+          "name": "APInt::APInt",
+          "path": "llvm/lib/Support/APInt.cpp",
+          "startLine": 111
+        },
+        {
+          "type": "symbol",
+          "score": 19.5,
+          "symbolId": "symbol:WyJmaWxlOjVjMTk3NjM2ODk2YmIyNGU4ODM5YjQyMSIsIkFQSW50IiwiZnVuY3Rpb24iLCJBUEludCIsMTE2LDBd",
+          "name": "APInt::APInt",
+          "path": "llvm/lib/Support/APInt.cpp",
+          "startLine": 116
+        },
+        {
+          "type": "symbol",
+          "score": 19,
+          "symbolId": "symbol:WyJmaWxlOjc5OWI3N2RiYTRhMDE0MDVlY2E0NDIxMSIsIkFQSW50IiwidHlwZWRlZiIsImNsYW5nOjppbnRlcnAiLDE5LDBd",
+          "name": "clang::interp::APInt",
+          "path": "clang/lib/AST/ByteCode/FixedPoint.h",
+          "startLine": 19
+        },
+        {
+          "type": "symbol",
+          "score": 19,
+          "symbolId": "symbol:WyJmaWxlOjBiMDA1ZmZmMTUyZDc2OTIzMzJhMDNmNiIsIkFQSW50IiwidHlwZWRlZiIsImNsYW5nOjppbnRlcnAiLDI5LDBd",
+          "name": "clang::interp::APInt",
+          "path": "clang/lib/AST/ByteCode/Floating.h",
+          "startLine": 29
+        }
+      ],
+      "evidence": [
+        {
+          "snapshotId": "snapshot:repo-dace37fdb8f76f660b30:c0dd98ec866ca2ac9826d0b1",
+          "path": "clang/test/SemaCXX/unused.cpp",
+          "symbolId": "symbol:WyJmaWxlOjAwMGNlNGRiN2FkZGRhZWUyZTJhZDFjNiIsIkFQSW50IiwiY2xhc3MiLCJQUjQxMDMiLDgsMF0",
+          "symbol": "PR4103::APInt",
+          "startLine": 8,
+          "endLine": 10,
+          "startByte": 334,
+          "endByte": 424,
+          "blobDigest": "5ebfb7234fdb4d2eaa4a21acf422ff3d3cdfd93afc274da496c4e14370fccf5b",
+          "source": "  class APInt {\n    char foo; // expected-warning {{private field 'foo' is not used}}\n  };",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-dace37fdb8f76f660b30:c0dd98ec866ca2ac9826d0b1",
+          "path": "llvm/include/llvm/ADT/APInt.h",
+          "symbolId": "symbol:WyJmaWxlOjAwY2ZiZGRiNDgwMjFhNTBmMjQxOTQwNCIsIkFQSW50IiwiZnVuY3Rpb24iLCJsbHZtOjpBUEludCIsMTg0LDBd",
+          "symbol": "llvm::APInt::APInt",
+          "startLine": 184,
+          "endLine": 187,
+          "startByte": 7084,
+          "endByte": 7196,
+          "blobDigest": "ff01df843419e4822c11070665ed5d27794bcb4741d0988cee95ec1e8109e6c8",
+          "source": "  APInt(APInt &&that) : BitWidth(that.BitWidth) {\n    memcpy(&U, &that.U, sizeof(U));\n    that.BitWidth = 0;\n  }",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-dace37fdb8f76f660b30:c0dd98ec866ca2ac9826d0b1",
+          "path": "llvm/include/llvm/ADT/APInt.h",
+          "symbolId": "symbol:WyJmaWxlOjAwY2ZiZGRiNDgwMjFhNTBmMjQxOTQwNCIsIkFQSW50IiwiZnVuY3Rpb24iLCJsbHZtOjpBUEludCIsMTczLDBd",
+          "symbol": "llvm::APInt::APInt",
+          "startLine": 173,
+          "endLine": 173,
+          "startByte": 6856,
+          "endByte": 6889,
+          "blobDigest": "ff01df843419e4822c11070665ed5d27794bcb4741d0988cee95ec1e8109e6c8",
+          "source": "  explicit APInt() { U.VAL = 0; }",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-dace37fdb8f76f660b30:c0dd98ec866ca2ac9826d0b1",
+          "path": "llvm/include/llvm/ADT/APInt.h",
+          "symbolId": "symbol:WyJmaWxlOjAwY2ZiZGRiNDgwMjFhNTBmMjQxOTQwNCIsIkFQSW50IiwiZnVuY3Rpb24iLCJsbHZtOjpBUEludCIsMTc2LDBd",
+          "symbol": "llvm::APInt::APInt",
+          "startLine": 176,
+          "endLine": 181,
+          "startByte": 6915,
+          "endByte": 7058,
+          "blobDigest": "ff01df843419e4822c11070665ed5d27794bcb4741d0988cee95ec1e8109e6c8",
+          "source": "  APInt(const APInt &that) : BitWidth(that.BitWidth) {\n    if (isSingleWord())\n      U.VAL = that.U.VAL;\n    else\n      initSlowCase(that);\n  }",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-dace37fdb8f76f660b30:c0dd98ec866ca2ac9826d0b1",
+          "path": "llvm/include/llvm/ADT/APInt.h",
+          "symbolId": "symbol:WyJmaWxlOjAwY2ZiZGRiNDgwMjFhNTBmMjQxOTQwNCIsIkFQSW50IiwiY2xhc3MiLCJsbHZtIiw3OCwwXQ",
+          "symbol": "llvm::APInt",
+          "startLine": 78,
+          "endLine": 137,
+          "startByte": 3291,
+          "endByte": 5236,
+          "blobDigest": "ff01df843419e4822c11070665ed5d27794bcb4741d0988cee95ec1e8109e6c8",
+          "source": "class [[nodiscard]] APInt {\npublic:\n  typedef uint64_t WordType;\n\n  /// Byte size of a word.\n  static constexpr unsigned APINT_WORD_SIZE = sizeof(WordType);\n\n  /// Bits in a word.\n  static constexpr unsigned APINT_BITS_PER_WORD = APINT_WORD_SIZE * CHAR_BIT;\n\n  enum class Rounding {\n    DOWN,\n    TOWARD_ZERO,\n    UP,\n  };\n\n  static constexpr WordType WORDTYPE_MAX = ~WordType(0);\n\n  /// \\name Constructors\n  /// @{\n\n  /// Create a new APInt of numBits width, initialized as val.\n  ///\n  /// If isSigned is true then val is treated as if it were a signed value\n  /// (i.e. as an int64_t) and the appropriate sign extension to the bit width\n  /// will be done. Otherwise, no sign extension occurs (high order bits beyond\n  /// the range of val are zero filled).\n  ///\n  /// \\param numBits the bit width of the constructed APInt\n  /// \\param val the initial value of the APInt\n  /// \\param isSigned how to treat signedness of val\n  /// \\param implicitTrunc allow implicit truncation of non-zero/sign bits of\n  ///                      val beyond the range of numBits\n  APInt(unsigned numBits, uint64_t val, bool isSigned = false,\n        bool implicitTrunc = false)\n      : BitWidth(numBits) {\n    if (!implicitTrunc) {\n      if (isSigned) {\n        if (BitWidth == 0) {\n          assert((val == 0 || val == uint64_t(-1)) &&\n                 \"Value must be 0 or -1 for signed 0-bit APInt\");\n        } else {\n          assert(llvm::isIntN(BitWidth, val) &&\n                 \"Value is not an N-bit signed value\");\n        }\n      } else {\n        if (BitWidth == 0) {\n          assert(val == 0 && \"Value must be zero for unsigned 0-bit APInt\");\n        } else {\n          assert(llvm::isUIntN(BitWidth, val) &&\n                 \"Value is not an N-bit unsigned value\");\n        }\n      }\n    }\n    if (isSingleWord()) {\n      U.VAL = val;\n      if (implicitTrunc || isSigned)\n        clearUnusedBits();\n    } else {\n      initSlowCase(val, isSigned);",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-dace37fdb8f76f660b30:c0dd98ec866ca2ac9826d0b1",
+          "path": "llvm/include/llvm/ADT/APInt.h",
+          "symbolId": "symbol:WyJmaWxlOjAwY2ZiZGRiNDgwMjFhNTBmMjQxOTQwNCIsIkFQSW50IiwiZnVuY3Rpb24iLCJsbHZtOjpBUEludCIsMTExLDBd",
+          "symbol": "llvm::APInt::APInt",
+          "startLine": 111,
+          "endLine": 139,
+          "startByte": 4356,
+          "endByte": 5246,
+          "blobDigest": "ff01df843419e4822c11070665ed5d27794bcb4741d0988cee95ec1e8109e6c8",
+          "source": "  APInt(unsigned numBits, uint64_t val, bool isSigned = false,\n        bool implicitTrunc = false)\n      : BitWidth(numBits) {\n    if (!implicitTrunc) {\n      if (isSigned) {\n        if (BitWidth == 0) {\n          assert((val == 0 || val == uint64_t(-1)) &&\n                 \"Value must be 0 or -1 for signed 0-bit APInt\");\n        } else {\n          assert(llvm::isIntN(BitWidth, val) &&\n                 \"Value is not an N-bit signed value\");\n        }\n      } else {\n        if (BitWidth == 0) {\n          assert(val == 0 && \"Value must be zero for unsigned 0-bit APInt\");\n        } else {\n          assert(llvm::isUIntN(BitWidth, val) &&\n                 \"Value is not an N-bit unsigned value\");\n        }\n      }\n    }\n    if (isSingleWord()) {\n      U.VAL = val;\n      if (implicitTrunc || isSigned)\n        clearUnusedBits();\n    } else {\n      initSlowCase(val, isSigned);\n    }\n  }",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-dace37fdb8f76f660b30:c0dd98ec866ca2ac9826d0b1",
+          "path": "llvm/include/llvm/ADT/APInt.h",
+          "symbolId": "symbol:WyJmaWxlOjAwY2ZiZGRiNDgwMjFhNTBmMjQxOTQwNCIsIkFQSW50IiwiZnVuY3Rpb24iLCJsbHZtOjpBUEludCIsMTk1MywwXQ",
+          "symbol": "llvm::APInt::APInt",
+          "startLine": 1953,
+          "endLine": 1953,
+          "startByte": 68507,
+          "endByte": 68579,
+          "blobDigest": "ff01df843419e4822c11070665ed5d27794bcb4741d0988cee95ec1e8109e6c8",
+          "source": "  APInt(uint64_t *val, unsigned bits) : BitWidth(bits) { U.pVal = val; }",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-dace37fdb8f76f660b30:c0dd98ec866ca2ac9826d0b1",
+          "path": "llvm/lib/Support/APInt.cpp",
+          "symbolId": "symbol:WyJmaWxlOjVjMTk3NjM2ODk2YmIyNGU4ODM5YjQyMSIsIkFQSW50IiwiZnVuY3Rpb24iLCJBUEludCIsMTA3LDBd",
+          "symbol": "APInt::APInt",
+          "startLine": 107,
+          "endLine": 109,
+          "startByte": 3031,
+          "endByte": 3137,
+          "blobDigest": "2b6eb949378db143c233b0562a14dfc6bd0f0718ce4228b6a2277ae50b58030f",
+          "source": "APInt::APInt(unsigned numBits, ArrayRef<uint64_t> bigVal) : BitWidth(numBits) {\n  initFromArray(bigVal);\n}",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-dace37fdb8f76f660b30:c0dd98ec866ca2ac9826d0b1",
+          "path": "llvm/lib/Support/APInt.cpp",
+          "symbolId": "symbol:WyJmaWxlOjVjMTk3NjM2ODk2YmIyNGU4ODM5YjQyMSIsIkFQSW50IiwiZnVuY3Rpb24iLCJBUEludCIsMTExLDBd",
+          "symbol": "APInt::APInt",
+          "startLine": 111,
+          "endLine": 114,
+          "startByte": 3139,
+          "endByte": 3286,
+          "blobDigest": "2b6eb949378db143c233b0562a14dfc6bd0f0718ce4228b6a2277ae50b58030f",
+          "source": "APInt::APInt(unsigned numBits, unsigned numWords, const uint64_t bigVal[])\n    : BitWidth(numBits) {\n  initFromArray(ArrayRef(bigVal, numWords));\n}",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-dace37fdb8f76f660b30:c0dd98ec866ca2ac9826d0b1",
+          "path": "llvm/lib/Support/APInt.cpp",
+          "symbolId": "symbol:WyJmaWxlOjVjMTk3NjM2ODk2YmIyNGU4ODM5YjQyMSIsIkFQSW50IiwiZnVuY3Rpb24iLCJBUEludCIsMTE2LDBd",
+          "symbol": "APInt::APInt",
+          "startLine": 116,
+          "endLine": 119,
+          "startByte": 3288,
+          "endByte": 3411,
+          "blobDigest": "2b6eb949378db143c233b0562a14dfc6bd0f0718ce4228b6a2277ae50b58030f",
+          "source": "APInt::APInt(unsigned numbits, StringRef Str, uint8_t radix)\n    : BitWidth(numbits) {\n  fromString(numbits, Str, radix);\n}",
+          "kind": "source"
+        }
+      ]
+    },
+    {
+      "mode": "symbol",
+      "query": "SmallVector",
+      "metadataMs": 63.907177999999476,
+      "hitAt10": true,
+      "expectedEvidence": false,
+      "candidates": [
+        {
+          "type": "symbol",
+          "score": 19.5,
+          "symbolId": "symbol:WyJmaWxlOjAzYjMxNjQ5ZjVhZWI0YTkzYmFmOGU5ZiIsIlNtYWxsVmVjdG9yIiwiY2xhc3MiLCJsbHZtIiwzMSwwXQ",
+          "name": "llvm::SmallVector",
+          "path": "clang/test/Modules/Inputs/lsv-debuginfo/A/ADT.h",
+          "startLine": 31
+        },
+        {
+          "type": "symbol",
+          "score": 19.5,
+          "symbolId": "symbol:WyJmaWxlOjc3NWMyM2VhYTY5YzFjOTNjMWRhODk1YSIsIlNtYWxsVmVjdG9yIiwiY2xhc3MiLCIiLDIsMF0",
+          "name": "SmallVector",
+          "path": "clang/test/Modules/Inputs/PR28332/b.h",
+          "startLine": 2
+        },
+        {
+          "type": "symbol",
+          "score": 19.5,
+          "symbolId": "symbol:WyJmaWxlOmM0ODNkNzUyZDI2YzhmYmFhY2JjM2M2YiIsIlNtYWxsVmVjdG9yIiwiZnVuY3Rpb24iLCJTbWFsbFZlY3RvciIsMjUsMF0",
+          "name": "SmallVector::SmallVector",
+          "path": "clang/test/SemaCXX/invalid-instantiated-field-decl.cpp",
+          "startLine": 25
+        },
+        {
+          "type": "symbol",
+          "score": 19.5,
+          "symbolId": "symbol:WyJmaWxlOmM0ODNkNzUyZDI2YzhmYmFhY2JjM2M2YiIsIlNtYWxsVmVjdG9yIiwiY2xhc3MiLCIiLDE0LDBd",
+          "name": "SmallVector",
+          "path": "clang/test/SemaCXX/invalid-instantiated-field-decl.cpp",
+          "startLine": 14
+        },
+        {
+          "type": "symbol",
+          "score": 19.5,
+          "symbolId": "symbol:WyJmaWxlOjcwYzJiNTc4NDU4NzU3ZjRjYjkzNDliMCIsIlNtYWxsVmVjdG9yIiwiZnVuY3Rpb24iLCJsbHZtOjpTbWFsbFZlY3RvciIsMTI0NywwXQ",
+          "name": "llvm::SmallVector::SmallVector",
+          "path": "llvm/include/llvm/ADT/SmallVector.h",
+          "startLine": 1247
+        },
+        {
+          "type": "symbol",
+          "score": 19.5,
+          "symbolId": "symbol:WyJmaWxlOjcwYzJiNTc4NDU4NzU3ZjRjYjkzNDliMCIsIlNtYWxsVmVjdG9yIiwiZnVuY3Rpb24iLCJsbHZtOjpTbWFsbFZlY3RvciIsMTE5OSwwXQ",
+          "name": "llvm::SmallVector::SmallVector",
+          "path": "llvm/include/llvm/ADT/SmallVector.h",
+          "startLine": 1199
+        },
+        {
+          "type": "symbol",
+          "score": 19.5,
+          "symbolId": "symbol:WyJmaWxlOjcwYzJiNTc4NDU4NzU3ZjRjYjkzNDliMCIsIlNtYWxsVmVjdG9yIiwiZnVuY3Rpb24iLCJsbHZtOjpTbWFsbFZlY3RvciIsMTIzNywwXQ",
+          "name": "llvm::SmallVector::SmallVector",
+          "path": "llvm/include/llvm/ADT/SmallVector.h",
+          "startLine": 1237
+        },
+        {
+          "type": "symbol",
+          "score": 19.5,
+          "symbolId": "symbol:WyJmaWxlOjcwYzJiNTc4NDU4NzU3ZjRjYjkzNDliMCIsIlNtYWxsVmVjdG9yIiwiZnVuY3Rpb24iLCJsbHZtOjpTbWFsbFZlY3RvciIsMTI1MiwwXQ",
+          "name": "llvm::SmallVector::SmallVector",
+          "path": "llvm/include/llvm/ADT/SmallVector.h",
+          "startLine": 1252
+        },
+        {
+          "type": "symbol",
+          "score": 19.5,
+          "symbolId": "symbol:WyJmaWxlOjcwYzJiNTc4NDU4NzU3ZjRjYjkzNDliMCIsIlNtYWxsVmVjdG9yIiwiZnVuY3Rpb24iLCJsbHZtOjpTbWFsbFZlY3RvciIsMTIwNiwwXQ",
+          "name": "llvm::SmallVector::SmallVector",
+          "path": "llvm/include/llvm/ADT/SmallVector.h",
+          "startLine": 1206
+        },
+        {
+          "type": "symbol",
+          "score": 19.5,
+          "symbolId": "symbol:WyJmaWxlOjcwYzJiNTc4NDU4NzU3ZjRjYjkzNDliMCIsIlNtYWxsVmVjdG9yIiwiZnVuY3Rpb24iLCJsbHZtOjpTbWFsbFZlY3RvciIsMTIzMywwXQ",
+          "name": "llvm::SmallVector::SmallVector",
+          "path": "llvm/include/llvm/ADT/SmallVector.h",
+          "startLine": 1233
+        },
+        {
+          "type": "symbol",
+          "score": 19.5,
+          "symbolId": "symbol:WyJmaWxlOjcwYzJiNTc4NDU4NzU3ZjRjYjkzNDliMCIsIlNtYWxsVmVjdG9yIiwiY2xhc3MiLCJsbHZtIiwxMTk2LDBd",
+          "name": "llvm::SmallVector",
+          "path": "llvm/include/llvm/ADT/SmallVector.h",
+          "startLine": 1196
+        },
+        {
+          "type": "symbol",
+          "score": 19.5,
+          "symbolId": "symbol:WyJmaWxlOjcwYzJiNTc4NDU4NzU3ZjRjYjkzNDliMCIsIlNtYWxsVmVjdG9yIiwiZnVuY3Rpb24iLCJsbHZtOjpTbWFsbFZlY3RvciIsMTIxNywwXQ",
+          "name": "llvm::SmallVector::SmallVector",
+          "path": "llvm/include/llvm/ADT/SmallVector.h",
+          "startLine": 1217
+        }
+      ],
+      "evidence": [
+        {
+          "snapshotId": "snapshot:repo-dace37fdb8f76f660b30:c0dd98ec866ca2ac9826d0b1",
+          "path": "clang/test/Modules/Inputs/lsv-debuginfo/A/ADT.h",
+          "symbolId": "symbol:WyJmaWxlOjAzYjMxNjQ5ZjVhZWI0YTkzYmFmOGU5ZiIsIlNtYWxsVmVjdG9yIiwiY2xhc3MiLCJsbHZtIiwzMSwwXQ",
+          "symbol": "llvm::SmallVector",
+          "startLine": 31,
+          "endLine": 31,
+          "startByte": 582,
+          "endByte": 630,
+          "blobDigest": "d295880ca7dbf0a3604488729c95e95f4ac059b5ba26f92ed36194b5026bfdec",
+          "source": "class SmallVector : SmallVectorStorage<T, N> {};",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-dace37fdb8f76f660b30:c0dd98ec866ca2ac9826d0b1",
+          "path": "clang/test/Modules/Inputs/PR28332/b.h",
+          "symbolId": "symbol:WyJmaWxlOjc3NWMyM2VhYTY5YzFjOTNjMWRhODk1YSIsIlNtYWxsVmVjdG9yIiwiY2xhc3MiLCIiLDIsMF0",
+          "symbol": "SmallVector",
+          "startLine": 2,
+          "endLine": 2,
+          "startByte": 28,
+          "endByte": 92,
+          "blobDigest": "165f57403c87fd6faf62b3eb5116256cffce5509ca56ec95effeead41c7b2729",
+          "source": "template <typename, int> class SmallVector : SmallVectorImpl {};",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-dace37fdb8f76f660b30:c0dd98ec866ca2ac9826d0b1",
+          "path": "clang/test/SemaCXX/invalid-instantiated-field-decl.cpp",
+          "symbolId": "symbol:WyJmaWxlOmM0ODNkNzUyZDI2YzhmYmFhY2JjM2M2YiIsIlNtYWxsVmVjdG9yIiwiZnVuY3Rpb24iLCJTbWFsbFZlY3RvciIsMjUsMF0",
+          "symbol": "SmallVector::SmallVector",
+          "startLine": 25,
+          "endLine": 26,
+          "startByte": 710,
+          "endByte": 771,
+          "blobDigest": "af69ad2b172712b9c7e28121935a7885a7fcdf192b2251cf93e5b9a77db76cfb",
+          "source": "  SmallVector() : SmallVectorImpl<T>(NumInlineEltsElts) {\n  }",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-dace37fdb8f76f660b30:c0dd98ec866ca2ac9826d0b1",
+          "path": "clang/test/SemaCXX/invalid-instantiated-field-decl.cpp",
+          "symbolId": "symbol:WyJmaWxlOmM0ODNkNzUyZDI2YzhmYmFhY2JjM2M2YiIsIlNtYWxsVmVjdG9yIiwiY2xhc3MiLCIiLDE0LDBd",
+          "symbol": "SmallVector",
+          "startLine": 14,
+          "endLine": 28,
+          "startByte": 210,
+          "endByte": 775,
+          "blobDigest": "af69ad2b172712b9c7e28121935a7885a7fcdf192b2251cf93e5b9a77db76cfb",
+          "source": "class SmallVector : public SmallVectorImpl<T> {\n  typedef typename SmallVectorImpl<T>::U U; // expected-error {{no type named 'U' in 'SmallVectorImpl<CallSite>'}}\n  enum {\n\n    MinUs = (static_cast<unsigned int>(sizeof(T))*N +\t// expected-error {{invalid application of 'sizeof' to an incomplete type 'CallSite'}}\n             static_cast<unsigned int>(sizeof(U)) - 1) /\n            static_cast<unsigned int>(sizeof(U)),\n    NumInlineEltsElts = MinUs \n  };\n  U InlineElts[NumInlineEltsElts];\npublic:\n  SmallVector() : SmallVectorImpl<T>(NumInlineEltsElts) {\n  }\n\n};",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-dace37fdb8f76f660b30:c0dd98ec866ca2ac9826d0b1",
+          "path": "llvm/include/llvm/ADT/SmallVector.h",
+          "symbolId": "symbol:WyJmaWxlOjcwYzJiNTc4NDU4NzU3ZjRjYjkzNDliMCIsIlNtYWxsVmVjdG9yIiwiZnVuY3Rpb24iLCJsbHZtOjpTbWFsbFZlY3RvciIsMTI0NywwXQ",
+          "symbol": "llvm::SmallVector::SmallVector",
+          "startLine": 1247,
+          "endLine": 1250,
+          "startByte": 44183,
+          "endByte": 44322,
+          "blobDigest": "feb963dcca191d905b8a0a0e0154513bcd0a7bf287190bc80092814f8ed7f2fd",
+          "source": "  SmallVector(SmallVector &&RHS) : SmallVectorImpl<T>(N) {\n    if (!RHS.empty())\n      SmallVectorImpl<T>::operator=(::std::move(RHS));\n  }",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-dace37fdb8f76f660b30:c0dd98ec866ca2ac9826d0b1",
+          "path": "llvm/include/llvm/ADT/SmallVector.h",
+          "symbolId": "symbol:WyJmaWxlOjcwYzJiNTc4NDU4NzU3ZjRjYjkzNDliMCIsIlNtYWxsVmVjdG9yIiwiZnVuY3Rpb24iLCJsbHZtOjpTbWFsbFZlY3RvciIsMTE5OSwwXQ",
+          "symbol": "llvm::SmallVector::SmallVector",
+          "startLine": 1199,
+          "endLine": 1199,
+          "startByte": 42927,
+          "endByte": 42969,
+          "blobDigest": "feb963dcca191d905b8a0a0e0154513bcd0a7bf287190bc80092814f8ed7f2fd",
+          "source": "  SmallVector() : SmallVectorImpl<T>(N) {}",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-dace37fdb8f76f660b30:c0dd98ec866ca2ac9826d0b1",
+          "path": "llvm/include/llvm/ADT/SmallVector.h",
+          "symbolId": "symbol:WyJmaWxlOjcwYzJiNTc4NDU4NzU3ZjRjYjkzNDliMCIsIlNtYWxsVmVjdG9yIiwiZnVuY3Rpb24iLCJsbHZtOjpTbWFsbFZlY3RvciIsMTIzNywwXQ",
+          "symbol": "llvm::SmallVector::SmallVector",
+          "startLine": 1237,
+          "endLine": 1240,
+          "startByte": 43936,
+          "endByte": 44067,
+          "blobDigest": "feb963dcca191d905b8a0a0e0154513bcd0a7bf287190bc80092814f8ed7f2fd",
+          "source": "  SmallVector(const SmallVector &RHS) : SmallVectorImpl<T>(N) {\n    if (!RHS.empty())\n      SmallVectorImpl<T>::operator=(RHS);\n  }",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-dace37fdb8f76f660b30:c0dd98ec866ca2ac9826d0b1",
+          "path": "llvm/include/llvm/ADT/SmallVector.h",
+          "symbolId": "symbol:WyJmaWxlOjcwYzJiNTc4NDU4NzU3ZjRjYjkzNDliMCIsIlNtYWxsVmVjdG9yIiwiZnVuY3Rpb24iLCJsbHZtOjpTbWFsbFZlY3RvciIsMTI1MiwwXQ",
+          "symbol": "llvm::SmallVector::SmallVector",
+          "startLine": 1252,
+          "endLine": 1255,
+          "startByte": 44324,
+          "endByte": 44470,
+          "blobDigest": "feb963dcca191d905b8a0a0e0154513bcd0a7bf287190bc80092814f8ed7f2fd",
+          "source": "  SmallVector(SmallVectorImpl<T> &&RHS) : SmallVectorImpl<T>(N) {\n    if (!RHS.empty())\n      SmallVectorImpl<T>::operator=(::std::move(RHS));\n  }",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-dace37fdb8f76f660b30:c0dd98ec866ca2ac9826d0b1",
+          "path": "llvm/include/llvm/ADT/SmallVector.h",
+          "symbolId": "symbol:WyJmaWxlOjcwYzJiNTc4NDU4NzU3ZjRjYjkzNDliMCIsIlNtYWxsVmVjdG9yIiwiZnVuY3Rpb24iLCJsbHZtOjpTbWFsbFZlY3RvciIsMTIwNiwwXQ",
+          "symbol": "llvm::SmallVector::SmallVector",
+          "startLine": 1206,
+          "endLine": 1209,
+          "startByte": 43103,
+          "endByte": 43196,
+          "blobDigest": "feb963dcca191d905b8a0a0e0154513bcd0a7bf287190bc80092814f8ed7f2fd",
+          "source": "  explicit SmallVector(size_t Size)\n    : SmallVectorImpl<T>(N) {\n    this->resize(Size);\n  }",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-dace37fdb8f76f660b30:c0dd98ec866ca2ac9826d0b1",
+          "path": "llvm/include/llvm/ADT/SmallVector.h",
+          "symbolId": "symbol:WyJmaWxlOjcwYzJiNTc4NDU4NzU3ZjRjYjkzNDliMCIsIlNtYWxsVmVjdG9yIiwiZnVuY3Rpb24iLCJsbHZtOjpTbWFsbFZlY3RvciIsMTIzMywwXQ",
+          "symbol": "llvm::SmallVector::SmallVector",
+          "startLine": 1233,
+          "endLine": 1235,
+          "startByte": 43829,
+          "endByte": 43934,
+          "blobDigest": "feb963dcca191d905b8a0a0e0154513bcd0a7bf287190bc80092814f8ed7f2fd",
+          "source": "  explicit SmallVector(ArrayRef<U> A) : SmallVectorImpl<T>(N) {\n    this->append(A.begin(), A.end());\n  }",
+          "kind": "source"
+        }
+      ]
+    },
+    {
+      "mode": "symbol",
+      "query": "parseAssemblyString",
+      "metadataMs": 2.8454380000002857,
+      "hitAt10": true,
+      "expectedEvidence": true,
+      "candidates": [
+        {
+          "type": "symbol",
+          "score": 19.5,
+          "symbolId": "symbol:WyJmaWxlOmE4MWRkMTZkZTk4NDJlNDc0MjE1NmExNSIsInBhcnNlQXNzZW1ibHlTdHJpbmciLCJmdW5jdGlvbiIsImxsdm0iLDEzNiwwXQ",
+          "name": "llvm::parseAssemblyString",
+          "path": "llvm/lib/AsmParser/Parser.cpp",
+          "startLine": 136
+        },
+        {
+          "type": "symbol",
+          "score": 19,
+          "symbolId": "symbol:WyJmaWxlOjVmZjA1OTMxYWIyMTllNDE2ZjhlZGYxMiIsInBhcnNlQXNzZW1ibHlTdHJpbmciLCJmdW5jdGlvbl9kZWNsYXJhdGlvbiIsImxsdm0iLDY0LDBd",
+          "name": "llvm::parseAssemblyString",
+          "path": "llvm/include/llvm/AsmParser/Parser.h",
+          "startLine": 64
+        }
+      ],
+      "evidence": [
+        {
+          "snapshotId": "snapshot:repo-dace37fdb8f76f660b30:c0dd98ec866ca2ac9826d0b1",
+          "path": "llvm/lib/AsmParser/Parser.cpp",
+          "symbolId": "symbol:WyJmaWxlOmE4MWRkMTZkZTk4NDJlNDc0MjE1NmExNSIsInBhcnNlQXNzZW1ibHlTdHJpbmciLCJmdW5jdGlvbiIsImxsdm0iLDEzNiwwXQ",
+          "symbol": "llvm::parseAssemblyString",
+          "startLine": 136,
+          "endLine": 142,
+          "startByte": 5698,
+          "endByte": 6075,
+          "blobDigest": "f60db1cfc27d4ac792a4b89508402ee20cd5abd62523781e60f89c2c2b38ff67",
+          "source": "std::unique_ptr<Module> llvm::parseAssemblyString(StringRef AsmString,\n                                                  SMDiagnostic &Err,\n                                                  LLVMContext &Context,\n                                                  SlotMapping *Slots) {\n  MemoryBufferRef F(AsmString, \"<string>\");\n  return parseAssembly(F, Err, Context, Slots);\n}",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-dace37fdb8f76f660b30:c0dd98ec866ca2ac9826d0b1",
+          "path": "llvm/include/llvm/AsmParser/Parser.h",
+          "symbolId": "symbol:WyJmaWxlOjVmZjA1OTMxYWIyMTllNDE2ZjhlZGYxMiIsInBhcnNlQXNzZW1ibHlTdHJpbmciLCJmdW5jdGlvbl9kZWNsYXJhdGlvbiIsImxsdm0iLDY0LDBd",
+          "symbol": "llvm::parseAssemblyString",
+          "startLine": 64,
+          "endLine": 65,
+          "startByte": 2566,
+          "endByte": 2698,
+          "blobDigest": "e3255b014f1a9cfc57a97899dc3f60542037e3d1be77585ad447fa92193441b9",
+          "source": "parseAssemblyString(StringRef AsmString, SMDiagnostic &Err,\n                    LLVMContext &Context, SlotMapping *Slots = nullptr);",
+          "kind": "source"
+        }
+      ]
+    },
+    {
+      "mode": "symbol",
+      "query": "parseIRFile",
+      "metadataMs": 0.9846809999999095,
+      "hitAt10": true,
+      "expectedEvidence": true,
+      "candidates": [
+        {
+          "type": "symbol",
+          "score": 19.5,
+          "symbolId": "symbol:WyJmaWxlOjU1YjQ4MGNjYjY4NTMxMjY4ZjQ2Y2U4ZSIsInBhcnNlSVJGaWxlIiwiZnVuY3Rpb24iLCJsbHZtIiw5NCwwXQ",
+          "name": "llvm::parseIRFile",
+          "path": "llvm/lib/IRReader/IRReader.cpp",
+          "startLine": 94
+        },
+        {
+          "type": "symbol",
+          "score": 19,
+          "symbolId": "symbol:WyJmaWxlOjRhNDg0NzIwNmFjYjZmNjk4Zjk2YmZiMCIsInBhcnNlSVJGaWxlIiwiZnVuY3Rpb25fZGVjbGFyYXRpb24iLCJsbHZtIiw2MiwwXQ",
+          "name": "llvm::parseIRFile",
+          "path": "llvm/include/llvm/IRReader/IRReader.h",
+          "startLine": 62
+        }
+      ],
+      "evidence": [
+        {
+          "snapshotId": "snapshot:repo-dace37fdb8f76f660b30:c0dd98ec866ca2ac9826d0b1",
+          "path": "llvm/lib/IRReader/IRReader.cpp",
+          "symbolId": "symbol:WyJmaWxlOjU1YjQ4MGNjYjY4NTMxMjY4ZjQ2Y2U4ZSIsInBhcnNlSVJGaWxlIiwiZnVuY3Rpb24iLCJsbHZtIiw5NCwwXQ",
+          "symbol": "llvm::parseIRFile",
+          "startLine": 94,
+          "endLine": 106,
+          "startByte": 3720,
+          "endByte": 4332,
+          "blobDigest": "d21aa9e758fc08ff40ba21c1f10e921399a9c9b2bfeff338b750766997752a31",
+          "source": "std::unique_ptr<Module> llvm::parseIRFile(StringRef Filename, SMDiagnostic &Err,\n                                          LLVMContext &Context,\n                                          ParserCallbacks Callbacks) {\n  ErrorOr<std::unique_ptr<MemoryBuffer>> FileOrErr =\n      MemoryBuffer::getFileOrSTDIN(Filename, /*IsText=*/true);\n  if (std::error_code EC = FileOrErr.getError()) {\n    Err = SMDiagnostic(Filename, SourceMgr::DK_Error,\n                       \"Could not open input file: \" + EC.message());\n    return nullptr;\n  }\n\n  return parseIR(FileOrErr.get()->getMemBufferRef(), Err, Context, Callbacks);\n}",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-dace37fdb8f76f660b30:c0dd98ec866ca2ac9826d0b1",
+          "path": "llvm/include/llvm/IRReader/IRReader.h",
+          "symbolId": "symbol:WyJmaWxlOjRhNDg0NzIwNmFjYjZmNjk4Zjk2YmZiMCIsInBhcnNlSVJGaWxlIiwiZnVuY3Rpb25fZGVjbGFyYXRpb24iLCJsbHZtIiw2MiwwXQ",
+          "symbol": "llvm::parseIRFile",
+          "startLine": 62,
+          "endLine": 65,
+          "startByte": 2697,
+          "endByte": 2970,
+          "blobDigest": "a2647ce6e4ded8194fdd50391f53846b80a9baa378db3b722717a80fa828fe0f",
+          "source": "LLVM_ABI std::unique_ptr<Module> parseIRFile(StringRef Filename,\n                                             SMDiagnostic &Err,\n                                             LLVMContext &Context,\n                                             ParserCallbacks Callbacks = {});",
+          "kind": "source"
+        }
+      ]
+    },
+    {
+      "mode": "symbol",
+      "query": "verifyModule",
+      "metadataMs": 4.026294000001144,
+      "hitAt10": true,
+      "expectedEvidence": true,
+      "candidates": [
+        {
+          "type": "symbol",
+          "score": 19.5,
+          "symbolId": "symbol:WyJmaWxlOmVmODkzMWVjMDM5YWIyYmY4MTgwZTYxYiIsInZlcmlmeU1vZHVsZSIsImZ1bmN0aW9uIiwiQ0lSR2VuZXJhdG9yIiw3MCwwXQ",
+          "name": "CIRGenerator::verifyModule",
+          "path": "clang/lib/CIR/CodeGen/CIRGenerator.cpp",
+          "startLine": 70
+        },
+        {
+          "type": "symbol",
+          "score": 19.5,
+          "symbolId": "symbol:WyJmaWxlOjgxYmM2Y2M1ODM0NDhiYzk5YzM1YTQ5NyIsInZlcmlmeU1vZHVsZSIsImZ1bmN0aW9uIiwiQ0lSR2VuTW9kdWxlIiwxOTI4LDBd",
+          "name": "CIRGenModule::verifyModule",
+          "path": "clang/lib/CIR/CodeGen/CIRGenModule.cpp",
+          "startLine": 1928
+        },
+        {
+          "type": "symbol",
+          "score": 19.5,
+          "symbolId": "symbol:WyJmaWxlOjdmMDAyMWYyYzZjZDc0NzAxNWQxZTk4NyIsInZlcmlmeU1vZHVsZSIsImZ1bmN0aW9uIiwibGx2bSIsNzUzNywwXQ",
+          "name": "llvm::verifyModule",
+          "path": "llvm/lib/IR/Verifier.cpp",
+          "startLine": 7537
+        },
+        {
+          "type": "symbol",
+          "score": 19,
+          "symbolId": "symbol:WyJmaWxlOjFjN2QzM2YxZGFhNzc1OTlmMTVkMjgyYyIsInZlcmlmeU1vZHVsZSIsImZ1bmN0aW9uX2RlY2xhcmF0aW9uIiwiY2lyOjpDSVJHZW5lcmF0b3IiLDg4LDBd",
+          "name": "cir::CIRGenerator::verifyModule",
+          "path": "clang/include/clang/CIR/CIRGenerator.h",
+          "startLine": 88
+        },
+        {
+          "type": "symbol",
+          "score": 19,
+          "symbolId": "symbol:WyJmaWxlOmZlNTc3ZTFiNmY4NmE2OTY0ZWU4MzczZSIsInZlcmlmeU1vZHVsZSIsImZ1bmN0aW9uX2RlY2xhcmF0aW9uIiwiY2xhbmc6OkNJUkdlbjo6Q0lSR2VuTW9kdWxlIiwyNDEsMF0",
+          "name": "clang::CIRGen::CIRGenModule::verifyModule",
+          "path": "clang/lib/CIR/CodeGen/CIRGenModule.h",
+          "startLine": 241
+        },
+        {
+          "type": "symbol",
+          "score": 19,
+          "symbolId": "symbol:WyJmaWxlOjgwOWVlNTA0ZTUyYjdkNjY2MDJkZWI4YiIsInZlcmlmeU1vZHVsZSIsImZ1bmN0aW9uX2RlY2xhcmF0aW9uIiwibGx2bSIsMTAxLDBd",
+          "name": "llvm::verifyModule",
+          "path": "llvm/include/llvm/IR/Verifier.h",
+          "startLine": 101
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:WyJmaWxlOmM4MmE3MDBlZjdjZThmZGIwZDI0NTlhNSIsIlZlcmlmeU1vZHVsZXMiLCJmaWVsZCIsImxsdm06OkV4ZWN1dGlvbkVuZ2luZSIsMTI3LDBd",
+          "name": "llvm::ExecutionEngine::VerifyModules",
+          "path": "llvm/include/llvm/ExecutionEngine/ExecutionEngine.h",
+          "startLine": 127
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:WyJmaWxlOmM4MmE3MDBlZjdjZThmZGIwZDI0NTlhNSIsIlZlcmlmeU1vZHVsZXMiLCJmaWVsZCIsImxsdm06OkVuZ2luZUJ1aWxkZXIiLDU0OSwwXQ",
+          "name": "llvm::EngineBuilder::VerifyModules",
+          "path": "llvm/include/llvm/ExecutionEngine/ExecutionEngine.h",
+          "startLine": 549
+        }
+      ],
+      "evidence": [
+        {
+          "snapshotId": "snapshot:repo-dace37fdb8f76f660b30:c0dd98ec866ca2ac9826d0b1",
+          "path": "clang/lib/CIR/CodeGen/CIRGenerator.cpp",
+          "symbolId": "symbol:WyJmaWxlOmVmODkzMWVjMDM5YWIyYmY4MTgwZTYxYiIsInZlcmlmeU1vZHVsZSIsImZ1bmN0aW9uIiwiQ0lSR2VuZXJhdG9yIiw3MCwwXQ",
+          "symbol": "CIRGenerator::verifyModule",
+          "startLine": 70,
+          "endLine": 70,
+          "startByte": 2515,
+          "endByte": 2586,
+          "blobDigest": "dafbcd1c3f29abcee4a02028f12a0eb7d2f00e441548a3a2697953aa348f90d6",
+          "source": "bool CIRGenerator::verifyModule() const { return cgm->verifyModule(); }",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-dace37fdb8f76f660b30:c0dd98ec866ca2ac9826d0b1",
+          "path": "clang/lib/CIR/CodeGen/CIRGenModule.cpp",
+          "symbolId": "symbol:WyJmaWxlOjgxYmM2Y2M1ODM0NDhiYzk5YzM1YTQ5NyIsInZlcmlmeU1vZHVsZSIsImZ1bmN0aW9uIiwiQ0lSR2VuTW9kdWxlIiwxOTI4LDBd",
+          "symbol": "CIRGenModule::verifyModule",
+          "startLine": 1928,
+          "endLine": 1933,
+          "startByte": 74173,
+          "endByte": 74452,
+          "blobDigest": "47e31e782d4ff537924627c8ff3f87910794ecd03a6126d45a928fd0f39d59eb",
+          "source": "bool CIRGenModule::verifyModule() const {\n  // Verify the module after we have finished constructing it, this will\n  // check the structural properties of the IR and invoke any specific\n  // verifiers we have on the CIR operations.\n  return mlir::verify(theModule).succeeded();\n}",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-dace37fdb8f76f660b30:c0dd98ec866ca2ac9826d0b1",
+          "path": "llvm/lib/IR/Verifier.cpp",
+          "symbolId": "symbol:WyJmaWxlOjdmMDAyMWYyYzZjZDc0NzAxNWQxZTk4NyIsInZlcmlmeU1vZHVsZSIsImZ1bmN0aW9uIiwibGx2bSIsNzUzNywwXQ",
+          "symbol": "llvm::verifyModule",
+          "startLine": 7537,
+          "endLine": 7552,
+          "startByte": 298587,
+          "endByte": 299148,
+          "blobDigest": "49aa9343c240b638d22199407328021208b522b90634fa173a1b7a1616387241",
+          "source": "bool llvm::verifyModule(const Module &M, raw_ostream *OS,\n                        bool *BrokenDebugInfo) {\n  // Don't use a raw_null_ostream.  Printing IR is expensive.\n  Verifier V(OS, /*ShouldTreatBrokenDebugInfoAsError=*/!BrokenDebugInfo, M);\n\n  bool Broken = false;\n  for (const Function &F : M)\n    Broken |= !V.verify(F);\n\n  Broken |= !V.verify();\n  if (BrokenDebugInfo)\n    *BrokenDebugInfo = V.hasBrokenDebugInfo();\n  // Note that this function's return value is inverted from what you would\n  // expect of a function called \"verify\".\n  return Broken;\n}",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-dace37fdb8f76f660b30:c0dd98ec866ca2ac9826d0b1",
+          "path": "clang/include/clang/CIR/CIRGenerator.h",
+          "symbolId": "symbol:WyJmaWxlOjFjN2QzM2YxZGFhNzc1OTlmMTVkMjgyYyIsInZlcmlmeU1vZHVsZSIsImZ1bmN0aW9uX2RlY2xhcmF0aW9uIiwiY2lyOjpDSVJHZW5lcmF0b3IiLDg4LDBd",
+          "symbol": "cir::CIRGenerator::verifyModule",
+          "startLine": 88,
+          "endLine": 88,
+          "startByte": 2949,
+          "endByte": 2977,
+          "blobDigest": "abe593e0861b1c8a69b5d202430f723debf3a45ea8ce1c206efd62e8ce8350ab",
+          "source": "  bool verifyModule() const;",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-dace37fdb8f76f660b30:c0dd98ec866ca2ac9826d0b1",
+          "path": "clang/lib/CIR/CodeGen/CIRGenModule.h",
+          "symbolId": "symbol:WyJmaWxlOmZlNTc3ZTFiNmY4NmE2OTY0ZWU4MzczZSIsInZlcmlmeU1vZHVsZSIsImZ1bmN0aW9uX2RlY2xhcmF0aW9uIiwiY2xhbmc6OkNJUkdlbjo6Q0lSR2VuTW9kdWxlIiwyNDEsMF0",
+          "symbol": "clang::CIRGen::CIRGenModule::verifyModule",
+          "startLine": 241,
+          "endLine": 241,
+          "startByte": 9080,
+          "endByte": 9108,
+          "blobDigest": "17fcb7cc75ac581aff4d8d3fb2600fdc0dca7125434fd19e6305da4536f0f979",
+          "source": "  bool verifyModule() const;",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-dace37fdb8f76f660b30:c0dd98ec866ca2ac9826d0b1",
+          "path": "llvm/include/llvm/IR/Verifier.h",
+          "symbolId": "symbol:WyJmaWxlOjgwOWVlNTA0ZTUyYjdkNjY2MDJkZWI4YiIsInZlcmlmeU1vZHVsZSIsImZ1bmN0aW9uX2RlY2xhcmF0aW9uIiwibGx2bSIsMTAxLDBd",
+          "symbol": "llvm::verifyModule",
+          "startLine": 101,
+          "endLine": 102,
+          "startByte": 3934,
+          "endByte": 4065,
+          "blobDigest": "82102df4edd7996bbbd9eb072fd230b274a08ba0a5f90cadad03243e4f3dece4",
+          "source": "LLVM_ABI bool verifyModule(const Module &M, raw_ostream *OS = nullptr,\n                           bool *BrokenDebugInfo = nullptr);",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-dace37fdb8f76f660b30:c0dd98ec866ca2ac9826d0b1",
+          "path": "llvm/include/llvm/ExecutionEngine/ExecutionEngine.h",
+          "symbolId": "symbol:WyJmaWxlOmM4MmE3MDBlZjdjZThmZGIwZDI0NTlhNSIsIlZlcmlmeU1vZHVsZXMiLCJmaWVsZCIsImxsdm06OkV4ZWN1dGlvbkVuZ2luZSIsMTI3LDBd",
+          "symbol": "llvm::ExecutionEngine::VerifyModules",
+          "startLine": 127,
+          "endLine": 127,
+          "startByte": 4048,
+          "endByte": 4069,
+          "blobDigest": "5e0e9648aee709e5ccc1ecc85e228f24e59e436b4b26c420d7e162929e5111cf",
+          "source": "  bool VerifyModules;",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-dace37fdb8f76f660b30:c0dd98ec866ca2ac9826d0b1",
+          "path": "llvm/include/llvm/ExecutionEngine/ExecutionEngine.h",
+          "symbolId": "symbol:WyJmaWxlOmM4MmE3MDBlZjdjZThmZGIwZDI0NTlhNSIsIlZlcmlmeU1vZHVsZXMiLCJmaWVsZCIsImxsdm06OkVuZ2luZUJ1aWxkZXIiLDU0OSwwXQ",
+          "symbol": "llvm::EngineBuilder::VerifyModules",
+          "startLine": 549,
+          "endLine": 549,
+          "startByte": 22511,
+          "endByte": 22532,
+          "blobDigest": "5e0e9648aee709e5ccc1ecc85e228f24e59e436b4b26c420d7e162929e5111cf",
+          "source": "  bool VerifyModules;",
+          "kind": "source"
+        }
+      ]
+    },
+    {
+      "mode": "symbol",
+      "query": "ExecuteCompilerInvocation",
+      "metadataMs": 3.183269000001019,
+      "hitAt10": true,
+      "expectedEvidence": true,
+      "candidates": [
+        {
+          "type": "symbol",
+          "score": 19.5,
+          "symbolId": "symbol:WyJmaWxlOjJiZjAyOGM4NGYyMzA3NjA0MzBlY2UxNiIsIkV4ZWN1dGVDb21waWxlckludm9jYXRpb24iLCJmdW5jdGlvbiIsImNsYW5nIiwyMDksMF0",
+          "name": "clang::ExecuteCompilerInvocation",
+          "path": "clang/lib/FrontendTool/ExecuteCompilerInvocation.cpp",
+          "startLine": 209
+        },
+        {
+          "type": "symbol",
+          "score": 19.5,
+          "symbolId": "symbol:WyJmaWxlOjVmMDMwMDY2NmNjMDYwMDlmMWQzNTUwMyIsImV4ZWN1dGVDb21waWxlckludm9jYXRpb24iLCJmdW5jdGlvbiIsIkZvcnRyYW46OmZyb250ZW5kIiwxNTMsMF0",
+          "name": "Fortran::frontend::executeCompilerInvocation",
+          "path": "flang/lib/FrontendTool/ExecuteCompilerInvocation.cpp",
+          "startLine": 153
+        },
+        {
+          "type": "symbol",
+          "score": 19,
+          "symbolId": "symbol:WyJmaWxlOjIzMTRhNzc1ZDY0ZWY0MmFmM2IzM2M4MSIsIkV4ZWN1dGVDb21waWxlckludm9jYXRpb24iLCJmdW5jdGlvbl9kZWNsYXJhdGlvbiIsImNsYW5nIiwzNCwwXQ",
+          "name": "clang::ExecuteCompilerInvocation",
+          "path": "clang/include/clang/FrontendTool/Utils.h",
+          "startLine": 34
+        },
+        {
+          "type": "symbol",
+          "score": 19,
+          "symbolId": "symbol:WyJmaWxlOjViODZlODY0NGQ5M2RiZjRjOTIxZGYzNiIsImV4ZWN1dGVDb21waWxlckludm9jYXRpb24iLCJmdW5jdGlvbl9kZWNsYXJhdGlvbiIsIkZvcnRyYW46OmZyb250ZW5kIiwyOSwwXQ",
+          "name": "Fortran::frontend::executeCompilerInvocation",
+          "path": "flang/include/flang/FrontendTool/Utils.h",
+          "startLine": 29
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:WyJmaWxlOjJiZjAyOGM4NGYyMzA3NjA0MzBlY2UxNiIsIkV4ZWN1dGVDb21waWxlckludm9jYXRpb24uY3BwIiwibW9kdWxlIiwiIiwxLDBd",
+          "name": "clang.lib.FrontendTool.ExecuteCompilerInvocation",
+          "path": "clang/lib/FrontendTool/ExecuteCompilerInvocation.cpp",
+          "startLine": 1
+        },
+        {
+          "type": "symbol",
+          "score": 4,
+          "symbolId": "symbol:WyJmaWxlOjVmMDMwMDY2NmNjMDYwMDlmMWQzNTUwMyIsIkV4ZWN1dGVDb21waWxlckludm9jYXRpb24uY3BwIiwibW9kdWxlIiwiIiwxLDBd",
+          "name": "flang.lib.FrontendTool.ExecuteCompilerInvocation",
+          "path": "flang/lib/FrontendTool/ExecuteCompilerInvocation.cpp",
+          "startLine": 1
+        },
+        {
+          "type": "file",
+          "score": 3,
+          "path": "clang/lib/FrontendTool/ExecuteCompilerInvocation.cpp",
+          "title": "ExecuteCompilerInvocation.cpp"
+        },
+        {
+          "type": "file",
+          "score": 3,
+          "path": "flang/lib/FrontendTool/ExecuteCompilerInvocation.cpp",
+          "title": "ExecuteCompilerInvocation.cpp"
+        }
+      ],
+      "evidence": [
+        {
+          "snapshotId": "snapshot:repo-dace37fdb8f76f660b30:c0dd98ec866ca2ac9826d0b1",
+          "path": "clang/lib/FrontendTool/ExecuteCompilerInvocation.cpp",
+          "symbolId": "symbol:WyJmaWxlOjJiZjAyOGM4NGYyMzA3NjA0MzBlY2UxNiIsIkV4ZWN1dGVDb21waWxlckludm9jYXRpb24iLCJmdW5jdGlvbiIsImNsYW5nIiwyMDksMF0",
+          "symbol": "clang::ExecuteCompilerInvocation",
+          "startLine": 209,
+          "endLine": 268,
+          "startByte": 8019,
+          "endByte": 9981,
+          "blobDigest": "fce653bd2c4240b3f628dff3b7c8b2eb181174263073199af21f67feea5a1dde",
+          "source": "bool ExecuteCompilerInvocation(CompilerInstance *Clang) {\n  // Honor -help.\n  if (Clang->getFrontendOpts().ShowHelp) {\n    driver::getDriverOptTable().printHelp(\n        llvm::outs(), \"clang -cc1 [options] file...\",\n        \"LLVM 'Clang' Compiler: http://clang.llvm.org\",\n        /*ShowHidden=*/false, /*ShowAllAliases=*/false,\n        llvm::opt::Visibility(driver::options::CC1Option));\n    return true;\n  }\n\n  // Honor -version.\n  //\n  // FIXME: Use a better -version message?\n  if (Clang->getFrontendOpts().ShowVersion) {\n    llvm::cl::PrintVersionMessage();\n    return true;\n  }\n\n  Clang->LoadRequestedPlugins();\n\n  // Honor -mllvm.\n  //\n  // FIXME: Remove this, one day.\n  // This should happen AFTER plugins have been loaded!\n  if (!Clang->getFrontendOpts().LLVMArgs.empty()) {\n    unsigned NumArgs = Clang->getFrontendOpts().LLVMArgs.size();\n    auto Args = std::make_unique<const char*[]>(NumArgs + 2);\n    Args[0] = \"clang (LLVM option parsing)\";\n    for (unsigned i = 0; i != NumArgs; ++i)\n      Args[i + 1] = Clang->getFrontendOpts().LLVMArgs[i].c_str();\n    Args[NumArgs + 1] = nullptr;\n    llvm::cl::ParseCommandLineOptions(NumArgs + 1, Args.get());\n  }\n\n#if CLANG_ENABLE_STATIC_ANALYZER\n  // These should happen AFTER plugins have been loaded!\n\n  AnalyzerOptions &AnOpts = Clang->getAnalyzerOpts();\n\n  // Honor -analyzer-checker-help and -analyzer-checker-help-hidden.\n  if (AnOpts.ShowCheckerHelp || AnOpts.ShowCheckerHelpAlpha ||\n      AnOpts.ShowCheckerHelpDeveloper) {\n    ento::printCheckerHelp(llvm::outs(), *Clang);\n    return true;\n  }\n\n  // Honor -analyzer-checker-option-help.\n  if (AnOpts.ShowCheckerOptionList || AnOpts.ShowCheckerOptionAlphaList ||\n      AnOpts.ShowCheckerOptionDeveloperList) {\n    ento::printCheckerConfigList(llvm::outs(), *Clang);\n    return true;\n  }\n\n  // Honor -analyzer-list-enabled-checkers.\n  if (AnOpts.ShowEnabledCheckerList) {\n    ento::printEnabledCheckerList(llvm::outs(), *Clang);\n    return true;\n  }\n",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-dace37fdb8f76f660b30:c0dd98ec866ca2ac9826d0b1",
+          "path": "flang/lib/FrontendTool/ExecuteCompilerInvocation.cpp",
+          "symbolId": "symbol:WyJmaWxlOjVmMDMwMDY2NmNjMDYwMDlmMWQzNTUwMyIsImV4ZWN1dGVDb21waWxlckludm9jYXRpb24iLCJmdW5jdGlvbiIsIkZvcnRyYW46OmZyb250ZW5kIiwxNTMsMF0",
+          "symbol": "Fortran::frontend::executeCompilerInvocation",
+          "startLine": 153,
+          "endLine": 212,
+          "startByte": 5947,
+          "endByte": 8242,
+          "blobDigest": "615ae8f7fc1fe331b2d3745f7472a3c53fe7ea4c14178d5bee18d58324195141",
+          "source": "bool executeCompilerInvocation(CompilerInstance *flang) {\n  // Honor -help.\n  if (flang->getFrontendOpts().showHelp) {\n    clang::driver::getDriverOptTable().printHelp(\n        llvm::outs(), \"flang -fc1 [options] file...\", \"LLVM 'Flang' Compiler\",\n        /*ShowHidden=*/false, /*ShowAllAliases=*/false,\n        llvm::opt::Visibility(clang::driver::options::FC1Option));\n    return true;\n  }\n\n  // Honor -version.\n  if (flang->getFrontendOpts().showVersion) {\n    llvm::cl::PrintVersionMessage();\n    return true;\n  }\n\n  // Load any requested plugins.\n  for (const std::string &path : flang->getFrontendOpts().plugins) {\n    std::string error;\n    if (llvm::sys::DynamicLibrary::LoadLibraryPermanently(path.c_str(),\n                                                          &error)) {\n      unsigned diagID = flang->getDiagnostics().getCustomDiagID(\n          clang::DiagnosticsEngine::Error, \"unable to load plugin '%0': '%1'\");\n      flang->getDiagnostics().Report(diagID) << path << error;\n    }\n  }\n\n  // Honor -mllvm. This should happen AFTER plugins have been loaded!\n  if (!flang->getFrontendOpts().llvmArgs.empty()) {\n    unsigned numArgs = flang->getFrontendOpts().llvmArgs.size();\n    auto args = std::make_unique<const char *[]>(numArgs + 2);\n    args[0] = \"flang (LLVM option parsing)\";\n\n    for (unsigned i = 0; i != numArgs; ++i)\n      args[i + 1] = flang->getFrontendOpts().llvmArgs[i].c_str();\n\n    args[numArgs + 1] = nullptr;\n    llvm::cl::ParseCommandLineOptions(numArgs + 1, args.get());\n  }\n\n  // Honor -mmlir. This should happen AFTER plugins have been loaded!\n  if (!flang->getFrontendOpts().mlirArgs.empty()) {\n    mlir::registerMLIRContextCLOptions();\n    mlir::registerPassManagerCLOptions();\n    mlir::registerAsmPrinterCLOptions();\n    unsigned numArgs = flang->getFrontendOpts().mlirArgs.size();\n    auto args = std::make_unique<const char *[]>(numArgs + 2);\n    args[0] = \"flang (MLIR option parsing)\";\n\n    for (unsigned i = 0; i != numArgs; ++i)\n      args[i + 1] = flang->getFrontendOpts().mlirArgs[i].c_str();\n\n    args[numArgs + 1] = nullptr;\n    llvm::cl::ParseCommandLineOptions(numArgs + 1, args.get());\n  }\n\n  // If there were errors in processing arguments, don't do anything else.\n  if (flang->getDiagnostics().hasErrorOccurred()) {\n    return false;\n  }",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-dace37fdb8f76f660b30:c0dd98ec866ca2ac9826d0b1",
+          "path": "clang/include/clang/FrontendTool/Utils.h",
+          "symbolId": "symbol:WyJmaWxlOjIzMTRhNzc1ZDY0ZWY0MmFmM2IzM2M4MSIsIkV4ZWN1dGVDb21waWxlckludm9jYXRpb24iLCJmdW5jdGlvbl9kZWNsYXJhdGlvbiIsImNsYW5nIiwzNCwwXQ",
+          "symbol": "clang::ExecuteCompilerInvocation",
+          "startLine": 34,
+          "endLine": 34,
+          "startByte": 1198,
+          "endByte": 1254,
+          "blobDigest": "46935a7939cfb813af6813ab88dcbed835d032f2c1fd362926fdb5f1464aa9a2",
+          "source": "bool ExecuteCompilerInvocation(CompilerInstance *Clang);",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-dace37fdb8f76f660b30:c0dd98ec866ca2ac9826d0b1",
+          "path": "flang/include/flang/FrontendTool/Utils.h",
+          "symbolId": "symbol:WyJmaWxlOjViODZlODY0NGQ5M2RiZjRjOTIxZGYzNiIsImV4ZWN1dGVDb21waWxlckludm9jYXRpb24iLCJmdW5jdGlvbl9kZWNsYXJhdGlvbiIsIkZvcnRyYW46OmZyb250ZW5kIiwyOSwwXQ",
+          "symbol": "Fortran::frontend::executeCompilerInvocation",
+          "startLine": 29,
+          "endLine": 29,
+          "startByte": 1088,
+          "endByte": 1144,
+          "blobDigest": "31a379ce7f2b85c752084b12fc51477008cea889ad0651f9e9d4bbf269754607",
+          "source": "bool executeCompilerInvocation(CompilerInstance *flang);",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-dace37fdb8f76f660b30:c0dd98ec866ca2ac9826d0b1",
+          "path": "clang/lib/FrontendTool/ExecuteCompilerInvocation.cpp",
+          "symbolId": "symbol:WyJmaWxlOjJiZjAyOGM4NGYyMzA3NjA0MzBlY2UxNiIsIkV4ZWN1dGVDb21waWxlckludm9jYXRpb24uY3BwIiwibW9kdWxlIiwiIiwxLDBd",
+          "symbol": "clang.lib.FrontendTool.ExecuteCompilerInvocation",
+          "startLine": 1,
+          "endLine": 60,
+          "startByte": 0,
+          "endByte": 2248,
+          "blobDigest": "fce653bd2c4240b3f628dff3b7c8b2eb181174263073199af21f67feea5a1dde",
+          "source": "//===--- ExecuteCompilerInvocation.cpp ------------------------------------===//\n//\n// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.\n// See https://llvm.org/LICENSE.txt for license information.\n// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception\n//\n//===----------------------------------------------------------------------===//\n//\n// This file holds ExecuteCompilerInvocation(). It is split into its own file to\n// minimize the impact of pulling in essentially everything else in Clang.\n//\n//===----------------------------------------------------------------------===//\n\n#include \"clang/CodeGen/CodeGenAction.h\"\n#include \"clang/Config/config.h\"\n#include \"clang/Driver/Options.h\"\n#include \"clang/ExtractAPI/FrontendActions.h\"\n#include \"clang/Frontend/CompilerInstance.h\"\n#include \"clang/Frontend/CompilerInvocation.h\"\n#include \"clang/Frontend/FrontendActions.h\"\n#include \"clang/Frontend/FrontendDiagnostic.h\"\n#include \"clang/Frontend/FrontendPluginRegistry.h\"\n#include \"clang/Frontend/Utils.h\"\n#include \"clang/FrontendTool/Utils.h\"\n#include \"clang/Rewrite/Frontend/FrontendActions.h\"\n#include \"clang/StaticAnalyzer/Frontend/AnalyzerHelpFlags.h\"\n#include \"clang/StaticAnalyzer/Frontend/FrontendActions.h\"\n#include \"llvm/Option/OptTable.h\"\n#include \"llvm/Support/BuryPointer.h\"\n#include \"llvm/Support/DynamicLibrary.h\"\n#include \"llvm/Support/ErrorHandling.h\"\n\n#if CLANG_ENABLE_CIR\n#include \"mlir/IR/AsmState.h\"\n#include \"mlir/IR/MLIRContext.h\"\n#include \"mlir/Pass/PassManager.h\"\n#include \"clang/CIR/Dialect/Passes.h\"\n#include \"clang/CIR/FrontendAction/CIRGenAction.h\"\n#endif\n\nusing namespace clang;\nusing namespace llvm::opt;\n\nnamespace clang {\n\nstatic std::unique_ptr<FrontendAction>\nCreateFrontendBaseAction(CompilerInstance &CI) {\n  using namespace clang::frontend;\n  StringRef Action(\"unknown\");\n  (void)Action;\n\n  unsigned UseCIR = CI.getFrontendOpts().UseClangIRPipeline;\n  frontend::ActionKind Act = CI.getFrontendOpts().ProgramAction;\n  bool EmitsCIR = Act == EmitCIR;\n\n  if (!UseCIR && EmitsCIR)\n    llvm::report_fatal_error(\"-emit-cir and only valid when using -fclangir\");\n\n  switch (CI.getFrontendOpts().ProgramAction) {\n  case ASTDeclList:            return std::make_unique<ASTDeclListAction>();",
+          "kind": "source"
+        },
+        {
+          "snapshotId": "snapshot:repo-dace37fdb8f76f660b30:c0dd98ec866ca2ac9826d0b1",
+          "path": "flang/lib/FrontendTool/ExecuteCompilerInvocation.cpp",
+          "symbolId": "symbol:WyJmaWxlOjVmMDMwMDY2NmNjMDYwMDlmMWQzNTUwMyIsIkV4ZWN1dGVDb21waWxlckludm9jYXRpb24uY3BwIiwibW9kdWxlIiwiIiwxLDBd",
+          "symbol": "flang.lib.FrontendTool.ExecuteCompilerInvocation",
+          "startLine": 1,
+          "endLine": 60,
+          "startByte": 0,
+          "endByte": 2229,
+          "blobDigest": "615ae8f7fc1fe331b2d3745f7472a3c53fe7ea4c14178d5bee18d58324195141",
+          "source": "//===--- ExecuteCompilerInvocation.cpp ------------------------------------===//\n//\n// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.\n// See https://llvm.org/LICENSE.txt for license information.\n// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception\n//\n//===----------------------------------------------------------------------===//\n//\n// This file holds ExecuteCompilerInvocation(). It is split into its own file to\n// minimize the impact of pulling in essentially everything else in Flang.\n//\n//===----------------------------------------------------------------------===//\n//\n// Coding style: https://mlir.llvm.org/getting_started/DeveloperGuide/\n//\n//===----------------------------------------------------------------------===//\n\n#include \"flang/Frontend/CompilerInstance.h\"\n#include \"flang/Frontend/FrontendActions.h\"\n#include \"flang/Frontend/FrontendPluginRegistry.h\"\n\n#include \"mlir/IR/AsmState.h\"\n#include \"mlir/IR/MLIRContext.h\"\n#include \"mlir/Pass/PassManager.h\"\n#include \"clang/Basic/DiagnosticFrontend.h\"\n#include \"clang/Driver/Options.h\"\n#include \"llvm/Option/OptTable.h\"\n#include \"llvm/Option/Option.h\"\n#include \"llvm/Support/BuryPointer.h\"\n#include \"llvm/Support/CommandLine.h\"\n\nnamespace Fortran::frontend {\n\nstatic std::unique_ptr<FrontendAction>\ncreateFrontendAction(CompilerInstance &ci) {\n\n  switch (ci.getFrontendOpts().programAction) {\n  case InputOutputTest:\n    return std::make_unique<InputOutputTestAction>();\n  case PrintPreprocessedInput:\n    return std::make_unique<PrintPreprocessedAction>();\n  case ParseSyntaxOnly:\n    return std::make_unique<ParseSyntaxOnlyAction>();\n  case EmitFIR:\n    return std::make_unique<EmitFIRAction>();\n  case EmitHLFIR:\n    return std::make_unique<EmitHLFIRAction>();\n  case EmitLLVM:\n    return std::make_unique<EmitLLVMAction>();\n  case EmitLLVMBitcode:\n    return std::make_unique<EmitLLVMBitcodeAction>();\n  case EmitObj:\n    return std::make_unique<EmitObjAction>();\n  case EmitAssembly:\n    return std::make_unique<EmitAssemblyAction>();\n  case DebugUnparse:\n    return std::make_unique<DebugUnparseAction>();\n  case DebugUnparseNoSema:\n    return std::make_unique<DebugUnparseNoSemaAction>();\n  case DebugUnparseWithSymbols:",
+          "kind": "source"
+        }
+      ]
+    },
+    {
+      "mode": "content",
+      "query": "important class for using LLVM in a threaded context",
+      "metadataMs": 14.842772000001787,
+      "hitAt10": true,
+      "expectedEvidence": true,
+      "candidates": [
+        {
+          "type": "content",
+          "score": 10.363802663722089,
+          "path": "llvm/include/llvm/IR/LLVMContext.h",
+          "fileId": "file:d0103d908e6306cc3289dda1",
+          "blobDigest": "2ffe41c0251b12f221b9abca013a8019b6353434cf3fcd217be1ca80684e9cb0"
+        }
+      ],
+      "evidence": [
+        {
+          "snapshotId": "snapshot:repo-dace37fdb8f76f660b30:c0dd98ec866ca2ac9826d0b1",
+          "path": "llvm/include/llvm/IR/LLVMContext.h",
+          "fileId": "file:d0103d908e6306cc3289dda1",
+          "startLine": 63,
+          "endLine": 65,
+          "startByte": 1784,
+          "endByte": 1995,
+          "blobDigest": "2ffe41c0251b12f221b9abca013a8019b6353434cf3fcd217be1ca80684e9cb0",
+          "source": "/// This is an important class for using LLVM in a threaded context.  It\n/// (opaquely) owns and manages the core \"global\" data of LLVM's core\n/// infrastructure, including the type and constant uniquing tables.",
+          "kind": "content",
+          "match": {
+            "startByte": 1799,
+            "endByte": 1851,
+            "startLine": 63,
+            "endLine": 63
+          },
+          "truncated": false
+        }
+      ]
+    },
+    {
+      "mode": "content",
+      "query": "expected top-level entity",
+      "metadataMs": 1.9577920000010636,
+      "hitAt10": true,
+      "expectedEvidence": true,
+      "candidates": [
+        {
+          "type": "content",
+          "score": 17.19459719738357,
+          "path": "llvm/test/Assembler/invalid-opaque-ptr-double-addrspace.ll",
+          "fileId": "file:66bbb6ab01941a96372ec75f",
+          "blobDigest": "184144cbc6f7e1f47df7f8e0efe24c5fe4fdefa318a4239c3f4960367c616ef1"
+        },
+        {
+          "type": "content",
+          "score": 17.172563048880725,
+          "path": "llvm/test/Assembler/invalid-c-style-comment2.ll",
+          "fileId": "file:e6f1ab7b91fa96845ccf0354",
+          "blobDigest": "33502642b88153fffc9245e84eb0b334378832fd6bb61d22cf13715d18073680"
+        },
+        {
+          "type": "content",
+          "score": 17.150585299761765,
+          "path": "llvm/test/Assembler/2007-08-06-AliasInvalid.ll",
+          "fileId": "file:81aeeb418ff5a5762df866f1",
+          "blobDigest": "275f8ce2eab327fd94d41857c910fafae96c2b5b0fc6e858d97357d166aaa531"
+        },
+        {
+          "type": "content",
+          "score": 17.048761870886878,
+          "path": "llvm/test/tools/llvm-sim/fail-cases.test",
+          "fileId": "file:3d41cf6cf685b9629c85d367",
+          "blobDigest": "f13d2f71ca50c86d594f6d4d4052ac6db892f2161b7b6f33600e94d2c50462a9"
+        },
+        {
+          "type": "content",
+          "score": 0.9981956068992748,
+          "path": "llvm/lib/AsmParser/LLParser.cpp",
+          "fileId": "file:100c1b4a714c7d260fc41ac2",
+          "blobDigest": "22f5713b4065279f6a57c602741fb67cf4888429b2393afcd367b43b46cce1c0"
+        }
+      ],
+      "evidence": [
+        {
+          "snapshotId": "snapshot:repo-dace37fdb8f76f660b30:c0dd98ec866ca2ac9826d0b1",
+          "path": "llvm/test/Assembler/invalid-opaque-ptr-double-addrspace.ll",
+          "fileId": "file:66bbb6ab01941a96372ec75f",
+          "startLine": 3,
+          "endLine": 5,
+          "startByte": 61,
+          "endByte": 148,
+          "blobDigest": "184144cbc6f7e1f47df7f8e0efe24c5fe4fdefa318a4239c3f4960367c616ef1",
+          "source": "; CHECK: expected top-level entity\n@g1 = external global ptr addrspace(3) addrspace(4)\n",
+          "kind": "content",
+          "match": {
+            "startByte": 70,
+            "endByte": 95,
+            "startLine": 3,
+            "endLine": 3
+          },
+          "truncated": false
+        },
+        {
+          "snapshotId": "snapshot:repo-dace37fdb8f76f660b30:c0dd98ec866ca2ac9826d0b1",
+          "path": "llvm/test/Assembler/invalid-c-style-comment2.ll",
+          "fileId": "file:e6f1ab7b91fa96845ccf0354",
+          "startLine": 5,
+          "endLine": 7,
+          "startByte": 96,
+          "endByte": 165,
+          "blobDigest": "33502642b88153fffc9245e84eb0b334378832fd6bb61d22cf13715d18073680",
+          "source": "; CHECK: [[FILE]]:[[@LINE+1]]:2: error: expected top-level entity\n*/\n",
+          "kind": "content",
+          "match": {
+            "startByte": 136,
+            "endByte": 161,
+            "startLine": 5,
+            "endLine": 5
+          },
+          "truncated": false
+        },
+        {
+          "snapshotId": "snapshot:repo-dace37fdb8f76f660b30:c0dd98ec866ca2ac9826d0b1",
+          "path": "llvm/test/Assembler/2007-08-06-AliasInvalid.ll",
+          "fileId": "file:81aeeb418ff5a5762df866f1",
+          "startLine": 4,
+          "endLine": 6,
+          "startByte": 70,
+          "endByte": 127,
+          "blobDigest": "275f8ce2eab327fd94d41857c910fafae96c2b5b0fc6e858d97357d166aaa531",
+          "source": "; CHECK: expected top-level entity\n\n@anInt = global i32 1",
+          "kind": "content",
+          "match": {
+            "startByte": 79,
+            "endByte": 104,
+            "startLine": 4,
+            "endLine": 4
+          },
+          "truncated": false
+        },
+        {
+          "snapshotId": "snapshot:repo-dace37fdb8f76f660b30:c0dd98ec866ca2ac9826d0b1",
+          "path": "llvm/test/tools/llvm-sim/fail-cases.test",
+          "fileId": "file:3d41cf6cf685b9629c85d367",
+          "startLine": 6,
+          "endLine": 8,
+          "startByte": 168,
+          "endByte": 261,
+          "blobDigest": "f13d2f71ca50c86d594f6d4d4052ac6db892f2161b7b6f33600e94d2c50462a9",
+          "source": "# CHECK: error: expected top-level entity\n\n# EXIST: error: Could not open input file: [[MSG]]",
+          "kind": "content",
+          "match": {
+            "startByte": 184,
+            "endByte": 209,
+            "startLine": 6,
+            "endLine": 6
+          },
+          "truncated": false
+        },
+        {
+          "snapshotId": "snapshot:repo-dace37fdb8f76f660b30:c0dd98ec866ca2ac9826d0b1",
+          "path": "llvm/lib/AsmParser/LLParser.cpp",
+          "fileId": "file:100c1b4a714c7d260fc41ac2",
+          "startLine": 547,
+          "endLine": 549,
+          "startByte": 18517,
+          "endByte": 18631,
+          "blobDigest": "22f5713b4065279f6a57c602741fb67cf4888429b2393afcd367b43b46cce1c0",
+          "source": "      return tokError(\"expected top-level entity\");\n    case lltok::Eof: return false;\n    case lltok::kw_declare:",
+          "kind": "content",
+          "match": {
+            "startByte": 18540,
+            "endByte": 18565,
+            "startLine": 547,
+            "endLine": 547
+          },
+          "truncated": false
+        }
+      ]
+    }
+  ]
+}

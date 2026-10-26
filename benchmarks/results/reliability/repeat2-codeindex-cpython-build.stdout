@@ -1,0 +1,36 @@
+{
+  "repositoryId": "repo-f8f2bc9a9817654ebd1b",
+  "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9adae9b967fdb7f58175ef5d",
+  "status": "partial",
+  "stats": {
+    "files": 5019,
+    "symbols": 153443,
+    "relations": 432657,
+    "sourceBytes": 103533479,
+    "changedFiles": 5019,
+    "removedFiles": 0,
+    "reusedFiles": 0,
+    "parsedFiles": 3189,
+    "partialFiles": 1832,
+    "skipped": 1,
+    "nodes": 158891,
+    "nativeFiles": 1092,
+    "nativeIndexedFiles": 1092,
+    "workers": 4,
+    "nativeBuildMode": "full",
+    "nativeTaskMs": 871,
+    "relationsScope": "stored-sql-relations; native calls and references queried from cscope",
+    "stages": {
+      "scan": 769,
+      "source-and-files": 2120,
+      "native-symbols": 576,
+      "parser-symbols": 6555,
+      "relations": 0,
+      "indexes": 1260,
+      "native-cross-references": 0,
+      "validation": 99
+    },
+    "buildMs": 11380
+  },
+  "store": "/data/dev/CodeIndex/.data/reliability/repeat-2/codeindex/cpython"
+}

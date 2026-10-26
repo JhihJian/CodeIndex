@@ -1,0 +1,24 @@
+{
+  "command": [
+    "node",
+    "/data/dev/CodeIndex-worktrees/feature/parser-reliability/benchmarks/heldout/verify-preservation.mjs",
+    "/data/dev/CodeIndex/.data/heldout/inputs",
+    "/data/dev/CodeIndex-worktrees/feature/parser-reliability/benchmarks/heldout/relation-cases.json"
+  ],
+  "cwd": "/data/dev/CodeIndex-worktrees/feature/parser-reliability",
+  "systemdUnit": "codeindex-benchmark-3011743.scope",
+  "systemdResult": "success",
+  "status": "success",
+  "exitCode": 0,
+  "wallSeconds": 32.17,
+  "wallSecondsIncludingSupervisor": 32.3483124198392,
+  "timeLimitSeconds": 1800,
+  "memoryLimitGiB": 12,
+  "gnuTimeMaxRssKiB": 441244,
+  "sampledProcessTreeRssSumBytes": 454610944,
+  "workloadSampled": true,
+  "cgroupMemoryPeakBytes": 2966233088,
+  "sampleIntervalSeconds": 0.25,
+  "leftoverProcessIdsTerminated": [],
+  "memoryNotes": "RSS sum can double-count shared pages; cgroup memory includes page cache; GNU time max RSS is not simultaneous tree total"
+}

@@ -1,0 +1,36 @@
+{
+  "repositoryId": "repo-f8f2bc9a9817654ebd1b",
+  "snapshotId": "snapshot:repo-f8f2bc9a9817654ebd1b:9df9583c25ea7ff01a032c0e",
+  "status": "partial",
+  "stats": {
+    "files": 5019,
+    "symbols": 153445,
+    "relations": 432657,
+    "sourceBytes": 103533660,
+    "changedFiles": 5019,
+    "removedFiles": 0,
+    "reusedFiles": 0,
+    "parsedFiles": 3189,
+    "partialFiles": 1832,
+    "skipped": 1,
+    "nodes": 158893,
+    "nativeFiles": 1092,
+    "nativeIndexedFiles": 1092,
+    "workers": 4,
+    "nativeBuildMode": "full",
+    "nativeTaskMs": 867,
+    "relationsScope": "stored-sql-relations; native calls and references queried from cscope",
+    "stages": {
+      "scan": 968,
+      "source-and-files": 2188,
+      "native-symbols": 575,
+      "parser-symbols": 6752,
+      "relations": 19,
+      "indexes": 1282,
+      "native-cross-references": 0,
+      "validation": 102
+    },
+    "buildMs": 11887
+  },
+  "store": "/data/dev/CodeIndex/.data/reliability/oracles/codeindex/cpython"
+}

@@ -1,0 +1,16 @@
+{
+  "files": 5019,
+  "symbols": 153445,
+  "relations": 432657,
+  "nativeArtifacts": {
+    "cscope.paths.json": "b0877292e3dea4aa7a83ef968a8b590c8d8e4e4b08e7ed832972a7ac9b0a0f62",
+    "cscope.out.in": "f1ae9afd3dcb2e8017387599fb9697c4a804dc802324f939820898e41e0fd9b1",
+    "cscope.out.po": "a951e24193027f80a9c14ffc6669998a500e402f4ad5387cc392ba48cca881d7"
+  },
+  "factsSha256": "ef0aa71d66b8bcfa21a3b53e2f0703c260afd6d2f8912141a431d5345c0a170b",
+  "sourceBodiesChecked": 5019,
+  "sourceBlobsChecked": 4878,
+  "nativeBodySha256": "44efe6c0b23204070afef7cbcd5fcabae493bf596a5eb273b7bf699ea12ede48",
+  "equivalent": true,
+  "scope": "Every file: metadata, parse status, complete FTS body and digest, symbol fields and parent identities, stored relations, source/blob digests; entire Cscope body, path map, inverted dictionary and every posting (x86-64 ABI padding excluded)"
+}

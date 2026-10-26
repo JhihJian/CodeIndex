@@ -1,0 +1,28 @@
+{
+  "repositoryId": "repo-ff10757cc0a66e40c305",
+  "snapshotId": "snapshot:repo-ff10757cc0a66e40c305:9f288ae9060f110e9020e516",
+  "status": "partial",
+  "stats": {
+    "files": 8071,
+    "symbols": 227748,
+    "relations": 573977,
+    "sourceBytes": 95990525,
+    "changedFiles": 0,
+    "removedFiles": 0,
+    "reusedFiles": 8071,
+    "parsedFiles": 5988,
+    "partialFiles": 2089,
+    "skipped": 1,
+    "nodes": 238159,
+    "nativeFiles": 7,
+    "nativeIndexedFiles": 7,
+    "workers": 4,
+    "nativeBuildMode": "full",
+    "nativeTaskMs": 43,
+    "relationsScope": "stored-sql-relations; native calls and references queried from cscope",
+    "stages": {},
+    "buildMs": 119,
+    "noOp": true
+  },
+  "store": "/data/dev/CodeIndex/.data/reliability/indexes/codeindex/vscode"
+}

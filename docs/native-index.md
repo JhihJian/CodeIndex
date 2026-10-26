@@ -70,6 +70,11 @@ node bin/codeindex.js export --store /path/to/index --output /path/to/empty-audi
 
 ## 验证入口
 
+实际 0.4 验收环境为 Node 24.13.1 / 22.23.2、CPython 3.14.2、TypeScript 5.9.3。完整正文、三项目构建、增量恢复和已知 C++ 查询缺口见 [解析可靠性验收](../benchmarks/parser-reliability.md)。
+
+- `test/content-search.test.js`：正文短语、真实命中字节证据、metadata-only、精确名称候选、增删改名与旧读者。
+- `test/javascript-ast.test.js`、`test/python-ast.test.js`：真实 AST 语法、词法父节点、调用、运行时边界与布局缓存。
+- `test/parser-protocol.test.js`、`test/parser-coordinates.test.js`：协议错误、越界坐标、LF/UTF-16/UTF-8 转换、特殊换行及删除最后一个 Python 输入。
 - `test/performance.test.js`：并行等价、宏尾部及跨行字符串引用、连续秒级增量、旧快照不变和取消清理。
 - `test/production.test.js`：原生增量、旧读者、重命名、JS/TS 导入、UTF-8 证据、产物恢复和审计导出。
 - `test/native-tools.test.js`：真实工具、路径、迁移、倒排损坏、超时和错误诊断。

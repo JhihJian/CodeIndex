@@ -1,0 +1,21 @@
+(node:2983450) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+<--- Last few GCs --->
+97[2983450:0x68e2000]   110646 ms: Mark-Compact 105.9 (108.9) -> 93.9 (99.8) MB, pooled: 187 MB, 13.34 / 0.00 ms  (+ 0.0 ms in 2 steps since start of marking, biggest step 0.0 ms, walltime since start of marking 138 ms) (average mu = 0.988, current mu = 0.9[2983450:0x68e2000]   114073 ms: Mark-Compact 813.9 (819.9) -> 441.9 (447.6) MB, pooled: 187 MB, 86.13 / 0.00 ms  (+ 0.1 ms in 1 steps since start of marking, biggest step 0.1 ms, walltime since start of marking 1977 ms) (average mu = 0.979, current mu = 
+FATAL ERROR: invalid table size Allocation failed - JavaScript heap out of memory
+----- Native stack trace -----
+
+ 1: 0x733eec node::OOMErrorHandler(char const*, v8::OOMDetails const&) [node]
+ 2: 0xbab3f0  [node]
+ 3: 0xbab4df  [node]
+ 4: 0xe43fd5  [node]
+ 5: 0x117f348  [node]
+ 6: 0x118ecf2  [node]
+ 7: 0x118ed96  [node]
+ 8: 0x103d9b4  [node]
+ 9: 0x10edf2e  [node]
+10: 0x1188516  [node]
+11: 0x1305634  [node]
+12: 0xf3e3be  [node]
+13: 0x7fffd7e76636 

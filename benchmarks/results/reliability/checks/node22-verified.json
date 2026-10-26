@@ -1,0 +1,24 @@
+{
+  "command": [
+    "/usr/bin/env",
+    "PATH=/home/jhihjian/.npm/_npx/52027bd8fc0022aa/node_modules/node/bin:/home/jhihjian/.pi/agent/bin:/opt/gradle-8.12/bin:/opt/gradle-8.12/bin:/home/jhihjian/bin:/home/jhihjian/.bun/bin:/home/jhihjian/.bun/bin:/home/jhihjian/.bun/bin:/home/jhihjian/.local/bin:/home/jhihjian/bin:/opt/gradle-8.12/bin:/home/jhihjian/.local/share/pnpm:/opt/gradle-8.12/bin:/home/jhihjian/.nvm/versions/node/v24.13.1/bin:/home/jhihjian/bin:/home/jhihjian/.bun/bin:/home/jhihjian/.bun/bin:/home/jhihjian/.cargo/bin:/home/jhihjian/.bun/bin:/home/jhihjian/.local/bin:/opt/gradle-8.12/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/data/app/bin:/usr/local/go/bin:/home/jhihjian/go/bin:/opt/android-sdk/cmdline-tools/latest/bin:/opt/android-sdk/platform-tools:/opt/android-sdk/build-tools/35.0.0:/data/app/bin:/usr/local/go/bin:/home/jhihjian/go/bin:/opt/android-sdk/cmdline-tools/latest/bin:/opt/android-sdk/platform-tools:/opt/android-sdk/build-tools/35.0.0",
+    "/home/jhihjian/.npm/_npx/52027bd8fc0022aa/node_modules/node/bin/node",
+    "--test"
+  ],
+  "cwd": "/data/dev/CodeIndex-worktrees/feature/parser-reliability",
+  "systemdUnit": "codeindex-benchmark-2973881.scope",
+  "systemdResult": "success",
+  "status": "success",
+  "exitCode": 0,
+  "wallSeconds": 91.94,
+  "wallSecondsIncludingSupervisor": 92.21439556893893,
+  "timeLimitSeconds": 600,
+  "memoryLimitGiB": 12,
+  "gnuTimeMaxRssKiB": 473388,
+  "sampledProcessTreeRssSumBytes": 1451659264,
+  "workloadSampled": true,
+  "cgroupMemoryPeakBytes": 960749568,
+  "sampleIntervalSeconds": 0.25,
+  "leftoverProcessIdsTerminated": [],
+  "memoryNotes": "RSS sum can double-count shared pages; cgroup memory includes page cache; GNU time max RSS is not simultaneous tree total"
+}

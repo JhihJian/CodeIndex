@@ -1,0 +1,36 @@
+{
+  "repositoryId": "repo-dace37fdb8f76f660b30",
+  "snapshotId": "snapshot:repo-dace37fdb8f76f660b30:257283f6fceff3acfa4e2223",
+  "status": "partial",
+  "stats": {
+    "files": 158039,
+    "symbols": 1679206,
+    "relations": 416030,
+    "sourceBytes": 1689076171,
+    "changedFiles": 158039,
+    "removedFiles": 0,
+    "reusedFiles": 0,
+    "parsedFiles": 65070,
+    "partialFiles": 92973,
+    "skipped": 1,
+    "nodes": 1852164,
+    "nativeFiles": 62419,
+    "nativeIndexedFiles": 62419,
+    "workers": 4,
+    "nativeBuildMode": "full",
+    "nativeTaskMs": 60813,
+    "relationsScope": "stored-sql-relations; native calls and references queried from cscope",
+    "stages": {
+      "scan": 10783,
+      "source-and-files": 36846,
+      "native-symbols": 31161,
+      "parser-symbols": 3340,
+      "relations": 1,
+      "indexes": 25700,
+      "native-cross-references": 612,
+      "validation": 2453
+    },
+    "buildMs": 110897
+  },
+  "store": "/data/dev/CodeIndex/.data/reliability/repeat-2/codeindex/llvm"
+}

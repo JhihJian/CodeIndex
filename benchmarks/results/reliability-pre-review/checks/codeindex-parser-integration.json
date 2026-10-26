@@ -1,0 +1,23 @@
+{
+  "command": [
+    "bash",
+    "-c",
+    "ulimit -c 0; exec node --test"
+  ],
+  "cwd": "/data/dev/CodeIndex-worktrees/feature/parser-reliability",
+  "systemdUnit": "codeindex-benchmark-2873400.scope",
+  "systemdResult": "success",
+  "status": "success",
+  "exitCode": 0,
+  "wallSeconds": 91.4,
+  "wallSecondsIncludingSupervisor": 91.49537729192525,
+  "timeLimitSeconds": 600,
+  "memoryLimitGiB": 12,
+  "gnuTimeMaxRssKiB": 533920,
+  "sampledProcessTreeRssSumBytes": 1377222656,
+  "workloadSampled": true,
+  "cgroupMemoryPeakBytes": 945000448,
+  "sampleIntervalSeconds": 0.25,
+  "leftoverProcessIdsTerminated": [],
+  "memoryNotes": "RSS sum can double-count shared pages; cgroup memory includes page cache; GNU time max RSS is not simultaneous tree total"
+}
